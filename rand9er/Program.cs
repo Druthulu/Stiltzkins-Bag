@@ -16,7 +16,7 @@ namespace rand9er
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new rand9er());
         }
     }
 }
