@@ -44,6 +44,8 @@ namespace rand9er
             this.textBox_seed = new System.Windows.Forms.TextBox();
             this.richTextBox_debug = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox_yuno = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox_output
@@ -206,11 +208,24 @@ namespace rand9er
             this.label1.TabIndex = 15;
             this.label1.Text = "Debug";
             // 
+            // pictureBox_yuno
+            // 
+            this.pictureBox_yuno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox_yuno.Image = global::rand9er.Properties.Resources.yuno_error;
+            this.pictureBox_yuno.Location = new System.Drawing.Point(194, 59);
+            this.pictureBox_yuno.Name = "pictureBox_yuno";
+            this.pictureBox_yuno.Size = new System.Drawing.Size(247, 249);
+            this.pictureBox_yuno.TabIndex = 16;
+            this.pictureBox_yuno.TabStop = false;
+            this.pictureBox_yuno.Visible = false;
+            this.pictureBox_yuno.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 330);
+            this.Controls.Add(this.pictureBox_yuno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox_debug);
             this.Controls.Add(this.textBox_seed);
@@ -230,6 +245,7 @@ namespace rand9er
             this.Name = "rand9er";
             this.Text = "FFIX Randomizer Assistant";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,6 +267,7 @@ namespace rand9er
         private System.Windows.Forms.TextBox textBox_seed;
         private System.Windows.Forms.RichTextBox richTextBox_debug;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox_yuno;
     }
 }
 
