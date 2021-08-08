@@ -132,13 +132,15 @@ namespace rand9er
                 + "\n\n" + strmeth
                 + "\n\nseed int\n" + seed2.ToString()
                 + "\nseeded random (1-235)\n"
-                + seed3.ToString();
+                + seed3.ToString()
+                + "\nrandom shop#test\n";
         }
 
-        public void SeedRNG()
+        private void SeedRNG()
         {
             strmeth = "//convert input seed to usable data//";
             //sanatize input seed, failure optional, fix with char map in future
+            
             bool test = int.TryParse(seed, out int test2);
             if (test)
             { 
@@ -157,16 +159,23 @@ namespace rand9er
 
         private void ShopItems()
         {
-            
-            
-            //init shop items arrie
-            int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20 };
+            //init shop items arrie *remember 1d inputs, jagged storage
+            //number of items per shop
+            int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
             int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
-            int[] a_shopItems_3rand = new int[31];
-
-
-
-
+            int[] a_shopItems_3rand = new int[32];
+            //3 is null, generated below using seed2+i, only if needed
+            if (radio_shopitems_3rand.Checked)
+            {
+                richTextBox_output.Text = "a_shopItems_3rand 1D This tests 1D array of seeded random generation\n";
+                for (int i = 0; i < a_shopItems_3rand.GetLength(0); i++)
+                {
+                    Random rnd = new Random(seed2 + i);
+                    a_shopItems_3rand[i] = rnd.Next(0, 31);
+                    //output data mostly for sanity
+                    richTextBox_output.Text = richTextBox_output.Text + a_shopItems_3rand[i] + ";";
+                }
+            }
 
             //default
             int[] a_shopItems = a_shopItems_1safe;
@@ -262,9 +271,11 @@ namespace rand9er
             }*/
 
             //hang on i just read up on jagged multi-dimensional arrays and i just lost all respect for arrays
-            //i suppose i could create a 1d array for each possible shop to edit, but i would have to adjust the loop for each
+            //i suppose i could create a 1d array for each possible shop to edit, but i would have to adjust the loop for each, also create like 32 arrays, no thanks
 
-            //stock amount of items in each shop, can randomize later if wanted
+            //stock amount of items in each shop, can randomize later if wanted, lol i did, how old is this comment
+            //check and apply selected 1d array data to jagged array below
+
             if (radio_shopitems_1safe.Checked)
             {
                 a_shopItems = a_shopItems_1safe;
@@ -278,20 +289,45 @@ namespace rand9er
                 a_shopItems = a_shopItems_3rand;
             }
 
-            //add if gui select which type of shop randomness, check and apply selected array data to 
             
-            //a_shopItems is gonna be the var array we will use
+            //a_shopItems is gonna be the var array we will use, set the default and adjust with checks
 
             //new items jagged array, or manual set of arrays. still reading.
             //attempting jagged empty for easy loop access and data read/write
-            //remove 23 shop limit ->32 and allow for any inputarray to adjust storage size of each subarray
-            int[][] a_shopItems_rng =
+            //remove 23 shop limit ->32 and allow for any input array to adjust storage size of each subarray
+            //we can limit later easy based on needs, expanding later is harder
+            int[][] a_shopItems_jag =
             {
                 new int[a_shopItems[0]],new int[a_shopItems[1]],new int[a_shopItems[2]],new int[a_shopItems[3]],new int[a_shopItems[4]],new int[a_shopItems[5]],
                 new int[a_shopItems[6]],new int[a_shopItems[7]],new int[a_shopItems[8]],new int[a_shopItems[9]],new int[a_shopItems[10]],new int[a_shopItems[11]],
                 new int[a_shopItems[12]],new int[a_shopItems[13]],new int[a_shopItems[14]],new int[a_shopItems[15]],new int[a_shopItems[16]],new int[a_shopItems[17]],
-                new int[a_shopItems[18]],new int[a_shopItems[19]],new int[a_shopItems[20]],new int[a_shopItems[21]],new int[a_shopItems[22]]
+                new int[a_shopItems[18]],new int[a_shopItems[19]],new int[a_shopItems[20]],new int[a_shopItems[21]],new int[a_shopItems[22]],new int[a_shopItems[23]],
+                new int[a_shopItems[24]],new int[a_shopItems[25]],new int[a_shopItems[26]],new int[a_shopItems[27]],new int[a_shopItems[28]],new int[a_shopItems[29]],
+                new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
+            //holy shit here we go yo!!!
+            //time to loop through the jagged array, using the 1D input arrays to define the dimension of each subarray, to generate seeded random ints
+            //output to window during generation to save on iteration cycles
+            richTextBox_output.Text = richTextBox_output.Text + "\njagged array building using 1D array from selection\n";
+            for (int i = 0; i < a_shopItems_jag.Length; i++)
+            {
+                //output i, make room for j
+                richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
+                for (int j = 0; j < a_shopItems_jag[i].Length; j++)
+                {
+                    //seed2i+j should be increasingly random enough
+                    Random rnd = new Random(seed2 + i + j);
+                    a_shopItems_jag[i][j] = rnd.Next(1, 235);
+                    //output data for sanity
+                    richTextBox_output.Text = richTextBox_output.Text + "j: " + j + " :r: " + a_shopItems_jag[i][j] + "; ";
+                }
+                //holy shit it worked, on like first try too. it was suprisingly easy to build the nested loop keeping in mind my goals with the jagged and 1D arrays
+            }
+
+
+
+
+
         }
 
 
