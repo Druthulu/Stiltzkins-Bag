@@ -195,7 +195,7 @@ namespace rand9er
             // 
             this.richTextBox_debug.Location = new System.Drawing.Point(379, 41);
             this.richTextBox_debug.Name = "richTextBox_debug";
-            this.richTextBox_debug.Size = new System.Drawing.Size(100, 275);
+            this.richTextBox_debug.Size = new System.Drawing.Size(122, 311);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             // 
@@ -212,19 +212,20 @@ namespace rand9er
             // 
             this.pictureBox_yuno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox_yuno.Image = global::rand9er.Properties.Resources.yuno_error;
-            this.pictureBox_yuno.Location = new System.Drawing.Point(194, 59);
+            this.pictureBox_yuno.Location = new System.Drawing.Point(140, 13);
             this.pictureBox_yuno.Name = "pictureBox_yuno";
-            this.pictureBox_yuno.Size = new System.Drawing.Size(247, 249);
+            this.pictureBox_yuno.Size = new System.Drawing.Size(333, 287);
+            this.pictureBox_yuno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_yuno.TabIndex = 16;
             this.pictureBox_yuno.TabStop = false;
             this.pictureBox_yuno.Visible = false;
-            this.pictureBox_yuno.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_yuno.Click += new System.EventHandler(this.pictureBox_yuno_Click);
             // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 330);
+            this.ClientSize = new System.Drawing.Size(516, 364);
             this.Controls.Add(this.pictureBox_yuno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox_debug);
