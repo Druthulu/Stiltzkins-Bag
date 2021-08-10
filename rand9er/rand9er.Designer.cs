@@ -299,9 +299,9 @@ namespace rand9er
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(62, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 17);
+            this.label4.Size = new System.Drawing.Size(102, 17);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Shop Overrides";
+            this.label4.Text = "Shop Modifiers";
             // 
             // c_medicshops
             // 
@@ -383,7 +383,7 @@ namespace rand9er
             this.Controls.Add(this.richTextBox_output);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "rand9er";
-            this.Text = "FFIX Randomizer Assistant 0.50";
+            this.Text = "FFIX Randomizer Assistant 0.65";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
             this.tabControl1.ResumeLayout(false);
