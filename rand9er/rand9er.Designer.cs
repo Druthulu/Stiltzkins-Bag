@@ -36,9 +36,6 @@ namespace rand9er
             this.radio_defaultequipment = new System.Windows.Forms.RadioButton();
             this.radio_basestats = new System.Windows.Forms.RadioButton();
             this.radio_abilitygems = new System.Windows.Forms.RadioButton();
-            this.radio_levels = new System.Windows.Forms.RadioButton();
-            this.label_item = new System.Windows.Forms.Label();
-            this.label_char = new System.Windows.Forms.Label();
             this.label_output = new System.Windows.Forms.Label();
             this.label_seed = new System.Windows.Forms.Label();
             this.textBox_seed = new System.Windows.Forms.TextBox();
@@ -47,17 +44,32 @@ namespace rand9er
             this.pictureBox_yuno = new System.Windows.Forms.PictureBox();
             this.radio_shopitems_2max = new System.Windows.Forms.RadioButton();
             this.radio_shopitems_3rand = new System.Windows.Forms.RadioButton();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.c_medicshops = new System.Windows.Forms.CheckBox();
+            this.c_medicitems = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox_output
             // 
             this.richTextBox_output.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBox_output.Location = new System.Drawing.Point(203, 103);
+            this.richTextBox_output.Location = new System.Drawing.Point(457, 68);
             this.richTextBox_output.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox_output.Name = "richTextBox_output";
             this.richTextBox_output.ReadOnly = true;
-            this.richTextBox_output.Size = new System.Drawing.Size(271, 330);
+            this.richTextBox_output.Size = new System.Drawing.Size(692, 647);
             this.richTextBox_output.TabIndex = 1;
             this.richTextBox_output.Text = "int getRandomNumber() {\n     return 4; // chosen by fair dice roll.\n             " +
     "       // guaranteed to be random.\n}";
@@ -65,7 +77,7 @@ namespace rand9er
             // 
             // button_rand
             // 
-            this.button_rand.Location = new System.Drawing.Point(35, 373);
+            this.button_rand.Location = new System.Drawing.Point(29, 544);
             this.button_rand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_rand.Name = "button_rand";
             this.button_rand.Size = new System.Drawing.Size(127, 59);
@@ -77,31 +89,31 @@ namespace rand9er
             // radio_shopitems_1safe
             // 
             this.radio_shopitems_1safe.AutoSize = true;
-            this.radio_shopitems_1safe.Location = new System.Drawing.Point(35, 102);
+            this.radio_shopitems_1safe.Location = new System.Drawing.Point(13, 33);
             this.radio_shopitems_1safe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radio_shopitems_1safe.Name = "radio_shopitems_1safe";
-            this.radio_shopitems_1safe.Size = new System.Drawing.Size(132, 21);
+            this.radio_shopitems_1safe.Size = new System.Drawing.Size(58, 21);
             this.radio_shopitems_1safe.TabIndex = 3;
-            this.radio_shopitems_1safe.Text = "Shop Items Safe";
+            this.radio_shopitems_1safe.Text = "Safe";
             this.radio_shopitems_1safe.UseVisualStyleBackColor = true;
             this.radio_shopitems_1safe.CheckedChanged += new System.EventHandler(this.radio_shopitems_1safe_CheckedChanged);
             // 
             // radio_synthesis
             // 
             this.radio_synthesis.AutoSize = true;
-            this.radio_synthesis.Location = new System.Drawing.Point(35, 192);
+            this.radio_synthesis.Location = new System.Drawing.Point(13, 272);
             this.radio_synthesis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radio_synthesis.Name = "radio_synthesis";
-            this.radio_synthesis.Size = new System.Drawing.Size(90, 21);
+            this.radio_synthesis.Size = new System.Drawing.Size(100, 21);
             this.radio_synthesis.TabIndex = 4;
-            this.radio_synthesis.Text = "Synthesis";
+            this.radio_synthesis.Text = "Randomize";
             this.radio_synthesis.UseVisualStyleBackColor = true;
             this.radio_synthesis.CheckedChanged += new System.EventHandler(this.radio_synthesis_CheckedChanged);
             // 
             // radio_defaultequipment
             // 
             this.radio_defaultequipment.AutoSize = true;
-            this.radio_defaultequipment.Location = new System.Drawing.Point(35, 250);
+            this.radio_defaultequipment.Location = new System.Drawing.Point(8, 11);
             this.radio_defaultequipment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radio_defaultequipment.Name = "radio_defaultequipment";
             this.radio_defaultequipment.Size = new System.Drawing.Size(142, 21);
@@ -113,8 +125,8 @@ namespace rand9er
             // radio_basestats
             // 
             this.radio_basestats.AutoSize = true;
-            this.radio_basestats.Location = new System.Drawing.Point(35, 277);
-            this.radio_basestats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radio_basestats.Location = new System.Drawing.Point(8, 38);
+            this.radio_basestats.Margin = new System.Windows.Forms.Padding(4);
             this.radio_basestats.Name = "radio_basestats";
             this.radio_basestats.Size = new System.Drawing.Size(94, 21);
             this.radio_basestats.TabIndex = 6;
@@ -125,8 +137,8 @@ namespace rand9er
             // radio_abilitygems
             // 
             this.radio_abilitygems.AutoSize = true;
-            this.radio_abilitygems.Location = new System.Drawing.Point(35, 305);
-            this.radio_abilitygems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radio_abilitygems.Location = new System.Drawing.Point(8, 67);
+            this.radio_abilitygems.Margin = new System.Windows.Forms.Padding(4);
             this.radio_abilitygems.Name = "radio_abilitygems";
             this.radio_abilitygems.Size = new System.Drawing.Size(104, 21);
             this.radio_abilitygems.TabIndex = 7;
@@ -134,42 +146,10 @@ namespace rand9er
             this.radio_abilitygems.UseVisualStyleBackColor = true;
             this.radio_abilitygems.CheckedChanged += new System.EventHandler(this.radio_abilitygems_CheckedChanged);
             // 
-            // radio_levels
-            // 
-            this.radio_levels.AutoSize = true;
-            this.radio_levels.Location = new System.Drawing.Point(35, 334);
-            this.radio_levels.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radio_levels.Name = "radio_levels";
-            this.radio_levels.Size = new System.Drawing.Size(157, 21);
-            this.radio_levels.TabIndex = 8;
-            this.radio_levels.Text = "random level curve?";
-            this.radio_levels.UseVisualStyleBackColor = true;
-            this.radio_levels.CheckedChanged += new System.EventHandler(this.radio_levels_CheckedChanged);
-            // 
-            // label_item
-            // 
-            this.label_item.AutoSize = true;
-            this.label_item.Location = new System.Drawing.Point(17, 73);
-            this.label_item.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_item.Name = "label_item";
-            this.label_item.Size = new System.Drawing.Size(41, 17);
-            this.label_item.TabIndex = 9;
-            this.label_item.Text = "Items";
-            // 
-            // label_char
-            // 
-            this.label_char.AutoSize = true;
-            this.label_char.Location = new System.Drawing.Point(16, 226);
-            this.label_char.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_char.Name = "label_char";
-            this.label_char.Size = new System.Drawing.Size(38, 17);
-            this.label_char.TabIndex = 10;
-            this.label_char.Text = "Char";
-            // 
             // label_output
             // 
             this.label_output.AutoSize = true;
-            this.label_output.Location = new System.Drawing.Point(199, 73);
+            this.label_output.Location = new System.Drawing.Point(454, 43);
             this.label_output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_output.Name = "label_output";
             this.label_output.Size = new System.Drawing.Size(51, 17);
@@ -179,7 +159,7 @@ namespace rand9er
             // label_seed
             // 
             this.label_seed.AutoSize = true;
-            this.label_seed.Location = new System.Drawing.Point(21, 26);
+            this.label_seed.Location = new System.Drawing.Point(21, 14);
             this.label_seed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_seed.Name = "label_seed";
             this.label_seed.Size = new System.Drawing.Size(49, 17);
@@ -188,25 +168,25 @@ namespace rand9er
             // 
             // textBox_seed
             // 
-            this.textBox_seed.Location = new System.Drawing.Point(81, 22);
-            this.textBox_seed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_seed.Location = new System.Drawing.Point(81, 14);
+            this.textBox_seed.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_seed.Name = "textBox_seed";
-            this.textBox_seed.Size = new System.Drawing.Size(392, 22);
+            this.textBox_seed.Size = new System.Drawing.Size(1068, 22);
             this.textBox_seed.TabIndex = 13;
             // 
             // richTextBox_debug
             // 
-            this.richTextBox_debug.Location = new System.Drawing.Point(505, 50);
-            this.richTextBox_debug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox_debug.Location = new System.Drawing.Point(20, 626);
+            this.richTextBox_debug.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_debug.Name = "richTextBox_debug";
-            this.richTextBox_debug.Size = new System.Drawing.Size(161, 382);
+            this.richTextBox_debug.Size = new System.Drawing.Size(161, 89);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(505, 16);
+            this.label1.Location = new System.Drawing.Point(64, 605);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 17);
@@ -217,10 +197,10 @@ namespace rand9er
             // 
             this.pictureBox_yuno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox_yuno.Image = global::rand9er.Properties.Resources.yuno_error;
-            this.pictureBox_yuno.Location = new System.Drawing.Point(187, 37);
-            this.pictureBox_yuno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox_yuno.Location = new System.Drawing.Point(647, 147);
+            this.pictureBox_yuno.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_yuno.Name = "pictureBox_yuno";
-            this.pictureBox_yuno.Size = new System.Drawing.Size(488, 381);
+            this.pictureBox_yuno.Size = new System.Drawing.Size(458, 475);
             this.pictureBox_yuno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_yuno.TabIndex = 16;
             this.pictureBox_yuno.TabStop = false;
@@ -230,48 +210,175 @@ namespace rand9er
             // radio_shopitems_2max
             // 
             this.radio_shopitems_2max.AutoSize = true;
-            this.radio_shopitems_2max.Location = new System.Drawing.Point(35, 128);
+            this.radio_shopitems_2max.Location = new System.Drawing.Point(12, 83);
             this.radio_shopitems_2max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radio_shopitems_2max.Name = "radio_shopitems_2max";
-            this.radio_shopitems_2max.Size = new System.Drawing.Size(128, 21);
+            this.radio_shopitems_2max.Size = new System.Drawing.Size(54, 21);
             this.radio_shopitems_2max.TabIndex = 17;
-            this.radio_shopitems_2max.Text = "Shop Items Max";
+            this.radio_shopitems_2max.Text = "Max";
             this.radio_shopitems_2max.UseVisualStyleBackColor = true;
             this.radio_shopitems_2max.CheckedChanged += new System.EventHandler(this.radio_shopitems_2max_CheckedChanged);
             // 
             // radio_shopitems_3rand
             // 
             this.radio_shopitems_3rand.AutoSize = true;
-            this.radio_shopitems_3rand.Location = new System.Drawing.Point(35, 154);
+            this.radio_shopitems_3rand.Location = new System.Drawing.Point(13, 58);
             this.radio_shopitems_3rand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radio_shopitems_3rand.Name = "radio_shopitems_3rand";
-            this.radio_shopitems_3rand.Size = new System.Drawing.Size(156, 21);
+            this.radio_shopitems_3rand.Size = new System.Drawing.Size(82, 21);
             this.radio_shopitems_3rand.TabIndex = 18;
-            this.radio_shopitems_3rand.Text = "Shop Items Random";
+            this.radio_shopitems_3rand.Text = "Random";
             this.radio_shopitems_3rand.UseVisualStyleBackColor = true;
             this.radio_shopitems_3rand.CheckedChanged += new System.EventHandler(this.radio_shopitems_3rand_CheckedChanged);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 43);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(271, 496);
+            this.tabControl1.TabIndex = 19;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.checkBox5);
+            this.tabPage1.Controls.Add(this.checkBox4);
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.c_medicshops);
+            this.tabPage1.Controls.Add(this.c_medicitems);
+            this.tabPage1.Controls.Add(this.radioButton1);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.radio_shopitems_1safe);
+            this.tabPage1.Controls.Add(this.radio_shopitems_2max);
+            this.tabPage1.Controls.Add(this.radio_synthesis);
+            this.tabPage1.Controls.Add(this.radio_shopitems_3rand);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(263, 467);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Items";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(36, 324);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(112, 21);
+            this.checkBox5.TabIndex = 28;
+            this.checkBox5.Text = "Synthed Item";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(36, 351);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(124, 21);
+            this.checkBox4.TabIndex = 27;
+            this.checkBox4.Text = "Locations Only";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(36, 298);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(118, 21);
+            this.checkBox2.TabIndex = 26;
+            this.checkBox2.Text = "Requirements";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(62, 119);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 17);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Shop Overrides";
+            // 
+            // c_medicshops
+            // 
+            this.c_medicshops.AutoSize = true;
+            this.c_medicshops.Location = new System.Drawing.Point(12, 176);
+            this.c_medicshops.Name = "c_medicshops";
+            this.c_medicshops.Size = new System.Drawing.Size(165, 21);
+            this.c_medicshops.TabIndex = 24;
+            this.c_medicshops.Text = "override medic shops\r\n";
+            this.c_medicshops.UseVisualStyleBackColor = true;
+            this.c_medicshops.CheckedChanged += new System.EventHandler(this.c_medicshops_CheckedChanged);
+            // 
+            // c_medicitems
+            // 
+            this.c_medicitems.AutoSize = true;
+            this.c_medicitems.Location = new System.Drawing.Point(13, 149);
+            this.c_medicitems.Name = "c_medicitems";
+            this.c_medicitems.Size = new System.Drawing.Size(249, 21);
+            this.c_medicitems.TabIndex = 22;
+            this.c_medicitems.Text = "include medic items (7.5% chance)";
+            this.c_medicitems.UseVisualStyleBackColor = true;
+            this.c_medicitems.CheckedChanged += new System.EventHandler(this.c_medicitems_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(14, 378);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 21);
+            this.radioButton1.TabIndex = 21;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Safe";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(62, 244);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Synthesis";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 17);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Shops";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.radio_defaultequipment);
+            this.tabPage2.Controls.Add(this.radio_basestats);
+            this.tabPage2.Controls.Add(this.radio_abilitygems);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(263, 467);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Characters";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 448);
-            this.Controls.Add(this.radio_shopitems_3rand);
-            this.Controls.Add(this.radio_shopitems_2max);
+            this.ClientSize = new System.Drawing.Size(1176, 739);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox_yuno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox_debug);
             this.Controls.Add(this.textBox_seed);
             this.Controls.Add(this.label_seed);
             this.Controls.Add(this.label_output);
-            this.Controls.Add(this.label_char);
-            this.Controls.Add(this.label_item);
-            this.Controls.Add(this.radio_levels);
-            this.Controls.Add(this.radio_abilitygems);
-            this.Controls.Add(this.radio_basestats);
-            this.Controls.Add(this.radio_defaultequipment);
-            this.Controls.Add(this.radio_synthesis);
-            this.Controls.Add(this.radio_shopitems_1safe);
             this.Controls.Add(this.button_rand);
             this.Controls.Add(this.richTextBox_output);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -279,6 +386,11 @@ namespace rand9er
             this.Text = "FFIX Randomizer Assistant 0.50";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,9 +404,6 @@ namespace rand9er
         private System.Windows.Forms.RadioButton radio_defaultequipment;
         private System.Windows.Forms.RadioButton radio_basestats;
         private System.Windows.Forms.RadioButton radio_abilitygems;
-        private System.Windows.Forms.RadioButton radio_levels;
-        private System.Windows.Forms.Label label_item;
-        private System.Windows.Forms.Label label_char;
         private System.Windows.Forms.Label label_output;
         private System.Windows.Forms.Label label_seed;
         private System.Windows.Forms.TextBox textBox_seed;
@@ -303,6 +412,18 @@ namespace rand9er
         private System.Windows.Forms.PictureBox pictureBox_yuno;
         private System.Windows.Forms.RadioButton radio_shopitems_2max;
         private System.Windows.Forms.RadioButton radio_shopitems_3rand;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox c_medicitems;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox c_medicshops;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

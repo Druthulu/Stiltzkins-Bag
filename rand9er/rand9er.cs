@@ -8,20 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-///RichTextBox richTextBox_output;
-///Button button_rand;
-///RadioButton radio_shopitems;
-///RadioButton radio_synthesis;
-///RadioButton radio_defaultequipment;
-///RadioButton radio_basestats;
-///RadioButton radio_abilitygems;
-///RadioButton radio_levels;
-///Label label_item;
-///Label label_char;
-///Label label_output;
-///Label label_seed;
-///TextBox textBox_seed;
-
 namespace rand9er
 {
     public partial class rand9er : Form
@@ -30,35 +16,21 @@ namespace rand9er
         {
             InitializeComponent();
         }
-        
         //init
-        private string strmeth, seed = "42", status = "init";
-        private int seed2, seed3, baddies;
+        string strmeth, seed = "42", status = "init";
+        int seed2, seed3, baddies;
+        
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //assign default seed on load, maybe random later
             textBox_seed.Text = seed; 
         }
-
         private void pictureBox_yuno_Click(object sender, EventArgs e)
         {
             pictureBox_yuno.Visible = false;
-        }
-
-        private void radio_shopitems_1safe_CheckedChanged(object sender, EventArgs e)
-        {
-            //radio button control vars, update later or you know what, fix it right now, try just using .Checked
-            //worked, old method ints for each radio, bools and .Checked works fine
-            pictureBox_yuno.Visible = false; status = "shop";
-        }
-        private void radio_shopitems_2max_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "shop";
-        }
-        private void radio_shopitems_3rand_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "shop";
         }
         private void radio_synthesis_CheckedChanged(object sender, EventArgs e)
         {
@@ -77,13 +49,56 @@ namespace rand9er
             pictureBox_yuno.Visible = false; status = "ability";
         }
 
+        //Shop Items TAB
 
+        int shops, shopr, shopm, mi, ms;
 
-        private void radio_levels_CheckedChanged(object sender, EventArgs e)
+        int[] a_shopItems = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
+        int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
+        int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
+        int[] a_shopItems_3rand = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        private void radio_shopitems_1safe_CheckedChanged(object sender, EventArgs e)
         {
-            pictureBox_yuno.Visible = false; status = "levels";
+            pictureBox_yuno.Visible = false; status = "shop";
+            c_medicitems.Checked = false;
+            c_medicshops.Checked = false;
+            if (radio_shopitems_1safe.Checked) { shops = 1; a_shopItems = a_shopItems_1safe; } else { shops = 0; }
         }
-        private void button_rand_Click(object sender, EventArgs e)
+        private void radio_shopitems_2max_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false; status = "shop";
+            if (radio_shopitems_2max.Checked) { c_medicitems.Checked = true; c_medicshops.Checked = true; shopm = 1; a_shopItems = a_shopItems_2max; } else { shopm = 0; }
+        }
+        private void radio_shopitems_3rand_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false; status = "shop";
+            if (radio_shopitems_3rand.Checked) { shopr = 1; a_shopItems = a_shopItems_3rand; } else { shopr = 0; }
+        }
+        private void c_medicitems_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radio_shopitems_1safe.Checked & c_medicitems.Checked)
+            {
+                radio_shopitems_3rand.Checked = true;
+                c_medicitems.Checked = true;
+            }
+            if (c_medicitems.Checked) { mi = 1; } else { mi = 0; }
+        }
+        private void c_medicshops_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radio_shopitems_1safe.Checked & c_medicshops.Checked)
+            {
+                radio_shopitems_3rand.Checked = true;
+                c_medicshops.Checked = true;
+            }
+            if (c_medicshops.Checked) { ms = 1; } else { ms = 0; }
+        }
+
+        //if safe use 23 shops list
+        // if max use 32 shops list, maybe click meic items when click max
+
+
+private void button_rand_Click(object sender, EventArgs e)
         {
             //input
             seed = textBox_seed.Text;
@@ -97,8 +112,8 @@ namespace rand9er
             bool de = radio_defaultequipment.Checked;
             bool bs = radio_basestats.Checked;
             bool ag = radio_abilitygems.Checked;
-            bool rl = radio_levels.Checked;
-            bool radio = si1 || si2 || si3 || sy || de || bs || ag || rl;
+            //bool rl = radio_levels.Checked;
+            bool radio = si1 || si2 || si3 || sy || de || bs || ag;
 
             //fun error message
             if (!radio)
@@ -126,7 +141,6 @@ namespace rand9er
                 + "\nde " + de.ToString()
                 + "\nbs " + bs.ToString()
                 + "\nag " + ag.ToString()
-                + "\nrl " + rl.ToString()
                 + "\n\nbaddies\n" + baddies.ToString()
                 + "\n\nseed string\n" + seed.ToString()
                 + "\n\n" + strmeth
@@ -159,36 +173,51 @@ namespace rand9er
 
         private void ShopItems()
         {
-            //init shop items arrie *remember 1d inputs, jagged storage
-            //number of items per shop
-            int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
-            int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
-            int[] a_shopItems_3rand = new int[32];
-            //3 is null, generated below using seed2+i, only if needed
+
             if (radio_shopitems_3rand.Checked)
             {
-                richTextBox_output.Text = "a_shopItems_3rand 1D This tests 1D array of seeded random generation\n";
+                //richTextBox_output.Text = "a_shopItems_3rand 1D This tests 1D array of seeded random generation\n";
                 for (int i = 0; i < a_shopItems_3rand.GetLength(0); i++)
                 {
-                    Random rnd = new Random(seed2 + i);
-                    a_shopItems_3rand[i] = rnd.Next(0, 31);
-                    //output data mostly for sanity
-                    richTextBox_output.Text = richTextBox_output.Text + a_shopItems_3rand[i] + ";";
+                    Random rnd = new Random(i^seed2);
+
+                    a_shopItems_3rand[i] = rnd.Next(1, 31);
+
+                }
+            }
+            int[][] a_shopItems_jag =
+            {
+                new int[a_shopItems[0]],new int[a_shopItems[1]],new int[a_shopItems[2]],new int[a_shopItems[3]],new int[a_shopItems[4]],new int[a_shopItems[5]],
+                new int[a_shopItems[6]],new int[a_shopItems[7]],new int[a_shopItems[8]],new int[a_shopItems[9]],new int[a_shopItems[10]],new int[a_shopItems[11]],
+                new int[a_shopItems[12]],new int[a_shopItems[13]],new int[a_shopItems[14]],new int[a_shopItems[15]],new int[a_shopItems[16]],new int[a_shopItems[17]],
+                new int[a_shopItems[18]],new int[a_shopItems[19]],new int[a_shopItems[20]],new int[a_shopItems[21]],new int[a_shopItems[22]],new int[a_shopItems[23]],
+                new int[a_shopItems[24]],new int[a_shopItems[25]],new int[a_shopItems[26]],new int[a_shopItems[27]],new int[a_shopItems[28]],new int[a_shopItems[29]],
+                new int[a_shopItems[30]],new int[a_shopItems[31]]
+            };
+
+            for (int i = 0; i < a_shopItems_jag.Length; i++)
+            {
+                //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
+                richTextBox_output.Text = richTextBox_output.Text + "\n;";
+                for (int j = 0; j < a_shopItems_jag[i].Length; j++)
+                {
+                    Random rnd = new Random(seed2 * i + seed2 ^ j);
+                    a_shopItems_jag[i][j] = rnd.Next(1, 235);
+                    richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ a_shopItems_jag[i][j] + "; ";
                 }
             }
 
-            //default
-            int[] a_shopItems = a_shopItems_1safe;
+            /* radio, safe, random, max, check, medic items, medic shops
+            medic items are 236-249, 253      250 is dark matter, 251, 252 are gysahl greens and dead pepper, 253 is tent, 254 is ore
+            besides tent 250+ cant be bought ever.
+            if medic items checked extend to 1,250, check if 250 write 253 instead for tent.
+            if medic shops checked
+            if max u */
 
-            //intial notes
+
 
             //items.csv lines 7-261 (item numbers 000(hammer),001-254) 001-235 =234 normal items
             //item number 236+ is potions etc 250 dark matter, 251,252 gysahl,pepper
-
-            //shop items si
-
-            //ShopItems.csv lines 7-38, 32 shops total, 0-22 are suggested editable 23 total stores
-            //shops 0023,0024 unused, 25+ are potions etc, best left alone so you can always buy potions etc. maybe random later for nightmare mode or something
             //default shop item amounts inserted into first cell shop number xx00, potions+ in last cell shop number, shops 25+ later maybe
             /*     stock shop items      
              Shop 1600;0;1;2;16;17;57;70;88;89;102;112;114;136;137;149;150;177;-1;;;;;;;;;;;;;;;;;# Shop 0000
@@ -224,113 +253,15 @@ namespace rand9er
              Shop 0030;30;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0030
              Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031
              */
-            // for now, lets output replacement lines to the output window. later, edit a file directly using an open dialog or file path to detect all the files.
-            //perhaps they don't have this file because they havent run the randomizer?
-            //Shop.  000x.    same x.   items, 236+ do NOT count.     -1, to indicate end.  lots of delimiters, i think they indicate the max number of items possible  #comment shop number
-            //shop 0015 has max, 32 items then -1, shop 0000 has 16, -1 then 16 spaces, total 33, shop 0008 has 14, -1, 18, total 33.
-            //shops can hold max of 32 items, end with -1, must have ; for each empty space not used. coult randomize the ammount of items in each shop as well
-            //throughout all this i dont think its possible to guarantee all items appear, at least not at this point. this is raw random crazyness
-            //format
-            //"Shop " + 000x + ";" + x + ";" + _items;_ + "-1;" + _empty_semi_colons_to_32-items;_ + "# Shop " + 000x
-            //                 1;        2;         3-35; 
-            //can be 32 items then a -1 to end. total 35 semi colons per line, last cell = "# "+firstcell, second cell = no extra 0 shop number
-            //cells UInt8 if that helps. 32x36 matrix could scoop all this data
-            // I think we have all the data we need to write a method to generate new shop data.
-            // there are lots of repeats in the shop data, more precise generation way way later maybe
-            //condensed notes: 23 shop datasets:: number of items,potions, then -1, suggest 1:1 copy of orignal potion+ items, only editing the normal items.
-
-            //n = 16,0 16,0 9,7 14,7 25,0 18,0 28,0 13,9 14,0 32,0 14,9 32,0 29,0 21,11 22,9 25,7 21,11 30,0 21,10 30,0 6,0 12,12 20,10
-            /*2d array attempt, I dont think the 2nd demension data is needed for this
-             * int[,] a_shopItems = new int[,]
-            { 
-                { 16, 0 }, { 16, 0 }, { 9, 7 }, { 14, 7 }, { 25, 0 }, 
-                { 18, 0 }, { 28, 0 }, { 13, 9 }, { 14, 0 }, { 32, 0 }, 
-                { 14, 9 }, { 32, 0 }, { 29, 0 }, { 21, 11 }, { 22, 9 }, 
-                { 25, 7 }, { 21, 11 }, { 30, 0 }, { 21, 10 }, { 30, 0 }, 
-                { 6, 0 }, { 12, 12 }, { 20, 10 } 
-            };*/
-
-            //need to generate random ints followed by semi colons, potions+ based on shop number maybe
-            //n number array of x,y dataset, nested loop cycling through each n, loop generating X number of randoms
-            //checks for 1st, 2nd, Y cells, -1 in between X and Y, last cells 
-            //Final: nested double loop one for n array, one for X
-            //just realized the Y data is only to specify how many fields we need to copy over from the potions+ section for each store
-            //if we are going to copy a file and make changes, we dont need to copy sets of potions+ we just need to not edit that part of the file
-            //first steps were to output to window then file, maybe skip to file
-            /*
-            for (int i = 0; i < a_shopItems.GetLength(0); i++)
-            {
-                for (int j = 1; j < a_shopItems[i]; j++)
-                {
-                    Random rnd = new Random(seed2);
-                    a_shopItems_rng[i][j] = rnd.Next(1, 235);
-
-                    //richTextBox_output.Text = "array length=" + i + "\n " + a_shopItems[j,0];
-                }
-                Console.WriteLine("Value of i: {0}", i);
-            }*/
-
-            //hang on i just read up on jagged multi-dimensional arrays and i just lost all respect for arrays
-            //i suppose i could create a 1d array for each possible shop to edit, but i would have to adjust the loop for each, also create like 32 arrays, no thanks
-
-            //stock amount of items in each shop, can randomize later if wanted, lol i did, how old is this comment
-            //check and apply selected 1d array data to jagged array below
-
-            if (radio_shopitems_1safe.Checked)
-            {
-                a_shopItems = a_shopItems_1safe;
-            }
-            if (radio_shopitems_2max.Checked)
-            {
-                a_shopItems = a_shopItems_2max;
-            }
-            if (radio_shopitems_3rand.Checked)
-            {
-                a_shopItems = a_shopItems_3rand;
-            }
-
-            
-            //a_shopItems is gonna be the var array we will use, set the default and adjust with checks
-
-            //new items jagged array, or manual set of arrays. still reading.
-            //attempting jagged empty for easy loop access and data read/write
-            //remove 23 shop limit ->32 and allow for any input array to adjust storage size of each subarray
-            //we can limit later easy based on needs, expanding later is harder
-            int[][] a_shopItems_jag =
-            {
-                new int[a_shopItems[0]],new int[a_shopItems[1]],new int[a_shopItems[2]],new int[a_shopItems[3]],new int[a_shopItems[4]],new int[a_shopItems[5]],
-                new int[a_shopItems[6]],new int[a_shopItems[7]],new int[a_shopItems[8]],new int[a_shopItems[9]],new int[a_shopItems[10]],new int[a_shopItems[11]],
-                new int[a_shopItems[12]],new int[a_shopItems[13]],new int[a_shopItems[14]],new int[a_shopItems[15]],new int[a_shopItems[16]],new int[a_shopItems[17]],
-                new int[a_shopItems[18]],new int[a_shopItems[19]],new int[a_shopItems[20]],new int[a_shopItems[21]],new int[a_shopItems[22]],new int[a_shopItems[23]],
-                new int[a_shopItems[24]],new int[a_shopItems[25]],new int[a_shopItems[26]],new int[a_shopItems[27]],new int[a_shopItems[28]],new int[a_shopItems[29]],
-                new int[a_shopItems[30]],new int[a_shopItems[31]]
-            };
-            //holy shit here we go yo!!!
-            //time to loop through the jagged array, using the 1D input arrays to define the dimension of each subarray, to generate seeded random ints
-            //output to window during generation to save on iteration cycles
-            richTextBox_output.Text = richTextBox_output.Text + "\njagged array building using 1D array from selection\n";
-            for (int i = 0; i < a_shopItems_jag.Length; i++)
-            {
-                //output i, make room for j
-                richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
-                for (int j = 0; j < a_shopItems_jag[i].Length; j++)
-                {
-                    //seed2i+j should be increasingly random enough
-                    Random rnd = new Random(seed2 + i + j);
-                    a_shopItems_jag[i][j] = rnd.Next(1, 235);
-                    //output data for sanity
-                    richTextBox_output.Text = richTextBox_output.Text + "j: " + j + " :r: " + a_shopItems_jag[i][j] + "; ";
-                }
-                //holy shit it worked, on like first try too. it was suprisingly easy to build the nested loop keeping in mind my goals with the jagged and 1D arrays
-            }
-
-
-
 
 
         }
 
+        private void Synthesis()
+        {
 
+        }
     }
+
 
 }
