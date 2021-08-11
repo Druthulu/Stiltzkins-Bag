@@ -19,8 +19,9 @@ namespace rand9er
         
         //init
 
-        string strmeth, seed = "42", status = "init";
-        int seed2, seed3, baddies;
+        string input_str, output_str, swap, strmeth, seed2, seed6, seed7, seed = "42", status = "init";
+        int seed4, baddies, counter, incount;
+        int[] seed3, seed5;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,7 +29,11 @@ namespace rand9er
             //assign default seed on load, maybe random later
             textBox_seed.Text = seed; 
         }
-
+        private void clear_Click(object sender, EventArgs e)
+        {
+            richTextBox_debug.Text = "";
+            richTextBox_output.Text = "";
+        }
         private void pictureBox_yuno_Click(object sender, EventArgs e)
         {
             pictureBox_yuno.Visible = false;
@@ -49,19 +54,20 @@ namespace rand9er
         {
             pictureBox_yuno.Visible = false; status = "ability";
         }
-
+        private void richTextBox_debug_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
+            richTextBox_debug.ScrollToCaret();
+        }
         //Shop Items TAB
 
         int randl = 23, items = 235;
 
         int[] a_shopItems = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
-        
         int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
         int[] a_s_safe2 = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 }; //medic items for safe list. not sure if needed later
-        
         int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         int[] a_shopItems_2maxm = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
-        
         int[] a_shopItems_3rand = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
@@ -113,40 +119,89 @@ namespace rand9er
         }
 
 
-        private void SeedRNG()
+        public string SeedRNG(string swap, int counter) //string swap to input
         {
-            strmeth = "//convert input seed to usable data//";
-            //sanatize input seed, failure optional, fix with char map in future
-            //!! work on this
-
-            bool test = int.TryParse(seed, out int test2);
-            if (test)
+            strmeth = "//convert and compress seed//";
+            input_str = swap;
+            incount = counter;
+            string mid_str = "", 
+            output_str = "";
+            int[] mid1_arr = new int[input_str.Length];
+            int[] mid2_arr = new int[input_str.Length];
+            int mid2c = 0;
+            //richTextBox_debug.Text = "SeedRNG()";
+            //test
+            richTextBox_debug.Text = richTextBox_debug.Text + "\nSeedRNG(swap= " + swap + " counter= " + counter + ")";
+            for (int i = 0; i < input_str.Length; i++)
             {
-                seed2 = test2;
-            }
-            else
-            {
-                pictureBox_yuno.Visible = true;
-                return;
-            }
-            //seed rng
-            //Random rnd = new Random(seed2);
-            //seed3 = rnd.Next(1, items); //test
+                progressBar1.Value = i;
+                if ((i > 0) & ((i % 2) == 0))
+                {
+                    if (((int)input_str[i]) == ((int)input_str[i - 1])) 
+                    {
+                        Random rnd = new Random((int)input_str[i]);
+                        mid_str = mid_str + rnd.Next(33, 255);
+                    } else
+                    {
+                        mid_str = mid_str + (int)input_str[i];
+                    }
+                } else
+                {
+                    mid_str = mid_str + (int)input_str[i];
+                }
 
+                //test
+                richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n(int)input_str[i= " + i + "]= " + input_str[i] + " " + (int)input_str[i] + "   mid_str = " + mid_str ;
+                if (int.TryParse(mid_str, out int test2))
+                {
+                    mid1_arr[i] = test2;
+                    //test
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nTryParse success mid1_arr= " + mid1_arr[i];
+                }
+                else
+                {
+                    mid_str = (int)input_str[i] + "";
+                    //test
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nTryParse failure restart mid_str= " + mid_str;
+                    mid1_arr[i] = 0;
+                    mid2_arr[mid2c] = mid1_arr[i - 1];
+                    //test
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nmid2_arr[mid2c= " + mid2c + "] = mid1_arr[i - 1]= " + mid1_arr[i - 1];
+                    mid2c++;
+                }
+                if (i == input_str.Length-1)
+                {
+                    mid2_arr[mid2c] = mid1_arr[i];
+                    //test
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n last one= mid1_arr[i= " + i + "]=" + mid1_arr[i];
+                }
+            }
+            progressBar2.Maximum = mid2_arr.Length;
+            for (int i = 0; i < mid2_arr.Length; i++)
+            {
+                progressBar2.Value = i;
+                if (mid2_arr[i] > 0)
+                {
+                    Random rnd = new Random(mid2_arr[i]);
+                    output_str = output_str + rnd.Next(42, 420);
+                    //test
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nmid2_arr[i= " + i + "]=" + mid2_arr[i] + " --rng-- output_str= " + output_str;
+                }
+            }
+            return output_str;
         }
 
         private void ShopItems()
         {
             if (radio_shopitems_3rand.Checked)
             {
-                //richTextBox_output.Text = "a_shopItems_3rand 1D This tests 1D array of seeded random generation\n";
+
                 for (int i = 0; i < randl; i++)
                 {
-                    Random rnd = new Random(i ^ seed2);
+                    Random rnd = new Random(i ^ seed4);
                     a_shopItems[i] = rnd.Next(1, 31);
                 }
             }
-
 
             int[][] a_shopItems_jag =
             {
@@ -158,14 +213,14 @@ namespace rand9er
                 new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
 
-            richTextBox_output.Text = "";
+            //richTextBox_output.Text = "";
             for (int i = 0; i < a_shopItems_jag.Length; i++)
             {
                 //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
                 richTextBox_output.Text = richTextBox_output.Text + "\n;";
                 for (int j = 0; j < a_shopItems_jag[i].Length; j++)
                 {
-                    Random rnd = new Random(seed2 * i + seed2 ^ j);
+                    Random rnd = new Random(seed4 * i + seed4 ^ j);
                     int rnd2 = rnd.Next(1, items);
                     if (rnd2 == 250) { rnd2 = 253; }
                     a_shopItems_jag[i][j] = rnd2;
@@ -177,10 +232,18 @@ namespace rand9er
         }
 
 
-        private void button_rand_Click(object sender, EventArgs e)
+        public void button_rand_Click(object sender, EventArgs e)
         {
             //input seed
+            
             seed = textBox_seed.Text;
+            int seedl = seed.Length;
+            counter = 1;
+            /*if (seed.Length < 10)
+            {
+                richTextBox_output.Text = "Need more seed data";
+                return;
+            }*/
 
             //fun error message
             if (!(radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked ||
@@ -190,10 +253,187 @@ namespace rand9er
             { pictureBox_yuno.Visible = true; }
 
             //methods
-            //parse input seed, sanatize, convert to usable data
-            SeedRNG();
+
+            //need to incorporate the progress bar, need to parse the length of seed to determine work, then prolly just use progress bar / length of seed current possition
+            //two progress bars?
+
+
+            progressBar1.Maximum = seedl;
             
-            //bools determine which method to run
+            //parse input seed, sanatize, convert to usable data
+            swap = seed;
+            output_str = SeedRNG(swap, counter);
+            swap = output_str;
+            //if seed is huge =1000 chars, verified possible output rng. ! 15 cycles for 1000char seed
+            //1000char seed -> ints grouped into array of 9 digits per element, 1039 elements
+            //random using each element as seed, reducing 9 to 2 or 3.
+            //continue to cycle untill under int32.maxvalue. i round to 9 digits or less for simplicity.
+            //super sweet, but i dont like that most of the elements are leading with 4 or 5s. it implies a pattern.
+            // need to do some research and check back
+            //
+            
+            if (output_str.Length > 9)
+            {
+                counter++;
+                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n" + counter + "..\n";
+                output_str = SeedRNG(swap, counter);
+                swap = output_str;
+                if (output_str.Length > 9)
+                {
+                    counter++;
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                    output_str = SeedRNG(swap, counter);
+                    swap = output_str;
+                    if (output_str.Length > 9)
+                    {
+                        counter++;
+                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                        output_str = SeedRNG(swap, counter);
+                        swap = output_str;
+                        if (output_str.Length > 9)
+                        {
+                            counter++;
+                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                            output_str = SeedRNG(swap, counter);
+                            swap = output_str;
+                            if (output_str.Length > 9)
+                            {
+                                counter++;
+                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                output_str = SeedRNG(swap, counter);
+                                swap = output_str;
+                                if (output_str.Length > 9)
+                                {
+                                    counter++;
+                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                    output_str = SeedRNG(swap, counter);
+                                    swap = output_str;
+                                    if (output_str.Length > 9)
+                                    {
+                                        counter++;
+                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                        output_str = SeedRNG(swap, counter);
+                                        swap = output_str;
+                                        if (output_str.Length > 9)
+                                        {
+                                            counter++;
+                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                            output_str = SeedRNG(swap, counter);
+                                            swap = output_str;
+                                            if (output_str.Length > 9)
+                                            {
+                                                counter++;
+                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                output_str = SeedRNG(swap, counter);
+                                                swap = output_str;
+                                                if (output_str.Length > 9)
+                                                {
+                                                    counter++;
+                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                    output_str = SeedRNG(swap, counter);
+                                                    swap = output_str;
+                                                    if (output_str.Length > 9)
+                                                    {
+                                                        counter++;
+                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n" + counter + "..\n";
+                                                        output_str = SeedRNG(swap, counter);
+                                                        swap = output_str;
+                                                        if (output_str.Length > 9)
+                                                        {
+                                                            counter++;
+                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                            output_str = SeedRNG(swap, counter);
+                                                            swap = output_str;
+                                                            if (output_str.Length > 9)
+                                                            {
+                                                                counter++;
+                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                output_str = SeedRNG(swap, counter);
+                                                                swap = output_str;
+                                                                if (output_str.Length > 9)
+                                                                {
+                                                                    counter++;
+                                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                    output_str = SeedRNG(swap, counter);
+                                                                    swap = output_str;
+                                                                    if (output_str.Length > 9)
+                                                                    {
+                                                                        counter++;
+                                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                        output_str = SeedRNG(swap, counter);
+                                                                        swap = output_str;
+                                                                        if (output_str.Length > 9)
+                                                                        {
+                                                                            counter++;
+                                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                            output_str = SeedRNG(swap, counter);
+                                                                            swap = output_str;
+                                                                            if (output_str.Length > 9)
+                                                                            {
+                                                                                counter++;
+                                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                                output_str = SeedRNG(swap, counter);
+                                                                                swap = output_str;
+                                                                                if (output_str.Length > 9)
+                                                                                {
+                                                                                    counter++;
+                                                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                                    output_str = SeedRNG(swap, counter);
+                                                                                    swap = output_str;
+                                                                                    if (output_str.Length > 9)
+                                                                                    {
+                                                                                        counter++;
+                                                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                                        output_str = SeedRNG(swap, counter);
+                                                                                        swap = output_str;
+                                                                                        if (output_str.Length > 9)
+                                                                                        {
+                                                                                            counter++;
+                                                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                                            output_str = SeedRNG(swap, counter);
+                                                                                            swap = output_str;
+                                                                                            if (output_str.Length > 9)
+                                                                                            {
+                                                                                                counter++;
+                                                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
+                                                                                                output_str = SeedRNG(swap, counter);
+                                                                                                swap = output_str;
+                                                                                                if (output_str.Length > 9)
+                                                                                                {
+                                                                                                    pictureBox_yuno.Visible = true;
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (int.TryParse(output_str, out int test2))
+            {
+                seed4 = test2;
+            }
+            else
+            {
+                //if something goes wrong, reset seed and continue
+                seed4 = 0;
+            }
+
             if (radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked || radio_shopitems_3rand.Checked)
             {
                 ShopItems();
@@ -201,13 +441,15 @@ namespace rand9er
 
 
             //debug output
-            richTextBox_debug.Text =
-                "randl: " + randl.ToString()
-                + "\n\nbaddies\n" + baddies.ToString()
-                + "\n\nseed string\n" + seed.ToString()
-                + "\n\n" + strmeth
-                + "\n\nseed int\n" + seed2.ToString()
-                + "\nseeded random (1-" + items + ")\n";
+            richTextBox_debug.Text = richTextBox_debug.Text
+                + "\nrandl: " + randl.ToString()
+                + "\nbaddies\n" + baddies.ToString()
+                + "\ninput seed string\n" + seed.ToString()
+                + "\n" + strmeth
+                + "\n" + seed4
+                + "\nseeded random (1-" + items + ")\n"
+                ;
+
         }
 
 
