@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace rand9er
 {
@@ -27,7 +28,29 @@ namespace rand9er
         private void Form1_Load(object sender, EventArgs e)
         {
             //assign default seed on load, maybe random later
-            textBox_seed.Text = seed; 
+            textBox_seed.Text = seed;
+            //search current user reg for ff9 location to assist with open location prompt
+            //init location
+
+            RegistryKey rkTest = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\MuiCache");
+            string[] vnames = rkTest.GetValueNames();
+            foreach (string s in vnames)
+            {
+                RegistryValueKind rvk = rkTest.GetValueKind(s);
+                if (rvk == RegistryValueKind.String)
+                {
+                    string value = (string)rkTest.GetValue(s);
+                    if (value == "FINAL FANTASY IX")
+                    {
+                        string s2 = "FF9_Launcher.exe";
+                        //string[] str_arr = s.Split(string s2, 2);
+                        string output = s.Substring(0, s.IndexOf(s2));
+                        tb_fl.Text = output;
+                        richTextBox_debug.Text = richTextBox_debug.Text + "\nLocated FF9 install location\n";
+                    }
+                }
+            }
+            rkTest.Close();
         }
         private void clear_Click(object sender, EventArgs e)
         {
@@ -58,6 +81,11 @@ namespace rand9er
         {
             richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
             richTextBox_debug.ScrollToCaret();
+        }
+        private void b_rseed_Click_1(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            textBox_seed.Text = rnd.Next(100000000, 2140000000).ToString();
         }
         //Shop Items TAB
 
@@ -169,8 +197,6 @@ namespace rand9er
                 {
                     mid_str = mid_str + input_str[i];
                 }
-
-
                 //test
                 richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n(int)input_str[i= " + i + "]= " + input_str[i] + " " + (int)input_str[i] + "   mid_str = " + mid_str ;
                 if (int.TryParse(mid_str, out int test2))
@@ -220,7 +246,7 @@ namespace rand9er
 
                 for (int i = 0; i < randl; i++)
                 {
-                    Random rnd = new Random(i ^ seed4);
+                    Random rnd = new Random(seed4+i);
                     a_shopItems[i] = rnd.Next(1, 31);
                 }
             }
@@ -242,7 +268,7 @@ namespace rand9er
                 richTextBox_output.Text = richTextBox_output.Text + "\n;";
                 for (int j = 0; j < a_shopItems_jag[i].Length; j++)
                 {
-                    Random rnd = new Random(seed4 * i + seed4 ^ j);
+                    Random rnd = new Random(seed4 + i + j + (i*j));
                     int rnd2 = rnd.Next(1, items);
                     if (rnd2 == 250) { rnd2 = 253; }
                     a_shopItems_jag[i][j] = rnd2;
@@ -256,6 +282,9 @@ namespace rand9er
         public void button_rand_Click(object sender, EventArgs e)
         {
 
+            progressBar1.Value = progressBar1.Minimum;
+            progressBar2.Value = progressBar2.Minimum;
+            if (seed.Length == 0) { seed = "42"; }
             seed = textBox_seed.Text;
             counter = 1;
 
@@ -270,21 +299,14 @@ namespace rand9er
             swap = seed;
             output_str = SeedRNG(swap, counter);
             swap = output_str;
-            
-            //if seed is huge =1000 chars, verified possible output rng. ! 15 cycles for 1000char seed
-            //1000char seed -> ints grouped into array of 9 digits per element, 1039 elements
-            //random using each element as seed, reducing 9 to 2 or 3.
-            //continue to cycle untill under int32.maxvalue. i round to 9 digits or less for simplicity.
-            //super sweet, but i dont like that most of the elements are leading with 4 or 5s. it implies a pattern.
-            // need to do some research and check back
-            //
-            
+                        
             if (output_str.Length > 9)
             {
                 counter++;
                 richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n" + counter + "..\n";
                 output_str = SeedRNG(swap, counter);
                 swap = output_str;
+                //cycle 22 times if needed
                 if (output_str.Length > 9)
                 {
                     counter++;
@@ -431,15 +453,9 @@ namespace rand9er
                 }
             }
             
-            if (int.TryParse(output_str, out int test2))
-            {
-                seed4 = test2;
-            }
-            else
-            {
-                //if something goes wrong. ugh, fml, just reset seed and continue program kek
-                seed4 = 0;
-            }
+            //reset seed and continue if rng failed
+            if (int.TryParse(output_str, out int test2)) { seed4 = test2; } else { seed4 = 42; }
+
             progressBar1.Value = progressBar1.Maximum;
             progressBar2.Value = progressBar2.Maximum; //finish progress variable progress bars off
 
@@ -459,18 +475,137 @@ namespace rand9er
                 + "\nseeded random (1-" + items + ")\n"
                 ;
 
+
+
+
+
+
         }
 
 
         private void Synthesis()
         {
 
+/*
+             * #				
+             *  ;Int32;Byte;Byte;Byte;Byte;Byte
+# Comment		;Id;Shops;Price;Result;Item1;Item2
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;
+Butterfly Sword	;0;79;300;7;1;2
+The Ogre		;1;95;700;8;2;2
+Exploda			;2;92;1000;9;2;3
+Rune Tooth		;3;88;2000;10;3;3
+Angel Bless		;4;112;9000;11;3;4
+Sargatanas		;5;96;12000;12;4;5
+Masamune		;6;64;16000;13;5;6
+Duel Claws		;7;64;16000;49;45;46
+Priest’s Racket	;8;64;11000;55;51;218
+Bracer			;9;64;24000;101;197;107
+Gauntlets		;10;64;8000;111;104;99
+Golden Skullcap	;11;64;15000;134;141;128
+Circlet			;12;64;20000;135;129;204
+Grand Helm		;13;64;20000;147;142;200
+Rubber Suit		;14;64;20000;166;163;95
+Brave Suit		;15;64;26000;167;154;58
+Cotton Robe		;16;63;1000;168;88;115
+Silk Robe		;17;60;2000;169;150;118
+Magician Robe	;18;48;3000;170;70;156
+Glutton’s Robe	;19;32;6000;171;81;168
+White Robe		;20;32;8000;172;161;97
+Black Robe		;21;32;8000;173;161;96
+Light Robe		;22;64;20000;174;170;90
+Robe of Lords	;23;128;30000;175;172;173
+Tin Armour		;24;128;50000;176;0;254
+Grand Armour	;25;64;45000;191;18;180
+Desert Boots	;26;95;300;192;112;149
+Yellow Scarf	;27;95;400;212;114;115
+Glass Buckle	;28;95;500;202;90;89
+Germinas Boots	;29;94;900;194;192;79
+Cachusha		;30;62;1000;218;117;136
+Coral Ring		;31;62;1200;206;73;57
+Gold Choker		;32;94;1300;213;178;242
+Magician Shoes	;33;60;1500;193;194;91
+Barette			;34;60;1800;219;80;139
+Power Belt		;35;60;2000;200;202;179
+Madain’s Ring	;36;56;3000;203;91;59
+Fairy Earrings	;37;56;3200;214;93;242
+Extension		;38;56;3500;220;120;52
+Reflect Ring	;39;56;7000;205;199;203
+Anklet;40		;48;4000;199;213;231
+Feather Boots	;41;48;4000;196;193;249
+Black Belt		;42;48;4000;201;122;157
+Pearl Rouge		;43;48;5000;216;229;239
+Promist Ring	;44;32;6000;207;94;230
+Battle Boots	;45;32;6500;197;196;87
+Rebirth Ring	;46;32;7000;208;227;199
+Angel Earrings	;47;32;8000;215;214;219
+Running Shoes	;48;64;12000;198;197;228
+Rosetta Ring	;49;64;24000;204;203;38
+Protect Ring	;50;128;40000;209;250;208
+Pumice			;51;128;50000;211;210;210
+Garnet			;52;224;350;224;254;247
+Amethyst		;53;224;200;225;254;248
+Peridot			;54;224;100;231;254;242
+Sapphire		;55;224;200;232;254;243
+Opal			;56;224;100;233;254;236
+Topaz			;57;224;100;234;254;244
+Lapis Lazuli	;58;192;400;235;254;252
+Pumice Piece	;59;128;25000;210;0;211
+Save the Queen	;60;128;50000;26;31;103
+Phoenix Pinion	;61;128;300;249;240;251
+Ether			;62;128;500;238;241;246
+Thief Gloves	;63;32;50000;98;92;12
+             * 
+*/
+        }
+
+        private void b_open_Click(object sender, EventArgs e)
+        {
+            //RW TIME!!!!!
+
+            //search current user reg for ff9 location to assist with open location prompt
+            //init location
+            
+            RegistryKey rkTest = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\MuiCache");
+            string[] vnames = rkTest.GetValueNames();
+            foreach (string s in vnames)
+            {
+                RegistryValueKind rvk = rkTest.GetValueKind(s);
+                if (rvk == RegistryValueKind.String)
+                {
+                    string value = (string)rkTest.GetValue(s);
+                    if (value == "FINAL FANTASY IX")
+                    {
+                        string s2 = "FF9_Launcher.exe";
+                        //string[] str_arr = s.Split(string s2, 2);
+                        string output = s.Substring(0, s.IndexOf(s2));
+                        tb_fl.Text = output;
+                    }
+                }
+            }
+            rkTest.Close();
+
+
+        }
+
+
+        private void readwrite()
+        {
+            
         }
     }
 
 
 }
 
+
+//notes section
+
+
+//extra places to search
+//Computer\HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
+//Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppSwitched
+//Computer\HKEY_CURRENT_USER\System\GameConfigStore\Children\3edf44be-78f8-4231-a098-52e4ac7cbed8
 
 
 /*     stock shop items   
