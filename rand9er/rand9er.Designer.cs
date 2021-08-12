@@ -84,7 +84,7 @@ namespace rand9er
             this.button_rand.Location = new System.Drawing.Point(78, 294);
             this.button_rand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_rand.Name = "button_rand";
-            this.button_rand.Size = new System.Drawing.Size(317, 37);
+            this.button_rand.Size = new System.Drawing.Size(317, 48);
             this.button_rand.TabIndex = 2;
             this.button_rand.Text = "quantum randomizer button";
             this.button_rand.UseVisualStyleBackColor = true;

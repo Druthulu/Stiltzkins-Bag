@@ -132,23 +132,44 @@ namespace rand9er
             //richTextBox_debug.Text = "SeedRNG()";
             //test
             richTextBox_debug.Text = richTextBox_debug.Text + "\nSeedRNG(swap= " + swap + " counter= " + counter + ")";
+            progressBar1.Maximum = input_str.Length;
             for (int i = 0; i < input_str.Length; i++)
             {
                 progressBar1.Value = i;
-                if ((i > 0) & ((i % 2) == 0))
-                {
-                    if (((int)input_str[i]) == ((int)input_str[i - 1])) 
+                if (counter ==1) {
+                    if ((i > 0) & ((i % 2) == 0))
                     {
-                        Random rnd = new Random((int)input_str[i]);
-                        mid_str = mid_str + rnd.Next(33, 255);
-                    } else
+                        if (((int)input_str[i]) == ((int)input_str[i - 1]))
+                        {
+                            Random rnd = new Random((int)input_str[i]);
+                            mid_str = mid_str + rnd.Next(33, 255);
+                        }
+                        else
+                        {
+                            mid_str = mid_str + (int)input_str[i];
+                        }
+                    }
+                    else
                     {
                         mid_str = mid_str + (int)input_str[i];
                     }
+                } else 
+                if ((i > 0) & ((i % 2) == 0))
+                {
+                    if ((input_str[i]) == (input_str[i - 1]))
+                    {
+                        Random rnd = new Random(input_str[i]);
+                        mid_str = mid_str + rnd.Next(42, 420);
+                    }
+                    else
+                    {
+                        mid_str = mid_str + input_str[i];
+                    }
                 } else
                 {
-                    mid_str = mid_str + (int)input_str[i];
+                    mid_str = mid_str + input_str[i];
                 }
+
 
                 //test
                 richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n(int)input_str[i= " + i + "]= " + input_str[i] + " " + (int)input_str[i] + "   mid_str = " + mid_str ;
@@ -160,7 +181,8 @@ namespace rand9er
                 }
                 else
                 {
-                    mid_str = (int)input_str[i] + "";
+                    if (counter == 1) { mid_str = (int)input_str[i] + ""; } 
+                    else{ mid_str = input_str[i] + ""; }
                     //test
                     richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nTryParse failure restart mid_str= " + mid_str;
                     mid1_arr[i] = 0;
@@ -176,10 +198,10 @@ namespace rand9er
                     richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n last one= mid1_arr[i= " + i + "]=" + mid1_arr[i];
                 }
             }
-            progressBar2.Maximum = mid2_arr.Length;
+            progressBar2.Maximum = (mid2_arr.Length);
+            progressBar2.Value = counter;
             for (int i = 0; i < mid2_arr.Length; i++)
             {
-                progressBar2.Value = i;
                 if (mid2_arr[i] > 0)
                 {
                     Random rnd = new Random(mid2_arr[i]);
@@ -213,7 +235,7 @@ namespace rand9er
                 new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
 
-            //richTextBox_output.Text = "";
+            richTextBox_output.Text = "";
             for (int i = 0; i < a_shopItems_jag.Length; i++)
             {
                 //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
@@ -228,24 +250,15 @@ namespace rand9er
                 }
             }
 
-
         }
 
 
         public void button_rand_Click(object sender, EventArgs e)
         {
-            //input seed
-            
-            seed = textBox_seed.Text;
-            int seedl = seed.Length;
-            counter = 1;
-            /*if (seed.Length < 10)
-            {
-                richTextBox_output.Text = "Need more seed data";
-                return;
-            }*/
 
-            //fun error message
+            seed = textBox_seed.Text;
+            counter = 1;
+
             if (!(radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked ||
             radio_shopitems_3rand.Checked || radio_synthesis.Checked ||
             radio_defaultequipment.Checked || radio_basestats.Checked ||
@@ -254,16 +267,10 @@ namespace rand9er
 
             //methods
 
-            //need to incorporate the progress bar, need to parse the length of seed to determine work, then prolly just use progress bar / length of seed current possition
-            //two progress bars?
-
-
-            progressBar1.Maximum = seedl;
-            
-            //parse input seed, sanatize, convert to usable data
             swap = seed;
             output_str = SeedRNG(swap, counter);
             swap = output_str;
+            
             //if seed is huge =1000 chars, verified possible output rng. ! 15 cycles for 1000char seed
             //1000char seed -> ints grouped into array of 9 digits per element, 1039 elements
             //random using each element as seed, reducing 9 to 2 or 3.
@@ -430,9 +437,11 @@ namespace rand9er
             }
             else
             {
-                //if something goes wrong, reset seed and continue
+                //if something goes wrong. ugh, fml, just reset seed and continue program kek
                 seed4 = 0;
             }
+            progressBar1.Value = progressBar1.Maximum;
+            progressBar2.Value = progressBar2.Maximum; //finish progress variable progress bars off
 
             if (radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked || radio_shopitems_3rand.Checked)
             {
