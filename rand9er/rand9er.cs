@@ -17,65 +17,27 @@ namespace rand9er
         {
             InitializeComponent();
         }
-        
-        //init
 
-        string input_str, output_str, swap, strmeth, seed2, seed6, seed7, seed = "42", status = "init";
-        int seed4, baddies, counter, incount;
-        int[] seed3, seed5;
+        //init//
+        string input_str, data_str, mid_str, output_str, swap, pswap, seed = "42", status = "init", strmeth = "//convert and compress seed//";
+        int data_int, seedF, baddies, counter, incount, randl = 23, items = 235, mid2c = 0;
+        int[] mid1_arr, mid2_arr, data_arr;
+        int[][] aa_medicItems, a_shopItems_jag, aa_comboSafe;
+        int[] a_shopItems = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
+        int[] a_shopItems_1safe = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
+        int[] a_medicl = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 }; //medic items for safe list. not sure if needed later
+        int[] a_m2 = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 }; //medic items for safe list. not sure if needed later
+        int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        int[] a_shopItems_2maxm = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
+        int[] a_shopItems_3rand = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-
+        //FORM1//
         private void Form1_Load(object sender, EventArgs e)
         {
-            //assign default seed on load, maybe random later
             textBox_seed.Text = seed;
-            //search current user reg for ff9 location to assist with open location prompt
-            //init location
-
-            RegistryKey rkTest = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\MuiCache");
-            string[] vnames = rkTest.GetValueNames();
-            foreach (string s in vnames)
-            {
-                RegistryValueKind rvk = rkTest.GetValueKind(s);
-                if (rvk == RegistryValueKind.String)
-                {
-                    string value = (string)rkTest.GetValue(s);
-                    if (value == "FINAL FANTASY IX")
-                    {
-                        string s2 = "FF9_Launcher.exe";
-                        //string[] str_arr = s.Split(string s2, 2);
-                        string output = s.Substring(0, s.IndexOf(s2));
-                        tb_fl.Text = output;
-                        richTextBox_debug.Text = richTextBox_debug.Text + "\nLocated FF9 install location\n";
-                    }
-                }
-            }
-            rkTest.Close();
-        }
-        private void clear_Click(object sender, EventArgs e)
-        {
-            richTextBox_debug.Text = "";
-            richTextBox_output.Text = "";
-        }
-        private void pictureBox_yuno_Click(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false;
-        }
-        private void radio_synthesis_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "synth";
-        }
-        private void radio_defaultequipment_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "equip";
-        }
-        private void radio_basestats_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "stats";
-        }
-        private void radio_abilitygems_CheckedChanged(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false; status = "ability";
+            pswap = path_search(pswap);
+            tb_fl.Text = pswap;
+            if (pswap.Length > 1) { richTextBox_debug.Text = richTextBox_debug.Text + "\nLocated FF9 install location\n"; }
         }
         private void richTextBox_debug_TextChanged(object sender, EventArgs e)
         {
@@ -87,18 +49,82 @@ namespace rand9er
             Random rnd = new Random();
             textBox_seed.Text = rnd.Next(100000000, 2140000000).ToString();
         }
-        //Shop Items TAB
+        private void clear_Click(object sender, EventArgs e)
+        {
+            richTextBox_debug.Text = "";
+            richTextBox_output.Text = "";
+        }
+        private void pictureBox_yuno_Click(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false;
+        }
+        private void b_open_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.Description = "locate ff9, or seperate Data folder of CSVs";
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                tb_fl.Text = folderDlg.SelectedPath;
+            }
+        }
+        private void b_restore_Click(object sender, EventArgs e)
+        {
+            MedicItems();
+        }
+        private void b_search_Click(object sender, EventArgs e)
+        {
+            pswap = "";
+            pswap = path_search(pswap);
+            if (pswap.Length > 0)
+            {
+                tb_fl.Text = pswap;
+            }
+        }
+        private void button_rand_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = progressBar1.Minimum;
+            progressBar2.Value = progressBar2.Minimum;
 
-        int randl = 23, items = 235;
-
-        int[] a_shopItems = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
-        int[] a_shopItems_1safe = new int[] { 16, 16, 9, 14, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
-        int[] a_s_safe2 = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 }; //medic items for safe list. not sure if needed later
-        int[] a_shopItems_2max = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        int[] a_shopItems_2maxm = new int[] { 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31 };
-        int[] a_shopItems_3rand = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            if (!(radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked ||
+            radio_shopitems_3rand.Checked || radio_synthesis.Checked ||
+            radio_defaultequipment.Checked || radio_basestats.Checked ||
+            radio_abilitygems.Checked)) { pictureBox_yuno.Visible = true; }
 
 
+            //string seed has input data
+            SeedIngest();
+            //string data_str has output data
+            Compressor();
+            //string data_str has output data (under 10 digit string)
+            CleanSeedInt();
+            //int data_int has output data (under 10 digit int)
+
+
+            if (radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked || radio_shopitems_3rand.Checked)
+            {
+                ShopItems();
+                if (radio_shopitems_1safe.Checked)
+                {
+                    MedicItems();
+                    ComboShop();
+                }
+            }
+
+            //debug output
+            richTextBox_debug.Text = richTextBox_debug.Text
+                + "\nrandl: " + randl.ToString()
+                + "\nbaddies\n" + baddies.ToString()
+                + "\ncompressed seed\n" + data_int
+                + "\nitems: (1-" + items + ")\n"
+                ;
+
+            progressBar1.Value = progressBar1.Maximum;
+            progressBar2.Value = progressBar2.Maximum;
+
+        }
+
+        //SHOP ITEMS TAB//
         private void radio_shopitems_1safe_CheckedChanged(object sender, EventArgs e)
         {
             pictureBox_yuno.Visible = false; status = "shop";
@@ -146,112 +172,120 @@ namespace rand9er
             }
         }
 
-
-        public string SeedRNG(string swap, int counter) //string swap to input
+        //SYNTH TAB//
+        private void radio_synthesis_CheckedChanged(object sender, EventArgs e)
         {
-            strmeth = "//convert and compress seed//";
-            input_str = swap;
-            incount = counter;
-            string mid_str = "", 
-            output_str = "";
-            int[] mid1_arr = new int[input_str.Length];
-            int[] mid2_arr = new int[input_str.Length];
-            int mid2c = 0;
-            //richTextBox_debug.Text = "SeedRNG()";
-            //test
-            richTextBox_debug.Text = richTextBox_debug.Text + "\nSeedRNG(swap= " + swap + " counter= " + counter + ")";
-            progressBar1.Maximum = input_str.Length;
-            for (int i = 0; i < input_str.Length; i++)
+            pictureBox_yuno.Visible = false; status = "synth";
+        }
+
+        //CHAR TAB//
+        private void radio_defaultequipment_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false; status = "equip";
+        }
+        private void radio_basestats_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false; status = "stats";
+        }
+        private void radio_abilitygems_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox_yuno.Visible = false; status = "ability";
+        }
+
+
+
+        //          MATHODS          //
+
+        private void SeedIngest()
+        {
+            //string seed has input data
+            if (textBox_seed.Text.Length == 0) { seed = "Default SEED 4 u"; textBox_seed.Text = seed; }
+            seed = textBox_seed.Text;
+            data_str = ""; //converted seed to data
+            counter = 1; //reset these counters
+            richTextBox_debug.Text = "SeedIngest()" + seed.Length;
+            progressBar1.Maximum = seed.Length;
+            for (int i = 0; i < seed.Length; i++)
             {
                 progressBar1.Value = i;
-                if (counter ==1) {
-                    if ((i > 0) & ((i % 2) == 0))
-                    {
-                        if (((int)input_str[i]) == ((int)input_str[i - 1]))
-                        {
-                            Random rnd = new Random((int)input_str[i]);
-                            mid_str = mid_str + rnd.Next(33, 255);
-                        }
-                        else
-                        {
-                            mid_str = mid_str + (int)input_str[i];
-                        }
-                    }
-                    else
-                    {
-                        mid_str = mid_str + (int)input_str[i];
-                    }
-                } else 
-                if ((i > 0) & ((i % 2) == 0))
-                {
-                    if ((input_str[i]) == (input_str[i - 1]))
-                    {
-                        Random rnd = new Random(input_str[i]);
-                        mid_str = mid_str + rnd.Next(42, 420);
-                    }
-                    else
-                    {
-                        mid_str = mid_str + input_str[i];
-                    }
-                } else
-                {
-                    mid_str = mid_str + input_str[i];
-                }
-                //test
-                richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n(int)input_str[i= " + i + "]= " + input_str[i] + " " + (int)input_str[i] + "   mid_str = " + mid_str ;
-                if (int.TryParse(mid_str, out int test2))
-                {
-                    mid1_arr[i] = test2;
-                    //test
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nTryParse success mid1_arr= " + mid1_arr[i];
-                }
-                else
-                {
-                    if (counter == 1) { mid_str = (int)input_str[i] + ""; } 
-                    else{ mid_str = input_str[i] + ""; }
-                    //test
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nTryParse failure restart mid_str= " + mid_str;
-                    mid1_arr[i] = 0;
-                    mid2_arr[mid2c] = mid1_arr[i - 1];
-                    //test
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nmid2_arr[mid2c= " + mid2c + "] = mid1_arr[i - 1]= " + mid1_arr[i - 1];
-                    mid2c++;
-                }
-                if (i == input_str.Length-1)
-                {
-                    mid2_arr[mid2c] = mid1_arr[i];
-                    //test
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\n last one= mid1_arr[i= " + i + "]=" + mid1_arr[i];
-                }
+                data_str = data_str + (int)seed[i];
             }
-            progressBar2.Maximum = (mid2_arr.Length);
-            progressBar2.Value = counter;
-            for (int i = 0; i < mid2_arr.Length; i++)
-            {
-                if (mid2_arr[i] > 0)
-                {
-                    Random rnd = new Random(mid2_arr[i]);
-                    output_str = output_str + rnd.Next(42, 420);
-                    //test
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n" + counter + "\nmid2_arr[i= " + i + "]=" + mid2_arr[i] + " --rng-- output_str= " + output_str;
-                }
-            }
-            return output_str;
+            richTextBox_debug.Text = richTextBox_debug.Text + "\n Ingested " + seed.Length;
+            //string data_str has output data
         }
+        private void Compressor()
+        {
+            //string data_str has input data
+            progressBar2.Maximum = data_str.Length;
+            progressBar2.Value = (counter/ data_str.Length);
+            l_counter.Text = counter.ToString();
+            if (data_str.Length > 9)
+            {
+                richTextBox_debug.Text = richTextBox_debug.Text + "\nCompressed= " + counter + "\nlength= " + data_str.Length;
+                counter++;
+                Splitter();
+                SeedRNG();
+                Compressor();
+            }
+        }
+        private void Splitter()
+        {
+            //string data_str has input data
+            progressBar1.Maximum = data_str.Length;
+            int r = 0; if (!(data_str.Length % 9 == 0)) { r = 1; }
+            int r2 = data_str.Length % 9;
+            int al = ((data_str.Length / 9) + r); //array length plus 1 for/if remainder
+            data_arr = new int[al]; //reset worker array each cycle
+            int ai = 0;
+            for (int i = 0; i < data_str.Length; i = i + 9)
+            {
+                progressBar1.Value = i;
+                ai = ((i + 9) / 9) - 1;
+                if ((al - ai == 1) & (r == 1))
+                {
+                    int.TryParse(data_str.Substring(i, data_str.Length-i), out data_arr[ai]); // add remainder if any to array
+                    i = i + 9; //prevent substring(i,9) exception
+                } else 
+                { 
+                    int.TryParse(data_str.Substring(i, 9), out data_arr[ai]); 
+                }
+            }
+            data_str = ""; //reset data_str
+            //array data_arr has output data
+        }
+        private void SeedRNG()
+        {
+            //array data_arr has input data
+            progressBar1.Maximum = data_arr.Length;
+            for (int i = 0; i < data_arr.Length; i++)
+            {
+                Random rnd = new Random(data_arr[i]);
+                data_str = data_str + rnd.Next(42, 420);
+                progressBar1.Value = i;
+            }
+            //string data_str has output data
+        }
+        private void CleanSeedInt()
+        {
+            //string data_str has input data
+            int.TryParse(data_str, out data_int);
+            //int data_int has output data
+        }
+
+
+        //Shop Methods
 
         private void ShopItems()
         {
             if (radio_shopitems_3rand.Checked)
             {
-
                 for (int i = 0; i < randl; i++)
                 {
-                    Random rnd = new Random(seed4+i);
+                    Random rnd = new Random(data_int + i);
                     a_shopItems[i] = rnd.Next(1, 31);
                 }
             }
-
-            int[][] a_shopItems_jag =
+            int[][] a_shopItems_jag1 =
             {
                 new int[a_shopItems[0]],new int[a_shopItems[1]],new int[a_shopItems[2]],new int[a_shopItems[3]],new int[a_shopItems[4]],new int[a_shopItems[5]],
                 new int[a_shopItems[6]],new int[a_shopItems[7]],new int[a_shopItems[8]],new int[a_shopItems[9]],new int[a_shopItems[10]],new int[a_shopItems[11]],
@@ -260,312 +294,152 @@ namespace rand9er
                 new int[a_shopItems[24]],new int[a_shopItems[25]],new int[a_shopItems[26]],new int[a_shopItems[27]],new int[a_shopItems[28]],new int[a_shopItems[29]],
                 new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
-
+            a_shopItems_jag = a_shopItems_jag1;
             richTextBox_output.Text = "";
-            for (int i = 0; i < a_shopItems_jag.Length; i++)
+            for (int i = 0; i < randl; i++)
             {
                 //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
                 richTextBox_output.Text = richTextBox_output.Text + "\n;";
                 for (int j = 0; j < a_shopItems_jag[i].Length; j++)
                 {
-                    Random rnd = new Random(seed4 + i + j + (i*j));
+                    int seed5 = (data_int + 30 * i - (4 * j));
+                    Random rnd = new Random(seed5);
                     int rnd2 = rnd.Next(1, items);
                     if (rnd2 == 250) { rnd2 = 253; }
                     a_shopItems_jag[i][j] = rnd2;
                     richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ a_shopItems_jag[i][j] + "; ";
                 }
             }
-
         }
-
-
-        public void button_rand_Click(object sender, EventArgs e)
+        private void MedicItems()
         {
-
-            progressBar1.Value = progressBar1.Minimum;
-            progressBar2.Value = progressBar2.Minimum;
-            if (seed.Length == 0) { seed = "42"; }
-            seed = textBox_seed.Text;
-            counter = 1;
-
-            if (!(radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked ||
-            radio_shopitems_3rand.Checked || radio_synthesis.Checked ||
-            radio_defaultequipment.Checked || radio_basestats.Checked ||
-            radio_abilitygems.Checked)) 
-            { pictureBox_yuno.Visible = true; }
-
-            //methods
-
-            swap = seed;
-            output_str = SeedRNG(swap, counter);
-            swap = output_str;
-                        
-            if (output_str.Length > 9)
+            //medic items per shop 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
+            int[] a_empty = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //33
+            int[] a_mi0 = a_empty;
+            int[] a_mi1 = a_empty;
+            int[] a_mi2 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi3 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi4 = a_empty;
+            int[] a_mi5 = a_empty;
+            int[] a_mi6 = a_empty;
+            int[] a_mi7 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 247, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi8 = a_empty;
+            int[] a_mi9 = a_empty;
+            int[] a_mi10 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 245, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi11 = a_empty;
+            int[] a_mi12 = a_empty;
+            int[] a_mi13 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 247, 248, 253, 0 };
+            int[] a_mi14 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 242, 243, 244, 245, 247, 248, 253, 0, 0 };
+            int[] a_mi15 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 245, 246, 247, 248, 253, 0 };
+            int[] a_mi16 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 248, 253, 0 };
+            int[] a_mi17 = a_empty;
+            int[] a_mi18 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 241, 242, 243, 244, 246, 247, 248, 253, 0, 0 };
+            int[] a_mi19 = a_empty;
+            int[] a_mi20 = a_empty;
+            int[] a_mi21 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 247, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi22 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 245, 247, 248, 253, 0, 0, 0 };
+            int[][] aa_medicItems1 =
             {
-                counter++;
-                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n" + counter + "..\n";
-                output_str = SeedRNG(swap, counter);
-                swap = output_str;
-                //cycle 22 times if needed
-                if (output_str.Length > 9)
-                {
-                    counter++;
-                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                    output_str = SeedRNG(swap, counter);
-                    swap = output_str;
-                    if (output_str.Length > 9)
-                    {
-                        counter++;
-                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                        output_str = SeedRNG(swap, counter);
-                        swap = output_str;
-                        if (output_str.Length > 9)
-                        {
-                            counter++;
-                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                            output_str = SeedRNG(swap, counter);
-                            swap = output_str;
-                            if (output_str.Length > 9)
-                            {
-                                counter++;
-                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                output_str = SeedRNG(swap, counter);
-                                swap = output_str;
-                                if (output_str.Length > 9)
-                                {
-                                    counter++;
-                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                    output_str = SeedRNG(swap, counter);
-                                    swap = output_str;
-                                    if (output_str.Length > 9)
-                                    {
-                                        counter++;
-                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                        output_str = SeedRNG(swap, counter);
-                                        swap = output_str;
-                                        if (output_str.Length > 9)
-                                        {
-                                            counter++;
-                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                            output_str = SeedRNG(swap, counter);
-                                            swap = output_str;
-                                            if (output_str.Length > 9)
-                                            {
-                                                counter++;
-                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                output_str = SeedRNG(swap, counter);
-                                                swap = output_str;
-                                                if (output_str.Length > 9)
-                                                {
-                                                    counter++;
-                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                    output_str = SeedRNG(swap, counter);
-                                                    swap = output_str;
-                                                    if (output_str.Length > 9)
-                                                    {
-                                                        counter++;
-                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n" + counter + "..\n";
-                                                        output_str = SeedRNG(swap, counter);
-                                                        swap = output_str;
-                                                        if (output_str.Length > 9)
-                                                        {
-                                                            counter++;
-                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                            output_str = SeedRNG(swap, counter);
-                                                            swap = output_str;
-                                                            if (output_str.Length > 9)
-                                                            {
-                                                                counter++;
-                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                output_str = SeedRNG(swap, counter);
-                                                                swap = output_str;
-                                                                if (output_str.Length > 9)
-                                                                {
-                                                                    counter++;
-                                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                    output_str = SeedRNG(swap, counter);
-                                                                    swap = output_str;
-                                                                    if (output_str.Length > 9)
-                                                                    {
-                                                                        counter++;
-                                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                        output_str = SeedRNG(swap, counter);
-                                                                        swap = output_str;
-                                                                        if (output_str.Length > 9)
-                                                                        {
-                                                                            counter++;
-                                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                            output_str = SeedRNG(swap, counter);
-                                                                            swap = output_str;
-                                                                            if (output_str.Length > 9)
-                                                                            {
-                                                                                counter++;
-                                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                                output_str = SeedRNG(swap, counter);
-                                                                                swap = output_str;
-                                                                                if (output_str.Length > 9)
-                                                                                {
-                                                                                    counter++;
-                                                                                    richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                                    output_str = SeedRNG(swap, counter);
-                                                                                    swap = output_str;
-                                                                                    if (output_str.Length > 9)
-                                                                                    {
-                                                                                        counter++;
-                                                                                        richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                                        output_str = SeedRNG(swap, counter);
-                                                                                        swap = output_str;
-                                                                                        if (output_str.Length > 9)
-                                                                                        {
-                                                                                            counter++;
-                                                                                            richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                                            output_str = SeedRNG(swap, counter);
-                                                                                            swap = output_str;
-                                                                                            if (output_str.Length > 9)
-                                                                                            {
-                                                                                                counter++;
-                                                                                                richTextBox_debug.Text = richTextBox_debug.Text + "\n..\n.. Overflow, compressing again ..\n.." + counter + "\n";
-                                                                                                output_str = SeedRNG(swap, counter);
-                                                                                                swap = output_str;
-                                                                                                if (output_str.Length > 9)
-                                                                                                {
-                                                                                                    pictureBox_yuno.Visible = true;
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+                a_mi0,a_mi1,a_mi2,a_mi3,a_mi4,a_mi5,a_mi6,a_mi7,a_mi8,a_mi9,a_mi10,a_mi11,a_mi12,a_mi13,a_mi14,a_mi15,a_mi16,a_mi17,a_mi18,a_mi19,a_mi20,a_mi21,a_mi22
+            };
+            aa_medicItems = aa_medicItems1;
+        }
+        private void ComboShop()
+        {
+            //import arrays incase i break the arrays during the work
+            int[][] aa_cs_mi = aa_medicItems; //
+            int[][] aa_cs_si = a_shopItems_jag; //
+            int[] a_cs_medicl = a_medicl; // amount of medic items per shop
+
+            //combine aa_cs_mi and aa_cs_si
+
+
+
+
+
             
-            //reset seed and continue if rng failed
-            if (int.TryParse(output_str, out int test2)) { seed4 = test2; } else { seed4 = 42; }
-
-            progressBar1.Value = progressBar1.Maximum;
-            progressBar2.Value = progressBar2.Maximum; //finish progress variable progress bars off
-
-            if (radio_shopitems_1safe.Checked || radio_shopitems_2max.Checked || radio_shopitems_3rand.Checked)
-            {
-                ShopItems();
-            }
-
-
-            //debug output
-            richTextBox_debug.Text = richTextBox_debug.Text
-                + "\nrandl: " + randl.ToString()
-                + "\nbaddies\n" + baddies.ToString()
-                + "\ninput seed string\n" + seed.ToString()
-                + "\n" + strmeth
-                + "\n" + seed4
-                + "\nseeded random (1-" + items + ")\n"
-                ;
-
-
-
-
-
-
         }
 
-
+        //Synth Methods
         private void Synthesis()
         {
 
-/*
-             * #				
-             *  ;Int32;Byte;Byte;Byte;Byte;Byte
-# Comment		;Id;Shops;Price;Result;Item1;Item2
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;
-Butterfly Sword	;0;79;300;7;1;2
-The Ogre		;1;95;700;8;2;2
-Exploda			;2;92;1000;9;2;3
-Rune Tooth		;3;88;2000;10;3;3
-Angel Bless		;4;112;9000;11;3;4
-Sargatanas		;5;96;12000;12;4;5
-Masamune		;6;64;16000;13;5;6
-Duel Claws		;7;64;16000;49;45;46
-Priest’s Racket	;8;64;11000;55;51;218
-Bracer			;9;64;24000;101;197;107
-Gauntlets		;10;64;8000;111;104;99
-Golden Skullcap	;11;64;15000;134;141;128
-Circlet			;12;64;20000;135;129;204
-Grand Helm		;13;64;20000;147;142;200
-Rubber Suit		;14;64;20000;166;163;95
-Brave Suit		;15;64;26000;167;154;58
-Cotton Robe		;16;63;1000;168;88;115
-Silk Robe		;17;60;2000;169;150;118
-Magician Robe	;18;48;3000;170;70;156
-Glutton’s Robe	;19;32;6000;171;81;168
-White Robe		;20;32;8000;172;161;97
-Black Robe		;21;32;8000;173;161;96
-Light Robe		;22;64;20000;174;170;90
-Robe of Lords	;23;128;30000;175;172;173
-Tin Armour		;24;128;50000;176;0;254
-Grand Armour	;25;64;45000;191;18;180
-Desert Boots	;26;95;300;192;112;149
-Yellow Scarf	;27;95;400;212;114;115
-Glass Buckle	;28;95;500;202;90;89
-Germinas Boots	;29;94;900;194;192;79
-Cachusha		;30;62;1000;218;117;136
-Coral Ring		;31;62;1200;206;73;57
-Gold Choker		;32;94;1300;213;178;242
-Magician Shoes	;33;60;1500;193;194;91
-Barette			;34;60;1800;219;80;139
-Power Belt		;35;60;2000;200;202;179
-Madain’s Ring	;36;56;3000;203;91;59
-Fairy Earrings	;37;56;3200;214;93;242
-Extension		;38;56;3500;220;120;52
-Reflect Ring	;39;56;7000;205;199;203
-Anklet;40		;48;4000;199;213;231
-Feather Boots	;41;48;4000;196;193;249
-Black Belt		;42;48;4000;201;122;157
-Pearl Rouge		;43;48;5000;216;229;239
-Promist Ring	;44;32;6000;207;94;230
-Battle Boots	;45;32;6500;197;196;87
-Rebirth Ring	;46;32;7000;208;227;199
-Angel Earrings	;47;32;8000;215;214;219
-Running Shoes	;48;64;12000;198;197;228
-Rosetta Ring	;49;64;24000;204;203;38
-Protect Ring	;50;128;40000;209;250;208
-Pumice			;51;128;50000;211;210;210
-Garnet			;52;224;350;224;254;247
-Amethyst		;53;224;200;225;254;248
-Peridot			;54;224;100;231;254;242
-Sapphire		;55;224;200;232;254;243
-Opal			;56;224;100;233;254;236
-Topaz			;57;224;100;234;254;244
-Lapis Lazuli	;58;192;400;235;254;252
-Pumice Piece	;59;128;25000;210;0;211
-Save the Queen	;60;128;50000;26;31;103
-Phoenix Pinion	;61;128;300;249;240;251
-Ether			;62;128;500;238;241;246
-Thief Gloves	;63;32;50000;98;92;12
-             * 
-*/
+            /*
+            * #				
+            *  ;Int32;Byte;Byte;Byte;Byte;Byte
+            # Comment		;Id;Shops;Price;Result;Item1;Item2
+            # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;
+            Butterfly Sword	;0;79;300;7;1;2
+            The Ogre		;1;95;700;8;2;2
+            Exploda			;2;92;1000;9;2;3
+            Rune Tooth		;3;88;2000;10;3;3
+            Angel Bless		;4;112;9000;11;3;4
+            Sargatanas		;5;96;12000;12;4;5
+            Masamune		;6;64;16000;13;5;6
+            Duel Claws		;7;64;16000;49;45;46
+            Priest’s Racket	;8;64;11000;55;51;218
+            Bracer			;9;64;24000;101;197;107
+            Gauntlets		;10;64;8000;111;104;99
+            Golden Skullcap	;11;64;15000;134;141;128
+            Circlet			;12;64;20000;135;129;204
+            Grand Helm		;13;64;20000;147;142;200
+            Rubber Suit		;14;64;20000;166;163;95
+            Brave Suit		;15;64;26000;167;154;58
+            Cotton Robe		;16;63;1000;168;88;115
+            Silk Robe		;17;60;2000;169;150;118
+            Magician Robe	;18;48;3000;170;70;156
+            Glutton’s Robe	;19;32;6000;171;81;168
+            White Robe		;20;32;8000;172;161;97
+            Black Robe		;21;32;8000;173;161;96
+            Light Robe		;22;64;20000;174;170;90
+            Robe of Lords	;23;128;30000;175;172;173
+            Tin Armour		;24;128;50000;176;0;254
+            Grand Armour	;25;64;45000;191;18;180
+            Desert Boots	;26;95;300;192;112;149
+            Yellow Scarf	;27;95;400;212;114;115
+            Glass Buckle	;28;95;500;202;90;89
+            Germinas Boots	;29;94;900;194;192;79
+            Cachusha		;30;62;1000;218;117;136
+            Coral Ring		;31;62;1200;206;73;57
+            Gold Choker		;32;94;1300;213;178;242
+            Magician Shoes	;33;60;1500;193;194;91
+            Barette			;34;60;1800;219;80;139
+            Power Belt		;35;60;2000;200;202;179
+            Madain’s Ring	;36;56;3000;203;91;59
+            Fairy Earrings	;37;56;3200;214;93;242
+            Extension		;38;56;3500;220;120;52
+            Reflect Ring	;39;56;7000;205;199;203
+            Anklet;40		;48;4000;199;213;231
+            Feather Boots	;41;48;4000;196;193;249
+            Black Belt		;42;48;4000;201;122;157
+            Pearl Rouge		;43;48;5000;216;229;239
+            Promist Ring	;44;32;6000;207;94;230
+            Battle Boots	;45;32;6500;197;196;87
+            Rebirth Ring	;46;32;7000;208;227;199
+            Angel Earrings	;47;32;8000;215;214;219
+            Running Shoes	;48;64;12000;198;197;228
+            Rosetta Ring	;49;64;24000;204;203;38
+            Protect Ring	;50;128;40000;209;250;208
+            Pumice			;51;128;50000;211;210;210
+            Garnet			;52;224;350;224;254;247
+            Amethyst		;53;224;200;225;254;248
+            Peridot			;54;224;100;231;254;242
+            Sapphire		;55;224;200;232;254;243
+            Opal			;56;224;100;233;254;236
+            Topaz			;57;224;100;234;254;244
+            Lapis Lazuli	;58;192;400;235;254;252
+            Pumice Piece	;59;128;25000;210;0;211
+            Save the Queen	;60;128;50000;26;31;103
+            Phoenix Pinion	;61;128;300;249;240;251
+            Ether			;62;128;500;238;241;246
+            Thief Gloves	;63;32;50000;98;92;12
+            */
+
         }
-
-        private void b_open_Click(object sender, EventArgs e)
+        
+        //IO
+        private string path_search(string pswap)
         {
-            //RW TIME!!!!!
-
-            //search current user reg for ff9 location to assist with open location prompt
-            //init location
-            
             RegistryKey rkTest = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\MuiCache");
             string[] vnames = rkTest.GetValueNames();
             foreach (string s in vnames)
@@ -576,36 +450,41 @@ Thief Gloves	;63;32;50000;98;92;12
                     string value = (string)rkTest.GetValue(s);
                     if (value == "FINAL FANTASY IX")
                     {
-                        string s2 = "FF9_Launcher.exe";
-                        //string[] str_arr = s.Split(string s2, 2);
-                        string output = s.Substring(0, s.IndexOf(s2));
-                        tb_fl.Text = output;
+                        richTextBox_debug.Text = richTextBox_debug.Text + "\nfound ff9";
+                        pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe")) + "StreamingAssets\\Data";
                     }
                 }
             }
             rkTest.Close();
-
-
+            return pswap;
         }
-
-
-        private void readwrite()
+        private void ReadWrite()
         {
-            
+            /*
+            RW notes
+            lines 7 through 29 also through 38
+
+            line format
+            "Shop 0000;" + ShopID + "Item1-32 seperated by ;" "fill rest of unused item slots ;" "-1 terminates list before empty string of ;;;.."
+            technically 33 slots, -1 terminates list. then remaineder ;;;..." + "# Shop 0000"
+ 
+
+            builder will be
+            loop i
+            "Shop 00" + ("0" if i<10) + i + ";" + i + ";" + output line + here we need to repformat output line
+ 
+            output line string
+            loop array for length add i + ";"
+
+            if array length < 31 length+1 = "-1;"
+            if i > length write ;;;;;
+
+            */
         }
+
     }
-
-
 }
 
-
-//notes section
-
-
-//extra places to search
-//Computer\HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
-//Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppSwitched
-//Computer\HKEY_CURRENT_USER\System\GameConfigStore\Children\3edf44be-78f8-4231-a098-52e4ac7cbed8
 
 
 /*     stock shop items   
@@ -618,11 +497,11 @@ Thief Gloves	;63;32;50000;98;92;12
 //item number 236+ is potions etc 250 dark matter, 251,252 gysahl,pepper
 //default shop item amounts inserted into first cell shop number xx00, potions+ in last cell shop number, shops 25+ later maybe
 
-*medic items 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
+
  Shop 1600;0;1;2;16;17;57;70;88;89;102;112;114;136;137;149;150;177;-1;;;;;;;;;;;;;;;;;# Shop 0000
  Shop 1601;1;1;2;3;17;31;57;79;89;90;102;103;115;116;138;151;178;-1;;;;;;;;;;;;;;;;;# Shop 0001
  Shop 0902;2;80;90;104;115;116;117;139;152;178;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;# Shop 0702
- Shop 1403;3;51;58;90;103;104;115;116;117;136;138;139;152;178;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;# Shop 0703
+ Shop 1303;3;51;58;90;103;104;115;116;117;136;138;139;152;178;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;# Shop 0703
  Shop 2504;4;1;2;3;18;32;51;58;71;72;73;79;80;89;90;91;104;117;118;139;150;151;152;153;178;179;-1;;;;;;;;# Shop 0004
  Shop 1805;5;33;52;58;71;72;80;91;92;104;105;117;118;119;140;153;154;179;180;-1;;;;;;;;;;;;;;;# Shop 0005
  Shop 2806;6;1;2;3;20;33;52;59;71;72;73;89;90;91;92;104;105;116;117;118;119;140;150;151;152;153;154;179;180;-1;;;;;# Shop 0006
@@ -651,6 +530,202 @@ Thief Gloves	;63;32;50000;98;92;12
  Shop 0029;29;236;237;240;241;242;243;244;245;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;# Shop 0029
  Shop 0030;30;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0030
  Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031
+
+
+*medic items 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
+*
+ Shop 1600;0;   -1;;;;;;;;;;;;;;;;;# Shop 0000                                          0
+ Shop 1601;1;   -1;;;;;;;;;;;;;;;;;# Shop 0001
+ Shop 0902;2;   236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;# Shop 0702
+ Shop 1403;3;   236;240;241;242;243;244;253;-1;;;;;;;;;;;;;# Shop 0703
+ Shop 2504;4;   -1;;;;;;;;# Shop 0004
+ Shop 1805;5;   -1;;;;;;;;;;;;;;;# Shop 0005
+ Shop 2806;6;   -1;;;;;# Shop 0006
+ Shop 1307;7;   236;240;241;242;243;244;247;248;253;-1;;;;;;;;;;;# Shop 0907
+ Shop 1408;8;   -1;;;;;;;;;;;;;;;;;;;# Shop 0008
+ Shop 3209;9;   -1;# Shop 0009
+ Shop 1410;10;  236;240;241;242;243;244;245;248;253;-1;;;;;;;;;;# Shop 0910
+ Shop 3211;11;  -1;# Shop 0011
+ Shop 2912;12;  -1;;;;# Shop 0012
+ Shop 2113;13;  236;237;240;241;242;243;244;245;247;248;253;-1;# Shop 1113
+ Shop 2214;14;  237;240;242;243;244;245;247;248;253;-1;;# Shop 0914
+ Shop 2515;15;  237;240;245;246;247;248;253;-1;# Shop 0715
+ Shop 2116;16;  236;237;240;241;242;243;244;245;246;248;253;-1;# Shop 1116
+ Shop 3017;17;  -1;;;# Shop 0017
+ Shop 2118;18;  237;240;241;242;243;244;246;247;248;253;-1;;# Shop 1018
+ Shop 3019;19;  -1;;;# Shop 0019
+ Shop 0620;20;  -1;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0020
+ Shop 1221;21;  236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;# Shop 1221
+ Shop 2022;22;  236;237;240;241;242;243;245;247;248;253;-1;;;# Shop 1022
+ Shop 0023;23;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0023
+ Shop 0024;24;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0024
+ Shop 0025;25;236;240;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0025
+ Shop 0026;26;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0026
+ Shop 0027;27;236;240;241;242;243;244;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0027
+ Shop 0028;28;236;237;240;241;242;243;244;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;# Shop 0028
+ Shop 0029;29;236;237;240;241;242;243;244;245;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;# Shop 0029
+ Shop 0030;30;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0030
+ Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031
+
+
          //not used until later when building safe file
         int[] a_s_medicshops = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+-1;;;;;;;;;;;;;;;;;# Shop 0000
+-1;;;;;;;;;;;;;;;;;# Shop 0001
+236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;# Shop 0702
+236;240;241;242;243;244;253;-1;;;;;;;;;;;;;# Shop 0703
+-1;;;;;;;;# Shop 0004
+-1;;;;;;;;;;;;;;;# Shop 0005
+-1;;;;;# Shop 0006
+236;240;241;242;243;244;247;248;253;-1;;;;;;;;;;;# Shop 0907
+-1;;;;;;;;;;;;;;;;;;;# Shop 0008
+-1;# Shop 0009
+236;240;241;242;243;244;245;248;253;-1;;;;;;;;;;# Shop 0910
+-1;# Shop 0011
+-1;;;;# Shop 0012
+236;237;240;241;242;243;244;245;247;248;253;-1;# Shop 1113
+237;240;242;243;244;245;247;248;253;-1;;# Shop 0914
+237;240;245;246;247;248;253;-1;# Shop 0715
+236;237;240;241;242;243;244;245;246;248;253;-1;# Shop 1116
+-1;;;# Shop 0017
+237;240;241;242;243;244;246;247;248;253;-1;;# Shop 1018
+-1;;;# Shop 0019
+-1;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0020
+236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;# Shop 1221
+236;237;240;241;242;243;245;247;248;253;-1;;;# Shop 1022
+
+
+
+int[] a_mi = new int[]
+0
+0
+236;240;241;242;243;244;253;
+236;240;241;242;243;244;253;
+0
+0
+0
+236;240;241;242;243;244;247;248;253;
+0
+0
+236;240;241;242;243;244;245;248;253;
+0
+0
+236;237;240;241;242;243;244;245;247;248;253;-1;# Shop 1113
+237;240;242;243;244;245;247;248;253;
+237;240;245;246;247;248;253;
+236;237;240;241;242;243;244;245;246;248;253;
+0
+237;240;241;242;243;244;246;247;248;253;
+0
+0
+236;237;240;241;242;243;244;245;246;247;248;253;
+236;237;240;241;242;243;245;247;248;253;
+
+
+
+
+for safe we can just copy this code block
+medicshops//
+Shop 0023;23;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0023
+ Shop 0024;24;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0024
+ Shop 0025;25;236;240;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0025
+ Shop 0026;26;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0026
+ Shop 0027;27;236;240;241;242;243;244;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0027
+ Shop 0028;28;236;237;240;241;242;243;244;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;# Shop 0028
+ Shop 0029;29;236;237;240;241;242;243;244;245;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;# Shop 0029
+ Shop 0030;30;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0030
+ Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031
+
+anything needing to override 
+
+Shop 0023;23;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0023
+ Shop 0024;24;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0024
+ Shop 0025;25;236;240;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0025
+ Shop 0026;26;236;240;241;242;243;244;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0026
+ Shop 0027;27;236;240;241;242;243;244;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;;;# Shop 0027
+ Shop 0028;28;236;237;240;241;242;243;244;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;;# Shop 0028
+ Shop 0029;29;236;237;240;241;242;243;244;245;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;;# Shop 0029
+ Shop 0030;30;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0030
+ Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031
+
+
+I think the medic shops was bound to pop out as copiable, but the rest of this just isnt needed.
+lets see, we jag array up the medic items as first planned, and go back to combining arrays during output,
+programming a -1 and >32 semi colons is not hard
+we already have to do the first part
+
+
+//only how many medic items per shop
+            medic items 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
+  
+            //the items
+                    0
+                    0
+     9    2           int[] a_mi2 = { 0,0,0,0,0,0,0,0,0,236,240,241,242,243,244,253 }
+     14   3           int[] a_mi3 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,240,241,242,243,244,253 }
+                    0
+                    0
+                    0
+     13    7           int[] a_mi7 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,236,240,241,242,243,244,247,248,253 }
+                    0
+                    0
+     14    10           int[] a_mi10 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,240,241,242,243,244,245,248,253 }
+                    0
+                    0
+     21    13           int[] a_mi13 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,237,240,241,242,243,244,245,247,248,253 }
+     22    14           int[] a_mi14 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,240,242,243,244,245,247,248,253 }
+     25    15           int[] a_mi15 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,240,245,246,247,248,253 }
+     21    16           int[] a_mi16 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,237,240,241,242,243,244,245,246,248,253 }
+                    0
+     21    18           int[] a_mi18 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,240,241,242,243,244,246,247,248,253 }
+                    0
+                    0
+     12    21           int[] a_mi21 = { 0,0,0,0,0,0,0,0,0,0,0,0,236,237,240,241,242,243,244,245,246,247,248,253 }
+     20    22           int[] a_mi20 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,237,240,241,242,243,245,247,248,253 }
+
+
+
+
+            medicshops//
+            Shop 0023; 23; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0023
+            Shop 0024; 24; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0024
+            Shop 0025; 25; 236; 240; 243; 244; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0025
+            Shop 0026; 26; 236; 240; 241; 242; 243; 244; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0026
+            Shop 0027; 27; 236; 240; 241; 242; 243; 244; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0027
+            Shop 0028; 28; 236; 237; 240; 241; 242; 243; 244; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0028
+            Shop 0029; 29; 236; 237; 240; 241; 242; 243; 244; 245; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0029
+            Shop 0030; 30; 236; 237; 240; 241; 242; 243; 244; 245; 246; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0030
+            Shop 0031; 31; 236; 237; 240; 241; 242; 243; 244; 245; 246; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0031
+
+
+
+
+ more notes
+
+RW notes
+lines 7 through 29 also through 38
+
+ line format
+"Shop 0000;" + ShopID + "Item1-32 seperated by ;" "fill rest of unused item slots ;" "-1 terminates list before empty string of ;;;.."
+technically 33 slots, -1 terminates list. then remaineder ;;;..." + "# Shop 0000"
+ 
+ builder will be
+loop i
+"Shop 00" + ("0" if i<10) + i + ";" + i + ";" + output line + here we need to repformat output line
+ 
+output line string
+loop array for length add i + ";"
+
+if array length < 31 length+1 = "-1;"
+if i > length write ;;;;;
+
+
+just realized need to build a jagged array of stock medic items for use in building output array
+
  */
+
+
+
+
+
+
