@@ -445,7 +445,7 @@ namespace rand9er
             // l_counter
             // 
             this.l_counter.AutoSize = true;
-            this.l_counter.Location = new System.Drawing.Point(85, 360);
+            this.l_counter.Location = new System.Drawing.Point(86, 350);
             this.l_counter.Name = "l_counter";
             this.l_counter.Size = new System.Drawing.Size(35, 13);
             this.l_counter.TabIndex = 28;

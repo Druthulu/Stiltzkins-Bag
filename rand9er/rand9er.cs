@@ -19,10 +19,15 @@ namespace rand9er
         }
 
         //init//
-        string input_str, data_str, mid_str, output_str, swap, pswap, seed = "42", status = "init", strmeth = "//convert and compress seed//";
-        int data_int, seedF, baddies, counter, incount, randl = 23, items = 235, mid2c = 0;
-        int[] mid1_arr, mid2_arr, data_arr;
-        int[][] aa_medicItems, a_shopItems_jag, aa_comboSafe;
+        string data_str, pswap, seed = "42", status = "init";
+        int data_int, baddies, counter, randl = 23, items = 235;
+        int[] data_arr;
+        string[] medicShops;
+        //comboshop test
+        string[] a_comboSafe = new string[32];
+        string[][] aa_comboSafe = new string[32][];
+        
+        int[][] aa_medicItems, aa_shopItems;
         int[] a_shopItems = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
         int[] a_shopItems_1safe = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
         int[] a_medicl = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 }; //medic items for safe list. not sure if needed later
@@ -107,7 +112,8 @@ namespace rand9er
                 if (radio_shopitems_1safe.Checked)
                 {
                     MedicItems();
-                    ComboShop();
+                    SafeCombo();
+                    SafeOutput();
                 }
             }
 
@@ -208,7 +214,9 @@ namespace rand9er
             for (int i = 0; i < seed.Length; i++)
             {
                 progressBar1.Value = i;
-                data_str = data_str + (int)seed[i];
+                Random rnd = new Random((int)seed[i]);
+                data_str = data_str + rnd.Next(42069, 420420);
+                //data_str = data_str + (int)seed[i];
             }
             richTextBox_debug.Text = richTextBox_debug.Text + "\n Ingested " + seed.Length;
             //string data_str has output data
@@ -260,7 +268,7 @@ namespace rand9er
             for (int i = 0; i < data_arr.Length; i++)
             {
                 Random rnd = new Random(data_arr[i]);
-                data_str = data_str + rnd.Next(42, 420);
+                data_str = data_str + rnd.Next(420, 4269);
                 progressBar1.Value = i;
             }
             //string data_str has output data
@@ -281,11 +289,11 @@ namespace rand9er
             {
                 for (int i = 0; i < randl; i++)
                 {
-                    Random rnd = new Random(data_int + i);
+                    Random rnd = new Random(data_int + (30 * i) - (2 * i));
                     a_shopItems[i] = rnd.Next(1, 31);
                 }
             }
-            int[][] a_shopItems_jag1 =
+            int[][] aa_shopItems1 =
             {
                 new int[a_shopItems[0]],new int[a_shopItems[1]],new int[a_shopItems[2]],new int[a_shopItems[3]],new int[a_shopItems[4]],new int[a_shopItems[5]],
                 new int[a_shopItems[6]],new int[a_shopItems[7]],new int[a_shopItems[8]],new int[a_shopItems[9]],new int[a_shopItems[10]],new int[a_shopItems[11]],
@@ -294,71 +302,178 @@ namespace rand9er
                 new int[a_shopItems[24]],new int[a_shopItems[25]],new int[a_shopItems[26]],new int[a_shopItems[27]],new int[a_shopItems[28]],new int[a_shopItems[29]],
                 new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
-            a_shopItems_jag = a_shopItems_jag1;
+            aa_shopItems = aa_shopItems1;
             richTextBox_output.Text = "";
             for (int i = 0; i < randl; i++)
             {
                 //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
-                richTextBox_output.Text = richTextBox_output.Text + "\n;";
-                for (int j = 0; j < a_shopItems_jag[i].Length; j++)
+                for (int j = 0; j < aa_shopItems[i].Length; j++)
                 {
-                    int seed5 = (data_int + 30 * i - (4 * j));
+                    int seed5 = (data_int + ((30 * i) + (2 * j)));
                     Random rnd = new Random(seed5);
                     int rnd2 = rnd.Next(1, items);
                     if (rnd2 == 250) { rnd2 = 253; }
-                    a_shopItems_jag[i][j] = rnd2;
-                    richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ a_shopItems_jag[i][j] + "; ";
+                    aa_shopItems[i][j] = rnd2;
+                    richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ aa_shopItems[i][j] + "; ";
                 }
+                richTextBox_output.Text = richTextBox_output.Text + "\n;";
             }
         }
         private void MedicItems()
         {
             //medic items per shop 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
-            int[] a_empty = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //33
+            int[] a_empty = { 0 }; //33
             int[] a_mi0 = a_empty;
             int[] a_mi1 = a_empty;
-            int[] a_mi2 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            int[] a_mi3 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi2 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253 };
+            int[] a_mi3 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 253 };
             int[] a_mi4 = a_empty;
             int[] a_mi5 = a_empty;
             int[] a_mi6 = a_empty;
-            int[] a_mi7 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 247, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi7 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 247, 248, 253 };
             int[] a_mi8 = a_empty;
             int[] a_mi9 = a_empty;
-            int[] a_mi10 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 245, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] a_mi10 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 240, 241, 242, 243, 244, 245, 248, 253 };
             int[] a_mi11 = a_empty;
             int[] a_mi12 = a_empty;
-            int[] a_mi13 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 247, 248, 253, 0 };
-            int[] a_mi14 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 242, 243, 244, 245, 247, 248, 253, 0, 0 };
-            int[] a_mi15 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 245, 246, 247, 248, 253, 0 };
-            int[] a_mi16 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 248, 253, 0 };
+            int[] a_mi13 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 247, 248, 253 };
+            int[] a_mi14 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 242, 243, 244, 245, 247, 248, 253 };
+            int[] a_mi15 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 245, 246, 247, 248, 253 };
+            int[] a_mi16 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 248, 253 };
             int[] a_mi17 = a_empty;
-            int[] a_mi18 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 241, 242, 243, 244, 246, 247, 248, 253, 0, 0 };
+            int[] a_mi18 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 237, 240, 241, 242, 243, 244, 246, 247, 248, 253 };
             int[] a_mi19 = a_empty;
             int[] a_mi20 = a_empty;
-            int[] a_mi21 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 247, 248, 253, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            int[] a_mi22 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 245, 247, 248, 253, 0, 0, 0 };
+            int[] a_mi21 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 244, 245, 246, 247, 248, 253 };
+            int[] a_mi22 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 237, 240, 241, 242, 243, 245, 247, 248, 253 };
             int[][] aa_medicItems1 =
             {
                 a_mi0,a_mi1,a_mi2,a_mi3,a_mi4,a_mi5,a_mi6,a_mi7,a_mi8,a_mi9,a_mi10,a_mi11,a_mi12,a_mi13,a_mi14,a_mi15,a_mi16,a_mi17,a_mi18,a_mi19,a_mi20,a_mi21,a_mi22
-            };
+            }; //lines 7-29
             aa_medicItems = aa_medicItems1;
+            string[] medicShops1 =
+            {
+                "Shop 0023; 23; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0023",
+                "Shop 0024; 24; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0024",
+                "Shop 0025; 25; 236; 240; 243; 244; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0025",
+                "Shop 0026; 26; 236; 240; 241; 242; 243; 244; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0026",
+                "Shop 0027; 27; 236; 240; 241; 242; 243; 244; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0027",
+                "Shop 0028; 28; 236; 237; 240; 241; 242; 243; 244; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0028",
+                "Shop 0029; 29; 236; 237; 240; 241; 242; 243; 244; 245; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0029",
+                "Shop 0030; 30; 236; 237; 240; 241; 242; 243; 244; 245; 246; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0030",
+                "Shop 0031; 31; 236; 237; 240; 241; 242; 243; 244; 245; 246; 247; 248; 253; -1; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;# Shop 0031"
+            }; //lines 30-38
+            medicShops = medicShops1;
         }
-        private void ComboShop()
+        private void SafeCombo()
         {
             //import arrays incase i break the arrays during the work
-            int[][] aa_cs_mi = aa_medicItems; //
-            int[][] aa_cs_si = a_shopItems_jag; //
-            int[] a_cs_medicl = a_medicl; // amount of medic items per shop
 
+            int[][] aa_cs_medici = aa_medicItems; // input medic items lines 7-29
+            int[][] aa_cs_shopi = aa_shopItems; // input RNG shop items
+            string[] a_cs_medics = medicShops; //input medic shops lines 30-38
+            int[] a_shopItems_1safe = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 };  //use this to 
+            int[] a_medicl = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 };
+            //string[][] aa_cs_comboSafe = aa_comboSafe; //output
+
+            //test
+            string[] a_cs_comboSafe = a_comboSafe;
             //combine aa_cs_mi and aa_cs_si
 
-
-
-
-
-            
+            for (int i = 0; i < 32; i++) //rows 0-22 for safe list, 23-31 for medicShops
+            {
+                if (i < 23)
+                {
+                    for (int j = 0; j < 36; j++) //elements 36, 35semis
+                    {
+                        //first element
+                        if (j == 0)
+                        {
+                            //set first string in each line
+                            a_cs_comboSafe[i] = "Shop 00";
+                            //add extra 0 for first 10 shop string Shop 000
+                            if (i < 10)
+                            {
+                                a_cs_comboSafe[i] = a_cs_comboSafe[i] + "0";
+                            }
+                            //add shop number and ";" to first element
+                            a_cs_comboSafe[i] = a_cs_comboSafe[i] + i + ";";
+                        }
+                        if (j == 1)
+                        {
+                            a_cs_comboSafe[i] = a_cs_comboSafe[i] + i + ";";
+                        }
+                        if ((j > 1) & (j < 35))
+                        {
+                            //need to include offset only on the j input, not the output
+                            //medic items check
+                            if ((j - 2) < aa_cs_medici[i].Length)
+                            {
+                                if (aa_cs_medici[i][j - 2] > 0)
+                                {
+                                    a_cs_comboSafe[i] = a_cs_comboSafe[i] + aa_cs_medici[i][j - 2].ToString() + ";";
+                                }
+                            }
+                            //shop items check
+                            if ((j - 2) < aa_cs_shopi[i].Length)
+                            {
+                                if (aa_cs_shopi[i][j - 2] > 0)
+                                {
+                                    a_cs_comboSafe[i] = a_cs_comboSafe[i] + aa_cs_shopi[i][j - 2].ToString() + ";";
+                                }
+                            }
+                            //outside range of both-1
+                            if (((j - 2) > aa_cs_medici[i].Length - 1) & ((j - 2) > aa_cs_shopi[i].Length - 1))
+                            {
+                                //-1 termination point
+                                if (((j - 2) == aa_cs_medici[i].Length) | ((j - 2) == aa_cs_shopi[i].Length))
+                                {
+                                    a_cs_comboSafe[i] = a_cs_comboSafe[i] + "-1;";
+                                }
+                                //remainder semicolons added
+                                if (((j - 2) > aa_cs_medici[i].Length) & ((j - 2) > aa_cs_shopi[i].Length))
+                                {
+                                    a_cs_comboSafe[i] = a_cs_comboSafe[i] + ";";
+                                }
+                            }
+                        }
+                        //last comment and shop id
+                        if (j == 35)
+                        {
+                            a_cs_comboSafe[i] = a_cs_comboSafe[i] + "# Shop 00";
+                            if (i < 10)
+                            {
+                                a_cs_comboSafe[i] = a_cs_comboSafe[i] + "0";
+                            }
+                            a_cs_comboSafe[i] = a_cs_comboSafe[i] + i;
+                        }
+                    }
+                }
+                if (i > 22)
+                {
+                    //combine medicshops at end
+                    a_cs_comboSafe[i] = medicShops[i - 23];
+                }
+            }
+            a_comboSafe = a_cs_comboSafe;
+            //string[] a_comboSafe has output data, should be all elements for a full shopitems.csv file
         }
+        private void SafeOutput()
+        {
+            //string[] a_comboSafe has input data
+            richTextBox_output.Text = "";
+            for (int i = 0; i < a_comboSafe.Length; i++)
+            {
+                richTextBox_output.Text = richTextBox_output.Text + a_comboSafe[i] + "\n";
+            }
+        }
+
+
+
+
+
+        //they worked !!! lit!!!
+
 
         //Synth Methods
         private void Synthesis()
@@ -460,26 +575,10 @@ namespace rand9er
         }
         private void ReadWrite()
         {
-            /*
-            RW notes
-            lines 7 through 29 also through 38
-
-            line format
-            "Shop 0000;" + ShopID + "Item1-32 seperated by ;" "fill rest of unused item slots ;" "-1 terminates list before empty string of ;;;.."
-            technically 33 slots, -1 terminates list. then remaineder ;;;..." + "# Shop 0000"
- 
-
-            builder will be
-            loop i
-            "Shop 00" + ("0" if i<10) + i + ";" + i + ";" + output line + here we need to repformat output line
- 
-            output line string
-            loop array for length add i + ";"
-
-            if array length < 31 length+1 = "-1;"
-            if i > length write ;;;;;
-
-            */
+         /*
+                    RW notes
+                    lines 7 through 29 also through 38
+         */
         }
 
     }
