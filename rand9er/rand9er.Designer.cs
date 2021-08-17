@@ -64,6 +64,7 @@ namespace rand9er
             this.b_restore = new System.Windows.Forms.Button();
             this.b_search = new System.Windows.Forms.Button();
             this.l_counter = new System.Windows.Forms.Label();
+            this.b_rw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -87,10 +88,10 @@ namespace rand9er
             // button_rand
             // 
             this.button_rand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_rand.Location = new System.Drawing.Point(488, 336);
+            this.button_rand.Location = new System.Drawing.Point(491, 262);
             this.button_rand.Margin = new System.Windows.Forms.Padding(2);
             this.button_rand.Name = "button_rand";
-            this.button_rand.Size = new System.Drawing.Size(135, 39);
+            this.button_rand.Size = new System.Drawing.Size(133, 79);
             this.button_rand.TabIndex = 2;
             this.button_rand.Text = "Randomize\r\n";
             this.button_rand.UseVisualStyleBackColor = true;
@@ -186,7 +187,7 @@ namespace rand9er
             this.richTextBox_debug.Location = new System.Drawing.Point(488, 108);
             this.richTextBox_debug.Name = "richTextBox_debug";
             this.richTextBox_debug.ReadOnly = true;
-            this.richTextBox_debug.Size = new System.Drawing.Size(136, 225);
+            this.richTextBox_debug.Size = new System.Drawing.Size(136, 149);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             this.richTextBox_debug.TextChanged += new System.EventHandler(this.richTextBox_debug_TextChanged);
@@ -204,7 +205,7 @@ namespace rand9er
             // 
             this.pictureBox_yuno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox_yuno.Image = global::rand9er.Properties.Resources.yuno_error;
-            this.pictureBox_yuno.Location = new System.Drawing.Point(441, 336);
+            this.pictureBox_yuno.Location = new System.Drawing.Point(442, 337);
             this.pictureBox_yuno.Name = "pictureBox_yuno";
             this.pictureBox_yuno.Size = new System.Drawing.Size(41, 39);
             this.pictureBox_yuno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -423,7 +424,7 @@ namespace rand9er
             // 
             // b_restore
             // 
-            this.b_restore.Location = new System.Drawing.Point(538, 60);
+            this.b_restore.Location = new System.Drawing.Point(538, 59);
             this.b_restore.Margin = new System.Windows.Forms.Padding(2);
             this.b_restore.Name = "b_restore";
             this.b_restore.Size = new System.Drawing.Size(86, 19);
@@ -445,17 +446,29 @@ namespace rand9er
             // l_counter
             // 
             this.l_counter.AutoSize = true;
-            this.l_counter.Location = new System.Drawing.Point(86, 350);
+            this.l_counter.Location = new System.Drawing.Point(88, 360);
             this.l_counter.Name = "l_counter";
             this.l_counter.Size = new System.Drawing.Size(35, 13);
             this.l_counter.TabIndex = 28;
             this.l_counter.Text = "label2";
+            // 
+            // b_rw
+            // 
+            this.b_rw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_rw.Location = new System.Drawing.Point(491, 346);
+            this.b_rw.Name = "b_rw";
+            this.b_rw.Size = new System.Drawing.Size(133, 26);
+            this.b_rw.TabIndex = 29;
+            this.b_rw.Text = "WRITE OUTPUT";
+            this.b_rw.UseVisualStyleBackColor = true;
+            this.b_rw.Click += new System.EventHandler(this.b_rw_Click);
             // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 384);
+            this.Controls.Add(this.b_rw);
             this.Controls.Add(this.l_counter);
             this.Controls.Add(this.b_search);
             this.Controls.Add(this.b_restore);
@@ -476,7 +489,7 @@ namespace rand9er
             this.Controls.Add(this.richTextBox_output);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
-            this.Text = "FFIX Randomizer Assistant 0.8";
+            this.Text = "FFIX Randomizer Assistant 0.85";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -527,6 +540,7 @@ namespace rand9er
         private System.Windows.Forms.Button b_restore;
         private System.Windows.Forms.Button b_search;
         private System.Windows.Forms.Label l_counter;
+        private System.Windows.Forms.Button b_rw;
     }
 }
 
