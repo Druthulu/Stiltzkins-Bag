@@ -81,7 +81,7 @@ namespace rand9er
             this.richTextBox_output.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_output.Name = "richTextBox_output";
             this.richTextBox_output.ReadOnly = true;
-            this.richTextBox_output.Size = new System.Drawing.Size(328, 533);
+            this.richTextBox_output.Size = new System.Drawing.Size(328, 91);
             this.richTextBox_output.TabIndex = 1;
             this.richTextBox_output.Text = "int getRandomNumber() {\n     return 4; // chosen by fair dice roll.\n             " +
     "       // guaranteed to be random.\n}";
@@ -519,7 +519,7 @@ namespace rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 829);
+            this.ClientSize = new System.Drawing.Size(632, 385);
             this.Controls.Add(this.c_all_e);
             this.Controls.Add(this.c_main_e);
             this.Controls.Add(this.c_random_e);
@@ -563,7 +563,7 @@ namespace rand9er
             this.Controls.Add(this.richTextBox_output);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
-            this.Text = "FFIX Randomizer Assistant 0.88";
+            this.Text = "FFIX Randomizer Assistant 0.90";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
             this.ResumeLayout(false);
