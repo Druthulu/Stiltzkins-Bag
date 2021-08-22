@@ -57,10 +57,7 @@ namespace rand9er
             richTextBox_debug.Text = "";
             richTextBox_output.Text = "";
         }
-        private void pictureBox_yuno_Click(object sender, EventArgs e)
-        {
-            pictureBox_yuno.Visible = false;
-        }
+
         private void b_open_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
@@ -1249,9 +1246,9 @@ namespace rand9er
                     //last comment
                     if (j == 35)
                     {
-                        a_cs_comboSafe[i] ="#Randomized";
+                        a_cs_comboSafe[i] = a_cs_comboSafe[i] + "#Randomized";
                     }
-                    if (i > 22 & c_medicshops.Checked == false)
+                    if (i > 22 & c_medicshops.Enabled == false | i > 22 & c_medicshops.Checked == false)
                     {
                         a_cs_comboSafe[i] = medicShops[i - 23];
                     }
@@ -1462,7 +1459,7 @@ namespace rand9er
         }
         private void PermissionEdit()
         {
-            if (c_random_e.Checked)
+            if (c_random_e.Enabled & c_random_e.Checked)
             {
                 //edit permissions to random 0s or 1s
                 string[] a_permdata = a_itemdata;
@@ -1485,7 +1482,7 @@ namespace rand9er
 
                 }
             }
-            if (c_all_e.Checked)
+            if (c_all_e.Enabled & c_all_e.Checked)
             {
                 //edit permissions to all 1s
                 string[] a_permdata = a_itemdata;
@@ -1521,7 +1518,8 @@ namespace rand9er
             if (c_default.Checked == true) { set = set + "/default equipment"; }
             if (c_basestats.Checked == true) { set = set + "/base stats"; }
             if (c_abilitygems.Checked == true) { set = set + "/abilitygems"; }
-            richTextBox_output.Text = "#Randomized by FFIX Randomizer Assistant\n#Seed=" + seed + "\n#settings: " + set + "\n";
+            //richTextBox_output.Text = "#Randomized by FFIX Randomizer Assistant\n#Seed=" + seed + "\n#settings: " + set + "\n";
+            richTextBox_output.Text = "";
             if (c_default.Checked == true)
             {
                 for (int i = 0; i < a_equipdata.Length; i++)

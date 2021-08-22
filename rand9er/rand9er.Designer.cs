@@ -29,6 +29,7 @@ namespace rand9er
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rand9er));
             this.richTextBox_output = new System.Windows.Forms.RichTextBox();
             this.button_rand = new System.Windows.Forms.Button();
             this.label_output = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@ namespace rand9er
             this.textBox_seed = new System.Windows.Forms.TextBox();
             this.richTextBox_debug = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox_yuno = new System.Windows.Forms.PictureBox();
             this.c_medicshops = new System.Windows.Forms.CheckBox();
             this.c_medicitems = new System.Windows.Forms.CheckBox();
             this.c_prices = new System.Windows.Forms.CheckBox();
@@ -71,17 +71,16 @@ namespace rand9er
             this.c_random_e = new System.Windows.Forms.CheckBox();
             this.c_main_e = new System.Windows.Forms.CheckBox();
             this.c_all_e = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox_output
             // 
             this.richTextBox_output.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBox_output.Location = new System.Drawing.Point(155, 285);
-            this.richTextBox_output.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox_output.Location = new System.Drawing.Point(155, 251);
+            this.richTextBox_output.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox_output.Name = "richTextBox_output";
             this.richTextBox_output.ReadOnly = true;
-            this.richTextBox_output.Size = new System.Drawing.Size(328, 91);
+            this.richTextBox_output.Size = new System.Drawing.Size(372, 125);
             this.richTextBox_output.TabIndex = 1;
             this.richTextBox_output.Text = "int getRandomNumber() {\n     return 4; // chosen by fair dice roll.\n             " +
     "       // guaranteed to be random.\n}";
@@ -90,19 +89,19 @@ namespace rand9er
             // button_rand
             // 
             this.button_rand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_rand.Location = new System.Drawing.Point(491, 269);
-            this.button_rand.Margin = new System.Windows.Forms.Padding(2);
+            this.button_rand.Location = new System.Drawing.Point(538, 251);
+            this.button_rand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_rand.Name = "button_rand";
-            this.button_rand.Size = new System.Drawing.Size(133, 72);
+            this.button_rand.Size = new System.Drawing.Size(86, 72);
             this.button_rand.TabIndex = 2;
-            this.button_rand.Text = "Randomize\r\n";
+            this.button_rand.Text = "Buy for 333 Gil";
             this.button_rand.UseVisualStyleBackColor = true;
             this.button_rand.Click += new System.EventHandler(this.button_rand_Click);
             // 
             // label_output
             // 
             this.label_output.AutoSize = true;
-            this.label_output.Location = new System.Drawing.Point(152, 269);
+            this.label_output.Location = new System.Drawing.Point(114, 269);
             this.label_output.Name = "label_output";
             this.label_output.Size = new System.Drawing.Size(39, 13);
             this.label_output.TabIndex = 11;
@@ -126,10 +125,10 @@ namespace rand9er
             // 
             // richTextBox_debug
             // 
-            this.richTextBox_debug.Location = new System.Drawing.Point(491, 126);
+            this.richTextBox_debug.Location = new System.Drawing.Point(538, 169);
             this.richTextBox_debug.Name = "richTextBox_debug";
             this.richTextBox_debug.ReadOnly = true;
-            this.richTextBox_debug.Size = new System.Drawing.Size(133, 138);
+            this.richTextBox_debug.Size = new System.Drawing.Size(86, 77);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             this.richTextBox_debug.TextChanged += new System.EventHandler(this.richTextBox_debug_TextChanged);
@@ -143,25 +142,12 @@ namespace rand9er
             this.label1.TabIndex = 15;
             this.label1.Text = "Debug";
             // 
-            // pictureBox_yuno
-            // 
-            this.pictureBox_yuno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox_yuno.Image = global::rand9er.Properties.Resources.yuno_error;
-            this.pictureBox_yuno.Location = new System.Drawing.Point(442, 337);
-            this.pictureBox_yuno.Name = "pictureBox_yuno";
-            this.pictureBox_yuno.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox_yuno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_yuno.TabIndex = 16;
-            this.pictureBox_yuno.TabStop = false;
-            this.pictureBox_yuno.Visible = false;
-            this.pictureBox_yuno.Click += new System.EventHandler(this.pictureBox_yuno_Click);
-            // 
             // c_medicshops
             // 
             this.c_medicshops.AutoSize = true;
             this.c_medicshops.Enabled = false;
             this.c_medicshops.Location = new System.Drawing.Point(24, 225);
-            this.c_medicshops.Margin = new System.Windows.Forms.Padding(2);
+            this.c_medicshops.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_medicshops.Name = "c_medicshops";
             this.c_medicshops.Size = new System.Drawing.Size(126, 17);
             this.c_medicshops.TabIndex = 24;
@@ -174,7 +160,7 @@ namespace rand9er
             this.c_medicitems.AutoSize = true;
             this.c_medicitems.Enabled = false;
             this.c_medicitems.Location = new System.Drawing.Point(24, 191);
-            this.c_medicitems.Margin = new System.Windows.Forms.Padding(2);
+            this.c_medicitems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_medicitems.Name = "c_medicitems";
             this.c_medicitems.Size = new System.Drawing.Size(118, 30);
             this.c_medicitems.TabIndex = 22;
@@ -198,7 +184,7 @@ namespace rand9er
             this.c_result.AutoSize = true;
             this.c_result.Enabled = false;
             this.c_result.Location = new System.Drawing.Point(180, 124);
-            this.c_result.Margin = new System.Windows.Forms.Padding(2);
+            this.c_result.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_result.Name = "c_result";
             this.c_result.Size = new System.Drawing.Size(56, 17);
             this.c_result.TabIndex = 28;
@@ -210,7 +196,7 @@ namespace rand9er
             this.c_require.AutoSize = true;
             this.c_require.Enabled = false;
             this.c_require.Location = new System.Drawing.Point(180, 103);
-            this.c_require.Margin = new System.Windows.Forms.Padding(2);
+            this.c_require.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_require.Name = "c_require";
             this.c_require.Size = new System.Drawing.Size(91, 17);
             this.c_require.TabIndex = 26;
@@ -220,7 +206,7 @@ namespace rand9er
             // clear
             // 
             this.clear.Location = new System.Drawing.Point(586, 83);
-            this.clear.Margin = new System.Windows.Forms.Padding(2);
+            this.clear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(38, 20);
             this.clear.TabIndex = 20;
@@ -231,7 +217,7 @@ namespace rand9er
             // pbar_branch
             // 
             this.pbar_branch.Location = new System.Drawing.Point(12, 337);
-            this.pbar_branch.Margin = new System.Windows.Forms.Padding(2);
+            this.pbar_branch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbar_branch.Name = "pbar_branch";
             this.pbar_branch.Size = new System.Drawing.Size(138, 13);
             this.pbar_branch.TabIndex = 21;
@@ -239,7 +225,7 @@ namespace rand9er
             // pbar_tree
             // 
             this.pbar_tree.Location = new System.Drawing.Point(12, 360);
-            this.pbar_tree.Margin = new System.Windows.Forms.Padding(2);
+            this.pbar_tree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbar_tree.Name = "pbar_tree";
             this.pbar_tree.Size = new System.Drawing.Size(138, 13);
             this.pbar_tree.TabIndex = 22;
@@ -247,7 +233,7 @@ namespace rand9er
             // b_rseed
             // 
             this.b_rseed.Location = new System.Drawing.Point(538, 10);
-            this.b_rseed.Margin = new System.Windows.Forms.Padding(2);
+            this.b_rseed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.b_rseed.Name = "b_rseed";
             this.b_rseed.Size = new System.Drawing.Size(85, 19);
             this.b_rseed.TabIndex = 23;
@@ -258,7 +244,7 @@ namespace rand9er
             // b_open
             // 
             this.b_open.Location = new System.Drawing.Point(12, 35);
-            this.b_open.Margin = new System.Windows.Forms.Padding(2);
+            this.b_open.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.b_open.Name = "b_open";
             this.b_open.Size = new System.Drawing.Size(99, 20);
             this.b_open.TabIndex = 24;
@@ -269,7 +255,7 @@ namespace rand9er
             // tb_fl
             // 
             this.tb_fl.Location = new System.Drawing.Point(117, 35);
-            this.tb_fl.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_fl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_fl.Name = "tb_fl";
             this.tb_fl.ReadOnly = true;
             this.tb_fl.Size = new System.Drawing.Size(417, 20);
@@ -278,7 +264,7 @@ namespace rand9er
             // b_restore
             // 
             this.b_restore.Location = new System.Drawing.Point(538, 59);
-            this.b_restore.Margin = new System.Windows.Forms.Padding(2);
+            this.b_restore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.b_restore.Name = "b_restore";
             this.b_restore.Size = new System.Drawing.Size(86, 19);
             this.b_restore.TabIndex = 26;
@@ -308,9 +294,9 @@ namespace rand9er
             // b_rw
             // 
             this.b_rw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_rw.Location = new System.Drawing.Point(491, 346);
+            this.b_rw.Location = new System.Drawing.Point(538, 328);
             this.b_rw.Name = "b_rw";
-            this.b_rw.Size = new System.Drawing.Size(133, 26);
+            this.b_rw.Size = new System.Drawing.Size(87, 44);
             this.b_rw.TabIndex = 29;
             this.b_rw.Text = "WRITE OUTPUT";
             this.b_rw.UseVisualStyleBackColor = true;
@@ -553,7 +539,6 @@ namespace rand9er
             this.Controls.Add(this.pbar_tree);
             this.Controls.Add(this.pbar_branch);
             this.Controls.Add(this.clear);
-            this.Controls.Add(this.pictureBox_yuno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox_debug);
             this.Controls.Add(this.textBox_seed);
@@ -561,11 +546,11 @@ namespace rand9er
             this.Controls.Add(this.label_output);
             this.Controls.Add(this.button_rand);
             this.Controls.Add(this.richTextBox_output);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "rand9er";
-            this.Text = "FFIX Randomizer Assistant 0.90";
+            this.Text = "Stiltzkin\'s bag 0.92     a FFIX randomizer tool";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_yuno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,7 +564,6 @@ namespace rand9er
         private System.Windows.Forms.TextBox textBox_seed;
         private System.Windows.Forms.RichTextBox richTextBox_debug;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox_yuno;
         private System.Windows.Forms.CheckBox c_medicitems;
         private System.Windows.Forms.CheckBox c_medicshops;
         private System.Windows.Forms.CheckBox c_result;
