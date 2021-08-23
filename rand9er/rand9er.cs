@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -20,13 +21,13 @@ namespace rand9er
         }
 
         //init//
-        string data_str, pswap, set, seed = "42", status = "init";
-        int rngch, rngsy, rngsi, data_int, baddies, counter, randl = 23, items = 236;
+        string data_str, pswap, set, seed = "42";
+        int data_int, counter, randl = 23, items = 236;
         int weapa = 0; int weapb = 85;int armleta = 88; int armletb = 112;int helma = 112; 
         int helmb = 148; int armora = 148; int armorb = 192; int acca = 192; int accb = 224;
         char[] separators = new char[] { ';', ';' };
         int[] data_arr, a_empty = { 0 };
-        string[] medicShops, a_stockShopItems, a_synthdata, a_stockSynthesis, a_statdata, a_stockBaseStats, a_equipdata, a_stockDefaultEquipment, a_itemdata, a_stockItems, a_itemtype, a_gemdata, a_stockAbilityGems, a_comboSafe = new string[32];
+        string[] medicShops, a_stockShopItems, a_synthdata, a_stockSynthesis, a_statdata, a_stockBaseStats, a_equipdata, a_stockDefaultEquipment, a_itemdata, a_stockItems, a_gemdata, a_stockAbilityGems, a_comboSafe = new string[32];
         int[][] aa_medicItems, aa_shopItems;
         int[] a_shopItems = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //default
         int[] a_shopItems_1safe = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //filled zeros so no exceptions
@@ -40,12 +41,11 @@ namespace rand9er
             textBox_seed.Text = seed;
             pswap = path_search(pswap);
             tb_fl.Text = pswap;
-            if (pswap.Length > 1) { richTextBox_debug.Text = richTextBox_debug.Text + "\nLocated FF9 install location\n"; }
         }
         private void richTextBox_debug_TextChanged(object sender, EventArgs e)
         {
-            richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
-            richTextBox_debug.ScrollToCaret();
+            //richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
+            //richTextBox_debug.ScrollToCaret();
         }
         private void b_rseed_Click_1(object sender, EventArgs e)
         {
@@ -57,31 +57,25 @@ namespace rand9er
             richTextBox_debug.Text = "";
             richTextBox_output.Text = "";
         }
-
         private void b_open_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.Description = "locate ff9, or seperate Data folder of CSVs";
-            DialogResult result = folderDlg.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                tb_fl.Text = folderDlg.SelectedPath;
-            }
+            Manual_search();
         }
         private void b_restore_Click(object sender, EventArgs e)
         {
-            
-            //todo
-            
-            
-            
-            
-            StockShopItemsCSV();
+
+            //need to write
+            if (MessageBox.Show("Selected options will be restored to Stock settings", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                IO_stock();
+            }
         }
         private void b_rw_Click(object sender, EventArgs e)
         {
-            //need to research confirmation box
-            ReadWrite();
+            if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                ReadWrite();
+            }
         }
         private void b_search_Click(object sender, EventArgs e)
         {
@@ -351,148 +345,43 @@ namespace rand9er
         //MAIN
         private void button_rand_Click(object sender, EventArgs e)
         {
-            //reset
-            pbar_branch.Value = pbar_branch.Minimum;
-            pbar_tree.Value = pbar_tree.Minimum;
-            pbar_leaf.Value = pbar_leaf.Minimum;
-            pbar_seed.Value = pbar_seed.Minimum;
-            l_branch.Text = "";
-            l_tree.Text = "";
-            l_leaf.Text = "";
-            l_seed.Text = "";
-
-            //string seed has input data
-            SeedIngest();
-            //string data_str has output data
-            Compressor();
-            //string data_str has output data (under 10 digit string)
-            CleanSeedInt();
-            //int data_int has output data (under 10 digit int)
-
-            if (cm_itemshop.Checked)
+            if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked)
             {
-                ShopItems();
-                MedicItems();
-                ShopCombo();
-                ShopOutput();
-            }
-            if (cm_synth.Checked)
-            {
-                Synthesis();
-                SynthOutput();
-            }
-            if (cm_char.Checked)
-            {
-                Character();
-                CharOutput();
-            }
-
-            //debug output
-            //richTextBox_debug.Text = richTextBox_debug.Text + "\nrandl: " + randl.ToString() + "\nSeed DNA " + data_int + "\nitems: (1-" + items + ")\n";
-
-            pbar_branch.Value = pbar_branch.Maximum;
-            pbar_tree.Value = pbar_tree.Maximum;
-            pbar_leaf.Value = pbar_leaf.Maximum;
-            pbar_seed.Value = pbar_seed.Maximum;
-        }
-
-        //Seed
-        private void SeedIngest()
-        {
-            //string seed has input data
-            if (textBox_seed.Text.Length == 0) { seed = "Default SEED 4 u"; textBox_seed.Text = seed; }
-            seed = textBox_seed.Text;
-            data_str = ""; //converted seed to data
-            counter = 1; //reset these counters
-            richTextBox_debug.Text = "Seeds planted " + seed.Length;
-            pbar_seed.Maximum = seed.Length;
-            pbar_tree.Value = counter;
-            for (int i = 0; i < seed.Length; i++)
-            {
-                pbar_seed.Value = i;
-                Random rnd = new Random((int)seed[i]);
-                data_str = data_str + rnd.Next(426942, 4269420);
-                l_branch.Text = rnd.Next(426942, 4269420) + " branches";
-                //data_str = data_str + (int)seed[i];
-            }
-            l_seed.Text = data_str.Length.ToString();
-            //string data_str has output data
-        }
-        private void Compressor()
-        {
-            //string data_str has input data
-            pbar_tree.Maximum = data_str.Length;
-            pbar_branch.Maximum = data_str.Length;
-
-            int i_temp = (counter / data_str.Length);
-            if ( i_temp > data_str.Length)
-            {
-                pbar_tree.Value = counter;
-            } else pbar_tree.Value = i_temp;
-            l_tree.Text = counter + " trees";
-            pbar_branch.Value = data_str.Length;
-            if (data_str.Length > 9)
-            {
-                counter++;
-                Splitter();
-                SeedRNG();
-                Compressor();
-            }
-        }
-        private void Splitter()
-        {
-            //string data_str has input data
-            pbar_leaf.Maximum = data_str.Length;
-            int r = 0; if (!(data_str.Length % 9 == 0)) { r = 1; }
-            int r2 = data_str.Length % 9;
-            int al = ((data_str.Length / 9) + r); //array length plus 1 for/if remainder
-            data_arr = new int[al]; //reset worker array each cycle
-            int ai = 0;
-            for (int i = 0; i < data_str.Length; i = i + 9)
-            {
-                pbar_leaf.Value = i;
-                ai = ((i + 9) / 9) - 1;
-                if ((al - ai == 1) & (r == 1))
+                if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    int.TryParse(data_str.Substring(i, data_str.Length-i), out data_arr[ai]); // add remainder if any to array
-                    l_leaf.Text = data_str.Substring(i, data_str.Length - i) + " fallen leaves";
-                    pbar_leaf.Value = i;
-                    i = i + 9; //prevent substring(i,9) exception
-                } else 
-                { 
-                    int.TryParse(data_str.Substring(i, 9), out data_arr[ai]);
-                    l_leaf.Text = data_str.Substring(i, 9) + " leaves";
-                    pbar_leaf.Value = i;
+                    //reset
+                    pbar_tree.Value = pbar_tree.Minimum;
+                    SeedIngest();
+                    Compressor();
+                    CleanSeedInt();
+                    if (cm_itemshop.Checked)
+                    {
+                        ShopItems();
+                        MedicItems();
+                        ShopCombo();
+                    }
+                    if (cm_synth.Checked)
+                    {
+                        Synthesis();
+                    }
+                    if (cm_char.Checked)
+                    {
+                        Character();
+                    }
+                    //richTextBox_debug.Text = richTextBox_debug.Text + "\nrandl: " + randl.ToString() + "\nSeed DNA " + data_int + "\nitems: (1-" + items + ")\n";
+                    pbar_tree.Value = pbar_tree.Maximum;
+
+                    if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked)
+                    {
+                        ReadWrite();
+                    }
                 }
             }
-            data_str = ""; //reset data_str
-            //array data_arr has output data
         }
-        private void SeedRNG()
-        {
-            //array data_arr has input data
-            pbar_seed.Maximum = data_arr.Length;
-            for (int i = 0; i < data_arr.Length; i++)
-            {
-                Random rnd = new Random(data_arr[i]);
-                data_str = data_str + rnd.Next(4269, 42069);
-                //data_str = data_str + rnd.Next(420, 4269);
-                pbar_seed.Value = i;
-                l_seed.Text = rnd.Next(4269, 42069) + " seeds";
-            }
-            //string data_str has output data
-        }
-        private void CleanSeedInt()
-        {
-            //string data_str has input data
-            int.TryParse(data_str, out data_int);
-            //int data_int has output data
-        }
-        
+
         //Stock
         private void StockShopItemsCSV()
         {
-            //stock ShopItems.csv
             string[] a_s_stockShopItems =
             {
                 "# This file contains a set of item shops.",
@@ -535,16 +424,9 @@ namespace rand9er
                 "Shop 0031;31;236;237;240;241;242;243;244;245;246;247;248;253;-1;;;;;;;;;;;;;;;;;;;;;# Shop 0031"
             };
             a_stockShopItems = a_s_stockShopItems;
-            rngsi = 1;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockShopItems.Length; i++)
-            {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockShopItems[i] + "\n";
-            }
         }
         private void StockSynthesisCSV()
         {
-            //70 lines
             string[] a_s_stockSynthesis =
             {
                 "# This file contains a set of game items that can be synthesized.",
@@ -619,78 +501,6 @@ namespace rand9er
                 "Thief Gloves;63;32;50000;98;92;12"
             };
             a_stockSynthesis = a_s_stockSynthesis;
-            rngsy = 1;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockSynthesis.Length; i++)
-            {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockSynthesis[i] + "\n";
-            }
-        }
-        private void StockDefaultEquipmentCSV()
-        {
-            string[] a_s_stockDefaultEquipment =
-            {
-                "# This file contains predefined equipment sets",
-                "# You must set at least 15 different items",
-                "# -",
-                "# Comment;Id;# Weapon;Head;Wrist;Armor;Accessory;",
-                "#;Int32;# UInt8;UInt8;UInt8;UInt8;UInt8;",
-                "# -",
-                "Zidane; 0;1;112;88;149;-1;# 0000 - Zidane (Dagger, Leather Hat, Wrist, Leather Shirt)",
-                "Vivi;1;70;112;-1;149;-1;# 0001 - Vivi (Mage Staff, Leather Hat, Leather Shirt)",
-                "Garnet;2;57;-1;-1;150;-1;# 0002 - Garnet (Rod, Silk Shirt)",
-                "Steiner;3;16;137;-1;177;-1;# 0003 - Steiner (Broadsword, Bronze Helm, Bronze Armour)",
-                "Freya;4;31;136;102;178;-1;# 0004 - Freya (Javelin, Rubber Helm, Bronze Gloves, Linen Cuirass)",
-                "Quina;5;79;-1;-1;-1;-1;# 0005 - Quina (Fork)",
-                "Eiko;6;64;114;90;150;232;# 0006 - Eiko (Golem’s Flute, Feather Hat, Glass Armlet, Silk Shirt, Sapphire)",
-                "Amarant;7;41;-1;89;155;194;# 0007 - Amarant (Cat’s Claws, Leather Wrist, Adaman Vest, Germinas Boots)",
-                "Cinna;8;0;112;-1;-1;-1;# 0008 - Cinna (Hammer, Leather Hat)",
-                "Marcus;9;16;112;88;149;-1;# 0009 - Marcus (Broadsword, Leather Hat, Wrist, Leather Shirt)",
-                "Blank;10;16;-1;-1;150;-1;# 0010 - Blank (Broadsword, Silk Shirt)",
-                "Beatrix;11;26;138;104;179;192;# 0011 - Beatrix (Save the Queen, Iron Helm, Mythril Gloves, Chain Mail, Desert Boots)",
-                "Marcus 2;12;17;114;88;151;-1;# 0012 - Marcus 2 (Iron Sword, Feather Hat, Wrist, Leather Plate)",
-                "Beatrix 2;13;26;142;105;181;212;# 0013 - Beatrix 2 (Save the Queen, Cross Helm, Thunder Gloves, Plate Mail, Yellow Scarf)",
-                "Blank 2;14;17;112;-1;150;-1;# 0013 - Blank 2(Iron Sword, Leather Hat, Silk Shirt)",
-                "Empty;15;-1;-1;-1;-1;-1;# 0014 - Empty"
-            };
-            a_stockDefaultEquipment = a_s_stockDefaultEquipment;
-            rngch = 1;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockDefaultEquipment.Length; i++)
-            {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockDefaultEquipment[i] + "\n";
-            }
-        }
-        private void StockBaseStatsCSV()
-        {
-            string[] a_s_stockBaseStats =
-            {
-                "# This file contains base stats of characters.",
-                "# You must set 12 different items.",
-                "# -",
-                "# Comment;Id;Dexterity;Strength;Magic;Will;Gems",
-                "#;Int32;UInt8;UInt8;UInt8;UInt8;UInt8",
-                "# -",
-                "Zidane; 0;23;21;18;23;18",
-                "Vivi ;1;16;12;24;19;14",
-                "Garnet;2;21;14;23;17;14",
-                "Steiner;3;18;24;12;21;17",
-                "Freya;4;20;20;16;22;18",
-                "Quina;5;14;18;20;11;15",
-                "Eiko;6;19;13;21;18;12",
-                "Amarant;7;22;22;13;15;18",
-                "Cinna;8;19;15;16;19;8",
-                "Marcus;9;20;18;11;21;8",
-                "Blank;10;23;21;12;21;12",
-                "Beatrix;11;24;21;19;23;10"
-            };
-            a_stockBaseStats = a_s_stockBaseStats;
-            rngch = 1;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockBaseStats.Length; i++)
-            {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockBaseStats[i] + "\n";
-            }
         }
         private void StockAbilityGemsCSV()
         {
@@ -768,12 +578,60 @@ namespace rand9er
                 "Void;63;20"
             };
             a_stockAbilityGems = a_s_stockAbilityGems;
-            rngch = 1;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockAbilityGems.Length; i++)
+        }
+        private void StockBaseStatsCSV()
+        {
+            string[] a_s_stockBaseStats =
             {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockAbilityGems[i] + "\n";
-            }
+                "# This file contains base stats of characters.",
+                "# You must set 12 different items.",
+                "# -",
+                "# Comment;Id;Dexterity;Strength;Magic;Will;Gems",
+                "#;Int32;UInt8;UInt8;UInt8;UInt8;UInt8",
+                "# -",
+                "Zidane; 0;23;21;18;23;18",
+                "Vivi ;1;16;12;24;19;14",
+                "Garnet;2;21;14;23;17;14",
+                "Steiner;3;18;24;12;21;17",
+                "Freya;4;20;20;16;22;18",
+                "Quina;5;14;18;20;11;15",
+                "Eiko;6;19;13;21;18;12",
+                "Amarant;7;22;22;13;15;18",
+                "Cinna;8;19;15;16;19;8",
+                "Marcus;9;20;18;11;21;8",
+                "Blank;10;23;21;12;21;12",
+                "Beatrix;11;24;21;19;23;10"
+            };
+            a_stockBaseStats = a_s_stockBaseStats;
+        }
+        private void StockDefaultEquipmentCSV()
+        {
+            string[] a_s_stockDefaultEquipment =
+            {
+                "# This file contains predefined equipment sets",
+                "# You must set at least 15 different items",
+                "# -",
+                "# Comment;Id;# Weapon;Head;Wrist;Armor;Accessory;",
+                "#;Int32;# UInt8;UInt8;UInt8;UInt8;UInt8;",
+                "# -",
+                "Zidane; 0;1;112;88;149;-1;# 0000 - Zidane (Dagger, Leather Hat, Wrist, Leather Shirt)",
+                "Vivi;1;70;112;-1;149;-1;# 0001 - Vivi (Mage Staff, Leather Hat, Leather Shirt)",
+                "Garnet;2;57;-1;-1;150;-1;# 0002 - Garnet (Rod, Silk Shirt)",
+                "Steiner;3;16;137;-1;177;-1;# 0003 - Steiner (Broadsword, Bronze Helm, Bronze Armour)",
+                "Freya;4;31;136;102;178;-1;# 0004 - Freya (Javelin, Rubber Helm, Bronze Gloves, Linen Cuirass)",
+                "Quina;5;79;-1;-1;-1;-1;# 0005 - Quina (Fork)",
+                "Eiko;6;64;114;90;150;232;# 0006 - Eiko (Golem’s Flute, Feather Hat, Glass Armlet, Silk Shirt, Sapphire)",
+                "Amarant;7;41;-1;89;155;194;# 0007 - Amarant (Cat’s Claws, Leather Wrist, Adaman Vest, Germinas Boots)",
+                "Cinna;8;0;112;-1;-1;-1;# 0008 - Cinna (Hammer, Leather Hat)",
+                "Marcus;9;16;112;88;149;-1;# 0009 - Marcus (Broadsword, Leather Hat, Wrist, Leather Shirt)",
+                "Blank;10;16;-1;-1;150;-1;# 0010 - Blank (Broadsword, Silk Shirt)",
+                "Beatrix;11;26;138;104;179;192;# 0011 - Beatrix (Save the Queen, Iron Helm, Mythril Gloves, Chain Mail, Desert Boots)",
+                "Marcus 2;12;17;114;88;151;-1;# 0012 - Marcus 2 (Iron Sword, Feather Hat, Wrist, Leather Plate)",
+                "Beatrix 2;13;26;142;105;181;212;# 0013 - Beatrix 2 (Save the Queen, Cross Helm, Thunder Gloves, Plate Mail, Yellow Scarf)",
+                "Blank 2;14;17;112;-1;150;-1;# 0013 - Blank 2(Iron Sword, Leather Hat, Silk Shirt)",
+                "Empty;15;-1;-1;-1;-1;-1;# 0014 - Empty"
+            };
+            a_stockDefaultEquipment = a_s_stockDefaultEquipment;
         }
         private void StockItemsCSV()
         {
@@ -1043,23 +901,98 @@ namespace rand9er
                 "0;0;0;0;0;0, 0, 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;# 255 - open 255"
             };
             a_stockItems = a_s_stockItems;
-            richTextBox_output.Text = "";
-            for (int i = 0; i < a_stockItems.Length; i++)
+        }
+
+        //Seed
+        private void SeedIngest()
+        {
+            //string seed has input data
+            if (textBox_seed.Text.Length == 0) { seed = "Default SEED 4 u"; textBox_seed.Text = seed; }
+            seed = textBox_seed.Text;
+            data_str = ""; //converted seed to data
+            counter = 1; //reset these counters
+            //richTextBox_debug.Text = seed.Length + " seeds planted ";
+            for (int i = 0; i < seed.Length; i++)
             {
-                richTextBox_output.Text = richTextBox_output.Text + a_stockItems[i] + "\n";
+                Random rnd = new Random((int)seed[i]);
+                data_str = data_str + rnd.Next(426942, 4269420);
+            }
+            //string data_str has output data
+        }
+        private void Compressor()
+        {
+            //string data_str has input data
+            if (data_str.Length > 9)
+            {
+                counter++;
+                Splitter();
+                SeedRNG();
+                Compressor();
             }
         }
-        
+        private void Splitter()
+        {
+            //string data_str has input data
+
+            int r = 0; if (!(data_str.Length % 9 == 0)) { r = 1; }
+            int r2 = data_str.Length % 9;
+            int al = ((data_str.Length / 9) + r); //array length plus 1 for/if remainder
+            data_arr = new int[al]; //reset worker array each cycle
+            int ai = 0;
+            for (int i = 0; i < data_str.Length; i = i + 9)
+            {
+                //pbar_leaf.Value = i;
+                ai = ((i + 9) / 9) - 1;
+                if ((al - ai == 1) & (r == 1))
+                {
+                    int.TryParse(data_str.Substring(i, data_str.Length - i), out data_arr[ai]); // add remainder if any to array
+                    i = i + 9; //prevent substring(i,9) exception
+                }
+                else
+                {
+                    int.TryParse(data_str.Substring(i, 9), out data_arr[ai]);
+                }
+            }
+            data_str = ""; //reset data_str
+            //array data_arr has output data
+        }
+        private void SeedRNG()
+        {
+            for (int i = 0; i < data_arr.Length; i++)
+            {
+                Random rnd = new Random(data_arr[i]);
+                data_str = data_str + rnd.Next(4269, 42069);
+            }
+            //string data_str has output data
+        }
+        private void CleanSeedInt()
+        {
+            //string data_str has input data
+            int.TryParse(data_str, out data_int);
+            //int data_int has output data
+        }
+
         //Shop Tab
         private void ShopItems()
         {
+            //settings for comment line numebr 5
+            set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + data_int + "   set:";
+            if (c_safe.Checked == true) { set = set + "/safe "; }
+            if (c_random.Checked == true) { set = set + "/random"; }
+            if (c_max.Checked == true) { set = set + "/max"; }
+            if (c_random.Enabled & c_random.Checked | c_max.Enabled & c_max.Checked) 
+            {
+                if (c_medicitems.Checked == true) { set = set + "+medic items "; }
+                if (c_medicshops.Checked == true) { set = set + "->override medic shops"; }
+            }
+
+            StockShopItemsCSV();
 
             if (c_medicshops.Checked) { randl = 32; } else { randl = 23; }
             if (c_random.Checked)
             {
                 for (int i = 0; i < randl; i++)
                 {
-                    
                     Random rnd = new Random((data_int / (i+1)) + i);
                     a_shopItems[i] = rnd.Next(1, 32);
                     //if (i == 0) { richTextBox_debug.Text = richTextBox_debug.Text + "\ntest " + a_shopItems[i]; }
@@ -1075,25 +1008,23 @@ namespace rand9er
                 new int[a_shopItems[30]],new int[a_shopItems[31]]
             };
             aa_shopItems = aa_shopItems1;
-            richTextBox_output.Text = "";
+            //richTextBox_output.Text = "";
             for (int i = 0; i < randl; i++)
             {
                 //richTextBox_output.Text = richTextBox_output.Text + "\n i: " + i + " ";
                 for (int j = 0; j < aa_shopItems[i].Length; j++)
                 {
-                    //int seed5 = (data_int + ((30 * i) + (2 * j)));
                     Random rnd = new Random((data_int / (i + j*9 + 1)) + (data_int / (j + 1)));
                     int rnd2 = rnd.Next(1, items);
                     if (rnd2 == 250) { rnd2 = 253; }
                     aa_shopItems[i][j] = rnd2;
-                    richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ aa_shopItems[i][j] + "; ";
+                    //richTextBox_output.Text = richTextBox_output.Text + /*"j: " + j + " :r: "*/ aa_shopItems[i][j] + "; ";
                 }
-                richTextBox_output.Text = richTextBox_output.Text + "\n;";
+                //richTextBox_output.Text = richTextBox_output.Text + "\n;";
             }
         }
         private void MedicItems()
         {
-            //medic items per shop 0,0,7,7,0,0,0,9,0,0,9,0,0,11,9,7,11,0,10,0,0,12,10,0,0,5,7,8,10,11,12,12
             //int[] a_empty = { 0 }; //33
             int[] a_mi0 = a_empty;
             int[] a_mi1 = a_empty;
@@ -1144,28 +1075,20 @@ namespace rand9er
                 aa_medicItems = aa_medicItems1;
             } else if (c_safe.Checked == false) { aa_medicItems = aa_medicItemsE1; }
             
-            if (c_medicshops.Checked == true)
+            if (c_medicshops.Enabled & c_medicshops.Checked == true)
             {
                 medicShops = medicShopsE1;
-            } else if (c_medicshops.Checked == false) { medicShops = medicShops1; }
-
-
+            } else if (!c_medicshops.Enabled | c_medicshops.Checked == false) { medicShops = medicShops1; }
 
         }
         private void ShopCombo()
         {
-            //import arrays incase i break the arrays during the work
-
             int[][] aa_cs_medici = aa_medicItems; // input medic items lines 7-29
             int[][] aa_cs_shopi = aa_shopItems; // input RNG shop items
-            string[] a_cs_medics = medicShops; //input medic shops lines 30-38
+            string[] a_cs_medics = medicShops, a_ssi = a_stockShopItems; //input medic shops lines 30-38
             int[] a_shopItems_1safe = new int[] { 16, 16, 9, 13, 25, 18, 28, 13, 14, 32, 14, 32, 29, 21, 22, 25, 21, 30, 21, 30, 6, 12, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 };  //use this to 
             int[] a_medicl = new int[] { 0, 0, 7, 7, 0, 0, 0, 9, 0, 0, 9, 0, 0, 11, 9, 7, 11, 0, 10, 0, 0, 12, 10, 0, 0, 5, 7, 8, 10, 11, 12, 12 };
-            //string[][] aa_cs_comboSafe = aa_comboSafe; //output
-
-            //test
             string[] a_cs_comboSafe = a_comboSafe;
-            //combine aa_cs_mi and aa_cs_si
 
             for (int i = 0; i < 32; i++) //rows 0-22 for safe list, 23-31 for medicShops
             {
@@ -1192,7 +1115,6 @@ namespace rand9er
                     {
                         //need to include offset only on the j input, not the output
                         //medic items check
-                        
                         if (c_safe.Checked == true & i < 23)
                         {
                             if ((j - 2) < aa_cs_medici[i].Length)
@@ -1254,19 +1176,18 @@ namespace rand9er
                     }
                 }
             }
-            a_comboSafe = a_cs_comboSafe;
-            rngsi = 1;
+            //resize out back into fullsize datafile
+            for (int i =6; i < a_ssi.Length; i++)
+            {
+                a_ssi[i] = a_cs_comboSafe[i - 6];
+            }
+            a_ssi[5] = set;
+            a_comboSafe = a_ssi;
             //string[] a_comboSafe has output data
         }
         private void ShopOutput()
         {
             //string[] a_comboSafe has input data
-            if (c_safe.Checked == true) { set = "safe"; }
-            if (c_max.Checked == true) { set = "max"; }
-            if (c_random.Checked == true) { set = "random"; }
-            if (c_medicitems.Checked == true) { set = set + "/medic items"; }
-            if (c_medicshops.Checked == true) { set = set + "/override medic shops"; }
-            richTextBox_output.Text = "#Randomized by FFIX Randomizer Assistant\n#Seed=" + seed + "\n#settings: " + set + "\n";
             for (int i = 0; i < a_comboSafe.Length; i++)
             {
                 richTextBox_output.Text = richTextBox_output.Text + a_comboSafe[i] + "\n";
@@ -1276,10 +1197,15 @@ namespace rand9er
         //Synth Tab
         private void Synthesis()
         {
+            //settings for comment line numebr 5
+            set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + data_int + "   set:";
+            if (c_require.Checked == true) { set = set + "/requirements "; }
+            if (c_result.Checked == true) { set = set + "/result "; }
+            if (c_prices.Checked == true) { set = set + "/prices "; }
+
             //int data_int has seedDNA
             StockSynthesisCSV();
             a_synthdata = a_stockSynthesis;
-            //int[] ai_synthdata = new int[a_synthdata.Length];
             int a=0, b=0;
             for (int i = 0; i < a_synthdata.Length; i++)
             {
@@ -1313,17 +1239,12 @@ namespace rand9er
                     a_synthdata[i] = String.Join(";", a_synthline);
                 }
             }
-            rngsy = 1;
+            a_synthdata[5] = set;
             //string[] a_synthdata has output data
         }
         private void SynthOutput()
         {
             //string[] a_synthdata has input data
-            if (cm_synth.Checked == true) { set = "syth"; }
-            if (c_require.Checked == true) { set = set + "/requirements"; }
-            if (c_result.Checked == true) { set = set + "/result"; }
-            if (c_prices.Checked == true) { set = set + "/prices"; }
-            richTextBox_output.Text = "#Randomized by FFIX Randomizer Assistant\n#Seed=" + seed + "\n#settings: " + set + "\n";
             for (int i = 0; i < a_synthdata.Length; i++)
             {
                 richTextBox_output.Text = richTextBox_output.Text + a_synthdata[i] + "\n";
@@ -1333,23 +1254,21 @@ namespace rand9er
         //Char Tab
         private void Character()
         {
-            if (c_basestats.Checked)
+            void Set()
             {
-                StockBaseStatsCSV();
-                a_statdata = a_stockBaseStats;
-                int stata = 8, statb = 24;
-                for (int i = 6; i < a_statdata.Length; i++)
+                //settings for comment line numebr 5
+                set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + data_int + "   set:";
+                if (c_abilitygems.Checked == true) { set = set + "/abilitygems "; }
+                if (c_basestats.Checked == true) { set = set + "/base stats "; }
+                if (c_default.Checked == true)
                 {
-                    string[] a_statline = a_statdata[i].Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                    for (int j = 2; j < a_statline.Length; j++)
-                    {
-                        Random rnd = new Random((data_int / (i*6 + j + 7)) + (data_int / (j + 4)) + (data_int / ((i*3 * j*5) + 1)));
-                        a_statline[j] = rnd.Next(stata, statb).ToString();
-                    }
-                    a_statdata[i] = String.Join(";", a_statline);
+                    set = set + "/default equipment";
+                    if (c_random_e.Checked) { set = set + "->random"; }
+                    if (c_all_e.Checked) { set = set + "->share"; }
+                    if (c_main_e.Checked) { set = set + "->maintain"; }
                 }
             }
-            //string[] a_statdata has output data
+            Set();
             if (c_abilitygems.Checked)
             {
                 StockAbilityGemsCSV();
@@ -1368,8 +1287,28 @@ namespace rand9er
                     }
                     a_gemdata[i] = String.Join(";", a_gemline);
                 }
+                a_gemdata[5] = set;
             }
             //string[] a_gemdata has output data
+            if (c_basestats.Checked)
+            {
+                StockBaseStatsCSV();
+                a_statdata = a_stockBaseStats;
+                int stata = 8, statb = 24;
+                for (int i = 6; i < a_statdata.Length; i++)
+                {
+
+                    string[] a_statline = a_statdata[i].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                    for (int j = 2; j < a_statline.Length; j++)
+                    {
+                        Random rnd = new Random((data_int / (i*6 + j + 7)) + (data_int / (j + 4)) + (data_int / ((i*3 * j*5) + 1)));
+                        a_statline[j] = rnd.Next(stata, statb).ToString();
+                    }
+                    a_statdata[i] = String.Join(";", a_statline);
+                }
+                a_statdata[5] = set;
+            }
+            //string[] a_statdata has output data
             if (c_default.Checked)
             {
                 StockItemsCSV();
@@ -1377,6 +1316,7 @@ namespace rand9er
                 a_itemdata = a_stockItems;
                 a_equipdata = a_stockDefaultEquipment;
                 PermissionEdit();
+                Set();
                 int rr = 0; int a = 0; int b = 224;
                 for (int i = 0; i < a_equipdata.Length; i++)
                 {
@@ -1392,7 +1332,6 @@ namespace rand9er
                             {
                                 rnd = new Random((data_int / (i*4 + j + 1)) + (data_int / (j + 7)) + (data_int / ((i * j*8) + 1)));
                                 rr = 0; a = 0; b = 224;
-
                                 void ReRoll()
                                 {
                                     rr = rnd.Next(a, b);
@@ -1407,7 +1346,7 @@ namespace rand9er
                                     if (a_itemline[temp_i + 9] == "0") //fail permission check
                                     {
                                         rrr++;
-                                        richTextBox_debug.Text = "\nrrr= " + rrr + "\nrr= " + rr + " i= " + i + "j= " + j + "\nweapa= " + weapa;
+                                        richTextBox_debug.Text = rrr + " rolls\nI" + rr + "C" + i + "P" + j;
                                         rnd = new Random((data_int / (i + j*2 + rrr)) + (data_int / (j + rr)) + (data_int / ((i*7 * j) + rrr)));
                                         ReRoll(); //continue failing till succeed
                                     }
@@ -1417,7 +1356,6 @@ namespace rand9er
                                 {
                                     a = weapa; b = weapb;
                                     ReRoll();
-                                    richTextBox_debug.Text ="\nrr= " + rr + " i= " +i;
                                     a_equipline[j] = rr.ToString();
                                 }
                                 if (j == 3) //armlet        88-111
@@ -1454,11 +1392,24 @@ namespace rand9er
                         a_equipdata[i] = String.Join(";", a_equipline);
                     }
                 }
+                a_equipdata[5] = set;
             }
             //string[]  a_equipdata has output data
         }
         private void PermissionEdit()
         {
+            //settings for comment line numebr 5
+            set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + data_int + "   set:";
+            if (c_abilitygems.Checked == true) { set = set + "/abilitygems "; }
+            if (c_basestats.Checked == true) { set = set + "/base stats "; }
+            if (c_default.Checked == true)
+            {
+                set = set + "/default equipment";
+                if (c_random_e.Checked) { set = set + "->random"; }
+                if (c_all_e.Checked) { set = set + "->share"; }
+                if (c_main_e.Checked) { set = set + "->maintain"; }
+            }
+
             if (c_random_e.Enabled & c_random_e.Checked)
             {
                 //edit permissions to random 0s or 1s
@@ -1474,13 +1425,8 @@ namespace rand9er
                     a_permline[27] = a_permline[27] + " +Random Permissions";
                     a_permdata[i] = String.Join(";", a_permline);
                 }
+                a_permdata[5] = set;
                 a_itemdata = a_permdata;
-                for (int i = 0; i < a_itemdata.Length; i++)
-                {
-                    richTextBox_output.Text = richTextBox_output.Text + "\n" + a_itemdata[i] + "\n";
-
-
-                }
             }
             if (c_all_e.Enabled & c_all_e.Checked)
             {
@@ -1496,6 +1442,7 @@ namespace rand9er
                     a_permline[27] = a_permline[27] + " +All Permissions";
                     a_permdata[i] = String.Join(";", a_permline);
                 }
+                a_permdata[5] = set;
                 a_itemdata = a_permdata;
             }
             if (c_main_e.Checked)
@@ -1508,23 +1455,18 @@ namespace rand9er
             helma = 112; helmb = 148;
             armora = 148; armorb = 192;
             acca = 192; accb = 224;
+            //string[] a_itemdata has output data
         }
-        private void CharOutput() //need to do
+        private void CharOutput()
         {
             //string[] a_statdata has output data
             //string[] a_gemdata has output data
             //string[]  a_equipdata has output data
-            if (cm_char.Checked == true) { set = "char"; }
-            if (c_default.Checked == true) { set = set + "/default equipment"; }
-            if (c_basestats.Checked == true) { set = set + "/base stats"; }
-            if (c_abilitygems.Checked == true) { set = set + "/abilitygems"; }
-            //richTextBox_output.Text = "#Randomized by FFIX Randomizer Assistant\n#Seed=" + seed + "\n#settings: " + set + "\n";
-            richTextBox_output.Text = "";
-            if (c_default.Checked == true)
+            if (c_abilitygems.Checked == true)
             {
-                for (int i = 0; i < a_equipdata.Length; i++)
+                for (int i = 0; i < a_gemdata.Length; i++)
                 {
-                    richTextBox_output.Text = richTextBox_output.Text + a_equipdata[i] + "\n";
+                    richTextBox_output.Text = richTextBox_output.Text + a_gemdata[i] + "\n";
                 }
             }
             if (c_basestats.Checked == true)
@@ -1534,16 +1476,14 @@ namespace rand9er
                     richTextBox_output.Text = richTextBox_output.Text + a_statdata[i] + "\n";
                 }
             }
-            if (c_abilitygems.Checked == true)
+            if (c_default.Checked == true)
             {
-                for (int i = 0; i < a_gemdata.Length; i++)
+                for (int i = 0; i < a_equipdata.Length; i++)
                 {
-                    richTextBox_output.Text = richTextBox_output.Text + a_gemdata[i] + "\n";
+                    richTextBox_output.Text = richTextBox_output.Text + a_equipdata[i] + "\n";
                 }
             }
         }
-
-
 
         //IO
         private string path_search(string pswap)
@@ -1558,122 +1498,149 @@ namespace rand9er
                     string value = (string)rkTest.GetValue(s);
                     if (value == "FINAL FANTASY IX")
                     {
-                        richTextBox_debug.Text = richTextBox_debug.Text + "\nfound ff9";
+                        b_search.Text = "FFIX Located!";
                         pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe")) + "StreamingAssets\\Data";
+                        var t = Task.Run(async delegate
+                        {
+                            await Task.Delay(600);
+                        });
+                        t.Wait();
+                        b_search.Text = "Auto Locate";
+                        break;
                     }
+                    //else 
+                    //{ b_search.Text = "D:"; Thread.Sleep(200); b_search.Text = "Auto Locate"; }
                 }
             }
             rkTest.Close();
             return pswap;
         }
+        private void Manual_search()
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.Description = "locate ff9, or seperate Data folder of CSVs";
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                char[] separators = new char[] { '\\', '\\' };
+                string[] a_path = folderDlg.SelectedPath.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = a_path.Length-1; i > 0; i--)
+                {
+                    if (a_path[i] == "Data" | a_path[i] == "data" | a_path[i] == "DATA")
+                    {
+                        break;
+                    }
+                    if (a_path[i] == "FINAL FANTASY IX" | a_path[i] == "final fantasy ix" | a_path[i] == "Final Fantasy IX")
+                    {
+                        folderDlg.SelectedPath = folderDlg.SelectedPath + "\\StreamingAssets\\Data";
+                        break;
+                    }
+                }
+                tb_fl.Text = folderDlg.SelectedPath;
+            }
+        }
         private void ReadWrite()
         {
-            if (rngch == 1) //need to fix
+            button_rand.Text = "Writing Data";
+            var t = Task.Run(async delegate
             {
-                if (cm_itemshop.Checked)
+                await Task.Delay(600);
+            });
+            t.Wait();
+            if (cm_itemshop.Checked)
+            {
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                File.WriteAllLines("ShopItems.csv", a_comboSafe);
+            }
+            if (cm_synth.Checked)
+            {
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                File.WriteAllLines("Synthesis.csv", a_synthdata);
+            }
+            if (cm_char.Checked)
+            {
+                if (c_abilitygems.Checked)
                 {
-                    ShopOutput();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
-                    File.WriteAllText("ShopItems.csv", richTextBox_output.Text);
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters\\Abilities");
+                    File.WriteAllLines("AbilityGems.csv", a_gemdata);
                 }
-                if (cm_synth.Checked)
+                if (c_basestats.Checked)
                 {
-                    SynthOutput();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
-                    File.WriteAllText("Synthesis.csv", richTextBox_output.Text);
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    File.WriteAllLines("BaseStats.csv", a_statdata);
                 }
-                if (cm_char.Checked)
+                if (c_default.Checked)
                 {
-                    CharOutput();
-                    if (c_abilitygems.Checked)
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    File.WriteAllLines("DefaultEquipment.csv", a_equipdata);
+
+                    if (c_all_e.Checked | c_random_e.Checked) 
                     {
-                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters\\Abilities");
-                        File.WriteAllText("AbilityGems.csv", richTextBox_output.Text);
-                    }
-                    if (c_default.Checked)
-                    {
-                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
-                        File.WriteAllText("DefaultEquipment.csv", richTextBox_output.Text);
-                    }
-                    if (c_basestats.Checked)
-                    {
-                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
-                        File.WriteAllText("BaseStats.csv", richTextBox_output.Text);
+                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                        File.WriteAllLines("Items.csv", a_itemdata);
                     }
                 }
             }
+            button_rand.Text = "Done!";
+            t = Task.Run(async delegate
+            {
+                await Task.Delay(600);
+            });
+            t.Wait();
+            button_rand.Text = "Buy for 333 Gil";
+        }
+        private void IO_stock()
+        {
+            b_restore.Text = "Restoring...";
+            var t = Task.Run(async delegate
+            {
+                await Task.Delay(600);
+            });
+            t.Wait();
+            if (cm_itemshop.Checked)
+            {
+                StockShopItemsCSV();
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                File.WriteAllLines("ShopItems.csv", a_stockShopItems);
+            }
+            if (cm_synth.Checked)
+            {
+                StockSynthesisCSV();
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                File.WriteAllLines("Synthesis.csv", a_stockSynthesis);
+            }
+            if (cm_char.Checked)
+            {
+
+                if (c_abilitygems.Checked)
+                {
+                    StockAbilityGemsCSV();
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters\\Abilities");
+                    File.WriteAllLines("AbilityGems.csv", a_stockAbilityGems);
+                }
+                if (c_basestats.Checked)
+                {
+                    StockBaseStatsCSV();
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    File.WriteAllLines("BaseStats.csv", a_stockBaseStats);
+                }
+                if (c_default.Checked)
+                {
+                    StockDefaultEquipmentCSV();
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    File.WriteAllLines("DefaultEquipment.csv", a_stockDefaultEquipment);
+                    StockItemsCSV();
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                    File.WriteAllLines("Items.csv", a_stockItems);
+                }
+            }
+            b_restore.Text = "Done!";
+            t = Task.Run(async delegate
+            {
+                await Task.Delay(600);
+            });
+            t.Wait();
+            b_restore.Text = "Restore Stock Checked Files";
         }
     }
 }
-
-//                  remainder NOTES               //
-/*
- *      Weapons             j=2     0-84
- * daggers  1-15
- * swords   16-30
- * spears   31-40
- * claws    41-50
- * rackets  51-63
- * flutes   64-69
- * staffs   70-78
- * forks    79-84
- *  thowables   85-87--skipping
- *      Armlets             j=3     88-111
- * wrists   88-101
- * gloves   102-111
- *      Helmets             j=4     112-147
- * hats     112-135
- * helms    136-147
- *      Armor               j=5     148-191
- * shirts   148-167
- * robes    168-175
- * armor    176-191
- *      Accessory           j=6     192-223
- * shoes    192-199
- * accessor 200-223
- *      etc                 
- * gems     224-235
- * medic    236-249,253
- * darkmatt 250
- * chocho   251-252
- * tenet    253
- * ore      254
- * blank    255
-*/
-//we have two files to edit,
-/*
- * //0         6       7       8       9       10
-  //# Price;  Weapon; Armlet; Helmet; Armor   ;Accessory;
-
-//0         1               2           3           4           5               6           7           8           9           10              11      12      13          14          15          16      17          18          19      20      21      22          23      24          25          26      27 
-//# Price;  GraphicsId;     ColorId;    Quality;    BonusId;    AbilityIds;     Weapon;     Armlet;     Helmet;     Armor       ;Accessory;     Item;   Gem;    Usable;     Order;      Zidane;     Vivi;   Garnet;     Steiner;    Freya;  Quina;  Eiko;   Amarant;    Cinna;  Marcus;     Blank;      Beatrix;
-//320;      1;              0;          1;          0;          101, 0, 0;      1;          0;          0;          0;          0;              0;      0;      0;          22;         1;          0;      0;          0;          0;      0;      0;      0;          0;      0;          0;          0;      # 001 - Dagger
-//330;      3;              0;          1;          0;          211, 0, 0;      1;          0;          0;          0;          0;              0;      0;      0;          37;         0;          0;      0;          1;          0;      0;      0;      0;          0;      1;          1;          0;      # 016 - Broadsword
-//880;      5;              0;          1;          0;          209, 0, 0;      1;          0;          0;          0;          0;              0;      0;      0;          52;         0;          0;      0;          0;          1;      0;      0;      0;          0;      0;          0;          0;      # 031 - Javelin
-//4000;     6;              0;          1;          0;          125, 228, 0;    1;          0;          0;          0;          0;              0;      0;      0;          62;         0;          0;      0;          0;          0;      0;      0;      1;          0;      0;          0;          0;      # 041 - Cat’s Claws
-//400;      7;              0;          2;          0;          7, 8, 0;        1;          0;          0;          0;          0;              0;      0;      0;          72;         0;          0;      1;          0;          0;      0;      1;      0;          0;      0;          0;          0;      # 051 - Air Racket
-//260;      8;              0;          1;          0;          1, 8, 12;       1;          0;          0;          0;          0;              0;      0;      0;          78;         0;          0;      1;          0;          0;      0;      0;      0;          0;      0;          0;          0;      # 057 - Rod
-//2700;     9;              7;          6;          0;          195, 2, 5;      1;          0;          0;          0;          0;              0;      0;      0;          85;         0;          0;      0;          0;          0;      0;      1;      0;          0;      0;          0;          0;      # 064 - Golem’s Flute
-//320;      10;             0;          1;          0;          25, 0, 0;       1;          0;          0;          0;          0;              0;      0;      0;          91;         0;          1;      0;          0;          0;      0;      0;      0;          0;      0;          0;          0;      # 070 - Mage Staff
-//1100;     11;             0;          1;          0;          227, 0, 0;      1;          0;          0;          0;          0;              0;      0;      0;          100;        0;          0;      0;          0;          0;      1;      0;      0;          0;      0;          0;          0;      # 079 - Fork
-*/
-
-
-
-//      6 is zidane* 7 vivi* 8 garnet*   9 steiner* 10 freya* 11 quina*12 eiko*13 amarant*14 cinna* 15 marcus*16 blank * 17 beatrix * 18 marcus2* 19 beatrix2* 20 blank2* 21 empty
-//14      15          16      17          18          19      20      21      22          23      24          25          26          27 
-//Order;  Zidane;     Vivi;   Garnet;     Steiner;    Freya;  Quina;  Eiko;   Amarant;    Cinna;  Marcus;     Blank;      Beatrix;    comment
-
-/* maybe read the input file to obtain the data we dont want to have to reproduce
- * foreach line, string split at ";"
- * then we know we only need to edit elements 4,5,6 and 7
-
-# Comment		;Id;Shops;Price;Result;Item1;Item2
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;
-Butterfly Sword	;0;79;300;7;1;2
-The Ogre		;1;95;700;8;2;2
-White Robe		;20;32;8000;172;161;97
-Black Robe		;21;32;8000;173;161;96
-
-*/
-

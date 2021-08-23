@@ -1,0 +1,9 @@
+D:\git\Durthulu\rand9er\rand9er\bin\Release\rand9er.exe.config
+D:\git\Durthulu\rand9er\rand9er\bin\Release\rand9er.exe
+D:\git\Durthulu\rand9er\rand9er\bin\Release\rand9er.pdb
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.rand9er.resources
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.Properties.Resources.resources
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.csproj.GenerateResource.cache
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.csproj.CoreCompileInputs.cache
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.exe
+D:\git\Durthulu\rand9er\rand9er\obj\Release\rand9er.pdb
