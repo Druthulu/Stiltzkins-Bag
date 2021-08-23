@@ -7,7 +7,7 @@
     <ProjectGuid>{084BECA6-D03E-41BE-A7E5-1580D1873936}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>rand9er</RootNamespace>
-    <AssemblyName>rand9er</AssemblyName>
+    <AssemblyName>Stiltzkin%27s Bag 1.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\stilzkin.ico</ApplicationIcon>

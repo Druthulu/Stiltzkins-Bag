@@ -1,10 +1,10 @@
-D:\git\Durthulu\rand9er\rand9er\bin\Debug\rand9er.exe.config
-D:\git\Durthulu\rand9er\rand9er\bin\Debug\rand9er.exe
-D:\git\Durthulu\rand9er\rand9er\bin\Debug\rand9er.pdb
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.AssemblyReference.cache
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.Properties.Resources.resources
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.GenerateResource.cache
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.CoreCompileInputs.cache
-D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.exe
-D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.pdb
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.rand9er.resources
+D:\git\Durthulu\rand9er\rand9er\bin\Debug\Stiltzkin's Bag 1.0.exe.config
+D:\git\Durthulu\rand9er\rand9er\bin\Debug\Stiltzkin's Bag 1.0.exe
+D:\git\Durthulu\rand9er\rand9er\bin\Debug\Stiltzkin's Bag 1.0.pdb
+D:\git\Durthulu\rand9er\rand9er\obj\Debug\Stiltzkin's Bag 1.0.exe
+D:\git\Durthulu\rand9er\rand9er\obj\Debug\Stiltzkin's Bag 1.0.pdb
