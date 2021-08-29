@@ -1,7 +1,6 @@
-# Stiltzkins-Bag
-ffix randomizer assistant
 Welcome to Stiltzkin's Bag 1.0 !
 
+![image](https://user-images.githubusercontent.com/50529377/131262849-0f2f8fbd-ff62-43b9-9921-a833aecbd2ef.png)
 
 
 
@@ -17,6 +16,7 @@ Features:
 ~~ Randomize Character Starting Equipment ~~
 ~~ Randomize Ability Gems costs ~~
 
+![image](https://user-images.githubusercontent.com/50529377/131262837-c18ccdd5-65c6-4e34-b879-4eb87d8516b0.png)
 
 
 ~~ Seed functions - share or race with friends using exact same randomized settings ~~
@@ -33,4 +33,4 @@ Features Planned
 
 
 In game Previews of tool in action!
-
+![image](https://user-images.githubusercontent.com/50529377/131262841-ca70af4d-3e24-4d8c-b511-bf5bf15707d2.png)
