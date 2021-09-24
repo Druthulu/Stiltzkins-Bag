@@ -21,10 +21,11 @@ namespace rand9er
         }
 
         //init//
-        string data_str, pswap, set, seed = "42";
+        string data_str, pswap, binloc, set, seed = "42";
         int data_int, counter, randl = 23, items = 236;
         int weapa = 0; int weapb = 85;int armleta = 88; int armletb = 112;int helma = 112; 
         int helmb = 148; int armora = 148; int armorb = 192; int acca = 192; int accb = 224;
+        byte[] ba_p0data2, ba_p0data7;
         char[] separators = new char[] { ';', ';' };
         int[] data_arr, a_empty = { 0 };
         string[] medicShops, a_stockShopItems, a_synthdata, a_stockSynthesis, a_statdata, a_stockBaseStats, a_equipdata, a_stockDefaultEquipment, a_itemdata, a_stockItems, a_gemdata, a_stockAbilityGems, a_comboSafe = new string[32];
@@ -41,6 +42,7 @@ namespace rand9er
             textBox_seed.Text = seed;
             pswap = path_search(pswap);
             tb_fl.Text = pswap;
+            MogDetect();
         }
         private void richTextBox_debug_TextChanged(object sender, EventArgs e)
         {
@@ -85,6 +87,7 @@ namespace rand9er
             {
                 tb_fl.Text = pswap;
             }
+            MogDetect();
         }
         private void cm_itemshop_CheckedChanged(object sender, EventArgs e)
         {
@@ -341,11 +344,56 @@ namespace rand9er
                 c_main_e.Checked = false;
             }
         }
+        private void pbar_tree_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void richTextBox_output_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void c_require_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void c_result_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void c_prices_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //          change source selection
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //          background pic
+        }
+        private void tb_fl_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void l_shopm_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //MAIN
         private void button_rand_Click(object sender, EventArgs e)
         {
-            if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked)
+            if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
             {
                 if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -369,12 +417,16 @@ namespace rand9er
                         Character();
                     }
                     //richTextBox_debug.Text = richTextBox_debug.Text + "\nrandl: " + randl.ToString() + "\nSeed DNA " + data_int + "\nitems: (1-" + items + ")\n";
-                    pbar_tree.Value = pbar_tree.Maximum;
-
+                    
                     if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked)
                     {
                         ReadWrite();
                     }
+                    if (cm_enemies.Checked | cm_entrances.Checked)
+                    {
+                        Bytes_IO();
+                    }
+                    pbar_tree.Value = pbar_tree.Maximum;
                 }
             }
         }
@@ -1250,6 +1302,7 @@ namespace rand9er
                 richTextBox_output.Text = richTextBox_output.Text + a_synthdata[i] + "\n";
             }
         }
+
         
         //Char Tab
         private void Character()
@@ -1499,7 +1552,7 @@ namespace rand9er
                     if (value == "FINAL FANTASY IX")
                     {
                         b_search.Text = "FFIX Located!";
-                        pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe")) + "StreamingAssets\\Data";
+                        pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe"));
                         var t = Task.Run(async delegate
                         {
                             await Task.Delay(600);
@@ -1508,8 +1561,6 @@ namespace rand9er
                         b_search.Text = "Auto Locate";
                         break;
                     }
-                    //else 
-                    //{ b_search.Text = "D:"; Thread.Sleep(200); b_search.Text = "Auto Locate"; }
                 }
             }
             rkTest.Close();
@@ -1518,11 +1569,11 @@ namespace rand9er
         private void Manual_search()
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.Description = "locate ff9, or seperate Data folder of CSVs";
+            folderDlg.Description = "locate ffix";
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                char[] separators = new char[] { '\\', '\\' };
+                /*[] separators = new char[] { '\\', '\\' };
                 string[] a_path = folderDlg.SelectedPath.Split(separators, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = a_path.Length-1; i > 0; i--)
                 {
@@ -1532,12 +1583,13 @@ namespace rand9er
                     }
                     if (a_path[i] == "FINAL FANTASY IX" | a_path[i] == "final fantasy ix" | a_path[i] == "Final Fantasy IX")
                     {
-                        folderDlg.SelectedPath = folderDlg.SelectedPath + "\\StreamingAssets\\Data";
+                        folderDlg.SelectedPath = folderDlg.SelectedPath;
                         break;
                     }
-                }
+                }*/
                 tb_fl.Text = folderDlg.SelectedPath;
             }
+            MogDetect();
         }
         private void ReadWrite()
         {
@@ -1549,34 +1601,34 @@ namespace rand9er
             t.Wait();
             if (cm_itemshop.Checked)
             {
-                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                 File.WriteAllLines("ShopItems.csv", a_comboSafe);
             }
             if (cm_synth.Checked)
             {
-                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                 File.WriteAllLines("Synthesis.csv", a_synthdata);
             }
             if (cm_char.Checked)
             {
                 if (c_abilitygems.Checked)
                 {
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters\\Abilities");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters\\Abilities");
                     File.WriteAllLines("AbilityGems.csv", a_gemdata);
                 }
                 if (c_basestats.Checked)
                 {
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters");
                     File.WriteAllLines("BaseStats.csv", a_statdata);
                 }
                 if (c_default.Checked)
                 {
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters");
                     File.WriteAllLines("DefaultEquipment.csv", a_equipdata);
 
                     if (c_all_e.Checked | c_random_e.Checked) 
                     {
-                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                        Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                         File.WriteAllLines("Items.csv", a_itemdata);
                     }
                 }
@@ -1600,13 +1652,13 @@ namespace rand9er
             if (cm_itemshop.Checked)
             {
                 StockShopItemsCSV();
-                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                 File.WriteAllLines("ShopItems.csv", a_stockShopItems);
             }
             if (cm_synth.Checked)
             {
                 StockSynthesisCSV();
-                Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                 File.WriteAllLines("Synthesis.csv", a_stockSynthesis);
             }
             if (cm_char.Checked)
@@ -1615,23 +1667,42 @@ namespace rand9er
                 if (c_abilitygems.Checked)
                 {
                     StockAbilityGemsCSV();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters\\Abilities");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters\\Abilities");
                     File.WriteAllLines("AbilityGems.csv", a_stockAbilityGems);
                 }
                 if (c_basestats.Checked)
                 {
                     StockBaseStatsCSV();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters");
                     File.WriteAllLines("BaseStats.csv", a_stockBaseStats);
                 }
                 if (c_default.Checked)
                 {
                     StockDefaultEquipmentCSV();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Characters");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters");
                     File.WriteAllLines("DefaultEquipment.csv", a_stockDefaultEquipment);
                     StockItemsCSV();
-                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\Items");
+                    Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                     File.WriteAllLines("Items.csv", a_stockItems);
+                }
+            }
+            if (cm_enemies.Checked)
+            {
+                //p0data2.bin
+                Directory.SetCurrentDirectory(binloc);
+                if (File.Exists(binloc + "\\p0data2.bak"))
+                {
+                    File.Copy(binloc + "\\p0data2.bak", binloc + "\\p0data2.bin");
+                }
+                
+            }
+            if (cm_entrances.Checked)
+            {
+                //p0data7.bin
+                Directory.SetCurrentDirectory(binloc);
+                if (File.Exists(binloc + "\\p0data7.bak"))
+                {
+                    File.Copy(binloc + "\\p0data7.bak", binloc + "\\p0data7.bin");
                 }
             }
             b_restore.Text = "Done!";
@@ -1642,5 +1713,379 @@ namespace rand9er
             t.Wait();
             b_restore.Text = "Restore Stock Checked Files";
         }
+
+        //New GUI changes
+
+        private void c_mogdetect_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void MogDetect()
+        {
+            if (Directory.Exists(@tb_fl.Text+ "\\MoguriFiles\\StreamingAssets"))
+            {
+                c_mogdetect.Checked = true;
+                c_mogdetect.Text = "Moguri detected";
+                binloc = tb_fl.Text + "\\MoguriFiles\\StreamingAssets";
+            } else
+            {
+                binloc = tb_fl.Text + "\\StreamingAssets";
+            }
+        }
+
+        //Entrances
+        private void cm_entrances_CheckedChanged(object sender, EventArgs e)
+        {
+            //          random entrances selection
+            if (cm_entrances.Checked)
+            {
+                c_allpaths.Enabled = true;
+                c_nologic.Enabled = true;
+                if (!c_nologic.Checked & !c_allpaths.Checked)
+                {
+                    c_allpaths.Checked = true;
+                }
+            }
+            else if (!cm_entrances.Checked)
+            {
+                c_allpaths.Enabled = false;
+                c_nologic.Enabled = false;
+            }
+        }
+        private void c_nologic_CheckedChanged(object sender, EventArgs e)
+        {
+            // connect randomly with no gaurenteed completion path
+            if (c_nologic.Checked)
+            {
+                c_allpaths.Checked = false;
+            }
+        }
+        private void c_allpaths_CheckedChanged(object sender, EventArgs e)
+        {
+            // connect randomly and make sure all paths connect to all exits
+            if (c_allpaths.Checked)
+            {
+                c_nologic.Checked = false;
+            }
+        }
+
+        //Enemies
+        private void cm_enemies_CheckedChanged(object sender, EventArgs e)
+        {
+            //          random enemies selection
+            if (cm_enemies.Checked)
+            {
+                c_esteals.Enabled = true;
+                c_edrops.Enabled = true;
+                if (!c_esteals.Checked & !c_edrops.Checked)
+                {
+                    c_esteals.Checked = true;
+                    c_edrops.Checked = true;
+                }
+                if (c_esteals.Checked)
+                {
+                    c_es1.Enabled = true;
+                    c_es2.Enabled = true;
+                    c_es3.Enabled = true;
+                    c_es4.Enabled = true;
+                }
+                if (c_edrops.Checked)
+                {
+                    c_ed1.Enabled = true;
+                    c_ed2.Enabled = true;
+                    c_ed3.Enabled = true;
+                    c_ed4.Enabled = true;
+                }
+            }
+            else if (!cm_enemies.Checked)
+            {
+                c_esteals.Enabled = false;
+                c_edrops.Enabled = false;
+                c_es1.Enabled = false;
+                c_es2.Enabled = false;
+                c_es3.Enabled = false;
+                c_es4.Enabled = false;
+                c_ed1.Enabled = false;
+                c_ed2.Enabled = false;
+                c_ed3.Enabled = false;
+                c_ed4.Enabled = false;
+            }
+
+        }
+        private void c_esteals_CheckedChanged(object sender, EventArgs e)
+        {
+            //      random steals selection
+            if (c_esteals.Checked)
+            {
+                c_es1.Enabled = true;
+                c_es2.Enabled = true;
+                c_es3.Enabled = true;
+                c_es4.Enabled = true;
+                if (!c_es1.Checked & !c_es2.Checked & !c_es3.Checked & !c_es4.Checked)
+                {
+                    c_es3.Checked = true;
+                    c_es4.Checked = true;
+                }
+            }
+            else if (!c_esteals.Checked )
+            {
+                c_es1.Enabled = false;
+                c_es2.Enabled = false;
+                c_es3.Enabled = false;
+                c_es4.Enabled = false;
+            }
+        }
+        private void c_edrops_CheckedChanged(object sender, EventArgs e)
+        {
+            //      random drops selection
+            if (c_edrops.Checked)
+            {
+                c_ed1.Enabled = true;
+                c_ed2.Enabled = true;
+                c_ed3.Enabled = true;
+                c_ed4.Enabled = true;
+                if (!c_ed1.Checked & !c_ed2.Checked & !c_ed3.Checked & !c_ed4.Checked)
+                {
+                    c_ed3.Checked = true;
+                    c_ed4.Checked = true;
+                }
+            }
+            else if (!c_edrops.Checked)
+            {
+                c_ed1.Enabled = false;
+                c_ed2.Enabled = false;
+                c_ed3.Enabled = false;
+                c_ed4.Enabled = false;
+            }
+        }
+
+        private void c_es1_CheckedChanged(object sender, EventArgs e)
+        {
+            // steal slot 1
+        }
+        private void c_es2_CheckedChanged(object sender, EventArgs e)
+        {
+            // steal slot 2
+        }
+        private void c_es3_CheckedChanged(object sender, EventArgs e)
+        {
+            // steal slot 3
+        }
+        private void c_es4_CheckedChanged(object sender, EventArgs e)
+        {
+            // steal slot 4
+        }
+
+        private void c_ed1_CheckedChanged(object sender, EventArgs e)
+        {
+            // drop slot 1
+        }
+        private void c_ed2_CheckedChanged(object sender, EventArgs e)
+        {
+            // drop slot 2
+        }
+        private void c_ed3_CheckedChanged(object sender, EventArgs e)
+        {
+            // drop slot 3
+        }
+        private void c_ed4_CheckedChanged(object sender, EventArgs e)
+        {
+            // drop slot 4
+        }
+
+        //GUI changes done
+
+        //New logic
+        
+        private void Bytes_IO()
+        {
+            //check if bak exists, if not need to copy the bin as bak, this should ensure I only restore data to before i touched it
+            //      string binloc has binary location
+            //backup entrances
+            
+            
+            
+            if (!File.Exists(binloc+ "\\p0data7.bak"))
+            {
+                File.Copy(binloc + "\\p0data7.bin", binloc + "\\p0data7.bak");
+            }
+            //backup enemies
+            if (!File.Exists(binloc + "\\p0data2.bak"))
+            {
+                File.Copy(binloc + "\\p0data2.bin", binloc + "\\p0data2.bak");
+            }
+            
+            
+            //need to read bin
+
+            ba_p0data7 = File.ReadAllBytes(binloc + "\\p0data7.bin");
+            //ba_p2 = File.ReadAllBytes(binloc + "\\p0data2.bin");
+
+            //create address lists, check out pointers or just the address offset of the pattern
+
+
+            //      using ba_p7 array, iterate every "pattern_length here". check for pattern
+            //      there wont be a way to know if the chunk seached is aligned with the pattern size.
+            //      so we cant chunk it and search each for match. I need to seach one byte at a time and if match first pattern byte then check for further matches.
+            //      so reguardless, we need a loop, check for first byte match, then loop again, check second. so on and so forth.
+
+            //  preload and set var
+            //      fd0005?x??05d9157d?x??
+            //      "fd0005" + x[0000-ffff] + "05d9167d" + x[0000-ffff]
+
+            //  set entrance, load field()
+            //      05D8027D?y??2C7F2B00?x??
+            //      "05d8027d" + y[0000-ffff] + "2c7f2b00" + x[0000-ffff]
+            //each set should contain both patterns and only in this order.
+            //this means the range is setup to preload a field and does exit, so it is an exit field.
+            //any other ones, im not sure yet.
+
+
+            //if (ba_p7[i] == pattern[0])
+            //richTextBox_output.Text = richTextBox_output.Text + "\n" + BitConverter.(ba_p7[i]).Replace("-", "");
+
+            //this stacked for loop lets us match certain parts with any bytes in between, i.e. a variable pattern search
+
+            byte[] pattern1a_preload = new byte[] { 253, 0, 5 };
+            // var zone1a
+            byte[] pattern1b_setvar = new byte[] { 5, 217, 21, 125 };
+            //var zone 1b
+            byte[] pattern2a_setent = new byte[] { 5, 216, 2, 125 };
+            //var zone 2a
+            byte[] pattern2b_field = new byte[] { 44, 127, 43, 0 };
+            //var zone 2b
+            
+            
+            //length of dataset
+            //1 for fieldID (known)
+            //1 for rangeID (known)
+            //pairs: 4 for addresses (unknown), 4 for values(known)
+            //
+
+            //for each data point
+            int fieldID, rangeID, add1, val1, add2, val2, add3, val3, add4, val4;
+            
+            int[] i_datapoint = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+            //now we need a dataset array of datapoints this is the one we dont know the length of yet
+            //but I could get if we absolutely need it. oof
+
+            /*int[][] i_dataset =
+            {
+                i_datapoint, i_datapoint
+            
+            };*/
+
+            
+            //unsure length of total data to store atm.
+            List<byte> l_byte_stor = new List<byte>();
+
+            //array lists
+            // Insert(index, data) inbetwee, after index, 
+            //
+
+            //shit we might need the length of our expected dataset..
+
+            List<int[][]> l_dataset = new List<int[][]>() { };
+            //nvm, we can use a list of int[]s that way we can continue without knowing max length.
+
+
+            //iterate through and when encounter, #HW fileid 50 // Prima Vista/Cargo Room, we know which field we are on.
+            //log this data as the current fieldID, use to create dataset.
+            //everytime we are scanning and we encounter a new pattern match for fieldID, we change the current fieldID value
+            //and continue scanning.
+
+            byte[] ba_byte_stor = new byte[] {};
+
+            for (int i = 0; i < ba_p0data7.Length; i++)//match first byte
+            {
+                //  preload and set var
+                //      fd      0005?x??05d9157d?x??
+                //  set entrance, load field()
+                //      05      D8027D?y??2C7F2B00?x??
+                
+                if (ba_p0data7[i] == pattern1a_preload[0])
+                {
+                    int k = i;
+                    for (int j = 0; j < pattern1a_preload.Length; j++)
+                    {
+                        
+                        if (!(ba_p0data7[k] == pattern1a_preload[j]))
+                        {
+                            break;
+                        } else
+                        {
+
+                            k++;
+                        }
+                        
+                    }
+                    i = k;
+                }
+
+                for ()//match rest of known pattern
+                {
+                    //  preload and set var
+                    //      00 05        ?x??05d9157d?x??
+                    //  set entrance, load field()
+                    //      D8 02 7D      ?y??2C7F2B00?x??
+
+                    for ()//match any bytes, as this is the variable zone
+                    {
+                        //  preload and set var
+                        //      ?x ??        05d9157d?x??
+                        //  set entrance, load field()
+                        //      ?y ??        2C7F2B00?x??
+
+                        for ()//match more/rest of known pattern
+                        {
+                            //  preload and set var
+                            //      05 d9 15 7d        ?x??
+                            //  set entrance, load field()
+                            //      2C 7F 2B 00        ?x??
+
+                            for ()//match any bytes, as this is also variable zone
+                            {
+                                //  preload and set var
+                                //      ?x??
+                                //  set entrance, load field()
+                                //      ?x??
+
+                                /*for ()//match anymore known data at the end of the pattern
+                                {
+                                    //keep this for later if needed.
+
+                                }*/
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+
+            
+
+
+
+
+
+            //write bin
+
+            //
+
+        }
+
+
+
+
     }
 }
