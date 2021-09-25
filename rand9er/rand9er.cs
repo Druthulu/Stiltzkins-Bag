@@ -1910,11 +1910,9 @@ namespace rand9er
                 File.Copy(binloc + "\\p0data2.bin", binloc + "\\p0data2.bak");
             }
 
-            //read bin
             ba_p0data7 = File.ReadAllBytes(binloc + "\\p0data7.bin");
             //ba_p2 = File.ReadAllBytes(binloc + "\\p0data2.bin");
 
-            //  FF9 Fields Dictionary for name->lookups
             Dictionary<int, string> ff9Fields = new Dictionary<int, string>
         {
             { 50, "EVT_ALEX1_TS_CARGO_0" }, { 51, "EVT_ALEX1_TS_CARGO_3" }, { 52, "EVT_ALEX1_TS_MEET_0" }, { 53, "EVT_ALEX1_TS_MEET_1" }, { 54, "EVT_ALEX1_TS_UPPER" }, { 55, "EVT_ALEX1_TS_ORCHE" }, { 56, "EVT_ALEX1_TS_ENGIN_UP" }, { 57, "EVT_ALEX1_TS_ENGIN" }, { 58, "EVT_ALEX1_TS_STORAGE" }, { 59, "EVT_ALEX1_TS_UNDER" },
@@ -2002,59 +2000,23 @@ namespace rand9er
             { 3009, "EVT_ENDING_TH_1" }, { 3010, "EVT_ENDING_TH_2" }, { 3011, "EVT_ENDING_TH_3" }, { 3012, "EVT_ENDING_AC_4" }, { 3050, "EVT_MAGE2_BV_ENT_0" }, { 3051, "EVT_MAGE2_BV_ABR_0" }, { 3052, "EVT_MAGE2_BV_GVY_0" }, { 3053, "EVT_MAGE2_BV_INN_0" }, { 3054, "EVT_MAGE2_BV_ITS_0" }, { 3055, "EVT_MAGE2_BV_WPN_0" },
             { 3056, "EVT_MAGE2_BV_ORT_0" }, { 3057, "EVT_MAGE2_BV_CSK_0" }, { 3058, "EVT_MAGE2_BV_CSI_0" }, { 3059, "EVT_MAGE2_BV_ITM_0" }
         };
-            //Dictionary<int, byte[]> ff9FieldsBytes = new Dictionary<int, byte[]>();
-            List<Datapoint> Dataset = new List<Datapoint>();
 
-            KeyValuePair<int, string> DictPair(int i)
-            {
-                return ff9Fields.ElementAt(i);
-            }
+            List<Datapoint> Dataset = new List<Datapoint>();
 
             (int key, string value, byte[] asc2) DictBytesConvert(int i)
             {
                 KeyValuePair<int, string> fieldSet = ff9Fields.ElementAt(i);
                 byte[] ascii = Encoding.ASCII.GetBytes(fieldSet.Value);
-                return (key: fieldSet.Key, value: fieldSet.Value, asc2: ascii);
+                byte[] ascii2 = new byte[] { 46, 101, 0 }; //   add "2e 65 00" ".eb"
+                byte[] ascii3 = new byte[ascii.Length + ascii2.Length];
+                ascii.CopyTo(ascii3, 0);
+                ascii2.CopyTo(ascii3, ascii.Length);
+                return (key: fieldSet.Key, value: fieldSet.Value, asc2: ascii3);
             }
 
-            for (int i = 0; i < ff9Fields.Count; i++)
-            {
-                (int key, string value, byte[] asc2) = DictBytesConvert(i);
-                Dataset.Add(new Datapoint(key, value, asc2, 0, 0, 0, 0, 0, 0, 0, 0, 0 ));
-                //ff9FieldsBytes.Add( key, asc2 );
-            }
-            //  not needed
-            KeyValuePair<int, byte[]> DictBytePair(int i)
-            {
-                return ff9FieldsBytes.ElementAt(i);
-            }
-            byte[] DictByte(int i)
-            {
-                KeyValuePair<int, byte[]> fieldset = ff9FieldsBytes.ElementAt(i);
-                return fieldset.Value;
-            }
-            
-            //      AuthorList.Add(new Author("Neel Beniwal", 18, "Graphics Development with C#", false, new DateTime(2010, 2, 22)));
-            //      foeach ( var datapoint in DataSet )
-            //      adding is like lists, object data is object methods
-            foreach (var datapoint in Dataset)
-            {
-                //      we have access to the entire object
+            int[] deadzone = { 33122111, 34426256 };
 
-            }
-
-            //  preload and set var
-            //      fd0005?x??05d9157d?x??
-            //  set entrance, load field()
-            //      05D8027D?y??2C7F2B00?x??
-
-            //each set should contain both patterns and only in this order.
-            //this means the range is setup to preload a field and does exit, so it is an exit field.
-            //any other ones, im not sure yet.
-
-            //richTextBox_output.Text = richTextBox_output.Text + "\n" + BitConverter.(ba_p7[i]).Replace("-", "");
-
-            //      Post Function Region*_Range patterns
+            //      Post FieldID patterns
             byte[] pattern1a_preload = new byte[] { 253, 0, 5 };
             //var zone 1a
             byte[] pattern1b_setvar = new byte[] { 5, 217, 21, 125 };
@@ -2063,22 +2025,8 @@ namespace rand9er
             //var zone 2a
             byte[] pattern2b_field = new byte[] { 44, 127, 43, 0 };
             //var zone 2b
-            //      var 1a 1b 2b are same FieldID, 2a is General_Entrance value
-
-            //length of dataset
-            //1 for fieldID (known)
-            //1 for rangeID (known)
-            //pairs: 4 for addresses (unknown), 4 for values(known)
-
-            //for each data point
-            int fieldID, rangeID, add1, val1, add2, val2, add3, val3, add4, val4;
-            //do we need rangeID?
-
-            //old way
-            //int[] t_datapoint = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};  //templete datapoint
-            //List<int[]> l_dataset = new List<int[]>() { t_datapoint };
-            //int[] a_datapoint = t_datapoint;
-
+            //      var 1a 1b 2b are same FieldID, 2a is General_Entrance value         checks
+            
             //iterate through and when encounter, #HW fileid 50 // Prima Vista/Cargo Room, we know which field we are on.
             //log this data as the current fieldID, use to create datapoint.
             //everytime we are scanning and we encounter a new pattern match for fieldID, we update the stored fieldID value
@@ -2096,166 +2044,287 @@ namespace rand9er
             //      foeach ( var datapoint in DataSet )
 
             //      MAIN LOOP
-            for (int i = 0; i < ba_p0data7.Length; i++)
+
+            //create new datapoint and fill with data
+            //use first in dictionary and fill all possible datapoints with this fieldID
+            //iterate through dictionary file only after searching entire file multiple times for possible datapoints.
+            //possible check if already known address
+
+
+
+            //this will make searching it much easier
+            //add "2e 65 00" ".eb"
+            //dead range: 33122111 0x1f9673f
+            //end dead range: 34426256 0x20d4d90
+            //this has no useful data.
+            //I should find 7 of each field
+
+            //index Field String Address ranges for entire p0data7.bin first
+
+            void MainIndex()
             {
-
-                //one loop of this per datapoint
-                //
-                //          NEED TO ADD BEGINING CHECKS
-
-                //I found it. just search for the name string.eb, drop the bytes from the name.
-                //lets code that in real quick.
-
                 
-
-                //need to adjust the opening here to start with string match
-                //will need to convert the string to bytes for search.
-                if (ba_p0data7[i] == Dict(i)[0])
+                
+                //      for entire file, loop and check for feild name in ascii
+                for (int i=0; i < ba_p0data7.Length; i++)
                 {
+                    //skip deadzone
+                    if (i >= deadzone[0] && i <= deadzone[1])
+                    {
+                        i = deadzone[1] + 1;
+                    }
+                    if (ba_p0data7[i] == Dataset[datapoint].FieldBytes[0])
 
                 }
-
-                
-
-                //first byte of preload matching
-                if (ba_p0data7[i] == pattern1a_preload[0])
-                {
-                    a_patternbuilder = new int[11];
-                    int k = i;
-                    
-                    //match [first as well as] rest of known pattern
-                    for (int j = 0; j < pattern1a_preload.Length; j++)
-                    {
-                        //if non continuous match, discontinue pattern match, and resume scaning p0data7 for new preload[0]
-                        //only executes below preload.Length
-                        if (!(ba_p0data7[k] == pattern1a_preload[j]))
-                        {
-                            i = k;  //set resume index to bypass failed chunk
-                            break;  //breaks preload loop
-                        }
-
-                        //store first and each match in temp array
-                        if (ba_p0data7[k] == pattern1a_preload[j])
-                        {
-                            a_patternbuilder[j] = ba_p0data7[k];
-                            k++;
-                            //finished matching preload
-                            if (k == pattern1a_preload.Length)
-                            {
-                                //  pattern1a_preload =
-                                //  { 253, 0, 5 } + var zone 1a
-                                //store next two values for var zone 1a
-                                a_patternbuilder[j + 1] = ba_p0data7[k];
-                                k++;    //continue incrementing to maintain current index
-                                a_patternbuilder[j + 2] = ba_p0data7[k];
-                                k++;    
-
-                                //continue work here
-                                //need to continue searching p0data7 with k for next pattern
-
-
-                                //  pattern1b_setvar =
-                                //  { 5, 217, 21, 125 } + var zone 1b
-
-
-
-
-
-                                //          way later
-                                //          final pattern data add to list
-                                //          l_dataset.AddRange(a_datapoint.Cast<int[]>());
-
-
-
-                            }
-                        }
-
-                        
-                        
-                    }
-
-                    //update i to skip checked area k and return back to main loop to check for another datapoint
-                    i = k;
-                }
-                /*
-                for ()//match rest of known pattern
-                {
-                    //  preload and set var
-                    //      00 05        ?x??05d9157d?x??
-                    //  set entrance, load field()
-                    //      D8 02 7D      ?y??2C7F2B00?x??
-
-                    for ()//match any bytes, as this is the variable zone
-                    {
-                        //  preload and set var
-                        //      ?x ??        05d9157d?x??
-                        //  set entrance, load field()
-                        //      ?y ??        2C7F2B00?x??
-
-                        for ()//match more/rest of known pattern
-                        {
-                            //  preload and set var
-                            //      05 d9 15 7d        ?x??
-                            //  set entrance, load field()
-                            //      2C 7F 2B 00        ?x??
-
-                            for ()//match any bytes, as this is also variable zone
-                            {
-                                //  preload and set var
-                                //      ?x??
-                                //  set entrance, load field()
-                                //      ?x??
-
-                             
-
-                            }
-
-                        }
-
-                    }
-
-                }*/
-
             }
 
 
+            //CreateDataPoint();
 
-
-
-
+            void CreateDataPoint()
+            {
+                for (int datapoint = 0; datapoint < ff9Fields.Count; datapoint++)
+                {
+                    (int key, string value, byte[] asc2) = DictBytesConvert(datapoint);
+                    int[] blank2ints = new int[] { 0, 0 };
+                    byte[] blank2bytes = new byte[] { 0, 0 };
+                    Dataset.Add(new Datapoint(key, value, asc2, false, blank2ints, blank2bytes, blank2ints, blank2bytes, blank2ints, blank2bytes, blank2ints, blank2bytes));   //9 zeros
+                    MatchFieldBytes(datapoint);
+                }
+            }
             
+            void MatchFieldBytes(int datapoint)
+            {
+                for (int i = 0; i < ba_p0data7.Length; i++)
+                {
+                    while (i < deadzone[0] || i > deadzone[1])
+                    {
+                        //  match first byte of field name in bytes
+                        if (ba_p0data7[i] == Dataset[datapoint].FieldBytes[0])
+                        {
+                            int k = i;
+                            for (int j = 0; j < Dataset[datapoint].FieldBytes.Length; j++)
+                            {
+                                if (!(ba_p0data7[k] == Dataset[datapoint].FieldBytes[j]))
+                                {
+                                    i = k;
+                                    break;
+                                }
+
+                                if (ba_p0data7[k] == Dataset[datapoint].FieldBytes[j])
+                                {
+                                    k++;
+                                    if ((k - i) == Dataset[datapoint].FieldBytes.Length)
+                                    {
+                                        i = k;
+                                        i = Pattern1a(datapoint, k);
+
+                                        //there may be more entrances to scan for.
+                                        //return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            int Pattern1a(int datapoint, int k)
+            {
+                int i = k;
+                for (i = k; i < ba_p0data7.Length; i++)
+                {
+                    while (i < deadzone[0] || i > deadzone[1])
+                    {
+                        //      first byte of preload matching
+                        if (ba_p0data7[i] == pattern1a_preload[0])
+                        {
+                            k = i;
+                            for (int j = 0; j < pattern1a_preload.Length; j++)
+                            {
+                                if (!(ba_p0data7[k] == pattern1a_preload[j]))
+                                {
+                                    i = k;
+                                    break;
+                                }
+
+                                if (ba_p0data7[k] == pattern1a_preload[j])
+                                {
+                                    k++;
+                                    if ((k - i) == pattern1a_preload.Length)
+                                    {
+
+                                        //still need to gather addresses
+                                        Dataset[datapoint].Add1[0] = k;
+                                        Dataset[datapoint].Val1[0] = ba_p0data7[k];
+                                        k++;
+                                        Dataset[datapoint].Add1[1] = k;
+                                        Dataset[datapoint].Val1[1] = ba_p0data7[k];
+                                        k++;
+                                        i = Pattern1b(datapoint, k);
+                                        //Datapoint.SumCheck();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return i;
+            }
+
+            int Pattern1b(int datapoint, int k)
+            {
+                int i = k;
+                for (i = k; i < ba_p0data7.Length; i++)
+                {
+                    while (i < deadzone[0] || i > deadzone[1])
+                    {
+                        if (ba_p0data7[i] == pattern1b_setvar[0])
+                        {
+                            k = i;
+                            for (int j = 0; j < pattern1b_setvar.Length; j++)
+                            {
+                                if (!(ba_p0data7[k] == pattern1b_setvar[j]))
+                                {
+                                    i = k;
+                                    break;
+                                }
+
+                                if (ba_p0data7[k] == pattern1b_setvar[j])
+                                {
+                                    k++;
+                                    if ((k - i) == pattern1b_setvar.Length)
+                                    {
+
+                                        // still need to gather addreseses
+
+                                        Dataset[datapoint].Val2[0] = ba_p0data7[k];
+                                        k++;
+                                        Dataset[datapoint].Val2[1] = ba_p0data7[k];
+                                        k++;
+                                        i = k;
+                                        i = Pattern2a(datapoint, k);
+                                        return i;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return i;
+            }
+
+            int Pattern2a(int datapoint, int k)
+            {
+                int i = k;
+                for (i = k; i < ba_p0data7.Length; i++)
+                {
+                    while (i < deadzone[0] || i > deadzone[1])
+                    {
+                        if (ba_p0data7[i] == pattern2a_setent[0])
+                        {
+                            k = i;
+                            for (int j = 0; j < pattern2a_setent.Length; j++)
+                            {
+                                if (!(ba_p0data7[k] == pattern2a_setent[j]))
+                                {
+                                    i = k;
+                                    break;
+                                }
+
+                                if (ba_p0data7[k] == pattern2a_setent[j])
+                                {
+                                    k++;
+                                    if ((k - i) == pattern2a_setent.Length)
+                                    {
+
+                                        // still need to gather addreseses
+
+                                        Dataset[datapoint].Val3[0] = ba_p0data7[k];
+                                        k++;
+                                        Dataset[datapoint].Val3[1] = ba_p0data7[k];
+                                        k++;
+                                        i = k;
+                                        i = Pattern2b(datapoint, k);
+                                        return i;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return i;
+            }
+
+            int Pattern2b(int datapoint, int k)
+            {
+                int i = k;
+                for (i = k; i < ba_p0data7.Length; i++)
+                {
+                    while (i < deadzone[0] || i > deadzone[1])
+                    {
+                        if (ba_p0data7[i] == pattern2b_field[0])
+                        {
+                            k = i;
+                            for (int j = 0; j < pattern2b_field.Length; j++)
+                            {
+                                if (!(ba_p0data7[k] == pattern2b_field[j]))
+                                {
+                                    i = k;
+                                    break;
+                                }
+
+                                if (ba_p0data7[k] == pattern2b_field[j])
+                                {
+                                    k++;
+                                    if ((k - i) == pattern2b_field.Length)
+                                    {
+
+                                        // still need to gather addreseses
+
+                                        Dataset[datapoint].Val4[0] = ba_p0data7[k];
+                                        k++;
+                                        Dataset[datapoint].Val4[1] = ba_p0data7[k];
+                                        k++;
+                                        i = k;
+                                        return i;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return i;
+            }
 
 
-
-
-
+        }
+            
             //write bin
 
             //
-
-        }
 
         public class Datapoint
         {
             private int fieldID;
             private string fieldName;
             private byte[] fieldBytes;
-            private int rangeID;
-            private int add1;
-            private byte val1;
-            private int add2;
-            private byte val2;
-            private int add3;
-            private byte val3;
-            private int add4;
-            private byte val4;
+            private bool checkSum;
+            private int[] add1;
+            private byte[] val1;
+            private int[] add2;
+            private byte[] val2;
+            private int[] add3;
+            private byte[] val3;
+            private int[] add4;
+            private byte[] val4;
 
-            public Datapoint(int fieldID, string fieldName, byte[] fieldBytes, int rangeID, int add1, byte val1, int add2, byte val2, int add3, byte val3, int add4, byte val4)
+            public Datapoint(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[] add1, byte[] val1, int[] add2, byte[] val2, int[] add3, byte[] val3, int[] add4, byte[] val4)
             {
                 this.fieldID = fieldID;
                 this.fieldName = fieldName;
                 this.fieldBytes = fieldBytes;
-                this.rangeID = rangeID;
+                this.checkSum = checkSum;
                 this.add1 = add1;
                 this.val1 = val1;
                 this.add2 = add2;
@@ -2281,53 +2350,65 @@ namespace rand9er
                 get { return fieldBytes; }
                 set { fieldBytes = value; }
             }
-            public int RangeID
+            public bool CheckSum
             {
-                get { return rangeID; }
-                set { rangeID = value; }
+                get { return SumCheck(); }
+                set { checkSum = value; }
+                
             }
-            public int Add1
+            public int[] Add1
             {
                 get { return add1; }
                 set { add1 = value; }
             }
-            public byte Val1
+            public byte[] Val1
             {
                 get { return val1; }
                 set { val1 = value; }
             }
-            public int Add2
+            public int[] Add2
             {
                 get { return add2; }
                 set { add2 = value; }
             }
-            public byte Val2
+            public byte[] Val2
             {
                 get { return val2; }
                 set { val2 = value; }
             }
-            public int Add3
+            public int[] Add3
             {
                 get { return add3; }
                 set { add3 = value; }
             }
-            public byte Val3
+            public byte[] Val3
             {
                 get { return val3; }
                 set { val3 = value; }
             }
-            public int Add4
+            public int[] Add4
             {
                 get { return add4; }
                 set { add4 = value; }
             }
-            public byte Val4
+            public byte[] Val4
             {
                 get { return val4; }
                 set { val4 = value; }
             }
+            bool SumCheck()
+            {
+                if (((val1[0] > 0) | (val1[1] > 0)) && ((val2[0] > 0) | (val2[1] > 0)) && ((val4[0] > 0) | (val4[1] > 0)))
+                {
+                    if ((val1[0] == val2[0]) && (val1[0] == val4[0]) && (val1[1] == val2[1]) && (val1[1] == val4[1]))
+                    {
+                        checkSum = true;
+                    }
+                }
+                checkSum = false;
+                return checkSum;
+            }
         }
-
 
     }
 }
