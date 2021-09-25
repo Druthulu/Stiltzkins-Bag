@@ -1899,13 +1899,8 @@ namespace rand9er
         
         private void Bytes_IO()
         {
-            //check if bak exists, if not need to copy the bin as bak, this should ensure I only restore data to before i touched it
-            //      string binloc has binary location
             //backup entrances
-            
-            
-            
-            if (!File.Exists(binloc+ "\\p0data7.bak"))
+            if (!File.Exists(binloc + "\\p0data7.bak"))
             {
                 File.Copy(binloc + "\\p0data7.bin", binloc + "\\p0data7.bak");
             }
@@ -1914,115 +1909,275 @@ namespace rand9er
             {
                 File.Copy(binloc + "\\p0data2.bin", binloc + "\\p0data2.bak");
             }
-            
-            
-            //need to read bin
 
+            //read bin
             ba_p0data7 = File.ReadAllBytes(binloc + "\\p0data7.bin");
             //ba_p2 = File.ReadAllBytes(binloc + "\\p0data2.bin");
 
-            //create address lists, check out pointers or just the address offset of the pattern
+            //  FF9 Fields Dictionary for name->lookups
+            Dictionary<int, string> ff9Fields = new Dictionary<int, string>
+        {
+            { 50, "EVT_ALEX1_TS_CARGO_0" }, { 51, "EVT_ALEX1_TS_CARGO_3" }, { 52, "EVT_ALEX1_TS_MEET_0" }, { 53, "EVT_ALEX1_TS_MEET_1" }, { 54, "EVT_ALEX1_TS_UPPER" }, { 55, "EVT_ALEX1_TS_ORCHE" }, { 56, "EVT_ALEX1_TS_ENGIN_UP" }, { 57, "EVT_ALEX1_TS_ENGIN" }, { 58, "EVT_ALEX1_TS_STORAGE" }, { 59, "EVT_ALEX1_TS_UNDER" },
+            { 60, "EVT_ALEX1_TS_COCKPIT" }, { 61, "EVT_ALEX1_TS_STAGE_BK" }, { 62, "EVT_ALEX1_TS_STAGE_1A" }, { 63, "EVT_ALEX1_TS_STAGE_1B" }, { 64, "EVT_ALEX1_TS_SWD_BTL" }, { 65, "EVT_ALEX1_TS_STAGE_2A" }, { 66, "EVT_ALEX1_TS_STAGE_2B" }, { 67, "EVT_ALEX1_TS_STAGE_2C" }, { 68, "EVT_ALEX1_TS_ROYAL_1" }, { 69, "EVT_ALEX1_TS_ROYAL_2" },
+            { 70, "EVT_ALEX1_TS_OPENING" }, { 100, "EVT_ALEX1_AT_STREET_A" }, { 101, "EVT_ALEX1_AT_STREET_B" }, { 102, "EVT_ALEX1_AT_STREET_C" }, { 103, "EVT_ALEX1_AT_CENTER" }, { 104, "EVT_ALEX1_AT_TICKET" }, { 105, "EVT_ALEX1_AT_BACK_STR" }, { 106, "EVT_ALEX1_AT_TSS" }, { 107, "EVT_ALEX1_AT_GATE" }, { 108, "EVT_ALEX1_AT_ITEM" },
+            { 109, "EVT_ALEX1_AT_WEAPON" }, { 110, "EVT_ALEX1_AT_MAGIC" }, { 111, "EVT_ALEX1_AT_INN" }, { 112, "EVT_ALEX1_AT_PUB" }, { 113, "EVT_ALEX1_AT_HOUSE_1" }, { 114, "EVT_ALEX1_AT_HOUSE_2" }, { 115, "EVT_ALEX1_AT_SENTOU" }, { 116, "EVT_ALEX1_AT_ROOF" }, { 117, "EVT_ALEX1_AT_RUBY" }, { 150, "EVT_ALEX1_AC_GUARD" },
+            { 151, "EVT_ALEX1_AC_SEAT_R" }, { 153, "EVT_ALEX1_AC_H2F" }, { 154, "EVT_ALEX1_AC_ENT_2F" }, { 155, "EVT_ALEX1_AC_LIB" }, { 156, "EVT_ALEX1_AC_PARTY" }, { 157, "EVT_ALEX1_AC_KITCHEN" }, { 158, "EVT_ALEX1_AC_OUT_E" }, { 159, "EVT_ALEX1_AC_OUT_C" }, { 160, "EVT_ALEX1_AC_OUT_L" }, { 161, "EVT_ALEX1_AC_OUT_R" },
+            { 162, "EVT_ALEX1_AC_TOWER_L1" }, { 163, "EVT_ALEX1_AC_TOWER_L2" }, { 164, "EVT_ALEX1_AC_TOWER_L3" }, { 165, "EVT_ALEX1_AC_TOWER_L4" }, { 166, "EVT_ALEX1_AC_TOWER_L5" }, { 167, "EVT_ALEX1_AC_LIB_2" }, { 200, "EVT_DOWNSHIP_BT_CCD_0" }, { 201, "EVT_DOWNSHIP_BT_CCP_0" }, { 202, "EVT_DOWNSHIP_BT_CCR_0" },
+            { 203, "EVT_DOWNSHIP_BT_CMR_0" }, { 204, "EVT_DOWNSHIP_BT_CNR_0" }, { 205, "EVT_DOWNSHIP_BT_CUS_0" }, { 206, "EVT_DOWNSHIP_BT_FRT_0" }, { 207, "EVT_DOWNSHIP_BT_GTR_0" }, { 208, "EVT_DOWNSHIP_BT_STR_0" }, { 209, "EVT_DOWNSHIP_BT_CF1_0" }, { 250, "EVT_EFOREST1_EF_ENT_0" }, { 251, "EVT_EFOREST1_EF_FR1_0" },
+            { 252, "EVT_EFOREST1_EF_FR2_0" }, { 253, "EVT_EFOREST1_EF_HEL_0" }, { 254, "EVT_EFOREST1_EF_NSP_0" }, { 255, "EVT_EFOREST1_EF_NRV_0" }, { 256, "EVT_EFOREST1_EF_FR3_0" }, { 257, "EVT_EFOREST1_EF_DEP_0" }, { 258, "EVT_EFOREST1_EF_FR4_0" }, { 259, "EVT_EFOREST1_EF_FR5_0" }, { 260, "EVT_EFOREST1_EF_FR6_0" },
+            { 261, "EVT_EFOREST1_EF_EXT_0" }, { 262, "EVT_EFOREST1_EF_TNT_0" }, { 300, "EVT_ICE_IC_ENT_0" }, { 301, "EVT_ICE_IC_STP_0" }, { 302, "EVT_ICE_IC_TER_0" }, { 303, "EVT_ICE_IC_JMP_0" }, { 304, "EVT_ICE_IC_BRI_0" }, { 305, "EVT_ICE_IC_MEN_0" }, { 306, "EVT_ICE_IC_MRM_0" }, { 307, "EVT_ICE_IC_STA_0" },
+            { 308, "EVT_ICE_IC_WBF_0" }, { 309, "EVT_ICE_IC_WAF_0" }, { 310, "EVT_ICE_IC_CAF_0" }, { 311, "EVT_ICE_IC_XIT_0" }, { 312, "EVT_ICE_DL_VIW_0" }, { 350, "EVT_DALI_V_DL_WHL" }, { 351, "EVT_DALI_V_DL_INN0" }, { 352, "EVT_DALI_V_DL_INN1" }, { 353, "EVT_DALI_V_DL_MYR" }, { 354, "EVT_DALI_V_DL_SHP" },
+            { 355, "EVT_DALI_V_DL_BAR" }, { 356, "EVT_DALI_V_DL_WMS0" }, { 357, "EVT_DALI_V_DL_WMS1" }, { 358, "EVT_DALI_V_DL_FWM" }, { 359, "EVT_DALI_V_DL_ENT" }, { 400, "EVT_DALI_F_UF_BLK_0" }, { 401, "EVT_DALI_F_UF_BLK_1" }, { 402, "EVT_DALI_F_UF_DEV_0" }, { 403, "EVT_DALI_F_UF_EGG_0" }, { 404, "EVT_DALI_F_UF_ENT_0" },
+            { 405, "EVT_DALI_F_UF_MST_0" }, { 406, "EVT_DALI_F_UF_RST_0" }, { 407, "EVT_DALI_F_UF_STO_0" }, { 408, "EVT_DALI_F_UF_STO_1" }, { 450, "EVT_DALI_A_AP_FID_0" }, { 451, "EVT_DALI_A_AP_AIR_0" }, { 452, "EVT_DALI_A_AP_AIR_1" }, { 453, "EVT_DALI_A_AP_AIR_2" }, { 454, "EVT_DALI_A_AP_AIR_3" }, { 455, "EVT_DALI_A_AP_WTE_0" },
+            { 456, "EVT_DALI_A_AP_WTE_1" }, { 457, "EVT_DALI_A_AP_WTI_0" }, { 500, "EVT_CARGO_CA_DCK_1" }, { 501, "EVT_CARGO_CA_DCK_W" }, { 502, "EVT_CARGO_CA_COP_0" }, { 503, "EVT_CARGO_CA_COP_1" }, { 504, "EVT_CARGO_CA_ERM_0" }, { 505, "EVT_CARGO_CA_RDK_0" }, { 506, "EVT_CARGO_FN_DCK_0" }, { 507, "EVT_CARGO_CA_DCK_0" },
+            { 550, "EVT_LIND1_TN_LB_GAT_0" }, { 551, "EVT_LIND1_TN_LB_MTM_0" }, { 552, "EVT_LIND1_TN_LB_MST_0" }, { 553, "EVT_LIND1_TN_LB_IN1_0" }, { 554, "EVT_LIND1_TN_LB_IN2_0" }, { 555, "EVT_LIND1_TN_LB_BAZ_0" }, { 556, "EVT_LIND1_TN_LB_ALY_0" }, { 557, "EVT_LIND1_TN_LB_TMP_0" }, { 558, "EVT_LIND1_TN_LB_HUS_0" },
+            { 559, "EVT_LIND1_TN_LB_PLZ_0" }, { 560, "EVT_LIND1_TN_LB_ECH_0" }, { 561, "EVT_LIND1_TN_LB_ITM_0" }, { 562, "EVT_LIND1_TN_LB_WPN_0" }, { 563, "EVT_LIND1_TN_LB_STN_0" }, { 564, "EVT_LIND1_TN_LB_ATL_0" }, { 565, "EVT_LIND1_TN_LB_TTL_0" }, { 566, "EVT_LIND1_TN_LB_RFS_0" }, { 567, "EVT_LIND1_TN_LB_HIG_0" },
+            { 568, "EVT_LIND1_TN_LB_FTH_0" }, { 569, "EVT_LIND1_TN_LB_AET_0" }, { 570, "EVT_LIND1_TN_LB_ROD_0" }, { 571, "EVT_LIND1_TN_LB_SLN_0" }, { 572, "EVT_LIND1_TN_LB_FTM_0" }, { 573, "EVT_LIND1_TN_LB_LDH_0" }, { 574, "EVT_LIND1_TN_LB_WGN_0" }, { 575, "EVT_LIND1_TN_LB_CAG_0" }, { 576, "EVT_LIND1_TN_LB_SHT_0" },
+            { 600, "EVT_LIND1_CS_LB_CFR_0" }, { 601, "EVT_LIND1_CS_LB_LPF_0" }, { 602, "EVT_LIND1_CS_LB_EXB_0" }, { 603, "EVT_LIND1_CS_LB_LLP_0" }, { 604, "EVT_LIND1_CS_LB_POT_0" }, { 605, "EVT_LIND1_CS_LB_PLA_0" }, { 606, "EVT_LIND1_CS_LB_TSP_0" }, { 607, "EVT_LIND1_CS_LB_HNG_0" }, { 608, "EVT_LIND1_CS_LB_SHB_0" },
+            { 609, "EVT_LIND1_CS_LB_BRG_0" }, { 610, "EVT_LIND1_CS_LB_CTM_0" }, { 611, "EVT_LIND1_CS_LB_GRM_0" }, { 612, "EVT_LIND1_CS_LB_MHW_0" }, { 613, "EVT_LIND1_CS_LB_HAL_0" }, { 614, "EVT_LIND1_CS_LB_ASD_0" }, { 615, "EVT_LIND1_CS_LB_OBS_0" }, { 616, "EVT_LIND1_CS_LB_LPR_0" }, { 617, "EVT_LIND1_CS_LB_UHW_0" },
+            { 618, "EVT_LIND1_CS_LB_MET_0" }, { 619, "EVT_LIND1_CS_LB_HFC_0" }, { 620, "EVT_LIND1_CS_LB_LFT_0" }, { 650, "EVT_KUINA_KM_ENT_0" }, { 651, "EVT_KUINA_KM_DWN_0" }, { 652, "EVT_KUINA_KM_DWN_1" }, { 653, "EVT_KUINA_KM_DWN_2" }, { 654, "EVT_KUINA_KM_DWN_3" }, { 655, "EVT_KUINA_KM_RED_0" }, { 657, "EVT_KUINA_KM_SWP_1" },
+            { 660, "EVT_KUINA_KM_THE_0" }, { 661, "EVT_KUINA_KM_THI_0" }, { 701, "EVT_GIZ_ENTER_1" }, { 702, "EVT_GIZ_CAVERN_0" }, { 703, "EVT_GIZ_CAVERN_1" }, { 704, "EVT_GIZ_BELL_0" }, { 705, "EVT_GIZ_BELL_1" }, { 706, "EVT_GIZ_TO_WORLD" }, { 707, "EVT_GIZ_BOSS" }, { 750, "EVT_BURMECIA_ENTER" }, { 751, "EVT_BURMECIA_TOWN_0" }, { 752, "EVT_BURMECIA_TOWN_1" },
+            { 753, "EVT_BURMECIA_TOWN_2" }, { 754, "EVT_BURMECIA_HOUSE_0" }, { 755, "EVT_BURMECIA_HOUSE_1" }, { 756, "EVT_BURMECIA_HOUSE_2" }, { 757, "EVT_BURMECIA_HOUSE_3" }, { 758, "EVT_BURMECIA_PATH" }, { 759, "EVT_BURMECIA_PATIO_0" }, { 760, "EVT_BURMECIA_PATIO_1" }, { 761, "EVT_BURMECIA_PATIO_2" }, { 762, "EVT_BURMECIA_PATIO_3" },
+            { 763, "EVT_BURMECIA_SQUARE_0" }, { 764, "EVT_BURMECIA_SQUARE_1" }, { 765, "EVT_BURMECIA_SQUARE_2" }, { 766, "EVT_BURMECIA_PALACE_0" }, { 767, "EVT_BURMECIA_PALACE_1" }, { 768, "EVT_BURMECIA_PALACE_2" }, { 800, "EVT_GATE_S_SG_RND_0" }, { 801, "EVT_GATE_S_SG_RND_1" }, { 802, "EVT_GATE_S_SG_RND_3" }, { 806, "EVT_GATE_S_SG_ALX_3" },
+            { 813, "EVT_GATE_S_SG_TRN_0" }, { 814, "EVT_GATE_S_SG_TRN_1" }, { 850, "EVT_GATE_N_NG_BDA_0" }, { 851, "EVT_GATE_N_NG_BMA_0" }, { 852, "EVT_GATE_N_NG_MDA_0" }, { 1256, "EVT_PINA_PR_ENT_1" }, { 2950, "EVT_CHOCO_CH_FST_0" }, { 2953, "EVT_CHOCO_CH_DWL_0" }, { 152, "EVT_ALEX1_AC_SEAT_N" }, { 656, "EVT_KUINA_KM_SWP_0" },
+            { 658, "EVT_KUINA_KM_SWP_2" }, { 659, "EVT_KUINA_KM_SWP_3" }, { 662, "EVT_KUINA_KM_FET_0" }, { 663, "EVT_KUINA_KM_FET_1" }, { 769, "EVT_BURMECIA_PALACE_3" }, { 803, "EVT_GATE_S_SG_ALX_0" }, { 804, "EVT_GATE_S_SG_ALX_1" }, { 805, "EVT_GATE_S_SG_ALX_2" }, { 807, "EVT_GATE_S_SG_ALX_4" }, { 809, "EVT_GATE_S_SG_TOP_0" },
+            { 810, "EVT_GATE_S_SG_TOP_1" }, { 811, "EVT_GATE_S_SG_TOP_2" }, { 812, "EVT_GATE_S_SG_TOP_3" }, { 815, "EVT_GATE_S_SG_TRN_2" }, { 816, "EVT_GATE_S_SG_TRN_3" }, { 900, "EVT_TRENO1_TR_BAR_0" }, { 901, "EVT_TRENO1_TR_BHE_0" }, { 902, "EVT_TRENO1_TR_BHM_0" }, { 903, "EVT_TRENO1_TR_BTA_0" }, { 904, "EVT_TRENO1_TR_EKH_0" },
+            { 905, "EVT_TRENO1_TR_FBH_0" }, { 906, "EVT_TRENO1_TR_FKH_0" }, { 907, "EVT_TRENO1_TR_FQH_0" }, { 908, "EVT_TRENO1_TR_GAT_0" }, { 909, "EVT_TRENO1_TR_KHA_0" }, { 910, "EVT_TRENO1_TR_KHM_0" }, { 911, "EVT_TRENO1_TR_QHM_0" }, { 912, "EVT_TRENO1_TR_RES_0" }, { 913, "EVT_TRENO1_TR_TMS_0" }, { 914, "EVT_TRENO1_TR_TOT_0" },
+            { 915, "EVT_TRENO1_TR_WBH_0" }, { 916, "EVT_TRENO1_TR_WHF_0" }, { 930, "EVT_TOT_TR_TOT_1" }, { 931, "EVT_TOT_TR_WAT_0" }, { 932, "EVT_TOT_AC_LBR_A" }, { 950, "EVT_GARGAN_GR_CEN_0" }, { 951, "EVT_GARGAN_GR_LEF_0" }, { 952, "EVT_GARGAN_GR_GBA_0" }, { 953, "EVT_GARGAN_GR_REN_0" }, { 954, "EVT_GARGAN_GR_GGT_0" },
+            { 955, "EVT_GARGAN_GR_GGT_1" }, { 956, "EVT_GARGAN_GR_ALX_0" }, { 957, "EVT_GARGAN_GR_CON_0" }, { 1000, "EVT_CLEYRA1_ENT_0" }, { 1001, "EVT_CLEYRA1_ENT_1" }, { 1002, "EVT_CLEYRA1_ENT_2" }, { 1003, "EVT_CLEYRA1_DUN_00" }, { 1004, "EVT_CLEYRA1_DUN_01A" }, { 1005, "EVT_CLEYRA1_DUN_01B" }, { 1006, "EVT_CLEYRA1_DUN_03" },
+            { 1007, "EVT_CLEYRA1_DUN_04" }, { 1008, "EVT_CLEYRA1_DUN_05" }, { 1009, "EVT_CLEYRA1_DUN_06" }, { 1010, "EVT_CLEYRA1_DUN_07" }, { 1011, "EVT_CLEYRA1_DUN_08" }, { 1012, "EVT_CLEYRA1_DUN_09" }, { 1013, "EVT_CLEYRA1_DUN_10" }, { 1014, "EVT_CLEYRA1_DUN_11" }, { 1015, "EVT_CLEYRA1_DUN_12A" }, { 1016, "EVT_CLEYRA1_DUN_12B" },
+            { 1017, "EVT_CLEYRA1_DUN_13A" }, { 1018, "EVT_CLEYRA1_DUN_13B" }, { 1050, "EVT_CLEYRA2_LADDER" }, { 1051, "EVT_CLEYRA2_ENTER" }, { 1052, "EVT_CLEYRA2_ANTRION" }, { 1053, "EVT_CLEYRA2_WATER" }, { 1054, "EVT_CLEYRA2_WIND" }, { 1055, "EVT_CLEYRA2_TOWN" }, { 1056, "EVT_CLEYRA2_INN" }, { 1057, "EVT_CLEYRA2_VISTA" },
+            { 1058, "EVT_CLEYRA2_CATHE_0" }, { 1059, "EVT_CLEYRA2_CATHE_1" }, { 1060, "EVT_CLEYRA2_CATHE_2" }, { 1100, "EVT_CLEYRA3_LADDER" }, { 1101, "EVT_CLEYRA3_ENTER" }, { 1102, "EVT_CLEYRA3_ANTRION" }, { 1103, "EVT_CLEYRA3_WATER" }, { 1104, "EVT_CLEYRA3_WIND" }, { 1105, "EVT_CLEYRA3_TOWN" }, { 1106, "EVT_CLEYRA3_INN" },
+            { 1107, "EVT_CLEYRA3_VISTA" }, { 1108, "EVT_CLEYRA3_CATHE_0" }, { 1109, "EVT_CLEYRA3_CATHE_1" }, { 1110, "EVT_CLEYRA3_CATHE_2" }, { 1150, "EVT_ROSE_DECK" }, { 1151, "EVT_ROSE_CABIN_1" }, { 1152, "EVT_ROSE_CABIN_2" }, { 1153, "EVT_ROSE_BRIDGE" }, { 1200, "EVT_ALEX2_AC_SEAT_R" }, { 1201, "EVT_ALEX2_AC_S_ROOM" },
+            { 1202, "EVT_ALEX2_AC_STAIR_A" }, { 1203, "EVT_ALEX2_AC_STAIR_B" }, { 1204, "EVT_ALEX2_AC_STAIR_C" }, { 1205, "EVT_ALEX2_AC_SUMMON_A" }, { 1206, "EVT_ALEX2_AC_QUEEN" }, { 1207, "EVT_ALEX2_AC_PRINCESS" }, { 1208, "EVT_ALEX2_AC_PRISON_A" }, { 1209, "EVT_ALEX2_AC_PRISON_B" }, { 1210, "EVT_ALEX2_AC_TOWER_L1" },
+            { 1211, "EVT_ALEX2_AC_TOWER_R1" }, { 1212, "EVT_ALEX2_AC_TOWER_R2" }, { 1213, "EVT_ALEX2_AC_GUARD" }, { 1214, "EVT_ALEX2_AC_H2F" }, { 1215, "EVT_ALEX2_AC_ENT_2F" }, { 1216, "EVT_ALEX2_AC_LIB" }, { 1217, "EVT_ALEX2_AC_PARTY" }, { 1218, "EVT_ALEX2_AC_KITCHEN" }, { 1219, "EVT_ALEX2_AC_OUT_E" }, { 1220, "EVT_ALEX2_AC_OUT_C" },
+            { 1221, "EVT_ALEX2_AC_OUT_L" }, { 1222, "EVT_ALEX2_AC_OUT_R" }, { 1223, "EVT_ALEX2_AC_QUEEN_2" }, { 1224, "EVT_ALEX2_AC_R_HALL" }, { 1225, "EVT_ALEX2_AC_QUEEN_3" }, { 1226, "EVT_ALEX2_AC_LIB_2" }, { 1227, "EVT_ALEX2_AC_SWD_BTL" }, { 1250, "EVT_PINA_AC_RST_0" }, { 1251, "EVT_PINA_PR_GAL_0" }, { 1252, "EVT_PINA_PR_PW1_0" },
+            { 1253, "EVT_PINA_PR_PW2_0" }, { 1254, "EVT_PINA_PR_PW3_0" }, { 1255, "EVT_PINA_PR_ENT_0" }, { 1300, "EVT_LIND2_TN_LB_GAT_0" }, { 1301, "EVT_LIND2_TN_LB_MTM_0" }, { 1302, "EVT_LIND2_TN_LB_MST_0" }, { 1303, "EVT_LIND2_TN_LB_IN1_0" }, { 1304, "EVT_LIND2_TN_LB_IN2_0" }, { 1305, "EVT_LIND2_TN_LB_BAZ_0" },
+            { 1306, "EVT_LIND2_TN_LB_HUS_0" }, { 1307, "EVT_LIND2_TN_LB_PLZ_0" }, { 1308, "EVT_LIND2_TN_LB_ECH_0" }, { 1309, "EVT_LIND2_TN_LB_WPN_0" }, { 1310, "EVT_LIND2_TN_LB_STN_0" }, { 1311, "EVT_LIND2_TN_LB_ATL_0" }, { 1312, "EVT_LIND2_TN_LB_TTL_0" }, { 1313, "EVT_LIND2_TN_LB_RFS_0" }, { 1314, "EVT_LIND2_TN_LB_HIG_0" },
+            { 1315, "EVT_LIND2_TN_LB_OMG_W" }, { 1350, "EVT_LIND2_CS_LB_CFR_0" }, { 1351, "EVT_LIND2_CS_LB_LPF_0" }, { 1352, "EVT_LIND2_CS_LB_EXB_0" }, { 1353, "EVT_LIND2_CS_LB_LLP_0" }, { 1354, "EVT_LIND2_CS_LB_POT_0" }, { 1355, "EVT_LIND2_CS_LB_PLA_0" }, { 1356, "EVT_LIND2_CS_LB_TSP_0" }, { 1357, "EVT_LIND2_CS_LB_HNG_0" },
+            { 1358, "EVT_LIND2_CS_LB_SHB_0" }, { 1359, "EVT_LIND2_CS_LB_BRG_0" }, { 1360, "EVT_LIND2_CS_LB_CTM_0" }, { 1361, "EVT_LIND2_CS_LB_GRM_0" }, { 1362, "EVT_LIND2_CS_LB_MHW_0" }, { 1363, "EVT_LIND2_CS_LB_HAL_0" }, { 1364, "EVT_LIND2_CS_LB_ASD_1" }, { 1365, "EVT_LIND2_CS_LB_OBS_0" }, { 1366, "EVT_LIND2_CS_LB_LPR_0" },
+            { 1367, "EVT_LIND2_CS_LB_UHW_0" }, { 1368, "EVT_LIND2_CS_LB_MET_0" }, { 1369, "EVT_LIND2_CS_LB_HFC_0" }, { 1370, "EVT_LIND2_CS_LB_LFT_0" }, { 1400, "EVT_FOSSIL_FR_MV1_0" }, { 1401, "EVT_FOSSIL_FR_MV2_0" }, { 1402, "EVT_FOSSIL_FR_MV3_0" }, { 1403, "EVT_FOSSIL_FR_MV4_0" }, { 1404, "EVT_FOSSIL_FR_MV5_0" },
+            { 1405, "EVT_FOSSIL_FR_SL1_0" }, { 1406, "EVT_FOSSIL_FR_SL2_0" }, { 1407, "EVT_FOSSIL_FR_SL3_0" }, { 1408, "EVT_FOSSIL_FR_SL4_0" }, { 1409, "EVT_FOSSIL_FR_SL5_0" }, { 1410, "EVT_FOSSIL_FR_SM1_0" }, { 1411, "EVT_FOSSIL_FR_SR1_0" }, { 1412, "EVT_FOSSIL_FR_SR2_0" }, { 1413, "EVT_FOSSIL_FR_SR3_0" }, { 1414, "EVT_FOSSIL_FR_SR4_0" },
+            { 1415, "EVT_FOSSIL_FR_SR5_0" }, { 1416, "EVT_FOSSIL_FR_SR6_0" }, { 1417, "EVT_FOSSIL_FR_SR7_0" }, { 1418, "EVT_FOSSIL_FR_DN1_0" }, { 1419, "EVT_FOSSIL_FR_DN2_0" }, { 1420, "EVT_FOSSIL_FR_DN3_0" }, { 1421, "EVT_FOSSIL_FR_DN4_0" }, { 1422, "EVT_FOSSIL_FR_ENT_0" }, { 1423, "EVT_FOSSIL_FR_TRP_0" }, { 1424, "EVT_FOSSIL_FR_SBW_0" },
+            { 1425, "EVT_FOSSIL_FR_EXT_0" }, { 1450, "EVT_MAGE_BV_ENT_0" }, { 1451, "EVT_MAGE_BV_ABR_0" }, { 1452, "EVT_MAGE_BV_GVY_0" }, { 1453, "EVT_MAGE_BV_GVY_1" }, { 1454, "EVT_MAGE_BV_INN_0" }, { 1455, "EVT_MAGE_BV_ITS_0" }, { 1456, "EVT_MAGE_BV_WPN_0" }, { 1457, "EVT_MAGE_BV_ORT_0" }, { 1458, "EVT_MAGE_BV_CSK_0" },
+            { 1459, "EVT_MAGE_BV_CSI_0" }, { 1460, "EVT_MAGE_BV_ITM_0" }, { 1461, "EVT_MAGE_BV_ZDN_0" }, { 1462, "EVT_MAGE_BV_EVE_0" }, { 1463, "EVT_MAGE_BV_FR1_0" }, { 1464, "EVT_MAGE_BV_FR2_0" }, { 1500, "EVT_PATA_T_CP_ENT_0" }, { 1501, "EVT_PATA_T_CP_GL1_0" }, { 1502, "EVT_PATA_T_CP_GL2_0" }, { 1503, "EVT_PATA_T_CP_STR_0" },
+            { 1504, "EVT_PATA_T_CP_EXT_0" }, { 1505, "EVT_PATA_T_CP_SHN_0" }, { 1506, "EVT_PATA_T_CP_ALT_0" }, { 1507, "EVT_PATA_T_CP_STP_0" }, { 1508, "EVT_PATA_T_CP_ROM_0" }, { 1509, "EVT_PATA_T_CP_TOL_0" }, { 1550, "EVT_PATA_M_CM_MP0_0" }, { 1551, "EVT_PATA_M_CM_MP1_0" }, { 1552, "EVT_PATA_M_CM_MP2_0" }, { 1553, "EVT_PATA_M_CM_MP3_0" },
+            { 1554, "EVT_PATA_M_CM_MP4_0" }, { 1555, "EVT_PATA_M_CM_MP5_0" }, { 1556, "EVT_PATA_M_CM_MP6_0" }, { 1557, "EVT_PATA_M_CM_MP7_0" }, { 1600, "EVT_SARI1_MS_ENT_0" }, { 1601, "EVT_SARI1_MS_FNT_0" }, { 1602, "EVT_SARI1_MS_EKH_0" }, { 1603, "EVT_SARI1_MS_PMR_0" }, { 1604, "EVT_SARI1_MS_MRR_0" }, { 1605, "EVT_SARI1_MS_MRR_2" },
+            { 1606, "EVT_SARI1_MS_EIK_0" }, { 1607, "EVT_SARI1_MS_KTN_0" }, { 1608, "EVT_SARI1_MS_SCR_0" }, { 1609, "EVT_SARI1_MS_SSD_0" }, { 1610, "EVT_SARI1_MS_SSD_1" }, { 1650, "EVT_EVA1_IF_ENT_0" }, { 1651, "EVT_EVA1_IF_PUG_0" }, { 1652, "EVT_EVA1_IF_BAS_0" }, { 1653, "EVT_EVA1_IF_BAS_2" }, { 1654, "EVT_EVA1_IF_MKJ_0" },
+            { 1655, "EVT_EVA1_IF_PTS_0" }, { 1656, "EVT_EVA1_IF_PTS_1" }, { 1657, "EVT_EVA1_IF_GGT_0" }, { 1658, "EVT_EVA1_IF_MSD_0" }, { 1659, "EVT_EVA1_IF_CST_0" }, { 1660, "EVT_EVA1_BF_FLS_0" }, { 1661, "EVT_EVA1_BF_DCK_0" }, { 1662, "EVT_EVA1_BF_DCK_1" }, { 1663, "EVT_EVA1_IF_MKJ_1" }, { 1750, "EVT_EVA2_IU_EVE_0" },
+            { 1751, "EVT_EVA2_IU_EUG_0" }, { 1752, "EVT_EVA2_IU_EUG_1" }, { 1753, "EVT_EVA2_IU_EUG_2" }, { 1754, "EVT_EVA2_IU_ELV_0" }, { 1755, "EVT_EVA2_IU_SDV_0" }, { 1756, "EVT_EVA2_IU_SDV_1" }, { 1757, "EVT_EVA2_IF_ENT_1" }, { 1758, "EVT_EVA2_IF_PUG_1" }, { 1759, "EVT_EVA2_IF_BAS_1" }, { 1800, "EVT_ALEX3_AC_OHAKA" },
+            { 1950, "EVT_KUWAN_QH_CAV_0" }, { 1951, "EVT_KUWAN_QH_HUH_0" }, { 1952, "EVT_KUWAN_QH_HUR_0" }, { 1953, "EVT_KUWAN_QH_LNI_0" }, { 808, "EVT_GATE_S_SG_ALX_5" }, { 853, "EVT_GATE_N_NG_TRA_1" }, { 854, "EVT_GATE_N_NG_BDA_1" }, { 855, "EVT_GATE_N_NG_BMA_1" }, { 856, "EVT_GATE_N_NG_MDA_1" }, { 1801, "EVT_ALEX3_AC_QUEEN" },
+            { 1802, "EVT_ALEX3_AC_PRINCESS" }, { 1803, "EVT_ALEX3_AC_GUARD" }, { 1806, "EVT_ALEX3_AC_H2F" }, { 1807, "EVT_ALEX3_AC_ENT_2F" }, { 1808, "EVT_ALEX3_AC_LIB" }, { 1809, "EVT_ALEX3_AC_PARTY" }, { 1810, "EVT_ALEX3_AC_KITCHEN" }, { 1811, "EVT_ALEX3_AC_OUT_E" }, { 1812, "EVT_ALEX3_AC_OUT_C" }, { 1813, "EVT_ALEX3_AC_OUT_L" },
+            { 1814, "EVT_ALEX3_AC_OUT_R" }, { 1815, "EVT_ALEX3_AC_OUT_C2" }, { 1816, "EVT_ALEX3_AC_OUT_C9" }, { 1817, "EVT_ALEX3_AC_PORT_A" }, { 1818, "EVT_ALEX3_AC_PORT_B" }, { 1819, "EVT_ALEX3_AC_PORT_C0" }, { 1820, "EVT_ALEX3_AC_TOWER_L1" }, { 1821, "EVT_ALEX3_AC_R_HALL" }, { 1822, "EVT_ALEX3_AC_LIB_2" }, { 1823, "EVT_ALEX3_AC_H2F_2" },
+            { 1824, "EVT_ALEX3_AC_SWD_BTL" }, { 1850, "EVT_ALEX3_AT_STREET_A" }, { 1851, "EVT_ALEX3_AT_STREET_B" }, { 1852, "EVT_ALEX3_AT_STREET_C" }, { 1853, "EVT_ALEX3_AT_CENTER" }, { 1854, "EVT_ALEX3_AT_BACK_STR" }, { 1855, "EVT_ALEX3_AT_TSS" }, { 1856, "EVT_ALEX3_AT_GATE" }, { 1857, "EVT_ALEX3_AT_ITEM" }, { 1858, "EVT_ALEX3_AT_WEAPON" },
+            { 1859, "EVT_ALEX3_AT_MAGIC" }, { 1860, "EVT_ALEX3_AT_INN" }, { 1861, "EVT_ALEX3_AT_PUB" }, { 1862, "EVT_ALEX3_AT_HOUSE_1" }, { 1863, "EVT_ALEX3_AT_HOUSE_2" }, { 1864, "EVT_ALEX3_AT_RUBY" }, { 1865, "EVT_ALEX3_AT_SENTOU" }, { 1866, "EVT_ALEX3_AT_WHARF" }, { 1900, "EVT_TRENO2_TR_BAR_0" }, { 1901, "EVT_TRENO2_TR_BHE_0" },
+            { 1902, "EVT_TRENO2_TR_BHM_0" }, { 1903, "EVT_TRENO2_TR_BTA_0" }, { 1904, "EVT_TRENO2_TR_EKH_0" }, { 1905, "EVT_TRENO2_TR_FBH_0" }, { 1906, "EVT_TRENO2_TR_FKH_0" }, { 1907, "EVT_TRENO2_TR_FQH_0" }, { 1908, "EVT_TRENO2_TR_GAT_0" }, { 1909, "EVT_TRENO2_TR_KHA_0" }, { 1910, "EVT_TRENO2_TR_KHM_0" }, { 1911, "EVT_TRENO2_TR_QHM_0" },
+            { 1912, "EVT_TRENO2_TR_RES_0" }, { 1913, "EVT_TRENO2_TR_TMS_0" }, { 1914, "EVT_TRENO2_TR_TOT_0" }, { 1915, "EVT_TRENO2_TR_WBH_0" }, { 1916, "EVT_TRENO2_TR_KHM_1" }, { 2000, "EVT_ALEX4_AC_HILDA2_A" }, { 2001, "EVT_ALEX4_AC_PRINCESS" }, { 2002, "EVT_ALEX4_AC_SAI_A" }, { 2003, "EVT_ALEX4_AC_SAI_B" }, { 2004, "EVT_ALEX4_AC_SAI_C" },
+            { 2005, "EVT_ALEX4_AC_SAI_D" }, { 2006, "EVT_ALEX4_AC_SAI_E" }, { 2007, "EVT_ALEX4_AC_SAI_F" }, { 2008, "EVT_ALEX4_AC_SAI_G" }, { 2009, "EVT_ALEX4_AC_SEAT_R" }, { 2050, "EVT_ALEX4_AT_STREET_A" }, { 2051, "EVT_ALEX4_AT_STREET_B" }, { 2052, "EVT_ALEX4_AT_STREET_C" }, { 2053, "EVT_ALEX4_AT_CENTER" }, { 2054, "EVT_ALEX4_AT_GATE" },
+            { 2055, "EVT_ALEX4_AT_IV_CTR_1" }, { 2100, "EVT_LIND3_TN_LB_GAT_0" }, { 2101, "EVT_LIND3_TN_LB_MTM_0" }, { 2102, "EVT_LIND3_TN_LB_MST_0" }, { 2103, "EVT_LIND3_TN_LB_IN1_0" }, { 2104, "EVT_LIND3_TN_LB_IN2_0" }, { 2105, "EVT_LIND3_TN_LB_BAZ_0" }, { 2106, "EVT_LIND3_TN_LB_HUS_0" }, { 2107, "EVT_LIND3_TN_LB_PLZ_0" },
+            { 2108, "EVT_LIND3_TN_LB_ECH_0" }, { 2109, "EVT_LIND3_TN_LB_WPN_0" }, { 2110, "EVT_LIND3_TN_LB_STN_0" }, { 2111, "EVT_LIND3_TN_LB_ATL_0" }, { 2112, "EVT_LIND3_TN_LB_TTL_0" }, { 2113, "EVT_LIND3_TN_LB_RFS_0" }, { 2114, "EVT_LIND3_TN_LB_HIG_0" }, { 2150, "EVT_LIND3_CS_LB_CFR_0" }, { 2151, "EVT_LIND3_CS_LB_LPF_0" },
+            { 2152, "EVT_LIND3_CS_LB_EXB_0" }, { 2153, "EVT_LIND3_CS_LB_LLP_0" }, { 2155, "EVT_LIND3_CS_LB_PLA_0" }, { 2157, "EVT_LIND3_CS_LB_HNG_0" }, { 2158, "EVT_LIND3_CS_LB_SHB_0" }, { 2159, "EVT_LIND3_CS_LB_BRG_0" }, { 2160, "EVT_LIND3_CS_LB_CTM_0" }, { 2161, "EVT_LIND3_CS_LB_GRM_0" }, { 2162, "EVT_LIND3_CS_LB_MHW_0" },
+            { 2163, "EVT_LIND3_CS_LB_HAL_0" }, { 2164, "EVT_LIND3_CS_LB_ASD_1" }, { 2167, "EVT_LIND3_CS_LB_LPR_0" }, { 2168, "EVT_LIND3_CS_LB_UHW_0" }, { 2169, "EVT_LIND3_CS_LB_MET_0" }, { 2170, "EVT_LIND3_CS_LB_HFC_0" }, { 2171, "EVT_LIND3_CS_LB_LFT_0" }, { 2172, "EVT_LIND3_CS_LB_OBS_M" }, { 2173, "EVT_LIND3_CS_LB_POT_M" },
+            { 2200, "EVT_SUNA_SP_RRO_0" }, { 2201, "EVT_SUNA_SP_RPW_0" }, { 2202, "EVT_SUNA_SP_RPE_0" }, { 2203, "EVT_SUNA_SP_RRM_0" }, { 2204, "EVT_SUNA_SP_RFG_0" }, { 2205, "EVT_SUNA_SP_RSW_0" }, { 2206, "EVT_SUNA_SP_REX_0" }, { 2207, "EVT_SUNA_SP_KPW_0" }, { 2208, "EVT_SUNA_SP_KDR_0" }, { 2209, "EVT_SUNA_SP_KKR_0" },
+            { 2211, "EVT_SUNA_SP_KDC_0" }, { 2212, "EVT_SUNA_SP_KEX_0" }, { 2213, "EVT_SUNA_SP_MP1_0" }, { 2214, "EVT_SUNA_SP_MP2_0" }, { 2215, "EVT_SUNA_SP_MT1_0" }, { 2216, "EVT_SUNA_SP_MP3_0" }, { 2217, "EVT_SUNA_SP_MHL_0" }, { 2220, "EVT_SUNA_SP_MT2_0" }, { 2221, "EVT_SUNA_SP_MT3_0" }, { 2222, "EVT_SUNA_SP_MBS_0" },
+            { 2250, "EVT_OEIL_UV_EXT_0" }, { 2251, "EVT_OEIL_UV_ENT_0" }, { 2252, "EVT_OEIL_UV_PST_0" }, { 2253, "EVT_OEIL_UV_DP1_0" }, { 2254, "EVT_OEIL_UV_DP2_0" }, { 2255, "EVT_OEIL_UV_ELV_0" }, { 2256, "EVT_OEIL_UV_VSL_0" }, { 2257, "EVT_OEIL_UV_VSL_1" }, { 2258, "EVT_OEIL_UV_RFM_0" }, { 2259, "EVT_OEIL_UV_DEP_0" },
+            { 2260, "EVT_OEIL_UV_FDP_0" }, { 2261, "EVT_OEIL_G1_BRG_0" }, { 2300, "EVT_EST_EG_EXT_0" }, { 2301, "EVT_EST_EG_RM1_0" }, { 2302, "EVT_EST_EG_RM1_1" }, { 2303, "EVT_EST_EG_RM2_0" }, { 2304, "EVT_EST_EG_OBS_0" }, { 2305, "EVT_EST_EG_EGV_0" }, { 2350, "EVT_GULUGU_GV_WHL_0" }, { 2351, "EVT_GULUGU_GV_IDO_0" },
+            { 2352, "EVT_GULUGU_GV_RM1_0" }, { 2353, "EVT_GULUGU_GV_RM2_0" }, { 2354, "EVT_GULUGU_GV_RM3_0" }, { 2355, "EVT_GULUGU_GV_RM4_0" }, { 2356, "EVT_GULUGU_GV_ATK_0" }, { 2357, "EVT_GULUGU_GV_HLD_0" }, { 2358, "EVT_GULUGU_GV_PW1_0" }, { 2359, "EVT_GULUGU_GV_PW2_0" }, { 2360, "EVT_GULUGU_GV_PW3_0" }, { 2361, "EVT_GULUGU_GV_TIN_0" },
+            { 2362, "EVT_GULUGU_GV_MGS_0" }, { 2363, "EVT_GULUGU_GV_PW4_0" }, { 2364, "EVT_GULUGU_GV_MG1_0" }, { 2365, "EVT_GULUGU_GV_MG2_0" }, { 2400, "EVT_ALEX5_AC_PORT_A" }, { 2401, "EVT_ALEX5_AC_PORT_B" }, { 2402, "EVT_ALEX5_AC_PORT_C0" }, { 2403, "EVT_ALEX5_AC_PORT_C1" }, { 2404, "EVT_ALEX5_AC_OUT_C" }, { 2405, "EVT_ALEX5_AC_OUT_L" },
+            { 2406, "EVT_ALEX5_AC_TOWER_L1" }, { 2450, "EVT_ALEX5_AT_STREET_A" }, { 2451, "EVT_ALEX5_AT_STREET_C" }, { 2452, "EVT_ALEX5_AT_CENTER" }, { 2453, "EVT_ALEX5_AT_BACK_STR" }, { 2454, "EVT_ALEX5_AT_TSS" }, { 2455, "EVT_ALEX5_AT_INN" }, { 2456, "EVT_ALEX5_AT_SENTOU" }, { 2457, "EVT_ALEX5_AT_RUBY" }, { 2458, "EVT_ALEX5_AT_WHARF" },
+            { 2500, "EVT_IPSEN_IP_EXT_0" }, { 2502, "EVT_IPSEN_IP_EN1_0" }, { 2503, "EVT_IPSEN_IP_EN2_0" }, { 2504, "EVT_IPSEN_IP_RM1_0" }, { 2505, "EVT_IPSEN_IP_RM2_0" }, { 2506, "EVT_IPSEN_IP_HL1_0" }, { 2507, "EVT_IPSEN_IP_HL2_0" }, { 2508, "EVT_IPSEN_IP_ST1_0" }, { 2509, "EVT_IPSEN_IP_ST2_0" }, { 2510, "EVT_IPSEN_IP_CNT_0" },
+            { 2512, "EVT_IPSEN_IP_CNT_2" }, { 2513, "EVT_IPSEN_IP_SMN_0" }, { 2550, "EVT_SHRINE_ES_ENT_0" }, { 2551, "EVT_SHRINE_ES_ENT_1" }, { 2552, "EVT_SHRINE_ES_SEL_1" }, { 2553, "EVT_SHRINE_ES_SEL_2" }, { 2554, "EVT_SHRINE_ES_TRP_0" }, { 2600, "EVT_TERA_TA_THL_0" }, { 2601, "EVT_TERA_TA_HLD_0" }, { 2602, "EVT_TERA_TA_BST_0" },
+            { 2603, "EVT_TERA_TA_PRB_0" }, { 2604, "EVT_TERA_TA_RPB_0" }, { 2605, "EVT_TERA_TA_ROU_0" }, { 2606, "EVT_TERA_TA_ROD_0" }, { 2607, "EVT_TERA_TA_TOB_0" }, { 2608, "EVT_TERA_TA_IVK_0" }, { 2650, "EVT_BAL_BB_STW_0" }, { 2651, "EVT_BAL_BB_SQR_0" }, { 2652, "EVT_BAL_BB_FGT_0" }, { 2653, "EVT_BAL_BB_CDR_0" },
+            { 2654, "EVT_BAL_BB_CDL_0" }, { 2655, "EVT_BAL_BB_WPS_0" }, { 2656, "EVT_BAL_BB_GTH_0" }, { 2657, "EVT_BAL_BB_ITS_0" }, { 2658, "EVT_BAL_BB_UDL_0" }, { 2659, "EVT_BAL_BB_BRG_0" }, { 2660, "EVT_BAL_BB_THL_0" }, { 2661, "EVT_BAL_BB_INV_0" }, { 2700, "EVT_PANDEMO_PD_STR_0" }, { 2701, "EVT_PANDEMO_PD_CAO_0" },
+            { 2702, "EVT_PANDEMO_PD_EAO_0" }, { 2703, "EVT_PANDEMO_PD_SAO_0" }, { 2704, "EVT_PANDEMO_PD_AOS_0" }, { 2705, "EVT_PANDEMO_PD_BWR_0" }, { 2706, "EVT_PANDEMO_PD_RM1_0" }, { 2707, "EVT_PANDEMO_PD_MCD_0" }, { 2708, "EVT_PANDEMO_PD_RM2_0" }, { 2709, "EVT_PANDEMO_PD_OLB_0" }, { 2710, "EVT_PANDEMO_PD_ULB_0" },
+            { 2711, "EVT_PANDEMO_PD_OEV_0" }, { 2712, "EVT_PANDEMO_PD_ELV_0" }, { 2713, "EVT_PANDEMO_PD_EVD_0" }, { 2714, "EVT_PANDEMO_PD_MZM_0" }, { 2715, "EVT_PANDEMO_PD_RTA_0" }, { 2716, "EVT_PANDEMO_PD_RTB_0" }, { 2717, "EVT_PANDEMO_PD_RTC_0" }, { 2718, "EVT_PANDEMO_PD_ALB_0" }, { 2719, "EVT_PANDEMO_PD_PEV_0" },
+            { 2720, "EVT_PANDEMO_PD_RTB_1" }, { 2750, "EVT_INV_IV_BRG_0" }, { 2753, "EVT_INV_IV_CXI_0" }, { 2800, "EVT_DAG_DG_ENT_0" }, { 2801, "EVT_DAG_DG_SRH_0" }, { 2802, "EVT_DAG_DG_LFT_0" }, { 2803, "EVT_DAG_DG_2F0_0" }, { 2850, "EVT_HILDA3_G3_BRG_0" }, { 2851, "EVT_HILDA3_G3_EGR_0" }, { 2852, "EVT_HILDA3_G3_DCK_0" },
+            { 2853, "EVT_HILDA3_G3_EXT_0" }, { 2854, "EVT_HILDA3_G3_BRG_1" }, { 2855, "EVT_HILDA3_BN_DCR_0" }, { 2856, "EVT_HILDA3_BN_DCR_1" }, { 2951, "EVT_CHOCO_CH_HLG_0" }, { 2952, "EVT_CHOCO_CH_FGD_0" }, { 2954, "EVT_CHOCO_CH_PDS_0" }, { 2955, "EVT_CHOCO_CH_PDS_1" }, { 3100, "EVT_MOGNET_MOG_VER1" }, { 1700, "EVT_SARI2_MS_ENT_1" },
+            { 1701, "EVT_SARI2_MS_FNT_1" }, { 1702, "EVT_SARI2_MS_EKH_1" }, { 1703, "EVT_SARI2_MS_PMR_1" }, { 1704, "EVT_SARI2_MS_MRR_1" }, { 1705, "EVT_SARI2_MS_EIK_1" }, { 1706, "EVT_SARI2_MS_KTN_1" }, { 1707, "EVT_SARI2_MS_SCR_1" }, { 1917, "EVT_TRENO2_TR_KHM_2" }, { 2154, "EVT_LIND3_CS_LB_POT_0" }, { 2165, "EVT_LIND3_CS_LB_ASD_2" },
+            { 2166, "EVT_LIND3_CS_LB_OBS_0" }, { 2501, "EVT_IPSEN_IP_EXT_1" }, { 2751, "EVT_INV_IV_BRG_1" }, { 2752, "EVT_INV_IV_BRG_2" }, { 2754, "EVT_INV_IV_CTR_0" }, { 2755, "EVT_INV_G3_BRG_2" }, { 2756, "EVT_INV_RR_BRG_1" }, { 2900, "EVT_LAST_CW_ENT_0" }, { 2901, "EVT_LAST_CW_ETH_0" }, { 2902, "EVT_LAST_CW_1LY_0" },
+            { 2903, "EVT_LAST_CW_1LY_1" }, { 2904, "EVT_LAST_CW_1LY_2" }, { 2905, "EVT_LAST_CW_GIA_0" }, { 2906, "EVT_LAST_CW_2LY_0" }, { 2907, "EVT_LAST_CW_2LY_1" }, { 2908, "EVT_LAST_CW_GIA_1" }, { 2909, "EVT_LAST_CW_3LY_0" }, { 2910, "EVT_LAST_CW_3LY_1" }, { 2911, "EVT_LAST_CW_3LY_2" }, { 2912, "EVT_LAST_CW_GIA_2" },
+            { 2913, "EVT_LAST_CW_4LY_0" }, { 2914, "EVT_LAST_CW_4LY_1" }, { 2915, "EVT_LAST_CW_GIA_3" }, { 2916, "EVT_LAST_CW_5LY_0" }, { 2917, "EVT_LAST_CW_GIA_4" }, { 2918, "EVT_LAST_CW_LTP_0" }, { 2919, "EVT_LAST_CW_EMP_0" }, { 2920, "EVT_LAST_CW_SPC_0" }, { 2921, "EVT_LAST_CW_SPC_1" }, { 2922, "EVT_LAST_CW_CYW_0" },
+            { 2923, "EVT_LAST_CW_CYW_1" }, { 2924, "EVT_LAST_CW_CYW_2" }, { 2925, "EVT_LAST_CW_CYW_3" }, { 2926, "EVT_LAST_CW_LST_0" }, { 2927, "EVT_LAST_CW_LST_A" }, { 2928, "EVT_LAST_CW_LST_1" }, { 2929, "EVT_LAST_CW_MBG_A" }, { 2930, "EVT_LAST_CW_MBG_0" }, { 2931, "EVT_LAST_G3_BRG_0" }, { 2932, "EVT_LAST_RR_BRG_0" },
+            { 2933, "EVT_LAST_CW_MBG_1" }, { 2934, "EVT_LAST_CW_MBG_2" }, { 3000, "EVT_ENDING_AT_1" }, { 3001, "EVT_ENDING_AC_1" }, { 3002, "EVT_ENDING_AC_2" }, { 3003, "EVT_ENDING_AC_3" }, { 3004, "EVT_ENDING_BU_1" }, { 3005, "EVT_ENDING_KM_1" }, { 3006, "EVT_ENDING_LB_1" }, { 3007, "EVT_ENDING_TR_1" }, { 3008, "EVT_ENDING_TH_0" },
+            { 3009, "EVT_ENDING_TH_1" }, { 3010, "EVT_ENDING_TH_2" }, { 3011, "EVT_ENDING_TH_3" }, { 3012, "EVT_ENDING_AC_4" }, { 3050, "EVT_MAGE2_BV_ENT_0" }, { 3051, "EVT_MAGE2_BV_ABR_0" }, { 3052, "EVT_MAGE2_BV_GVY_0" }, { 3053, "EVT_MAGE2_BV_INN_0" }, { 3054, "EVT_MAGE2_BV_ITS_0" }, { 3055, "EVT_MAGE2_BV_WPN_0" },
+            { 3056, "EVT_MAGE2_BV_ORT_0" }, { 3057, "EVT_MAGE2_BV_CSK_0" }, { 3058, "EVT_MAGE2_BV_CSI_0" }, { 3059, "EVT_MAGE2_BV_ITM_0" }
+        };
+            //Dictionary<int, byte[]> ff9FieldsBytes = new Dictionary<int, byte[]>();
+            List<Datapoint> Dataset = new List<Datapoint>();
 
+            KeyValuePair<int, string> DictPair(int i)
+            {
+                return ff9Fields.ElementAt(i);
+            }
 
-            //      using ba_p7 array, iterate every "pattern_length here". check for pattern
-            //      there wont be a way to know if the chunk seached is aligned with the pattern size.
-            //      so we cant chunk it and search each for match. I need to seach one byte at a time and if match first pattern byte then check for further matches.
-            //      so reguardless, we need a loop, check for first byte match, then loop again, check second. so on and so forth.
+            (int key, string value, byte[] asc2) DictBytesConvert(int i)
+            {
+                KeyValuePair<int, string> fieldSet = ff9Fields.ElementAt(i);
+                byte[] ascii = Encoding.ASCII.GetBytes(fieldSet.Value);
+                return (key: fieldSet.Key, value: fieldSet.Value, asc2: ascii);
+            }
+
+            for (int i = 0; i < ff9Fields.Count; i++)
+            {
+                (int key, string value, byte[] asc2) = DictBytesConvert(i);
+                Dataset.Add(new Datapoint(key, value, asc2, 0, 0, 0, 0, 0, 0, 0, 0, 0 ));
+                //ff9FieldsBytes.Add( key, asc2 );
+            }
+            //  not needed
+            KeyValuePair<int, byte[]> DictBytePair(int i)
+            {
+                return ff9FieldsBytes.ElementAt(i);
+            }
+            byte[] DictByte(int i)
+            {
+                KeyValuePair<int, byte[]> fieldset = ff9FieldsBytes.ElementAt(i);
+                return fieldset.Value;
+            }
+            
+            //      AuthorList.Add(new Author("Neel Beniwal", 18, "Graphics Development with C#", false, new DateTime(2010, 2, 22)));
+            //      foeach ( var datapoint in DataSet )
+            //      adding is like lists, object data is object methods
+            foreach (var datapoint in Dataset)
+            {
+                //      we have access to the entire object
+
+            }
 
             //  preload and set var
             //      fd0005?x??05d9157d?x??
-            //      "fd0005" + x[0000-ffff] + "05d9167d" + x[0000-ffff]
-
             //  set entrance, load field()
             //      05D8027D?y??2C7F2B00?x??
-            //      "05d8027d" + y[0000-ffff] + "2c7f2b00" + x[0000-ffff]
+
             //each set should contain both patterns and only in this order.
             //this means the range is setup to preload a field and does exit, so it is an exit field.
             //any other ones, im not sure yet.
 
-
-            //if (ba_p7[i] == pattern[0])
             //richTextBox_output.Text = richTextBox_output.Text + "\n" + BitConverter.(ba_p7[i]).Replace("-", "");
 
-            //this stacked for loop lets us match certain parts with any bytes in between, i.e. a variable pattern search
-
+            //      Post Function Region*_Range patterns
             byte[] pattern1a_preload = new byte[] { 253, 0, 5 };
-            // var zone1a
+            //var zone 1a
             byte[] pattern1b_setvar = new byte[] { 5, 217, 21, 125 };
             //var zone 1b
             byte[] pattern2a_setent = new byte[] { 5, 216, 2, 125 };
             //var zone 2a
             byte[] pattern2b_field = new byte[] { 44, 127, 43, 0 };
             //var zone 2b
-            
-            
+            //      var 1a 1b 2b are same FieldID, 2a is General_Entrance value
+
             //length of dataset
             //1 for fieldID (known)
             //1 for rangeID (known)
             //pairs: 4 for addresses (unknown), 4 for values(known)
-            //
 
             //for each data point
             int fieldID, rangeID, add1, val1, add2, val2, add3, val3, add4, val4;
-            
-            int[] i_datapoint = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            //do we need rangeID?
 
-            //now we need a dataset array of datapoints this is the one we dont know the length of yet
-            //but I could get if we absolutely need it. oof
-
-            /*int[][] i_dataset =
-            {
-                i_datapoint, i_datapoint
-            
-            };*/
-
-            
-            //unsure length of total data to store atm.
-            List<byte> l_byte_stor = new List<byte>();
-
-            //array lists
-            // Insert(index, data) inbetwee, after index, 
-            //
-
-            //shit we might need the length of our expected dataset..
-
-            List<int[][]> l_dataset = new List<int[][]>() { };
-            //nvm, we can use a list of int[]s that way we can continue without knowing max length.
-
+            //old way
+            //int[] t_datapoint = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};  //templete datapoint
+            //List<int[]> l_dataset = new List<int[]>() { t_datapoint };
+            //int[] a_datapoint = t_datapoint;
 
             //iterate through and when encounter, #HW fileid 50 // Prima Vista/Cargo Room, we know which field we are on.
-            //log this data as the current fieldID, use to create dataset.
-            //everytime we are scanning and we encounter a new pattern match for fieldID, we change the current fieldID value
-            //and continue scanning.
+            //log this data as the current fieldID, use to create datapoint.
+            //everytime we are scanning and we encounter a new pattern match for fieldID, we update the stored fieldID value
 
-            byte[] ba_byte_stor = new byte[] {};
+            //need to code for loops for initial fieldID and rangeID ontop of this.
 
-            for (int i = 0; i < ba_p0data7.Length; i++)//match first byte
+            //a_datapoint needs to be reset and created at the top of the loop where we start storing the info.
+
+
+            int[] a_patternbuilder = new int[11];
+
+            //int fcount;int.TryParse(ff9Fields.Count.ToString(), out fcount);
+            //List<Datapoint> Dataset = new List<Datapoint>();
+            //      AuthorList.Add(new Author("Neel Beniwal", 18, "Graphics Development with C#", false, new DateTime(2010, 2, 22)));
+            //      foeach ( var datapoint in DataSet )
+
+            //      MAIN LOOP
+            for (int i = 0; i < ba_p0data7.Length; i++)
             {
-                //  preload and set var
-                //      fd      0005?x??05d9157d?x??
-                //  set entrance, load field()
-                //      05      D8027D?y??2C7F2B00?x??
-                
-                if (ba_p0data7[i] == pattern1a_preload[0])
-                {
-                    int k = i;
-                    for (int j = 0; j < pattern1a_preload.Length; j++)
-                    {
-                        
-                        if (!(ba_p0data7[k] == pattern1a_preload[j]))
-                        {
-                            break;
-                        } else
-                        {
 
-                            k++;
-                        }
-                        
-                    }
-                    i = k;
+                //one loop of this per datapoint
+                //
+                //          NEED TO ADD BEGINING CHECKS
+
+                //I found it. just search for the name string.eb, drop the bytes from the name.
+                //lets code that in real quick.
+
+                
+
+                //need to adjust the opening here to start with string match
+                //will need to convert the string to bytes for search.
+                if (ba_p0data7[i] == Dict(i)[0])
+                {
+
                 }
 
+                
+
+                //first byte of preload matching
+                if (ba_p0data7[i] == pattern1a_preload[0])
+                {
+                    a_patternbuilder = new int[11];
+                    int k = i;
+                    
+                    //match [first as well as] rest of known pattern
+                    for (int j = 0; j < pattern1a_preload.Length; j++)
+                    {
+                        //if non continuous match, discontinue pattern match, and resume scaning p0data7 for new preload[0]
+                        //only executes below preload.Length
+                        if (!(ba_p0data7[k] == pattern1a_preload[j]))
+                        {
+                            i = k;  //set resume index to bypass failed chunk
+                            break;  //breaks preload loop
+                        }
+
+                        //store first and each match in temp array
+                        if (ba_p0data7[k] == pattern1a_preload[j])
+                        {
+                            a_patternbuilder[j] = ba_p0data7[k];
+                            k++;
+                            //finished matching preload
+                            if (k == pattern1a_preload.Length)
+                            {
+                                //  pattern1a_preload =
+                                //  { 253, 0, 5 } + var zone 1a
+                                //store next two values for var zone 1a
+                                a_patternbuilder[j + 1] = ba_p0data7[k];
+                                k++;    //continue incrementing to maintain current index
+                                a_patternbuilder[j + 2] = ba_p0data7[k];
+                                k++;    
+
+                                //continue work here
+                                //need to continue searching p0data7 with k for next pattern
+
+
+                                //  pattern1b_setvar =
+                                //  { 5, 217, 21, 125 } + var zone 1b
+
+
+
+
+
+                                //          way later
+                                //          final pattern data add to list
+                                //          l_dataset.AddRange(a_datapoint.Cast<int[]>());
+
+
+
+                            }
+                        }
+
+                        
+                        
+                    }
+
+                    //update i to skip checked area k and return back to main loop to check for another datapoint
+                    i = k;
+                }
+                /*
                 for ()//match rest of known pattern
                 {
                     //  preload and set var
@@ -2051,11 +2206,7 @@ namespace rand9er
                                 //  set entrance, load field()
                                 //      ?x??
 
-                                /*for ()//match anymore known data at the end of the pattern
-                                {
-                                    //keep this for later if needed.
-
-                                }*/
+                             
 
                             }
 
@@ -2063,7 +2214,7 @@ namespace rand9er
 
                     }
 
-                }
+                }*/
 
             }
 
@@ -2084,7 +2235,98 @@ namespace rand9er
 
         }
 
+        public class Datapoint
+        {
+            private int fieldID;
+            private string fieldName;
+            private byte[] fieldBytes;
+            private int rangeID;
+            private int add1;
+            private byte val1;
+            private int add2;
+            private byte val2;
+            private int add3;
+            private byte val3;
+            private int add4;
+            private byte val4;
 
+            public Datapoint(int fieldID, string fieldName, byte[] fieldBytes, int rangeID, int add1, byte val1, int add2, byte val2, int add3, byte val3, int add4, byte val4)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.fieldBytes = fieldBytes;
+                this.rangeID = rangeID;
+                this.add1 = add1;
+                this.val1 = val1;
+                this.add2 = add2;
+                this.val2 = val2;
+                this.add3 = add3;
+                this.val3 = val3;
+                this.add4 = add4;
+                this.val4 = val4;
+            }
+
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public byte[] FieldBytes
+            {
+                get { return fieldBytes; }
+                set { fieldBytes = value; }
+            }
+            public int RangeID
+            {
+                get { return rangeID; }
+                set { rangeID = value; }
+            }
+            public int Add1
+            {
+                get { return add1; }
+                set { add1 = value; }
+            }
+            public byte Val1
+            {
+                get { return val1; }
+                set { val1 = value; }
+            }
+            public int Add2
+            {
+                get { return add2; }
+                set { add2 = value; }
+            }
+            public byte Val2
+            {
+                get { return val2; }
+                set { val2 = value; }
+            }
+            public int Add3
+            {
+                get { return add3; }
+                set { add3 = value; }
+            }
+            public byte Val3
+            {
+                get { return val3; }
+                set { val3 = value; }
+            }
+            public int Add4
+            {
+                get { return add4; }
+                set { add4 = value; }
+            }
+            public byte Val4
+            {
+                get { return val4; }
+                set { val4 = value; }
+            }
+        }
 
 
     }
