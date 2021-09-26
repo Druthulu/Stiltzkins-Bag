@@ -2000,9 +2000,10 @@ namespace rand9er
             { 3009, "EVT_ENDING_TH_1" }, { 3010, "EVT_ENDING_TH_2" }, { 3011, "EVT_ENDING_TH_3" }, { 3012, "EVT_ENDING_AC_4" }, { 3050, "EVT_MAGE2_BV_ENT_0" }, { 3051, "EVT_MAGE2_BV_ABR_0" }, { 3052, "EVT_MAGE2_BV_GVY_0" }, { 3053, "EVT_MAGE2_BV_INN_0" }, { 3054, "EVT_MAGE2_BV_ITS_0" }, { 3055, "EVT_MAGE2_BV_WPN_0" },
             { 3056, "EVT_MAGE2_BV_ORT_0" }, { 3057, "EVT_MAGE2_BV_CSK_0" }, { 3058, "EVT_MAGE2_BV_CSI_0" }, { 3059, "EVT_MAGE2_BV_ITM_0" }
         };
-
+            
+            List<FieldIndex> FieldIndices = new List<FieldIndex>();
             List<Datapoint> Dataset = new List<Datapoint>();
-
+            
             (int key, string value, byte[] asc2) DictBytesConvert(int i)
             {
                 KeyValuePair<int, string> fieldSet = ff9Fields.ElementAt(i);
@@ -2013,7 +2014,7 @@ namespace rand9er
                 ascii2.CopyTo(ascii3, ascii.Length);
                 return (key: fieldSet.Key, value: fieldSet.Value, asc2: ascii3);
             }
-
+            //last byte 68034959 0x40e218f
             int[] deadzone = { 33122111, 34426256 };
 
             //      Post FieldID patterns
@@ -2061,25 +2062,207 @@ namespace rand9er
 
             //index Field String Address ranges for entire p0data7.bin first
 
-            void MainIndex()
-            {
-                
-                
-                //      for entire file, loop and check for feild name in ascii
-                for (int i=0; i < ba_p0data7.Length; i++)
-                {
-                    //skip deadzone
-                    if (i >= deadzone[0] && i <= deadzone[1])
-                    {
-                        i = deadzone[1] + 1;
-                    }
-                    if (ba_p0data7[i] == Dataset[datapoint].FieldBytes[0])
+            IndicesInit();
 
+            
+            int add_count = 0;
+            //No incoming data
+            Indices1();
+            //  Woah! we popped out of that function nicely. now I haven't tested any of this. Its all just in my mind atm.
+
+            //  Since we now have all start addresses,we can loop and somehow gather all end addresses
+
+            //  store all start addresses into a master list
+            void WoopWoop()
+            {
+                //FieldIndices[fi].Addresses[add_count][0]
+
+                //7 from each 817ish
+                Dictionary<int, int> fieldIndicesStartADD = new Dictionary<int, int>();
+                
+
+                for (int i = 0; i < FieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < FieldIndices[i].Addresses.Length; j++)
+                    {
+                        //  key is addresses    value is fieldID
+                        fieldIndicesStartADD.Add(FieldIndices[i].Addresses[j][0], FieldIndices[i].FieldID );
+                    }
                 }
+
+                //  now we have a sortable dictionary
+                SortedDictionary<int, int> sortedADDS = null;
+                sortedADDS = new SortedDictionary<int, int>(fieldIndicesStartADD);
+                Dictionary<int, int> sortedFINS = new Dictionary<int, int>();
+
+                //  make second dictionary of kvp; starting addresses, ending address=start of next 
+                for (int i = 0; i < sortedADDS.Count; i++)
+                {
+                    int end = 0;
+                    
+                    KeyValuePair<int, int> kvp = sortedADDS.ElementAt(i);
+                    if (i == sortedADDS.Count - 1)
+                    {
+                        end = ba_p0data7.Length;
+
+                    } else
+                    {
+                        KeyValuePair<int, int> kvp2 = sortedADDS.ElementAt(i + 1);
+                        end = kvp2.Key;
+                    }
+                    
+                    sortedFINS.Add( kvp.Key, end );
+                }
+                //  now we have a dictionary with start and end addresses in the same order as our sorted dictionary with fieldIDs values.
+
+                List<FieldIndex> SortedFieldIndices = FieldIndices.OrderBy(o => o.Addresses[0]).ToList();
+
+                //  now our FieldIndices are sorted in the same manor.
+                //  iterate through all of 
+
+                for (int i = 0; i < SortedFieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < SortedFieldIndices[i].Addresses.Length; j++)
+                    {
+                        for (int k = 0; k < sortedFINS.Count; k++)
+                        {
+                            //KeyValuePair<int, int> kvp = sortedFINS.ElementAt(j);
+
+                            if (sortedFINS.ElementAt(k).Key == SortedFieldIndices[i].Addresses[j][0])
+                            {
+                                SortedFieldIndices[i].Addresses[j][1] = sortedFINS.ElementAt(k).Value;
+                            }
+
+                        }
+                    }
+                }
+
+                //  Now we got a full Index file on each FieldID!!!
+                //  Woo! but now we need to use that to search the file for each entrance
+
+                //  Thus concludes woopwoop, time to rewrite the pattern matching
             }
 
 
-            //CreateDataPoint();
+            void IndicesInit()
+            {
+                //use dictionary for iteration generating fieldindices
+                for (int fe = 0; fe < ff9Fields.Count; fe++)
+                {
+                    (int key, string value, byte[] asc2) = DictBytesConvert(fe);
+                    int[][] addresses = { new int[2], new int[2], new int[2], new int[2], new int[2], new int[2], new int[2] };
+                    //      ONLY ONE PER FieldElement
+                    FieldIndices.Add(new FieldIndex(key, value, asc2, false, addresses));
+                    //ALL AT ONCE, not apart of next looping
+                }
+            }
+            //only known data in indices at this point
+
+
+
+            //  Start of IndicesStartADD
+            void Indices1()
+            {
+                //  iterate through new indices ONLY once
+                for (int fi = 0; (fi < FieldIndices.Count); fi++)
+                {
+                    //  Sending int fi to be used in further loops
+                    //  Binary iteration
+                    Indices2(fi);
+                }
+                //..
+                //  END OF IndiciesStartADD
+                //  noice.gif on your data
+            }
+
+            //  Binary Iteration
+            //  um not sure
+            void Indices2(int fi)
+            {
+                //  iterate through binary [many] times
+                for (int p7 = 0; p7 < ba_p0data7.Length; p7++)
+                {
+                    //  deadzone check and pass
+                    if (p7 > deadzone[0] & p7 < deadzone[1])
+                    {
+                        p7 = deadzone[1] + 1;
+                    }
+                    //  clear for code outside of deadzone
+
+                    //  currently only one path:
+                    (fi, p7) = Indices3(fi, p7);
+                    
+                    //  add_count ~ 6
+                    //  no need to finish searching if 
+                    break;
+                    
+                    //  END OF p7 LOOP
+                }
+            }
+
+            //  Pattern Matching FieldBytes
+
+            //  Field START addresses [i++][0]
+            (int fi, int p7) Indices3(int fi, int p7)
+            {
+                int fmatch = 0, fmatch2 = 0; int p7w = p7;
+                //  will be running this matching pattern many times
+
+                //  Iterate through address count to fill objects int[][] addresses
+
+                //  Seperate scan of p0data7, p7 will need reset for next fi
+                //  Iterate through add_count one full time per fi
+                for (add_count = 0; add_count < 7; add_count++)
+                {
+                    for (p7 = p7w; p7 < ba_p0data7.Length; p7++)
+                    {
+                        //  First byte match of ascii
+                        if (ba_p0data7[p7] == FieldIndices[fi].FieldBytes[0])
+                        {
+                            //  worker zone p7w
+                            p7w = p7;
+
+                            //  iterate and match field ascii
+                            for (int fi_l = 0; fi_l < FieldIndices[fi].FieldBytes.Length; fi_l++)
+                            {
+                                if (!(ba_p0data7[p7w] == FieldIndices[fi].FieldBytes[fi_l]))
+                                {
+                                    break;
+                                }
+                                if (ba_p0data7[p7w] == FieldIndices[fi].FieldBytes[fi_l])
+                                {
+                                    p7w++;
+                                    if ((p7w - p7) == FieldIndices[fi].FieldBytes.Length)
+                                    {
+                                        //  !! one matched ascii, log START address
+                                        FieldIndices[fi].Addresses[add_count][0] = p7w;
+                                        fmatch++;
+                                    }
+                                }
+                                //  END of field match iteration
+                            }
+                            //  Check if found match
+                            if (fmatch > fmatch2)
+                            {
+                                fmatch2 = fmatch;
+                                //  Way to track ??
+                                //  add_count incriments naturally here
+                            }
+                            //leaving worker zone p7w   update p7 to new work address
+                            p7 = p7w;
+                            if (p7 > deadzone[0] & p7 < deadzone[1])
+                            {
+                                p7 = deadzone[1] + 1;
+                            }
+                        }
+                    }
+                //  END of for(add_count++<7
+                }
+                return (fi: fi, p7: p7);
+            }
+
+
+            //                             use later                                                                                             CreateDataPoint();
 
             void CreateDataPoint()
             {
@@ -2304,6 +2487,7 @@ namespace rand9er
 
             //
 
+        //                      ONE PER ENTRANCE
         public class Datapoint
         {
             private int fieldID;
@@ -2403,12 +2587,82 @@ namespace rand9er
                     if ((val1[0] == val2[0]) && (val1[0] == val4[0]) && (val1[1] == val2[1]) && (val1[1] == val4[1]))
                     {
                         checkSum = true;
-                    }
-                }
-                checkSum = false;
+                    } else checkSum = false;
+                } else  checkSum = false;
                 return checkSum;
             }
         }
+
+        //                              ONE PER FIELD_ID
+        public class FieldIndex
+        {
+            private int fieldID;
+            private string fieldName;
+            private byte[] fieldBytes;
+            private bool checkSum;
+            private int[][] addresses;
+
+            public FieldIndex(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[][] addresses)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.fieldBytes = fieldBytes;
+                this.checkSum = checkSum;
+                this.addresses = addresses;
+            }
+
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public byte[] FieldBytes
+            {
+                get { return fieldBytes; }
+                set { fieldBytes = value; }
+            }
+            public bool CheckSum
+            {
+                get { return SumCheck(); }
+                set { checkSum = value; }
+            }
+            public int[][] Addresses
+            {
+                get { return addresses; }
+                set { addresses = value; }
+            }
+
+            (bool range1, bool range2, bool range3, bool range4, bool range5, bool range6, bool range7) Ranges()
+            {
+                bool range1, range2, range3, range4, range5, range6, range7;
+                if (addresses[0][0] < addresses[0][1]) range1 = true; else range1 = false;
+                if (addresses[1][0] < addresses[1][1]) range2 = true; else range2 = false;
+                if (addresses[2][0] < addresses[2][1]) range3 = true; else range3 = false;
+                if (addresses[3][0] < addresses[3][1]) range4 = true; else range4 = false;
+                if (addresses[4][0] < addresses[4][1]) range5 = true; else range5 = false;
+                if (addresses[5][0] < addresses[5][1]) range6 = true; else range6 = false;
+                if (addresses[6][0] < addresses[6][1]) range7 = true; else range7 = false;
+                return (range1: range1, range2: range2, range3: range3, range4: range4, range5: range5, range6: range6, range7: range7);
+            }
+
+            bool SumCheck()
+            {
+                //address range 1
+                (bool range1, bool range2, bool range3, bool range4, bool range5, bool range6, bool range7) = Ranges();
+                if (range1 & range2 & range3 & range4 & range5 & range6 & range7)
+                {
+                    checkSum = true;
+                } else checkSum = false;
+                return checkSum;
+            }
+
+        }
+
 
     }
 }
