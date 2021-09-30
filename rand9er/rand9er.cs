@@ -6,10 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Security.Cryptography;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace rand9er
 {
@@ -46,8 +49,8 @@ namespace rand9er
         }
         private void richTextBox_debug_TextChanged(object sender, EventArgs e)
         {
-            //richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
-            //richTextBox_debug.ScrollToCaret();
+            richTextBox_debug.SelectionStart = richTextBox_debug.Text.Length;
+            richTextBox_debug.ScrollToCaret();
         }
         private void b_rseed_Click_1(object sender, EventArgs e)
         {
@@ -354,7 +357,8 @@ namespace rand9er
         }
         private void richTextBox_output_TextChanged(object sender, EventArgs e)
         {
-
+            richTextBox_output.SelectionStart = richTextBox_output.Text.Length;
+            richTextBox_output.ScrollToCaret();
         }
         private void c_require_CheckedChanged(object sender, EventArgs e)
         {
@@ -388,7 +392,6 @@ namespace rand9er
         {
 
         }
-
 
         //MAIN
         private void button_rand_Click(object sender, EventArgs e)
@@ -977,45 +980,38 @@ namespace rand9er
             if (data_str.Length > 9)
             {
                 counter++;
-                Splitter();
-                SeedRNG();
+                //  SPLITTER
+                int r = 0; if (!(data_str.Length % 9 == 0)) { r = 1; }
+                int r2 = data_str.Length % 9;
+                int al = ((data_str.Length / 9) + r); //array length plus 1 for/if remainder
+                data_arr = new int[al]; //reset worker array each cycle
+                int ai = 0;
+                for (int i = 0; i < data_str.Length; i = i + 9)
+                {
+                    //pbar_leaf.Value = i;
+                    ai = ((i + 9) / 9) - 1;
+                    if ((al - ai == 1) & (r == 1))
+                    {
+                        int.TryParse(data_str.Substring(i, data_str.Length - i), out data_arr[ai]); // add remainder if any to array
+                        i = i + 9; //prevent substring(i,9) exception
+                    }
+                    else
+                    {
+                        int.TryParse(data_str.Substring(i, 9), out data_arr[ai]);
+                    }
+                }
+                data_str = ""; //reset data_str
+                //array data_arr has output data
+                //  SEED RNG
+                for (int i = 0; i < data_arr.Length; i++)
+                {
+                    Random rnd = new Random(data_arr[i]);
+                    data_str = data_str + rnd.Next(4269, 42069);
+                }
+                //string data_str has output data
+
                 Compressor();
             }
-        }
-        private void Splitter()
-        {
-            //string data_str has input data
-
-            int r = 0; if (!(data_str.Length % 9 == 0)) { r = 1; }
-            int r2 = data_str.Length % 9;
-            int al = ((data_str.Length / 9) + r); //array length plus 1 for/if remainder
-            data_arr = new int[al]; //reset worker array each cycle
-            int ai = 0;
-            for (int i = 0; i < data_str.Length; i = i + 9)
-            {
-                //pbar_leaf.Value = i;
-                ai = ((i + 9) / 9) - 1;
-                if ((al - ai == 1) & (r == 1))
-                {
-                    int.TryParse(data_str.Substring(i, data_str.Length - i), out data_arr[ai]); // add remainder if any to array
-                    i = i + 9; //prevent substring(i,9) exception
-                }
-                else
-                {
-                    int.TryParse(data_str.Substring(i, 9), out data_arr[ai]);
-                }
-            }
-            data_str = ""; //reset data_str
-            //array data_arr has output data
-        }
-        private void SeedRNG()
-        {
-            for (int i = 0; i < data_arr.Length; i++)
-            {
-                Random rnd = new Random(data_arr[i]);
-                data_str = data_str + rnd.Next(4269, 42069);
-            }
-            //string data_str has output data
         }
         private void CleanSeedInt()
         {
@@ -1566,6 +1562,13 @@ namespace rand9er
             rkTest.Close();
             return pswap;
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionStart = richTextBox_output.Text.Length;
+            richTextBox1.ScrollToCaret();
+        }
+
         private void Manual_search()
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
@@ -1573,20 +1576,6 @@ namespace rand9er
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                /*[] separators = new char[] { '\\', '\\' };
-                string[] a_path = folderDlg.SelectedPath.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                for (int i = a_path.Length-1; i > 0; i--)
-                {
-                    if (a_path[i] == "Data" | a_path[i] == "data" | a_path[i] == "DATA")
-                    {
-                        break;
-                    }
-                    if (a_path[i] == "FINAL FANTASY IX" | a_path[i] == "final fantasy ix" | a_path[i] == "Final Fantasy IX")
-                    {
-                        folderDlg.SelectedPath = folderDlg.SelectedPath;
-                        break;
-                    }
-                }*/
                 tb_fl.Text = folderDlg.SelectedPath;
             }
             MogDetect();
@@ -1896,20 +1885,13 @@ namespace rand9er
         //GUI changes done
 
         //New logic
-        
+
         private void Bytes_IO()
         {
-            //backup entrances
-            if (!File.Exists(binloc + "\\p0data7.bak"))
-            {
-                File.Copy(binloc + "\\p0data7.bin", binloc + "\\p0data7.bak");
-            }
-            //backup enemies
-            if (!File.Exists(binloc + "\\p0data2.bak"))
-            {
-                File.Copy(binloc + "\\p0data2.bin", binloc + "\\p0data2.bak");
-            }
-
+            if (!File.Exists(binloc + "\\p0data7.bak")) 
+            { File.Copy(binloc + "\\p0data7.bin", binloc + "\\p0data7.bak"); }
+            if (!File.Exists(binloc + "\\p0data2.bak")) 
+            { File.Copy(binloc + "\\p0data2.bin", binloc + "\\p0data2.bak"); }
             ba_p0data7 = File.ReadAllBytes(binloc + "\\p0data7.bin");
             //ba_p2 = File.ReadAllBytes(binloc + "\\p0data2.bin");
 
@@ -2000,525 +1982,857 @@ namespace rand9er
             { 3009, "EVT_ENDING_TH_1" }, { 3010, "EVT_ENDING_TH_2" }, { 3011, "EVT_ENDING_TH_3" }, { 3012, "EVT_ENDING_AC_4" }, { 3050, "EVT_MAGE2_BV_ENT_0" }, { 3051, "EVT_MAGE2_BV_ABR_0" }, { 3052, "EVT_MAGE2_BV_GVY_0" }, { 3053, "EVT_MAGE2_BV_INN_0" }, { 3054, "EVT_MAGE2_BV_ITS_0" }, { 3055, "EVT_MAGE2_BV_WPN_0" },
             { 3056, "EVT_MAGE2_BV_ORT_0" }, { 3057, "EVT_MAGE2_BV_CSK_0" }, { 3058, "EVT_MAGE2_BV_CSI_0" }, { 3059, "EVT_MAGE2_BV_ITM_0" }
         };
-            
-            List<FieldIndex> FieldIndices = new List<FieldIndex>();
-            List<Datapoint> Dataset = new List<Datapoint>();
-            
+            List<FieldIndex> FieldIndices = new List<FieldIndex>(); //  temp obj
+            List<Datapoint> Dataset = new List<Datapoint>();        //  perm obj
+            List<FieldIndex> FinalFieldIndices = new List<FieldIndex>();    //  perm obj
+            ListFI FieldIndicesObj = new ListFI(FieldIndices);
+            ListFI FinalFieldIndicesObj = new ListFI(FieldIndices);
+            int[] deadzone = { 33122111, 34426256 };    //  last file byte 68034959 0x40e218f
+            byte[] pattern1a_preload = new byte[] { 253, 0, 5 };        //var zone 1a x
+            byte[] pattern1b_setvar = new byte[] { 5, 217, 21, 125 };   //var zone 1b x
+            byte[] pattern2a_setent = new byte[] { 5, 216, 2, 125 };    //var zone 2a y
+            byte[] pattern2b_field = new byte[] { 44, 127, 43, 0 };     //var zone 2b x
+            int[] blank2ints = new int[] { 0, 0 };
+            int[][] raddresses = { blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, };
+
+            //byte[] blank2bytes = new byte[] { 0, 0 };
+            //int[][] blank42ints = new int[][] { new int[2], new int[2], new int[2], new int[2], };
+            //byte[][] blank42bytes = new byte[][] { new byte[2], new byte[2], new byte[2], new byte[2], };
+
+            //      Funcs       //
+
             (int key, string value, byte[] asc2) DictBytesConvert(int i)
             {
                 KeyValuePair<int, string> fieldSet = ff9Fields.ElementAt(i);
                 byte[] ascii = Encoding.ASCII.GetBytes(fieldSet.Value);
-                byte[] ascii2 = new byte[] { 46, 101, 0 }; //   add "2e 65 00" ".eb"
+                byte[] ascii2 = new byte[] { 46, 101, 98 }; //   add "2e 65 62" ".eb"
                 byte[] ascii3 = new byte[ascii.Length + ascii2.Length];
                 ascii.CopyTo(ascii3, 0);
                 ascii2.CopyTo(ascii3, ascii.Length);
                 return (key: fieldSet.Key, value: fieldSet.Value, asc2: ascii3);
             }
-            //last byte 68034959 0x40e218f
-            int[] deadzone = { 33122111, 34426256 };
 
-            //      Post FieldID patterns
-            byte[] pattern1a_preload = new byte[] { 253, 0, 5 };
-            //var zone 1a
-            byte[] pattern1b_setvar = new byte[] { 5, 217, 21, 125 };
-            //var zone 1b
-            byte[] pattern2a_setent = new byte[] { 5, 216, 2, 125 };
-            //var zone 2a
-            byte[] pattern2b_field = new byte[] { 44, 127, 43, 0 };
-            //var zone 2b
-            //      var 1a 1b 2b are same FieldID, 2a is General_Entrance value         checks
-            
-            //iterate through and when encounter, #HW fileid 50 // Prima Vista/Cargo Room, we know which field we are on.
-            //log this data as the current fieldID, use to create datapoint.
-            //everytime we are scanning and we encounter a new pattern match for fieldID, we update the stored fieldID value
-
-            //need to code for loops for initial fieldID and rangeID ontop of this.
-
-            //a_datapoint needs to be reset and created at the top of the loop where we start storing the info.
-
-
-            int[] a_patternbuilder = new int[11];
-
-            //int fcount;int.TryParse(ff9Fields.Count.ToString(), out fcount);
-            //List<Datapoint> Dataset = new List<Datapoint>();
-            //      AuthorList.Add(new Author("Neel Beniwal", 18, "Graphics Development with C#", false, new DateTime(2010, 2, 22)));
-            //      foeach ( var datapoint in DataSet )
-
-            //      MAIN LOOP
-
-            //create new datapoint and fill with data
-            //use first in dictionary and fill all possible datapoints with this fieldID
-            //iterate through dictionary file only after searching entire file multiple times for possible datapoints.
-            //possible check if already known address
-
-
-
-            //this will make searching it much easier
-            //add "2e 65 00" ".eb"
-            //dead range: 33122111 0x1f9673f
-            //end dead range: 34426256 0x20d4d90
-            //this has no useful data.
-            //I should find 7 of each field
-
-            //index Field String Address ranges for entire p0data7.bin first
-
-            IndicesInit();
-
-            
-            int add_count = 0;
-            //No incoming data
-            Indices1();
-            //  Woah! we popped out of that function nicely. now I haven't tested any of this. Its all just in my mind atm.
-
-            //  Since we now have all start addresses,we can loop and somehow gather all end addresses
-
-            //  store all start addresses into a master list
-            void WoopWoop()
+            void CheckSumChecks(string j)
             {
-                //FieldIndices[fi].Addresses[add_count][0]
-
-                //7 from each 817ish
-                Dictionary<int, int> fieldIndicesStartADD = new Dictionary<int, int>();
-                
-
-                for (int i = 0; i < FieldIndices.Count; i++)
-                {
-                    for (int j = 0; j < FieldIndices[i].Addresses.Length; j++)
-                    {
-                        //  key is addresses    value is fieldID
-                        fieldIndicesStartADD.Add(FieldIndices[i].Addresses[j][0], FieldIndices[i].FieldID );
-                    }
-                }
-
-                //  now we have a sortable dictionary
-                SortedDictionary<int, int> sortedADDS = null;
-                sortedADDS = new SortedDictionary<int, int>(fieldIndicesStartADD);
-                Dictionary<int, int> sortedFINS = new Dictionary<int, int>();
-
-                //  make second dictionary of kvp; starting addresses, ending address=start of next 
-                for (int i = 0; i < sortedADDS.Count; i++)
-                {
-                    int end = 0;
-                    
-                    KeyValuePair<int, int> kvp = sortedADDS.ElementAt(i);
-                    if (i == sortedADDS.Count - 1)
-                    {
-                        end = ba_p0data7.Length;
-
-                    } else
-                    {
-                        KeyValuePair<int, int> kvp2 = sortedADDS.ElementAt(i + 1);
-                        end = kvp2.Key;
-                    }
-                    
-                    sortedFINS.Add( kvp.Key, end );
-                }
-                //  now we have a dictionary with start and end addresses in the same order as our sorted dictionary with fieldIDs values.
-
-                List<FieldIndex> SortedFieldIndices = FieldIndices.OrderBy(o => o.Addresses[0]).ToList();
-
-                //  now our FieldIndices are sorted in the same manor.
-                //  iterate through all of 
-
-                for (int i = 0; i < SortedFieldIndices.Count; i++)
-                {
-                    for (int j = 0; j < SortedFieldIndices[i].Addresses.Length; j++)
-                    {
-                        for (int k = 0; k < sortedFINS.Count; k++)
-                        {
-                            //KeyValuePair<int, int> kvp = sortedFINS.ElementAt(j);
-
-                            if (sortedFINS.ElementAt(k).Key == SortedFieldIndices[i].Addresses[j][0])
-                            {
-                                SortedFieldIndices[i].Addresses[j][1] = sortedFINS.ElementAt(k).Value;
-                            }
-
-                        }
-                    }
-                }
-
-                //  Now we got a full Index file on each FieldID!!!
-                //  Woo! but now we need to use that to search the file for each entrance
-
-                //  Thus concludes woopwoop, time to rewrite the pattern matching
+                //if (j == 1) for (int i = 0; i < FieldIndices.Count; i++) FieldIndices[i].SumCheck();
+                if (j == "ffi") for (int i = 0; i < FinalFieldIndices.Count; i++) { FinalFieldIndices[i].SumCheck(); }
+                if (j == "ds") for (int i = 0; i < Dataset.Count; i++) { Dataset[i].SumCheck(); }
             }
 
-
-            void IndicesInit()
+            
+            void GenFieldIndex()
             {
-                //use dictionary for iteration generating fieldindices
+                int[][] r2 = raddresses; int p7w = 0; int r7 = 0; int[] r3 = new int[7];
+                pbar_tree.Minimum = 0; pbar_tree.Value = 0; pbar_tree.Maximum = ff9Fields.Count;
+                richTextBox_debug.Text += "\nFI gen >";
+                var t = Task.Run(async delegate { await Task.Delay(600); }); t.Wait();
                 for (int fe = 0; fe < ff9Fields.Count; fe++)
                 {
                     (int key, string value, byte[] asc2) = DictBytesConvert(fe);
-                    int[][] addresses = { new int[2], new int[2], new int[2], new int[2], new int[2], new int[2], new int[2] };
-                    //      ONLY ONE PER FieldElement
-                    FieldIndices.Add(new FieldIndex(key, value, asc2, false, addresses));
-                    //ALL AT ONCE, not apart of next looping
-                }
-            }
-            //only known data in indices at this point
-
-
-
-            //  Start of IndicesStartADD
-            void Indices1()
-            {
-                //  iterate through new indices ONLY once
-                for (int fi = 0; (fi < FieldIndices.Count); fi++)
-                {
-                    //  Sending int fi to be used in further loops
-                    //  Binary iteration
-                    Indices2(fi);
-                }
-                //..
-                //  END OF IndiciesStartADD
-                //  noice.gif on your data
-            }
-
-            //  Binary Iteration
-            //  um not sure
-            void Indices2(int fi)
-            {
-                //  iterate through binary [many] times
-                for (int p7 = 0; p7 < ba_p0data7.Length; p7++)
-                {
-                    //  deadzone check and pass
-                    if (p7 > deadzone[0] & p7 < deadzone[1])
+                    r2 = raddresses; r3 = new int[7]; p7w = 0; r7 = 0;    //  only reset byte worker and ranges once during field
+                    for (int p7 = 0; p7 < ba_p0data7.Length; p7++)    //  start/continue iteration using worker
                     {
-                        p7 = deadzone[1] + 1;
-                    }
-                    //  clear for code outside of deadzone
-
-                    //  currently only one path:
-                    (fi, p7) = Indices3(fi, p7);
-                    
-                    //  add_count ~ 6
-                    //  no need to finish searching if 
-                    break;
-                    
-                    //  END OF p7 LOOP
-                }
-            }
-
-            //  Pattern Matching FieldBytes
-
-            //  Field START addresses [i++][0]
-            (int fi, int p7) Indices3(int fi, int p7)
-            {
-                int fmatch = 0, fmatch2 = 0; int p7w = p7;
-                //  will be running this matching pattern many times
-
-                //  Iterate through address count to fill objects int[][] addresses
-
-                //  Seperate scan of p0data7, p7 will need reset for next fi
-                //  Iterate through add_count one full time per fi
-                for (add_count = 0; add_count < 7; add_count++)
-                {
-                    for (p7 = p7w; p7 < ba_p0data7.Length; p7++)
-                    {
-                        //  First byte match of ascii
-                        if (ba_p0data7[p7] == FieldIndices[fi].FieldBytes[0])
+                        if (p7 > deadzone[0] & p7 < deadzone[1]) { p7 = deadzone[1] + 1; }  //  deadzone check and pass
+                        if (ba_p0data7[p7] == asc2[0])   //  first byte match
                         {
-                            //  worker zone p7w
-                            p7w = p7;
-
-                            //  iterate and match field ascii
-                            for (int fi_l = 0; fi_l < FieldIndices[fi].FieldBytes.Length; fi_l++)
+                            p7w = p7;   //  worker zone p7w
+                            for (int fbl = 0; fbl < asc2.Length; fbl++)  //  iterate and match field ascii
                             {
-                                if (!(ba_p0data7[p7w] == FieldIndices[fi].FieldBytes[fi_l]))
-                                {
-                                    break;
-                                }
-                                if (ba_p0data7[p7w] == FieldIndices[fi].FieldBytes[fi_l])
+                                if (!(ba_p0data7[p7w] == asc2[fbl])) { break; } //  break early if false match
+                                if (ba_p0data7[p7w] == asc2[fbl])   //  found matching byte, worker++
                                 {
                                     p7w++;
-                                    if ((p7w - p7) == FieldIndices[fi].FieldBytes.Length)
+                                    if ((p7w - p7) == asc2.Length)   //  found match same length as the source pattern
                                     {
-                                        //  !! one matched ascii, log START address
-                                        FieldIndices[fi].Addresses[add_count][0] = p7w;
-                                        fmatch++;
+                                        r3[r7] = p7w;
+                                        r7++;   //  thriple loop here not needed. we just r7++ untill end of file, always 7
                                     }
                                 }
-                                //  END of field match iteration
                             }
-                            //  Check if found match
-                            if (fmatch > fmatch2)
-                            {
-                                fmatch2 = fmatch;
-                                //  Way to track ??
-                                //  add_count incriments naturally here
-                            }
-                            //leaving worker zone p7w   update p7 to new work address
-                            p7 = p7w;
-                            if (p7 > deadzone[0] & p7 < deadzone[1])
-                            {
-                                p7 = deadzone[1] + 1;
-                            }
+                            p7 = p7w;   //  leaving worker zone p7w   update p7 to last work address
                         }
                     }
-                //  END of for(add_count++<7
+                    //  add 7 r3 has all values, need to mux into r2
+                    r2 = new int[][] { new int[] { r3[0], 0}, new int[] { r3[1], 0 }, new int[] { r3[2], 0 }, new int[] { r3[3], 0 }, new int[] { r3[4], 0 }, new int[] { r3[5], 0 }, new int[] { r3[6], 0 } };
+                    FieldIndices.Add(new FieldIndex(key, value, asc2, false, r2));  //  only create 1 with all r2[r7] data
+                    //richTextBox_output.Text += "\nr2[0] " + FieldIndices.Last().RangeStartStop[0][0] + " r2[1] " + FieldIndices.Last().RangeStartStop[1][0] + "";
+                    pbar_tree.Value = fe;
                 }
-                return (fi: fi, p7: p7);
+                richTextBox_debug.Text += "> " + FieldIndices.Count + " generated";
+                CacheIO("write SB_FIO");                
             }
 
 
-            //                             use later                                                                                             CreateDataPoint();
-
-            void CreateDataPoint()
+            void GenFinalFieldIndex()
             {
-                for (int datapoint = 0; datapoint < ff9Fields.Count; datapoint++)
+                int[] start = new int[5719];    //  FieldIndicies.Count * FieldIndicies.RangesStartStop.Length = 5719
+                int k = 0; pbar_tree.Value = 0; pbar_tree.Maximum = FieldIndices.Count;
+                for (int i = 0; i < FieldIndices.Count; i++)
                 {
-                    (int key, string value, byte[] asc2) = DictBytesConvert(datapoint);
-                    int[] blank2ints = new int[] { 0, 0 };
-                    byte[] blank2bytes = new byte[] { 0, 0 };
-                    Dataset.Add(new Datapoint(key, value, asc2, false, blank2ints, blank2bytes, blank2ints, blank2bytes, blank2ints, blank2bytes, blank2ints, blank2bytes));   //9 zeros
-                    MatchFieldBytes(datapoint);
-                }
-            }
-            
-            void MatchFieldBytes(int datapoint)
-            {
-                for (int i = 0; i < ba_p0data7.Length; i++)
-                {
-                    while (i < deadzone[0] || i > deadzone[1])
+                    for (int j = 0; j < FieldIndices[i].RangeStartStop.Length; j++)
                     {
-                        //  match first byte of field name in bytes
-                        if (ba_p0data7[i] == Dataset[datapoint].FieldBytes[0])
-                        {
-                            int k = i;
-                            for (int j = 0; j < Dataset[datapoint].FieldBytes.Length; j++)
-                            {
-                                if (!(ba_p0data7[k] == Dataset[datapoint].FieldBytes[j]))
-                                {
-                                    i = k;
-                                    break;
-                                }
-
-                                if (ba_p0data7[k] == Dataset[datapoint].FieldBytes[j])
-                                {
-                                    k++;
-                                    if ((k - i) == Dataset[datapoint].FieldBytes.Length)
-                                    {
-                                        i = k;
-                                        i = Pattern1a(datapoint, k);
-
-                                        //there may be more entrances to scan for.
-                                        //return;
-                                    }
-                                }
-                            }
-                        }
+                        start[k] = FieldIndices[i].RangeStartStop[j][0];
+                        k++;
                     }
                 }
-            }
-
-            int Pattern1a(int datapoint, int k)
-            {
-                int i = k;
-                for (i = k; i < ba_p0data7.Length; i++)
+                Array.Sort(start);
+                for (int i = 0; i < FieldIndices.Count; i++)
                 {
-                    while (i < deadzone[0] || i > deadzone[1])
+                    for (int j = 0; j < FieldIndices[i].RangeStartStop.Length; j++)
                     {
-                        //      first byte of preload matching
-                        if (ba_p0data7[i] == pattern1a_preload[0])
+                        for (int kk = 0; kk < start.Length; kk++)
                         {
-                            k = i;
-                            for (int j = 0; j < pattern1a_preload.Length; j++)
+                            if (start[kk] == FieldIndices[i].RangeStartStop[j][0])
                             {
-                                if (!(ba_p0data7[k] == pattern1a_preload[j]))
-                                {
-                                    i = k;
-                                    break;
-                                }
-
-                                if (ba_p0data7[k] == pattern1a_preload[j])
-                                {
-                                    k++;
-                                    if ((k - i) == pattern1a_preload.Length)
-                                    {
-
-                                        //still need to gather addresses
-                                        Dataset[datapoint].Add1[0] = k;
-                                        Dataset[datapoint].Val1[0] = ba_p0data7[k];
-                                        k++;
-                                        Dataset[datapoint].Add1[1] = k;
-                                        Dataset[datapoint].Val1[1] = ba_p0data7[k];
-                                        k++;
-                                        i = Pattern1b(datapoint, k);
-                                        //Datapoint.SumCheck();
-                                    }
-                                }
+                                int end = 0;
+                                if (kk == start.Length - 1) { end = ba_p0data7.Length; } //  to account for end file
+                                else { end = start[kk + 1]; }   //  normal range end
+                                FieldIndices[i].RangeStartStop[j][1] = end;
                             }
                         }
                     }
+                    pbar_tree.Value = i;
                 }
-                return i;
+                FinalFieldIndices = FieldIndices;
+                CheckSumChecks("ffi");
+                richTextBox_debug.Text += "\nFFI generated";
+                CacheIO("write SB_FFIO");
             }
 
-            int Pattern1b(int datapoint, int k)
+
+            /* bad
+            void GenFinalFieldIndex()
             {
-                int i = k;
-                for (i = k; i < ba_p0data7.Length; i++)
+                //FinalFieldIndices = FieldIndices.OrderBy(o => o.RangeStartStop[0][0]).ToList();
+                //  
+                //  iterate through sorted, set the end value as the start of the next one-1.
+                //  foreach ffi[fe].rss[][x] = ffi[fe+1].rss[x][]
+
+                //  calc value = 
+                //              if ffi.Count -1, end = ba_p0data7.Length,,
+                //              
+
+                //              add value to rss[][x]
+                
+                for (int i = 0; i < FinalFieldIndices.Count; i++)
                 {
-                    while (i < deadzone[0] || i > deadzone[1])
+                    for (int j = 0; j < FinalFieldIndices[i].RangeStartStop.Length; j++)
                     {
-                        if (ba_p0data7[i] == pattern1b_setvar[0])
+                        int end = 0;
+                        if (i == FinalFieldIndices.Count - 1)
+                        { end = ba_p0data7.Length; } //  to account for end file
+                        else
                         {
-                            k = i;
-                            for (int j = 0; j < pattern1b_setvar.Length; j++)
+                            KeyValuePair<int, int> kvp2 = FinalFieldIndices[i].ElementAt(i + 1);
+                            end = (kvp2.Key) - 1;
+                        }
+                        FinalFieldIndices[i].RangeStartStop[][] FinalFieldIndices[i + 1].ElementAt(i + 1);
+                        sortedFINS.Add(kvp.Key, end);
+
+
+                    }
+                    
+                    
+                }
+
+                for (int i = 0; i < FinalFieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < SortedFieldIndices[i].RangeStartStop.Length; j++)
+                    {
+                        if (sortedFINS.ElementAt(k).Key == SortedFieldIndices[i].RangeStartStop[j][0])
+                        {
+                            SortedFieldIndices[i].RangeStartStop[j][1] = sortedFINS.ElementAt(k).Value;
+                        }
+
+                    }
+                    pbar_tree.Value = i;
+                }
+
+                
+                Dictionary<int, int> fieldIndicesStartADD = new Dictionary<int, int>();
+                for (int i = 0; i < FieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < FieldIndices[i].RangeStartStop.Length; j++)
+                    {
+                        fieldIndicesStartADD.Add(FieldIndices[i].RangeStartStop[j][0], FieldIndices[i].FieldID);
+                    }
+                }
+                SortedDictionary<int, int> sortedADDS = new SortedDictionary<int, int>(fieldIndicesStartADD);
+                
+
+
+
+                Dictionary<int, int> sortedFINS = new Dictionary<int, int>();
+
+
+                for (int i = 0; i < sortedADDS.Count; i++)
+                {
+                    int end = 0;
+                    KeyValuePair<int, int> kvp = sortedADDS.ElementAt(i);
+                    if (i == sortedADDS.Count - 1)
+                    { end = ba_p0data7.Length; } //  to account for end file
+                    else
+                    {
+                        KeyValuePair<int, int> kvp2 = sortedADDS.ElementAt(i + 1);
+                        end = (kvp2.Key) - 1;
+                    }
+                    sortedFINS.Add(kvp.Key, end);
+                }
+
+                //List<FieldIndex> SortedFieldIndices = FieldIndices.OrderBy(o => o.RangeStartStop[0][0]).ToList();
+                //pbar_tree.Value = 0; pbar_tree.Maximum = SortedFieldIndices.Count;
+
+                //  rebuilt ffi just to add the end value, which earlier was n-1, go back
+                for (int i = 0; i < SortedFieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < SortedFieldIndices[i].RangeStartStop.Length; j++)
+                    {
+                        for (int k = 0; k < sortedFINS.Count; k++)
+                        {
+                            if (sortedFINS.ElementAt(k).Key == SortedFieldIndices[i].RangeStartStop[j][0])
                             {
-                                if (!(ba_p0data7[k] == pattern1b_setvar[j]))
-                                {
-                                    i = k;
-                                    break;
-                                }
-
-                                if (ba_p0data7[k] == pattern1b_setvar[j])
-                                {
-                                    k++;
-                                    if ((k - i) == pattern1b_setvar.Length)
-                                    {
-
-                                        // still need to gather addreseses
-
-                                        Dataset[datapoint].Val2[0] = ba_p0data7[k];
-                                        k++;
-                                        Dataset[datapoint].Val2[1] = ba_p0data7[k];
-                                        k++;
-                                        i = k;
-                                        i = Pattern2a(datapoint, k);
-                                        return i;
-                                    }
-                                }
+                                SortedFieldIndices[i].RangeStartStop[j][1] = sortedFINS.ElementAt(k).Value;
                             }
                         }
                     }
+                    pbar_tree.Value = i;
                 }
-                return i;
-            }
 
-            int Pattern2a(int datapoint, int k)
+                //FinalFieldIndices = SortedFieldIndices;
+                CheckSumChecks("ffi");
+                richTextBox_debug.Text += "\nFFI generated";
+                CacheIO("write SB_FFIO");
+
+            }
+            */
+
+            /*  good
+            void GenFinalFieldIndex()
             {
-                int i = k;
-                for (i = k; i < ba_p0data7.Length; i++)
+                
+                
+
+                Dictionary<int, int> fieldIndicesStartADD = new Dictionary<int, int>();
+                
+                
+                for (int i = 0; i < FieldIndices.Count; i++)
                 {
-                    while (i < deadzone[0] || i > deadzone[1])
+                    for (int j = 0; j < FieldIndices[i].RangeStartStop.Length; j++)
                     {
-                        if (ba_p0data7[i] == pattern2a_setent[0])
+                        fieldIndicesStartADD.Add(FieldIndices[i].RangeStartStop[j][0], FieldIndices[i].FieldID);
+                    }
+                }
+                SortedDictionary<int, int> sortedADDS = new SortedDictionary<int, int>(fieldIndicesStartADD);
+                
+                Dictionary<int, int> sortedFINS = new Dictionary<int, int>();
+                
+                for (int i = 0; i < sortedADDS.Count; i++)
+                {
+                    int end = 0;
+                    KeyValuePair<int, int> kvp = sortedADDS.ElementAt(i);
+                    if (i == sortedADDS.Count - 1)
+                    { end = ba_p0data7.Length; } //  to account for end file
+                    else
+                    {
+                        KeyValuePair<int, int> kvp2 = sortedADDS.ElementAt(i + 1);
+                        end = (kvp2.Key)-1;
+                    }
+                    sortedFINS.Add(kvp.Key, end);
+                }
+                List<FieldIndex> SortedFieldIndices = FieldIndices.OrderBy(o => o.RangeStartStop[0][0]).ToList();
+                pbar_tree.Value = 0; pbar_tree.Maximum = SortedFieldIndices.Count;
+
+                for (int i = 0; i < SortedFieldIndices.Count; i++)
+                {
+                    for (int j = 0; j < SortedFieldIndices[i].RangeStartStop.Length; j++)
+                    {
+                        for (int k = 0; k < sortedFINS.Count; k++)
                         {
-                            k = i;
-                            for (int j = 0; j < pattern2a_setent.Length; j++)
+                            if (sortedFINS.ElementAt(k).Key == SortedFieldIndices[i].RangeStartStop[j][0])
                             {
-                                if (!(ba_p0data7[k] == pattern2a_setent[j]))
-                                {
-                                    i = k;
-                                    break;
-                                }
-
-                                if (ba_p0data7[k] == pattern2a_setent[j])
-                                {
-                                    k++;
-                                    if ((k - i) == pattern2a_setent.Length)
-                                    {
-
-                                        // still need to gather addreseses
-
-                                        Dataset[datapoint].Val3[0] = ba_p0data7[k];
-                                        k++;
-                                        Dataset[datapoint].Val3[1] = ba_p0data7[k];
-                                        k++;
-                                        i = k;
-                                        i = Pattern2b(datapoint, k);
-                                        return i;
-                                    }
-                                }
+                                SortedFieldIndices[i].RangeStartStop[j][1] = sortedFINS.ElementAt(k).Value;
                             }
                         }
                     }
+                    pbar_tree.Value = i;
                 }
-                return i;
-            }
 
-            int Pattern2b(int datapoint, int k)
+                FinalFieldIndices = SortedFieldIndices;
+                CheckSumChecks("ffi");
+                richTextBox_debug.Text += "\nFFI generated";
+                CacheIO("write SB_FFIO");
+
+            }
+            */
+
+
+            void GenDataset()
             {
-                int i = k;
-                for (i = k; i < ba_p0data7.Length; i++)
+
+                int[] pat1a, pat1b, pat2a, pat2b = blank2ints;
+                //      iterate through FFI (817)
+                for (int ffi = 0; ffi < FinalFieldIndices.Count; ffi++)
                 {
-                    while (i < deadzone[0] || i > deadzone[1])
+
+
+                    //  iterate through all ranges (7)
+                    for (int ffir = 0; ffir < FinalFieldIndices[ffi].RangeStartStop.Length; ffir++)
                     {
-                        if (ba_p0data7[i] == pattern2b_field[0])
+
+                        //  iterate through ba_p0data7 using indexes (/~/) range seasrch
+                        for (int ffirs = FinalFieldIndices[ffi].RangeStartStop[ffir][0]; ffirs < FinalFieldIndices[ffi].RangeStartStop[ffir][1]; ffirs++)
                         {
-                            k = i;
-                            for (int j = 0; j < pattern2b_field.Length; j++)
+                            //  searching through index start and stops for 4 patterns in sequence
+
+                            //  start pattern 1a
+                            //  start pattern 1a
+                            //  start pattern 1a
+
+                            //test first byte[] for match pattern1a_preload
+                            if (ba_p0data7[ffirs] == pattern1a_preload[0])
                             {
-                                if (!(ba_p0data7[k] == pattern2b_field[j]))
-                                {
-                                    i = k;
-                                    break;
-                                }
+                                //postive match on first byte
+                                int ffirsw = ffirs; //worker
 
-                                if (ba_p0data7[k] == pattern2b_field[j])
+                                //finish search for pattern1a_preload
+                                for (int p1a = 0; p1a < pattern1a_preload.Length; p1a++)
                                 {
-                                    k++;
-                                    if ((k - i) == pattern2b_field.Length)
+                                    //break early if no match .. not sure if needed, small patterns
+                                    if (!(ba_p0data7[ffirsw] == pattern1a_preload[p1a]))
                                     {
-
-                                        // still need to gather addreseses
-
-                                        Dataset[datapoint].Val4[0] = ba_p0data7[k];
-                                        k++;
-                                        Dataset[datapoint].Val4[1] = ba_p0data7[k];
-                                        k++;
-                                        i = k;
-                                        return i;
+                                        ffirs = ffirsw;
+                                        break;
                                     }
+
+                                    //each byte match
+                                    if (ba_p0data7[ffirsw] == pattern1a_preload[p1a])
+                                    {
+                                        //increasing postive byte match
+                                        ffirsw++;
+
+                                        //matched entire byte[] of pattern1a_preload
+                                        if ((ffirsw - ffirs) == pattern1a_preload.Length)
+                                        {
+                                            ffirsw++;
+                                            pat1a = new int[] { ffirsw, BitConverter.ToInt16(ba_p0data7, ffirsw) };
+                                            ffirsw = ffirsw + 2;    // pattern1a_varzone1 adjust
+
+                                            //  continue to pattern1b
+                                            //  continue to pattern1b
+                                            //  continue to pattern1b
+
+                                            //new loop for counting ffirs2
+                                            for (int ffirs2 = ffirsw; ffirs2 < FinalFieldIndices[ffi].RangeStartStop[ffir][1]; ffirs2++)
+                                            {
+                                                //test first byte[] for match pattern1b_setvar
+                                                if (ba_p0data7[ffirs2] == pattern1b_setvar[0])
+                                                {
+                                                    //postive match on first byte
+                                                    int ffirsw2 = ffirs2; //worker
+
+                                                    //finish search for pattern1b_setvar
+                                                    for (int p1b = 0; p1b < pattern1b_setvar.Length; p1b++)
+                                                    {
+                                                        //break early if no match .. not sure if needed, small patterns
+                                                        if (!(ba_p0data7[ffirsw2] == pattern1b_setvar[p1b]))
+                                                        {
+                                                            ffirs2 = ffirsw2;
+                                                            break;
+                                                        }
+
+                                                        //each byte match
+                                                        if (ba_p0data7[ffirsw2] == pattern1b_setvar[p1b])
+                                                        {
+                                                            //increasing postive byte match
+                                                            ffirsw2++;
+
+                                                            //matched entire byte[] of pattern1b_setvar
+                                                            if ((ffirsw2 - ffirs2) == pattern1b_setvar.Length)
+                                                            {
+                                                                ffirsw2++;
+                                                                pat1b = new int[] { ffirsw2, BitConverter.ToInt16(ba_p0data7, ffirsw2) };
+                                                                ffirsw2 = ffirsw2 + 2;// pattern1b_varzone2 adjust
+
+                                                                //  continue to pattern2a
+                                                                //  continue to pattern2a
+                                                                //  continue to pattern2a
+
+                                                                //new loop for counting ffirs3
+                                                                for (int ffirs3 = ffirsw2; ffirs3 < FinalFieldIndices[ffi].RangeStartStop[ffir][1]; ffirs3++)
+                                                                {
+                                                                    //test first byte[] for match pattern2a_setent
+                                                                    if (ba_p0data7[ffirs3] == pattern2a_setent[0])
+                                                                    {
+                                                                        //postive match on first byte
+                                                                        int ffirsw3 = ffirs3; //worker
+
+                                                                        //finish search for pattern2a_setent
+                                                                        for (int p2a = 0; p2a < pattern2a_setent.Length; p2a++)
+                                                                        {
+                                                                            //break early if no match .. not sure if needed, small patterns
+                                                                            if (!(ba_p0data7[ffirsw3] == pattern2a_setent[p2a]))
+                                                                            {
+                                                                                ffirs2 = ffirsw3;
+                                                                                break;
+                                                                            }
+
+                                                                            //each byte match
+                                                                            if (ba_p0data7[ffirsw3] == pattern2a_setent[p2a])
+                                                                            {
+                                                                                //increasing postive byte match
+                                                                                ffirsw3++;
+
+                                                                                //matched entire byte[] of pattern2a_setent
+                                                                                if ((ffirsw3 - ffirs3) == pattern2a_setent.Length)
+                                                                                {
+                                                                                    ffirsw3++;
+                                                                                    pat2a = new int[] { ffirsw3, BitConverter.ToInt16(ba_p0data7, ffirsw3) };
+                                                                                    ffirsw3 = ffirsw3 + 2;// pattern2a_varzone3 adjust
+
+                                                                                    //  continue to pattern2b
+                                                                                    //  continue to pattern2b
+                                                                                    //  continue to pattern2b
+
+                                                                                    //new loop for counting ffirs4
+                                                                                    for (int ffirs4 = ffirsw3; ffirs4 < FinalFieldIndices[ffi].RangeStartStop[ffir][1]; ffirs4++)
+                                                                                    {
+                                                                                        //test first byte[] for match pattern2b_field
+                                                                                        if (ba_p0data7[ffirs4] == pattern2b_field[0])
+                                                                                        {
+                                                                                            //postive match on first byte
+                                                                                            int ffirsw4 = ffirs4; //worker
+
+                                                                                            //finish search for pattern2b_field
+                                                                                            for (int p2b = 0; p2b < pattern2b_field.Length; p2b++)
+                                                                                            {
+                                                                                                //break early if no match .. not sure if needed, small patterns
+                                                                                                if (!(ba_p0data7[ffirsw4] == pattern2b_field[p2b]))
+                                                                                                {
+                                                                                                    ffirs3 = ffirsw4;
+                                                                                                    break;
+                                                                                                }
+
+                                                                                                //each byte match
+                                                                                                if (ba_p0data7[ffirsw4] == pattern2b_field[p2b])
+                                                                                                {
+                                                                                                    //increasing postive byte match
+                                                                                                    ffirsw4++;
+
+                                                                                                    //matched entire byte[] of pattern2b_field
+                                                                                                    if ((ffirsw4 - ffirs4) == pattern2b_field.Length)
+                                                                                                    {
+                                                                                                        ffirsw4++;
+                                                                                                        pat2b = new int[] { ffirsw4, BitConverter.ToInt16(ba_p0data7, ffirsw4) };
+                                                                                                        ffirsw4 = ffirsw4 + 2;// pattern2b_varzone4 adjust
+
+                                                                                                        // TIME FOR THE MAGIC
+                                                                                                        // TIME FOR THE MAGIC
+                                                                                                        // TIME FOR THE MAGIC
+                                                                                                        // TIME FOR THE MAGIC
+
+                                                                                                        //      this is supposed to happen only once a full match, 
+                                                                                                        //init new datapoint with all 4 addresses, and all 4 values of this exits data..
+                                                                                                        int[][] dp_init = { pat1a, pat2a, pat1b, pat2b };
+
+                                                                                                        Dataset.Add(new Datapoint(FinalFieldIndices[ffi].FieldID, FinalFieldIndices[ffi].FieldName, false, ffir, dp_init));
+                                                                                                        //dp_count++;     //  update dp_count     starting with 0
+
+                                                                                                        //Datapoint.SumCheck();
+
+
+
+
+                                                                                                    }
+                                                                                                }
+
+                                                                                                //      end of finish pattern2b_field search
+                                                                                            }
+
+                                                                                            //  worker returned
+                                                                                            ffirs4 = ffirsw4;
+                                                                                            //      end of first byte[] match for pattern2b_field
+                                                                                        }
+
+                                                                                        //  4th pattern returned
+                                                                                        ffirsw3 = ffirs4;
+                                                                                        //      end of new loop for counting ffirs4
+                                                                                    }
+
+                                                                                    //  exit from pattern2b
+                                                                                    //  exit from pattern2b
+                                                                                    //  exit from pattern2b
+
+                                                                                }
+                                                                            }
+
+                                                                            //      end of finish pattern2a_setent search
+                                                                        }
+
+                                                                        //  worker returned
+                                                                        ffirs3 = ffirsw3;
+                                                                        //      end of first byte[] match for pattern2a_setent
+                                                                    }
+
+                                                                    //  3rd pattern returned
+                                                                    ffirsw2 = ffirs3;
+                                                                    //      end of new loop for counting ffirs3
+                                                                }
+
+                                                                //  exit from pattern2a
+                                                                //  exit from pattern2a
+                                                                //  exit from pattern2a
+
+                                                            }
+                                                        }
+
+                                                        //      end of finish pattern1b_setvar search
+                                                    }
+
+                                                    //  worker returned
+                                                    ffirs2 = ffirsw2;
+                                                    //      end of first byte[] match for pattern1b_setvar
+                                                }
+
+                                                //  2nd pattern returned
+                                                ffirsw = ffirs2;
+                                                //      end of new loop for counting ffirs2
+                                            }
+
+                                            //  exit from pattern1b
+                                            //  exit from pattern1b
+                                            //  exit from pattern1b
+
+                                        }
+                                    }
+
+                                    //      end of finish pattern1a_preload search
                                 }
+
+                                //  worker returned
+                                ffirs = ffirsw;
+                                //      end of first byte[] match for pattern1a_preload
                             }
+
+
+                            //  exit from pattern1a
+                            //  exit from pattern1a
+                            //  exit from pattern1a
+
+                            //  if we exited successfully, we should have full datapoint
+                            //  we repeat this until we reach the end of the current range stop value
+
+                            //     end of the range search, back to rangeindex for next range
                         }
+
+                        //  if we exited successfully, we should have datapoints from the entire range
+                        //  we repeat this untill we scan all 7 ranges
+
+                        //      end of range index, back to FFI count
                     }
+
+                    //  if we exited successfully, we should have all 7 ranges for the current fieldID or ffi
+                    //  we repeat this untill we scan all ~817 fieldID indicies
+
+                    //      end of FFI
                 }
-                return i;
+
+                //  end of crazyloop
+
+                //  if we exited successfully, we should have all ~817 fieldIDs from the index
+
+                //      HOLY SHIT!!! woo!!! we made it out
+
+                //      end of Tetris()
             }
 
 
+            string Md5()
+            {
+                // SB_FIO_mog.bin mog  f1c48c76ef1ae9f383979108b0c1489c    checked
+                // p0data7.bin    mog  99a8a52d4abdfcedc570b948c1ff8a75    checked
+                // p0data7.bin    reg  df4d0b9acd66df48452c40028e29b8ef     fresh
+                // SB_FIO_reg.bin      e62b65f7bc9e8221b030fcc564b3512c     fresh
+
+                string md5dir3w, md5cacheFI = "NO FI MD5 Cache Found";
+                string md5p7 = "df4d0b9acd66df48452c40028e29b8ef";
+                string dirp7 = "\\StreamingAssets\\p0data7.bin";
+                string md5p7w = "";
+                string md5ficache = "e62b65f7bc9e8221b030fcc564b3512c";
+                string dirCache = "\\SB_FIO_reg.bin";
+                string md5Cache = "";
+                if (c_mogdetect.Checked)
+                {
+                    md5p7 = "99a8a52d4abdfcedc570b948c1ff8a75";
+                    dirp7 = "\\MoguriFiles\\StreamingAssets\\p0data7.bin";
+                    md5ficache = "f1c48c76ef1ae9f383979108b0c1489c";
+                    dirCache = "\\SB_FIO_mog.bin";
+                }
+
+                using (var md5 = MD5.Create())
+                {
+                    //  md5 p0data7.bin
+                    using (var stream = File.OpenRead(dirp7)) 
+                    { md5p7w = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLowerInvariant(); }
+                    
+                    //  if cache file exists, md5 it also
+                    if (File.Exists(dirCache))
+                    {
+                        using (var stream2 = File.OpenRead(dirCache)) 
+                        { md5Cache = BitConverter.ToString(md5.ComputeHash(stream2)).Replace("-", "").ToLowerInvariant(); }
+                    } else
+                    {
+                        //restore cache files from inside program for known p0data7 md5
+                        byte[] sb_fio = Resources.Caches.SB_FIO_reg;
+                        if (c_mogdetect.Checked)
+                        {
+                            sb_fio = Resources.Caches.SB_FIO_mog;
+                        }
+                        File.WriteAllBytes(dirCache, sb_fio);
+                        richTextBox_debug.Text += "\nattempting to create FIO cache in the FFIX Location";
+                        using (var stream2 = File.OpenRead(dirCache)) 
+                        { md5dir3w = BitConverter.ToString(md5.ComputeHash(stream2)).Replace("-", "").ToLowerInvariant(); }
+                    }
+                }
+
+                if ((md5p7w == md5p7) && (md5Cache == md5ficache)) { md5cacheFI = "FI MD5 Cache Found"; }
+                return md5cacheFI;
+            }
+
+            void CacheCheck()
+            {
+                string md5cacheFI = Md5();
+
+                //      FIELD INDEX CACHE
+                if (md5cacheFI == "FI MD5 Cache Found")
+                {
+                    richTextBox_debug.Text += "\nUsing FFI Cache";
+                    CacheIO("read SB_FIO");
+                    //CacheIO("read SB_FFIO", dirCache);
+                }
+                if (md5cacheFI == "NO FI MD5 Cache Found")     //  manually genearte new FI cache
+                {
+                    richTextBox_debug.Text += "\nGenerating New Cache Please wait\n.";
+                    var t = Task.Run(async delegate { await Task.Delay(600); }); t.Wait(); 
+                    GenFieldIndex();    //  ONLY TIME TO RUN THIS
+                }
+
+                //      OTHER CACHE
+
+            }
+
+            void CacheIO(string opt)
+            {
+                string fio = "\\SB_FIO_reg.bin", ffio = "\\SB_FFIO_reg.bin";
+                if (c_mogdetect.Checked)
+                {
+                    fio = "\\SB_FIO_mog.bin";
+                    ffio = "\\SB_FFIO_mog.bin";
+                }
+                string sfio = tb_fl.Text + fio;
+                string sffio = tb_fl.Text + ffio;
+
+                if (opt == "read SB_FIO")   //  deserialize
+                {
+                    FileStream fs = new FileStream(sfio, FileMode.Open);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    try { FieldIndicesObj = (ListFI)formatter.Deserialize(fs); }
+                    catch (System.Runtime.Serialization.SerializationException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (System.Security.SecurityException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (ArgumentNullException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    finally { fs.Close(); }
+                    FieldIndices = FieldIndicesObj.Filist;
+                }
+                if (opt == "write SB_FIO")  //  serialize
+                {
+                    FieldIndicesObj = new ListFI(FieldIndices);
+                    FileStream fs = new FileStream(sfio, FileMode.Create);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    try { formatter.Serialize(fs, FieldIndicesObj); }
+                    catch (System.Runtime.Serialization.SerializationException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (System.Security.SecurityException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (ArgumentNullException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    finally { fs.Close(); }
+                }
+                if (opt == "read SB_FFIO")  //  deserialize
+                {
+                    FileStream fs = new FileStream(sffio, FileMode.Open);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    try { FinalFieldIndicesObj = (ListFI)formatter.Deserialize(fs); }
+                    catch (System.Runtime.Serialization.SerializationException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (System.Security.SecurityException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (ArgumentNullException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    finally { fs.Close(); }
+                    FinalFieldIndices = FieldIndicesObj.Filist;
+                }
+                if (opt == "write SB_FFIO") //  serialize
+                {
+                    FinalFieldIndicesObj = new ListFI(FinalFieldIndices);
+                    FileStream fs = new FileStream(sffio, FileMode.Create);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    try { formatter.Serialize(fs, FinalFieldIndicesObj); }
+                    catch (System.Runtime.Serialization.SerializationException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (System.Security.SecurityException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    catch (ArgumentNullException e) { richTextBox_debug.Text = "SerialF: " + e.Message; throw; }
+                    finally { fs.Close(); }
+                }
+                //  end of CacheIO()
+            }
+
+            //      END Funcs       //
+            //CacheIO("read SB_FIO");
+            //GenFieldIndex();
+            //GenFinalFieldIndex();
+            Logic();
+            void Logic()
+            {
+                //  cache
+
+
+                //CacheCheck();
+                GenFieldIndex();
+                string temp = "";
+                string[] temp2 = new string[] { temp, "" };
+
+                for (int i = 0; i < FieldIndices.Count; i++)
+                {
+                    temp += "\nfID= " + FieldIndices[i].FieldID + " CheckSum= " + FieldIndices[i].CheckSum + " 00= " + FieldIndices[i].RangeStartStop[0][0] + " 01= " + FieldIndices[i].RangeStartStop[0][1] + " 10= " + FieldIndices[i].RangeStartStop[1][0] + " 11= " + FieldIndices[i].RangeStartStop[1][1] + " 20= " + FieldIndices[i].RangeStartStop[2][0] + " 21= " + FieldIndices[i].RangeStartStop[2][1] + " 30= " + FieldIndices[i].RangeStartStop[3][0] + " 31= " + FieldIndices[i].RangeStartStop[3][1] + " 40= " + FieldIndices[i].RangeStartStop[4][0] + " 41= " + FieldIndices[i].RangeStartStop[4][1] + " 50= " + FieldIndices[i].RangeStartStop[5][0] + " 51= " + FieldIndices[i].RangeStartStop[5][1] + " 60= " + FieldIndices[i].RangeStartStop[6][0] + " 61= " + FieldIndices[i].RangeStartStop[6][1];
+                }
+                temp2 = new string[] { temp, "" };
+                Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+
+                File.WriteAllLines("FI5all.txt", temp2);
+
+
+                temp = ""; temp2 = new string[] { "", "" };
+
+                GenFinalFieldIndex();
+
+                for (int i = 0; i < FinalFieldIndices.Count; i++)
+                {
+                    temp += "\nfID= " + FinalFieldIndices[i].FieldID + " CheckSum= " + FinalFieldIndices[i].CheckSum + " 00= " + FinalFieldIndices[i].RangeStartStop[0][0] + " 01= " + FinalFieldIndices[i].RangeStartStop[0][1] + " 10= " + FinalFieldIndices[i].RangeStartStop[1][0] + " 11= " + FinalFieldIndices[i].RangeStartStop[1][1] + " 20= " + FinalFieldIndices[i].RangeStartStop[2][0] + " 21= " + FinalFieldIndices[i].RangeStartStop[2][1] + " 30= " + FinalFieldIndices[i].RangeStartStop[3][0] + " 31= " + FinalFieldIndices[i].RangeStartStop[3][1] + " 40= " + FinalFieldIndices[i].RangeStartStop[4][0] + " 41= " + FinalFieldIndices[i].RangeStartStop[4][1] + " 50= " + FinalFieldIndices[i].RangeStartStop[5][0] + " 51= " + FinalFieldIndices[i].RangeStartStop[5][1] + " 60= " + FinalFieldIndices[i].RangeStartStop[6][0] + " 61= " + FinalFieldIndices[i].RangeStartStop[6][1];
+                }
+                temp2 = new string[] { temp, "" };
+                Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+
+                File.WriteAllLines("FFI5all.txt", temp2);
+
+
+
+
+
+
+
+
+
+
+
+                /*  CacheCheck runs md5 on existing cache if any
+                 *  if md5 is good, export known cache needed   2 right now
+                 *  
+                 *  runs generation as fallback to md5 failure
+                 *  This saves some 15 minutes so far
+                 *  
+                 * 
+                 * */
+
+                //index
+                //GenFieldIndex();
+
+                //  next 
+
+
+                //      LINES OUTPUT TEST CODE
+                /*
+                string temp = "";
+                string[] temp2 = new string[] { temp, "" };
+                
+                for (int i = 0; i < FinalFieldIndices.Count; i++)
+                {
+                    temp += "FFI: fID= " + FinalFieldIndices[i].FieldID + " CheckSum= " + FinalFieldIndices[i].CheckSum;
+                }
+                temp2 = new string[] { temp, "" };
+                Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                
+                File.WriteAllLines("Final Field Indexes.txt", temp2);
+                
+                temp = ""; temp2 = new string[] { "", "" };
+                */
+
+
+                //  scan and create Dataset<datapoint>
+                //CheckSumChecks(3);
+
+
+                //  math to scramble
+                Rubiks();
+
+                //  write bin
+                Ink();
+
+            }
+
+
+            void Rubiks()
+            {
+
+            }
+
+
+            void Ink()
+            {
+
+            }
+
+            //      end of Bytes_IO()
         }
-            
-            //write bin
 
-            //
+        [Serializable]
+        public class ListDP
+        {
+            private List<Datapoint> dplist;
+            public ListDP(List<Datapoint> dplist)
+            {
+                this.dplist = dplist;
+            }
+            public List<Datapoint> Dplist
+            {
+                get { return dplist; }
+                set { dplist = value; }
+            }
+        }
 
-        //                      ONE PER ENTRANCE
+        [Serializable]
+        public class ListFI
+        {
+            private List<FieldIndex> filist;
+            public ListFI(List<FieldIndex> filist)
+            {
+                this.filist = filist;
+            }
+            public List<FieldIndex> Filist
+            {
+                get { return filist; }
+                set { filist = value; }
+            }
+        }
+
+        //  ONE PER ENTRANCE, 7 per FieldID
+        [Serializable]
         public class Datapoint
         {
             private int fieldID;
             private string fieldName;
-            private byte[] fieldBytes;
             private bool checkSum;
-            private int[] add1;
-            private byte[] val1;
-            private int[] add2;
-            private byte[] val2;
-            private int[] add3;
-            private byte[] val3;
-            private int[] add4;
-            private byte[] val4;
-
-            public Datapoint(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[] add1, byte[] val1, int[] add2, byte[] val2, int[] add3, byte[] val3, int[] add4, byte[] val4)
+            private int rangeV;
+            private int[][] addressNvalue;  //  [4][2]
+            public Datapoint(int fieldID, string fieldName, bool checkSum, int rangeV, int[][] addressNvalue)
             {
                 this.fieldID = fieldID;
                 this.fieldName = fieldName;
-                this.fieldBytes = fieldBytes;
                 this.checkSum = checkSum;
-                this.add1 = add1;
-                this.val1 = val1;
-                this.add2 = add2;
-                this.val2 = val2;
-                this.add3 = add3;
-                this.val3 = val3;
-                this.add4 = add4;
-                this.val4 = val4;
+                this.rangeV = rangeV;
+                this.addressNvalue = addressNvalue;
             }
-
             public int FieldID
             {
                 get { return fieldID; }
@@ -2529,88 +2843,45 @@ namespace rand9er
                 get { return fieldName; }
                 set { fieldName = value; }
             }
-            public byte[] FieldBytes
-            {
-                get { return fieldBytes; }
-                set { fieldBytes = value; }
-            }
             public bool CheckSum
             {
-                get { return SumCheck(); }
+                get { return checkSum; }
                 set { checkSum = value; }
-                
             }
-            public int[] Add1
+            public int RangeV
             {
-                get { return add1; }
-                set { add1 = value; }
+                get { return rangeV; }
+                set { rangeV = value; }
             }
-            public byte[] Val1
+            public int[][] AddressNvalue
             {
-                get { return val1; }
-                set { val1 = value; }
+                get { return addressNvalue; }
+                set { addressNvalue = value; }
             }
-            public int[] Add2
+            public void SumCheck()
             {
-                get { return add2; }
-                set { add2 = value; }
-            }
-            public byte[] Val2
-            {
-                get { return val2; }
-                set { val2 = value; }
-            }
-            public int[] Add3
-            {
-                get { return add3; }
-                set { add3 = value; }
-            }
-            public byte[] Val3
-            {
-                get { return val3; }
-                set { val3 = value; }
-            }
-            public int[] Add4
-            {
-                get { return add4; }
-                set { add4 = value; }
-            }
-            public byte[] Val4
-            {
-                get { return val4; }
-                set { val4 = value; }
-            }
-            bool SumCheck()
-            {
-                if (((val1[0] > 0) | (val1[1] > 0)) && ((val2[0] > 0) | (val2[1] > 0)) && ((val4[0] > 0) | (val4[1] > 0)))
-                {
-                    if ((val1[0] == val2[0]) && (val1[0] == val4[0]) && (val1[1] == val2[1]) && (val1[1] == val4[1]))
-                    {
-                        checkSum = true;
-                    } else checkSum = false;
-                } else  checkSum = false;
-                return checkSum;
+                checkSum = false;
+                checkSum = ((addressNvalue[0][1] == addressNvalue[1][1]) && (addressNvalue[0][1] == addressNvalue[3][1]));
             }
         }
 
-        //                              ONE PER FIELD_ID
+        //  ONE PER FIELD_ID
+        [Serializable]
         public class FieldIndex
         {
             private int fieldID;
             private string fieldName;
             private byte[] fieldBytes;
             private bool checkSum;
-            private int[][] addresses;
-
-            public FieldIndex(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[][] addresses)
+            private int[][] rangeStartStop; //  [7][2]
+            public FieldIndex(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[][] rangeStartStop)
             {
                 this.fieldID = fieldID;
                 this.fieldName = fieldName;
                 this.fieldBytes = fieldBytes;
                 this.checkSum = checkSum;
-                this.addresses = addresses;
+                this.rangeStartStop = rangeStartStop;
             }
-
             public int FieldID
             {
                 get { return fieldID; }
@@ -2628,41 +2899,29 @@ namespace rand9er
             }
             public bool CheckSum
             {
-                get { return SumCheck(); }
+                get { return checkSum; }
                 set { checkSum = value; }
             }
-            public int[][] Addresses
+            public int[][] RangeStartStop
             {
-                get { return addresses; }
-                set { addresses = value; }
+                get { return rangeStartStop; }
+                set { rangeStartStop = value; }
             }
-
-            (bool range1, bool range2, bool range3, bool range4, bool range5, bool range6, bool range7) Ranges()
+            public void SumCheck()
             {
-                bool range1, range2, range3, range4, range5, range6, range7;
-                if (addresses[0][0] < addresses[0][1]) range1 = true; else range1 = false;
-                if (addresses[1][0] < addresses[1][1]) range2 = true; else range2 = false;
-                if (addresses[2][0] < addresses[2][1]) range3 = true; else range3 = false;
-                if (addresses[3][0] < addresses[3][1]) range4 = true; else range4 = false;
-                if (addresses[4][0] < addresses[4][1]) range5 = true; else range5 = false;
-                if (addresses[5][0] < addresses[5][1]) range6 = true; else range6 = false;
-                if (addresses[6][0] < addresses[6][1]) range7 = true; else range7 = false;
-                return (range1: range1, range2: range2, range3: range3, range4: range4, range5: range5, range6: range6, range7: range7);
+                checkSum = false; bool range1 = false; bool range2 = false; bool range3 = false; bool range4 = false; bool range5 = false; bool range6 = false; bool range7 = false;
+                if (rangeStartStop[0][0] < rangeStartStop[0][1]) { range1 = true; }
+                if (rangeStartStop[1][0] < rangeStartStop[1][1]) { range2 = true; }
+                if (rangeStartStop[2][0] < rangeStartStop[2][1]) { range3 = true; }
+                if (rangeStartStop[3][0] < rangeStartStop[3][1]) { range4 = true; }
+                if (rangeStartStop[4][0] < rangeStartStop[4][1]) { range5 = true; }
+                if (rangeStartStop[5][0] < rangeStartStop[5][1]) { range6 = true; }
+                if (rangeStartStop[6][0] < rangeStartStop[6][1]) { range7 = true; }
+                checkSum = (range1 && range2 && range3 && range4 && range5 && range6 && range7);
             }
-
-            bool SumCheck()
-            {
-                //address range 1
-                (bool range1, bool range2, bool range3, bool range4, bool range5, bool range6, bool range7) = Ranges();
-                if (range1 & range2 & range3 & range4 & range5 & range6 & range7)
-                {
-                    checkSum = true;
-                } else checkSum = false;
-                return checkSum;
-            }
-
         }
 
 
+        //  END of rand9er : form
     }
 }

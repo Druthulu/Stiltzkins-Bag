@@ -80,6 +80,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Caches.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Caches.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="rand9er.resx">
       <DependentUpon>rand9er.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +92,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Caches.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Caches.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +111,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\SB_FIO_mog.bin" />
+    <EmbeddedResource Include="Resources\SB_FIO_reg.bin" />
     <None Include="Resources\yuno_error.jpg" />
   </ItemGroup>
   <ItemGroup>

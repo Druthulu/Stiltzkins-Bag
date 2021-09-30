@@ -78,6 +78,7 @@ namespace rand9er
             this.c_ed1 = new System.Windows.Forms.CheckBox();
             this.l_shopm = new System.Windows.Forms.Label();
             this.c_mogdetect = new System.Windows.Forms.CheckBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +122,11 @@ namespace rand9er
             // 
             // richTextBox_debug
             // 
-            this.richTextBox_debug.Location = new System.Drawing.Point(497, 335);
+            this.richTextBox_debug.Location = new System.Drawing.Point(393, 216);
             this.richTextBox_debug.Name = "richTextBox_debug";
             this.richTextBox_debug.ReadOnly = true;
             this.richTextBox_debug.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox_debug.Size = new System.Drawing.Size(70, 35);
+            this.richTextBox_debug.Size = new System.Drawing.Size(174, 58);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             this.richTextBox_debug.TextChanged += new System.EventHandler(this.richTextBox_debug_TextChanged);
@@ -809,11 +810,23 @@ namespace rand9er
             this.c_mogdetect.UseVisualStyleBackColor = false;
             this.c_mogdetect.CheckedChanged += new System.EventHandler(this.c_mogdetect_CheckedChanged);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(185, 167);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox1.Size = new System.Drawing.Size(154, 97);
+            this.richTextBox1.TabIndex = 73;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 446);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.c_mogdetect);
             this.Controls.Add(this.l_shopm);
             this.Controls.Add(this.c_ed4);
@@ -864,7 +877,8 @@ namespace rand9er
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
-            this.Text = "Stiltzkin\'s bag 1.17     a FFIX randomizer tool";
+            this.Text = "Stiltzkin\'s bag 1.18     a Final Fantasy IX randomizer tool";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -921,6 +935,7 @@ namespace rand9er
         private System.Windows.Forms.CheckBox c_ed1;
         private System.Windows.Forms.Label l_shopm;
         private System.Windows.Forms.CheckBox c_mogdetect;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
