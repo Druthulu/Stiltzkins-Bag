@@ -63,9 +63,9 @@ namespace rand9er.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] SB_FIO_mog {
+        public static byte[] SB_FFIO_mog {
             get {
-                object obj = ResourceManager.GetObject("SB_FIO_mog", resourceCulture);
+                object obj = ResourceManager.GetObject("SB_FFIO_mog", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace rand9er.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] SB_FIO_reg {
+        public static byte[] SB_FFIO_reg {
             get {
-                object obj = ResourceManager.GetObject("SB_FIO_reg", resourceCulture);
+                object obj = ResourceManager.GetObject("SB_FFIO_reg", resourceCulture);
                 return ((byte[])(obj));
             }
         }

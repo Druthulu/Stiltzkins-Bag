@@ -106,14 +106,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\SB_FFIO_mog.bin" />
+    <EmbeddedResource Include="Resources\SB_FFIO_reg.bin" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\SB_FIO_mog.bin" />
-    <EmbeddedResource Include="Resources\SB_FIO_reg.bin" />
-    <None Include="Resources\yuno_error.jpg" />
+    <EmbeddedResource Include="Resources\yuno_error.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -128,19 +128,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stilzkin.ico" />
+    <EmbeddedResource Include="Resources\stilzkin.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sbagico2.ico" />
+    <EmbeddedResource Include="Resources\sbagico2.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bgc.png" />
+    <EmbeddedResource Include="Resources\bgc.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sbag3.png" />
+    <EmbeddedResource Include="Resources\sbag3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bg.png" />
+    <EmbeddedResource Include="Resources\bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
