@@ -1985,6 +1985,9 @@ namespace rand9er
             List<FieldIndex> FieldIndices = new List<FieldIndex>(); //  temp obj
             List<Datapoint> Dataset = new List<Datapoint>();        //  perm obj
             List<FieldIndex> FinalFieldIndices = new List<FieldIndex>();    //  perm obj
+            List<Datapoint> DS3 = new List<Datapoint>();      // perm
+            List<FieldData> MainFieldIndex = new List<FieldData>(); //perm
+            List<Datapoint> DataSIMP = new List<Datapoint>();
             //ListFI FieldIndicesObj = new ListFI(FieldIndices);
             //ListFI FinalFieldIndicesObj = new ListFI(FieldIndices);
             int[] deadzone = { 33122111, 34426256 };    //  last file byte 68034959 0x40e218f
@@ -2264,9 +2267,9 @@ namespace rand9er
                                 if ((ba_p0data7[ffirs] == pattern6_init[0]) && ((ba_p0data7[ffirs + 1] == pattern6_init[1]) | (ba_p0data7[ffirs + 1] == pattern6_BTNinit[1])) && (ba_p0data7[ffirs + 2] == pattern6_init[2]) && (ba_p0data7[ffirs + 3] == pattern6_init[3]) && ((ba_p0data7[ffirs + 4] == pattern6_init[4]) | (ba_p0data7[ffirs + 4] == pattern6_BTNinit[4])) && (ba_p0data7[ffirs + 5] == pattern6_init[5]) && (ba_p0data7[ffirs + 6] == pattern6_init[6]) && (ba_p0data7[ffirs + 7] == pattern6_init[7]) && ((ba_p0data7[ffirs + 10] == pattern6_init[10]) | (ba_p0data7[ffirs + 10] == pattern6_BTNinit[10]) | (ba_p0data7[ffirs + 10] == pattern6_404init[10])) && (ba_p0data7[ffirs + 11] == pattern6_init[11]))
                                 {
                                     int i = BitConverter.ToUInt16(ba_p0data7, ffirs + 8);   //correct
-                                    //int j = (ba_p0data7[ffirs + 12] * 4); //weird
-                                    //int k = ffirs + 12 + j + 1; //pretty sure its right
-                                    //int l = (ffirs + 10 + i) - 9;   //  precise
+                                                                                            //int j = (ba_p0data7[ffirs + 12] * 4); //weird
+                                                                                            //int k = ffirs + 12 + j + 1; //pretty sure its right
+                                                                                            //int l = (ffirs + 10 + i) - 9;   //  precise
                                     int k = (ffirs + i + 1);    //better
                                     if ((ba_p0data7[k] == pattern5_range[0]) && (ba_p0data7[k + 1] == pattern5_range[1]) && (ba_p0data7[k + 2] == pattern5_range[2]) && (ba_p0data7[k + 3] == pattern5_range[3]) && (ba_p0data7[k + 4] == pattern5_range[4]) && (ba_p0data7[k + 5] == pattern5_range[5]) && (ba_p0data7[k + 6] == pattern5_range[6]) && (ba_p0data7[k + 7] == pattern5_range[7]) && (ba_p0data7[k + 8] == pattern5_range[8]))
                                     {
@@ -2285,12 +2288,12 @@ namespace rand9er
                         for (int hc = 0; hc < headers.Count; hc++)  //  for each header, scanny scan
                         {
                             int hl = hc; bool hlast = false;
-                            if (hc == headers.Count-1)  //  last header
+                            if (hc == headers.Count - 1)  //  last header
                             {
                                 hl = FinalFieldIndices[ffi].RangeStartStop[ffir][1];
                                 hlast = true;
                             }
-                            if (hc < headers.Count-1)   //  all but last header
+                            if (hc < headers.Count - 1)   //  all but last header
                             {
                                 hl = headers[hc + 1] - 38;  //  22+16 good enough
                                 hlast = false;
@@ -2306,7 +2309,7 @@ namespace rand9er
                                     //  if return from success, will continue search after positive match
                                 }
                             }
-                            
+
                         }
                     }
                     pbar_tree.Value = ffi;
@@ -2318,27 +2321,24 @@ namespace rand9er
                     {   //special search
                         if ((ba_p0data7[ffirs] == pattern7_Tri127[0]) && (ba_p0data7[ffirs + 1] == pattern7_Tri127[1]) && (ba_p0data7[ffirs + 2] == pattern7_Tri127[2])) //  match triangles isntead
                         {
-                            richTextBox_output.Text += "\nSpecial first";
                             //positive match on p7_tri127   dummy data
                             pat1abytes = new byte[] { 0, 0 };
                             pat1a = new int[] { 0, 0 };
                             //match next pattern
                             if ((ba_p0data7[ffirs + 3] == pattern7_OpCea[0]) || ((ba_p0data7[ffirs + 3] == pattern7_OpCa9[0]) && (ba_p0data7[ffirs + 4] == pattern7_OpCa9[1]) && (ba_p0data7[ffirs + 5] == pattern7_OpCa9[2])))
                             {
-                                richTextBox_output.Text += "\nSpecial second";
                                 //positive match on p7OpCodes   dummy data
                                 pat1bbytes = new byte[] { 0, 0 };
                                 pat1b = new int[] { 0, 0 };
                                 int ffirs2 = ffirs + 6;   //  worker2 for new search updated to +6 for max opcode length
-                                                           //next pattern may be lines away, need to continue search before next match.
+                                                          //next pattern may be lines away, need to continue search before next match.
                                 for (ffirs2 = ffirs + 6; ffirs2 < hl; ffirs2++)   //  iterate through ba_p0data7 using indexes (/~/) range seasrch
                                 {
                                     if (ba_p0data7[ffirs2] == pattern2a_setent[0])  //  postive match on first byte
                                     {
-                                        
+
                                         if ((ba_p0data7[ffirs2] == pattern2a_setent[0]) && (ba_p0data7[ffirs2 + 1] == pattern2a_setent[1]) && (ba_p0data7[ffirs2 + 2] == pattern2a_setent[2]) && (ba_p0data7[ffirs2 + 3] == pattern2a_setent[3]))   //  match all
                                         {
-                                            richTextBox_output.Text += "\nSpecial third";
                                             //positive match on p2a
                                             pat2abytes = new byte[] { ba_p0data7[ffirs2 + 4], ba_p0data7[(ffirs2 + 5)] };
                                             pat2a = new int[] { ffirs2 + 4, BitConverter.ToUInt16(ba_p0data7, ffirs2 + 4) };
@@ -2351,8 +2351,15 @@ namespace rand9er
                                                 int[][] dp_init = new int[][] { pat1a, pat1b, pat2a, pat2b };
                                                 byte[][] dp_byte = new byte[][] { pat1abytes, pat1bbytes, pat2abytes, pat2bbytes };
                                                 Dataset.Add(new Datapoint(FinalFieldIndices[ffi].FieldID, FinalFieldIndices[ffi].FieldName, false, false, ffir, hc, false, dp_init, dp_byte));
+                                                if (Dataset.Count > 1)
+                                                {
+                                                    if ((Dataset[Dataset.Count - 1].FieldID == Dataset[Dataset.Count - 2].FieldID) && (Dataset[Dataset.Count - 1].RangeV == Dataset[Dataset.Count - 2].RangeV) && (Dataset[Dataset.Count - 1].HeaderC == Dataset[Dataset.Count - 2].HeaderC))   //  ifelse drop from list
+                                                    {
+                                                        Dataset.RemoveAt(Dataset.Count - 1);
+                                                        Dataset.RemoveAt(Dataset.Count - 1);
+                                                    }
+                                                }
                                                 ffirs2 += 12;
-                                                richTextBox_output.Text += "\nSpecial match!!!!!!!!!!!!!!!!!!!!";
                                                 if (hlast)
                                                 {
                                                     if (ba_p0data7[ffirs2] == 4) // simple return exit following match
@@ -2426,8 +2433,15 @@ namespace rand9er
                                                     int[][] dp_init = new int[][] { pat1a, pat1b, pat2a, pat2b };
                                                     byte[][] dp_byte = new byte[][] { pat1abytes, pat1bbytes, pat2abytes, pat2bbytes };
                                                     Dataset.Add(new Datapoint(FinalFieldIndices[ffi].FieldID, FinalFieldIndices[ffi].FieldName, false, false, ffir, hc, false, dp_init, dp_byte));
+                                                    if (Dataset.Count > 1)
+                                                    {
+                                                        if ((Dataset[Dataset.Count - 1].FieldID == Dataset[Dataset.Count - 2].FieldID) && (Dataset[Dataset.Count - 1].RangeV == Dataset[Dataset.Count - 2].RangeV) && (Dataset[Dataset.Count - 1].HeaderC == Dataset[Dataset.Count - 2].HeaderC))   //  ifelse drop from list
+                                                        {
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                        }
+                                                    }
                                                     ffirs2 += 12;
-
                                                     if (hlast)
                                                     {
                                                         if (ba_p0data7[ffirs2] == 4) // simple return exit following match
@@ -2464,6 +2478,14 @@ namespace rand9er
                                                     int[][] dp_init = new int[][] { pat1a, pat1b, pat2a, pat2b };
                                                     byte[][] dp_byte = new byte[][] { pat1abytes, pat1bbytes, pat2abytes, pat2bbytes };
                                                     Dataset.Add(new Datapoint(FinalFieldIndices[ffi].FieldID, FinalFieldIndices[ffi].FieldName, false, false, ffir, hc, false, dp_init, dp_byte));
+                                                    if (Dataset.Count > 1)
+                                                    {
+                                                        if ((Dataset[Dataset.Count - 1].FieldID == Dataset[Dataset.Count - 2].FieldID) && (Dataset[Dataset.Count - 1].RangeV == Dataset[Dataset.Count - 2].RangeV) && (Dataset[Dataset.Count - 1].HeaderC == Dataset[Dataset.Count - 2].HeaderC))   //  ifelse drop from list
+                                                        {
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                        }
+                                                    }
                                                     ffirs2 += 14;
                                                     if (hlast)
                                                     {
@@ -2501,6 +2523,14 @@ namespace rand9er
                                                     int[][] dp_init = new int[][] { pat1a, pat1b, pat2a, pat2b };
                                                     byte[][] dp_byte = new byte[][] { pat1abytes, pat1bbytes, pat2abytes, pat2bbytes };
                                                     Dataset.Add(new Datapoint(FinalFieldIndices[ffi].FieldID, FinalFieldIndices[ffi].FieldName, false, false, ffir, hc, false, dp_init, dp_byte));
+                                                    if (Dataset.Count > 1)
+                                                    {
+                                                        if ((Dataset[Dataset.Count - 1].FieldID == Dataset[Dataset.Count - 2].FieldID) && (Dataset[Dataset.Count - 1].RangeV == Dataset[Dataset.Count - 2].RangeV) && (Dataset[Dataset.Count - 1].HeaderC == Dataset[Dataset.Count - 2].HeaderC))   //  ifelse drop from list
+                                                        {
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                            Dataset.RemoveAt(Dataset.Count - 1);
+                                                        }
+                                                    }
                                                     ffirs2 += 11;
                                                     if (hlast)
                                                     {
@@ -2532,11 +2562,83 @@ namespace rand9er
                     }
                     return ffirs;  //  return back to range search with current address to failing match
                 }
-                
+
 
             }
+            //    ReArrange     //
+            void MFIgen()
+            {
+                for (int fi = 0; fi < ff9Fields.Count; fi++)
+                {
+                    int fid = ff9Fields.ElementAt(fi).Key; string fname = ff9Fields.ElementAt(fi).Value;
+                    MainFieldIndex.Add(new FieldData(fid, fname, new List<int>(), new List<int[]>(), new List<int[]>(), new List<int>(), new List<int>(), new List<int>()));   //  create new DP2 at first datapoint
+                    DataSIMP = new List<Datapoint>(Dataset);    //  create new copy of list each loop
+                    DataSIMP.RemoveAll(datapoint => !(datapoint.FieldID == fid));
+
+                    if (DataSIMP.Count > 0)
+                    {
+                        MFIsimp();
+                        void MFIsimp()
+                        {
+                            int exitNum = DataSIMP[0].HeaderC;
+                            int[] exitAddress = new int[21];    //  
+                            int[] genAddress = new int[7];     //  same
+                            int i = 0; int j = 0; int exitValue = 0; int genValue = 0;
+                            for (int si = 0; si < DataSIMP.Count; si++)    //  iterate all list and log data
+                            {
+                                bool temp31b = (DataSIMP[si].AddressNvalue[3][1] == DataSIMP[0].AddressNvalue[3][1]);   //exit fid check
+                                bool temp21b = (DataSIMP[si].AddressNvalue[2][1] == DataSIMP[0].AddressNvalue[2][1]);   //exit gen check
+                                bool tempheadb = (DataSIMP[si].HeaderC == DataSIMP[0].HeaderC); //exit header check
+                                if (temp31b && temp21b && tempheadb) //  match both exitfid and gen of first in list.
+                                {
+                                    //store current line data into worker arrays
+                                    exitAddress[i] = DataSIMP[si].AddressNvalue[0][0];
+                                    exitAddress[i + 1] = DataSIMP[si].AddressNvalue[1][0];
+                                    exitAddress[i + 2] = DataSIMP[si].AddressNvalue[3][0];
+                                    i += 3;
+                                    genAddress[j] = DataSIMP[si].AddressNvalue[2][0];
+                                    j += 1;
+                                    exitValue = DataSIMP[si].AddressNvalue[3][1];
+                                    genValue = DataSIMP[si].AddressNvalue[2][1];
+                                }
+                            }
+                            //  add total worker to last data
+                            MainFieldIndex.Last().ExitAddress.Add(exitAddress);
+                            MainFieldIndex.Last().GenAddress.Add(genAddress);
+                            MainFieldIndex.Last().ExitValue.Add(exitValue);
+                            MainFieldIndex.Last().GenValue.Add(genValue);
+                            MainFieldIndex.Last().ExitNum.Add(exitNum);
+
+                            DataSIMP.RemoveAll(datapoint => datapoint.HeaderC == exitNum);  //  remove logged data from current list by means of headerC
+                            if (DataSIMP.Count > 0)
+                            {
+                                MFIsimp();
+                            }
+                        }
+                    }
+                    
+                }
+                //  now we have MFI ordered much better, output and verify
+            }
+
+            void MFIgv()    //  add all GE's to source field they exit to.
+            {
+                for (int i = 0; i < MainFieldIndex.Count; i++)
+                {
+                    for (int j = 0; j < MainFieldIndex[i].ExitValue.Count; j++)
+                    {
+                        for (int k = 0; k < MainFieldIndex.Count; k++)
+                        {
+                            if (MainFieldIndex[k].FieldID == MainFieldIndex[i].ExitValue.ElementAt(j))
+                            {
+                                MainFieldIndex[k].AllGE.Add(MainFieldIndex[i].GenValue.ElementAt(j));
+                            }
+                        }
+                    }
+                }
 
 
+            }
 
             //      END Funcs       //
 
@@ -2551,17 +2653,22 @@ namespace rand9er
 
                 //  scan and create Dataset<datapoint>
                 FIDataset();
+                
+                //  re arrange
+                //MFIgen();
+
+                //  rng time
+                //Rubiks();
+
 
                 //  output dataset for testing
-                if (Dataset.Count < 1)
-                {
-                    richTextBox_output.Text += "oops";
-                }
-
                 
-                string temp = ""; string[] temp2 = new string[] { temp, "" };
+                
+                
                 void DSout()
                 {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
                     for (int i = 0; i < Dataset.Count; i++)
                     {
                         Dataset[i].SumCheck(); Dataset[i].SumCheckBytes();
@@ -2605,20 +2712,121 @@ namespace rand9er
                         //temp += "DSID=" + Dataset[i].FieldID + " r=" + Dataset[i].RangeV + " CheckSum=" + Dataset[i].CheckSum + " 00=" + Dataset[i].ValueBytes[0][0] + " 01=" + Dataset[i].ValueBytes[0][1] + " 10=" + Dataset[i].ValueBytes[1][0] + " 11=" + Dataset[i].ValueBytes[1][1] + " 20=" + Dataset[i].ValueBytes[2][0] + " 21=" + Dataset[i].ValueBytes[2][1] + " 30=" + Dataset[i].ValueBytes[3][0] + " 31=" + Dataset[i].ValueBytes[3][1] + "\n";
 
                     }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    File.WriteAllLines("DSlite.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
                 }
                 void DSoutFull()
                 {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
                     for (int i = 0; i < Dataset.Count; i++)
                     {
                         Dataset[i].SumCheck(); Dataset[i].SumCheckBytes();
                         temp += "DSID=" + Dataset[i].FieldID + " r=" + Dataset[i].RangeV + " CheckSum=" + Dataset[i].CheckSum + " headerC=" + Dataset[i].HeaderC + " 00=" + Dataset[i].AddressNvalue[0][0] + " 01=" + Dataset[i].AddressNvalue[0][1] + " 10=" + Dataset[i].AddressNvalue[1][0] + " 11=" + Dataset[i].AddressNvalue[1][1] + " 20=" + Dataset[i].AddressNvalue[2][0] + " 21=" + Dataset[i].AddressNvalue[2][1] + " 30=" + Dataset[i].AddressNvalue[3][0] + " 31=" + Dataset[i].AddressNvalue[3][1] + "\n";
 
                     }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    File.WriteAllLines("DSfull.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
                 }
-                int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0,0,0,0,0,0,0 };
-                
+
+                void MFIoutFull()
+                {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
+                    for (int i = 0; i < MainFieldIndex.Count; i++)
+                    {
+                        string ea = "";
+                        for (int j = 0; j < MainFieldIndex[i].ExitAddress.Count; j++)
+                        {
+                            for (int k = 0; k < MainFieldIndex[i].ExitAddress.ElementAt(j).Length; k++)
+                            {
+                                ea += j + "=" + MainFieldIndex[i].ExitAddress.ElementAt(j)[k] + " ";
+                            }  
+                        }
+                        string ga = "";
+                        for (int j = 0; j < MainFieldIndex[i].GenAddress.Count; j++)
+                        {
+                            for (int k = 0; k < MainFieldIndex[i].GenAddress.ElementAt(j).Length; k++)
+                            {
+                                ga += j + "=" + MainFieldIndex[i].GenAddress.ElementAt(j)[k] + " ";
+                            }
+                        }
+                        string allge = "";
+                        for (int j = 0; j < MainFieldIndex[i].AllGE.Count; j++)
+                        {
+                            allge += j + "=" + MainFieldIndex[i].AllGE[j] + " ";
+                        }
+                        string ev = "";
+                        for (int j = 0; j < MainFieldIndex[i].ExitValue.Count; j++)
+                        {
+                            ev += j + "=" + MainFieldIndex[i].ExitValue[j] + " ";
+                        }
+                        string gv = "";
+                        for (int j = 0; j < MainFieldIndex[i].GenValue.Count; j++)
+                        {
+                            gv += j + "=" + MainFieldIndex[i].GenValue[j] + " ";
+                        }
+                        temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + " eAdds=" + ea + " gAdds=" + ga + "\n";
+                    }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    File.WriteAllLines("MFIFull.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
+                }
+                void MFIoutLite()
+                {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
+                    for (int i = 0; i < MainFieldIndex.Count; i++)
+                    {
+                        string ea = "";
+                        for (int j = 0; j < MainFieldIndex[i].ExitAddress.Count; j++)
+                        {
+                            for (int k = 0; k < MainFieldIndex[i].ExitAddress.ElementAt(j).Length; k++)
+                            {
+                                ea += j + "=" + MainFieldIndex[i].ExitAddress.ElementAt(j)[k] + " ";
+                            }
+                        }
+                        string ga = "";
+                        for (int j = 0; j < MainFieldIndex[i].GenAddress.Count; j++)
+                        {
+                            for (int k = 0; k < MainFieldIndex[i].GenAddress.ElementAt(j).Length; k++)
+                            {
+                                ga += j + "=" + MainFieldIndex[i].GenAddress.ElementAt(j)[k] + " ";
+                            }
+                        }
+                        string allge = "";
+                        for (int j = 0; j < MainFieldIndex[i].AllGE.Count; j++)
+                        {
+                            allge += j + "=" + MainFieldIndex[i].AllGE[j] + " ";
+                        }
+                        string ev = "";
+                        for (int j = 0; j < MainFieldIndex[i].ExitValue.Count; j++)
+                        {
+                            ev += j + "=" + MainFieldIndex[i].ExitValue[j] + " ";
+                        }
+                        string gv = "";
+                        for (int j = 0; j < MainFieldIndex[i].GenValue.Count; j++)
+                        {
+                            gv += j + "=" + MainFieldIndex[i].GenValue[j] + " ";
+                        }
+                        temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + "\n";
+                    }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    File.WriteAllLines("MFIlite.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
+                }
+
+
                 void RangeVCheck()
                 {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
                     for (int i = 0; i < Dataset.Count; i++)
                     {
 
@@ -2655,25 +2863,33 @@ namespace rand9er
                         }
 
                     }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    File.WriteAllLines("DSfull.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
 
                 }
+
 
                 //DSout();
                 //  testing output with this func
                 //RangeVCheck();
                 DSoutFull();
-
+                //DS3out();
                 //  output to txt file
-                temp2 = new string[] { temp, "" }; //  using right now
-                Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
-                File.WriteAllLines("DSoutFull.txt", temp2);
-                temp = ""; temp2 = new string[] { "", "" };
+                MFIgen();
+                MFIgv();
+                MFIoutFull();
+                MFIoutLite();
+
+
+                
 
                 //  connect all exits to verify full map match
                 Mapp();
 
                 //  math to scramble
-                Rubiks();
+                //Rubiks();
 
                 //  write bin
                 Ink();
@@ -2749,14 +2965,7 @@ namespace rand9er
 
             }
 
-            void Rubiks()
-            {
-                //GEindex
-
-
-            }
-
-
+            
             void Ink()
             {
 
@@ -2771,6 +2980,7 @@ namespace rand9er
             private int fieldID;
             private bool touched;
             private List<int> entrances;
+            //
 
             public GEindex(int fieldID, bool touched, List<int> entrances)
             {
@@ -2793,9 +3003,128 @@ namespace rand9er
                 get { return entrances; }
                 set { entrances = value; }
             }
+            
+        }
+        public class FieldData
+        {
+            private int fieldID;
+            private string fieldName;
+            private List<int> exitNum;    //  headerC
+            private List<int[]> exitAddress;  //  21  (exit,exit,---,exit * 7)
+            private List<int[]> genAddress;   //  7   (---,---,gen,--- * 7)
+            private List<int> exitValue;    //  1 per exit in field, 
+            private List<int> genValue;
+            private List<int> allGE;
+            public FieldData(int fieldID, string fieldName, List<int> exitNum, List<int[]> exitAddress, List<int[]> genAddress, List<int> exitValue, List<int> genValue, List<int> allGE)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.exitNum = exitNum;
+                this.exitAddress = exitAddress;
+                this.genAddress = genAddress;
+                this.exitValue = exitValue;
+                this.genValue = genValue;
+                this.allGE = allGE;
+            }
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public List<int> ExitNum
+            {
+                get { return exitNum; }
+                set { exitNum = value; }
+            }
+            public List<int[]> ExitAddress
+            {
+                get { return exitAddress; }
+                set { exitAddress = value; }
+            }
+            public List<int[]> GenAddress
+            {
+                get { return genAddress; }
+                set { genAddress = value; }
+            }
+            public List<int> ExitValue
+            {
+                get { return exitValue; }
+                set { exitValue = value; }
+            }
+            public List<int> GenValue
+            {
+                get { return genValue; }
+                set { genValue = value; }
+            }
+            public List<int> AllGE
+            {
+                get { return allGE; }
+                set { allGE = value; }
+            }
         }
 
 
+        public class DataP2        //  one per field, each List element is an exiting (external fid/ge), each AllGE is incoming GE's found in other fields 
+        {
+            private int fieldID;
+            private string fieldName;
+            private List<List<int>> tet;
+            private List<int[]> exitAddress;  //  21  exit,exit,---,exit * 7
+            private List<int[]> genAddress;   //  7   ---,---,gen,--- * 7
+            private List<int> exitValue;
+            private List<int> genValue;
+            private List<int> allGE;    //  all possible GE's for this field
+            public DataP2(int fieldID, string fieldName, List<int[]> exitAddress, List<int[]> genAddress, List<int> exitValue, List<int> genValue, List<int> allGE)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.exitAddress = exitAddress;
+                this.genAddress = genAddress;
+                this.exitValue = exitValue;
+                this.genValue = genValue;
+                this.allGE = allGE;
+            }
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public List<int[]> ExitAddress
+            {
+                get { return exitAddress; }
+                set { exitAddress = value; }
+            }
+            public List<int[]> GenAddress
+            {
+                get { return genAddress; }
+                set { genAddress = value; }
+            }
+            public List<int> ExitValue
+            {
+                get { return exitValue; }
+                set { exitValue = value; }
+            }
+            public List<int> GenValue
+            {
+                get { return genValue; }
+                set { genValue = value; }
+            }
+            public List<int> AllGE
+            {
+                get { return allGE; }
+                set { allGE = value; }
+            }
+        }
 
         //  ONE PER ENTRANCE, 7 per FieldID
         [Serializable]

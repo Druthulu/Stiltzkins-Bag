@@ -877,7 +877,7 @@ namespace rand9er
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
-            this.Text = "Stiltzkin\'s bag 1.19    a Final Fantasy IX randomizer tool";
+            this.Text = "Stiltzkin\'s bag 1.19.5   a Final Fantasy IX randomizer tool";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
