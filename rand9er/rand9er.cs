@@ -1534,6 +1534,46 @@ namespace rand9er
             }
         }
 
+        private void textBox_seed_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cm_treasure_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cm_stiltzkin_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_randbag_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_order_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_exicons_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_chests_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //IO
         private string path_search(string pswap)
         {
@@ -1565,8 +1605,8 @@ namespace rand9er
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.SelectionStart = richTextBox_output.Text.Length;
-            richTextBox1.ScrollToCaret();
+            //richTextBox1.SelectionStart = richTextBox_output.Text.Length;
+            //richTextBox1.ScrollToCaret();
         }
 
         private void Manual_search()
@@ -1728,34 +1768,34 @@ namespace rand9er
             //          random entrances selection
             if (cm_entrances.Checked)
             {
-                c_allpaths.Enabled = true;
+                /*c_allpaths.Enabled = true;
                 c_nologic.Enabled = true;
                 if (!c_nologic.Checked & !c_allpaths.Checked)
                 {
                     c_allpaths.Checked = true;
-                }
+                }*/
             }
             else if (!cm_entrances.Checked)
             {
-                c_allpaths.Enabled = false;
-                c_nologic.Enabled = false;
+                /*c_allpaths.Enabled = false;
+                c_nologic.Enabled = false;*/
             }
         }
         private void c_nologic_CheckedChanged(object sender, EventArgs e)
         {
             // connect randomly with no gaurenteed completion path
-            if (c_nologic.Checked)
+            /*if (c_nologic.Checked)
             {
                 c_allpaths.Checked = false;
-            }
+            }*/
         }
         private void c_allpaths_CheckedChanged(object sender, EventArgs e)
         {
             // connect randomly and make sure all paths connect to all exits
-            if (c_allpaths.Checked)
+            /*if (c_allpaths.Checked)
             {
                 c_nologic.Checked = false;
-            }
+            }*/
         }
 
         //Enemies
@@ -1774,15 +1814,15 @@ namespace rand9er
                 if (c_esteals.Checked)
                 {
                     c_es1.Enabled = true;
-                    c_es2.Enabled = true;
-                    c_es3.Enabled = true;
+                    //c_es2.Enabled = true;
+                    //c_es3.Enabled = true;
                     c_es4.Enabled = true;
                 }
                 if (c_edrops.Checked)
                 {
                     c_ed1.Enabled = true;
-                    c_ed2.Enabled = true;
-                    c_ed3.Enabled = true;
+                    //c_ed2.Enabled = true;
+                    //c_ed3.Enabled = true;
                     c_ed4.Enabled = true;
                 }
             }
@@ -1791,12 +1831,12 @@ namespace rand9er
                 c_esteals.Enabled = false;
                 c_edrops.Enabled = false;
                 c_es1.Enabled = false;
-                c_es2.Enabled = false;
-                c_es3.Enabled = false;
+                //c_es2.Enabled = false;
+                //c_es3.Enabled = false;
                 c_es4.Enabled = false;
                 c_ed1.Enabled = false;
-                c_ed2.Enabled = false;
-                c_ed3.Enabled = false;
+                //c_ed2.Enabled = false;
+                //c_ed3.Enabled = false;
                 c_ed4.Enabled = false;
             }
 
@@ -1807,20 +1847,20 @@ namespace rand9er
             if (c_esteals.Checked)
             {
                 c_es1.Enabled = true;
-                c_es2.Enabled = true;
-                c_es3.Enabled = true;
+                //c_es2.Enabled = true;
+                //c_es3.Enabled = true;
                 c_es4.Enabled = true;
-                if (!c_es1.Checked & !c_es2.Checked & !c_es3.Checked & !c_es4.Checked)
+                if (!c_es1.Checked & /*!c_es2.Checked & !c_es3.Checked &*/ !c_es4.Checked)
                 {
-                    c_es3.Checked = true;
+                    //c_es3.Checked = true;
                     c_es4.Checked = true;
                 }
             }
             else if (!c_esteals.Checked )
             {
                 c_es1.Enabled = false;
-                c_es2.Enabled = false;
-                c_es3.Enabled = false;
+                //c_es2.Enabled = false;
+                //c_es3.Enabled = false;
                 c_es4.Enabled = false;
             }
         }
@@ -1830,20 +1870,20 @@ namespace rand9er
             if (c_edrops.Checked)
             {
                 c_ed1.Enabled = true;
-                c_ed2.Enabled = true;
-                c_ed3.Enabled = true;
+                //c_ed2.Enabled = true;
+                //c_ed3.Enabled = true;
                 c_ed4.Enabled = true;
-                if (!c_ed1.Checked & !c_ed2.Checked & !c_ed3.Checked & !c_ed4.Checked)
+                if (!c_ed1.Checked & /*!c_ed2.Checked & !c_ed3.Checked &*/ !c_ed4.Checked)
                 {
-                    c_ed3.Checked = true;
+                    //c_ed3.Checked = true;
                     c_ed4.Checked = true;
                 }
             }
             else if (!c_edrops.Checked)
             {
                 c_ed1.Enabled = false;
-                c_ed2.Enabled = false;
-                c_ed3.Enabled = false;
+                //c_ed2.Enabled = false;
+                //c_ed3.Enabled = false;
                 c_ed4.Enabled = false;
             }
         }
@@ -2642,18 +2682,19 @@ namespace rand9er
 
             //      END Funcs       //
 
+
             Logic();
 
             void Logic()
             {
                 //  cache
                 CacheCheck();   //  md5 checks, restore cache from inside if needed, generate cache as fallback
-                //  FFIO created!, verified with some testing, spot checked output. quick output all rstored 
+                                //  FFIO created!, verified with some testing, spot checked output. quick output all rstored 
 
 
                 //  scan and create Dataset<datapoint>
                 FIDataset();
-                
+
                 //  re arrange
                 //MFIgen();
 
@@ -2662,9 +2703,9 @@ namespace rand9er
 
 
                 //  output dataset for testing
-                
-                
-                
+
+
+
                 void DSout()
                 {
                     string temp = ""; string[] temp2 = new string[] { temp, "" };
@@ -2680,7 +2721,7 @@ namespace rand9er
                                 {
                                     if (!(Dataset[i].HeaderC == 0))
                                     {
-                                        richTextBox1.Text += "\n skipped one";
+                                        richTextBox_output.Text += "\n skipped one";
                                     }
                                 }
                                 if (!(Dataset[i].HeaderC == Dataset[i - 1].HeaderC))
@@ -2693,7 +2734,7 @@ namespace rand9er
                             {
                                 if (!(Dataset[i].HeaderC == 0))
                                 {
-                                    richTextBox1.Text += "\n skipped one";
+                                    richTextBox_output.Text += "\n skipped one";
                                 }
                                 temp += "DSID=" + Dataset[i].FieldID + " r=" + Dataset[i].RangeV + " CheckSum=" + Dataset[i].CheckSum + " headerC=" + Dataset[i].HeaderC + " 00=" + Dataset[i].AddressNvalue[0][0] + " 01=" + Dataset[i].AddressNvalue[0][1] + " 10=" + Dataset[i].AddressNvalue[1][0] + " 11=" + Dataset[i].AddressNvalue[1][1] + " 20=" + Dataset[i].AddressNvalue[2][0] + " 21=" + Dataset[i].AddressNvalue[2][1] + " 30=" + Dataset[i].AddressNvalue[3][0] + " 31=" + Dataset[i].AddressNvalue[3][1] + "\n";
 
@@ -2745,7 +2786,7 @@ namespace rand9er
                             for (int k = 0; k < MainFieldIndex[i].ExitAddress.ElementAt(j).Length; k++)
                             {
                                 ea += j + "=" + MainFieldIndex[i].ExitAddress.ElementAt(j)[k] + " ";
-                            }  
+                            }
                         }
                         string ga = "";
                         for (int j = 0; j < MainFieldIndex[i].GenAddress.Count; j++)
@@ -2883,7 +2924,7 @@ namespace rand9er
                 MFIoutLite();
 
 
-                
+
 
                 //  connect all exits to verify full map match
                 Mapp();
@@ -2901,19 +2942,19 @@ namespace rand9er
                     //      LINES OUTPUT TEST CODE
 
 
-                        /*
-                    string temp = ""; string[] temp2 = new string[] { temp, "" };
-                    for (int i = 0; i < FinalFieldIndices.Count; i++)
-                    {
-                        FinalFieldIndices[i].SumCheck();
-                        temp += "\nFFID= " + FinalFieldIndices[i].FieldID + " CheckSum= " + FinalFieldIndices[i].CheckSum + " 00=" + FinalFieldIndices[i].RangeStartStop[0][0] + " 01=" + FinalFieldIndices[i].RangeStartStop[0][1] + " 10=" + FinalFieldIndices[i].RangeStartStop[1][0] + " 11=" + FinalFieldIndices[i].RangeStartStop[1][1] + " 20=" + FinalFieldIndices[i].RangeStartStop[2][0] + " 21=" + FinalFieldIndices[i].RangeStartStop[2][1] + " 30=" + FinalFieldIndices[i].RangeStartStop[3][0] + " 31=" + FinalFieldIndices[i].RangeStartStop[3][1] + " 40=" + FinalFieldIndices[i].RangeStartStop[4][0] + " 41=" + FinalFieldIndices[i].RangeStartStop[4][1] + " 50=" + FinalFieldIndices[i].RangeStartStop[5][0] + " 51=" + FinalFieldIndices[i].RangeStartStop[5][1] + " 60=" + FinalFieldIndices[i].RangeStartStop[6][0] + " 61=" + FinalFieldIndices[i].RangeStartStop[6][1] + "\n";
+                    /*
+                string temp = ""; string[] temp2 = new string[] { temp, "" };
+                for (int i = 0; i < FinalFieldIndices.Count; i++)
+                {
+                    FinalFieldIndices[i].SumCheck();
+                    temp += "\nFFID= " + FinalFieldIndices[i].FieldID + " CheckSum= " + FinalFieldIndices[i].CheckSum + " 00=" + FinalFieldIndices[i].RangeStartStop[0][0] + " 01=" + FinalFieldIndices[i].RangeStartStop[0][1] + " 10=" + FinalFieldIndices[i].RangeStartStop[1][0] + " 11=" + FinalFieldIndices[i].RangeStartStop[1][1] + " 20=" + FinalFieldIndices[i].RangeStartStop[2][0] + " 21=" + FinalFieldIndices[i].RangeStartStop[2][1] + " 30=" + FinalFieldIndices[i].RangeStartStop[3][0] + " 31=" + FinalFieldIndices[i].RangeStartStop[3][1] + " 40=" + FinalFieldIndices[i].RangeStartStop[4][0] + " 41=" + FinalFieldIndices[i].RangeStartStop[4][1] + " 50=" + FinalFieldIndices[i].RangeStartStop[5][0] + " 51=" + FinalFieldIndices[i].RangeStartStop[5][1] + " 60=" + FinalFieldIndices[i].RangeStartStop[6][0] + " 61=" + FinalFieldIndices[i].RangeStartStop[6][1] + "\n";
 
-                    }
-                    temp2 = new string[] { temp, "" };
-                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
-                    File.WriteAllLines("Final Field Indexes restiored from cache object inside program.txt", temp2);
-                    temp = ""; temp2 = new string[] { "", "" };
-                    */
+                }
+                temp2 = new string[] { temp, "" };
+                Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                File.WriteAllLines("Final Field Indexes restiored from cache object inside program.txt", temp2);
+                temp = ""; temp2 = new string[] { "", "" };
+                */
 
 
                     /*
@@ -2953,6 +2994,7 @@ namespace rand9er
 
             }
 
+
             void Mapp()
             {
                 // here we try to build connections using DS
@@ -2975,295 +3017,7 @@ namespace rand9er
         }
 
 
-        public class GEindex
-        {
-            private int fieldID;
-            private bool touched;
-            private List<int> entrances;
-            //
-
-            public GEindex(int fieldID, bool touched, List<int> entrances)
-            {
-                this.fieldID = fieldID;
-                this.touched = touched;
-                this.entrances = entrances;
-            }
-            public int FieldID
-            {
-                get { return fieldID;  }
-                set { fieldID = value; }
-            }
-            public bool Touched
-            {
-                get { return touched; }
-                set { touched = value; }
-            }
-            public List<int> Entrances
-            {
-                get { return entrances; }
-                set { entrances = value; }
-            }
-            
-        }
-        public class FieldData
-        {
-            private int fieldID;
-            private string fieldName;
-            private List<int> exitNum;    //  headerC
-            private List<int[]> exitAddress;  //  21  (exit,exit,---,exit * 7)
-            private List<int[]> genAddress;   //  7   (---,---,gen,--- * 7)
-            private List<int> exitValue;    //  1 per exit in field, 
-            private List<int> genValue;
-            private List<int> allGE;
-            public FieldData(int fieldID, string fieldName, List<int> exitNum, List<int[]> exitAddress, List<int[]> genAddress, List<int> exitValue, List<int> genValue, List<int> allGE)
-            {
-                this.fieldID = fieldID;
-                this.fieldName = fieldName;
-                this.exitNum = exitNum;
-                this.exitAddress = exitAddress;
-                this.genAddress = genAddress;
-                this.exitValue = exitValue;
-                this.genValue = genValue;
-                this.allGE = allGE;
-            }
-            public int FieldID
-            {
-                get { return fieldID; }
-                set { fieldID = value; }
-            }
-            public string FieldName
-            {
-                get { return fieldName; }
-                set { fieldName = value; }
-            }
-            public List<int> ExitNum
-            {
-                get { return exitNum; }
-                set { exitNum = value; }
-            }
-            public List<int[]> ExitAddress
-            {
-                get { return exitAddress; }
-                set { exitAddress = value; }
-            }
-            public List<int[]> GenAddress
-            {
-                get { return genAddress; }
-                set { genAddress = value; }
-            }
-            public List<int> ExitValue
-            {
-                get { return exitValue; }
-                set { exitValue = value; }
-            }
-            public List<int> GenValue
-            {
-                get { return genValue; }
-                set { genValue = value; }
-            }
-            public List<int> AllGE
-            {
-                get { return allGE; }
-                set { allGE = value; }
-            }
-        }
-
-
-        public class DataP2        //  one per field, each List element is an exiting (external fid/ge), each AllGE is incoming GE's found in other fields 
-        {
-            private int fieldID;
-            private string fieldName;
-            private List<List<int>> tet;
-            private List<int[]> exitAddress;  //  21  exit,exit,---,exit * 7
-            private List<int[]> genAddress;   //  7   ---,---,gen,--- * 7
-            private List<int> exitValue;
-            private List<int> genValue;
-            private List<int> allGE;    //  all possible GE's for this field
-            public DataP2(int fieldID, string fieldName, List<int[]> exitAddress, List<int[]> genAddress, List<int> exitValue, List<int> genValue, List<int> allGE)
-            {
-                this.fieldID = fieldID;
-                this.fieldName = fieldName;
-                this.exitAddress = exitAddress;
-                this.genAddress = genAddress;
-                this.exitValue = exitValue;
-                this.genValue = genValue;
-                this.allGE = allGE;
-            }
-            public int FieldID
-            {
-                get { return fieldID; }
-                set { fieldID = value; }
-            }
-            public string FieldName
-            {
-                get { return fieldName; }
-                set { fieldName = value; }
-            }
-            public List<int[]> ExitAddress
-            {
-                get { return exitAddress; }
-                set { exitAddress = value; }
-            }
-            public List<int[]> GenAddress
-            {
-                get { return genAddress; }
-                set { genAddress = value; }
-            }
-            public List<int> ExitValue
-            {
-                get { return exitValue; }
-                set { exitValue = value; }
-            }
-            public List<int> GenValue
-            {
-                get { return genValue; }
-                set { genValue = value; }
-            }
-            public List<int> AllGE
-            {
-                get { return allGE; }
-                set { allGE = value; }
-            }
-        }
-
-        //  ONE PER ENTRANCE, 7 per FieldID
-        [Serializable]
-        public class Datapoint
-        {
-            private int fieldID;
-            private string fieldName;
-            private bool checkSum;
-            private bool checkSumBytes;
-            private int rangeV;
-            private int headerC;
-            private bool touched;
-            private int[][] addressNvalue;  //  [4][2]
-            private byte[][] valueBytes;    //  [4][2]
-            public Datapoint(int fieldID, string fieldName, bool checkSum, bool checkSumBytes, int rangeV, int headerC, bool touched, int[][] addressNvalue, byte[][] valueBytes)
-            {
-                this.fieldID = fieldID;
-                this.fieldName = fieldName;
-                this.checkSum = checkSum;
-                this.checkSumBytes = checkSumBytes;
-                this.rangeV = rangeV;
-                this.headerC = headerC;
-                this.touched = touched;
-                this.addressNvalue = addressNvalue;
-                this.valueBytes = valueBytes;
-            }
-            public int FieldID
-            {
-                get { return fieldID; }
-                set { fieldID = value; }
-            }
-            public string FieldName
-            {
-                get { return fieldName; }
-                set { fieldName = value; }
-            }
-            public bool CheckSum
-            {
-                get { return checkSum; }
-                set { checkSum = value; }
-            }
-            public bool CheckSumBytes
-            {
-                get { return checkSumBytes; }
-                set { checkSumBytes = value; }
-            }
-            public int RangeV
-            {
-                get { return rangeV; }
-                set { rangeV = value; }
-            }
-            public int HeaderC
-            {
-                get { return headerC; }
-                set { headerC = value; }
-            }
-            public bool Touched
-            {
-                get { return touched; }
-                set { touched = value; }
-            }
-            public int[][] AddressNvalue
-            {
-                get { return addressNvalue; }
-                set { addressNvalue = value; }
-            }
-            public byte[][] ValueBytes
-            {
-                get { return valueBytes; }
-                set { valueBytes = value; }
-            }
-            public void SumCheck()
-            {
-                checkSum = false;
-                checkSum = ((addressNvalue[0][1] == addressNvalue[1][1]) && (addressNvalue[0][1] == addressNvalue[3][1]));
-            }
-            public void SumCheckBytes()
-            {
-                checkSumBytes = false;
-                checkSumBytes = ((valueBytes[0][0] == valueBytes[1][0]) && (valueBytes[0][0] == valueBytes[3][0]) && (valueBytes[0][1] == valueBytes[1][1]) && (valueBytes[0][1] == valueBytes[3][1]));
-            }
-        }
-
-        //  ONE PER FIELD_ID
-        [Serializable]
-        public class FieldIndex
-        {
-            private int fieldID;
-            private string fieldName;
-            private byte[] fieldBytes;
-            private bool checkSum;
-            private int[][] rangeStartStop; //  [7][2]
-            public FieldIndex(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[][] rangeStartStop)
-            {
-                this.fieldID = fieldID;
-                this.fieldName = fieldName;
-                this.fieldBytes = fieldBytes;
-                this.checkSum = checkSum;
-                this.rangeStartStop = rangeStartStop;
-            }
-            public int FieldID
-            {
-                get { return fieldID; }
-                set { fieldID = value; }
-            }
-            public string FieldName
-            {
-                get { return fieldName; }
-                set { fieldName = value; }
-            }
-            public byte[] FieldBytes
-            {
-                get { return fieldBytes; }
-                set { fieldBytes = value; }
-            }
-            public bool CheckSum
-            {
-                get { return checkSum; }
-                set { checkSum = value; }
-            }
-            public int[][] RangeStartStop
-            {
-                get { return rangeStartStop; }
-                set { rangeStartStop = value; }
-            }
-            public void SumCheck()
-            {
-                checkSum = false; bool range1 = false; bool range2 = false; bool range3 = false; bool range4 = false; bool range5 = false; bool range6 = false; bool range7 = false;
-                if (rangeStartStop[0][0] < rangeStartStop[0][1]) { range1 = true; }
-                if (rangeStartStop[1][0] < rangeStartStop[1][1]) { range2 = true; }
-                if (rangeStartStop[2][0] < rangeStartStop[2][1]) { range3 = true; }
-                if (rangeStartStop[3][0] < rangeStartStop[3][1]) { range4 = true; }
-                if (rangeStartStop[4][0] < rangeStartStop[4][1]) { range5 = true; }
-                if (rangeStartStop[5][0] < rangeStartStop[5][1]) { range6 = true; }
-                if (rangeStartStop[6][0] < rangeStartStop[6][1]) { range7 = true; }
-                checkSum = (range1 && range2 && range3 && range4 && range5 && range6 && range7);
-            }
-        }
-
+      
 
         //  END of rand9er : form
 
