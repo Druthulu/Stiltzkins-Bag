@@ -9,3 +9,4 @@ D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.GenerateResource.cache
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.CoreCompileInputs.cache
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\Stiltzkin's Bag 1.0.exe
 D:\git\Durthulu\rand9er\rand9er\obj\Debug\Stiltzkin's Bag 1.0.pdb
+D:\git\Durthulu\rand9er\rand9er\obj\Debug\rand9er.csproj.SuggestedBindingRedirects.cache

@@ -2049,7 +2049,14 @@ namespace rand9er
             byte[] pattern7_OpCea = new byte[] { 234 };  // EA OpCode
             byte[] pattern7_OpCa9 = new byte[] { 169, 0, 250 };  // A9 OpCode
             int[] pattern8_noPreload = new int[] { 552, 555, 1302, 1305, 2922, 2923, 2924, 2925 };    //  thse need special allowance through all pattern1 loops, and them dummy data in place of preload patterns
-
+            int[] windowAsyncFP = new int[] { 44, 127, 32, 0, 1, 16, 38 }; // 2C 7F 20 00 01 10 26 WindowAsync False Positive in char loops
+            int[] progression = new int[] { 50, 104, 105, 106, 115, 150, 55, 54, 51, 58, 69, 209, 206, 251, 207, 208, 201, 204, 203, 202, 200, 252, 257, 261, 262, 300, 301, 307, 309, 312, 352, 354, 355, 358, 353, 356, 404, 406, 403, 400, 401, 456, 455, 
+                457, 452, 451, 454, 504, 507, 500, 506, 503, 614, 600, 571, 607, 554, 565, 1365, 611, 613, 612, 615, 575, 563, 550, 551, 552, 555, 556, 559, 566, 567, 568, 569, 570, 572, 618, 701, 703, 705, 707, 800, 801, 750, 752, 755, 757, 753, 758, 
+                760, 768, 812, 810, 809, 807, 908, 904, 909, 900, 916, 913, 914, 950, 951, 953, 952, 1201, 1000, 1001, 1051, 1059, 1055, 1052, 1060, 1107, 1101, 1010, 1110, 1153, 1150, 1208, 1211, 1206, 1205, 1225, 1203, 1204, 955, 1250, 1251, 1254, 
+                1255, 1300, 1307, 1315, 1352, 1422, 1425, 3100, 1501, 1505, 1463, 1451, 1454, 1450, 1500, 1503, 1504, 1550, 1554, 1555, 1600, 1601, 1607, 1602, 1605, 1606, 1650, 1652, 1754, 1755, 1756, 1757, 1608, 1610, 1658, 1657, 1654, 1661, 1663, 
+                1662, 1659, 1861, 1854, 1864, 1819, 1803, 1807, 1866, 1816, 1905, 1903, 2054, 2050, 2007, 2000, 2006, 2055, 2105, 2161, 2150, 2172, 2169, 2211, 2107, 2111, 2114, 2855, 2856, 1452, 1458, 2200, 2202, 2201, 2209, 2261, 2250, 2251, 2253, 
+                2254, 2257, 2258, 2259, 2260, 2204, 2205, 2213, 2222, 2207, 2212, 2301, 2357, 2157, 1800, 2800, 2850, 2854, 2500, 2502, 2512, 2510, 2504, 2505, 2551, 2851, 2852, 2550, 2853, 2601, 2603, 2604, 2605, 2606, 2607, 2651, 2653, 2654, 2657, 
+                2656, 2658, 2652, 2700, 2701, 2706, 2710, 2711, 2717, 2719, 2660, 2750, 2751, 3050, 2753, 2756, 2900, 2904, 2905, 2907, 2908, 2912, 2914, 2915, 2917, 2918, 2919, 2920, 2921, 2922, 2926, 2934 };   //  this is the required fields to advance the story. some are used multiple times, as long as we have a complete path once, the user can walk backwards when needed.
             int[] blank2ints = new int[] { 0, 0 };
             byte[] blank2bytes = new byte[] { 0, 0 };
             int[][] raddresses = { blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, };
@@ -2769,7 +2776,7 @@ namespace rand9er
 
                     }
                     temp2 = new string[] { temp, "" }; //  using right now
-                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
                     File.WriteAllLines("DSfull.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
@@ -2814,7 +2821,7 @@ namespace rand9er
                         temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + " eAdds=" + ea + " gAdds=" + ga + "\n";
                     }
                     temp2 = new string[] { temp, "" }; //  using right now
-                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
                     File.WriteAllLines("MFIFull.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
@@ -2858,7 +2865,7 @@ namespace rand9er
                         temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + "\n";
                     }
                     temp2 = new string[] { temp, "" }; //  using right now
-                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
                     File.WriteAllLines("MFIlite.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
@@ -3017,9 +3024,210 @@ namespace rand9er
         }
 
 
-      
+        //  ONE PER ENTRANCE, 7 per FieldID
+        [Serializable]
+        public class Datapoint
+        {
+            private int fieldID;
+            private string fieldName;
+            private bool checkSum;
+            private bool checkSumBytes;
+            private int rangeV;
+            private int headerC;
+            private bool touched;
+            private int[][] addressNvalue;  //  [4][2]
+            private byte[][] valueBytes;    //  [4][2]
+            public Datapoint(int fieldID, string fieldName, bool checkSum, bool checkSumBytes, int rangeV, int headerC, bool touched, int[][] addressNvalue, byte[][] valueBytes)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.checkSum = checkSum;
+                this.checkSumBytes = checkSumBytes;
+                this.rangeV = rangeV;
+                this.headerC = headerC;
+                this.touched = touched;
+                this.addressNvalue = addressNvalue;
+                this.valueBytes = valueBytes;
+            }
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public bool CheckSum
+            {
+                get { return checkSum; }
+                set { checkSum = value; }
+            }
+            public bool CheckSumBytes
+            {
+                get { return checkSumBytes; }
+                set { checkSumBytes = value; }
+            }
+            public int RangeV
+            {
+                get { return rangeV; }
+                set { rangeV = value; }
+            }
+            public int HeaderC
+            {
+                get { return headerC; }
+                set { headerC = value; }
+            }
+            public bool Touched
+            {
+                get { return touched; }
+                set { touched = value; }
+            }
+            public int[][] AddressNvalue
+            {
+                get { return addressNvalue; }
+                set { addressNvalue = value; }
+            }
+            public byte[][] ValueBytes
+            {
+                get { return valueBytes; }
+                set { valueBytes = value; }
+            }
+            public void SumCheck()
+            {
+                checkSum = false;
+                checkSum = ((addressNvalue[0][1] == addressNvalue[1][1]) && (addressNvalue[0][1] == addressNvalue[3][1]));
+            }
+            public void SumCheckBytes()
+            {
+                checkSumBytes = false;
+                checkSumBytes = ((valueBytes[0][0] == valueBytes[1][0]) && (valueBytes[0][0] == valueBytes[3][0]) && (valueBytes[0][1] == valueBytes[1][1]) && (valueBytes[0][1] == valueBytes[3][1]));
+            }
+        }
+
+        //  ONE PER FIELD_ID
+        [Serializable]
+        public class FieldIndex
+        {
+            private int fieldID;
+            private string fieldName;
+            private byte[] fieldBytes;
+            private bool checkSum;
+            private int[][] rangeStartStop; //  [7][2]
+            public FieldIndex(int fieldID, string fieldName, byte[] fieldBytes, bool checkSum, int[][] rangeStartStop)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.fieldBytes = fieldBytes;
+                this.checkSum = checkSum;
+                this.rangeStartStop = rangeStartStop;
+            }
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public byte[] FieldBytes
+            {
+                get { return fieldBytes; }
+                set { fieldBytes = value; }
+            }
+            public bool CheckSum
+            {
+                get { return checkSum; }
+                set { checkSum = value; }
+            }
+            public int[][] RangeStartStop
+            {
+                get { return rangeStartStop; }
+                set { rangeStartStop = value; }
+            }
+            public void SumCheck()
+            {
+                checkSum = false; bool range1 = false; bool range2 = false; bool range3 = false; bool range4 = false; bool range5 = false; bool range6 = false; bool range7 = false;
+                if (rangeStartStop[0][0] < rangeStartStop[0][1]) { range1 = true; }
+                if (rangeStartStop[1][0] < rangeStartStop[1][1]) { range2 = true; }
+                if (rangeStartStop[2][0] < rangeStartStop[2][1]) { range3 = true; }
+                if (rangeStartStop[3][0] < rangeStartStop[3][1]) { range4 = true; }
+                if (rangeStartStop[4][0] < rangeStartStop[4][1]) { range5 = true; }
+                if (rangeStartStop[5][0] < rangeStartStop[5][1]) { range6 = true; }
+                if (rangeStartStop[6][0] < rangeStartStop[6][1]) { range7 = true; }
+                checkSum = (range1 && range2 && range3 && range4 && range5 && range6 && range7);
+            }
+        }
+        public class FieldData
+        {
+            private int fieldID;
+            private string fieldName;
+            private List<int> exitNum;    //  headerC
+            private List<int[]> exitAddress;  //  21  (exit,exit,---,exit * 7)
+            private List<int[]> genAddress;   //  7   (---,---,gen,--- * 7)
+            private List<int> exitValue;    //  1 per exit in field, 
+            private List<int> genValue;
+            private List<int> allGE;
+            public FieldData(int fieldID, string fieldName, List<int> exitNum, List<int[]> exitAddress, List<int[]> genAddress, List<int> exitValue, List<int> genValue, List<int> allGE)
+            {
+                this.fieldID = fieldID;
+                this.fieldName = fieldName;
+                this.exitNum = exitNum;
+                this.exitAddress = exitAddress;
+                this.genAddress = genAddress;
+                this.exitValue = exitValue;
+                this.genValue = genValue;
+                this.allGE = allGE;
+            }
+            public int FieldID
+            {
+                get { return fieldID; }
+                set { fieldID = value; }
+            }
+            public string FieldName
+            {
+                get { return fieldName; }
+                set { fieldName = value; }
+            }
+            public List<int> ExitNum
+            {
+                get { return exitNum; }
+                set { exitNum = value; }
+            }
+            public List<int[]> ExitAddress
+            {
+                get { return exitAddress; }
+                set { exitAddress = value; }
+            }
+            public List<int[]> GenAddress
+            {
+                get { return genAddress; }
+                set { genAddress = value; }
+            }
+            public List<int> ExitValue
+            {
+                get { return exitValue; }
+                set { exitValue = value; }
+            }
+            public List<int> GenValue
+            {
+                get { return genValue; }
+                set { genValue = value; }
+            }
+            public List<int> AllGE
+            {
+                get { return allGE; }
+                set { allGE = value; }
+            }
+        }
+
+
 
         //  END of rand9er : form
 
     }
+
 }
