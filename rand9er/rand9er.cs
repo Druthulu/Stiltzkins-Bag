@@ -198,7 +198,8 @@ namespace rand9er
                 c_safe.Checked = false; 
                 c_max.Checked = false; 
                 c_medicitems.Enabled = true; 
-                c_medicshops.Enabled = true; 
+                c_medicshops.Enabled = true;
+                c_medicshopsEn = true;
                 if (!c_medicitems.Checked & !c_medicshops.Checked)
                 {
                     c_medicshops.Checked = true;
@@ -214,6 +215,7 @@ namespace rand9er
             {
                 c_medicitems.Enabled = false;
                 c_medicshops.Enabled = false;
+                c_medicshopsEn  = false;
             }
         }
         private void c_random_EnabledChanged(object sender, EventArgs e)
@@ -227,11 +229,13 @@ namespace rand9er
                 c_randomEn = false;
                 c_medicitems.Enabled = false;
                 c_medicshops.Enabled = false;
+                c_medicshopsEn = true;
             }
             else if (c_random.Enabled & c_random.Checked)
             {
                 c_medicitems.Enabled = true;
                 c_medicshops.Enabled = true;
+                c_medicshopsEn = true;
             }
         }
         private void c_max_CheckedChanged(object sender, EventArgs e)
@@ -243,6 +247,7 @@ namespace rand9er
                 c_safe.Checked = false;
                 c_medicitems.Enabled = true;
                 c_medicshops.Enabled = true;
+                c_medicshopsEn = true;
                 if (!c_medicitems.Checked & !c_medicshops.Checked)
                 {
                     c_medicitems.Checked = true;
@@ -258,6 +263,7 @@ namespace rand9er
             {
                 c_medicitems.Enabled = false;
                 c_medicshops.Enabled = false;
+                c_medicshopsEn = false;
             }
         }
         private void c_max_EnabledChanged(object sender, EventArgs e)
@@ -271,11 +277,13 @@ namespace rand9er
                 c_maxEn = false;
                 c_medicitems.Enabled = false;
                 c_medicshops.Enabled = false;
+                c_medicshopsEn = false;
             }
             else if (c_max.Enabled & c_max.Checked)
             {
                 c_medicitems.Enabled = true;
                 c_medicshops.Enabled = true;
+                c_medicshopsEn = true;
             }
         }
         private void c_medicitems_CheckedChanged(object sender, EventArgs e)
@@ -296,10 +304,12 @@ namespace rand9er
             {
                 c_random.Checked = true;
                 c_medicshops.Checked = true;
+                c_medicshopsEn = true;
             }
             if (c_medicshops.Checked == true)
             {
                 c_medicshopsBool = true;
+                c_medicshopsEn = true;
                 if (c_max.Checked == true) { a_shopItems = a_shopItems_2maxm; }
             }
             if (c_medicshops.Checked == false)
@@ -308,17 +318,10 @@ namespace rand9er
                 if (c_max.Checked == true) { a_shopItems = a_shopItems_2max; }
             }
         }
-        private void c_medicshops_EnabledChanged(object sender, EventArgs e)
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
-            
-            if (c_medicshops.Enabled == true)
-            {
-                c_medicshopsEn = true;
-            }
-            if (c_medicshops.Enabled == false)
-            {
-                c_medicshopsEn = false;
-            }
+
         }
         private void c_basestats_CheckedChanged(object sender, EventArgs e)
         {
@@ -397,22 +400,13 @@ namespace rand9er
             if (c_random_e.Checked)
             {
                 c_random_eBool = true;
+                c_random_eEn = true;
                 c_all_e.Checked = false;
                 c_main_e.Checked = false;
             }
             if (!c_random_e.Checked)
             {
                 c_random_eBool = false;
-            }
-        }
-        private void c_random_e_EnabledChanged(object sender, EventArgs e)
-        {
-            if (c_random_e.Enabled)
-            {
-                c_random_eEn = true;
-            }
-            if (!c_random_e.Enabled)
-            {
                 c_random_eEn = false;
             }
         }
@@ -420,26 +414,17 @@ namespace rand9er
         {
             if (c_all_e.Checked)
             {
+                c_all_eEn = true;
                 c_all_eBool = true;
                 c_random_e.Checked = false;
                 c_main_e.Checked = false;
             }
             if (!c_all_e.Checked)
             {
+                c_all_eEn = false;
                 c_all_eBool = false;
             }
             
-        }
-        private void c_all_e_EnabledChanged(object sender, EventArgs e)
-        {
-            if (c_all_e.Enabled)
-            {
-                c_all_eEn = true;
-            }
-            if (!c_all_e.Enabled)
-            {
-                c_all_eEn = false;
-            }
         }
         private void pbar_tree_Click(object sender, EventArgs e)
         {
@@ -713,7 +698,9 @@ namespace rand9er
             //richTextBox1.ScrollToCaret();
         }
 
-        //MAIN
+        //      MAIN        //
+        //      MAIN        //
+
         private void button_rand_Click(object sender, EventArgs e)
         {
             if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
@@ -732,6 +719,16 @@ namespace rand9er
                         Shops.ShopItems();
                         Shops.MedicItems();
                         Shops.ShopCombo();
+                        ShopOutput();
+                        richTextBox_output.Text += "\nc_maxbool:" + c_maxBool + " c_randombool:" + c_randomBool + " c_safeBool:" + c_safeBool + " c_medicshopsBool:" + c_medicshopsBool + " c_medicitemsBool:" + c_medicitemsBool+ " c_medicshopsEn:" + c_medicshopsEn;
+                        void ShopOutput()
+                        {
+                            //string[] a_comboSafe has input data
+                            for (int i = 0; i < a_comboSafe.Length; i++)
+                            {
+                                richTextBox_output.Text = richTextBox_output.Text + a_comboSafe[i] + "\n";
+                            }
+                        }
                     }
                     if (cm_synth.Checked)
                     {
@@ -755,7 +752,10 @@ namespace rand9er
                 }
             }
         }
-        //MISC FUNCS
+
+        //              MISC FUNCS              //
+        //              MISC FUNCS              //
+
         public string path_search(string pswap)
         {
             RegistryKey rkTest = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\Shell\\MuiCache");
@@ -776,11 +776,50 @@ namespace rand9er
                         });
                         t.Wait();
                         b_search.Text = "Auto Locate";
-                        break;
+                        rkTest.Close();
+                        return pswap;
                     }
                 }
             }
             rkTest.Close();
+            RegistryKey rkTest2 = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\Store");
+            string[] vnames2 = rkTest2.GetValueNames();
+            foreach (string s in vnames2)
+            {
+                if (s.Contains("FF9_Launcher.exe"))
+                {
+                    b_search.Text = "FFIX Located!";
+                    pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe"));
+                    var t = Task.Run(async delegate
+                    {
+                        await Task.Delay(600);
+                    });
+                    t.Wait();
+                    b_search.Text = "Auto Locate";
+                    rkTest2.Close();
+                    return pswap;
+                }
+            }
+            rkTest2.Close();
+            RegistryKey rkTest3 = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FeatureUsage\\AppSwitched");
+            string[] vnames3 = rkTest3.GetValueNames();
+            foreach (string s in vnames3)
+            {
+                if (s.Contains("FF9_Launcher.exe"))
+                {
+                    b_search.Text = "FFIX Located!";
+                    pswap = s.Substring(0, s.IndexOf("FF9_Launcher.exe"));
+                    var t = Task.Run(async delegate
+                    {
+                        await Task.Delay(600);
+                    });
+                    t.Wait();
+                    b_search.Text = "Auto Locate";
+                    rkTest3.Close();
+                    return pswap;
+                }
+            }
+            rkTest3.Close();
             return pswap;
         }
         public void Manual_search()
@@ -829,7 +868,7 @@ namespace rand9er
                     Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Characters");
                     File.WriteAllLines("DefaultEquipment.csv", a_equipdata);
 
-                    if (c_all_e.Checked | c_random_e.Checked)
+                    if (c_all_e.Checked | c_random_e.Checked | c_main_e.Checked)
                     {
                         Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
                         File.WriteAllLines("Items.csv", a_itemdata);

@@ -41,7 +41,7 @@ namespace rand9er
                     if ((al - ai == 1) & (r == 1))
                     {
                         int.TryParse(rand9er.data_str.Substring(i, rand9er.data_str.Length - i), out rand9er.data_arr[ai]); // add remainder if any to array
-                        i = i + 9; //prevent substring(i,9) exception
+                        i += 9; //prevent substring(i,9) exception
                     }
                     else
                     {

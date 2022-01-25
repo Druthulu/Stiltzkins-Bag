@@ -111,7 +111,7 @@ namespace rand9er
             {
                 rand9er.aa_medicItems = aa_medicItems1;
             }
-            else if (rand9er.c_safeBool) { rand9er.aa_medicItems = aa_medicItemsE1; }
+            else if (!rand9er.c_safeBool) { rand9er.aa_medicItems = aa_medicItemsE1; }
 
             if (rand9er.c_medicshopsEn & rand9er.c_medicshopsBool)
             {
