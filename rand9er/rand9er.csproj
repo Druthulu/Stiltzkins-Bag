@@ -67,6 +67,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Char.cs" />
+    <Compile Include="Bytes.cs" />
+    <Compile Include="Synth.cs" />
+    <Compile Include="Shops.cs" />
+    <Compile Include="Datapoint.cs" />
+    <Compile Include="Seed.cs" />
+    <Compile Include="StockCSVs.cs" />
+    <Compile Include="FieldData.cs" />
+    <Compile Include="FieldIndex.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
