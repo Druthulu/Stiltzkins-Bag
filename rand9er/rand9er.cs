@@ -6,13 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Reflection;
-using System.Threading;
+//using System.Reflection;
+//using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using System.Security.Cryptography;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Security.Cryptography;
+//using System.Runtime.Serialization.Formatters.Binary;
 
 namespace rand9er
 {
@@ -318,7 +318,6 @@ namespace rand9er
                 if (c_max.Checked == true) { a_shopItems = a_shopItems_2max; }
             }
         }
-
         private void label2_Click_1(object sender, EventArgs e)
         {
 
@@ -533,9 +532,7 @@ namespace rand9er
             if (!c_mogdetect.Checked)
             {
                 c_mogBool = false;
-            }
-            
-        }
+            }        }
         //Entrances
         private void cm_entrances_CheckedChanged(object sender, EventArgs e)
         {
@@ -719,16 +716,6 @@ namespace rand9er
                         Shops.ShopItems();
                         Shops.MedicItems();
                         Shops.ShopCombo();
-                        ShopOutput();
-                        richTextBox_output.Text += "\nc_maxbool:" + c_maxBool + " c_randombool:" + c_randomBool + " c_safeBool:" + c_safeBool + " c_medicshopsBool:" + c_medicshopsBool + " c_medicitemsBool:" + c_medicitemsBool+ " c_medicshopsEn:" + c_medicshopsEn;
-                        void ShopOutput()
-                        {
-                            //string[] a_comboSafe has input data
-                            for (int i = 0; i < a_comboSafe.Length; i++)
-                            {
-                                richTextBox_output.Text = richTextBox_output.Text + a_comboSafe[i] + "\n";
-                            }
-                        }
                     }
                     if (cm_synth.Checked)
                     {
@@ -738,7 +725,7 @@ namespace rand9er
                     {
                         Char.Character();
                     }
-                    //richTextBox_debug.Text = richTextBox_debug.Text + "\nrandl: " + randl.ToString() + "\nSeed DNA " + data_int + "\nitems: (1-" + items + ")\n";
+                    richTextBox_debug.Text = richTextBox_debug.Text + "\nrandl: " + randl.ToString() + "\nSeed DNA " + data_int + "\nitems: (1-" + items + ")\n";
                     
                     if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked)
                     {

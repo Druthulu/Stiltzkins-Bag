@@ -530,6 +530,5 @@ namespace rand9er
             };
             return a_s_stockItems;
         }
-
     }
 }

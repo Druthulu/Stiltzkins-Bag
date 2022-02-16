@@ -24,20 +24,6 @@ namespace rand9er
         }
         public static void Character()
         {
-            //void Set()
-            //{
-            //    //settings for comment line numebr 5
-            //    rand9er.set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + rand9er.data_int + "   set:";
-            //    if (rand9er.c_abilitygemsBool) { rand9er.set += "/abilitygems "; }
-            //    if (rand9er.c_basestatsBool) { rand9er.set += "/base stats "; }
-            //    if (rand9er.c_defaultBool)
-            //    {
-            //        rand9er.set += "/default equipment";
-            //        if (rand9er.c_random_eBool) { rand9er.set += "->random"; }
-            //        if (rand9er.c_all_eBool) { rand9er.set += "->share"; }
-            //        if (rand9er.c_main_eBool) { rand9er.set += "->maintain"; }
-            //    }
-            //}
             Set();
             if (rand9er.c_abilitygemsBool)
             {
@@ -168,17 +154,6 @@ namespace rand9er
         }
         public static void PermissionEdit()
         {
-            //settings for comment line numebr 5
-            //rand9er.set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + rand9er.data_int + "   set:";
-            //if (rand9er.c_abilitygemsBool) { rand9er.set += "/abilitygems "; }
-            //if (rand9er.c_basestatsBool) { rand9er.set += "/base stats "; }
-            //if (rand9er.c_defaultBool)
-            //{
-            //    rand9er.set += "/default equipment";
-            //    if (rand9er.c_random_eBool) { rand9er.set += "->random"; }
-            //    if (rand9er.c_all_eBool) { rand9er.set += "->share"; }
-            //    if (rand9er.c_main_eBool) { rand9er.set += "->maintain"; }
-            //}
             Set();
 
             if (rand9er.c_random_eEn & rand9er.c_random_eBool)
@@ -223,41 +198,6 @@ namespace rand9er
                 rand9er.a_itemdata[5] = rand9er.set;
                 //no permission edits needed for this one
             }
-            ////default ranges--we could make this more accurate per i, but not nesseccary.
-            //rand9er.weapa = 0; rand9er.weapb = 85;
-            //rand9er.armleta = 88; rand9er.armletb = 112;
-            //rand9er.helma = 112; rand9er.helmb = 148;
-            //rand9er.armora = 148; rand9er.armorb = 192;
-            //rand9er.acca = 192; rand9er.accb = 224;
-            //string[] a_itemdata has output data
         }
-        //private void CharOutput()
-        //{
-        //    //string[] a_statdata has output data
-        //    //string[] a_gemdata has output data
-        //    //string[]  a_equipdata has output data
-        //    if (c_abilitygems.Checked == true)
-        //    {
-        //        for (int i = 0; i < a_gemdata.Length; i++)
-        //        {
-        //            richTextBox_output.Text = richTextBox_output.Text + a_gemdata[i] + "\n";
-        //        }
-        //    }
-        //    if (c_basestats.Checked == true)
-        //    {
-        //        for (int i = 0; i < a_statdata.Length; i++)
-        //        {
-        //            richTextBox_output.Text = richTextBox_output.Text + a_statdata[i] + "\n";
-        //        }
-        //    }
-        //    if (c_default.Checked == true)
-        //    {
-        //        for (int i = 0; i < a_equipdata.Length; i++)
-        //        {
-        //            richTextBox_output.Text = richTextBox_output.Text + a_equipdata[i] + "\n";
-        //        }
-        //    }
-        //}
-
     }
 }

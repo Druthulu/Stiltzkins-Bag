@@ -135,13 +135,306 @@ namespace rand9er
             byte[] pattern7_OpCa9 = new byte[] { 169, 0, 250 };  // A9 OpCode
             int[] pattern8_noPreload = new int[] { 552, 555, 1302, 1305, 2922, 2923, 2924, 2925 };    //  thse need special allowance through all pattern1 loops, and them dummy data in place of preload patterns
             int[] windowAsyncFP = new int[] { 44, 127, 32, 0, 1, 16, 38 }; // 2C 7F 20 00 01 10 26 WindowAsync False Positive in char loops
-            int[] progression = new int[] { 50, 104, 105, 106, 115, 150, 55, 54, 51, 58, 69, 209, 206, 251, 207, 208, 201, 204, 203, 202, 200, 252, 257, 261, 262, 300, 301, 307, 309, 312, 352, 354, 355, 358, 353, 356, 404, 406, 403, 400, 401, 456, 455,
+            int[] progression = new int[] 
+            { 
+                50, 104, 105, 106, 115, 150, 55, 54, 51, 58, 69, 209, 206, 251, 207, 208, 201, 204, 203, 202, 200, 252, 257, 261, 262, 300, 301, 307, 309, 312, 352, 354, 355, 358, 353, 356, 404, 406, 403, 400, 401, 456, 455,
                 457, 452, 451, 454, 504, 507, 500, 506, 503, 614, 600, 571, 607, 554, 565, 1365, 611, 613, 612, 615, 575, 563, 550, 551, 552, 555, 556, 559, 566, 567, 568, 569, 570, 572, 618, 701, 703, 705, 707, 800, 801, 750, 752, 755, 757, 753, 758,
                 760, 768, 812, 810, 809, 807, 908, 904, 909, 900, 916, 913, 914, 950, 951, 953, 952, 1201, 1000, 1001, 1051, 1059, 1055, 1052, 1060, 1107, 1101, 1010, 1110, 1153, 1150, 1208, 1211, 1206, 1205, 1225, 1203, 1204, 955, 1250, 1251, 1254,
                 1255, 1300, 1307, 1315, 1352, 1422, 1425, 3100, 1501, 1505, 1463, 1451, 1454, 1450, 1500, 1503, 1504, 1550, 1554, 1555, 1600, 1601, 1607, 1602, 1605, 1606, 1650, 1652, 1754, 1755, 1756, 1757, 1608, 1610, 1658, 1657, 1654, 1661, 1663,
                 1662, 1659, 1861, 1854, 1864, 1819, 1803, 1807, 1866, 1816, 1905, 1903, 2054, 2050, 2007, 2000, 2006, 2055, 2105, 2161, 2150, 2172, 2169, 2211, 2107, 2111, 2114, 2855, 2856, 1452, 1458, 2200, 2202, 2201, 2209, 2261, 2250, 2251, 2253,
                 2254, 2257, 2258, 2259, 2260, 2204, 2205, 2213, 2222, 2207, 2212, 2301, 2357, 2157, 1800, 2800, 2850, 2854, 2500, 2502, 2512, 2510, 2504, 2505, 2551, 2851, 2852, 2550, 2853, 2601, 2603, 2604, 2605, 2606, 2607, 2651, 2653, 2654, 2657,
-                2656, 2658, 2652, 2700, 2701, 2706, 2710, 2711, 2717, 2719, 2660, 2750, 2751, 3050, 2753, 2756, 2900, 2904, 2905, 2907, 2908, 2912, 2914, 2915, 2917, 2918, 2919, 2920, 2921, 2922, 2926, 2934 };   //  this is the required fields to advance the story. some are used multiple times, as long as we have a complete path once, the user can walk backwards when needed.
+                2656, 2658, 2652, 2700, 2701, 2706, 2710, 2711, 2717, 2719, 2660, 2750, 2751, 3050, 2753, 2756, 2900, 2904, 2905, 2907, 2908, 2912, 2914, 2915, 2917, 2918, 2919, 2920, 2921, 2922, 2926, 2934 
+            };   //  this is the required fields to advance the story. some are used multiple times, as long as we have a complete path once, the user can walk backwards when needed.
+            List<int[]> CityArr = new List<int[]>()
+            {
+                new int[] { 50, 63 },new int[] { 64, 0 },new int[] { 65, 67 },new int[] { 64, 0 },new int[] { 68, 69 },new int[] { 70, 0 },new int[] { 100, 117 },new int[] { 150, 167 },new int[] { 200, 209 },new int[] { 250, 262 },new int[] { 300, 312 },
+                new int[] { 350, 454 },new int[] { 455, 457 },new int[] { 500, 507 },new int[] { 550, 576 },new int[] { 600, 620 },new int[] { 650, 661 },new int[] { 701, 707 },new int[] { 750, 768 },new int[] { 800, 850 },new int[] { 851, 852 },
+                new int[] { 1256, 0 },new int[] { 2950, 0 },new int[] { 2953, 0 },new int[] { 152, 0 },new int[] { 656, 663 },new int[] { 769, 0 },new int[] { 803, 816 },new int[] { 900, 932 },new int[] { 950, 957 },new int[] { 1000, 1110 },new int[] { 1150, 1153 },
+                new int[] { 1200, 1250 },new int[] { 1251, 1255 },new int[] { 1300, 1315 },new int[] { 1350, 1370 },new int[] { 1400, 1425 },new int[] { 1450, 1462 },new int[] { 1463, 1464 },new int[] { 1500, 1509 },new int[] { 1500, 1557 },new int[] { 1600, 1610 },
+                new int[] { 1650, 1659 },new int[] { 1660, 1662 },new int[] { 1663, 1759 },new int[] { 1800, 0 },new int[] { 1950, 1953 },new int[] { 808, 854 },new int[] { 855, 856 },new int[] { 1801, 1824 },new int[] { 1850, 1866 },new int[] { 1900, 1916 },
+                new int[] { 2000, 0 },new int[] { 2001, 2009 },new int[] { 2050, 2054 },new int[] { 2055, 0 },new int[] { 2100, 2114 },new int[] { 2150, 2173 },new int[] { 2200, 2222 },new int[] { 2250, 2261 },new int[] { 2300, 2305 },new int[] { 2350, 2365 },
+                new int[] { 2400, 2406 },new int[] { 2450, 2458 },new int[] { 2500, 2513 },new int[] { 2550, 2554 },new int[] { 2600, 2608 },new int[] { 2650, 2661 },new int[] { 2700, 2720 },new int[] { 2750, 2753 },new int[] { 2800, 2803 },new int[] { 2850, 2854 },
+                new int[] { 2855, 2856 },new int[] { 2951, 0 },new int[] { 2952, 0 },new int[] { 2954, 2955 },new int[] { 3100, 0 },new int[] { 1700, 1707 },new int[] { 1917, 0 },new int[] { 2154, 2166 },new int[] { 2501, 0 },new int[] { 2751, 2754 },new int[] { 2755, 0 },
+                new int[] { 2756, 0 },new int[] { 2900, 2921 },new int[] { 2922, 2927 },new int[] { 2928, 0 },new int[] { 2929, 2934 },new int[] { 3000, 3012 },new int[] { 3050, 3059 }
+            }; //71 not including single fields, 
+            int[] CitySize = new int[]
+            {
+                14, 1, 3, 2, 1, 18, 17, 10, 13, 13, 24, 3, 8, 27, 21, 9, 7, 19, 7, 2, 1, 1, 1, 1, 5, 1, 10, 20, 8, 41, 4, 29, 5, 16, 21, 26, 13, 2, 10, 8, 11, 
+                10, 3, 11, 1, 4, 3, 2, 22, 17, 17, 1, 9, 5, 1, 15, 20, 20, 12, 6, 16, 7, 9, 12, 5, 9, 12, 21, 2, 4, 5, 2, 1, 1, 2, 1, 8, 1, 3, 1, 3, 1, 1, 22, 6, 1, 6, 13, 10
+            };  //  average of 9.18, 11.33 not including single field cities, 12.36 not including 2 rooms, 13.35 not including 3
+            
+            void note_Cities()
+            {
+                /*
+                50-63=14
+                Prima Vista
+
+                64
+                A Castle
+
+                65-67=3
+                Prima Vista
+
+                64,68-69=2
+                A Castle throne
+
+                70
+                Opening for FMV
+
+                100-117=18
+                alexandria
+
+                150-167=17
+                A Castle 2
+
+                200-209=10
+                Prima Vista Busted up
+
+                250-262=13
+                Evil Forest
+
+                300-312=13
+                Ice Cavern
+
+                350-454=24
+                Dali
+
+                455-457=3
+                Dali mountain
+
+                500-507=8
+                cargo ship black mages
+
+                550-576=27
+                Lindblum
+
+                600-620=21
+                Lindblum Castle
+
+                650-661=9
+                MarshMist
+
+                701-707=7
+                Gizamaluke
+
+                750-768=19
+                Burmecia
+
+                800-850=7
+                South Gate
+
+                851-852=2
+                North Gate
+
+                1256
+                Pinnacle Rocks
+
+                2950
+                Chocobos forest
+
+                2953
+                Chocobos Dream
+
+                152
+                Evil Forest Memory
+
+                656-663=5
+                Marsh-pond/thicket & cave
+
+                769
+                Burmecia Palace
+
+                803-816=10
+                South Gate train/
+
+                900-932=20
+                Treno
+
+                950-957=8
+                Gargan Roo
+
+                1000-1110=41
+                Cleyra
+
+                1150-1153=4
+                Red Rose ship
+
+                1200-1250=29
+                A Castle 2
+
+                1251-1255=5
+                Pinnacle Rocks main
+
+                1300-1315=16
+                Lindblum2
+
+                1350-1370=21
+                L Castle 2
+
+                1400-1425=26
+                Fossil Roo
+
+                1450-1462=13
+                Mage Village
+
+                1463-1464=2
+                Dead Forest
+
+                1500-1509=10
+                Conde Petie
+
+                1500-1557=8
+                Mountain Path
+
+                1600-1610=11
+                Madin Sari
+
+                1650-1659=10
+                Lifa Tree
+
+                1660-1662=3
+                Bran Fleet boats
+
+                1663-1759=11
+                Lifa Tree2
+
+                1800
+                A Castle tomb
+
+                1950-1953=4
+                Qhans cave
+
+                808-854=3
+                S gate2
+
+                855-856=2
+                N Gate 2
+
+                1801-1824=22
+                A Castle 3
+
+                1850-1866=17
+                Alexandria 3
+
+                1900-1916=17
+                Treno 2
+
+                2000
+                Hilda Garde 2
+
+                2001-2009=9
+                A Castle alter
+
+                2050-2054=5
+                Alexandria streets battles
+
+                2055
+                Garland Invincluble
+
+                2100-2114=15
+                Lindblum
+
+                2150-2173=20
+                L Castle 3
+
+                2200-2222=20
+                Palace Kuja
+
+                2250-2261=12
+                Olivert
+
+                2300-2305=6
+                Esto Gaza ice
+
+                2350-2365=16
+                Gulug
+
+                2400-2406=7
+                A Castle port
+
+                2450-2458=9
+                Alex dock
+
+                2500-2513=12
+                Ipsen castle
+
+                2550-2554=5
+                Shrines
+
+                2600-2608=9
+                Terra
+
+                2650-2661=12
+                Bran Bal
+
+                2700-2720=21
+                Pandamonium
+
+                2750-2753=2
+                Invincible ship
+
+                2800-2803=4
+                Daguerreo
+
+                2850-2854=5
+                Hilda Garde 3
+
+                2855-2856=2
+                Blue Narciss
+
+                2951
+                Choco Lagoon
+
+                2952
+
+                Choco Air Garden
+
+                2954-2955=2
+                Choco Paradice
+
+                3100 Mognet Central
+
+                1700-1707=8
+                Madin Sari 2
+
+                1917
+                Treno
+
+                2154-2166=3
+                L Castle again
+
+                2501
+                I castle entrance
+
+                2751-2754=3
+                Invincible again
+
+                2755
+                Hilda Garde 1
+
+                2756
+                Red Rose again
+
+                2900-2921=22
+                Memoria
+
+                2922-2927=6
+                Crystal World
+
+                2928
+                Hill of Despair
+
+                2929-2934=6
+                last
+
+                3000-3012=13
+                Ending
+
+                3050-3059=10
+                Mage Village again
+                */
+            };
+
             int[] blank2ints = new int[] { 0, 0 };
             byte[] blank2bytes = new byte[] { 0, 0 };
             int[][] raddresses = { blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, blank2ints, };
@@ -149,6 +442,8 @@ namespace rand9er
             byte[] pat1abytes, pat1bbytes, pat2abytes, pat2bbytes = blank2bytes;
             
             byte[] ba_p0data7 = rand9er.ba_p0data7;
+            //Console.WriteLine(ba_p0data7.Length);
+            //Console.WriteLine(progression.Length); //281 34%
 
             //      Funcs       //
             (int key, string value, byte[] asc2) DictBytesConvert(int i)
@@ -172,15 +467,15 @@ namespace rand9er
             {
                 string md5cacheFI = Md5();
 
-                //      FIELD INDEX CACHE
+                //FIELD INDEX CACHE
                 if (md5cacheFI == "FFIO match")
                 {
-                    //richTextBox_debug.Text += "\nUsing FieldIndex Cache";
+                Console.WriteLine("Using FieldIndex Cache");
                     CacheIO("read SB_FFIO");
                 }
                 if (md5cacheFI == "FFIO nomatch")     //  manually genearte new FI cache for unkown p0data7
                 {
-                    //richTextBox_debug.Text += "\nGenerating New Cache Please wait";
+                    Console.WriteLine("Generating New Cache Please wait");
                     var t = Task.Run(async delegate { await Task.Delay(600); }); t.Wait();
                     GenFieldIndex();    //  ONLY TIME TO RUN THIS
                     GenFinalFieldIndex();   //  ONLY TIME TO RUN THIS
@@ -205,9 +500,9 @@ namespace rand9er
                     FileStream fs = new FileStream(sffio, FileMode.Create);
                     BinaryFormatter formatter = new BinaryFormatter();
                     try { formatter.Serialize(fs, FinalFieldIndices); }
-                    catch (System.Runtime.Serialization.SerializationException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
-                    catch (System.Security.SecurityException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
-                    catch (ArgumentNullException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
+                    catch (System.Runtime.Serialization.SerializationException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
+                    catch (System.Security.SecurityException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
+                    catch (ArgumentNullException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
                     finally { fs.Close(); }
                 }
                 if (opt == "read SB_FFIO")  //  deserialize
@@ -215,9 +510,9 @@ namespace rand9er
                     FileStream fs = new FileStream(sffio, FileMode.Open);
                     BinaryFormatter formatter = new BinaryFormatter();
                     try { FinalFieldIndices = (List<FieldIndex>)formatter.Deserialize(fs); }
-                    catch (System.Runtime.Serialization.SerializationException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
-                    catch (System.Security.SecurityException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
-                    catch (ArgumentNullException e) { /*richTextBox_debug.Text = "SerialF: " + e.Message; throw;*/ }
+                    catch (System.Runtime.Serialization.SerializationException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
+                    catch (System.Security.SecurityException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
+                    catch (ArgumentNullException e) { Console.WriteLine("SerialF: " + e.Message); throw; }
                     finally { fs.Close(); }
                     //FinalFieldIndices = FieldIndicesObj.Filist;
 
@@ -239,27 +534,27 @@ namespace rand9er
                 //  CURRENT
                 // p0data7.bin    mog  99a8a52d4abdfcedc570b948c1ff8a75     fresh mog install
                 // p0data7.bin    reg  df4d0b9acd66df48452c40028e29b8ef     fresh install
-                // SB_FFIO_mog.bin     6945a5aa5c24726f1120dac254ccadc9     non ListFI, just List<FieldIndex>
-                // SB_FFIO_reg.bin     cd14fa2647f6641dc7587c8818cc305f     non ListFI, just List<FieldIndex>
+                // SB_FFIO_mog.bin     8238E89E368D90C6E718EE746A27EDA8     non ListFI, just List<FieldIndex>
+                // SB_FFIO_reg.bin     afe51d2780ec3687fc833638bd27f157     non ListFI, just List<FieldIndex>
 
                 //  UNEEDED
                 // SB_FIO_reg.bin      e62b65f7bc9e8221b030fcc564b3512c     fresh
                 // SB_FIO_mog.bin mog  f1c48c76ef1ae9f383979108b0c1489c    checked
                 // SB_FFIO_reg.bin     53202caa6cc6dea598fd37364815c752     verified    ListFI
-                // SB_FFIO_mog.bin     fc79ff1b71a4871feff1b69864508c83     updated     ListFI
+                // SB_FFIO_mog.bin     8238e89e368d90c6e718ee746a27eda8     updated     ListFI
 
                 string md5cacheFI = "FFIO nomatch";
                 string md5p7 = "df4d0b9acd66df48452c40028e29b8ef";
                 string dirp7 = "\\StreamingAssets\\p0data7.bin";
                 string md5p7w = "";
-                string md5ficache = "cd14fa2647f6641dc7587c8818cc305f";
+                string md5ficache = "afe51d2780ec3687fc833638bd27f157";
                 string dirCache = "\\SB_FFIO_reg.bin";
                 string md5Cache = "";
                 if (rand9er.c_mogBool)
                 {
                     md5p7 = "99a8a52d4abdfcedc570b948c1ff8a75";
                     dirp7 = "\\MoguriFiles\\StreamingAssets\\p0data7.bin";
-                    md5ficache = "6945a5aa5c24726f1120dac254ccadc9";
+                    md5ficache = "8238e89e368d90c6e718ee746a27eda8";
                     dirCache = "\\SB_FFIO_mog.bin";
                 }
 
@@ -270,12 +565,14 @@ namespace rand9er
                     //  md5 p0data7.bin
                     using (var stream = File.OpenRead(rand9er.tb_flText + dirp7))
                     { md5p7w = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLowerInvariant(); }
+                    Console.WriteLine("p0data7.bin:" + md5p7w + " rang9er.c_mogBool: " + rand9er.c_mogBool);
 
                     //  if cache file exists, md5 it also
                     if (File.Exists(dirCache))
                     {
                         using (var stream2 = File.OpenRead(rand9er.tb_flText + dirCache))
                         { md5Cache = BitConverter.ToString(md5.ComputeHash(stream2)).Replace("-", "").ToLowerInvariant(); }
+                        Console.WriteLine("cache md5:" + md5Cache + " rang9er.c_mogBool: " + rand9er.c_mogBool);
                     }
                     else if (!File.Exists(dirCache))
                     {
@@ -283,17 +580,23 @@ namespace rand9er
                         {
                             //restore cache files from inside program for known p0data7 md5
                             CacheIO("restore SB_FFIO");
-                            //richTextBox_debug.Text += "\nFieldIndex Cache Done";
+                            Console.WriteLine("Restored Cache from inside program");
                             // md5 newly created cache
                             using (var stream2 = File.OpenRead(rand9er.tb_flText + dirCache))
-                            { md5Cache = BitConverter.ToString(md5.ComputeHash(stream2)).Replace("-", "").ToLowerInvariant(); }                     ///////////////////////
+                            { md5Cache = BitConverter.ToString(md5.ComputeHash(stream2)).Replace("-", "").ToLowerInvariant();
+                                Console.WriteLine(md5Cache);
+                            }                     ///////////////////////
                         }
                         // else fallout of loop no match
                     }
                 }
 
                 //  bool md5s
-                if ((md5p7w == md5p7) && (md5Cache == md5ficache)) { md5cacheFI = "FFIO match"; }
+                if ((md5p7w == md5p7) && (md5Cache == md5ficache)) 
+                { 
+                    md5cacheFI = "FFIO match";
+                    Console.WriteLine("FFIO md5 match");
+                }
 
                 return md5cacheFI;
             }
@@ -334,10 +637,10 @@ namespace rand9er
                     //  add 7 r3 has all values, need to mux into r2
                     r2 = new int[][] { new int[] { r3[0], 0 }, new int[] { r3[1], 0 }, new int[] { r3[2], 0 }, new int[] { r3[3], 0 }, new int[] { r3[4], 0 }, new int[] { r3[5], 0 }, new int[] { r3[6], 0 } };
                     FieldIndices.Add(new FieldIndex(key, value, asc2, false, r2));  //  only create 1 with all r2[r7] data
-                    //richTextBox_output.Text += "\nr2[0] " + FieldIndices.Last().RangeStartStop[0][0] + " r2[1] " + FieldIndices.Last().RangeStartStop[1][0] + "";
+                    //Console.WriteLine("r2[0] " + FieldIndices.Last().RangeStartStop[0][0] + " r2[1] " + FieldIndices.Last().RangeStartStop[1][0] + "");
                     //pbar_tree.Value = fe;
                 }
-                //richTextBox_debug.Text += "> " + FieldIndices.Count + " generated";
+                Console.WriteLine("> " + FieldIndices.Count + " generated");
                 //CacheIO("write SB_FIO");                
             }
             void GenFinalFieldIndex()
@@ -372,7 +675,7 @@ namespace rand9er
                 }
                 FinalFieldIndices = FieldIndices;
                 CheckSumChecks("ffi");
-                //richTextBox_debug.Text += "\nFFI generated";
+                Console.WriteLine("FFI generated");
                 CacheIO("write SB_FFIO");
             }
             //    Datapoints    //
@@ -402,10 +705,30 @@ namespace rand9er
                                     int k = (ffirs + i + 1);    //better
                                     if ((ba_p0data7[k] == pattern5_range[0]) && (ba_p0data7[k + 1] == pattern5_range[1]) && (ba_p0data7[k + 2] == pattern5_range[2]) && (ba_p0data7[k + 3] == pattern5_range[3]) && (ba_p0data7[k + 4] == pattern5_range[4]) && (ba_p0data7[k + 5] == pattern5_range[5]) && (ba_p0data7[k + 6] == pattern5_range[6]) && (ba_p0data7[k + 7] == pattern5_range[7]) && (ba_p0data7[k + 8] == pattern5_range[8]))
                                     {
-                                        // range match, log
-                                        ffirs = k + 9;
-                                        headers.Add(ffirs);
-                                        //ffirs = (k + 9);
+                                        //  WindowAsync False Positive Catch    //
+                                        //[] windowAsyncFP = new int[] { 44, 127, 32, 0, 1, 16, 38 }; // 2C 7F 20 00 01 10 26 WindowAsync False Positive in char loops
+                                        bool a = false;
+                                        for (int z = k; z < k+50; z++)  //  scan a little bit and search for Async
+                                        {
+                                            if (ba_p0data7[z] == windowAsyncFP[0] && ba_p0data7[z+1] == windowAsyncFP[1] && ba_p0data7[z+2] == windowAsyncFP[2] && ba_p0data7[z+3] == windowAsyncFP[3] && ba_p0data7[z+4] == windowAsyncFP[4] && ba_p0data7[z+5] == windowAsyncFP[5] && ba_p0data7[z+6] == windowAsyncFP[6])
+                                            {
+                                                ffirs = z + 6;
+                                                a = true;
+                                                //Console.WriteLine("sup2");
+                                                break;
+                                            }
+                                        }
+                                        if (!a)
+                                        {
+                                            // range match, log
+                                            ffirs = k + 9;
+                                            headers.Add(ffirs);
+                                            //ffirs = (k + 9);
+                                        } else
+                                        {
+                                            ffirs = k + 9;
+                                        }
+                                        //  WindowAsync False Positive Catch    //
                                     }
                                 }
                             }
@@ -538,7 +861,7 @@ namespace rand9er
                                     //  pattern3_return = new byte[] { 4, 0 };                  // 04 00 = return of function
                                     //reminders
 
-                                    if (rand9er.ba_p0data7[ffirs2] == pattern2a_setent[0])  //  postive match on first byte
+                                    if (ba_p0data7[ffirs2] == pattern2a_setent[0])  //  postive match on first byte
                                     {
                                         bool bool1 = (ba_p0data7[ffirs2] == pattern2a_setent[0]) && (ba_p0data7[ffirs2 + 1] == pattern2a_setent[1]) && (ba_p0data7[ffirs2 + 2] == pattern2a_setent[2]); //  0,1,2, first three match, all patterns share this
                                         bool bool2 = (ba_p0data7[ffirs2 + 3] == pattern2a_setent[3]);                                                                                                   //  offset 12 3, match setent, regular, grab next two bytes
@@ -700,7 +1023,7 @@ namespace rand9er
                 for (int fi = 0; fi < ff9Fields.Count; fi++)
                 {
                     int fid = ff9Fields.ElementAt(fi).Key; string fname = ff9Fields.ElementAt(fi).Value;
-                    MainFieldIndex.Add(new FieldData(fid, fname, new List<int>(), new List<int[]>(), new List<int[]>(), new List<int>(), new List<int>(), new List<int>()));   //  create new DP2 at first datapoint
+                    MainFieldIndex.Add(new FieldData(fid, fname, "", new List<int>(), new List<int[]>(), new List<int[]>(), new List<int>(), new List<int>(), new List<int>()));   //  create new DP2 at first datapoint
                     DataSIMP = new List<Datapoint>(Dataset);    //  create new copy of list each loop
                     DataSIMP.RemoveAll(datapoint => !(datapoint.FieldID == fid));
 
@@ -767,6 +1090,39 @@ namespace rand9er
 
 
             }
+
+            void MFIroomType()
+            {
+                
+                for (int i = 0; i < MainFieldIndex.Count; i++)
+                {
+                    if (MainFieldIndex[i].ExitValue.Count == 1)
+                    {
+                        //this is a room with 1 exit CLOSET
+                    }
+                    if (MainFieldIndex[i].ExitValue.Count == 2)
+                    {
+                        //this is a room with 2 exit HALLWAY
+                    }
+                    if (MainFieldIndex[i].ExitValue.Count == 3)
+                    {
+                        //this is a room with 3 exit ROOM
+                    }
+                    if (MainFieldIndex[i].ExitValue.Count == 3)
+                    {
+                        //this is a room with 3 exit ROOM
+                    }
+                    if (MainFieldIndex[i].ExitValue.Count > 3)
+                    {
+                        //this is a room with 3 exit HUB
+                    }
+
+
+                    
+                }
+            }
+
+
             //      END Funcs       //
 
             Logic();
@@ -836,7 +1192,7 @@ namespace rand9er
 
                     }
                     temp2 = new string[] { temp, "" }; //  using right now
-                    Directory.SetCurrentDirectory("C:\\Users\\drew\\Desktop\\Testdata\\");
+                    Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
                     File.WriteAllLines("DSlite.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
@@ -937,14 +1293,41 @@ namespace rand9er
                         {
                             gv += j + "=" + MainFieldIndex[i].GenValue[j] + " ";
                         }
-                        temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + "\n";
+                        string rt = "";
+                        rt += MainFieldIndex[i].ExitNum.Count + " ";
+                        temp += "MFId=" + MainFieldIndex[i].FieldID + " exit=" + ev + " gen=" + gv + " allge=" + allge + " rt="+ rt + "\n";
                     }
                     temp2 = new string[] { temp, "" }; //  using right now
                     Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
                     File.WriteAllLines("MFIlite.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
-
+                void MFIoutroomSize()
+                {
+                    string temp = ""; string[] temp2 = new string[] { temp, "" };
+                    int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
+                    for (int i = 0; i < MainFieldIndex.Count; i++)
+                    {
+                        string rt = "";
+                        rt += MainFieldIndex[i].ExitNum.Count + " ";
+                        if (MainFieldIndex[i].ExitNum.Count > 4)
+                        temp += "MFId=" + MainFieldIndex[i].FieldID + " rt="+ rt + "\n";
+                    }
+                    temp2 = new string[] { temp, "" }; //  using right now
+                    Directory.SetCurrentDirectory("C:\\Users\\user\\Desktop\\");
+                    File.WriteAllLines("MFIroomSize5p.txt", temp2);
+                    temp = ""; temp2 = new string[] { "", "" };
+                    int ccount = 0;
+                    for (int i = 0; i < CityArr.Count; i++)
+                    {
+                        if (CityArr[i][1] > 0)
+                        {
+                            ccount++;
+                        }
+                    }
+                    
+                    Console.WriteLine(ccount + " Cities");
+                }
                 void RangeVCheck()
                 {
                     string temp = ""; string[] temp2 = new string[] { temp, "" };
@@ -992,7 +1375,7 @@ namespace rand9er
 
                 }
 
-                //DSout();
+                DSout();
                 //  testing output with this func
                 //RangeVCheck();
                 DSoutFull();
@@ -1002,7 +1385,7 @@ namespace rand9er
                 MFIgv();
                 MFIoutFull();
                 MFIoutLite();
-
+                MFIoutroomSize();
                 //  connect all exits to verify full map match
                 Mapp();
 

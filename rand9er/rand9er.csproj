@@ -115,8 +115,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Resources\SB_FFIO_mog.bin" />
-    <EmbeddedResource Include="Resources\SB_FFIO_reg.bin" />
+    <None Include="Resources\SB_FFIO_mog.bin" />
+    <None Include="Resources\SB_FFIO_reg.bin" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

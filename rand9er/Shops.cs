@@ -224,14 +224,5 @@ namespace rand9er
             rand9er.a_comboSafe = a_ssi;
             //string[] a_comboSafe has output data
         }
-        //public static void ShopOutput()
-        //{
-        //    //string[] a_comboSafe has input data
-        //    for (int i = 0; i < a_comboSafe.Length; i++)
-        //    {
-        //        richTextBox_output.Text = richTextBox_output.Text + a_comboSafe[i] + "\n";
-        //    }
-        //}
-
     }
 }
