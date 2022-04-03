@@ -474,6 +474,9 @@ namespace rand9er
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             //          change source selection
+
+            var instance = new Logic();
+            instance.LogicOut();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {

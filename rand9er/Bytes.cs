@@ -135,6 +135,7 @@ namespace rand9er
             byte[] pattern7_OpCa9 = new byte[] { 169, 0, 250 };  // A9 OpCode
             int[] pattern8_noPreload = new int[] { 552, 555, 1302, 1305, 2922, 2923, 2924, 2925 };    //  thse need special allowance through all pattern1 loops, and them dummy data in place of preload patterns
             int[] windowAsyncFP = new int[] { 44, 127, 32, 0, 1, 16, 38 }; // 2C 7F 20 00 01 10 26 WindowAsync False Positive in char loops
+            /*
             int[] progression = new int[] 
             { 
                 50, 104, 105, 106, 115, 150, 55, 54, 51, 58, 69, 209, 206, 251, 207, 208, 201, 204, 203, 202, 200, 252, 257, 261, 262, 300, 301, 307, 309, 312, 352, 354, 355, 358, 353, 356, 404, 406, 403, 400, 401, 456, 455,
@@ -162,278 +163,33 @@ namespace rand9er
                 14, 1, 3, 2, 1, 18, 17, 10, 13, 13, 24, 3, 8, 27, 21, 9, 7, 19, 7, 2, 1, 1, 1, 1, 5, 1, 10, 20, 8, 41, 4, 29, 5, 16, 21, 26, 13, 2, 10, 8, 11, 
                 10, 3, 11, 1, 4, 3, 2, 22, 17, 17, 1, 9, 5, 1, 15, 20, 20, 12, 6, 16, 7, 9, 12, 5, 9, 12, 21, 2, 4, 5, 2, 1, 1, 2, 1, 8, 1, 3, 1, 3, 1, 1, 22, 6, 1, 6, 13, 10
             };  //  average of 9.18, 11.33 not including single field cities, 12.36 not including 2 rooms, 13.35 not including 3
-            
-            void note_Cities()
+            */
+            int[] FWMarr = new int[] 
+            { 
+                262, 300, 311, 312, 350, 450, 455, 503, 550, 602, 650, 701, 706, 707, 750, 800, 806, 850, 851, 
+                852, 1256, 2950, 2953, 769, 807, 908, 1000, 1300, 1352, 1425, 1450, 1463, 1500, 1555, 1557, 1600, 
+                1650, 1757, 1950, 1953, 853, 854, 855, 856, 1856, 1908, 2100, 2152, 2164, 2173, 2211, 2212, 2250, 
+                2261, 2300, 2403, 2450, 2500, 2550, 2750, 2753, 2800, 2850, 2851, 2852, 2853, 2854, 2855, 2856, 
+                2951, 2952, 2954, 3100, 1700, 2165, 2501, 2751, 2901, 3050 
+            };  //  these fields have an exit to a world map // 79 
+            List<int> FWMl = new List<int>();
+            foreach (int fwmi in FWMarr) { FWMl.Add(fwmi); }
+
+            List<int[]> WorldConnectors = new List<int[]>()
             {
-                /*
-                50-63=14
-                Prima Vista
+                new int[] { 262,300,852 },new int[] { 311,350,455,806 },new int[] { 550, 1256 },new int[] { 602,650,701,850,2950 },new int[] { 706 },
+                new int[] { 707,750,851 },new int[] { 311,350,455,806 },new int[] { 807,908,1950 },new int[] { 707,750,851,1000 },new int[] { 550, 1256 },
+                new int[] { 602,650,701,850,2950 },new int[] { 650,1425,1463,1500 },new int[] { 650,1450,1463,1500 },new int[] { 1557, 1600 },new int[] { 1557, 1600 },
+                new int[] { 1555, 1650 },new int[] { 1555, 1650 },new int[] { 1557, 1600 },new int[] { 1557, 1600 },new int[] { 1555, 1757 },new int[] { 1856 },
+                new int[] { 807,1908,1950 },new int[] { 650,701,707,750,854,855,1450,1500,1600,2152,2200,2300,2403,2950 },new int[] { 2250 },
+                new int[] { 650, 701, 707, 750, 854, 855, 1450, 1500, 1600, 2152, 2300, 2403, 2950 },
+                new int[] { 650, 701, 706, 707, 750, 807, 854, 855, 1450, 1500, 1555, 1600, 1757, 1856, 1908, 1950, 2152, 2250, 2300, 2403, 2500, 2800, 2950 },
+                new int[] { 650, 701, 706, 707, 750, 807, 854, 855, 1450, 1500, 1555, 1600, 1757, 1856, 1908, 1950, 2152, 2250, 2300, 2403, 2500, 2800, 2950, 2550, 2551, 2553, 2554 },
+                new int[] { 650, 701, 706, 707, 750, 807, 854, 855, 1450, 1500, 1555, 1600, 1757, 1856, 1908, 1950, 2152, 2250, 2300, 2403, 2500, 2800, 2950 },
+                new int[] { 650, 701, 706, 707, 750, 807, 854, 855, 1450, 1500, 1555, 1600, 1856, 1908, 1950, 2152, 2250, 2300, 2403, 2500, 2800, 2950 },
+                new int[] { 650, 701, 706, 707, 750, 807, 854, 855, 1450, 1500, 1555, 1600, 1856, 1908, 1950, 2152, 2250, 2300, 2403, 2500, 2800, 2901, 2950 }
+            };  //  these fields connect to each other from the world map side, they change as the story progresses
 
-                64
-                A Castle
-
-                65-67=3
-                Prima Vista
-
-                64,68-69=2
-                A Castle throne
-
-                70
-                Opening for FMV
-
-                100-117=18
-                alexandria
-
-                150-167=17
-                A Castle 2
-
-                200-209=10
-                Prima Vista Busted up
-
-                250-262=13
-                Evil Forest
-
-                300-312=13
-                Ice Cavern
-
-                350-454=24
-                Dali
-
-                455-457=3
-                Dali mountain
-
-                500-507=8
-                cargo ship black mages
-
-                550-576=27
-                Lindblum
-
-                600-620=21
-                Lindblum Castle
-
-                650-661=9
-                MarshMist
-
-                701-707=7
-                Gizamaluke
-
-                750-768=19
-                Burmecia
-
-                800-850=7
-                South Gate
-
-                851-852=2
-                North Gate
-
-                1256
-                Pinnacle Rocks
-
-                2950
-                Chocobos forest
-
-                2953
-                Chocobos Dream
-
-                152
-                Evil Forest Memory
-
-                656-663=5
-                Marsh-pond/thicket & cave
-
-                769
-                Burmecia Palace
-
-                803-816=10
-                South Gate train/
-
-                900-932=20
-                Treno
-
-                950-957=8
-                Gargan Roo
-
-                1000-1110=41
-                Cleyra
-
-                1150-1153=4
-                Red Rose ship
-
-                1200-1250=29
-                A Castle 2
-
-                1251-1255=5
-                Pinnacle Rocks main
-
-                1300-1315=16
-                Lindblum2
-
-                1350-1370=21
-                L Castle 2
-
-                1400-1425=26
-                Fossil Roo
-
-                1450-1462=13
-                Mage Village
-
-                1463-1464=2
-                Dead Forest
-
-                1500-1509=10
-                Conde Petie
-
-                1500-1557=8
-                Mountain Path
-
-                1600-1610=11
-                Madin Sari
-
-                1650-1659=10
-                Lifa Tree
-
-                1660-1662=3
-                Bran Fleet boats
-
-                1663-1759=11
-                Lifa Tree2
-
-                1800
-                A Castle tomb
-
-                1950-1953=4
-                Qhans cave
-
-                808-854=3
-                S gate2
-
-                855-856=2
-                N Gate 2
-
-                1801-1824=22
-                A Castle 3
-
-                1850-1866=17
-                Alexandria 3
-
-                1900-1916=17
-                Treno 2
-
-                2000
-                Hilda Garde 2
-
-                2001-2009=9
-                A Castle alter
-
-                2050-2054=5
-                Alexandria streets battles
-
-                2055
-                Garland Invincluble
-
-                2100-2114=15
-                Lindblum
-
-                2150-2173=20
-                L Castle 3
-
-                2200-2222=20
-                Palace Kuja
-
-                2250-2261=12
-                Olivert
-
-                2300-2305=6
-                Esto Gaza ice
-
-                2350-2365=16
-                Gulug
-
-                2400-2406=7
-                A Castle port
-
-                2450-2458=9
-                Alex dock
-
-                2500-2513=12
-                Ipsen castle
-
-                2550-2554=5
-                Shrines
-
-                2600-2608=9
-                Terra
-
-                2650-2661=12
-                Bran Bal
-
-                2700-2720=21
-                Pandamonium
-
-                2750-2753=2
-                Invincible ship
-
-                2800-2803=4
-                Daguerreo
-
-                2850-2854=5
-                Hilda Garde 3
-
-                2855-2856=2
-                Blue Narciss
-
-                2951
-                Choco Lagoon
-
-                2952
-
-                Choco Air Garden
-
-                2954-2955=2
-                Choco Paradice
-
-                3100 Mognet Central
-
-                1700-1707=8
-                Madin Sari 2
-
-                1917
-                Treno
-
-                2154-2166=3
-                L Castle again
-
-                2501
-                I castle entrance
-
-                2751-2754=3
-                Invincible again
-
-                2755
-                Hilda Garde 1
-
-                2756
-                Red Rose again
-
-                2900-2921=22
-                Memoria
-
-                2922-2927=6
-                Crystal World
-
-                2928
-                Hill of Despair
-
-                2929-2934=6
-                last
-
-                3000-3012=13
-                Ending
-
-                3050-3059=10
-                Mage Village again
-                */
-            };
 
             int[] blank2ints = new int[] { 0, 0 };
             byte[] blank2bytes = new byte[] { 0, 0 };
@@ -1125,9 +881,9 @@ namespace rand9er
 
             //      END Funcs       //
 
-            Logic();
+            bLogic();
 
-            void Logic()
+            void bLogic()
             {
                 //  cache
                 CacheCheck();   //  md5 checks, restore cache from inside if needed, generate cache as fallback
@@ -1302,7 +1058,7 @@ namespace rand9er
                     File.WriteAllLines("MFIlite.txt", temp2);
                     temp = ""; temp2 = new string[] { "", "" };
                 }
-                void MFIoutroomSize()
+                /*void MFIoutroomSize()
                 {
                     string temp = ""; string[] temp2 = new string[] { temp, "" };
                     int count = 1; string temp4 = ""; int[] temp5 = new int[] { 0, 0, 0, 0, 0, 0, 0 };
@@ -1327,7 +1083,7 @@ namespace rand9er
                     }
                     
                     Console.WriteLine(ccount + " Cities");
-                }
+                }*/
                 void RangeVCheck()
                 {
                     string temp = ""; string[] temp2 = new string[] { temp, "" };
@@ -1374,7 +1130,8 @@ namespace rand9er
                     temp = ""; temp2 = new string[] { "", "" };
 
                 }
-
+                var instance = new Logic();
+                instance.LogicOut();
                 DSout();
                 //  testing output with this func
                 //RangeVCheck();
@@ -1385,7 +1142,7 @@ namespace rand9er
                 MFIgv();
                 MFIoutFull();
                 MFIoutLite();
-                MFIoutroomSize();
+                //MFIoutroomSize();
                 //  connect all exits to verify full map match
                 Mapp();
 

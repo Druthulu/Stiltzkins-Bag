@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Char.cs" />
     <Compile Include="Bytes.cs" />
+    <Compile Include="Logic.cs" />
     <Compile Include="Synth.cs" />
     <Compile Include="Shops.cs" />
     <Compile Include="Datapoint.cs" />
