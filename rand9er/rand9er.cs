@@ -286,6 +286,9 @@ namespace rand9er
                 c_medicshopsEn = true;
             }
         }
+
+
+
         private void c_medicitems_CheckedChanged(object sender, EventArgs e)
         {
             if (c_safe.Checked == true & c_medicitems.Checked == true)
@@ -697,12 +700,23 @@ namespace rand9er
             //richTextBox1.SelectionStart = richTextBox_output.Text.Length;
             //richTextBox1.ScrollToCaret();
         }
-
+        private void Serial_But_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if (Serial_But.Checked)
+            {
+                bool c_serial = true;
+            }*/
+        }
         //      MAIN        //
         //      MAIN        //
 
         private void button_rand_Click(object sender, EventArgs e)
         {
+            if (Serial_But.Checked)
+            {
+                Serial.Deserialize();
+            }
+            
             if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
             {
                 if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)

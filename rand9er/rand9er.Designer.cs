@@ -78,6 +78,7 @@ namespace rand9er
             this.c_order = new System.Windows.Forms.CheckBox();
             this.c_randbag = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Serial_But = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // richTextBox_output
@@ -810,12 +811,29 @@ namespace rand9er
             this.label2.TabIndex = 81;
             this.label2.Text = "Equipable";
             // 
+            // Serial_But
+            // 
+            this.Serial_But.AutoSize = true;
+            this.Serial_But.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Serial_But.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.Serial_But.Enabled = false;
+            this.Serial_But.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Serial_But.ForeColor = System.Drawing.Color.White;
+            this.Serial_But.Location = new System.Drawing.Point(540, 309);
+            this.Serial_But.Name = "Serial_But";
+            this.Serial_But.Size = new System.Drawing.Size(58, 17);
+            this.Serial_But.TabIndex = 82;
+            this.Serial_But.Text = "Serial";
+            this.Serial_But.UseVisualStyleBackColor = false;
+            this.Serial_But.CheckedChanged += new System.EventHandler(this.Serial_But_CheckedChanged);
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.ClientSize = new System.Drawing.Size(728, 465);
+            this.Controls.Add(this.Serial_But);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.c_randbag);
             this.Controls.Add(this.c_order);
@@ -923,6 +941,7 @@ namespace rand9er
         public System.Windows.Forms.TextBox textBox_seed;
         public System.Windows.Forms.CheckBox c_random;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox Serial_But;
     }
 }
 
