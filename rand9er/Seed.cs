@@ -8,21 +8,22 @@ namespace rand9er
 {
     public class Seed
     {
+        public static bool TestSeed()
+        {
+            // Refactor 2.0 done
+            if (rand9er.seed.Length <= 9)
+            {
+                rand9er.data_str = rand9er.seed;
+                CleanSeedInt();
+                if (rand9er.data_int > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public static void SeedIngest()
         {
-
-
-            // Refactor, check if val less than 2.1bil, if so, just use that number.
-
-
-
-
-
-            //rand9er.textBox_seed
-            //string seed has input data
-            rand9er.data_str = ""; //converted seed to data
-            rand9er.counter = 1; //reset these counters
-            //richTextBox_debug.Text = seed.Length + " seeds planted ";
             for (int i = 0; i < rand9er.seed.Length; i++)
             {
                 Random rnd = new Random((int)rand9er.seed[i]);
@@ -32,6 +33,7 @@ namespace rand9er
         }
         public static void Compressor()
         {
+
             //string data_str has input data
             if (rand9er.data_str.Length > 9)
             {

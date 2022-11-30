@@ -67,8 +67,8 @@ namespace rand9er
             this.cm_stiltzkin = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Serial_But = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxRecommended = new System.Windows.Forms.CheckBox();
+            this.checkBoxChaos = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -251,6 +251,7 @@ namespace rand9er
             this.b_restore.AutoEllipsis = true;
             this.b_restore.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.b_restore.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
+            this.b_restore.Enabled = false;
             this.b_restore.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.b_restore.FlatAppearance.BorderSize = 3;
             this.b_restore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -628,35 +629,33 @@ namespace rand9er
             this.Serial_But.UseVisualStyleBackColor = false;
             this.Serial_But.CheckedChanged += new System.EventHandler(this.Serial_But_CheckedChanged);
             // 
-            // checkBox2
+            // checkBoxRecommended
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox2.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(488, 375);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(109, 17);
-            this.checkBox2.TabIndex = 83;
-            this.checkBox2.Text = "Recommended";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.checkBoxRecommended.AutoSize = true;
+            this.checkBoxRecommended.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.checkBoxRecommended.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.checkBoxRecommended.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxRecommended.ForeColor = System.Drawing.Color.White;
+            this.checkBoxRecommended.Location = new System.Drawing.Point(488, 375);
+            this.checkBoxRecommended.Name = "checkBoxRecommended";
+            this.checkBoxRecommended.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxRecommended.TabIndex = 83;
+            this.checkBoxRecommended.Text = "Recommended";
+            this.checkBoxRecommended.UseVisualStyleBackColor = false;
             // 
-            // checkBox3
+            // checkBoxChaos
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox3.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(488, 396);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(116, 17);
-            this.checkBox3.TabIndex = 84;
-            this.checkBox3.Text = "Maximum Chaos";
-            this.checkBox3.UseVisualStyleBackColor = false;
+            this.checkBoxChaos.AutoSize = true;
+            this.checkBoxChaos.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.checkBoxChaos.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.checkBoxChaos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxChaos.ForeColor = System.Drawing.Color.White;
+            this.checkBoxChaos.Location = new System.Drawing.Point(488, 396);
+            this.checkBoxChaos.Name = "checkBoxChaos";
+            this.checkBoxChaos.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxChaos.TabIndex = 84;
+            this.checkBoxChaos.Text = "Maximum Chaos";
+            this.checkBoxChaos.UseVisualStyleBackColor = false;
             // 
             // checkBox4
             // 
@@ -724,8 +723,8 @@ namespace rand9er
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBoxChaos);
+            this.Controls.Add(this.checkBoxRecommended);
             this.Controls.Add(this.Serial_But);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cm_stiltzkin);
@@ -811,8 +810,8 @@ namespace rand9er
         public System.Windows.Forms.TextBox textBox_seed;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox Serial_But;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBoxRecommended;
+        private System.Windows.Forms.CheckBox checkBoxChaos;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
