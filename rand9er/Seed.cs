@@ -10,6 +10,14 @@ namespace rand9er
     {
         public static void SeedIngest()
         {
+
+
+            // Refactor, check if val less than 2.1bil, if so, just use that number.
+
+
+
+
+
             //rand9er.textBox_seed
             //string seed has input data
             rand9er.data_str = ""; //converted seed to data

@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace rand9er
 {
+
+
+    // Ignore this refactor
+
     public class Serial
     {
         //  We are attempting to deseralize the entire bin2/7 files and determine if it would make our work easier

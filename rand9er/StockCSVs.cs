@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace rand9er
 {
+
+    // Refactor, include new CSVs.
+
     public class StockCSVs
     {
         public static string[] StockShopItemsCSV()

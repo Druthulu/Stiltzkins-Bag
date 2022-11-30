@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace rand9er
 {
+
+    // Refactor, new method to choose items for shops.
+    // Use same number of items the shop had
+    // Only shuffle medicine with medicine items.
+    // shuffle weapons and armor together
+    // Choas mode will mean random number of items. mix everything.
+
+
+
     public class Shops
     {
         public static void ShopItems()

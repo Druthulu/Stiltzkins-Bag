@@ -13,6 +13,17 @@ namespace rand9er
     {
         public static void Bytes_IO()
         {
+
+
+
+
+
+
+            // Refactor because we wont need backups
+
+            // We might be scrapping this whole funtion
+
+
             if (!File.Exists(rand9er.binloc + "\\p0data7.bak"))
             { File.Copy(rand9er.binloc + "\\p0data7.bin", rand9er.binloc + "\\p0data7.bak"); }
             if (!File.Exists(rand9er.binloc + "\\p0data2.bak"))

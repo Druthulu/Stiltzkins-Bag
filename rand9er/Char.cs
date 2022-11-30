@@ -8,8 +8,14 @@ namespace rand9er
 {
     public static class Char
     {
+
+        // Refactor checks and string builder for CSV files
+
+
+
         public static void Set()
         {
+
             //settings for comment line numebr 5
             rand9er.set = "#Randomized by Stiltzkin's Bag 1.0   Seed:" + rand9er.data_int + "   set:";
             if (rand9er.c_abilitygemsBool) { rand9er.set += "/abilitygems "; }

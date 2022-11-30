@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace rand9er
 {
+
+
+
+    //  Ignore in Refactor, skipping this for now.
+
+
+
     //  ONE PER ENTRANCE, 7 per FieldID
     [Serializable]
     public class Datapoint

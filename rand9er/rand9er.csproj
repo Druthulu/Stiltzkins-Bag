@@ -7,7 +7,7 @@
     <ProjectGuid>{084BECA6-D03E-41BE-A7E5-1580D1873936}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>rand9er</RootNamespace>
-    <AssemblyName>Stiltzkin%27s Bag 1.0</AssemblyName>
+    <AssemblyName>FFIX Stiltzkin%27s Bag 2.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

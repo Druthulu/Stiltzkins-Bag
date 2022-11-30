@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace rand9er
 {
+
+
+
+
+    // Refactor for new method
+
+
+
     public class Synth
     {
         public static void Synthesis()

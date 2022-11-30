@@ -58,11 +58,6 @@ namespace rand9er
             Random rnd = new Random();
             textBox_seed.Text = rnd.Next(100000000, 2140000000).ToString();
         }
-        private void clear_Click(object sender, EventArgs e)
-        {
-            richTextBox_debug.Text = "";
-            richTextBox_output.Text = "";
-        }
         private void b_open_Click(object sender, EventArgs e)
         {
             Manual_search();
@@ -151,179 +146,6 @@ namespace rand9er
                 c_basestats.Enabled = false;
                 c_abilitygems.Enabled = false;
             }
-        }
-        private void l_shops_Click(object sender, EventArgs e)
-        {
-            if (cm_itemshop.Checked)
-            {
-                cm_itemshop.Checked = false;
-            }
-            else cm_itemshop.Checked = true;
-        }
-        private void l_synth_Click(object sender, EventArgs e)
-        {
-            if (cm_synth.Checked)
-            {
-                cm_synth.Checked = false;
-            }
-            else cm_synth.Checked = true;
-        }
-        private void l_char_Click(object sender, EventArgs e)
-        {
-            if (cm_char.Checked)
-            {
-                cm_char.Checked = false;
-            }
-            else cm_char.Checked = true;
-        }
-        private void c_safe_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_safe.Checked) 
-            {
-                c_safeBool = true;
-                c_random.Checked = false; 
-                c_max.Checked = false; 
-                a_shopItems = a_shopItems_1safe; 
-            } else if (!c_safe.Checked)
-            {
-                c_safeBool = false;
-            }
-
-        }
-        private void c_random_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_random.Checked) 
-            {
-                c_randomBool = true;
-                c_safe.Checked = false; 
-                c_max.Checked = false; 
-                c_medicitems.Enabled = true; 
-                c_medicshops.Enabled = true;
-                c_medicshopsEn = true;
-                if (!c_medicitems.Checked & !c_medicshops.Checked)
-                {
-                    c_medicshops.Checked = true;
-                    c_medicitems.Checked = true;
-                }
-                a_shopItems = a_shopItems_3rand;
-            }
-            else if (!c_random.Checked)
-            {
-                c_randomBool = false;
-            }
-            if (!c_max.Checked & !c_random.Checked)
-            {
-                c_medicitems.Enabled = false;
-                c_medicshops.Enabled = false;
-                c_medicshopsEn  = false;
-            }
-        }
-        private void c_random_EnabledChanged(object sender, EventArgs e)
-        {
-            if (c_random.Enabled)
-            {
-                c_randomEn = true;
-            }
-            if (!c_random.Enabled)
-            {
-                c_randomEn = false;
-                c_medicitems.Enabled = false;
-                c_medicshops.Enabled = false;
-                c_medicshopsEn = true;
-            }
-            else if (c_random.Enabled & c_random.Checked)
-            {
-                c_medicitems.Enabled = true;
-                c_medicshops.Enabled = true;
-                c_medicshopsEn = true;
-            }
-        }
-        private void c_max_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_max.Checked) 
-            {
-                c_maxBool = true;
-                c_random.Checked = false; 
-                c_safe.Checked = false;
-                c_medicitems.Enabled = true;
-                c_medicshops.Enabled = true;
-                c_medicshopsEn = true;
-                if (!c_medicitems.Checked & !c_medicshops.Checked)
-                {
-                    c_medicitems.Checked = true;
-                    c_medicshops.Checked = true;
-                }
-                a_shopItems = a_shopItems_2maxm;
-            }
-            else if (!c_max.Checked)
-            {
-                c_maxBool = false;
-            }
-            if (!c_max.Checked & !c_random.Checked)
-            {
-                c_medicitems.Enabled = false;
-                c_medicshops.Enabled = false;
-                c_medicshopsEn = false;
-            }
-        }
-        private void c_max_EnabledChanged(object sender, EventArgs e)
-        {
-            if (c_max.Enabled)
-            {
-                c_maxEn = true;
-            }
-            if (!c_max.Enabled)
-            {
-                c_maxEn = false;
-                c_medicitems.Enabled = false;
-                c_medicshops.Enabled = false;
-                c_medicshopsEn = false;
-            }
-            else if (c_max.Enabled & c_max.Checked)
-            {
-                c_medicitems.Enabled = true;
-                c_medicshops.Enabled = true;
-                c_medicshopsEn = true;
-            }
-        }
-
-
-
-        private void c_medicitems_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_safe.Checked == true & c_medicitems.Checked == true)
-            {
-                c_random.Checked = true;
-                c_medicitems.Checked = true;
-            }
-            if (c_medicitems.Checked == true) { items = 250; c_medicitemsBool = true; }
-            else
-            if (c_medicitems.Checked == false) { items = 235; c_medicitemsBool = false; }
-
-        }
-        private void c_medicshops_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_safe.Checked == true & c_medicshops.Checked == true)
-            {
-                c_random.Checked = true;
-                c_medicshops.Checked = true;
-                c_medicshopsEn = true;
-            }
-            if (c_medicshops.Checked == true)
-            {
-                c_medicshopsBool = true;
-                c_medicshopsEn = true;
-                if (c_max.Checked == true) { a_shopItems = a_shopItems_2maxm; }
-            }
-            if (c_medicshops.Checked == false)
-            {
-                c_medicshopsBool = false;
-                if (c_max.Checked == true) { a_shopItems = a_shopItems_2max; }
-            }
-        }
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
         }
         private void c_basestats_CheckedChanged(object sender, EventArgs e)
         {
@@ -474,6 +296,7 @@ namespace rand9er
                 c_pricesBool = false;
             }
         }
+        //test
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             //          change source selection
@@ -489,14 +312,6 @@ namespace rand9er
         {
             tb_flText = @tb_fl.Text;
         }
-        private void l_shopm_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         private void textBox_seed_TextChanged(object sender, EventArgs e)
         {
             textBoxSeed =  textBox_seed.Text;
@@ -509,36 +324,6 @@ namespace rand9er
         {
 
         }
-        private void c_randbag_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void c_order_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void c_exicons_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void c_chests_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void c_mogdetect_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c_mogdetect.Checked)
-            {
-                c_mogBool = true;
-            }
-            if (!c_mogdetect.Checked)
-            {
-                c_mogBool = false;
-            }        }
         //Entrances
         private void cm_entrances_CheckedChanged(object sender, EventArgs e)
         {
@@ -667,14 +452,6 @@ namespace rand9er
         {
             // steal slot 1
         }
-        private void c_es2_CheckedChanged(object sender, EventArgs e)
-        {
-            // steal slot 2
-        }
-        private void c_es3_CheckedChanged(object sender, EventArgs e)
-        {
-            // steal slot 3
-        }
         private void c_es4_CheckedChanged(object sender, EventArgs e)
         {
             // steal slot 4
@@ -683,22 +460,9 @@ namespace rand9er
         {
             // drop slot 1
         }
-        private void c_ed2_CheckedChanged(object sender, EventArgs e)
-        {
-            // drop slot 2
-        }
-        private void c_ed3_CheckedChanged(object sender, EventArgs e)
-        {
-            // drop slot 3
-        }
         private void c_ed4_CheckedChanged(object sender, EventArgs e)
         {
             // drop slot 4
-        }
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            //richTextBox1.SelectionStart = richTextBox_output.Text.Length;
-            //richTextBox1.ScrollToCaret();
         }
         private void Serial_But_CheckedChanged(object sender, EventArgs e)
         {
@@ -707,6 +471,8 @@ namespace rand9er
                 bool c_serial = true;
             }*/
         }
+
+
         //      MAIN        //
         //      MAIN        //
 
@@ -717,6 +483,18 @@ namespace rand9er
                 Serial.Deserialize();
             }
             
+
+
+
+
+            // Refactor layout of checkbox options.
+
+
+
+
+
+
+
             if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
             {
                 if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
@@ -845,6 +623,14 @@ namespace rand9er
                 await Task.Delay(600);
             });
             t.Wait();
+
+
+
+            // Refactor Writing data. use Async
+            // 
+
+
+
             if (cm_itemshop.Checked)
             {
                 Directory.SetCurrentDirectory(@tb_fl.Text + "\\StreamingAssets\\Data\\Items");
@@ -887,6 +673,11 @@ namespace rand9er
             t.Wait();
             button_rand.Text = "Buy for 333 Gil";
         }
+
+
+        // add confirm button to IO Stock
+
+
         public void IO_stock()
         {
             b_restore.Text = "Restoring...";
@@ -959,6 +750,16 @@ namespace rand9er
             t.Wait();
             b_restore.Text = "Restore Stock Checked Files";
         }
+
+
+
+
+
+
+        // Refactor because it doesnt matter
+
+
+
         public void MogDetect()
         {
             if (Directory.Exists(@tb_fl.Text+ "\\MoguriFiles\\StreamingAssets"))
