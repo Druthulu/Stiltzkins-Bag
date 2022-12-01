@@ -14,6 +14,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using rand9er;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Runtime.CompilerServices;
 //using System.Security.Cryptography;
 //using System.Runtime.Serialization.Formatters.Binary;
 
@@ -28,7 +29,7 @@ namespace rand9er
         }
 
         //init//
-        public static string data_str, pswap, binloc, set, seed = "42", tb_flText, textBoxSeed;
+        public static string data_str = "", pswap, binloc, set, seed = "42", tb_flText, textBoxSeed;
         public static int data_int = 0, counter, randl = 23, items = 236;
         public static int weapa = 0, weapb = 85, armleta = 88, armletb = 112, helma = 112;
         public static int helmb = 148, armora = 148, armorb = 192, acca = 192, accb = 224;
@@ -65,6 +66,13 @@ namespace rand9er
                     ExecuteProgram();
                 }
             }
+            else
+            {
+                if (MessageBox.Show("You need to specify the FFIX install path", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Manual_search();
+                }
+            }
         }
 
         void ExecuteProgram()
@@ -77,10 +85,7 @@ namespace rand9er
             }
             seed = textBox_seed.Text;
 
-            //string "seed" has input data rand9er.textBox_seed
-            data_str = "";
-            counter = 1;
-            // test if valid seed and use
+            // Run Seed Code if needed, Reuse seed if valid
             if (Seed.TestSeed() == false)
             {
                 Seed.SeedIngest();
@@ -90,37 +95,110 @@ namespace rand9er
             textBox_seed.Text = data_int.ToString();
 
             //Create new mod folder with seed name
-            pathSeed = @tb_fl.Text + "StiltzkinsBag2.0-Seed-" + data_int.ToString();
+            string seedFolderName = "StiltzkinsBag2.0-Seed-" + data_int.ToString();
+            pathSeed = @tb_fl.Text + seedFolderName;
             DirectoryInfo di = Directory.CreateDirectory(pathSeed);
+            DirectoryInfo di2 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Items");
+            DirectoryInfo di3 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters");
+            DirectoryInfo di4 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters\\Abilities");
 
             // Seed done
             // Path done
 
-            // ready to continue work
+            // need to read memoria.ini for mods folders to pull CSV/BIN data from
+            List<string> memoriaINI;
+            List<string> modNames = new List<string>();
+            string memoriaFolderNamesLine;
+            List<string> csvNeeded = new List<string>
+            {
+                "\\StreamingAssets\\Data\\Items\\Items.csv",
+                "\\StreamingAssets\\Data\\Items\\ShopItems.csv",
+                "\\StreamingAssets\\Data\\Items\\Synthesis.csv",
+                "\\StreamingAssets\\Data\\Characters\\BaseStats.csv",
+                "\\StreamingAssets\\Data\\Characters\\DefaultEquipment.csv",
+                "\\StreamingAssets\\Data\\Characters\\AbilityGems.csv",
+                "\\StreamingAssets\\p0data2.bin",
+                "\\StreamingAssets\\p0data7.bin"
+            };
+            if (File.Exists(@tb_fl.Text + "\\memoria.ini"))
+            {
+                memoriaINI = File.ReadAllLines(@tb_fl.Text + "\\memoria.ini").ToList();
+                for (int i = 0; i < memoriaINI.Count; i++)
+                {
+                    //need to Identify Mod list
+                    if (memoriaINI[i] == "[Mod]")
+                    {
+                        if (memoriaINI[i + 1].Contains("FolderNames="))
+                        {
+                            memoriaFolderNamesLine = memoriaINI[i + 1].Substring(12);
+                            modNames = memoriaFolderNamesLine.Split(',').ToList();
+                            break;
+                        }
+                    }
+                }
 
-            // need to read memoria.ini for mods to pull data from
+               // modNames.Add(seedFolderName); test only
+                for (int i = 0; i < modNames.Count; i++)
+                {
+                    if (modNames[i].ElementAt(0).ToString() == " ")
+                    {
+                        modNames[i] = modNames[i].Substring(1);
+                    }
+                    if (modNames[i].ElementAt(0).ToString() == "\"")
+                    {
+                        modNames[i] = modNames[i].Substring(1);
+                    }
+                    if (modNames[i].Substring(modNames[i].Length - 1).ToString() == " ")
+                    {
+                        modNames[i] = modNames[i].Substring(0, modNames[i].Length-1);
+                    }
+                    if (modNames[i].Substring(modNames[i].Length - 1).ToString() == "\"")
+                    {
+                        modNames[i] = modNames[i].Substring(0, modNames[i].Length - 1);
+                    }
+                    richTextBox_debug.Text += "\n" + modNames[i];
+                    if (modNames[i].Contains("Stiltzkins"))
+                    {
+                        modNames.RemoveAt(i);
+                    }
+                }
+                modNames.Add(""); //Required, stock StreamingAssests dir
+                // Search all mod folders for all needed CSV/BIN files and create copy to Seed folder.
+                for (int i = 0; i < modNames.Count; i++)
+                {
+                    List<int> csvIndex = new List<int>();
+                    for (int j = 0; j < csvNeeded.Count; j++)
+                    {
+                        string csvModPathCheck = @tb_fl.Text + "\\" + modNames[i] + @csvNeeded[j];
+                        string csvSeedPathCheck = pathSeed + csvNeeded[j];
+                        if (File.Exists(@csvModPathCheck))
+                        {
+                            File.Copy(@csvModPathCheck, @csvSeedPathCheck, true);
+                            csvIndex.Add(j);
+                        }
+                    }
+                    if (csvIndex.Count > 0)
+                    {
+                        int counter = 0;
+                        for (int j = 0; j < csvIndex.Count; j++)
+                        {
+                            csvNeeded.RemoveAt(csvIndex[j - counter]);
+                            counter++;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // No Memoria found
+                MessageBox.Show("Memoria Engine Required. Moguri and other mods use Memoria engine. If this is a stock FFIX install, you need to at least install Memoria Engine", "Memoria Engine Required", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            }
 
-            // Copy over CSV files from mod
-            // we need to read the memoria.ini file for mods.
-            // ff9 path, open memoria.ini, search for "[Mod]"
-            // next line is "FolderNames=" need to read each folder name in quotes. make a list. add "StreamingAssets" to the end.
-            // if any list item contains Stilkin's bag, delete that list item.
-            // search first folder for "Data\Battle|Characters|Items"
-            // and then down the list until finally StreamingAssets.
-            // This ensures we use any current mod folder that has CSVs except Stilken's Bag seeds.
-            // Duplicate the CSV folders
-
-
-
-            // So our new Seed folder is prepped with CSV files to use in randomizatiion.
+            // We now have all CSV and BIN Files in our seed folder
+            // So our new Seed folder is prepped with CSV/BIN files to use in randomizatiion.
 
 
             // BIN file extraction
-
-            // Next we search the same folders for BINs, if we find p0data2 or p0data7, we will use this file. IF not, we use the BIN's in streaming assets. 
-            // This allows this mod to work with Moguri, defaut (with memoria engine), and very likely any other mod.
-
-
 
 
 
@@ -137,6 +215,9 @@ namespace rand9er
             // Having our mod first ensures, any *.bytes files and BINs are used in place of other mods.
             // This should in theory, make our mod compatble with all other mods. Alternate Fantasy etc.
 
+            //test
+            //modNames.Insert(0, seedFolderName);
+            //write memoria file
 
 
             //  END MAIN CODE   //

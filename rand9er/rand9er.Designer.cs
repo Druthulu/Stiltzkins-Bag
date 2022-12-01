@@ -764,7 +764,7 @@ namespace rand9er
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
-            this.Text = "FFIX Stiltzkin\'s bag 2.0";
+            this.Text = "FFIX Stiltzkin\'s bag 2.2";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
