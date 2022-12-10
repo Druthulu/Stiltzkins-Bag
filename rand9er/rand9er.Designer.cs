@@ -43,7 +43,7 @@ namespace rand9er
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.b_open = new System.Windows.Forms.Button();
             this.tb_fl = new System.Windows.Forms.TextBox();
-            this.b_restore = new System.Windows.Forms.Button();
+            this.b_remove = new System.Windows.Forms.Button();
             this.b_search = new System.Windows.Forms.Button();
             this.cm_synth = new System.Windows.Forms.CheckBox();
             this.cm_itemshop = new System.Windows.Forms.CheckBox();
@@ -73,6 +73,7 @@ namespace rand9er
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.debugButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox_output
@@ -246,25 +247,25 @@ namespace rand9er
             this.tb_fl.TabIndex = 25;
             this.tb_fl.TextChanged += new System.EventHandler(this.tb_fl_TextChanged);
             // 
-            // b_restore
+            // b_remove
             // 
-            this.b_restore.AutoEllipsis = true;
-            this.b_restore.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.b_restore.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
-            this.b_restore.Enabled = false;
-            this.b_restore.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.b_restore.FlatAppearance.BorderSize = 3;
-            this.b_restore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_restore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_restore.ForeColor = System.Drawing.Color.White;
-            this.b_restore.Location = new System.Drawing.Point(486, 426);
-            this.b_restore.Margin = new System.Windows.Forms.Padding(2);
-            this.b_restore.Name = "b_restore";
-            this.b_restore.Size = new System.Drawing.Size(101, 35);
-            this.b_restore.TabIndex = 26;
-            this.b_restore.Text = "Restore Stock Checked Files";
-            this.b_restore.UseVisualStyleBackColor = false;
-            this.b_restore.Click += new System.EventHandler(this.b_restore_Click);
+            this.b_remove.AutoEllipsis = true;
+            this.b_remove.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.b_remove.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
+            this.b_remove.Enabled = false;
+            this.b_remove.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.b_remove.FlatAppearance.BorderSize = 3;
+            this.b_remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_remove.ForeColor = System.Drawing.Color.White;
+            this.b_remove.Location = new System.Drawing.Point(465, 433);
+            this.b_remove.Margin = new System.Windows.Forms.Padding(2);
+            this.b_remove.Name = "b_remove";
+            this.b_remove.Size = new System.Drawing.Size(145, 35);
+            this.b_remove.TabIndex = 26;
+            this.b_remove.Text = "Remove Stiltzkin\'s Bag from Mod Load Order";
+            this.b_remove.UseVisualStyleBackColor = false;
+            this.b_remove.Click += new System.EventHandler(this.b_restore_Click);
             // 
             // b_search
             // 
@@ -713,12 +714,30 @@ namespace rand9er
             this.label3.TabIndex = 88;
             this.label3.Text = "FF9 Dir";
             // 
+            // debugButton
+            // 
+            this.debugButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.debugButton.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
+            this.debugButton.FlatAppearance.BorderSize = 3;
+            this.debugButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.debugButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debugButton.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.debugButton.Location = new System.Drawing.Point(477, 272);
+            this.debugButton.Margin = new System.Windows.Forms.Padding(2);
+            this.debugButton.Name = "debugButton";
+            this.debugButton.Size = new System.Drawing.Size(95, 60);
+            this.debugButton.TabIndex = 89;
+            this.debugButton.Text = "Debug Funcs";
+            this.debugButton.UseVisualStyleBackColor = false;
+            this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.ClientSize = new System.Drawing.Size(863, 503);
+            this.Controls.Add(this.debugButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
@@ -750,7 +769,7 @@ namespace rand9er
             this.Controls.Add(this.c_result);
             this.Controls.Add(this.c_require);
             this.Controls.Add(this.b_search);
-            this.Controls.Add(this.b_restore);
+            this.Controls.Add(this.b_remove);
             this.Controls.Add(this.tb_fl);
             this.Controls.Add(this.b_open);
             this.Controls.Add(this.b_rseed);
@@ -785,7 +804,7 @@ namespace rand9er
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button b_open;
         private System.Windows.Forms.TextBox tb_fl;
-        private System.Windows.Forms.Button b_restore;
+        private System.Windows.Forms.Button b_remove;
         private System.Windows.Forms.Button b_search;
         private System.Windows.Forms.CheckBox c_prices;
         private System.Windows.Forms.CheckBox cm_synth;
@@ -816,6 +835,7 @@ namespace rand9er
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button debugButton;
     }
 }
 

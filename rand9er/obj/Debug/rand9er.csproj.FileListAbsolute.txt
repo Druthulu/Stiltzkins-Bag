@@ -22,3 +22,4 @@ D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\FFIX Stiltzkin's Bag 2.0.exe
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\FFIX Stiltzkin's Bag 2.0.pdb
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\FFIX Stiltzkin's Bag 2.0.exe
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\FFIX Stiltzkin's Bag 2.0.pdb
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\rand9er.DebugForm.resources

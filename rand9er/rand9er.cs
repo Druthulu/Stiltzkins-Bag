@@ -47,6 +47,21 @@ namespace rand9er
         public static bool pathFound = false, pathSeedFolder = false;
         public static string pathSeed = "";
 
+        List<string> memoriaINI;
+        List<string> modNames = new List<string>();
+        string memoriaFolderNamesLine;
+        List<string> csvNeeded = new List<string>
+            {
+                "\\StreamingAssets\\Data\\Items\\Items.csv",
+                "\\StreamingAssets\\Data\\Items\\ShopItems.csv",
+                "\\StreamingAssets\\Data\\Items\\Synthesis.csv",
+                "\\StreamingAssets\\Data\\Characters\\BaseStats.csv",
+                "\\StreamingAssets\\Data\\Characters\\DefaultEquipment.csv",
+                "\\StreamingAssets\\Data\\Characters\\AbilityGems.csv",
+                "\\StreamingAssets\\p0data2.bin",
+                "\\StreamingAssets\\p0data7.bin"
+            };
+
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox_seed.Text = seed;
@@ -75,7 +90,7 @@ namespace rand9er
             }
         }
 
-        void ExecuteProgram()
+        public void ExecuteProgram()
         {
             //Gaurentee Seed
             if (textBox_seed.Text.Length == 0)
@@ -106,101 +121,21 @@ namespace rand9er
             // Path done
 
             // need to read memoria.ini for mods folders to pull CSV/BIN data from
-            List<string> memoriaINI;
-            List<string> modNames = new List<string>();
-            string memoriaFolderNamesLine;
-            List<string> csvNeeded = new List<string>
+            if (ReadMemoria())
             {
-                "\\StreamingAssets\\Data\\Items\\Items.csv",
-                "\\StreamingAssets\\Data\\Items\\ShopItems.csv",
-                "\\StreamingAssets\\Data\\Items\\Synthesis.csv",
-                "\\StreamingAssets\\Data\\Characters\\BaseStats.csv",
-                "\\StreamingAssets\\Data\\Characters\\DefaultEquipment.csv",
-                "\\StreamingAssets\\Data\\Characters\\AbilityGems.csv",
-                "\\StreamingAssets\\p0data2.bin",
-                "\\StreamingAssets\\p0data7.bin"
-            };
-            if (File.Exists(@tb_fl.Text + "\\memoria.ini"))
-            {
-                memoriaINI = File.ReadAllLines(@tb_fl.Text + "\\memoria.ini").ToList();
-                for (int i = 0; i < memoriaINI.Count; i++)
+                modNames = CleanModNames(modNames);
+                if (CopySourceData(modNames))
                 {
-                    //need to Identify Mod list
-                    if (memoriaINI[i] == "[Mod]")
-                    {
-                        if (memoriaINI[i + 1].Contains("FolderNames="))
-                        {
-                            memoriaFolderNamesLine = memoriaINI[i + 1].Substring(12);
-                            modNames = memoriaFolderNamesLine.Split(',').ToList();
-                            break;
-                        }
-                    }
-                }
-
-               // modNames.Add(seedFolderName); test only
-                for (int i = 0; i < modNames.Count; i++)
-                {
-                    if (modNames[i].ElementAt(0).ToString() == " ")
-                    {
-                        modNames[i] = modNames[i].Substring(1);
-                    }
-                    if (modNames[i].ElementAt(0).ToString() == "\"")
-                    {
-                        modNames[i] = modNames[i].Substring(1);
-                    }
-                    if (modNames[i].Substring(modNames[i].Length - 1).ToString() == " ")
-                    {
-                        modNames[i] = modNames[i].Substring(0, modNames[i].Length-1);
-                    }
-                    if (modNames[i].Substring(modNames[i].Length - 1).ToString() == "\"")
-                    {
-                        modNames[i] = modNames[i].Substring(0, modNames[i].Length - 1);
-                    }
-                    richTextBox_debug.Text += "\n" + modNames[i];
-                    if (modNames[i].Contains("Stiltzkins"))
-                    {
-                        modNames.RemoveAt(i);
-                    }
-                }
-                modNames.Add(""); //Required, stock StreamingAssests dir
-                // Search all mod folders for all needed CSV/BIN files and create copy to Seed folder.
-                for (int i = 0; i < modNames.Count; i++)
-                {
-                    List<int> csvIndex = new List<int>();
-                    for (int j = 0; j < csvNeeded.Count; j++)
-                    {
-                        string csvModPathCheck = @tb_fl.Text + "\\" + modNames[i] + @csvNeeded[j];
-                        string csvSeedPathCheck = pathSeed + csvNeeded[j];
-                        if (File.Exists(@csvModPathCheck))
-                        {
-                            File.Copy(@csvModPathCheck, @csvSeedPathCheck, true);
-                            csvIndex.Add(j);
-                        }
-                    }
-                    if (csvIndex.Count > 0)
-                    {
-                        int counter = 0;
-                        for (int j = 0; j < csvIndex.Count; j++)
-                        {
-                            csvNeeded.RemoveAt(csvIndex[j - counter]);
-                            counter++;
-                        }
-                    }
+                    //Source data copied, ready to do more work
+                    // We now have all CSV and BIN Files in our seed folder
+                    // So our new Seed folder is prepped with CSV/BIN files to use in randomizatiion.
                 }
             }
-            else
-            {
-                // No Memoria found
-                MessageBox.Show("Memoria Engine Required. Moguri and other mods use Memoria engine. If this is a stock FFIX install, you need to at least install Memoria Engine", "Memoria Engine Required", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            }
-
-            // We now have all CSV and BIN Files in our seed folder
-            // So our new Seed folder is prepped with CSV/BIN files to use in randomizatiion.
 
 
-            // BIN file extraction
+            // BIN file extraction next
 
-
+            // We need to write a function to scan and 
 
 
 
@@ -212,6 +147,8 @@ namespace rand9er
 
 
             // Finally, we add the seed folder name to the START of the list of MemoriaMods, and then write that line back into the memoria.ini file.
+            // once write this method, add to stock button
+
             // Having our mod first ensures, any *.bytes files and BINs are used in place of other mods.
             // This should in theory, make our mod compatble with all other mods. Alternate Fantasy etc.
 
@@ -228,8 +165,120 @@ namespace rand9er
 
             // Refactor layout of checkbox options.
 
-            //RANDOMZIZNIG CSVs need refactor
-            if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
+            
+            
+
+        }
+
+
+        bool ReadMemoria()
+        {
+            if (File.Exists(@tb_fl.Text + "\\memoria.ini"))
+            {
+                memoriaINI = File.ReadAllLines(@tb_fl.Text + "\\memoria.ini").ToList();
+                for (int i = 0; i < memoriaINI.Count; i++)
+                {
+                    //need to Identify Mod list
+                    if (memoriaINI[i] == "[Mod]")
+                    {
+                        if (memoriaINI[i + 1].Contains("FolderNames="))
+                        {
+                            memoriaFolderNamesLine = memoriaINI[i + 1].Substring(12);
+                            modNames = memoriaFolderNamesLine.Split(',').ToList();
+                            return true;
+                        }
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                // No Memoria found
+                MessageBox.Show("Memoria Engine Required. Moguri and other mods use Memoria engine. If this is a stock FFIX install, you need to at least install Memoria Engine", "Memoria Engine Required", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return false;
+            }
+        }
+
+        List<string> CleanModNames(List<string> modNamesCleaned)
+        {
+            // modNames.Add(seedFolderName); test only
+            for (int i = 0; i < modNamesCleaned.Count; i++)
+            {
+                if (modNamesCleaned[i].ElementAt(0).ToString() == " ")
+                {
+                    modNamesCleaned[i] = modNamesCleaned[i].Substring(1);
+                }
+                if (modNamesCleaned[i].ElementAt(0).ToString() == "\"")
+                {
+                    modNamesCleaned[i] = modNamesCleaned[i].Substring(1);
+                }
+                if (modNamesCleaned[i].Substring(modNamesCleaned[i].Length - 1).ToString() == " ")
+                {
+                    modNamesCleaned[i] = modNamesCleaned[i].Substring(0, modNamesCleaned[i].Length - 1);
+                }
+                if (modNamesCleaned[i].Substring(modNamesCleaned[i].Length - 1).ToString() == "\"")
+                {
+                    modNamesCleaned[i] = modNamesCleaned[i].Substring(0, modNamesCleaned[i].Length - 1);
+                }
+                richTextBox_debug.Text += "\n" + modNamesCleaned[i];
+                if (modNamesCleaned[i].Contains("Stiltzkins"))
+                {
+                    modNamesCleaned.RemoveAt(i);
+                }
+            }
+            return modNamesCleaned;
+        }
+
+        bool CopySourceData(List<string> modNamesCopy)
+        {
+            modNamesCopy.Add(""); //Required, stock StreamingAssests dir
+                                  // Search all mod folders for all needed CSV/BIN files and create copy to Seed folder.
+            for (int i = 0; i < modNamesCopy.Count; i++)
+            {
+                List<int> csvIndex = new List<int>();
+                for (int j = 0; j < csvNeeded.Count; j++)
+                {
+                    string csvModPathCheck = @tb_fl.Text + "\\" + modNamesCopy[i] + @csvNeeded[j];
+                    string csvSeedPathCheck = pathSeed + csvNeeded[j];
+                    if (File.Exists(@csvModPathCheck))
+                    {
+                        File.Copy(@csvModPathCheck, @csvSeedPathCheck, true);
+                        csvIndex.Add(j);
+                    }
+                }
+                if (csvIndex.Count > 0)
+                {
+                    int counter = 0;
+                    for (int j = 0; j < csvIndex.Count; j++)
+                    {
+                        csvNeeded.RemoveAt(csvIndex[j - counter]);
+                        counter++;
+                    }
+                }
+            }
+            if (csvNeeded.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void RemoveSBfromMemoria()
+        {
+            // Remove SB from mod load order
+
+            // read memoria.ini and update mod list
+            if (ReadMemoria())
+            {
+                modNames = CleanModNames(modNames); // removes SB
+                
+                // need to write modNames back into MemoriaINI then write files back.
+                // TODO
+            }
+
+        }
+
+        /*if (cm_itemshop.Checked | cm_synth.Checked | cm_char.Checked | cm_enemies.Checked | cm_entrances.Checked)
             {
                 if (MessageBox.Show("This will save all Randoms to game files", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -266,20 +315,19 @@ namespace rand9er
                     }
                     pbar_tree.Value = pbar_tree.Maximum;
                 }
-            }
-
-        }
-
+            }*/
 
 
         //              MISC FUNCS              //
         //              MISC FUNCS              //
+
+
 
         // Refactor new method
         public void ReadWrite()
         {
 
-            
+            // needs refactor
 
 
 
@@ -342,23 +390,17 @@ namespace rand9er
             button_rand.Text = "Buy for 333 Gil";
         }
 
-        // Refactor Stock IO
-        public void IO_stock()
-        {
-            // Remove SB from mod load order
-
-            // read memoria.ini and update mod list
-
-
-
-
-
-
-
-        }
-
 
         // Misc UI elements
+        private void debugButton_Click(object sender, EventArgs e)
+        {
+            //Run Debug Form
+            DebugForm DebugForm2 = new DebugForm();
+            this.Hide();
+            DebugForm2.ShowDialog();
+            this.Show();
+        }
+
         public string path_search(string pswap)
         {
             string path_search1 = "", path_search2 = "", path_search3 = "";
@@ -440,13 +482,9 @@ namespace rand9er
         }
         private void b_restore_Click(object sender, EventArgs e)
         {
-            
-            //need to write
-            //actually I dont think we need to do this. DISABLED for now
-
-            if (MessageBox.Show("Selected options will be restored to Stock settings", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("This will remove Stilzkin's Bag from the Mod Load Order, Seed folders will remain", "Remove Stiltzkin's Bag", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
-                IO_stock();
+                RemoveSBfromMemoria();
             }
         }
         private void richTextBox_debug_TextChanged(object sender, EventArgs e)
