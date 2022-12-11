@@ -106,6 +106,7 @@
             this.p0data2Files.TabStop = true;
             this.p0data2Files.Text = "p0data2 Compare Files";
             this.p0data2Files.UseVisualStyleBackColor = true;
+            this.p0data2Files.CheckedChanged += new System.EventHandler(this.p0data2Files_CheckedChanged);
             // 
             // p0data2BIN
             // 

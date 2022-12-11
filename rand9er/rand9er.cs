@@ -764,39 +764,39 @@ namespace rand9er
         private void cm_enemies_CheckedChanged(object sender, EventArgs e)
         {
             //          random enemies selection
-            if (cm_enemies.Checked)
+            if (EnemyCheckBox.Checked)
             {
-                c_esteals.Enabled = true;
-                c_edrops.Enabled = true;
-                if (!c_esteals.Checked & !c_edrops.Checked)
+                EnemyStealsCheckBox.Enabled = true;
+                EnemyDropsCheckBox.Enabled = true;
+                if (!EnemyStealsCheckBox.Checked & !EnemyDropsCheckBox.Checked)
                 {
-                    c_esteals.Checked = true;
-                    c_edrops.Checked = true;
+                    EnemyStealsCheckBox.Checked = true;
+                    EnemyDropsCheckBox.Checked = true;
                 }
-                if (c_esteals.Checked)
+                if (EnemyStealsCheckBox.Checked)
                 {
-                    c_es1.Enabled = true;
+                    EnemyBluMagCheckBox.Enabled = true;
                     //c_es2.Enabled = true;
                     //c_es3.Enabled = true;
                     c_es4.Enabled = true;
                 }
-                if (c_edrops.Checked)
+                if (EnemyDropsCheckBox.Checked)
                 {
-                    c_ed1.Enabled = true;
+                    EnemyCardCheckBox.Enabled = true;
                     //c_ed2.Enabled = true;
                     //c_ed3.Enabled = true;
                     c_ed4.Enabled = true;
                 }
             }
-            else if (!cm_enemies.Checked)
+            else if (!EnemyCheckBox.Checked)
             {
-                c_esteals.Enabled = false;
-                c_edrops.Enabled = false;
-                c_es1.Enabled = false;
+                EnemyStealsCheckBox.Enabled = false;
+                EnemyDropsCheckBox.Enabled = false;
+                EnemyBluMagCheckBox.Enabled = false;
                 //c_es2.Enabled = false;
                 //c_es3.Enabled = false;
                 c_es4.Enabled = false;
-                c_ed1.Enabled = false;
+                EnemyCardCheckBox.Enabled = false;
                 //c_ed2.Enabled = false;
                 //c_ed3.Enabled = false;
                 c_ed4.Enabled = false;
@@ -806,21 +806,21 @@ namespace rand9er
         private void c_esteals_CheckedChanged(object sender, EventArgs e)
         {
             //      random steals selection
-            if (c_esteals.Checked)
+            if (EnemyStealsCheckBox.Checked)
             {
-                c_es1.Enabled = true;
+                EnemyBluMagCheckBox.Enabled = true;
                 //c_es2.Enabled = true;
                 //c_es3.Enabled = true;
                 c_es4.Enabled = true;
-                if (!c_es1.Checked & /*!c_es2.Checked & !c_es3.Checked &*/ !c_es4.Checked)
+                if (!EnemyBluMagCheckBox.Checked & /*!c_es2.Checked & !c_es3.Checked &*/ !c_es4.Checked)
                 {
                     //c_es3.Checked = true;
                     c_es4.Checked = true;
                 }
             }
-            else if (!c_esteals.Checked)
+            else if (!EnemyStealsCheckBox.Checked)
             {
-                c_es1.Enabled = false;
+                EnemyBluMagCheckBox.Enabled = false;
                 //c_es2.Enabled = false;
                 //c_es3.Enabled = false;
                 c_es4.Enabled = false;
@@ -829,21 +829,21 @@ namespace rand9er
         private void c_edrops_CheckedChanged(object sender, EventArgs e)
         {
             //      random drops selection
-            if (c_edrops.Checked)
+            if (EnemyDropsCheckBox.Checked)
             {
-                c_ed1.Enabled = true;
+                EnemyCardCheckBox.Enabled = true;
                 //c_ed2.Enabled = true;
                 //c_ed3.Enabled = true;
                 c_ed4.Enabled = true;
-                if (!c_ed1.Checked & /*!c_ed2.Checked & !c_ed3.Checked &*/ !c_ed4.Checked)
+                if (!EnemyCardCheckBox.Checked & /*!c_ed2.Checked & !c_ed3.Checked &*/ !c_ed4.Checked)
                 {
                     //c_ed3.Checked = true;
                     c_ed4.Checked = true;
                 }
             }
-            else if (!c_edrops.Checked)
+            else if (!EnemyDropsCheckBox.Checked)
             {
-                c_ed1.Enabled = false;
+                EnemyCardCheckBox.Enabled = false;
                 //c_ed2.Enabled = false;
                 //c_ed3.Enabled = false;
                 c_ed4.Enabled = false;

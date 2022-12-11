@@ -1,16 +1,13 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
+//using System.Linq;
 using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
+
+//using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+//using static System.Net.WebRequestMethods;
 
 namespace rand9er
 {
@@ -20,136 +17,118 @@ namespace rand9er
         {
             InitializeComponent();
         }
-
-        //We have two folders containing folders and files. We need to scan each, and match them up.
-        //I think we can use the same function to scan into a storage object. Like a array of byte arrays.
-        // should be a staggered array, varibale file size,
-        //  scan through both at the same time, compareing bytes.
-        // log any mismatch
-        // output mismatch percent and value.
-
-        // using a custom class list of another custom class data
-        //EnemyList enemy1List = new EnemyList();
-        //EnemyList enemy2List = new EnemyList();
+        
+        // Enemy Files VARs
         List<EnemiesData> enemy1List = new List<EnemiesData>();
         List<EnemiesData> enemy2List = new List<EnemiesData>();
-
-        // Default Offsets for drops,steals,bmagic,card
-        //int[] allvalueLocations = new int[] { 84, 85, 86, 87, 88, 89, 90, 91, 135, 169 };
-
-        // Enemy Offsets - 1 enemy in list, 1 group
+            // Enemy Offsets - 1 enemy in list, 1 group
         int[] dropOffsets = new int[] { 84, 85, 86, 87 };
         int[] stealOffsets = new int[] { 88, 89, 90, 91 };
         int[] blueMagicOffset = new int[] { 135 };
         int[] cardDropOffset = new int[] { 169 };
-
         int enemyListOffset = 1;
         int enemyGroupOffset = 2;
         int enemyListSize = 116;
         int enemyGroupSize = 56;
+        List<string> files1 = new List<string>();
+        List<string> files2 = new List<string>();
+        List<EnemiesData> enemies1 = new List<EnemiesData>();
+        List<EnemiesData> enemies2 = new List<EnemiesData>();
+        List<EnemiesData> enemies3 = new List<EnemiesData>();
 
-        List<bool> bools = new List<bool>();
+        // Enemy BINs VARs
 
-        void DebugFunc(){
+        // Field Files VARs
 
-            // Goal here is to compare two sets of files and ensure they are the same, 
-            // We wont need this in the future, this was just to ensure we were on the right track
-            // Also need to update func to work for other types of files later
+        // Field BINs VARs
 
 
-            List<string> files1 = new List<string>();
-            List<string> files2 = new List<string>();
-            List<EnemiesData> enemies1 = new List<EnemiesData>();
-            List<EnemiesData> enemies2 = new List<EnemiesData>();
+
+
+        void DebugFunc()
+        {
+            List<bool> bools = new List<bool>();
+
             //gather 2 lists of all files in the folders as well as the paths.
             (files1, files2) = FolderScan();
             bools.Add(files1.Count > 0 && files2.Count > 0);
-            // now we have a list of files. now to import those files into the storage object
-
             // now we have two lists of files.  -- This has been verified,
-            
-
-            // now to load all the data from them into storage objects
-            (enemies1, enemies2) = FilesScan(files1, files2);
-            bools.Add(enemies1.Count > 0 && enemies2.Count > 0);
-
-            // enemies1 and enemies2 are the same. Only need to use one from now on
+            FilesScan(files1, files2);
 
 
-            // now we have a list of all binary data, we need to scan each
-            // for each check offset for value
+            // p0data7 Compare Files
+            if (p0data2Files.Checked)
+            {
 
-            // take that value and and for every size value, add that address to a list
-            // build list of values we need to edit for each section
-            // using this list, randomzie values and write them out.
-
-
-            // now each enemyData in the list has the value in 01 and 02 for each enemylist and groups.
-            
-            // when randomizing we iterate though these two values to know the proper offets and amounts for each file
-
-            
+                bools.Add(enemies1.Count > 0 && enemies2.Count > 0);
+                // enemies1 and enemies2 are the same. Only need to use one from now on
 
 
+                // REDO
+
+                enemies3 = EnemyFilesTrimZeros(enemies1);
+                
+                bools.Add(enemies3.Count > 0);
+                outputText.Text += "\n enemies3 count= " + enemies3.Count;
+                outputText.Text += "\n enemies3 dir= " + @enemies3[0].EnemyFolder + "\n";
+                for (int j = 0; j < enemies3[0].EnemyBytes.Length; j++)
+                {
+                    //outputText.Text += "" + enemies3[0].EnemyBytes[j] + ", ";
+                }
+                // check trimjob
+                //bools.Add(TrimCheck(enemies1, enemies2));
+
+                //JSON STORAGE
+                bools.Add(EnemyJsonStoreFiles(enemies3));
+
+                //EnemyFilesTestRand(enemies3); // This worked, verified test.
+
+                //out bytes array back to folder\files\bytes
+                //  WILL NEED THIS FUNCTION FOR SEED FOLDER OUTPUT
+                //OutputFilesEnemiesBytesFiles(enemies3);
+
+            }
+
+
+            // p0data7 Compare Files vs BIN
+            if (p0data2BIN.Checked)
+            {
+
+            }
+            // p0data7 Compare Files
+            if (p0data7Files.Checked)
+            {
+
+            }
+            // p0data7 Compare Files vs BIN
+            if (p0data7BIN.Checked)
+            {
+
+            }
 
 
 
-            //scrapping these two funcs
-            //(enemies2) = TrimZeros(enemies2);
-            // check trimjob
-            //bools.Add(TrimCheck(enemies1, enemies2));
-
-
-
-
-            // so all passed, we now have truncated files. We need to test write them back to files and then load the game to test
-
-            // What we will do here is just write all 01 to all the slots. that will be dagger,
-            // if we can steal a dagger from a few battles, we know our method is sound
-
-            
-            TestRand(enemies2);
-            //check again
-            //bools.Add(TrimCheck(enemies1, enemies2));
-
-
-            // last
-
-            if (!bools.Contains(false))
+            //  LAST
+            if (!bools.Contains(false) && bools.Contains(true))
             {
                 eventText.Text = "FINISH true";
-                //out bytes array back to files
-                OutputFiles(enemies2);
+                
                 eventText.Text = "FINISH written";
             }
-            else
+            else if(bools.Contains(false))
             {
                 eventText.Text = "FINISH fail";
             }
-
-
-            // once ready, write funcs to store list as object for refference in future runs
-
-
-        }
-
-        //  MISC FUNCS
-        string ManualSearch(string dir)
-        {
-            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.Description = "Locate " + dir;
-            DialogResult result = folderDlg.ShowDialog();
-            if (result == DialogResult.OK)
+            else if (!bools.Contains(true) && !bools.Contains(false))
             {
-                return folderDlg.SelectedPath;
-            }
-            else
-            {
-                return "";
+                eventText.Text = "FINISH No Bools added";
             }
         }
+
+        
         (List<string>, List<string>) FolderScan()
         {
+
             //generaete 2 list of files from two directories
             List<string> dirFiles = new List<string>();
             List<string> dir1Files = new List<string>();
@@ -182,56 +161,128 @@ namespace rand9er
             }
             return (dir1Files, dir2Files);
         }
-        (List<EnemiesData>, List<EnemiesData>) FilesScan(List<string> files1, List<string> files2)
+        void FilesScan(List<string> files1, List<string> files2)
         {
-            List<EnemiesData> enemies = new List<EnemiesData>();
-            List<EnemiesData> enemies1 = new List<EnemiesData>();
-            List<EnemiesData> enemies2 = new List<EnemiesData>();
-            enemies = new List<EnemiesData>();
-            FilesScan(files1);
-            enemies1 = enemies;
-            enemies = new List<EnemiesData>();
-            FilesScan(files2);
-            enemies2 = enemies;
-            enemies = new List<EnemiesData>();
-            // now we have our data files.
-            // compare and scan all files now
-            if (enemies1.Count == enemies2.Count)
+            if (p0data2Files.Checked)
             {
-                for (int i = 0; i < enemies1.Count; i++)
-                {
-                    for (int j = 0; j < enemies1[i].EnemyBytes.Length; j++)
-                    {
-                        bool f = enemies1[i].EnemyBytes[j] == enemies1[i].EnemyBytes[j];
-                        if (!f)
-                        {
-                            outputText.Text += "\nebyte Failed " + enemies1[i].EnemyBytes[j] + " " + enemies2[i].EnemyBytes[j];
-                        }
-                        else
-                        {
-                            //outputText.Text += "\nebyte Match " + enemies1[i].EnemyBytes[j] + " " + enemies2[i].EnemyBytes[j];
-                        }
-                    }
-                    
-                }
+                enemies1 = EnemyFilesScan(files1);
+                enemies2 = EnemyFilesScan(files2);
+                // compare and scan all files now
+                // EnemyCountCompare(); - not needed anymore, mog and stock enemies are identical
             }
-            return (enemies1, enemies2);
-            void FilesScan(List<String> files)
+
+            if (p0data2BIN.Checked)
             {
-                //List<EnemiesData> enemies = new List<EnemiesData>();
+                enemies1 = EnemyFilesScan(files1);
+            }
+            if (p0data7Files.Checked)
+            {
+
+            }
+            if (p0data7BIN.Checked)
+            {
+
+            }
+
+            // Enemy Files Funcs
+            List<EnemiesData> EnemyFilesScan(List<String> files)
+            {
+                List<EnemiesData> enemiesF = new List<EnemiesData>();
+
                 for (int i = 0; i < files.Count; i++)
                 {
+                    //string subPath = @files[i];
+                    //remove first part of path
+
+                    //  JSON MODE
+                    int indexDir = @files[i].IndexOf("StreamingAssets");
+                    string subPath = @files[i].Substring(indexDir);
+                    enemiesF.Add(new EnemiesData("\\" + @subPath, File.ReadAllBytes(files[i])));
+
+                    // BYTES FILE MODE
                     //outputText.Text += "\nEnemy Group Amount= " + files[i][1] + " Enemy List Amount+= " + files[i][2];
-                    enemies.Add(new EnemiesData(@files[i], File.ReadAllBytes(files[i])));
+                    //enemiesF.Add(new EnemiesData(@files[i], File.ReadAllBytes(files[i])));
+
+                }
+                return enemiesF;
+            }
+            
+            //  Unused Enemy func
+            void EnemyCountCompare()
+            {
+                if (enemies1.Count == enemies2.Count)
+                {
+                    for (int i = 0; i < enemies1.Count; i++)
+                    {
+                        for (int j = 0; j < enemies1[i].EnemyBytes.Length; j++)
+                        {
+                            bool f = enemies1[i].EnemyBytes[j] == enemies1[i].EnemyBytes[j];
+                            if (!f)
+                            {
+                                outputText.Text += "\nebyte Failed " + enemies1[i].EnemyBytes[j] + " " + enemies2[i].EnemyBytes[j];
+                            }
+                            else
+                            {
+                                //outputText.Text += "\nebyte Match " + enemies1[i].EnemyBytes[j] + " " + enemies2[i].EnemyBytes[j];
+                            }
+                        }
+
+                    }
+                }
+                //FileScanBackupMethod
+                //enemies = new List<EnemiesData>();
+                //enemies = EnemyFilesScan(files1);
+                //enemies1 = enemies;
+                //enemies = new List<EnemiesData>();
+                //enemies = EnemyFilesScan(files2);
+                //enemies2 = enemies;
+                //enemies = new List<EnemiesData>();
+            }
+            
+
+            //  Enemy BIN funcs
+
+
+
+
+
+        }
+        //  REDO funcs
+        byte[] TrimEnd(byte[] array)
+        {
+            int lastIndex = Array.FindLastIndex(array, b => b != 0);
+
+            Array.Resize(ref array, lastIndex - 3);
+
+            return array;
+        }
+        List<EnemiesData> EnemyFilesTrimZeros(List<EnemiesData> enemiesT)
+        {
+            List<EnemiesData> enemiesTZ = new List<EnemiesData>();
+            for (int i = 0; i < enemiesT.Count; i++)
+            {
+                byte[] buffer = enemiesT[i].EnemyBytes;
+                //outputText.Text += "\n before trim: " + buffer.Length;
+
+                int lastIndex = Array.FindLastIndex(buffer, b => b != 0);
+                Array.Resize(ref buffer, lastIndex - 3); // should be +1, but according to Hades, should be -3. Trusting Hades
+
+                //outputText.Text += "\n after trim: " + buffer.Length;
+                enemiesT[i].EnemyBytes = buffer;
+                //outputText.Text += "\n after write: " + enemies2[i].EnemyBytes.Length;
+                enemiesTZ.Add(new EnemiesData(@enemiesT[i].EnemyFolder, buffer));
+                //outputText.Text += "\n after write: " + enemiesT[i].EnemyBytes.Length + "[ ";
+                for (int j = 0; j < enemiesTZ[i].EnemyBytes.Length; j++)
+                {
+                    //outputText.Text += "" + enemiesTZ[i].EnemyBytes[j] + ", ";
                 }
             }
-        }
-        List<EnemiesData> TrimZeros(List<EnemiesData> enemies2)
-        {
+            return enemiesTZ;
             //scrapping this func
+            /*
             for (int i = 0; i < enemies2.Count; i++)
             {
-                
+
                 int counter = 0;
                 for (int j = enemies2[i].EnemyBytes.Length - 1; j > -1; j--)
                 {
@@ -252,7 +303,7 @@ namespace rand9er
                 }
                 enemies2[i].EnemyBytes = buffer;
             }
-            return enemies2;
+            */
         }
         bool TrimCheck(List<EnemiesData> enemies1, List<EnemiesData> enemies2)
         {
@@ -273,10 +324,10 @@ namespace rand9er
                     }
                 }
             }
-                return true;
+            return true;
         }
 
-        void TestRand(List<EnemiesData> enemies2)
+        void EnemyFilesTestRand(List<EnemiesData> enemies2)
         {
             //drop  84, 85, 86, 87
             //steal 88, 89, 90, 91
@@ -308,16 +359,19 @@ namespace rand9er
                         int writeByte = vl0gk + groupOffset + listOffset;
                         //int writeByte = valueLocations0group[k] + groupOffset + listOffset;
                         enemies2[i].EnemyBytes[writeByte] = testValue;
-                        outputText.Text += "\n writeByte=" + writeByte + " Ega=" + enemies2[i].EnemyGroupAmount + " Ela= " + enemies2[i].EnemyListAmount;
+                        //outputText.Text += "\n writeByte=" + writeByte + " Ega=" + enemies2[i].EnemyGroupAmount + " Ela= " + enemies2[i].EnemyListAmount;
                     }
-                }
-                // this should leave us with an enemies2 files with all bytes written that we need.
 
-                // scan each enemy byte array
-                //
-                // group amount is offset for all other values
-                // enemyList amount needs to be written for each value
-                //
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+
+                }
 
                 /*
                 // old partially failed test, change each enemy group offset
@@ -326,14 +380,14 @@ namespace rand9er
                     enemies2[i].EnemyBytes[valueLocations[j]] = testValue;
                 }
                 */
-
             }
         }
-        void OutputFiles(List<EnemiesData> enemies2)
+        void OutputFilesEnemiesBytesFiles(List<EnemiesData> enemiesW)
         {
-            for (int i = 0; i < enemies2.Count; i++)
+            for (int i = 0; i < enemiesW.Count; i++)
             {
-                SaveByteArrayToFileWithBinaryWriter(enemies2[i].EnemyBytes, @enemies2[i].EnemyFolder);
+                //SaveByteArrayToFileWithBinaryWriter(enemiesW[i].EnemyBytes, @enemiesW[i].EnemyFolder);
+                File.WriteAllBytes(@enemiesW[i].EnemyFolder, enemiesW[i].EnemyBytes);
             }
         }
         void SaveByteArrayToFileWithBinaryWriter(byte[] data, string filePath)
@@ -341,6 +395,45 @@ namespace rand9er
             var writer = new BinaryWriter(File.OpenWrite(filePath));
             writer.Write(data);
         }
+
+        // Long term storage
+        bool EnemyJsonStoreFiles(List<EnemiesData> enemies2)
+        {
+            string fileName = "StockEnemyBytesJson.json";
+            string eJsonString = JsonSerializer.Serialize(enemies2);
+            DirectoryInfo di5 = Directory.CreateDirectory(@dir2Text.Text + "\\Json");
+            Directory.SetCurrentDirectory(@dir2Text.Text + "\\Json\\");
+            File.WriteAllText(fileName, eJsonString);
+            Console.WriteLine(File.ReadAllText(fileName));
+
+            return true;
+
+            // Read file and deserialize to usable data.
+            //string jsonString = File.ReadAllText(fileName);
+            //List<EnemiesData> enenmies3 = JsonSerializer.Deserialize<List<EnemiesData>>(eJsonString);
+        }
+
+
+
+
+        //  MISC FUNCS
+        string ManualSearch(string dir)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.Description = "Locate " + dir;
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                return folderDlg.SelectedPath;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        //  UI
+        //  UI
         private void runButton_Click(object sender, EventArgs e)
         {
             if (dir1Text.Text.Length > 0 && dir2Text.Text.Length > 0)
@@ -369,6 +462,11 @@ namespace rand9er
         {
             outputText.SelectionStart = outputText.Text.Length;
             outputText.ScrollToCaret();
+        }
+
+        private void p0data2Files_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

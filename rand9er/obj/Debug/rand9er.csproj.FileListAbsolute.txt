@@ -23,3 +23,22 @@ D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\FFIX Stiltzkin's Bag 2.0.pdb
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\FFIX Stiltzkin's Bag 2.0.exe
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\FFIX Stiltzkin's Bag 2.0.pdb
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\rand9er.DebugForm.resources
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Buffers.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Memory.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Numerics.Vectors.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Text.Encodings.Web.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Text.Json.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.ValueTuple.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Buffers.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Memory.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Numerics.Vectors.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Text.Encodings.Web.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Text.Json.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.ValueTuple.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\rand9er.csproj.CopyComplete

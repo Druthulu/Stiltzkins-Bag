@@ -56,13 +56,13 @@ namespace rand9er
             this.c_all_e = new System.Windows.Forms.CheckBox();
             this.button_rand = new System.Windows.Forms.Button();
             this.cm_entrances = new System.Windows.Forms.CheckBox();
-            this.cm_enemies = new System.Windows.Forms.CheckBox();
-            this.c_esteals = new System.Windows.Forms.CheckBox();
-            this.c_edrops = new System.Windows.Forms.CheckBox();
-            this.c_es1 = new System.Windows.Forms.CheckBox();
+            this.EnemyCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnemyStealsCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnemyDropsCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnemyBluMagCheckBox = new System.Windows.Forms.CheckBox();
             this.c_es4 = new System.Windows.Forms.CheckBox();
             this.c_ed4 = new System.Windows.Forms.CheckBox();
-            this.c_ed1 = new System.Windows.Forms.CheckBox();
+            this.EnemyCardCheckBox = new System.Windows.Forms.CheckBox();
             this.cm_treasure = new System.Windows.Forms.CheckBox();
             this.cm_stiltzkin = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -459,68 +459,68 @@ namespace rand9er
             this.cm_entrances.UseVisualStyleBackColor = false;
             this.cm_entrances.CheckedChanged += new System.EventHandler(this.cm_entrances_CheckedChanged);
             // 
-            // cm_enemies
+            // EnemyCheckBox
             // 
-            this.cm_enemies.AutoSize = true;
-            this.cm_enemies.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cm_enemies.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.cm_enemies.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cm_enemies.ForeColor = System.Drawing.Color.White;
-            this.cm_enemies.Location = new System.Drawing.Point(462, 76);
-            this.cm_enemies.Name = "cm_enemies";
-            this.cm_enemies.Size = new System.Drawing.Size(92, 22);
-            this.cm_enemies.TabIndex = 60;
-            this.cm_enemies.Text = "Enemies";
-            this.cm_enemies.UseVisualStyleBackColor = false;
-            this.cm_enemies.CheckedChanged += new System.EventHandler(this.cm_enemies_CheckedChanged);
+            this.EnemyCheckBox.AutoSize = true;
+            this.EnemyCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnemyCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.EnemyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnemyCheckBox.ForeColor = System.Drawing.Color.White;
+            this.EnemyCheckBox.Location = new System.Drawing.Point(462, 76);
+            this.EnemyCheckBox.Name = "EnemyCheckBox";
+            this.EnemyCheckBox.Size = new System.Drawing.Size(92, 22);
+            this.EnemyCheckBox.TabIndex = 60;
+            this.EnemyCheckBox.Text = "Enemies";
+            this.EnemyCheckBox.UseVisualStyleBackColor = false;
+            this.EnemyCheckBox.CheckedChanged += new System.EventHandler(this.cm_enemies_CheckedChanged);
             // 
-            // c_esteals
+            // EnemyStealsCheckBox
             // 
-            this.c_esteals.AutoSize = true;
-            this.c_esteals.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_esteals.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_esteals.Enabled = false;
-            this.c_esteals.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_esteals.ForeColor = System.Drawing.Color.White;
-            this.c_esteals.Location = new System.Drawing.Point(483, 104);
-            this.c_esteals.Name = "c_esteals";
-            this.c_esteals.Size = new System.Drawing.Size(89, 17);
-            this.c_esteals.TabIndex = 61;
-            this.c_esteals.Text = "Item Steals";
-            this.c_esteals.UseVisualStyleBackColor = false;
-            this.c_esteals.CheckedChanged += new System.EventHandler(this.c_esteals_CheckedChanged);
+            this.EnemyStealsCheckBox.AutoSize = true;
+            this.EnemyStealsCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnemyStealsCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.EnemyStealsCheckBox.Enabled = false;
+            this.EnemyStealsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnemyStealsCheckBox.ForeColor = System.Drawing.Color.White;
+            this.EnemyStealsCheckBox.Location = new System.Drawing.Point(483, 104);
+            this.EnemyStealsCheckBox.Name = "EnemyStealsCheckBox";
+            this.EnemyStealsCheckBox.Size = new System.Drawing.Size(89, 17);
+            this.EnemyStealsCheckBox.TabIndex = 61;
+            this.EnemyStealsCheckBox.Text = "Item Steals";
+            this.EnemyStealsCheckBox.UseVisualStyleBackColor = false;
+            this.EnemyStealsCheckBox.CheckedChanged += new System.EventHandler(this.c_esteals_CheckedChanged);
             // 
-            // c_edrops
+            // EnemyDropsCheckBox
             // 
-            this.c_edrops.AutoSize = true;
-            this.c_edrops.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_edrops.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_edrops.Enabled = false;
-            this.c_edrops.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_edrops.ForeColor = System.Drawing.Color.White;
-            this.c_edrops.Location = new System.Drawing.Point(483, 127);
-            this.c_edrops.Name = "c_edrops";
-            this.c_edrops.Size = new System.Drawing.Size(87, 17);
-            this.c_edrops.TabIndex = 62;
-            this.c_edrops.Text = "Item Drops";
-            this.c_edrops.UseVisualStyleBackColor = false;
-            this.c_edrops.CheckedChanged += new System.EventHandler(this.c_edrops_CheckedChanged);
+            this.EnemyDropsCheckBox.AutoSize = true;
+            this.EnemyDropsCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnemyDropsCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.EnemyDropsCheckBox.Enabled = false;
+            this.EnemyDropsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnemyDropsCheckBox.ForeColor = System.Drawing.Color.White;
+            this.EnemyDropsCheckBox.Location = new System.Drawing.Point(483, 127);
+            this.EnemyDropsCheckBox.Name = "EnemyDropsCheckBox";
+            this.EnemyDropsCheckBox.Size = new System.Drawing.Size(87, 17);
+            this.EnemyDropsCheckBox.TabIndex = 62;
+            this.EnemyDropsCheckBox.Text = "Item Drops";
+            this.EnemyDropsCheckBox.UseVisualStyleBackColor = false;
+            this.EnemyDropsCheckBox.CheckedChanged += new System.EventHandler(this.c_edrops_CheckedChanged);
             // 
-            // c_es1
+            // EnemyBluMagCheckBox
             // 
-            this.c_es1.AutoSize = true;
-            this.c_es1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_es1.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_es1.Enabled = false;
-            this.c_es1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_es1.ForeColor = System.Drawing.Color.White;
-            this.c_es1.Location = new System.Drawing.Point(483, 174);
-            this.c_es1.Name = "c_es1";
-            this.c_es1.Size = new System.Drawing.Size(139, 17);
-            this.c_es1.TabIndex = 63;
-            this.c_es1.Text = "Blue Magic Learned";
-            this.c_es1.UseVisualStyleBackColor = false;
-            this.c_es1.CheckedChanged += new System.EventHandler(this.c_es1_CheckedChanged);
+            this.EnemyBluMagCheckBox.AutoSize = true;
+            this.EnemyBluMagCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnemyBluMagCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.EnemyBluMagCheckBox.Enabled = false;
+            this.EnemyBluMagCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnemyBluMagCheckBox.ForeColor = System.Drawing.Color.White;
+            this.EnemyBluMagCheckBox.Location = new System.Drawing.Point(483, 174);
+            this.EnemyBluMagCheckBox.Name = "EnemyBluMagCheckBox";
+            this.EnemyBluMagCheckBox.Size = new System.Drawing.Size(139, 17);
+            this.EnemyBluMagCheckBox.TabIndex = 63;
+            this.EnemyBluMagCheckBox.Text = "Blue Magic Learned";
+            this.EnemyBluMagCheckBox.UseVisualStyleBackColor = false;
+            this.EnemyBluMagCheckBox.CheckedChanged += new System.EventHandler(this.c_es1_CheckedChanged);
             // 
             // c_es4
             // 
@@ -554,21 +554,21 @@ namespace rand9er
             this.c_ed4.UseVisualStyleBackColor = false;
             this.c_ed4.CheckedChanged += new System.EventHandler(this.c_ed4_CheckedChanged);
             // 
-            // c_ed1
+            // EnemyCardCheckBox
             // 
-            this.c_ed1.AutoSize = true;
-            this.c_ed1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_ed1.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_ed1.Enabled = false;
-            this.c_ed1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_ed1.ForeColor = System.Drawing.Color.White;
-            this.c_ed1.Location = new System.Drawing.Point(483, 150);
-            this.c_ed1.Name = "c_ed1";
-            this.c_ed1.Size = new System.Drawing.Size(83, 17);
-            this.c_ed1.TabIndex = 67;
-            this.c_ed1.Text = "Card Drop";
-            this.c_ed1.UseVisualStyleBackColor = false;
-            this.c_ed1.CheckedChanged += new System.EventHandler(this.c_ed1_CheckedChanged);
+            this.EnemyCardCheckBox.AutoSize = true;
+            this.EnemyCardCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnemyCardCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.EnemyCardCheckBox.Enabled = false;
+            this.EnemyCardCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnemyCardCheckBox.ForeColor = System.Drawing.Color.White;
+            this.EnemyCardCheckBox.Location = new System.Drawing.Point(483, 150);
+            this.EnemyCardCheckBox.Name = "EnemyCardCheckBox";
+            this.EnemyCardCheckBox.Size = new System.Drawing.Size(83, 17);
+            this.EnemyCardCheckBox.TabIndex = 67;
+            this.EnemyCardCheckBox.Text = "Card Drop";
+            this.EnemyCardCheckBox.UseVisualStyleBackColor = false;
+            this.EnemyCardCheckBox.CheckedChanged += new System.EventHandler(this.c_ed1_CheckedChanged);
             // 
             // cm_treasure
             // 
@@ -749,12 +749,12 @@ namespace rand9er
             this.Controls.Add(this.cm_stiltzkin);
             this.Controls.Add(this.cm_treasure);
             this.Controls.Add(this.c_ed4);
-            this.Controls.Add(this.c_ed1);
+            this.Controls.Add(this.EnemyCardCheckBox);
             this.Controls.Add(this.c_es4);
-            this.Controls.Add(this.c_es1);
-            this.Controls.Add(this.c_edrops);
-            this.Controls.Add(this.c_esteals);
-            this.Controls.Add(this.cm_enemies);
+            this.Controls.Add(this.EnemyBluMagCheckBox);
+            this.Controls.Add(this.EnemyDropsCheckBox);
+            this.Controls.Add(this.EnemyStealsCheckBox);
+            this.Controls.Add(this.EnemyCheckBox);
             this.Controls.Add(this.cm_entrances);
             this.Controls.Add(this.c_all_e);
             this.Controls.Add(this.c_main_e);
@@ -817,13 +817,13 @@ namespace rand9er
         private System.Windows.Forms.CheckBox c_main_e;
         private System.Windows.Forms.CheckBox c_all_e;
         private System.Windows.Forms.CheckBox cm_entrances;
-        private System.Windows.Forms.CheckBox cm_enemies;
-        private System.Windows.Forms.CheckBox c_esteals;
-        private System.Windows.Forms.CheckBox c_edrops;
-        private System.Windows.Forms.CheckBox c_es1;
+        private System.Windows.Forms.CheckBox EnemyCheckBox;
+        private System.Windows.Forms.CheckBox EnemyStealsCheckBox;
+        private System.Windows.Forms.CheckBox EnemyDropsCheckBox;
+        private System.Windows.Forms.CheckBox EnemyBluMagCheckBox;
         private System.Windows.Forms.CheckBox c_es4;
         private System.Windows.Forms.CheckBox c_ed4;
-        private System.Windows.Forms.CheckBox c_ed1;
+        private System.Windows.Forms.CheckBox EnemyCardCheckBox;
         private System.Windows.Forms.CheckBox cm_treasure;
         private System.Windows.Forms.CheckBox cm_stiltzkin;
         public System.Windows.Forms.TextBox textBox_seed;
