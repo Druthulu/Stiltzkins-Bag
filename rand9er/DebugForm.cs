@@ -38,6 +38,10 @@ namespace rand9er
 
         // Enemy BINs VARs
 
+        byte[] p0data2BA = new byte[0];
+
+
+
         // Field Files VARs
 
         // Field BINs VARs
@@ -49,43 +53,42 @@ namespace rand9er
         {
             List<bool> bools = new List<bool>();
 
-            //gather 2 lists of all files in the folders as well as the paths.
-            (files1, files2) = FolderScan();
-            bools.Add(files1.Count > 0 && files2.Count > 0);
-            // now we have two lists of files.  -- This has been verified,
-            FilesScan(files1, files2);
 
-
-            // p0data7 Compare Files
+            // p0data2 Compare Files
             if (p0data2Files.Checked)
             {
+                //gather 2 lists of all files in the folders as well as the paths.
+                (files1, files2) = FolderScan();
+                bools.Add(files1.Count > 0 && files2.Count > 0);
+                // now we have two lists of files.  -- This has been verified,
+                FilesScan(files1, files2);
 
                 bools.Add(enemies1.Count > 0 && enemies2.Count > 0);
                 // enemies1 and enemies2 are the same. Only need to use one from now on
-
-
-                // REDO
 
                 enemies3 = EnemyFilesTrimZeros(enemies1);
                 
                 bools.Add(enemies3.Count > 0);
                 outputText.Text += "\n enemies3 count= " + enemies3.Count;
                 outputText.Text += "\n enemies3 dir= " + @enemies3[0].EnemyFolder + "\n";
-                for (int j = 0; j < enemies3[0].EnemyBytes.Length; j++)
+                //for (int j = 0; j < enemies3[0].EnemyBytes.Length; j++)
+                //{
+                //outputText.Text += "" + enemies3[0].EnemyBytes[j] + ", ";
+                //}
+
+                if (JsonCheckBox.Checked)
                 {
-                    //outputText.Text += "" + enemies3[0].EnemyBytes[j] + ", ";
+                    //JSON STORAGE
+                    bools.Add(EnemyJsonStoreFiles(enemies3));
                 }
-                // check trimjob
-                //bools.Add(TrimCheck(enemies1, enemies2));
+                else
+                {
+                    //EnemyFilesTestRand(enemies3); // This worked, verified test.
 
-                //JSON STORAGE
-                bools.Add(EnemyJsonStoreFiles(enemies3));
-
-                //EnemyFilesTestRand(enemies3); // This worked, verified test.
-
-                //out bytes array back to folder\files\bytes
-                //  WILL NEED THIS FUNCTION FOR SEED FOLDER OUTPUT
-                //OutputFilesEnemiesBytesFiles(enemies3);
+                    //out bytes array back to folder\files\bytes
+                    //  WILL NEED THIS FUNCTION FOR SEED FOLDER OUTPUT
+                    OutputFilesEnemiesBytesFiles(enemies3);
+                }
 
             }
 
@@ -93,6 +96,23 @@ namespace rand9er
             // p0data7 Compare Files vs BIN
             if (p0data2BIN.Checked)
             {
+
+                // remake Json, add json button and file export button
+
+                // import p0data2 BIN to byte array,
+                p0data2BA = File.ReadAllBytes(@dir2Text.Text);
+
+                // pull resource json,
+                
+                // deserialise back to stroage object
+                //write out to files once to ensure data integrity
+
+
+                // Scan BIN array and find matching byte array
+
+                // for each byte array in the enemy json, search the binary for this file and report match.
+
+
 
             }
             // p0data7 Compare Files
@@ -194,15 +214,19 @@ namespace rand9er
                     //string subPath = @files[i];
                     //remove first part of path
 
-                    //  JSON MODE
-                    int indexDir = @files[i].IndexOf("StreamingAssets");
-                    string subPath = @files[i].Substring(indexDir);
-                    enemiesF.Add(new EnemiesData("\\" + @subPath, File.ReadAllBytes(files[i])));
-
-                    // BYTES FILE MODE
-                    //outputText.Text += "\nEnemy Group Amount= " + files[i][1] + " Enemy List Amount+= " + files[i][2];
-                    //enemiesF.Add(new EnemiesData(@files[i], File.ReadAllBytes(files[i])));
-
+                    if (JsonCheckBox.Checked)
+                    {
+                        //  JSON MODE
+                        int indexDir = @files[i].IndexOf("StreamingAssets");
+                        string subPath = @files[i].Substring(indexDir);
+                        enemiesF.Add(new EnemiesData("\\" + @subPath, File.ReadAllBytes(files[i])));
+                    }
+                    else
+                    {
+                        // BYTES FILE MODE
+                        //outputText.Text += "\nEnemy Group Amount= " + files[i][1] + " Enemy List Amount+= " + files[i][2];
+                        enemiesF.Add(new EnemiesData(@files[i], File.ReadAllBytes(files[i])));
+                    }
                 }
                 return enemiesF;
             }

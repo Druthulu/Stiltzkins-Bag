@@ -39,6 +39,7 @@
             this.p0data7BIN = new System.Windows.Forms.RadioButton();
             this.runButton = new System.Windows.Forms.Button();
             this.eventText = new System.Windows.Forms.RichTextBox();
+            this.JsonCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // dir1Button
@@ -182,12 +183,26 @@
             this.eventText.TabIndex = 13;
             this.eventText.Text = "";
             // 
+            // JsonCheckBox
+            // 
+            this.JsonCheckBox.AutoSize = true;
+            this.JsonCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.JsonCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JsonCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.JsonCheckBox.Location = new System.Drawing.Point(52, 286);
+            this.JsonCheckBox.Name = "JsonCheckBox";
+            this.JsonCheckBox.Size = new System.Drawing.Size(59, 20);
+            this.JsonCheckBox.TabIndex = 14;
+            this.JsonCheckBox.Text = "Json";
+            this.JsonCheckBox.UseVisualStyleBackColor = true;
+            // 
             // DebugForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.JsonCheckBox);
             this.Controls.Add(this.eventText);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.p0data7BIN);
@@ -219,5 +234,6 @@
         private System.Windows.Forms.RadioButton p0data7BIN;
         private System.Windows.Forms.Button runButton;
         private System.Windows.Forms.RichTextBox eventText;
+        private System.Windows.Forms.CheckBox JsonCheckBox;
     }
 }
