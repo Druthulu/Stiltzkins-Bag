@@ -11,6 +11,7 @@ namespace rand9er
         private int enemyGroupAmount;
         private int enemyListAmount;
         private int binAddressStart;
+        private int incorrectBytesCount;
         private float incorrectBytesPercent;
         public EnemiesData(/*int enemyID, */string enemyFolder, byte[] enemyBytes)
         {
@@ -20,7 +21,8 @@ namespace rand9er
             this.enemyGroupAmount = enemyBytes[1];
             this.enemyListAmount = enemyBytes[2];
             this.binAddressStart = -1;
-            this.incorrectBytesPercent = 0;
+            this.incorrectBytesCount = 0;
+            this.incorrectBytesPercent = 0.0f;
         }
         /*public int EnemyID
         {
@@ -45,12 +47,17 @@ namespace rand9er
         public int EnemyGroupAmount
         {
             get { return enemyGroupAmount; }
-            set { EnemyGroupAmount = value; }
+            set { enemyGroupAmount = value; }
         }
         public int BinAddressStart
         {
             get { return binAddressStart; }
             set { binAddressStart = value; }
+        }
+        public int IncorrectBytesCount
+        {
+            get { return incorrectBytesCount; }
+            set { incorrectBytesCount = value; }
         }
         public float IncorrectBytesPercent
         {

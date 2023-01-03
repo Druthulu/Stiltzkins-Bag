@@ -22,7 +22,7 @@ namespace rand9er.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace rand9er.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("rand9er.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace rand9er.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace rand9er.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg {
+        public static System.Drawing.Bitmap bg {
             get {
                 object obj = ResourceManager.GetObject("bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace rand9er.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgc {
+        public static System.Drawing.Bitmap bgc {
             get {
                 object obj = ResourceManager.GetObject("bgc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace rand9er.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgc2 {
+        public static System.Drawing.Bitmap bgc2 {
             get {
                 object obj = ResourceManager.GetObject("bgc2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace rand9er.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sbag3 {
+        public static System.Drawing.Bitmap sbag3 {
             get {
                 object obj = ResourceManager.GetObject("sbag3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace rand9er.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stilzkin {
+        public static System.Drawing.Bitmap stilzkin {
             get {
                 object obj = ResourceManager.GetObject("stilzkin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -111,29 +111,18 @@ namespace rand9er.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to [{&quot;EnemyFolder&quot;:&quot;\\StreamingAssets\\assets\\resources\\battlemap\\battlescene\\evt_battle_ac_e028f\\dbfile0000.raw16.bytes&quot;,&quot;EnemyBytes&quot;:&quot;BwYCByEAAAAKAgAAAQAAAAABAAD0AQAAkAEAAAABAAAM/gAAkAEAAAEBAADoAwAA6AMAAAEBAADoAwAAvAIAAA8DAQACAAAAAAEAALwCAACQAQAAAAEAAAAAAADoAwAAAAEAAET9AAAgAwAAAQEAABj8AACKAgAADwQCAAMAAAAAAQAABAQAANABAAAAAQAArAEAADAGAAAAAQAA1P0AAFAGAAAAAQAA/PoAADAFAAAoAwEAAgAAAAABAACEAwAAkAEAAAEBAAAAAAAAvAIAAAABAAB8/AAA6AMAAAEBAAB8/AAAkAEAAAoCAgACAAAAAQEAALwCAACEAwAAAQEAAET9AACQAQAAAAEAABj8AACQAQAAAAAAAA [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] StockEnemyBytesJsonAllZeros {
+        public static string StockEnemyBytesJsonNoZeros {
             get {
-                object obj = ResourceManager.GetObject("StockEnemyBytesJsonAllZeros", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] StockEnemyBytesJsonNoZeros {
-            get {
-                object obj = ResourceManager.GetObject("StockEnemyBytesJsonNoZeros", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("StockEnemyBytesJsonNoZeros", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap yuno_error {
+        public static System.Drawing.Bitmap yuno_error {
             get {
                 object obj = ResourceManager.GetObject("yuno_error", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

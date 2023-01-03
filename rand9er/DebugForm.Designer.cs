@@ -77,8 +77,7 @@
             this.dir2Text.Name = "dir2Text";
             this.dir2Text.Size = new System.Drawing.Size(677, 20);
             this.dir2Text.TabIndex = 3;
-            this.dir2Text.Text = "D:\\git\\Hades Workshop\\Byte align Work\\p0data2_Moguri_Stock\\HadesWorkshopAssets\\p0" +
-    "data2";
+            this.dir2Text.Text = "D:\\git\\Hades Workshop\\Byte align Work\\p0data2_Stock_Stock.bin";
             // 
             // outputText
             // 
@@ -86,10 +85,10 @@
             this.outputText.DetectUrls = false;
             this.outputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputText.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.outputText.Location = new System.Drawing.Point(172, 85);
+            this.outputText.Location = new System.Drawing.Point(180, 85);
             this.outputText.Name = "outputText";
             this.outputText.ReadOnly = true;
-            this.outputText.Size = new System.Drawing.Size(616, 353);
+            this.outputText.Size = new System.Drawing.Size(608, 353);
             this.outputText.TabIndex = 4;
             this.outputText.Text = "";
             this.outputText.TextChanged += new System.EventHandler(this.outputText_TextChanged);
@@ -102,10 +101,10 @@
             this.p0data2Files.ForeColor = System.Drawing.Color.White;
             this.p0data2Files.Location = new System.Drawing.Point(12, 85);
             this.p0data2Files.Name = "p0data2Files";
-            this.p0data2Files.Size = new System.Drawing.Size(154, 17);
+            this.p0data2Files.Size = new System.Drawing.Size(129, 17);
             this.p0data2Files.TabIndex = 5;
             this.p0data2Files.TabStop = true;
-            this.p0data2Files.Text = "p0data2 Compare Files";
+            this.p0data2Files.Text = "p0data2 Files Trim";
             this.p0data2Files.UseVisualStyleBackColor = true;
             this.p0data2Files.CheckedChanged += new System.EventHandler(this.p0data2Files_CheckedChanged);
             // 
@@ -113,7 +112,6 @@
             // 
             this.p0data2BIN.AutoSize = true;
             this.p0data2BIN.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.p0data2BIN.Enabled = false;
             this.p0data2BIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p0data2BIN.ForeColor = System.Drawing.Color.White;
             this.p0data2BIN.Location = new System.Drawing.Point(12, 120);
@@ -121,7 +119,7 @@
             this.p0data2BIN.Size = new System.Drawing.Size(146, 17);
             this.p0data2BIN.TabIndex = 9;
             this.p0data2BIN.TabStop = true;
-            this.p0data2BIN.Text = "p0data2 Files VS BIN";
+            this.p0data2BIN.Text = "p0data2 Json VS BIN";
             this.p0data2BIN.UseVisualStyleBackColor = true;
             // 
             // p0data7Files
@@ -189,7 +187,7 @@
             this.JsonCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.JsonCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JsonCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.JsonCheckBox.Location = new System.Drawing.Point(52, 286);
+            this.JsonCheckBox.Location = new System.Drawing.Point(57, 292);
             this.JsonCheckBox.Name = "JsonCheckBox";
             this.JsonCheckBox.Size = new System.Drawing.Size(59, 20);
             this.JsonCheckBox.TabIndex = 14;
