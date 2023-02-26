@@ -40,6 +40,7 @@
             this.runButton = new System.Windows.Forms.Button();
             this.eventText = new System.Windows.Forms.RichTextBox();
             this.JsonCheckBox = new System.Windows.Forms.CheckBox();
+            this.p0data2Rand = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dir1Button
@@ -129,7 +130,7 @@
             this.p0data7Files.Enabled = false;
             this.p0data7Files.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p0data7Files.ForeColor = System.Drawing.Color.White;
-            this.p0data7Files.Location = new System.Drawing.Point(12, 155);
+            this.p0data7Files.Location = new System.Drawing.Point(12, 197);
             this.p0data7Files.Name = "p0data7Files";
             this.p0data7Files.Size = new System.Drawing.Size(154, 17);
             this.p0data7Files.TabIndex = 10;
@@ -144,7 +145,7 @@
             this.p0data7BIN.Enabled = false;
             this.p0data7BIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p0data7BIN.ForeColor = System.Drawing.Color.White;
-            this.p0data7BIN.Location = new System.Drawing.Point(12, 190);
+            this.p0data7BIN.Location = new System.Drawing.Point(12, 232);
             this.p0data7BIN.Name = "p0data7BIN";
             this.p0data7BIN.Size = new System.Drawing.Size(146, 17);
             this.p0data7BIN.TabIndex = 11;
@@ -194,12 +195,27 @@
             this.JsonCheckBox.Text = "Json";
             this.JsonCheckBox.UseVisualStyleBackColor = true;
             // 
+            // p0data2Rand
+            // 
+            this.p0data2Rand.AutoSize = true;
+            this.p0data2Rand.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.p0data2Rand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p0data2Rand.ForeColor = System.Drawing.Color.White;
+            this.p0data2Rand.Location = new System.Drawing.Point(12, 156);
+            this.p0data2Rand.Name = "p0data2Rand";
+            this.p0data2Rand.Size = new System.Drawing.Size(143, 17);
+            this.p0data2Rand.TabIndex = 15;
+            this.p0data2Rand.TabStop = true;
+            this.p0data2Rand.Text = "p0data2 Rand Funcs";
+            this.p0data2Rand.UseVisualStyleBackColor = true;
+            // 
             // DebugForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.p0data2Rand);
             this.Controls.Add(this.JsonCheckBox);
             this.Controls.Add(this.eventText);
             this.Controls.Add(this.runButton);
@@ -233,5 +249,6 @@
         private System.Windows.Forms.Button runButton;
         private System.Windows.Forms.RichTextBox eventText;
         private System.Windows.Forms.CheckBox JsonCheckBox;
+        private System.Windows.Forms.RadioButton p0data2Rand;
     }
 }

@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml.Schema;
 //using static System.Net.WebRequestMethods;
 
 namespace rand9er
@@ -366,6 +367,30 @@ namespace rand9er
 
 
             }
+
+            // p0data7 Compare Files
+            if (p0data2Rand.Checked)
+            {
+                // Build list of features to randomize based on UI check box. 
+
+                // if checkbox, add this to work list
+
+                // need to add lists of limits here.(){
+                var xLength = 0;
+                    // the length of my research for limit items.
+                int[][] natLimits =
+                {
+                    new int[xLength], new int[xLength], new int[xLength]
+                };
+
+                var worklist = WorkListBuild(options);
+
+                EnemiesRand(workList);
+
+
+
+            }
+
             // p0data7 Compare Files
             if (p0data7Files.Checked)
             {
@@ -396,7 +421,119 @@ namespace rand9er
             }
         }
 
-        
+
+        List<int[]> WorkListBuild(string options)
+        {
+            // build list of all options checked and return the list
+            
+            return workList;
+        }
+
+
+        void EnemiesRand(List<int[]> workList)
+        {
+            // Iterate through all work lists and edit all values., items, steals, each array is is the stock addresses
+            for (int wl = 0; wl < workList.Count; wl++)
+            {
+                // this is a list of 
+
+                // Iterate through all all battle files
+                for (int e2c = 0; e2c < enemies2.Count; e2c++)
+                {
+
+                    // Iterate through all values in the work array.
+                    // for each value, randomize,
+                    //  check against work list to ensure no duplicates.
+                    // check against natlimit, if natlimit 3 = nat limit 2,
+
+                    // if not, use that randomzied value, and incrmente natlmit3
+                    // add to worklist and continue.
+                    // once the work list is full. empty it
+                    // continue
+
+                    // This way we ensure all items are accessable at least once before reshuffling.
+
+                    // on this note, we don't want to blow through all the items in the frist 100 items, shops etc
+                    // we want to spread out writing values across all enemies and stores equally.
+
+                    // so mabye we iterate through a different order, so instead of editing all values of a single enemy, shop etc. 
+                    // we iterate through one value of each enemy file. 
+
+                    // in the end we cover all values of all enemies, its just the order we write them will help spread all items out
+                    //
+
+
+
+                }
+
+
+            }
+
+
+
+            //drop  84, 85, 86, 87
+            //steal 88, 89, 90, 91
+            //blu   135
+            //card  169
+            byte testValue = 1;
+
+            int[] valueLocations = new int[] { 84, 85, 86, 87, 88, 89, 90, 91, 135, 169 };
+            int[] valueLocations0group = new int[] { 28, 29, 30, 31, 32, 33, 34, 35, 79, 113 }; // this is offsets for 0 enemy groups, includes 
+
+
+            //Iterate through all enemies in enemies2.count
+            //  Scan all enemies
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                // Scan each enemy in the enemy list
+                for (int j = 0; j < enemies2[i].EnemyListAmount; j++) // starting at 0 as to not add 116 for a single enemy.
+                {
+
+                    //  Group pffset is the current enemy group value multiplied by 56
+
+                    int groupOffset = enemies2[i].EnemyGroupAmount * enemyGroupSize;
+
+                    //  List offset is the current enemys 
+                    int listOffset = j * enemyListSize;
+
+                    //  Scan each value in the test values location array
+                    for (int k = 0; k < valueLocations0group.Length; k++)
+                    {
+                        int vl0gk = valueLocations0group[k];
+                        int writeByte = vl0gk + groupOffset + listOffset;
+                        //int writeByte = valueLocations0group[k] + groupOffset + listOffset;
+                        enemies2[i].EnemyBytes[writeByte] = testValue;
+                        //outputText.Text += "\n writeByte=" + writeByte + " Ega=" + enemies2[i].EnemyGroupAmount + " Ela= " + enemies2[i].EnemyListAmount;
+                    }
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+                    // NEED TO BREAK THIS OUT INTO SERPATE WRITES, drop, steal etc.
+
+
+                }
+            }
+
+            
+
+            /*
+            // old partially failed test, change each enemy group offset
+            for (int j = 0; j < enemies2[i].EnemyGroupAmount; j++)
+            {
+                enemies2[i].EnemyBytes[valueLocations[j]] = testValue;
+            }
+            */
+            
+        }
+
+
+
+
+
         (List<string>, List<string>) FolderScan()
         {
 
