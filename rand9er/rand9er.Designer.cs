@@ -30,67 +30,45 @@ namespace rand9er
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rand9er));
-            this.richTextBox_output = new System.Windows.Forms.RichTextBox();
             this.label_seed = new System.Windows.Forms.Label();
             this.textBox_seed = new System.Windows.Forms.TextBox();
             this.richTextBox_debug = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.c_prices = new System.Windows.Forms.CheckBox();
-            this.c_result = new System.Windows.Forms.CheckBox();
-            this.c_require = new System.Windows.Forms.CheckBox();
-            this.pbar_tree = new System.Windows.Forms.ProgressBar();
             this.b_rseed = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.b_open = new System.Windows.Forms.Button();
             this.tb_fl = new System.Windows.Forms.TextBox();
             this.b_remove = new System.Windows.Forms.Button();
             this.b_search = new System.Windows.Forms.Button();
-            this.cm_synth = new System.Windows.Forms.CheckBox();
-            this.cm_itemshop = new System.Windows.Forms.CheckBox();
-            this.cm_char = new System.Windows.Forms.CheckBox();
-            this.c_default = new System.Windows.Forms.CheckBox();
-            this.c_basestats = new System.Windows.Forms.CheckBox();
-            this.c_abilitygems = new System.Windows.Forms.CheckBox();
-            this.c_random_e = new System.Windows.Forms.CheckBox();
-            this.c_main_e = new System.Windows.Forms.CheckBox();
-            this.c_all_e = new System.Windows.Forms.CheckBox();
             this.button_rand = new System.Windows.Forms.Button();
             this.cm_entrances = new System.Windows.Forms.CheckBox();
-            this.EnemyCheckBox = new System.Windows.Forms.CheckBox();
-            this.EnemyStealsCheckBox = new System.Windows.Forms.CheckBox();
-            this.EnemyDropsCheckBox = new System.Windows.Forms.CheckBox();
-            this.EnemyBluMagCheckBox = new System.Windows.Forms.CheckBox();
-            this.c_es4 = new System.Windows.Forms.CheckBox();
-            this.c_ed4 = new System.Windows.Forms.CheckBox();
-            this.EnemyCardCheckBox = new System.Windows.Forms.CheckBox();
-            this.cm_treasure = new System.Windows.Forms.CheckBox();
             this.cm_stiltzkin = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Serial_But = new System.Windows.Forms.CheckBox();
             this.checkBoxRecommended = new System.Windows.Forms.CheckBox();
             this.checkBoxChaos = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.debugButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.enemyItemDrops = new System.Windows.Forms.Label();
+            this.enemyItemSteals = new System.Windows.Forms.Label();
+            this.enemyCardDrop = new System.Windows.Forms.Label();
+            this.enemyBlueMagic = new System.Windows.Forms.Label();
+            this.tmCardStats = new System.Windows.Forms.Label();
+            this.tmCardOrder = new System.Windows.Forms.Label();
+            this.tmDecks = new System.Windows.Forms.Label();
+            this.charBaseStats = new System.Windows.Forms.Label();
+            this.charSpeciality = new System.Windows.Forms.Label();
+            this.charAbilities = new System.Windows.Forms.Label();
+            this.charEquipment = new System.Windows.Forms.Label();
+            this.itemsTreasure = new System.Windows.Forms.Label();
+            this.itemsShops = new System.Windows.Forms.Label();
+            this.itemsSynth = new System.Windows.Forms.Label();
+            this.character = new System.Windows.Forms.CheckBox();
+            this.item = new System.Windows.Forms.CheckBox();
+            this.enemies = new System.Windows.Forms.CheckBox();
+            this.tm = new System.Windows.Forms.CheckBox();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
-            // 
-            // richTextBox_output
-            // 
-            this.richTextBox_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_output.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBox_output.Location = new System.Drawing.Point(44, 318);
-            this.richTextBox_output.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox_output.Name = "richTextBox_output";
-            this.richTextBox_output.ReadOnly = true;
-            this.richTextBox_output.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox_output.Size = new System.Drawing.Size(160, 143);
-            this.richTextBox_output.TabIndex = 1;
-            this.richTextBox_output.Text = "int getRandomNumber() {\n     return 4; // chosen by fair dice roll.\n             " +
-    "       // guaranteed to be random.\n}";
-            this.richTextBox_output.WordWrap = false;
-            this.richTextBox_output.TextChanged += new System.EventHandler(this.richTextBox_output_TextChanged);
             // 
             // label_seed
             // 
@@ -111,93 +89,20 @@ namespace rand9er
             this.textBox_seed.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBox_seed.Location = new System.Drawing.Point(75, 11);
             this.textBox_seed.Name = "textBox_seed";
-            this.textBox_seed.Size = new System.Drawing.Size(638, 20);
+            this.textBox_seed.Size = new System.Drawing.Size(481, 20);
             this.textBox_seed.TabIndex = 13;
             this.textBox_seed.TextChanged += new System.EventHandler(this.textBox_seed_TextChanged);
             // 
             // richTextBox_debug
             // 
-            this.richTextBox_debug.Location = new System.Drawing.Point(220, 368);
+            this.richTextBox_debug.Location = new System.Drawing.Point(583, 315);
             this.richTextBox_debug.Name = "richTextBox_debug";
             this.richTextBox_debug.ReadOnly = true;
             this.richTextBox_debug.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox_debug.Size = new System.Drawing.Size(221, 93);
+            this.richTextBox_debug.Size = new System.Drawing.Size(79, 37);
             this.richTextBox_debug.TabIndex = 14;
             this.richTextBox_debug.Text = "no bugs yet";
             this.richTextBox_debug.TextChanged += new System.EventHandler(this.richTextBox_debug_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Image = global::rand9er.Properties.Resources.bgc;
-            this.label1.Location = new System.Drawing.Point(388, 347);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Debug";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // c_prices
-            // 
-            this.c_prices.AutoSize = true;
-            this.c_prices.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_prices.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_prices.Enabled = false;
-            this.c_prices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_prices.ForeColor = System.Drawing.Color.White;
-            this.c_prices.Location = new System.Drawing.Point(84, 205);
-            this.c_prices.Name = "c_prices";
-            this.c_prices.Size = new System.Drawing.Size(61, 17);
-            this.c_prices.TabIndex = 29;
-            this.c_prices.Text = "Prices";
-            this.c_prices.UseVisualStyleBackColor = false;
-            this.c_prices.CheckedChanged += new System.EventHandler(this.c_prices_CheckedChanged);
-            // 
-            // c_result
-            // 
-            this.c_result.AutoSize = true;
-            this.c_result.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_result.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_result.Enabled = false;
-            this.c_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_result.ForeColor = System.Drawing.Color.White;
-            this.c_result.Location = new System.Drawing.Point(84, 182);
-            this.c_result.Margin = new System.Windows.Forms.Padding(2);
-            this.c_result.Name = "c_result";
-            this.c_result.Size = new System.Drawing.Size(62, 17);
-            this.c_result.TabIndex = 28;
-            this.c_result.Text = "Result";
-            this.c_result.UseVisualStyleBackColor = false;
-            this.c_result.CheckedChanged += new System.EventHandler(this.c_result_CheckedChanged);
-            // 
-            // c_require
-            // 
-            this.c_require.AutoSize = true;
-            this.c_require.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_require.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_require.Enabled = false;
-            this.c_require.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_require.ForeColor = System.Drawing.Color.White;
-            this.c_require.Location = new System.Drawing.Point(84, 159);
-            this.c_require.Margin = new System.Windows.Forms.Padding(2);
-            this.c_require.Name = "c_require";
-            this.c_require.Size = new System.Drawing.Size(103, 17);
-            this.c_require.TabIndex = 26;
-            this.c_require.Text = "Requirements";
-            this.c_require.UseVisualStyleBackColor = false;
-            this.c_require.CheckedChanged += new System.EventHandler(this.c_require_CheckedChanged);
-            // 
-            // pbar_tree
-            // 
-            this.pbar_tree.Location = new System.Drawing.Point(635, 433);
-            this.pbar_tree.Margin = new System.Windows.Forms.Padding(2);
-            this.pbar_tree.Name = "pbar_tree";
-            this.pbar_tree.Size = new System.Drawing.Size(175, 10);
-            this.pbar_tree.TabIndex = 22;
-            this.pbar_tree.Click += new System.EventHandler(this.pbar_tree_Click);
             // 
             // b_rseed
             // 
@@ -208,10 +113,10 @@ namespace rand9er
             this.b_rseed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.b_rseed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_rseed.ForeColor = System.Drawing.Color.White;
-            this.b_rseed.Location = new System.Drawing.Point(718, 14);
+            this.b_rseed.Location = new System.Drawing.Point(561, 11);
             this.b_rseed.Margin = new System.Windows.Forms.Padding(2);
             this.b_rseed.Name = "b_rseed";
-            this.b_rseed.Size = new System.Drawing.Size(101, 19);
+            this.b_rseed.Size = new System.Drawing.Size(101, 22);
             this.b_rseed.TabIndex = 23;
             this.b_rseed.Text = "Random Seed";
             this.b_rseed.UseVisualStyleBackColor = false;
@@ -226,10 +131,10 @@ namespace rand9er
             this.b_open.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.b_open.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_open.ForeColor = System.Drawing.Color.White;
-            this.b_open.Location = new System.Drawing.Point(661, 42);
+            this.b_open.Location = new System.Drawing.Point(504, 40);
             this.b_open.Margin = new System.Windows.Forms.Padding(2);
             this.b_open.Name = "b_open";
-            this.b_open.Size = new System.Drawing.Size(158, 20);
+            this.b_open.Size = new System.Drawing.Size(158, 22);
             this.b_open.TabIndex = 24;
             this.b_open.Text = "Choose FFIX location";
             this.b_open.UseVisualStyleBackColor = false;
@@ -243,7 +148,7 @@ namespace rand9er
             this.tb_fl.Location = new System.Drawing.Point(75, 40);
             this.tb_fl.Margin = new System.Windows.Forms.Padding(2);
             this.tb_fl.Name = "tb_fl";
-            this.tb_fl.Size = new System.Drawing.Size(475, 20);
+            this.tb_fl.Size = new System.Drawing.Size(318, 20);
             this.tb_fl.TabIndex = 25;
             this.tb_fl.TextChanged += new System.EventHandler(this.tb_fl_TextChanged);
             // 
@@ -252,16 +157,15 @@ namespace rand9er
             this.b_remove.AutoEllipsis = true;
             this.b_remove.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.b_remove.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
-            this.b_remove.Enabled = false;
             this.b_remove.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.b_remove.FlatAppearance.BorderSize = 3;
             this.b_remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.b_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_remove.ForeColor = System.Drawing.Color.White;
-            this.b_remove.Location = new System.Drawing.Point(465, 433);
+            this.b_remove.Location = new System.Drawing.Point(201, 397);
             this.b_remove.Margin = new System.Windows.Forms.Padding(2);
             this.b_remove.Name = "b_remove";
-            this.b_remove.Size = new System.Drawing.Size(145, 35);
+            this.b_remove.Size = new System.Drawing.Size(270, 28);
             this.b_remove.TabIndex = 26;
             this.b_remove.Text = "Remove Stiltzkin\'s Bag from Mod Load Order";
             this.b_remove.UseVisualStyleBackColor = false;
@@ -276,155 +180,13 @@ namespace rand9er
             this.b_search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.b_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_search.ForeColor = System.Drawing.Color.White;
-            this.b_search.Location = new System.Drawing.Point(555, 41);
+            this.b_search.Location = new System.Drawing.Point(398, 40);
             this.b_search.Name = "b_search";
             this.b_search.Size = new System.Drawing.Size(101, 22);
             this.b_search.TabIndex = 27;
             this.b_search.Text = "Auto Locate";
             this.b_search.UseVisualStyleBackColor = false;
             this.b_search.Click += new System.EventHandler(this.b_search_Click);
-            // 
-            // cm_synth
-            // 
-            this.cm_synth.AutoSize = true;
-            this.cm_synth.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cm_synth.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.cm_synth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cm_synth.ForeColor = System.Drawing.Color.White;
-            this.cm_synth.Location = new System.Drawing.Point(64, 132);
-            this.cm_synth.Name = "cm_synth";
-            this.cm_synth.Size = new System.Drawing.Size(100, 22);
-            this.cm_synth.TabIndex = 40;
-            this.cm_synth.Text = "Synthesis";
-            this.cm_synth.UseVisualStyleBackColor = false;
-            this.cm_synth.CheckedChanged += new System.EventHandler(this.cm_synth_CheckedChanged);
-            // 
-            // cm_itemshop
-            // 
-            this.cm_itemshop.AutoSize = true;
-            this.cm_itemshop.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cm_itemshop.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.cm_itemshop.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cm_itemshop.ForeColor = System.Drawing.Color.White;
-            this.cm_itemshop.Location = new System.Drawing.Point(64, 104);
-            this.cm_itemshop.Name = "cm_itemshop";
-            this.cm_itemshop.Size = new System.Drawing.Size(112, 22);
-            this.cm_itemshop.TabIndex = 41;
-            this.cm_itemshop.Text = "Item Shops";
-            this.cm_itemshop.UseVisualStyleBackColor = false;
-            this.cm_itemshop.CheckedChanged += new System.EventHandler(this.cm_itemshop_CheckedChanged);
-            // 
-            // cm_char
-            // 
-            this.cm_char.AutoSize = true;
-            this.cm_char.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cm_char.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.cm_char.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cm_char.ForeColor = System.Drawing.Color.White;
-            this.cm_char.Location = new System.Drawing.Point(249, 76);
-            this.cm_char.Name = "cm_char";
-            this.cm_char.Size = new System.Drawing.Size(110, 22);
-            this.cm_char.TabIndex = 42;
-            this.cm_char.Text = "Characters";
-            this.cm_char.UseVisualStyleBackColor = false;
-            this.cm_char.CheckedChanged += new System.EventHandler(this.cm_char_CheckedChanged);
-            // 
-            // c_default
-            // 
-            this.c_default.AutoSize = true;
-            this.c_default.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_default.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_default.Enabled = false;
-            this.c_default.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_default.ForeColor = System.Drawing.Color.White;
-            this.c_default.Location = new System.Drawing.Point(269, 150);
-            this.c_default.Name = "c_default";
-            this.c_default.Size = new System.Drawing.Size(133, 17);
-            this.c_default.TabIndex = 46;
-            this.c_default.Text = "Starting Equipment";
-            this.c_default.UseVisualStyleBackColor = false;
-            this.c_default.CheckedChanged += new System.EventHandler(this.c_default_CheckedChanged);
-            this.c_default.EnabledChanged += new System.EventHandler(this.c_default_EnabledChanged);
-            // 
-            // c_basestats
-            // 
-            this.c_basestats.AutoSize = true;
-            this.c_basestats.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_basestats.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_basestats.Enabled = false;
-            this.c_basestats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_basestats.ForeColor = System.Drawing.Color.White;
-            this.c_basestats.Location = new System.Drawing.Point(269, 127);
-            this.c_basestats.Name = "c_basestats";
-            this.c_basestats.Size = new System.Drawing.Size(87, 17);
-            this.c_basestats.TabIndex = 47;
-            this.c_basestats.Text = "Base Stats";
-            this.c_basestats.UseVisualStyleBackColor = false;
-            this.c_basestats.CheckedChanged += new System.EventHandler(this.c_basestats_CheckedChanged);
-            // 
-            // c_abilitygems
-            // 
-            this.c_abilitygems.AutoSize = true;
-            this.c_abilitygems.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_abilitygems.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_abilitygems.Enabled = false;
-            this.c_abilitygems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_abilitygems.ForeColor = System.Drawing.Color.White;
-            this.c_abilitygems.Location = new System.Drawing.Point(269, 104);
-            this.c_abilitygems.Name = "c_abilitygems";
-            this.c_abilitygems.Size = new System.Drawing.Size(118, 17);
-            this.c_abilitygems.TabIndex = 48;
-            this.c_abilitygems.Text = "Ability Gem Cost";
-            this.c_abilitygems.UseVisualStyleBackColor = false;
-            this.c_abilitygems.CheckedChanged += new System.EventHandler(this.c_abilitygems_CheckedChanged);
-            // 
-            // c_random_e
-            // 
-            this.c_random_e.AutoSize = true;
-            this.c_random_e.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_random_e.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_random_e.Enabled = false;
-            this.c_random_e.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_random_e.ForeColor = System.Drawing.Color.White;
-            this.c_random_e.Location = new System.Drawing.Point(289, 196);
-            this.c_random_e.Name = "c_random_e";
-            this.c_random_e.Size = new System.Drawing.Size(112, 17);
-            this.c_random_e.TabIndex = 50;
-            this.c_random_e.Text = "random no sets";
-            this.c_random_e.UseVisualStyleBackColor = false;
-            this.c_random_e.CheckedChanged += new System.EventHandler(this.c_random_e_CheckedChanged);
-            // 
-            // c_main_e
-            // 
-            this.c_main_e.AutoSize = true;
-            this.c_main_e.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_main_e.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_main_e.Enabled = false;
-            this.c_main_e.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_main_e.ForeColor = System.Drawing.Color.White;
-            this.c_main_e.Location = new System.Drawing.Point(289, 173);
-            this.c_main_e.Name = "c_main_e";
-            this.c_main_e.Size = new System.Drawing.Size(133, 17);
-            this.c_main_e.TabIndex = 51;
-            this.c_main_e.Text = "keep original types";
-            this.c_main_e.UseVisualStyleBackColor = false;
-            this.c_main_e.CheckedChanged += new System.EventHandler(this.c_main_e_CheckedChanged);
-            // 
-            // c_all_e
-            // 
-            this.c_all_e.AutoSize = true;
-            this.c_all_e.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_all_e.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_all_e.Enabled = false;
-            this.c_all_e.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_all_e.ForeColor = System.Drawing.Color.White;
-            this.c_all_e.Location = new System.Drawing.Point(289, 220);
-            this.c_all_e.Name = "c_all_e";
-            this.c_all_e.Size = new System.Drawing.Size(101, 17);
-            this.c_all_e.TabIndex = 53;
-            this.c_all_e.Text = "share all sets";
-            this.c_all_e.UseVisualStyleBackColor = false;
-            this.c_all_e.CheckedChanged += new System.EventHandler(this.c_all_e_CheckedChanged);
             // 
             // button_rand
             // 
@@ -434,12 +196,12 @@ namespace rand9er
             this.button_rand.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_rand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_rand.ForeColor = System.Drawing.Color.White;
-            this.button_rand.Location = new System.Drawing.Point(635, 365);
+            this.button_rand.Location = new System.Drawing.Point(485, 375);
             this.button_rand.Margin = new System.Windows.Forms.Padding(2);
             this.button_rand.Name = "button_rand";
             this.button_rand.Size = new System.Drawing.Size(176, 50);
             this.button_rand.TabIndex = 2;
-            this.button_rand.Text = "Buy for 333 Gil";
+            this.button_rand.Text = "Stitzkin\'s Bag";
             this.button_rand.UseVisualStyleBackColor = false;
             this.button_rand.Click += new System.EventHandler(this.button_rand_Click);
             // 
@@ -451,139 +213,13 @@ namespace rand9er
             this.cm_entrances.Enabled = false;
             this.cm_entrances.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cm_entrances.ForeColor = System.Drawing.Color.White;
-            this.cm_entrances.Location = new System.Drawing.Point(667, 293);
+            this.cm_entrances.Location = new System.Drawing.Point(507, 221);
             this.cm_entrances.Name = "cm_entrances";
             this.cm_entrances.Size = new System.Drawing.Size(144, 22);
             this.cm_entrances.TabIndex = 56;
             this.cm_entrances.Text = "Field Entrances";
             this.cm_entrances.UseVisualStyleBackColor = false;
             this.cm_entrances.CheckedChanged += new System.EventHandler(this.cm_entrances_CheckedChanged);
-            // 
-            // EnemyCheckBox
-            // 
-            this.EnemyCheckBox.AutoSize = true;
-            this.EnemyCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.EnemyCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.EnemyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyCheckBox.ForeColor = System.Drawing.Color.White;
-            this.EnemyCheckBox.Location = new System.Drawing.Point(462, 76);
-            this.EnemyCheckBox.Name = "EnemyCheckBox";
-            this.EnemyCheckBox.Size = new System.Drawing.Size(92, 22);
-            this.EnemyCheckBox.TabIndex = 60;
-            this.EnemyCheckBox.Text = "Enemies";
-            this.EnemyCheckBox.UseVisualStyleBackColor = false;
-            this.EnemyCheckBox.CheckedChanged += new System.EventHandler(this.cm_enemies_CheckedChanged);
-            // 
-            // EnemyStealsCheckBox
-            // 
-            this.EnemyStealsCheckBox.AutoSize = true;
-            this.EnemyStealsCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.EnemyStealsCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.EnemyStealsCheckBox.Enabled = false;
-            this.EnemyStealsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyStealsCheckBox.ForeColor = System.Drawing.Color.White;
-            this.EnemyStealsCheckBox.Location = new System.Drawing.Point(483, 104);
-            this.EnemyStealsCheckBox.Name = "EnemyStealsCheckBox";
-            this.EnemyStealsCheckBox.Size = new System.Drawing.Size(89, 17);
-            this.EnemyStealsCheckBox.TabIndex = 61;
-            this.EnemyStealsCheckBox.Text = "Item Steals";
-            this.EnemyStealsCheckBox.UseVisualStyleBackColor = false;
-            this.EnemyStealsCheckBox.CheckedChanged += new System.EventHandler(this.c_esteals_CheckedChanged);
-            // 
-            // EnemyDropsCheckBox
-            // 
-            this.EnemyDropsCheckBox.AutoSize = true;
-            this.EnemyDropsCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.EnemyDropsCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.EnemyDropsCheckBox.Enabled = false;
-            this.EnemyDropsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyDropsCheckBox.ForeColor = System.Drawing.Color.White;
-            this.EnemyDropsCheckBox.Location = new System.Drawing.Point(483, 127);
-            this.EnemyDropsCheckBox.Name = "EnemyDropsCheckBox";
-            this.EnemyDropsCheckBox.Size = new System.Drawing.Size(87, 17);
-            this.EnemyDropsCheckBox.TabIndex = 62;
-            this.EnemyDropsCheckBox.Text = "Item Drops";
-            this.EnemyDropsCheckBox.UseVisualStyleBackColor = false;
-            this.EnemyDropsCheckBox.CheckedChanged += new System.EventHandler(this.c_edrops_CheckedChanged);
-            // 
-            // EnemyBluMagCheckBox
-            // 
-            this.EnemyBluMagCheckBox.AutoSize = true;
-            this.EnemyBluMagCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.EnemyBluMagCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.EnemyBluMagCheckBox.Enabled = false;
-            this.EnemyBluMagCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyBluMagCheckBox.ForeColor = System.Drawing.Color.White;
-            this.EnemyBluMagCheckBox.Location = new System.Drawing.Point(483, 174);
-            this.EnemyBluMagCheckBox.Name = "EnemyBluMagCheckBox";
-            this.EnemyBluMagCheckBox.Size = new System.Drawing.Size(139, 17);
-            this.EnemyBluMagCheckBox.TabIndex = 63;
-            this.EnemyBluMagCheckBox.Text = "Blue Magic Learned";
-            this.EnemyBluMagCheckBox.UseVisualStyleBackColor = false;
-            this.EnemyBluMagCheckBox.CheckedChanged += new System.EventHandler(this.c_es1_CheckedChanged);
-            // 
-            // c_es4
-            // 
-            this.c_es4.AutoSize = true;
-            this.c_es4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_es4.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_es4.Enabled = false;
-            this.c_es4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_es4.ForeColor = System.Drawing.Color.White;
-            this.c_es4.Location = new System.Drawing.Point(685, 152);
-            this.c_es4.Name = "c_es4";
-            this.c_es4.Size = new System.Drawing.Size(126, 17);
-            this.c_es4.TabIndex = 66;
-            this.c_es4.Text = "Card\'s Base Stats";
-            this.c_es4.UseVisualStyleBackColor = false;
-            this.c_es4.CheckedChanged += new System.EventHandler(this.c_es4_CheckedChanged);
-            // 
-            // c_ed4
-            // 
-            this.c_ed4.AutoSize = true;
-            this.c_ed4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.c_ed4.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.c_ed4.Enabled = false;
-            this.c_ed4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c_ed4.ForeColor = System.Drawing.Color.White;
-            this.c_ed4.Location = new System.Drawing.Point(685, 128);
-            this.c_ed4.Name = "c_ed4";
-            this.c_ed4.Size = new System.Drawing.Size(103, 17);
-            this.c_ed4.TabIndex = 70;
-            this.c_ed4.Text = "Enemy Decks";
-            this.c_ed4.UseVisualStyleBackColor = false;
-            this.c_ed4.CheckedChanged += new System.EventHandler(this.c_ed4_CheckedChanged);
-            // 
-            // EnemyCardCheckBox
-            // 
-            this.EnemyCardCheckBox.AutoSize = true;
-            this.EnemyCardCheckBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.EnemyCardCheckBox.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.EnemyCardCheckBox.Enabled = false;
-            this.EnemyCardCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyCardCheckBox.ForeColor = System.Drawing.Color.White;
-            this.EnemyCardCheckBox.Location = new System.Drawing.Point(483, 150);
-            this.EnemyCardCheckBox.Name = "EnemyCardCheckBox";
-            this.EnemyCardCheckBox.Size = new System.Drawing.Size(83, 17);
-            this.EnemyCardCheckBox.TabIndex = 67;
-            this.EnemyCardCheckBox.Text = "Card Drop";
-            this.EnemyCardCheckBox.UseVisualStyleBackColor = false;
-            this.EnemyCardCheckBox.CheckedChanged += new System.EventHandler(this.c_ed1_CheckedChanged);
-            // 
-            // cm_treasure
-            // 
-            this.cm_treasure.AutoSize = true;
-            this.cm_treasure.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cm_treasure.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.cm_treasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cm_treasure.ForeColor = System.Drawing.Color.White;
-            this.cm_treasure.Location = new System.Drawing.Point(64, 76);
-            this.cm_treasure.Name = "cm_treasure";
-            this.cm_treasure.Size = new System.Drawing.Size(140, 22);
-            this.cm_treasure.TabIndex = 74;
-            this.cm_treasure.Text = "Treasure Items";
-            this.cm_treasure.UseVisualStyleBackColor = false;
-            this.cm_treasure.CheckedChanged += new System.EventHandler(this.cm_treasure_CheckedChanged);
             // 
             // cm_stiltzkin
             // 
@@ -593,7 +229,7 @@ namespace rand9er
             this.cm_stiltzkin.Enabled = false;
             this.cm_stiltzkin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cm_stiltzkin.ForeColor = System.Drawing.Color.White;
-            this.cm_stiltzkin.Location = new System.Drawing.Point(667, 321);
+            this.cm_stiltzkin.Location = new System.Drawing.Point(507, 249);
             this.cm_stiltzkin.Name = "cm_stiltzkin";
             this.cm_stiltzkin.Size = new System.Drawing.Size(134, 22);
             this.cm_stiltzkin.TabIndex = 75;
@@ -608,27 +244,11 @@ namespace rand9er
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(462, 347);
+            this.label2.Location = new System.Drawing.Point(482, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 16);
             this.label2.TabIndex = 81;
             this.label2.Text = "Randomize Version";
-            // 
-            // Serial_But
-            // 
-            this.Serial_But.AutoSize = true;
-            this.Serial_But.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Serial_But.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.Serial_But.Enabled = false;
-            this.Serial_But.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Serial_But.ForeColor = System.Drawing.Color.White;
-            this.Serial_But.Location = new System.Drawing.Point(324, 343);
-            this.Serial_But.Name = "Serial_But";
-            this.Serial_But.Size = new System.Drawing.Size(58, 17);
-            this.Serial_But.TabIndex = 82;
-            this.Serial_But.Text = "Serial";
-            this.Serial_But.UseVisualStyleBackColor = false;
-            this.Serial_But.CheckedChanged += new System.EventHandler(this.Serial_But_CheckedChanged);
             // 
             // checkBoxRecommended
             // 
@@ -637,12 +257,13 @@ namespace rand9er
             this.checkBoxRecommended.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.checkBoxRecommended.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxRecommended.ForeColor = System.Drawing.Color.White;
-            this.checkBoxRecommended.Location = new System.Drawing.Point(488, 375);
+            this.checkBoxRecommended.Location = new System.Drawing.Point(508, 116);
             this.checkBoxRecommended.Name = "checkBoxRecommended";
             this.checkBoxRecommended.Size = new System.Drawing.Size(109, 17);
             this.checkBoxRecommended.TabIndex = 83;
             this.checkBoxRecommended.Text = "Recommended";
             this.checkBoxRecommended.UseVisualStyleBackColor = false;
+            this.checkBoxRecommended.CheckedChanged += new System.EventHandler(this.checkBoxRecommended_CheckedChanged);
             // 
             // checkBoxChaos
             // 
@@ -651,56 +272,13 @@ namespace rand9er
             this.checkBoxChaos.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.checkBoxChaos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxChaos.ForeColor = System.Drawing.Color.White;
-            this.checkBoxChaos.Location = new System.Drawing.Point(488, 396);
+            this.checkBoxChaos.Location = new System.Drawing.Point(508, 137);
             this.checkBoxChaos.Name = "checkBoxChaos";
             this.checkBoxChaos.Size = new System.Drawing.Size(116, 17);
             this.checkBoxChaos.TabIndex = 84;
             this.checkBoxChaos.Text = "Maximum Chaos";
             this.checkBoxChaos.UseVisualStyleBackColor = false;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox4.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(659, 76);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(118, 22);
-            this.checkBox4.TabIndex = 85;
-            this.checkBox4.Text = "TetraMaster";
-            this.checkBox4.UseVisualStyleBackColor = false;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox5.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.checkBox5.Enabled = false;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.ForeColor = System.Drawing.Color.White;
-            this.checkBox5.Location = new System.Drawing.Point(685, 175);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(134, 17);
-            this.checkBox5.TabIndex = 86;
-            this.checkBox5.Text = "Card\'s Attack Type";
-            this.checkBox5.UseVisualStyleBackColor = false;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox6.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.checkBox6.Enabled = false;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.ForeColor = System.Drawing.Color.White;
-            this.checkBox6.Location = new System.Drawing.Point(685, 104);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(117, 17);
-            this.checkBox6.TabIndex = 87;
-            this.checkBox6.Text = "Enemy Difficulty";
-            this.checkBox6.UseVisualStyleBackColor = false;
+            this.checkBoxChaos.CheckedChanged += new System.EventHandler(this.checkBoxChaos_CheckedChanged);
             // 
             // label3
             // 
@@ -718,68 +296,339 @@ namespace rand9er
             // 
             this.debugButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.debugButton.BackgroundImage = global::rand9er.Properties.Resources.bgc2;
+            this.debugButton.Enabled = false;
             this.debugButton.FlatAppearance.BorderSize = 3;
             this.debugButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.debugButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.debugButton.ForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.debugButton.Location = new System.Drawing.Point(477, 272);
+            this.debugButton.Location = new System.Drawing.Point(496, 315);
             this.debugButton.Margin = new System.Windows.Forms.Padding(2);
             this.debugButton.Name = "debugButton";
-            this.debugButton.Size = new System.Drawing.Size(95, 60);
+            this.debugButton.Size = new System.Drawing.Size(82, 37);
             this.debugButton.TabIndex = 89;
             this.debugButton.Text = "Debug Funcs";
             this.debugButton.UseVisualStyleBackColor = false;
             this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label1.Location = new System.Drawing.Point(482, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.TabIndex = 90;
+            this.label1.Text = "RoadMap";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label4.Location = new System.Drawing.Point(36, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.TabIndex = 91;
+            this.label4.Text = "Features";
+            // 
+            // enemyItemDrops
+            // 
+            this.enemyItemDrops.AutoSize = true;
+            this.enemyItemDrops.BackColor = System.Drawing.Color.Transparent;
+            this.enemyItemDrops.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.enemyItemDrops.ForeColor = System.Drawing.Color.White;
+            this.enemyItemDrops.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.enemyItemDrops.Location = new System.Drawing.Point(86, 290);
+            this.enemyItemDrops.Name = "enemyItemDrops";
+            this.enemyItemDrops.Size = new System.Drawing.Size(68, 13);
+            this.enemyItemDrops.TabIndex = 107;
+            this.enemyItemDrops.Text = "Item Drops";
+            // 
+            // enemyItemSteals
+            // 
+            this.enemyItemSteals.AutoSize = true;
+            this.enemyItemSteals.BackColor = System.Drawing.Color.Transparent;
+            this.enemyItemSteals.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.enemyItemSteals.ForeColor = System.Drawing.Color.White;
+            this.enemyItemSteals.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.enemyItemSteals.Location = new System.Drawing.Point(86, 313);
+            this.enemyItemSteals.Name = "enemyItemSteals";
+            this.enemyItemSteals.Size = new System.Drawing.Size(70, 13);
+            this.enemyItemSteals.TabIndex = 108;
+            this.enemyItemSteals.Text = "Item Steals";
+            // 
+            // enemyCardDrop
+            // 
+            this.enemyCardDrop.AutoSize = true;
+            this.enemyCardDrop.BackColor = System.Drawing.Color.Transparent;
+            this.enemyCardDrop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.enemyCardDrop.ForeColor = System.Drawing.Color.White;
+            this.enemyCardDrop.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.enemyCardDrop.Location = new System.Drawing.Point(86, 336);
+            this.enemyCardDrop.Name = "enemyCardDrop";
+            this.enemyCardDrop.Size = new System.Drawing.Size(64, 13);
+            this.enemyCardDrop.TabIndex = 109;
+            this.enemyCardDrop.Text = "Card Drop";
+            // 
+            // enemyBlueMagic
+            // 
+            this.enemyBlueMagic.AutoSize = true;
+            this.enemyBlueMagic.BackColor = System.Drawing.Color.Transparent;
+            this.enemyBlueMagic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.enemyBlueMagic.ForeColor = System.Drawing.Color.White;
+            this.enemyBlueMagic.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.enemyBlueMagic.Location = new System.Drawing.Point(84, 360);
+            this.enemyBlueMagic.Name = "enemyBlueMagic";
+            this.enemyBlueMagic.Size = new System.Drawing.Size(70, 13);
+            this.enemyBlueMagic.TabIndex = 110;
+            this.enemyBlueMagic.Text = "Blue Magic";
+            // 
+            // tmCardStats
+            // 
+            this.tmCardStats.AutoSize = true;
+            this.tmCardStats.BackColor = System.Drawing.Color.Transparent;
+            this.tmCardStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tmCardStats.ForeColor = System.Drawing.Color.White;
+            this.tmCardStats.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.tmCardStats.Location = new System.Drawing.Point(289, 290);
+            this.tmCardStats.Name = "tmCardStats";
+            this.tmCardStats.Size = new System.Drawing.Size(66, 13);
+            this.tmCardStats.TabIndex = 111;
+            this.tmCardStats.Text = "Card Stats";
+            // 
+            // tmCardOrder
+            // 
+            this.tmCardOrder.AutoSize = true;
+            this.tmCardOrder.BackColor = System.Drawing.Color.Transparent;
+            this.tmCardOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tmCardOrder.ForeColor = System.Drawing.Color.White;
+            this.tmCardOrder.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.tmCardOrder.Location = new System.Drawing.Point(289, 313);
+            this.tmCardOrder.Name = "tmCardOrder";
+            this.tmCardOrder.Size = new System.Drawing.Size(68, 13);
+            this.tmCardOrder.TabIndex = 112;
+            this.tmCardOrder.Text = "Card Order";
+            // 
+            // tmDecks
+            // 
+            this.tmDecks.AutoSize = true;
+            this.tmDecks.BackColor = System.Drawing.Color.Transparent;
+            this.tmDecks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tmDecks.ForeColor = System.Drawing.Color.White;
+            this.tmDecks.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.tmDecks.Location = new System.Drawing.Point(289, 339);
+            this.tmDecks.Name = "tmDecks";
+            this.tmDecks.Size = new System.Drawing.Size(43, 13);
+            this.tmDecks.TabIndex = 113;
+            this.tmDecks.Text = "Decks";
+            // 
+            // charBaseStats
+            // 
+            this.charBaseStats.AutoSize = true;
+            this.charBaseStats.BackColor = System.Drawing.Color.Transparent;
+            this.charBaseStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charBaseStats.ForeColor = System.Drawing.Color.White;
+            this.charBaseStats.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.charBaseStats.Location = new System.Drawing.Point(84, 144);
+            this.charBaseStats.Name = "charBaseStats";
+            this.charBaseStats.Size = new System.Drawing.Size(68, 13);
+            this.charBaseStats.TabIndex = 114;
+            this.charBaseStats.Text = "Base Stats";
+            // 
+            // charSpeciality
+            // 
+            this.charSpeciality.AutoSize = true;
+            this.charSpeciality.BackColor = System.Drawing.Color.Transparent;
+            this.charSpeciality.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charSpeciality.ForeColor = System.Drawing.Color.White;
+            this.charSpeciality.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.charSpeciality.Location = new System.Drawing.Point(86, 167);
+            this.charSpeciality.Name = "charSpeciality";
+            this.charSpeciality.Size = new System.Drawing.Size(62, 13);
+            this.charSpeciality.TabIndex = 115;
+            this.charSpeciality.Text = "Speciality";
+            // 
+            // charAbilities
+            // 
+            this.charAbilities.AutoSize = true;
+            this.charAbilities.BackColor = System.Drawing.Color.Transparent;
+            this.charAbilities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charAbilities.ForeColor = System.Drawing.Color.White;
+            this.charAbilities.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.charAbilities.Location = new System.Drawing.Point(86, 190);
+            this.charAbilities.Name = "charAbilities";
+            this.charAbilities.Size = new System.Drawing.Size(51, 13);
+            this.charAbilities.TabIndex = 116;
+            this.charAbilities.Text = "Abilities";
+            // 
+            // charEquipment
+            // 
+            this.charEquipment.AutoSize = true;
+            this.charEquipment.BackColor = System.Drawing.Color.Transparent;
+            this.charEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charEquipment.ForeColor = System.Drawing.Color.White;
+            this.charEquipment.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.charEquipment.Location = new System.Drawing.Point(86, 214);
+            this.charEquipment.Name = "charEquipment";
+            this.charEquipment.Size = new System.Drawing.Size(66, 13);
+            this.charEquipment.TabIndex = 117;
+            this.charEquipment.Text = "Equipment";
+            // 
+            // itemsTreasure
+            // 
+            this.itemsTreasure.AutoSize = true;
+            this.itemsTreasure.BackColor = System.Drawing.Color.Transparent;
+            this.itemsTreasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.itemsTreasure.ForeColor = System.Drawing.Color.White;
+            this.itemsTreasure.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.itemsTreasure.Location = new System.Drawing.Point(291, 144);
+            this.itemsTreasure.Name = "itemsTreasure";
+            this.itemsTreasure.Size = new System.Drawing.Size(57, 13);
+            this.itemsTreasure.TabIndex = 118;
+            this.itemsTreasure.Text = "Treasure";
+            // 
+            // itemsShops
+            // 
+            this.itemsShops.AutoSize = true;
+            this.itemsShops.BackColor = System.Drawing.Color.Transparent;
+            this.itemsShops.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.itemsShops.ForeColor = System.Drawing.Color.White;
+            this.itemsShops.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.itemsShops.Location = new System.Drawing.Point(291, 167);
+            this.itemsShops.Name = "itemsShops";
+            this.itemsShops.Size = new System.Drawing.Size(42, 13);
+            this.itemsShops.TabIndex = 119;
+            this.itemsShops.Text = "Shops";
+            // 
+            // itemsSynth
+            // 
+            this.itemsSynth.AutoSize = true;
+            this.itemsSynth.BackColor = System.Drawing.Color.Transparent;
+            this.itemsSynth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.itemsSynth.ForeColor = System.Drawing.Color.White;
+            this.itemsSynth.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.itemsSynth.Location = new System.Drawing.Point(291, 190);
+            this.itemsSynth.Name = "itemsSynth";
+            this.itemsSynth.Size = new System.Drawing.Size(61, 13);
+            this.itemsSynth.TabIndex = 120;
+            this.itemsSynth.Text = "Synthesis";
+            // 
+            // character
+            // 
+            this.character.AutoSize = true;
+            this.character.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.character.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.character.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.character.ForeColor = System.Drawing.Color.White;
+            this.character.Location = new System.Drawing.Point(62, 116);
+            this.character.Name = "character";
+            this.character.Size = new System.Drawing.Size(101, 22);
+            this.character.TabIndex = 121;
+            this.character.Text = "Character";
+            this.character.UseVisualStyleBackColor = false;
+            this.character.CheckedChanged += new System.EventHandler(this.character_CheckedChanged);
+            // 
+            // item
+            // 
+            this.item.AutoSize = true;
+            this.item.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.item.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.item.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item.ForeColor = System.Drawing.Color.White;
+            this.item.Location = new System.Drawing.Point(272, 116);
+            this.item.Name = "item";
+            this.item.Size = new System.Drawing.Size(68, 22);
+            this.item.TabIndex = 122;
+            this.item.Text = "Items";
+            this.item.UseVisualStyleBackColor = false;
+            this.item.CheckedChanged += new System.EventHandler(this.item_CheckedChanged_1);
+            // 
+            // enemies
+            // 
+            this.enemies.AutoSize = true;
+            this.enemies.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.enemies.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.enemies.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemies.ForeColor = System.Drawing.Color.White;
+            this.enemies.Location = new System.Drawing.Point(62, 262);
+            this.enemies.Name = "enemies";
+            this.enemies.Size = new System.Drawing.Size(92, 22);
+            this.enemies.TabIndex = 123;
+            this.enemies.Text = "Enemies";
+            this.enemies.UseVisualStyleBackColor = false;
+            this.enemies.CheckedChanged += new System.EventHandler(this.enemies_CheckedChanged);
+            // 
+            // tm
+            // 
+            this.tm.AutoSize = true;
+            this.tm.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tm.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.tm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tm.ForeColor = System.Drawing.Color.White;
+            this.tm.Location = new System.Drawing.Point(272, 262);
+            this.tm.Name = "tm";
+            this.tm.Size = new System.Drawing.Size(118, 22);
+            this.tm.TabIndex = 124;
+            this.tm.Text = "Tetramaster";
+            this.tm.UseVisualStyleBackColor = false;
+            this.tm.CheckedChanged += new System.EventHandler(this.tm_CheckedChanged_1);
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(13, 439);
+            this.progressBar2.Margin = new System.Windows.Forms.Padding(2);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(651, 13);
+            this.progressBar2.TabIndex = 125;
             // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc;
-            this.ClientSize = new System.Drawing.Size(863, 503);
+            this.ClientSize = new System.Drawing.Size(678, 473);
+            this.Controls.Add(this.progressBar2);
+            this.Controls.Add(this.tm);
+            this.Controls.Add(this.enemies);
+            this.Controls.Add(this.item);
+            this.Controls.Add(this.character);
+            this.Controls.Add(this.itemsSynth);
+            this.Controls.Add(this.itemsShops);
+            this.Controls.Add(this.itemsTreasure);
+            this.Controls.Add(this.charEquipment);
+            this.Controls.Add(this.charAbilities);
+            this.Controls.Add(this.charSpeciality);
+            this.Controls.Add(this.charBaseStats);
+            this.Controls.Add(this.tmDecks);
+            this.Controls.Add(this.tmCardOrder);
+            this.Controls.Add(this.tmCardStats);
+            this.Controls.Add(this.enemyBlueMagic);
+            this.Controls.Add(this.enemyCardDrop);
+            this.Controls.Add(this.enemyItemSteals);
+            this.Controls.Add(this.enemyItemDrops);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.debugButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBoxChaos);
             this.Controls.Add(this.checkBoxRecommended);
-            this.Controls.Add(this.Serial_But);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cm_stiltzkin);
-            this.Controls.Add(this.cm_treasure);
-            this.Controls.Add(this.c_ed4);
-            this.Controls.Add(this.EnemyCardCheckBox);
-            this.Controls.Add(this.c_es4);
-            this.Controls.Add(this.EnemyBluMagCheckBox);
-            this.Controls.Add(this.EnemyDropsCheckBox);
-            this.Controls.Add(this.EnemyStealsCheckBox);
-            this.Controls.Add(this.EnemyCheckBox);
             this.Controls.Add(this.cm_entrances);
-            this.Controls.Add(this.c_all_e);
-            this.Controls.Add(this.c_main_e);
-            this.Controls.Add(this.c_random_e);
-            this.Controls.Add(this.c_abilitygems);
-            this.Controls.Add(this.c_basestats);
-            this.Controls.Add(this.c_default);
-            this.Controls.Add(this.cm_char);
-            this.Controls.Add(this.cm_itemshop);
-            this.Controls.Add(this.cm_synth);
-            this.Controls.Add(this.c_prices);
-            this.Controls.Add(this.c_result);
-            this.Controls.Add(this.c_require);
             this.Controls.Add(this.b_search);
             this.Controls.Add(this.b_remove);
             this.Controls.Add(this.tb_fl);
             this.Controls.Add(this.b_open);
             this.Controls.Add(this.b_rseed);
-            this.Controls.Add(this.pbar_tree);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox_debug);
             this.Controls.Add(this.textBox_seed);
             this.Controls.Add(this.label_seed);
             this.Controls.Add(this.button_rand);
-            this.Controls.Add(this.richTextBox_output);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "rand9er";
@@ -792,50 +641,44 @@ namespace rand9er
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox richTextBox_output;
         private System.Windows.Forms.Button button_rand;
         private System.Windows.Forms.Label label_seed;
         private System.Windows.Forms.RichTextBox richTextBox_debug;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox c_result;
-        private System.Windows.Forms.CheckBox c_require;
-        private System.Windows.Forms.ProgressBar pbar_tree;
         private System.Windows.Forms.Button b_rseed;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button b_open;
         private System.Windows.Forms.TextBox tb_fl;
         private System.Windows.Forms.Button b_remove;
         private System.Windows.Forms.Button b_search;
-        private System.Windows.Forms.CheckBox c_prices;
-        private System.Windows.Forms.CheckBox cm_synth;
-        private System.Windows.Forms.CheckBox cm_itemshop;
-        private System.Windows.Forms.CheckBox cm_char;
-        private System.Windows.Forms.CheckBox c_default;
-        private System.Windows.Forms.CheckBox c_basestats;
-        private System.Windows.Forms.CheckBox c_abilitygems;
-        private System.Windows.Forms.CheckBox c_random_e;
-        private System.Windows.Forms.CheckBox c_main_e;
-        private System.Windows.Forms.CheckBox c_all_e;
         private System.Windows.Forms.CheckBox cm_entrances;
-        private System.Windows.Forms.CheckBox EnemyCheckBox;
-        private System.Windows.Forms.CheckBox EnemyStealsCheckBox;
-        private System.Windows.Forms.CheckBox EnemyDropsCheckBox;
-        private System.Windows.Forms.CheckBox EnemyBluMagCheckBox;
-        private System.Windows.Forms.CheckBox c_es4;
-        private System.Windows.Forms.CheckBox c_ed4;
-        private System.Windows.Forms.CheckBox EnemyCardCheckBox;
-        private System.Windows.Forms.CheckBox cm_treasure;
         private System.Windows.Forms.CheckBox cm_stiltzkin;
         public System.Windows.Forms.TextBox textBox_seed;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox Serial_But;
         private System.Windows.Forms.CheckBox checkBoxRecommended;
         private System.Windows.Forms.CheckBox checkBoxChaos;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button debugButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label enemyItemDrops;
+        private System.Windows.Forms.Label enemyItemSteals;
+        private System.Windows.Forms.Label enemyCardDrop;
+        private System.Windows.Forms.Label enemyBlueMagic;
+        private System.Windows.Forms.Label tmCardStats;
+        private System.Windows.Forms.Label tmCardOrder;
+        private System.Windows.Forms.Label tmDecks;
+        private System.Windows.Forms.Label charBaseStats;
+        private System.Windows.Forms.Label charSpeciality;
+        private System.Windows.Forms.Label charAbilities;
+        private System.Windows.Forms.Label charEquipment;
+        private System.Windows.Forms.Label itemsTreasure;
+        private System.Windows.Forms.Label itemsShops;
+        private System.Windows.Forms.Label itemsSynth;
+        private System.Windows.Forms.CheckBox character;
+        private System.Windows.Forms.CheckBox item;
+        private System.Windows.Forms.CheckBox enemies;
+        private System.Windows.Forms.CheckBox tm;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 }
 

@@ -383,9 +383,9 @@ namespace rand9er
                     new int[xLength], new int[xLength], new int[xLength]
                 };
 
-                var worklist = WorkListBuild(options);
+                //var worklist = WorkListBuild(options);
 
-                EnemiesRand(workList);
+                //EnemiesRand(workList);
 
 
 
@@ -425,8 +425,9 @@ namespace rand9er
         List<int[]> WorkListBuild(string options)
         {
             // build list of all options checked and return the list
-            
-            return workList;
+
+            //return workList;
+            return new List<int[]>();
         }
 
 
