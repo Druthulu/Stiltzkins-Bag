@@ -116,6 +116,7 @@ namespace rand9er
             DirectoryInfo di2 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Items");
             DirectoryInfo di3 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters");
             DirectoryInfo di4 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters\\Abilities");
+            DirectoryInfo di5 = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Battle");
 
             // Seed done
             // Path done

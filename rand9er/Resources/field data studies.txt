@@ -1,0 +1,47 @@
+    if 09h = 01
+        1Ch = 01
+        28h = 01
+    if 09h = 02
+        1Ch = 00
+        28h = 01
+    if 09h = 03
+        1Ch = 00
+        28h = 00
+    if 09h = 04
+        1Ch = 00
+        28h = 00
+
+
+
+
+
+
+each enemy size is 116 after 1st enemy
+each group size is 56 no matter what
+
+
+2 enemies, 5group
+(2nd enemy)
+1A8h = drop                     //  424
+1ACh = steal
+1DBh = magic
+1FDh = card
+
+
+2 enemies means the second enemy is 116 plus the last
+
+
+(1st enemy)                 
+134h = drop                     //  308
+138h = steal
+167h = magic
+189h = card
+
+
+so if we math this out, we should get the orginal offsets of 84, etc.
+424-308 = 116, that is one enemy
+5groups * 56 for each group = 280
+380 - 280 = 28, which is our base offset for 0 groups.
+if we had one group = 
+28+56 = 84 !!!!
+This is right!!!!
