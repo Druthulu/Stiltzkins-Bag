@@ -127,7 +127,7 @@
         dCzhPuHWpGVLfjCR56TiNcVWZsX8uad6YfWCPTWpdJktRBllnAk0DFZYIkOOTlltUVxish8p4W/2/RPi
         MsS1hCmOYZax0H0/6g9+d+umenvySdURKH/yvLc2qNiCr03P+zz0vK8jCD3ChV3wLx/AwLvomwWtdR9q
         1+HssqAZ23C+AU0PWd3RfSkkM5hKweuJfNM01F9D1Wy+t599ju8gLl2NXcHuHrSnJXuuxLsri3v784zf
-        H5Fvs5lywVEwJEQAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAHdElNRQflCBYXMwLMU9L6AAD+IUlEQVR4
+        H5Fvs5lywVEwJEQAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAAHdElNRQflCBYXMwLMU9L6AAD+IUlEQVR4
         XsT99ZYsWZYtdt/uyjwUzMzMDB7MzHD4nKTiaqimC5KuWvcbn6T7Mvkg+SL5FDnG0pxr7b1tm7l5RJyq
         1tAfM9zD3dyczX6+Nth/ev781Y8vXpT99PJl+c+vXlX8gghTFlJpKYuDy0PKNa9eubwsl5cvyywvygTr
         /qI8z+Y5LmdwPsmr0nmec1nJZNcb3+8reebC8y9e8PlVSnl5tVRU1EhVZS1SF1JZUSsV5TVSXlalrwHX
@@ -6076,7 +6076,7 @@
   <data name="stilzkin" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAADEZJREFUWEd9l3lQVmeWxvlj/pmaSnXNjOkx7a6JohEFW4OyowgogizKprKoCAq0
+        vwAADr8BOAVTJAAADEZJREFUWEd9l3lQVmeWxvlj/pmaSnXNjOkx7a6JohEFW4OyowgogizKprKoCAq0
         gCxugAgCsn/sIIuy7yCigBEUUTbRuBt3Y9xaMmprjNMR/c35Ljpa1VN9ql7u/e57ec/zPu85zzlXA97x
         0d4Ov6d+XwKZfo7UJ2ynqyGP4bdvZOYdf/+fVwy/f8/vv79loKeH39++5d27T/87PPyOdzI+2XsZn//+
         R3v//h0C4L3cqF+G2zeuU5YQhrumNuEuDmz1tMLH3pRtXjY0ZLtwrGQjefEb6DrWpLyvticPH9HV3kBr
@@ -6388,7 +6388,7 @@
   <data name="sbag3" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAIAAACx0UUtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF5c/QV3I3m67Q3moe7qqspKMqQznXYymJmZZJBJzMzMzGixLLJlZoZk
+        vwAADr8BOAVTJAAA/7JJREFUeF5c/QV3I3m67Q3moe7qqspKMqQznXYymJmZZJBJzMzMzGixLLJlZoZk
         KIamA33g3nfemVnzZeYJu7vOue9ae8UKySo7y/5p72dH/CN0Jf28fP7xvfSDsuz9++my8ui9Uu/DEkvF
         bUHVVVF/kRhTxiWWciilPHqZkH5fSCvjEYsFlNtC2h0h466AVSrklQkFZVxeiUx53x9qyS4PLqwN5Fa7
         08utiYX65GJjItcSTbfMJRsD8YZAojGUag1nOkLp9miu2xWuN3tegOz+al+kMZRoDcZbA7E211yT2V2j
@@ -8351,7 +8351,7 @@
   <data name="bgc" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAIAAABI9cZ8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAFRVJREFUeF7tmuly21iShfkeM1WWxBXgLrvaEncAXOWKmTeZ6LIlruBOSu6al54v
+        vwAADr8BOAVTJAAAFRVJREFUeF7tmuly21iShfkeM1WWxBXgLrvaEncAXOWKmTeZ6LIlruBOSu6al54v
         MwmIdlSX+H8UcYKCyASQ5+Z+gUSq9phuPGabT7nWxO3MC/6y3N0Wg12pe1Dsi71dsr246cyT/vzGn4Gk
         P0sFi7S/yHqLfH+df9hmh+tUL0x3w1wQ5oOw2F8VeqHrz3PeLNOZJlsTgHBpuCsN94ZMJ8x6q5wvcIP1
         Cd4K5L1lwVuWvGXFX1WDTSXY3PYPt6PvHx/+rI7+VRm+lEbb0mBT6K4KQXiJ/omb2lcRak2czjwfLEu9
@@ -8450,5 +8450,107 @@
   </data>
   <data name="StockEnemyBytesJsonNoZeros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StockEnemyBytesJsonNoZeros.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AbilityFeatures" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\AbilityFeatures.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AbilityGems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\AbilityGems.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Actions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Battle\Actions.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Amarant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Amarant.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Armors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\Armors.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BaseStats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\BaseStats.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Beatrix1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Beatrix1.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Beatrix2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Beatrix2.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Blank1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Blank1.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Blank2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Blank2.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Cinna1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Cinna1.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Cinna2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Cinna2.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Commands" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Commands.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CommandSets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\CommandSets.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CommandTitles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\CommandTitles.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DefaultEquipment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\DefaultEquipment.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Eiko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Eiko.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Freya" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Freya.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Garnet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Garnet.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ItemEffects" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\ItemEffects.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\Items.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Leveling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Leveling.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Marcus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Marcus1.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Marcus2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Marcus2.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Quina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Quina.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ShopItems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\ShopItems.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Stats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\Stats.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="StatusData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Battle\StatusData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="StatusSets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Battle\StatusSets.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Steiner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Steiner.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Synthesis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\Synthesis.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Vivi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Vivi.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Weapons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Items\Weapons.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Zidane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSVs\Characters\Abilities\Zidane.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

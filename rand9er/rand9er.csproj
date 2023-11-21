@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Char.cs" />
     <Compile Include="Bytes.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="EnemiesData.cs" />
     <Compile Include="DebugForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +161,39 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\CSVs\Battle\Actions.csv" />
+    <None Include="Resources\CSVs\Battle\StatusData.csv" />
+    <None Include="Resources\CSVs\Battle\StatusSets.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\AbilityGems.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Amarant.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Beatrix1.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Beatrix2.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Blank1.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Blank2.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Cinna1.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Cinna2.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Eiko.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Freya.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Garnet.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Marcus1.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Marcus2.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Quina.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Steiner.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Vivi.csv" />
+    <None Include="Resources\CSVs\Characters\Abilities\Zidane.csv" />
+    <None Include="Resources\CSVs\Characters\BaseStats.csv" />
+    <None Include="Resources\CSVs\Characters\Commands.csv" />
+    <None Include="Resources\CSVs\Characters\CommandSets.csv" />
+    <None Include="Resources\CSVs\Characters\CommandTitles.csv" />
+    <None Include="Resources\CSVs\Characters\DefaultEquipment.csv" />
+    <None Include="Resources\CSVs\Characters\Leveling.csv" />
+    <None Include="Resources\CSVs\Items\Armors.csv" />
+    <None Include="Resources\CSVs\Items\ItemEffects.csv" />
+    <None Include="Resources\CSVs\Items\Items.csv" />
+    <None Include="Resources\CSVs\Items\ShopItems.csv" />
+    <None Include="Resources\CSVs\Items\Stats.csv" />
+    <None Include="Resources\CSVs\Items\Synthesis.csv" />
+    <None Include="Resources\CSVs\Items\Weapons.csv" />
     <None Include="Resources\SB_FFIO_mog.bin" />
     <None Include="Resources\SB_FFIO_reg.bin" />
     <EmbeddedResource Include="Resources\StockEnemyBytesJsonNoZeros.json" />
@@ -199,6 +233,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bgc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CSVs\Characters\Abilities\AbilityFeatures.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\EE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

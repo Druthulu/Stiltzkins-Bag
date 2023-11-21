@@ -16,8 +16,12 @@ using rand9er;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Runtime.CompilerServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Reflection;
 //using System.Security.Cryptography;
 //using System.Runtime.Serialization.Formatters.Binary;
+using static System.Net.Mime.MediaTypeNames;
+using System.Security.Cryptography;
+using System.CodeDom;
 
 namespace rand9er
 {
@@ -29,7 +33,9 @@ namespace rand9er
             InitializeComponent();
         }
         private Thread trd;
-        string seedFolderName = "";
+        public string seedFolderName = "";
+        public static int data_int = 0;
+        public static string seed = "42";
         private void character_CheckedChanged(object sender, EventArgs e)
         {
             charBaseStats.Enabled = character.Checked;
@@ -42,6 +48,7 @@ namespace rand9er
             itemsTreasure.Enabled = item.Checked;
             itemsShops.Enabled = item.Checked;
             itemsSynth.Enabled = item.Checked;
+            itemsBonusSets.Enabled = item.Checked;
         }
         private void enemies_CheckedChanged(object sender, EventArgs e)
         {
@@ -93,7 +100,7 @@ namespace rand9er
             // ffix location, run seed and create folder
             if (pathFound)
             {
-                if (MessageBox.Show("Ransomize Selected Options", "Cormfirm Write Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Randomize Selected Options", "Create new Seed Folder", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
                     //Gaurentee Seed
                     if (textBox_seed.Text.Length == 0)
@@ -113,7 +120,7 @@ namespace rand9er
                     textBox_seed.Text = data_int.ToString();
 
                     //Create new mod folder with seed name
-                    string seedFolderName = "StiltzkinsBag2.0-Seed-" + data_int.ToString();
+                    string seedFolderName = "StiltzkinsBag-Seed-" + data_int.ToString();
 
                     Dictionary<string, bool> options = new Dictionary<string, bool>();
                     options.Add("Version", checkBoxRecommended.Checked);
@@ -170,6 +177,308 @@ namespace rand9er
             if (opt["Char"])
             {
                 // Character
+
+                // Perhaps we build a character object and store data we read into it.
+                List<Character> Chars = new List<Character>();
+
+                // Base Stats
+                // Base Stats
+                // Base Stats
+                string baseStats = Properties.Resources.BaseStats;
+                string statsCSVrand = "";
+                using (StringReader sr = new StringReader(baseStats))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if ((line.StartsWith("#")))
+                        {
+                            statsCSVrand += line + Environment.NewLine;
+                        }
+                        if ((!line.StartsWith("#")) && line.Length > 1)
+                        {
+                            var n = line.Split(';')[0];
+                            byte index = Convert.ToByte(line.Split(';')[1]);
+                            line = line.Substring(line.IndexOf(';') + 1); // Drop Name
+                            line = line.Substring(line.IndexOf(';') + 1); // Drop Index
+                            string[] stri = line.Split(';'); // String array of rest
+                            byte[] bytes = stri.Select(byte.Parse).ToArray();
+                            Chars.Add(new Character(n, index, bytes));
+                        }
+                    }
+                }
+                                            // Now we should have a list of Characters and their Base stats
+                                            /*foreach (Character c in Chars)
+                                            {
+                                                Console.WriteLine(c.Name + ";" + c.BaseStatsIndex + ";" + c.BaseStats[0] + "," + c.BaseStats[1] + "," + c.BaseStats[2] + "," + c.BaseStats[3] + "," + c.BaseStats[4] + " , length" + c.BaseStats.Length);
+                                            }*/
+                                            // yes we do, I confirmed it.
+
+                // generate stat arrays from character list
+                int[][] statsArr = new int[5][];
+                for (int statNum = 0; statNum < 5; statNum++)
+                {
+                    int[] statArr = new int[12];
+                    for (int j = 0; j < Chars.Count; j++)
+                    {
+                        statArr[j] = Chars[j].BaseStats[statNum];
+                    }
+                    statsArr[statNum] = statArr;
+                }
+                // All stats in an [][]
+
+
+                // randomize all 5 stat types
+                int iteration = 1;
+                int[][] statsArrRandomized = new int[5][];
+                for (int i = 0; i < statsArr.Length; i++)
+                {
+                    int[] stat = statsArr[i];
+                    int[] statWork = new int[12];
+                    int statMax = stat.Max() + 1; int statMin = stat.Min(); int statAvgW = 0;
+                    int statAvg = stat.Sum() / stat.Length;
+                    int offset = new Random(data_int + (iteration * (i+3))).Next(1, 5);
+                    Console.WriteLine("\nOffset: " + offset + " Staring iteration: " + iteration + " Average: " + statAvg);
+                    while (statAvgW < (statAvg-1) || statAvgW > (statAvg+1))
+                    {
+                        for (int j = 0; j < statWork.Length; j++)
+                        {
+                            // these values look good, I think we can keep this version
+                            statWork[j] = new Random(data_int + (iteration++ * (j+3))).Next(statMin - offset, statMax + offset);
+                            if (j>0)
+                            {
+                                while (statWork[j] == statWork[j - 1])
+                                {
+                                    statWork[j] = new Random(data_int + (iteration++ * (j + 3))).Next(statMin - offset, statMax + offset);
+                                }
+                            }
+                        }
+                        statAvgW = statWork.Sum() / statWork.Length;
+                    }
+                    Console.WriteLine("\n Final iteration: " + iteration + " Average achieved : " + statAvgW);
+                    foreach (int s in statWork)
+                    {
+                        Console.Write(s + " ");
+                    }
+                    statsArrRandomized[i] = statWork;
+                }
+
+                        // this worked, we have randomzied stats
+                                
+                                // show stock arrays
+                                foreach (int[] a in statsArr)
+                                {
+                                    Console.WriteLine("");
+                                    foreach (int s in a)
+                                    {
+                                        Console.Write(s + " ");
+                                    }
+                                }
+
+                                Console.WriteLine("");
+                                // show randomized arrays
+                                statsArr = statsArrRandomized;
+                                foreach (int[] a in statsArr)
+                                {
+                                    Console.WriteLine("");
+                                    foreach (int s in a)
+                                    {
+                                        Console.Write(s + " ");
+                                    }
+                                }
+                                 Console.WriteLine("");
+
+
+                //                  statsArrRandomized[][] has the randomized base stats data in it
+
+
+                foreach (Character c in Chars)
+                {
+                    string arr = "";
+                    for (int i = 0; i < 5; i++)
+                    {
+                        arr += ";" + statsArrRandomized[i][c.BaseStatsIndex];
+                    }
+                    statsCSVrand += c.Name + ";" + c.BaseStatsIndex + arr;
+                    statsCSVrand += Environment.NewLine;
+                }
+                Console.Write (statsCSVrand);
+
+
+                // Base stats End       
+                // Base stats End       int[][] statsArrRandomized contains the randomzied stats
+                // Base stats End       string statsCSVrand contains the export ready data
+
+
+                // Command Sets
+                // Command Sets
+                // Command Sets
+
+
+
+
+
+                string commandSets = Properties.Resources.CommandSets;
+                // lines 7-14 need edit.
+
+                /*
+                 * There are 8 characters, and 15 options. 1 option takes a full char, 14 for 7 remaining mix/match
+                 * 
+                 Theif
+                     * Steal(2)         = highest dex
+                 
+                 Barbarian
+                     * Skill(25)        = highest str
+                     * Dyne(26)         = highest str
+                 
+                Wizard1
+                     * Focus(12)        = high magic 3rd
+                
+                Wizard2
+                     * BlkMag(22)       = lowest str, med mag
+                     * DblMag(23)       = lowest str, med mag
+                
+                Cleric
+                     * WhtMag(17)       = high magic
+                
+                KonDar
+                     * Summon(16)       = highest mag, 2nd lowest str
+                     * Eidolon(18)      = highest mag, 2nd lowest str
+                
+                Fighter
+                     * SwdArt(30)       = high magic, 3rd highest will
+                
+                Warlock1
+                     * SwdMag(31)       = mag and physical attacho
+                
+                Druid
+                     * Dragon(27)       = 2nd highest will, high mag
+                
+                Rogue1
+                     * Jump(3)          = 3rd highest str, 2nd highest dex
+                     * Jump(12)         = 3rd highest str
+                
+                BaChingChing
+                     * BluMag(24)       = lowest will, med mag
+                     * Eat(8)           = lowest will, med mag
+                     * Cook(9)          = lowest will, med mag
+                
+                Summoner
+                     * Summon(20)       = 2nd highest med mag (eiko summons)
+                
+                WhiteMage
+                     * WhtMag(19)       = med mag
+                     * DblWht(21)       = med mag
+                
+                Rogue2
+                     * Throw(15)        = 2nd lowest mag
+                
+                Warlock2
+                     * Flair(28)        = med str/dex/will
+                     * Elan(29)         = med str/dex/will
+                 * 
+                 * */
+
+                // Go throw each requirement and assign the class to a character based on who has the highest x value
+                int[][] commandSet = new int[8][];
+                // 8 by 4 array to store all commands
+                int[] dex = new int[8];
+                int[] str = new int[8];
+                int[] mag = new int[8];
+                int[] will = new int[8];
+                int[] gems = new int[8];
+
+                for (int j = 0; j < 8; j++)
+                {
+                    dex[j] = statsArrRandomized[0][j];
+                    str[j] = statsArrRandomized[1][j];
+                    mag[j] = statsArrRandomized[2][j];
+                    will[j] = statsArrRandomized[3][j];
+                    gems[j] = statsArrRandomized[4][j];
+                }
+
+                int[] dexOrder = new int[8];
+                int[] strOrder = new int[8];
+                int[] magOrder = new int[8];
+                int[] willOrder = new int[8];
+                int[] gemsOrder = new int[8];
+
+                for (int i = 0; i < 8; i++)
+                {
+                    dexOrder[i] = dex.ToList().IndexOf(dex.Max());
+                    strOrder[i] = str.ToList().IndexOf(str.Max());
+                    magOrder[i] = mag.ToList().IndexOf(mag.Max());
+                    willOrder[i] = will.ToList().IndexOf(will.Max());
+                    gemsOrder[i] = gems.ToList().IndexOf(gems.Max());
+                    dex[dexOrder[i]] = 0;
+                    str[strOrder[i]] = 0;
+                    mag[magOrder[i]] = 0;
+                    will[willOrder[i]] = 0;
+                    gems[gemsOrder[i]] = 0;
+                }
+                
+
+                for (int i = 0; i < 8; i++)
+                {
+                    Console.WriteLine(i + " DexIndex: " + dexOrder[i] + " strIndex: " + strOrder[i] + " magIndex: " + magOrder[i] + " willIndex: " + willOrder[i] + " gemsIndex: " + gemsOrder[i]);
+                }
+
+                // This works, now we have an order to all stats, knowing who is best, 2nd best, etc. all the way to worst.
+
+                // list of slots and usability.
+                int[][] charSlots = new int[8][];
+                int[][] charSlots2 = new int[8][];
+                List<int> charUsed = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7 };
+
+                // BaChingChing
+                charSlots[willOrder[7]] = new int[] { 8, 9 };
+                charUsed.RemoveAt(charUsed.IndexOf(willOrder[7]));
+                charSlots2[willOrder[7]] = new int[] { 24, 24 };
+                charUsed.RemoveAt(charUsed.IndexOf(willOrder[7]));
+
+                
+
+                // BaChingChing = willOrder[7];
+                // This user cant be used again. So next settings will restrict use of this.
+
+                if (charUsed.Contains(dexOrder[0]) == true)
+                {
+                    if (charUsed.Count(n => n == dexOrder[0]) == 2)
+                    {
+
+                    }
+                    else if (charUsed.Count(n => n == dexOrder[0]) == 1)
+                    {
+
+                    }
+                    charSlots[willOrder[7]] = new int[] { 8, 24, 9, 24 };
+                }
+                // Thief = dexOrder[0]; this value can be used again
+                // Barbaian = strOrder[0]; This value can be used again
+
+
+
+
+                for (int i = 0; i < 8; i++)
+                {
+                    int[] set = new int[4];
+
+                    commandSet[i] = set;
+                }
+
+
+
+                // Commands End
+                // Commands End
+                // Commands End
+
+
+
+                // Abilities
+
+                // Items
+
+
             }
             if (opt["Enemies"])
             {
@@ -185,6 +494,12 @@ namespace rand9er
             }
 
 
+
+
+
+            // End of the program, everything is done. Write out files and then write the INI to use the mod folder.
+
+
             // Need to write folders and data inside
             pathSeed = @dir + sbfolder;
             DirectoryInfo seedDirBase = Directory.CreateDirectory(pathSeed);
@@ -193,6 +508,16 @@ namespace rand9er
             DirectoryInfo seedDirChar = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters");
             DirectoryInfo seedDirAbility = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Characters\\Abilities");
             DirectoryInfo seedDirBattle = Directory.CreateDirectory(pathSeed + "\\StreamingAssets\\Data\\Battle");
+
+
+
+
+
+            // Write out files to these folders.
+
+
+
+
 
             // Need to WriteMemoriaINI
             if (File.Exists(@dir + "\\memoria.ini"))
@@ -291,8 +616,8 @@ namespace rand9er
 
 
         //init//
-        public static string data_str = "", pswap, binloc, set, seed = "42", tb_flText, textBoxSeed;
-        public static int data_int = 0, counter, randl = 23, items = 236;
+        public static string data_str = "", pswap, binloc, set, tb_flText, textBoxSeed;
+        public static int counter, randl = 23, items = 236;
         public static int weapa = 0, weapb = 85, armleta = 88, armletb = 112, helma = 112;
         public static int helmb = 148, armora = 148, armorb = 192, acca = 192, accb = 224;
         public static byte[] ba_p0data2, ba_p0data7;
@@ -330,12 +655,7 @@ namespace rand9er
             };
 
         
-        
-        //      MAIN Program Execution        //
-        //      MAIN Program Execution        //
-
-        
-
+        // OLD program
         public void ExecuteProgram()
         {
             //Gaurentee Seed

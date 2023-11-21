@@ -68,6 +68,7 @@ namespace rand9er
             this.enemies = new System.Windows.Forms.CheckBox();
             this.tm = new System.Windows.Forms.CheckBox();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.itemsBonusSets = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_seed
@@ -586,12 +587,26 @@ namespace rand9er
             this.progressBar2.Size = new System.Drawing.Size(651, 13);
             this.progressBar2.TabIndex = 125;
             // 
+            // itemsBonusSets
+            // 
+            this.itemsBonusSets.AutoSize = true;
+            this.itemsBonusSets.BackColor = System.Drawing.Color.Transparent;
+            this.itemsBonusSets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.itemsBonusSets.ForeColor = System.Drawing.Color.White;
+            this.itemsBonusSets.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.itemsBonusSets.Location = new System.Drawing.Point(291, 214);
+            this.itemsBonusSets.Name = "itemsBonusSets";
+            this.itemsBonusSets.Size = new System.Drawing.Size(71, 13);
+            this.itemsBonusSets.TabIndex = 126;
+            this.itemsBonusSets.Text = "Bonus Sets";
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.ClientSize = new System.Drawing.Size(678, 473);
+            this.Controls.Add(this.itemsBonusSets);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.tm);
             this.Controls.Add(this.enemies);
@@ -679,6 +694,7 @@ namespace rand9er
         private System.Windows.Forms.CheckBox enemies;
         private System.Windows.Forms.CheckBox tm;
         private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Label itemsBonusSets;
     }
 }
 

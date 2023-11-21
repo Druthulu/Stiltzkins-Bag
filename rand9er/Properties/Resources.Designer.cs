@@ -61,6 +61,187 @@ namespace rand9er.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #####################################################################################################
+        ///## 
+        ///##  The format for coding Supporting Ability features is the following:
+        ///##  &gt;SA {ID} {Comment}
+        ///##  {Feature Type 1} {Feature Arguments 1 (possibly on multiple lines)}
+        ///##  {Feature Type 2} {Feature Arguments 2 (possibly on multiple lines)}
+        ///##  etc...
+        ///##  
+        ///##  Generic comments should be placed at the beginning of the file
+        ///##  All the supporting abilities do not have to be present when inside mods [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AbilityFeatures {
+            get {
+                return ResourceManager.GetString("AbilityFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a number of gems, which are required for the activation of passive abilities.;;
+        ///# You must set 64 different items.;;
+        ///# ---------------------------------------;;
+        ///# Comment;Id;Gems
+        ///#;Int32;UInt8
+        ///# ---------------------------------------;;
+        ///Auto-Reflect;0;15
+        ///Auto-Float;1;6
+        ///Auto-Haste;2;9
+        ///Auto-Regen;3;10
+        ///Auto-Life;4;12
+        ///HP+10%;5;4
+        ///HP+20%;6;8
+        ///MP+10%;7;4
+        ///MP+20%;8;8
+        ///Accuracy+;9;2
+        ///Distract;10;5
+        ///Long Reach;11;16
+        ///MP Attack;12;5
+        ///Bird Killer;13;3
+        ///Bug Killer;14;2
+        ///Stone Killer;15;4 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AbilityGems {
+            get {
+                return ResourceManager.GetString("AbilityGems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains character actions.;;;;;;;;;;;;;;;;;;
+        ///# You must set 192 different items.;;;;;;;;;;;;;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;;;;;;;;;
+        ///# Comment;id;menuWindow;targets;defaultAlly;forDead;defaultOnDead;defaultCamera;animationId1;animationId2;scriptId;power;elements;rate;category;statusIndex;mp;type;
+        ///#;Int32;UInt8;UInt8;Boolean;Boolean;Boolean;Boolean;Int16;UInt16;UInt8;UInt8;UIn [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Amarant&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///125;30;# Chakra
+        ///126;90;# Spare Change
+        ///127;25;# No Mercy
+        ///128;25;# Aura
+        ///129;20;# Curse
+        ///130;35;# Revive
+        ///131;50;# Demi Shock
+        ///132;40;# Countdown
+        ///192;85;# Auto-Reflect
+        ///193;35;# Auto-Float
+        ///194;70;# Auto-Hast [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Amarant {
+            get {
+                return ResourceManager.GetString("Amarant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of game armors.;;;;;
+        ///# You must set at least 136 different items.;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;
+        ///# Comment;Id;P.Def;P.Eva;M.Def;M.Eva
+        ///#;Int32;Byte;Byte;Byte;Byte
+        ///# ------------------------------------------------ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Armors {
+            get {
+                return ResourceManager.GetString("Armors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains base stats of characters.;;;;;;
+        ///# You must set 12 different items.;;;;;;
+        ///# -------------------------------------------------------------;;;;;;
+        ///# Comment;Id;Dexterity;Strength;Magic;Will;Gems
+        ///#;Int32;UInt8;UInt8;UInt8;UInt8;UInt8
+        ///# -------------------------------------------------------------;;;;;;
+        ///Zidane;0;23;21;18;23;18
+        ///Vivi ;1;16;12;24;19;14
+        ///Garnet;2;21;14;23;17;14
+        ///Steiner;3;18;24;12;21;17
+        ///Freya;4;20;20;16;22;18
+        ///Quina;5;14;18;20;11;15
+        ///Eiko;6;19;13;21;18;12
+        ///Amarant;7;22;22 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string BaseStats {
+            get {
+                return ResourceManager.GetString("BaseStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Beatrix1&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///149;0;# Thunder Slash
+        ///150;0;# Stock Break
+        ///151;0;# Climhazzard
+        ///152;0;# Shock
+        ///2;0;# Cura
+        ///5;0;# Life
+        ///6;0;# Full-Life
+        ///10;0;# Esuna
+        ///14;0;# Silence
+        ///16;0;# Reflect
+        ///19;0;# Blind
+        ///24;0;# Holy
+        ///0;0;# Void
+        ///0;0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Beatrix1 {
+            get {
+                return ResourceManager.GetString("Beatrix1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Beatrix2&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///149;0;# Thunder Slash
+        ///150;0;# Stock Break
+        ///151;0;# Climhazzard
+        ///152;0;# Shock
+        ///2;0;# Cura
+        ///5;0;# Life
+        ///6;0;# Full-Life
+        ///10;0;# Esuna
+        ///14;0;# Silence
+        ///16;0;# Reflect
+        ///19;0;# Blind
+        ///24;0;# Holy
+        ///0;0;# Void
+        ///0;0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Beatrix2 {
+            get {
+                return ResourceManager.GetString("Beatrix2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap bg {
@@ -91,12 +272,548 @@ namespace rand9er.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Blank1&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# V [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Blank1 {
+            get {
+                return ResourceManager.GetString("Blank1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Blank2&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# V [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Blank2 {
+            get {
+                return ResourceManager.GetString("Blank2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Cinna1&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# V [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Cinna1 {
+            get {
+                return ResourceManager.GetString("Cinna1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Cinna2&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# V [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Cinna2 {
+            get {
+                return ResourceManager.GetString("Cinna2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains battle commands.
+        ///# You must set 48 different items.
+        ///# -----------------------------------
+        ///# Type;Ability;Abilities
+        ///# UInt8;UInt8;UInt8[]
+        ///# -----------------------------------
+        ///0;0;
+        ///0;176;;# Attack
+        ///0;177;;# Steal
+        ///0;178;;# Jump
+        ///0;179;;# Defend
+        ///0;180;;# Flee
+        ///0;0;;# FB
+        ///0;182;;# Change
+        ///0;183;;# Eat
+        ///0;184;;# Cook
+        ///0;0;;# None
+        ///0;186;;# Jump
+        ///0;172;;# Jump
+        ///0;188;;# Focus
+        ///2;0;0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Commands {
+            get {
+                return ResourceManager.GetString("Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains character command sets.;;;;
+        ///# You must set 20 different items.;;;;
+        ///# -----------------------------------;;;;
+        ///# Regular 1;Regular 2;Trance 1;Trance 2;
+        ///# UInt8;UInt8;UInt8;UInt8;# Indices from Commands.csv
+        ///# -----------------------------------;;;;
+        ///2;25;2;26;# Zidane: Steal, Skill, Steal, Dyne
+        ///22;13;23;13;# Vivi: Blk Mag, Focus, Dbl Blk, Focus
+        ///16;17;18;17;# Garnet: Summon, Wht Mag, Eidolon, Wht Mag
+        ///30;31;30;31;# Steiner: Swd Art, Swd Mag, Swd Art, Swd Mag
+        ///3;27;12;27;# Freya: Jump [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string CommandSets {
+            get {
+                return ResourceManager.GetString("CommandSets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains map of active ability&apos;s id to command&apos;s title.;;
+        ///# You must set at least 192 different items.;;
+        ///# -----------------------------------;;
+        ///# Comment;Id;MappedId
+        ///#;Int32;Int32
+        ///# -----------------------------------;;
+        ///Void;0;0
+        ///Cure;1;255
+        ///Cura;2;255
+        ///Curaga;3;255
+        ///Regen;4;255
+        ///Life;5;255
+        ///Full-Life;6;255
+        ///Scan;7;255
+        ///Panacea;8;255
+        ///Stona;9;255
+        ///Esuna;10;255
+        ///Shell;11;255
+        ///Protect;12;255
+        ///Haste;13;255
+        ///Silence;14;255
+        ///Mini;15;255
+        ///Reflect;16;255
+        ///Confuse;17;255
+        ///Berserk;18;255
+        ///Blind;19 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string CommandTitles {
+            get {
+                return ResourceManager.GetString("CommandTitles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains predefined equipment sets;;;;;;;
+        ///# You must set at least 15 different items.;;;;;;;
+        ///# -------------------------------------------------------------;;;;;;;
+        ///# Comment;Id;# Weapon;Head;Wrist;Armor;Accessory;
+        ///#;Int32;# UInt8;UInt8;UInt8;UInt8;UInt8;
+        ///# -------------------------------------------------------------;;;;;;;
+        ///Zidane;0;1;112;88;149;-1;# 0000 - Zidane (Dagger, Leather Hat, Wrist, Leather Shirt)
+        ///Vivi;1;70;112;-1;149;-1;# 0001 - Vivi (Mage Staff, Leather Hat, Leather Shirt)
+        ///Ga [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string DefaultEquipment {
+            get {
+                return ResourceManager.GetString("DefaultEquipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Eiko&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///68;35;# Carbuncle
+        ///66;55;# Fenrir
+        ///72;40;# Phoenix
+        ///74;120;# Madeen
+        ///1;20;# Cure
+        ///2;40;# Cura
+        ///3;80;# Curaga
+        ///4;25;# Regen
+        ///5;35;# Life
+        ///6;90;# Full-Life
+        ///8;15;# Panacea
+        ///9;25;# Stona
+        ///10;80;# Esuna
+        ///11;20;# Shell [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Eiko {
+            get {
+                return ResourceManager.GetString("Eiko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Freya&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///117;20;# Lancer
+        ///118;40;# Reis’s Wind
+        ///119;205;# Dragon Breath
+        ///120;90;# White Draw
+        ///121;30;# Luna
+        ///122;25;# Six Dragons
+        ///123;40;# Cherry Blossom
+        ///124;45;# Dragon’s Crest
+        ///192;95;# Auto-Reflect
+        ///193;20;# Auto-Flo [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Freya {
+            get {
+                return ResourceManager.GetString("Freya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Garnet&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///49;20;# Shiva
+        ///51;35;# Ifrit
+        ///53;30;# Ramuh
+        ///55;30;# Atomos
+        ///58;30;# Odin
+        ///60;40;# Leviathan
+        ///62;80;# Bahamut
+        ///64;100;# Ark
+        ///1;30;# Cure
+        ///2;50;# Cura
+        ///3;155;# Curaga
+        ///5;30;# Life
+        ///7;25;# Scan
+        ///8;15;# Panacea
+        ///9; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Garnet {
+            get {
+                return ResourceManager.GetString("Garnet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of usable item effects.
+        ///# You must set 32 different items.
+        ///#-----------------------------------------------------------------------------------------------------------------------------------------------
+        ///#Targets;DefaultAlly;Display;AnimationId;Dead;DefaultDead;ScriptId;Power;Rate;Element;Status;
+        ///#UInt8;Bit;UInt8;Int16;Bit;Bit;UInt8;UInt8;UInt8;UInt8;UInt32;
+        ///#---------------------------------------------------------------------------------------------------------------------- [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ItemEffects {
+            get {
+                return ResourceManager.GetString("ItemEffects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of game items.
+        ///# You must set 256 different items.
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        ///# Price;GraphicsId;ColorId;Quality;BonusId;AbilityIds;Weapon;Armlet;Helmet;Armor;Accessory;Item;Gem;Usable;Order;Zidane;Vivi;Garnet;Steiner;Fr [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Items {
+            get {
+                return ResourceManager.GetString("Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains amount of experience to the next level and bonus for HP and MP.;;;
+        ///# You must set 99 different items.;;;
+        ///# ----------------------------------------;;;
+        ///# Experience;BonusHP;BonusMP;
+        ///# UInt32;UInt16;UInt16;
+        ///# ----------------------------------------;;;
+        ///0;250;200;# Level 1
+        ///16;314;206;# Level 2
+        ///47;382;212;# Level 3
+        ///101;454;219;# Level 4
+        ///186;530;226;# Level 5
+        ///314;610;234;# Level 6
+        ///496;694;242;# Level 7
+        ///746;782;250;# Level 8
+        ///1078;874;259;# Level 9
+        ///1510;970;268;# Level 10
+        ///2059; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Leveling {
+            get {
+                return ResourceManager.GetString("Leveling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Marcus1&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;#  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Marcus1 {
+            get {
+                return ResourceManager.GetString("Marcus1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Marcus2&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;# Void
+        ///0;0;#  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Marcus2 {
+            get {
+                return ResourceManager.GetString("Marcus2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Quina&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///77;1;# Goblin Punch
+        ///78;1;# LV5 Death
+        ///79;1;# LV4 Holy
+        ///80;1;# LV3 Def-less
+        ///81;1;# Doom
+        ///82;1;# Roulette
+        ///83;1;# Aqua Breath
+        ///84;1;# Mighty Guard
+        ///85;1;# Matra Magic
+        ///86;1;# Bad Breath
+        ///87;1;# Limit Glove
+        ///88;1; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Quina {
+            get {
+                return ResourceManager.GetString("Quina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap sbag3 {
             get {
                 object obj = ResourceManager.GetObject("sbag3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of item shops.;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ///# You must set at least 32 different items.;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        ///# Comment;Id;# Item01;Item02; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ShopItems {
+            get {
+                return ResourceManager.GetString("ShopItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of bonuses of equipment.;;;;;;;;;;
+        ///# You must set at least 176 different items.;;;;;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;
+        ///# Comment;Id;Dexterity;Strength;Magic;Will;AttackElement;GuardElement;AbsorbElement;HalfEleme [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Stats {
+            get {
+                return ResourceManager.GetString("Stats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains data of statuses.;;;;;;;;;;;;;;;;;;
+        ///# You must set 32 different items.;;;;;;;;;;;;;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;;;;;;;;;
+        ///# Comment;id;priority(unused);oprCount(tick);contiCount(duration);clear;invalid;
+        ///#;Int32;UInt8;UInt8;UInt16;UInt32[];UInt32[];
+        ///# --------------------------------------------------------------------------------------------------------------------- [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string StatusData {
+            get {
+                return ResourceManager.GetString("StatusData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains set of statuses what will be applied to targets in the battle.;;;;;;;;;;;;
+        ///# You must set 128 different items.;;;;;;;;;;;;
+        ///# --------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;;;
+        ///# Comment;Id;State01;State02;State03;State04;State05;State06;State07;State08;State09;State10;
+        ///#;Int32;# UInt32;UInt32;UInt32;UInt32;UInt32;UInt32;UInt32;UInt32;UInt32;UInt32;
+        ///# ------------------------- [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string StatusSets {
+            get {
+                return ResourceManager.GetString("StatusSets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Steiner&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///141;30;# Darkside
+        ///142;35;# Minus Strike
+        ///143;40;# Iai Strike
+        ///144;40;# Power Break
+        ///145;30;# Armor Break
+        ///146;45;# Mental Break
+        ///147;25;# Magic Break
+        ///148;30;# Charge!
+        ///149;30;# Thunder Slash
+        ///150;35;# Stock B [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Steiner {
+            get {
+                return ResourceManager.GetString("Steiner", resourceCulture);
             }
         }
         
@@ -111,11 +828,69 @@ namespace rand9er.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;EnemyFolder&quot;:&quot;\\StreamingAssets\\assets\\resources\\battlemap\\battlescene\\evt_battle_ac_e028f\\dbfile0000.raw16.bytes&quot;,&quot;EnemyBytes&quot;:&quot;BwYCByEAAAAKAgAAAQAAAAABAAD0AQAAkAEAAAABAAAM/gAAkAEAAAEBAADoAwAA6AMAAAEBAADoAwAAvAIAAA8DAQACAAAAAAEAALwCAACQAQAAAAEAAAAAAADoAwAAAAEAAET9AAAgAwAAAQEAABj8AACKAgAADwQCAAMAAAAAAQAABAQAANABAAAAAQAArAEAADAGAAAAAQAA1P0AAFAGAAAAAQAA/PoAADAFAAAoAwEAAgAAAAABAACEAwAAkAEAAAEBAAAAAAAAvAIAAAABAAB8/AAA6AMAAAEBAAB8/AAAkAEAAAoCAgACAAAAAQEAALwCAACEAwAAAQEAAET9AACQAQAAAAEAABj8AACQAQAAAAAAAA [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;EnemyFolder&quot;: &quot;\\StreamingAssets\\assets\\resources\\battlemap\\battlescene\\evt_battle_ac_e028f\\dbfile0000.raw16.bytes&quot;,
+        ///    &quot;EnemyBytes&quot;: &quot;BwYCByEAAAAKAgAAAQAAAAABAAD0AQAAkAEAAAABAAAM/gAAkAEAAAEBAADoAwAA6AMAAAEBAADoAwAAvAIAAA8DAQACAAAAAAEAALwCAACQAQAAAAEAAAAAAADoAwAAAAEAAET9AAAgAwAAAQEAABj8AACKAgAADwQCAAMAAAAAAQAABAQAANABAAAAAQAArAEAADAGAAAAAQAA1P0AAFAGAAAAAQAA/PoAADAFAAAoAwEAAgAAAAABAACEAwAAkAEAAAEBAAAAAAAAvAIAAAABAAB8/AAA6AMAAAEBAAB8/AAAkAEAAAoCAgACAAAAAQEAALwCAACEAwAAAQEAAET9AACQAQAAAAEA [rest of string was truncated]&quot;;.
         /// </summary>
         public static string StockEnemyBytesJsonNoZeros {
             get {
                 return ResourceManager.GetString("StockEnemyBytesJsonNoZeros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of game items that can be synthesized.;;;;;;
+        ///# You must set 64 different items.;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;
+        ///# Comment;Id;Shops;Price;Result;Item1;Item2
+        ///#;Int32;Byte;Byte;Byte;Byte;Byte
+        ///# -------------------- [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Synthesis {
+            get {
+                return ResourceManager.GetString("Synthesis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Vivi&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP;
+        ///# UInt8;UInt8;Comment
+        ///# -----------------------------------
+        ///25;25;# Fire
+        ///26;50;# Fira
+        ///27;75;# Firaga
+        ///28;20;# Sleep
+        ///29;25;# Blizzard
+        ///30;50;# Blizzara
+        ///31;85;# Blizzaga
+        ///32;20;# Slow
+        ///33;25;# Thunder
+        ///34;50;# Thundara
+        ///35;80;# Thundaga
+        ///36;25;# Stop
+        ///37;35;# Po [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Vivi {
+            get {
+                return ResourceManager.GetString("Vivi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of game weapons.;;;;;;;;;;
+        ///# You must set 88 different items.;;;;;;;;;;
+        ///# ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------;;;;;;;;;;
+        ///# Comment;Id;Category;StatusIndex;Model;ScriptId;Power;Elements;Rate;Offset1;Offset2
+        ///#;Int32;Byte;Byte;Byte;By [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Weapons {
+            get {
+                return ResourceManager.GetString("Weapons", resourceCulture);
             }
         }
         
@@ -126,6 +901,32 @@ namespace rand9er.Properties {
             get {
                 object obj = ResourceManager.GetObject("yuno_error", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # This file contains a set of learnable Zidane&apos;s abilities.
+        ///# You must set 48 different items.
+        ///# Use 0 for a void ability, 1-191 for active abilities and 192-254 (id + 192) for passive abilities.
+        ///# -----------------------------------
+        ///# Id;AP
+        ///# UInt8;UInt8
+        ///# -----------------------------------
+        ///101;40;# Flee
+        ///102;40;# Detect
+        ///103;40;# What’s That!?
+        ///104;35;# Soul Blade
+        ///105;50;# Annoy
+        ///106;55;# Sacrifice
+        ///107;85;# Lucky Seven
+        ///108;100;# Thievery
+        ///192;95;# Auto-Reflect
+        ///193;20;# Auto-Float
+        ///194;55;# Aut [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Zidane {
+            get {
+                return ResourceManager.GetString("Zidane", resourceCulture);
             }
         }
     }
