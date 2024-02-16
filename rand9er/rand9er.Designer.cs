@@ -56,8 +56,6 @@ namespace rand9er
             this.tmCardStats = new System.Windows.Forms.Label();
             this.tmCardOrder = new System.Windows.Forms.Label();
             this.tmDecks = new System.Windows.Forms.Label();
-            this.charBaseStats = new System.Windows.Forms.Label();
-            this.charSpeciality = new System.Windows.Forms.Label();
             this.charAbilities = new System.Windows.Forms.Label();
             this.charEquipment = new System.Windows.Forms.Label();
             this.itemsTreasure = new System.Windows.Forms.Label();
@@ -69,6 +67,8 @@ namespace rand9er
             this.tm = new System.Windows.Forms.CheckBox();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.itemsBonusSets = new System.Windows.Forms.Label();
+            this.charBaseStats = new System.Windows.Forms.CheckBox();
+            this.charSpeciality = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label_seed
@@ -428,32 +428,6 @@ namespace rand9er
             this.tmDecks.TabIndex = 113;
             this.tmDecks.Text = "Decks";
             // 
-            // charBaseStats
-            // 
-            this.charBaseStats.AutoSize = true;
-            this.charBaseStats.BackColor = System.Drawing.Color.Transparent;
-            this.charBaseStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.charBaseStats.ForeColor = System.Drawing.Color.White;
-            this.charBaseStats.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.charBaseStats.Location = new System.Drawing.Point(84, 144);
-            this.charBaseStats.Name = "charBaseStats";
-            this.charBaseStats.Size = new System.Drawing.Size(68, 13);
-            this.charBaseStats.TabIndex = 114;
-            this.charBaseStats.Text = "Base Stats";
-            // 
-            // charSpeciality
-            // 
-            this.charSpeciality.AutoSize = true;
-            this.charSpeciality.BackColor = System.Drawing.Color.Transparent;
-            this.charSpeciality.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.charSpeciality.ForeColor = System.Drawing.Color.White;
-            this.charSpeciality.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.charSpeciality.Location = new System.Drawing.Point(86, 167);
-            this.charSpeciality.Name = "charSpeciality";
-            this.charSpeciality.Size = new System.Drawing.Size(62, 13);
-            this.charSpeciality.TabIndex = 115;
-            this.charSpeciality.Text = "Speciality";
-            // 
             // charAbilities
             // 
             this.charAbilities.AutoSize = true;
@@ -600,12 +574,42 @@ namespace rand9er
             this.itemsBonusSets.TabIndex = 126;
             this.itemsBonusSets.Text = "Bonus Sets";
             // 
+            // charBaseStats
+            // 
+            this.charBaseStats.AutoSize = true;
+            this.charBaseStats.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.charBaseStats.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.charBaseStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charBaseStats.ForeColor = System.Drawing.Color.White;
+            this.charBaseStats.Location = new System.Drawing.Point(89, 143);
+            this.charBaseStats.Name = "charBaseStats";
+            this.charBaseStats.Size = new System.Drawing.Size(87, 17);
+            this.charBaseStats.TabIndex = 127;
+            this.charBaseStats.Text = "Base Stats";
+            this.charBaseStats.UseVisualStyleBackColor = false;
+            // 
+            // charSpeciality
+            // 
+            this.charSpeciality.AutoSize = true;
+            this.charSpeciality.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.charSpeciality.BackgroundImage = global::rand9er.Properties.Resources.bgc;
+            this.charSpeciality.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.charSpeciality.ForeColor = System.Drawing.Color.White;
+            this.charSpeciality.Location = new System.Drawing.Point(89, 163);
+            this.charSpeciality.Name = "charSpeciality";
+            this.charSpeciality.Size = new System.Drawing.Size(81, 17);
+            this.charSpeciality.TabIndex = 128;
+            this.charSpeciality.Text = "Speciality";
+            this.charSpeciality.UseVisualStyleBackColor = false;
+            // 
             // rand9er
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::rand9er.Properties.Resources.bgc;
             this.ClientSize = new System.Drawing.Size(678, 473);
+            this.Controls.Add(this.charSpeciality);
+            this.Controls.Add(this.charBaseStats);
             this.Controls.Add(this.itemsBonusSets);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.tm);
@@ -617,8 +621,6 @@ namespace rand9er
             this.Controls.Add(this.itemsTreasure);
             this.Controls.Add(this.charEquipment);
             this.Controls.Add(this.charAbilities);
-            this.Controls.Add(this.charSpeciality);
-            this.Controls.Add(this.charBaseStats);
             this.Controls.Add(this.tmDecks);
             this.Controls.Add(this.tmCardOrder);
             this.Controls.Add(this.tmCardStats);
@@ -682,8 +684,6 @@ namespace rand9er
         private System.Windows.Forms.Label tmCardStats;
         private System.Windows.Forms.Label tmCardOrder;
         private System.Windows.Forms.Label tmDecks;
-        private System.Windows.Forms.Label charBaseStats;
-        private System.Windows.Forms.Label charSpeciality;
         private System.Windows.Forms.Label charAbilities;
         private System.Windows.Forms.Label charEquipment;
         private System.Windows.Forms.Label itemsTreasure;
@@ -695,6 +695,8 @@ namespace rand9er
         private System.Windows.Forms.CheckBox tm;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Label itemsBonusSets;
+        private System.Windows.Forms.CheckBox charBaseStats;
+        private System.Windows.Forms.CheckBox charSpeciality;
     }
 }
 

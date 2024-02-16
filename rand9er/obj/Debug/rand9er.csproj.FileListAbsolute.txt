@@ -42,3 +42,9 @@ D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Text.Json.xml
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.ValueTuple.xml
 D:\git\Druthulu\Stiltzkins-Bag\rand9er\obj\Debug\rand9er.csproj.CopyComplete
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\CsvHelper.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Linq.Async.dll
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\CsvHelper.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\git\Druthulu\Stiltzkins-Bag\rand9er\bin\Debug\System.Linq.Async.xml
