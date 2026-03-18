@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        FF9 Stiltzkin color palette.
+        These keys override MaterialDesign's base brushes.
+        Expand this file in Phase 7 when full theming is built out.
+    -->
+
+    <!-- Primary deep blue — Stiltzkin's coat color -->
+    <Color x:Key="SB.Primary">#1A237E</Color>
+    <Color x:Key="SB.PrimaryLight">#534BAE</Color>
+    <Color x:Key="SB.PrimaryDark">#000051</Color>
+
+    <!-- Accent gold — FF9 treasure/item color -->
+    <Color x:Key="SB.Accent">#FFD740</Color>
+    <Color x:Key="SB.AccentDark">#C8A600</Color>
+
+    <!-- Surface and background -->
+    <Color x:Key="SB.Background">#0D0D1A</Color>
+    <Color x:Key="SB.Surface">#1C1C2E</Color>
+    <Color x:Key="SB.SurfaceRaised">#26263A</Color>
+
+    <!-- Text -->
+    <Color x:Key="SB.TextPrimary">#F0E6D2</Color>
+    <Color x:Key="SB.TextSecondary">#9E9CBF</Color>
+    <Color x:Key="SB.TextDisabled">#4A4A6A</Color>
+
+    <!-- Solid brushes for binding in XAML -->
+    <SolidColorBrush x:Key="SB.PrimaryBrush" Color="{StaticResource SB.Primary}" />
+    <SolidColorBrush x:Key="SB.AccentBrush" Color="{StaticResource SB.Accent}" />
+    <SolidColorBrush x:Key="SB.BackgroundBrush" Color="{StaticResource SB.Background}" />
+    <SolidColorBrush x:Key="SB.SurfaceBrush" Color="{StaticResource SB.Surface}" />
+    <SolidColorBrush x:Key="SB.SurfaceRaisedBrush" Color="{StaticResource SB.SurfaceRaised}" />
+    <SolidColorBrush x:Key="SB.TextPrimaryBrush" Color="{StaticResource SB.TextPrimary}" />
+    <SolidColorBrush x:Key="SB.TextSecondaryBrush" Color="{StaticResource SB.TextSecondary}" />
+    <SolidColorBrush x:Key="SB.TextDisabledBrush" Color="{StaticResource SB.TextDisabled}" />
+
+</ResourceDictionary>
