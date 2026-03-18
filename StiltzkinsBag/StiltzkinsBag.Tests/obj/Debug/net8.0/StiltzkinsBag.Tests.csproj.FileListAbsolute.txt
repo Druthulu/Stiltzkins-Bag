@@ -135,3 +135,5 @@ Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\Vivi.csv
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\Weapons.csv
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\Zidane.csv
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\StockEnemyBytesJsonNoZeros.json
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\game_root.txt
