@@ -137,3 +137,10 @@ Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\Zidane.csv
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\StockEnemyBytesJsonNoZeros.json
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\game_root.txt
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_at_center.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_at_gate.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_at_house_1.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_at_house_2.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_at_item.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_ts_cargo_0.eb.bytes
+Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\FieldParser\evt_alex1_ts_engin.eb.bytes

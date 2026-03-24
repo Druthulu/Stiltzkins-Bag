@@ -1,0 +1,1123 @@
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e028f\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e028h\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e028i\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e031\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e076a\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e076b\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e076c\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e076d\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e076e\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e077\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e085a\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e085b\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ac_e092\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ap_e012\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x12
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_at_e040a\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_at_e040b\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bb_r000\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bb_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_br_e008\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_e015\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_e072\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x21
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r005\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r006\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r008\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r015\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r016\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bu_r017\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bv_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_bv_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ca_e013\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x10
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ch_e093\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0F
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ch_e093b\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0F
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_e051\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cm_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e060\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e061\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e062\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e063\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e064\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e065\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e066\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0B
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e086\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_e0xx\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0B
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r000\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r003\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+  groups=1 stats=1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r004\dbfile0000.raw16.bytes
+  groups=1 stats=1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r005\dbfile0000.raw16.bytes
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r006\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r007\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r008\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r009\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r010\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r011\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r012\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r013\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r014\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r015\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 24: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r016\dbfile0000.raw16.bytes
+  archive=0x52, catalog=0xE8
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r017\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r018\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r019\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r020\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r021\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r022\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r023\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r024\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r025\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r026\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r027\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r028\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r029\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r030\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r031\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r032\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cw_r033\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cy_e018\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cy_e021a\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cy_e021b\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_cy_e022\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_e006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_e007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_e009\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_e010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_r003\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_r005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ef_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_eg_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_eg_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_es_e058\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_e033\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0E
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_e081\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r000\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r001\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r003\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r004\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r005\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r015\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r016\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r017\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r018\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r019\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_fr_r020\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gr_e017\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gr_e032\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gr_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gr_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gr_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_e019a\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_e082\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r000\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r003\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r009\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r017\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gt_r018\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e054\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e089a\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e089b\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e089c\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e090\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_e091\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r004\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r005\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r015\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r016\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gv_r017\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gz_e014\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gz_e071\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x21
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gz_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gz_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_gz_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_e011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ic_r005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_e034\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_e087\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_e088\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r002\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r003\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r004\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x21
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r005\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r006\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r007\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r008\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_if_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_e070\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r000\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0E
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0E
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0E
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r006\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x01
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r007\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x01
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r008\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r009\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r012\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ip_r013\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_km_e073\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0E
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_km_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_km_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_km_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_km_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080a\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x35
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080b\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080c\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080d\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080e\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080f\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080g\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080h\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080i\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_lb_e080j\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ms_e075\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0F
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e055\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e067\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e068\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e069\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e078\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_e079\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r004\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r005\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r006\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r007\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r009\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r010\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r011\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r013\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pd_r014\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pr_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_pr_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sg_e016\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_e053\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x11
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r009\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r014\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r015\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r016\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r017\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_sp_r018\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r000\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r001\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_ta_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_th_e001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_th_e002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_th_e003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_th_e004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_th_e005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_tr_e074a\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x25
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_tr_e074b\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_tr_e074c\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_tr_e074d\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uf_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uf_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uf_r002\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uf_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_e052\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0xA1
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r003\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r009\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r011\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r012\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r013\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_uv_r015\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0000\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0001\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0002\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0003\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0004\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x07
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0005\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0006\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0007\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0008\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0009\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0010\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0011\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0102\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0104\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0105\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0106\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x06
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0200\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0201\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0202\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0203\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0204\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0205\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0206\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0207\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0208\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0210\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0212\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0214\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0216\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0217\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0218\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0219\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0220\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0221\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0222\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0223\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0226\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0227\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0228\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0229\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0230\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0231\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0232\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0233\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0234\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0300\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0301\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0302\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0303\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0305\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0306\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0307\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0308\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0310\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0311\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0315\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0316\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0400\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0401\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0402\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0403\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0404\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0408\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0409\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0410\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0411\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0412\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0503\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0504\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0508\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0509\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0510\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0511\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0515\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0516\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0517\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0601\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0604\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0605\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0606\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0700\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0701\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0704\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0705\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0706\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0709\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0711\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0716\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0720\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0721\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0723\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0725\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0726\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0728\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0800\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0801\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0803\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0900\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0901\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0904\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0905\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0910\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0911\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0915\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_0916\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1000\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1001\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1002\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1100\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1101\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1102\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1103\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1104\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1105\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1106\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1107\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1108\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1109\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1111\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1113\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1116\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1118\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1120\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1121\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1122\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1123\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1124\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1125\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1126\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1127\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1128\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1129\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1130\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1131\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1132\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1133\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1134\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1135\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1200\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1201\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1202\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1203\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1205\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1207\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x04
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1208\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1210\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1212\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1214\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1306\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1308\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1309\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1311\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1401\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1402\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1403\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1406\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1407\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1408\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1411\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1413\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1416\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x07
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1418\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1420\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1421\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1427\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1428\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1429\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1430\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1431\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1501\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1502\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1503\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1504\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1505\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1509\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1510\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1511\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1512\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1513\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x08
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1517\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1518\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1519\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1520\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1521\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1522\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1523\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 5: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1524\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x00
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1528\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1529\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1530\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1531\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1534\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1535\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1536\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1537\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1538\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1539\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1544\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1545\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1546\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1547\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1548\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1549\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1550\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1551\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1552\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1600\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1604\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x09
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1606\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1710\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1711\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1712\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1713\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1715\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1716\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1717\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1718\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1800\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1802\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1808\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1810\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1816\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1818\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1819\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1820\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1821\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1822\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1823\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1824\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1825\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x08
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1902\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1903\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1907\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1908\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1909\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1910\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1911\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1913\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1914\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1916\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1917\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1918\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1919\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1920\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_1921\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2111\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2112\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2113\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2114\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x03
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2115\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2116\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2117\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x05
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2212\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2213\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2214\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2215\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2300\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2301\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2302\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2303\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2304\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2305\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x0A
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2400\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 3: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2401\dbfile0000.raw16.bytes
+  archive=0x04, catalog=0x06
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2404\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 4: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_2405\dbfile0000.raw16.bytes
+  archive=0x00, catalog=0x01
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9900\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9901\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9902\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 2: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9903\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x03
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9904\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9905\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9906\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+BYTE MISMATCH at offset 1: \StreamingAssets\assets\resources\battlemap\battlescene\evt_battle_wm_9907\dbfile0000.raw16.bytes
+  archive=0x01, catalog=0x02
+Catalog: 562 entries, 0 skipped (not in p0data2), 560 mismatches (expected if disk .bytes are from a modded install).

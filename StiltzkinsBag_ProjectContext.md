@@ -1,6 +1,6 @@
 # Stiltzkin's Bag — Project Context & Roadmap
 
-> **Version:** 1.0.1 (static — see PhaseEnd files for current version and phase status)
+> **Version:** 1.0.0
 > **Generated:** 2026-03-17
 > **Generation:** Gen1 | **Tech Stack:** C# .NET 8, WPF + MaterialDesignInXaml, mod-folder output for Memoria Engine
 
@@ -14,11 +14,155 @@ needs to understand your project from any point.
 **How to use it:**
 1. Attach this file at the start of every new AI chat session
 2. Attach ALL PhaseEnd markdown files (PhaseEnd_Phase1.md, PhaseEnd_Phase2.md, etc.) alongside it
-3. The AI reads all PhaseEnd files in order to reconstruct build history, current version, phase status, and rules added over time
+3. The AI reads all attached markdown files to reconstruct build history, current version, and rules added over time
 4. This file is never edited or replaced — it is a static reference for the life of the project
+5. All build history, deviations, rules, and version tracking live in the PhaseEnd files
 
 **Session start prompt:**
-> "Continue building Stiltzkin's Bag. We are currently on Phase [X], working on [specific task]."
+> "Continue building Stiltzkin's Bag. Read all attached markdown files.
+> Before starting, confirm: what phase are we on, what tasks are done,
+> what is the next single task, and list every collaboration rule you must follow."
+
+---
+
+## AI Collaboration Rules
+
+These rules are non-negotiable. They prevent the most common failure modes
+in AI-assisted development. Follow them at all times.
+
+**Rule: Extended Thinking Protocol.**
+🟡⚠️ Before starting any task, assess its complexity tier:
+- **Tier 1 — Mandatory:** Project scoping (Gate 2), Phase Start planning, PhaseEnd creation, architectural decisions affecting multiple files, non-obvious debugging. STOP. Tell the developer to enable Extended Thinking. Wait for confirmation. After the task, remind them to disable it.
+- **Tier 2 — Recommended:** Multi-file features, complex logic, protocol/encoding, comprehensive tests, uncertain approaches. State: "🟡 This task would benefit from Extended Thinking — [reason]. Enable it?" Wait for response.
+- **Tier 3 — Not needed:** Single-file work, boilerplate, terminal commands, small edits, tasks with design already decided.
+Never skip the stop-and-wait for Tier 1. If you realize mid-task that Extended Thinking should have been used, say so — the developer can restart the message with it enabled. Never silently power through complex tasks and report afterward that "this was the most complex part."
+
+**Rule: Explain before coding.**
+Before writing any class, module, or function, explain the design approach first: what the component needs to do, any non-obvious decisions, and why this solution over alternatives. Only write code after that reasoning is stated. If a decision is trivial, say so briefly — but if there's a real choice, show the thinking.
+
+**Rule: Everything intended for use outside chat goes in a file.**
+Code, PhaseEnd markdown, documentation, configuration — if it is meant to be saved, committed, or used outside the conversation, it is created using the file creation tool and never pasted inline in chat. The chat contains reasoning, explanations, and instructions only. This applies without exception to source files, test files, and PhaseEnd markdown files. Violating this rule means the developer has no downloadable artifact.
+
+**Rule: Never overwrite blind.**
+Before overwriting any existing file, ask the developer to paste the current version so the replacement is built with full knowledge of what it replaces. Use **bold TODO:** to indicate an action required from the developer.
+
+**Rule: Preserve comments and documentation.**
+When rewriting an existing file, preserve all existing comments and doc-style headers. Never silently drop comments during a rewrite.
+
+**Rule: Document disabled logic.**
+When disabling or commenting out any logic based on evidence, always leave a structured comment:
+```
+// DISABLED: [name] — [date or phase]
+// Original intent: [what it was supposed to do]
+// Why disabled: [specific evidence]
+// Re-enable if: [specific observable condition]
+```
+
+**Rule: One task at a time — strict.**
+Present ONE task. Wait for the developer to confirm it is done. Then present the next task. The only permitted grouping: up to 3 commands that are pure terminal/shell setup with no decision-making (e.g., `mkdir`, `git init`, `dotnet add package`). If any step involves writing a file, making a design choice, or producing code, it is its own task. Presenting an entire phase checklist as implementation — or even half of one — is a rule violation regardless of how "simple" the tasks appear. Note: the Phase Start Protocol presents the full phase as a *plan* for approval — that is planning, not execution. Once the plan is approved, switch to strict one-task mode.
+
+**Rule: Mid-phase rules check.**
+After completing every 4 tasks within a single phase, pause and re-read the AI Collaboration Rules section before continuing. State: "Rules check — re-read complete. Continuing with [next task]." This prevents context drift in long sessions.
+
+**Rule: Verify every checkbox before closing a phase.**
+Before marking any phase complete, explicitly verify every checkbox in that phase's checklist — including wiring steps like registrations, config bindings, and integration tasks.
+
+**Rule: Confirm milestone before PhaseEnd.**
+The phase milestone must be explicitly reached and confirmed by the developer before the PhaseEnd file is created.
+
+**Rule: PhaseEnd output is always a file.**
+PhaseEnd content — Build Log, deviations, commit message, new rules, changelog, version, stop instruction — is always output as a single `PhaseEnd_Phase[N].md` file using the file creation tool. It is never dumped in chat as inline text or code blocks. After delivering the file, follow the Phase Boundary Protocol: stop completely. The PhaseEnd file ends with a 🛑 stop sign instructing the developer to close this session, add the file to their Claude Project, and start a new session with all context files attached. Remind the developer to not delete this chat — keep it for posterity and back-reference. Large chats in a project will not slow down chat or use more tokens.
+
+**Rule: The main context file is permanent and static.**
+The Project Context File is never edited, rewritten, or replaced after initial generation. It has no version tracking of its own — current version and phase status live in the most recent PhaseEnd file. The AI reconstructs current project state by reading the main context file plus all PhaseEnd files at session start.
+
+**Rule: Attach all PhaseEnd files at session start.**
+When starting a new development session, the developer attaches the main context file and all PhaseEnd files produced so far. The AI reads all of them in phase order before doing anything. All PhaseEnd files are kept for the life of the project — none are discarded.
+
+**Rule: Service registration placement.**
+When instructing changes to entry points, startup files, or dependency registration, always indicate exactly where in the existing code the new lines belong — using surrounding lines as anchors.
+
+**Rule: Single Random instance — never create new Random in randomizers.**
+All randomizers receive the seeded `Random` instance from `SeedEngine`. Never call `new Random()` or `new Random(anySeed)` inside any randomizer. This is the single most important architectural rule in this codebase.
+
+**Rule: RNG call order is sacred.**
+The order in which the shared `Random` instance is called must be strictly deterministic. If a feature is disabled, skip its RNG calls entirely — do not consume and discard. Feature flags gate entire RNG sequences, not individual calls.
+
+**Rule: ItemRemapTable before bytecode.**
+If item shuffle is enabled, `ItemRemapper` must complete and produce `ItemRemapTable` before any binary editor writes output. Never write binary patches with stale item IDs.
+
+**Rule: Pipeline order is enforced.**
+The randomization pipeline must always execute in the order defined in Core Logic. CharacterRandomizer sub-steps must run in order: stats → speciality → abilities → equipment → starting items.
+
+**Rule: Hades Workshop port — port logic, not GUI.**
+Port only data parsing and manipulation logic. Never port GUI, rendering, or platform-specific code. Ported classes must be pure C# with no external dependencies beyond the standard library.
+
+**Rule: CSV round-trip is sacred.**
+Any change to `CsvParser<T>` must be followed immediately by re-running all CSV round-trip tests. A CSV parser that corrupts header comment lines, trailing semicolons, or column order is worse than no parser.
+
+---
+
+## Quick Reference Card
+
+```
+Project:     Stiltzkin's Bag — FFIX PC Randomizer
+Stack:       C# .NET 8, WPF + MaterialDesignInXaml, xUnit
+Namespaces:  Core → StiltzkinsBag | App → StiltzkinsBag.App | Tests → StiltzkinsBag.Tests
+Output:      Memoria Engine mod-folder overlay (CSVs + patched binary files)
+             Folder: [FF9Root]/StiltzkinsBag-Seed-[int]/StreamingAssets/Data/
+Mem.ini:     Seed folder injected FIRST in FolderNames; old SB entries removed; non-SB untouched
+Cards:       Tetramaster randomized via bytecode ONLY. TripleTriad.csv NOT supported.
+Generation:  Gen1 — mod-folder randomizer
+Philosophy:  Every seed completable, every run surprising, every output deterministic
+Key rules:   Single Random instance. RNG call order is sacred. ItemRemap before bytecode.
+Session:     Attach this file + ALL PhaseEnd files. AI reads all of them to reconstruct state.
+```
+
+---
+
+## Session Start Protocol
+
+When a development session begins, follow this exact sequence before doing any work:
+
+1. Read all attached markdown files — the main context file, all PhaseEnd files,
+   and any other markdown reference files
+2. Read PhaseEnd files in phase order to reconstruct current state
+3. State the following and nothing else:
+   - Current phase number and name
+   - Which tasks in this phase are already complete
+   - Which single task is NEXT
+   - List every AI Collaboration Rule (from this file and from all PhaseEnd "Rules Added" sections)
+4. Wait for the developer to confirm before doing anything
+
+Do not summarize the entire project. Do not list all remaining tasks.
+State what is next, list the rules, and wait.
+
+---
+
+## Phase Start Protocol
+
+When beginning a new phase:
+
+1. 🟡⚠️ Stop — request the developer enable Extended Thinking Mode. Wait for confirmation.
+2. With Extended Thinking, analyze the phase checklist against previous work and overall scope.
+   Flag any tasks that need adjustment, reordering, addition, or removal.
+3. Present a task-by-task plan for the full phase. Mark any Extended Thinking candidates.
+4. Wait for the developer to approve, modify, or adjust the plan.
+5. Remind the developer to disable Extended Thinking.
+6. Begin one-task-at-a-time execution.
+
+---
+
+## Phase Boundary Protocol
+
+When a phase milestone is confirmed complete:
+
+1. 🟡⚠️ Stop — request Extended Thinking for PhaseEnd creation. Wait for confirmation.
+2. Create the PhaseEnd file using the file creation tool
+3. Remind the developer to disable Extended Thinking
+4. Final message: "PhaseEnd file created. Add it to your Claude Project
+   and start a new session."
+5. HARD STOP. Do not preview the next phase or continue working.
 
 ---
 
@@ -658,72 +802,6 @@ See `PhaseEnd_Phase1.md`
 
 ---
 
-## AI Collaboration Rules
-
-**Rule: Extended Thinking Mode.**
-If the next task is very complex, stop the chat and suggest the user enable Extended Thinking Mode for this next message only. Proceed to use Extended thinking on the complex task. After your thinking and output, remind the user to disable Extended Thinking. use yellow triangle emojis to alert them to this message
-
-**Rule: Explain before coding.**
-Before writing any class, module, or function, explain the design approach first: what the component needs to do, any non-obvious decisions, and why this solution over alternatives. Only write code after that reasoning is stated.
-
-**Rule: Everything intended for use outside chat goes in a file.**
-Code, PhaseEnd markdown, documentation — if it is meant to be saved or committed, it is created using the file creation tool and never pasted inline in chat. The chat contains reasoning, explanations, and instructions only.
-
-**Rule: Never overwrite blind.**
-Before overwriting any existing file, ask the developer to paste the current version. Use **bold TODO:** to indicate an action required from the developer.
-
-**Rule: Preserve comments and documentation.**
-When rewriting an existing file, preserve all existing comments and doc-style headers. Never silently drop comments.
-
-**Rule: Document disabled logic.**
-```
-// DISABLED: [name] — [date or phase]
-// Original intent: [what it was supposed to do]
-// Why disabled: [specific evidence]
-// Re-enable if: [specific observable condition]
-```
-
-**Rule: One task at a time — with judgment.**
-Work one meaningful task at a time and wait for confirmation before moving to the next. Exception: small mechanical setup steps (creating projects, installing NuGet packages, creating 2–3 related files) may be grouped into a short checklist of 2–4 items. Dumping an entire phase at once is never acceptable.
-
-**Rule: Verify every checkbox before closing a phase.**
-Before marking any phase complete, explicitly verify every checkbox — including wiring steps like registrations, config bindings, and integration tasks.
-
-**Rule: Confirm milestone before PhaseEnd.**
-The phase milestone must be explicitly confirmed by the developer before the PhaseEnd file is created.
-
-**Rule: PhaseEnd output is always a file.**
-PhaseEnd content is always output as `PhaseEnd_Phase[N].md` using the file creation tool. Never dumped in chat. Ends with a 🛑 stop sign instructing the developer to close this session, add the file to the Claude Project, and start a new session with all context files attached. Remind the developer that they do not need to delete this chat, and its recommmended to keep it for posterity and back refference. Old chats do not affect speed/token usage.
-
-**Rule: The main context file is permanent and static.**
-This file is never edited, rewritten, or replaced. Current version and phase status live in the most recent PhaseEnd file. The AI reconstructs project state by reading this file plus all PhaseEnd files at session start.
-
-**Rule: Attach all PhaseEnd files at session start.**
-All PhaseEnd files are kept for the life of the project. At session start, attach this file and every PhaseEnd file produced so far.
-
-**Rule: Service registration placement.**
-When instructing changes to entry points or startup files, always indicate exactly where in the existing code the new lines belong — using surrounding lines as anchors.
-
-**Rule: Single Random instance — never create new Random in randomizers.**
-All randomizers receive the seeded `Random` instance from `SeedEngine`. Never call `new Random()` or `new Random(anySeed)` inside any randomizer. This is the single most important architectural rule in this codebase.
-
-**Rule: RNG call order is sacred.**
-The order in which the shared `Random` instance is called must be strictly deterministic. If a feature is disabled, skip its RNG calls entirely — do not consume and discard. Feature flags gate entire RNG sequences, not individual calls.
-
-**Rule: ItemRemapTable before bytecode.**
-If item shuffle is enabled, `ItemRemapper` must complete and produce `ItemRemapTable` before any binary editor writes output. Never write binary patches with stale item IDs.
-
-**Rule: Pipeline order is enforced.**
-The randomization pipeline must always execute in the order defined in Core Logic. CharacterRandomizer sub-steps must run in order: stats → speciality → abilities → equipment → starting items.
-
-**Rule: Hades Workshop port — port logic, not GUI.**
-Port only data parsing and manipulation logic. Never port GUI, rendering, or platform-specific code. Ported classes must be pure C# with no external dependencies beyond the standard library.
-
-**Rule: CSV round-trip is sacred.**
-Any change to `CsvParser<T>` must be followed immediately by re-running all CSV round-trip tests. A CSV parser that corrupts header comment lines, trailing semicolons, or column order is worse than no parser.
-
----
-
 ## Parking Lot
 
 | Idea | Potential Generation |
@@ -749,19 +827,3 @@ Any change to `CsvParser<T>` must be followed immediately by re-running all CSV 
 - Phase 8: Review `MergeScripts` behavior in Memoria.ini before implementing `ModMemoriaIniWriter`
 
 ---
-
-## Quick Reference Card
-
-```
-Project:     Stiltzkin's Bag — FFIX PC Randomizer
-Stack:       C# .NET 8, WPF + MaterialDesignInXaml, xUnit
-Namespaces:  Core → StiltzkinsBag | App → StiltzkinsBag.App | Tests → StiltzkinsBag.Tests
-Output:      Memoria Engine mod-folder overlay (CSVs + patched binary files)
-             Folder: [FF9Root]/StiltzkinsBag-Seed-[int]/StreamingAssets/Data/
-Mem.ini:     Seed folder injected FIRST in FolderNames; old SB entries removed; non-SB untouched
-Cards:       Tetramaster randomized via bytecode ONLY. TripleTriad.csv NOT supported.
-Generation:  Gen1 — mod-folder randomizer
-Philosophy:  Every seed completable, every run surprising, every output deterministic
-Key rules:   Single Random instance. RNG call order is sacred. ItemRemap before bytecode.
-Session:     Attach this file + ALL PhaseEnd files. AI reads all of them to reconstruct state.
-```
