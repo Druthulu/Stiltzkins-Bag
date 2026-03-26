@@ -446,6 +446,31 @@ public class CsvRoundTripTests
     }
 
     // -------------------------------------------------------------------------
+    // Stats
+    // -------------------------------------------------------------------------
+
+    [Fact]
+    public void Stats_RoundTrip_ByteIdentical()
+    {
+        int count = AssertRoundTrip<StatsRow, StatsRowMap>("Stats.csv");
+        Assert.True(count >= 156); // 156 named rows + padding rows
+    }
+
+    [Fact]
+    public void Stats_ParsedValues_RebirthRingHasCorrectWill()
+    {
+        var parsed = MemoriaCsvParser.Read<StatsRow, StatsRowMap>(TestData("Stats.csv"));
+        var rebirthRing = parsed.Rows.First(r => r.Id == 121);
+
+        Assert.Equal("Bonus 0121 # Rebirth Ring", rebirthRing.Comment);
+        Assert.Equal((byte)0, rebirthRing.Dexterity);
+        Assert.Equal((byte)0, rebirthRing.Strength);
+        Assert.Equal((byte)0, rebirthRing.Magic);
+        Assert.Equal((byte)4, rebirthRing.Will);
+        Assert.Equal((byte)64, rebirthRing.AttackElement); // Holy attack element preserved
+    }
+
+    // -------------------------------------------------------------------------
     // Inline comment preservation
     // -------------------------------------------------------------------------
 
