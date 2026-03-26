@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.tests\\characterrandomizertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|solutionrelative:stiltzkinsbag.tests\\characterrandomizertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\randomizers\\seedengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\randomizers\\seedengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.tests\\csvroundtriptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|solutionrelative:stiltzkinsbag.tests\\csvroundtriptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\randomizers\\characterrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\randomizers\\characterrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\csv\\characterparametersrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\csv\\characterparametersrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\characterrandomizerresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\characterrandomizerresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\csv\\commandsetsrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\csv\\commandsetsrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\randomizers\\fielditemrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\randomizers\\fielditemrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,20 +111,12 @@
       "RelativeMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|solutionrelative:stiltzkinsbag.tests\\testhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.tests\\csvroundtriptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F311C8F6-1EFE-42D7-A3BC-9E5529DE588D}|StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj|solutionrelative:stiltzkinsbag.tests\\csvroundtriptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\parsing\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\parsing\\csvparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\csv\\itemsrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\csv\\itemsrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|z:\\storage\\git\\stiltzkins-bag\\stiltzkinsbag\\stiltzkinsbag.core\\models\\csv\\characterparametersrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C445F44-6372-4332-9A86-AD1F8EA6147F}|StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj|solutionrelative:stiltzkinsbag.core\\models\\csv\\characterparametersrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -107,32 +131,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Fielditemrandomizertests.cs",
-              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
-              "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
-              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
-              "RelativeToolTip": "StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
+              "Title": "SeedEngine.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\SeedEngine.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\SeedEngine.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\SeedEngine.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\SeedEngine.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwDoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:34:27.79Z",
+              "WhenOpened": "2026-03-26T03:26:43.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Fielditemrandomizer.cs",
-              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
-              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
-              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
-              "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
-              "ViewState": "AgIAAIsBAAAAAAAAAAAmwLQBAAABAAAAAAAAAA==",
+              "Title": "CharacterRandomizerTests.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CharacterRandomizerTests.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\CharacterRandomizerTests.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CharacterRandomizerTests.cs",
+              "RelativeToolTip": "StiltzkinsBag.Tests\\CharacterRandomizerTests.cs",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAkwPMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:34:15.777Z",
+              "WhenOpened": "2026-03-26T03:26:27.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CommandSetsRow.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CommandSetsRow.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Csv\\CommandSetsRow.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CommandSetsRow.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Models\\Csv\\CommandSetsRow.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA2wDkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T00:42:11.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CharacterRandomizer.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\CharacterRandomizer.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\CharacterRandomizer.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\CharacterRandomizer.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\CharacterRandomizer.cs",
+              "ViewState": "AgIAABYEAAAAAAAAAAAswDUEAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T16:20:15.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "CharacterRandomizerResult.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\CharacterRandomizerResult.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\CharacterRandomizerResult.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\CharacterRandomizerResult.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Models\\CharacterRandomizerResult.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T16:20:08.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Enemyrandomizertests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Enemyrandomizertests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\Enemyrandomizertests.cs",
@@ -140,12 +203,73 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\Enemyrandomizertests.cs",
               "ViewState": "AgIAALcBAAAAAAAAAAAmwOABAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:23:53.776Z",
+              "WhenOpened": "2026-03-24T06:23:53.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CharacterParametersRow.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T03:21:42.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "CsvRoundTripTests.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
+              "RelativeToolTip": "StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T02:58:56.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Fielditemrandomizer.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\Fielditemrandomizer.cs",
+              "ViewState": "AgIAAIsBAAAAAAAAAAAmwLQBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T06:34:15.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Fielditemrandomizertests.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
+              "RelativeToolTip": "StiltzkinsBag.Tests\\Fielditemrandomizertests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T06:34:27.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Settings.cs",
+              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Settings.cs",
+              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Settings.cs",
+              "RelativeToolTip": "StiltzkinsBag.Core\\Models\\Settings.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAwwEYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T16:03:20.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Enemyrandomizer.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Enemyrandomizer.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\Enemyrandomizer.cs",
@@ -153,12 +277,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\Enemyrandomizer.cs",
               "ViewState": "AgIAAKAAAAAAAAAAAAA4wMkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:23:42.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T06:23:42.12Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "Itemremappertests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Itemremappertests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\Itemremappertests.cs",
@@ -166,12 +289,11 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\Itemremappertests.cs",
               "ViewState": "AgIAAEMBAAAAAAAAAAAmwGwBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:19:19.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T06:19:19.617Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Itemremapper.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Randomizers\\Itemremapper.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Randomizers\\Itemremapper.cs",
@@ -179,12 +301,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Randomizers\\Itemremapper.cs",
               "ViewState": "AgIAAH0AAAAAAAAAAAAmwKYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T06:19:05.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T06:19:05.127Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "ModSourceResolver.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Parsing\\ModSourceResolver.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Parsing\\ModSourceResolver.cs",
@@ -192,12 +313,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Parsing\\ModSourceResolver.cs",
               "ViewState": "AgIAAKwAAAAAAAAAAAAcwNQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:49:53.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T06:49:53.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "StiltzkinsBag.Tests.csproj",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj",
@@ -205,12 +325,11 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\StiltzkinsBag.Tests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-18T04:13:11.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T04:13:11.91Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "ItemRemapTable.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\ItemRemapTable.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\ItemRemapTable.cs",
@@ -218,12 +337,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Models\\ItemRemapTable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T05:56:15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T05:56:15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "Fieldparsertests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\Fieldparsertests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\Fieldparsertests.cs",
@@ -231,12 +349,11 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\Fieldparsertests.cs",
               "ViewState": "AgIAAAcDAAAAAAAAAAAmwDADAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T05:50:24.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T05:50:24.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "UnityArchiver.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Parsing\\UnityArchiver.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Parsing\\UnityArchiver.cs",
@@ -244,12 +361,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Parsing\\UnityArchiver.cs",
               "ViewState": "AgIAAF0BAAAAAAAAAAAowIMBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T04:23:12.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T04:23:12.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "FieldParser.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Parsing\\FieldParser.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Parsing\\FieldParser.cs",
@@ -257,12 +373,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Parsing\\FieldParser.cs",
               "ViewState": "AgIAAAMCAAAAAAAAAAAmwBECAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T05:49:53.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T05:49:53.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "EnemyCatalog.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Battle\\EnemyCatalog.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Battle\\EnemyCatalog.cs",
@@ -274,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "EnemyFile.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Battle\\EnemyFile.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Battle\\EnemyFile.cs",
@@ -282,12 +397,11 @@
               "RelativeToolTip": "StiltzkinsBag.Core\\Models\\Battle\\EnemyFile.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAIwB4BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T04:11:24.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T04:11:24.13Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "EnemyCatalogAndResolverTests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\EnemyCatalogAndResolverTests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\EnemyCatalogAndResolverTests.cs",
@@ -299,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "UnityArchiverTests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\UnityArchiverTests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\UnityArchiverTests.cs",
@@ -311,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "SeedEngineTests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\SeedEngineTests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\SeedEngineTests.cs",
@@ -319,12 +433,11 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\SeedEngineTests.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAIwGEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T02:54:28.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T02:54:28.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "TestHelpers.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\TestHelpers.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\TestHelpers.cs",
@@ -336,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "EnemyFileTests.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\EnemyFileTests.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\EnemyFileTests.cs",
@@ -344,12 +457,11 @@
               "RelativeToolTip": "StiltzkinsBag.Tests\\EnemyFileTests.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEABAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T04:13:16.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T04:13:16.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "ItemsRow.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\ItemsRow.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Csv\\ItemsRow.cs",
@@ -361,19 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CharacterParametersRow.cs",
-              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
-              "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
-              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
-              "RelativeToolTip": "StiltzkinsBag.Core\\Models\\Csv\\CharacterParametersRow.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAmwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T03:21:42.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "CsvParser.cs",
               "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\Parsing\\CsvParser.cs",
               "RelativeDocumentMoniker": "StiltzkinsBag.Core\\Parsing\\CsvParser.cs",
@@ -382,18 +482,6 @@
               "ViewState": "AgIAAGwBAAAAAAAAAAAmwJUBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T03:14:16.085Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "CsvRoundTripTests.cs",
-              "DocumentMoniker": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
-              "RelativeDocumentMoniker": "StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
-              "ToolTip": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
-              "RelativeToolTip": "StiltzkinsBag.Tests\\CsvRoundTripTests.cs",
-              "ViewState": "AgIAAK4BAAAAAAAAAAAcwNYBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T02:58:56.765Z"
             }
           ]
         }

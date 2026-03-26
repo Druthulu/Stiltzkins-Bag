@@ -94,6 +94,13 @@ public class Settings
     public bool RandomizeGearStatBonuses { get; set; }
 
     // -------------------------------------------------------------------------
+    // Abilities
+    // -------------------------------------------------------------------------
+
+    /// <summary>Randomizes AP costs in AbilityGems.csv.</summary>
+    public bool RandomizeAbilityGems { get; set; }
+
+    // -------------------------------------------------------------------------
     // Enemies
     // -------------------------------------------------------------------------
 
