@@ -326,6 +326,138 @@ public enum SynthesisPriceMode
 }
 
 /// <summary>
+/// Controls how card stat values (attack, defence, magic defence) are randomized.
+/// Type and arrow bytes are controlled separately by <see cref="CardTypeMode"/>
+/// and <see cref="ArrowMode"/>.
+/// </summary>
+public enum CardStatMode
+{
+    /// <summary>
+    /// Independently Fisher-Yates shuffle attack values across all 100 cards,
+    /// then defence values, then magic defence values.
+    /// Existing stat pool is preserved — just redistributed. Default mode.
+    /// 297 RNG calls.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>
+    /// Each stat per card draws independently from
+    /// [<see cref="Settings.CardStatMin"/>, <see cref="Settings.CardStatMax"/>].
+    /// 300 RNG calls.
+    /// </summary>
+    BoundedRandom,
+
+    /// <summary>
+    /// Cards are sorted by total stat sum (attack + defence + magic defence) ascending
+    /// and assigned to card IDs 0→99 in that order. Goblin (0) gets the weakest stats,
+    /// Airship (99) gets the strongest. Fully deterministic — 0 RNG calls.
+    /// Predictable power curve — good for racing or challenge runs.
+    /// </summary>
+    TierLock,
+
+    /// <summary>
+    /// All stats set to 255. Every card is equally devastating.
+    /// Development and debug use only. Requires <see cref="Settings.IsDebugMode"/> = true.
+    /// Downgrades to <see cref="Shuffle"/> when debug mode is inactive.
+    /// </summary>
+    AllCardsMaxed
+}
+
+/// <summary>
+/// Controls how card type bytes (Physical / Magical) are randomized.
+/// Independent of <see cref="CardStatMode"/> — both can apply simultaneously.
+/// </summary>
+public enum CardTypeMode
+{
+    /// <summary>Type bytes are never modified. Default mode.</summary>
+    Preserve,
+
+    /// <summary>
+    /// Fisher-Yates shuffle of all 100 type bytes.
+    /// P/M distribution is preserved — same count of each, just reassigned.
+    /// 99 RNG calls.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>All cards become Physical (type byte = 0). 0 RNG calls.</summary>
+    AllP,
+
+    /// <summary>All cards become Magical (type byte = 1). 0 RNG calls.</summary>
+    AllM
+}
+
+/// <summary>
+/// Controls how card arrow bytes (directional attack pattern bitmask) are randomized.
+/// Each bit in the byte represents one of 8 cardinal/diagonal directions.
+/// </summary>
+public enum ArrowMode
+{
+    /// <summary>Arrow bytes are never modified. Default mode.</summary>
+    Preserve,
+
+    /// <summary>
+    /// rng.Next(1, 256) per card. At least 1 arrow bit is always set.
+    /// 100 RNG calls.
+    /// </summary>
+    Random,
+
+    /// <summary>All cards get 0xFF — all 8 arrows active on every card. 0 RNG calls.</summary>
+    AllDirections,
+
+    /// <summary>All cards get 0x00 — no arrows on any card. 0 RNG calls.</summary>
+    NoArrows,
+
+    /// <summary>
+    /// rng.Next(0, 256) per card. 0 arrows (0x00) is possible.
+    /// 100 RNG calls.
+    /// </summary>
+    Chaos
+}
+
+/// <summary>
+/// Controls how the 64 card sets (NPC draw pools) are randomized.
+/// Each set contains 16 card ID slots; duplicates within a set are permitted.
+/// </summary>
+public enum CardSetMode
+{
+    /// <summary>
+    /// Fisher-Yates of all 1024 card ID slots as a single flat pool.
+    /// Every card ID that existed in vanilla sets stays in the system — just redistributed.
+    /// 1023 RNG calls.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>
+    /// Each of the 1024 slots independently draws rng.Next(0, 100).
+    /// Produces fully novel set compositions — any card can appear in any set.
+    /// 1024 RNG calls.
+    /// </summary>
+    BuildFromScratch
+}
+
+/// <summary>
+/// Controls how NPC deck difficulty bytes are randomized.
+/// </summary>
+public enum NpcDifficultyMode
+{
+    /// <summary>Difficulty bytes are never modified. Default mode.</summary>
+    Preserve,
+
+    /// <summary>
+    /// Fisher-Yates shuffle of all 256 difficulty bytes.
+    /// Early NPCs might play at max difficulty; final bosses might be easy.
+    /// 255 RNG calls.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>All 256 NPC decks set to difficulty 3 (hardest). 0 RNG calls.</summary>
+    RaiseAll,
+
+    /// <summary>All 256 NPC decks set to difficulty 0 (easiest). 0 RNG calls.</summary>
+    LowerAll
+}
+
+/// <summary>
 /// All user-configurable settings for a randomizer run.
 /// This is the single source of truth passed into the randomization pipeline.
 /// Serialized to Settings-Seed-[int].json in the mod output folder.
@@ -354,7 +486,8 @@ public class Settings
     /// <summary>
     /// Enables developer/debug features such as <see cref="StartingItemMode.AllItems"/>,
     /// <see cref="AbilityGemMode.AllCheap"/>, <see cref="AbilityApMode.Amnesia"/>,
-    /// <see cref="ShopMode.MegaMart"/>, and <see cref="Settings.AllStatsMaxed"/>.
+    /// <see cref="ShopMode.MegaMart"/>, <see cref="Settings.AllStatsMaxed"/>,
+    /// and <see cref="CardStatMode.AllCardsMaxed"/>.
     /// Never expose this toggle in the public UI.
     /// </summary>
     public bool IsDebugMode { get; set; }
@@ -695,13 +828,108 @@ public class Settings
     public bool RandomizeCardDrops { get; set; }
 
     // -------------------------------------------------------------------------
-    // Tetramaster (bytecode only — TripleTriad.csv is NOT supported)
+    // TetraMaster (bytecode only — TripleTriad.csv is NOT supported)
+    // minigame_card_data_address  : card stats (attack, type, defence, magicdefence, arrows)
+    // minigame_card_level_address : card sets (64 NPC draw pools × 16 card IDs each)
+    // minigame_stage_address      : NPC decks (256 entries × set index + difficulty)
+    // minista.mes                 : card names (7 language files, written only if ShuffleCardOrder)
+    // All files live in resources.assets; mod output goes to embeddedasset/quadmist/
+    // (names files go to embeddedasset/text/{lang}/etc/)
     // -------------------------------------------------------------------------
 
+    /// <summary>Master on/off gate for all TetraMaster randomization.</summary>
     public bool RandomizeTetraMaster { get; set; }
+
+    // ── Card Stats ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// When true, card attack, defence, and magic defence values are randomized.
+    /// Arrow and type bytes are controlled separately.
+    /// </summary>
     public bool RandomizeCardStats { get; set; }
-    public bool RandomizeCardOrder { get; set; }
-    public bool RandomizeDecks { get; set; }
+
+    /// <summary>
+    /// Controls how card stat values are generated.
+    /// See <see cref="CardStatMode"/> for all options.
+    /// <see cref="CardStatMode.AllCardsMaxed"/> requires <see cref="IsDebugMode"/> = true.
+    /// </summary>
+    public CardStatMode CardStatMode { get; set; } = CardStatMode.Shuffle;
+
+    /// <summary>
+    /// Minimum stat value for <see cref="CardStatMode.BoundedRandom"/> mode.
+    /// Applies to attack, defence, and magic defence. Must be >= 1.
+    /// Default: 1 (vanilla-aligned — vanilla cards display 0–F hex = 0–15).
+    /// </summary>
+    public int CardStatMin { get; set; } = 1;
+
+    /// <summary>
+    /// Maximum stat value for <see cref="CardStatMode.BoundedRandom"/> mode.
+    /// Must be >= <see cref="CardStatMin"/> and &lt;= 255.
+    /// Default: 15 (vanilla-aligned — vanilla cards display 0–F hex = 0–15).
+    /// </summary>
+    public int CardStatMax { get; set; } = 15;
+
+    // ── Card Types ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Controls whether and how card type bytes (Physical/Magical) are randomized.
+    /// Independent of <see cref="CardStatMode"/> — both can apply in the same run.
+    /// See <see cref="CardTypeMode"/> for all options.
+    /// </summary>
+    public CardTypeMode CardTypeMode { get; set; } = CardTypeMode.Preserve;
+
+    // ── Arrows ──────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Controls whether and how card arrow bytes (directional bitmask) are randomized.
+    /// Each bit represents one of 8 directions. Independent of stat and type randomization.
+    /// See <see cref="ArrowMode"/> for all options.
+    /// </summary>
+    public ArrowMode ArrowMode { get; set; } = ArrowMode.Preserve;
+
+    // ── Card Order ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// When true, card identities are shuffled: card slot 0 may become Bahamut,
+    /// card slot 65 may become Goblin, etc.
+    /// The same Fisher-Yates permutation (99 RNG calls) is applied to both the
+    /// stat entries in minigame_card_data_address AND the name byte arrays in
+    /// all 7 language minista.mes files.
+    /// Card set and NPC deck references remain valid after reorder — they index
+    /// into the reordered stat table, so NPC decks using card ID 0 will play
+    /// whichever card ended up in slot 0.
+    /// </summary>
+    public bool ShuffleCardOrder { get; set; }
+
+    // ── Card Sets (NPC draw pools) ──────────────────────────────────────────
+
+    /// <summary>
+    /// When true, the 64 card sets (NPC opponent draw pools) are randomized.
+    /// Each set contains 16 card ID slots; duplicates within a set are permitted.
+    /// </summary>
+    public bool RandomizeCardSets { get; set; }
+
+    /// <summary>
+    /// Controls how card set contents are generated.
+    /// See <see cref="CardSetMode"/> for all options.
+    /// </summary>
+    public CardSetMode CardSetMode { get; set; } = CardSetMode.Shuffle;
+
+    // ── NPC Decks ───────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// When true, the set index bytes across all 256 NPC deck entries are
+    /// Fisher-Yates shuffled. Each NPC opponent will draw from a different card pool.
+    /// 255 RNG calls.
+    /// </summary>
+    public bool ShuffleNpcDecks { get; set; }
+
+    /// <summary>
+    /// Controls whether and how NPC deck difficulty bytes are randomized.
+    /// Applied after set index shuffle when both are enabled.
+    /// See <see cref="NpcDifficultyMode"/> for all options.
+    /// </summary>
+    public NpcDifficultyMode NpcDifficultyMode { get; set; } = NpcDifficultyMode.Preserve;
 
     // -------------------------------------------------------------------------
     // Serialization

@@ -23,6 +23,17 @@ needs to understand your project from any point.
 > Before starting, confirm: what phase are we on, what tasks are done,
 > what is the next single task, and list every collaboration rule you must follow."
 
+New prompt:
+Continue building Stiltzkin's Bag. 
+
+Read all attached markdown files. 
+
+Read the StiltzkinsBag_ProjectContext markdown file. 
+
+Read ALL PhaseEnd markdown files: Phase1, Phase2, Phase3, Phase4, Phase5.0, Phase5.5, Phase5.6
+
+Before starting, confirm: what phase are we on, what tasks are done, what is the next single task, and list every collaboration rule you must follow.
+
 ---
 
 ## AI Collaboration Rules
