@@ -1,6 +1,6 @@
 # PhaseEnd — Phase 5.5: Remaining CSV Randomizers (Ability Costs + Gear Stats)
 **Date:** 2026-03-26
-**Project Version:** 1.5.0 → 1.6.0
+**Project Version:** 1.5.0 → 1.5.5
 **Phase Status:** ✅ Complete
 
 ---

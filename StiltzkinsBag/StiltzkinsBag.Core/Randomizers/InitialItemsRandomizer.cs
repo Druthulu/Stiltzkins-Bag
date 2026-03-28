@@ -20,6 +20,18 @@ namespace StiltzkinsBag.Randomizers;
 ///     pool.Count−1 RNG calls.</item>
 ///   <item><see cref="StartingItemMode.SpeedRunner"/> —
 ///     Fixed output: 1× Potion + 1× Phoenix Down. 0 RNG calls.</item>
+///   <item><see cref="StartingItemMode.FilthyRich"/> —
+///     Shuffle across all items with Price &gt;= <see cref="Settings.FilthyRichThreshold"/>.
+///     Key items (Price &lt;= 2) are always excluded regardless of threshold.
+///     Sell your starting stash for an early gil advantage.
+///     Requires <see cref="_allItems"/>; falls back to ConsumablesRandom if null.
+///     pool.Count−1 RNG calls.</item>
+///   <item><see cref="StartingItemMode.JunkDrawer"/> —
+///     Shuffle across consumables (IDs 236–253) with Price &lt;=
+///     <see cref="Settings.JunkDrawerThreshold"/>. Hard mode flavour — start
+///     with cheap, low-tier items only.
+///     Falls back to full ConsumablesRandom if no items qualify at the threshold.
+///     pool.Count−1 RNG calls.</item>
 ///   <item><see cref="StartingItemMode.AllItems"/> —
 ///     One of every item (IDs 0–254). Debug mode only. 0 RNG calls.</item>
 /// </list>
@@ -65,6 +77,13 @@ public sealed class InitialItemsRandomizer
     /// </summary>
     public const int MaxRandomCount = 7;
 
+    /// <summary>
+    /// Items with Price &lt;= this value are always excluded from all pools
+    /// that draw from <see cref="_allItems"/>. Matches the threshold used by
+    /// ShopRandomizer and GearPool filtering.
+    /// </summary>
+    public const uint KeyItemPriceThreshold = 2;
+
     // -------------------------------------------------------------------------
     // Fields
     // -------------------------------------------------------------------------
@@ -73,8 +92,10 @@ public sealed class InitialItemsRandomizer
     private readonly Settings _settings;
 
     /// <summary>
-    /// All items from Items.csv. Required for <see cref="StartingItemMode.GearRandom"/>.
-    /// If null and GearRandom is selected, falls back to ConsumablesRandom.
+    /// All items from Items.csv. Required for <see cref="StartingItemMode.GearRandom"/>,
+    /// <see cref="StartingItemMode.FilthyRich"/>, and
+    /// <see cref="StartingItemMode.JunkDrawer"/> (price filtering).
+    /// If null and a mode requiring it is selected, falls back to ConsumablesRandom.
     /// </summary>
     private readonly IReadOnlyList<ItemsRow>? _allItems;
 
@@ -85,8 +106,10 @@ public sealed class InitialItemsRandomizer
     /// <param name="rng">The single shared seeded Random instance from SeedEngine.</param>
     /// <param name="settings">Current run settings.</param>
     /// <param name="allItems">
-    /// All rows from Items.csv. Required for <see cref="StartingItemMode.GearRandom"/>.
-    /// Pass null if gear mode is not needed.
+    /// All rows from Items.csv. Required for <see cref="StartingItemMode.GearRandom"/>,
+    /// <see cref="StartingItemMode.FilthyRich"/>, and
+    /// <see cref="StartingItemMode.JunkDrawer"/>.
+    /// Pass null if those modes are not needed.
     /// </param>
     public InitialItemsRandomizer(Random rng, Settings settings, IReadOnlyList<ItemsRow>? allItems = null)
     {
@@ -149,7 +172,7 @@ public sealed class InitialItemsRandomizer
     }
 
     /// <summary>
-    /// ConsumablesRandom / GearRandom / AbilityStarter:
+    /// ConsumablesRandom / GearRandom / AbilityStarter / FilthyRich / JunkDrawer:
     /// Fisher-Yates shuffle the pool, take first rows.Count items,
     /// apply vanilla or randomized counts.
     /// </summary>
@@ -185,6 +208,8 @@ public sealed class InitialItemsRandomizer
         StartingItemMode.ConsumablesRandom => BuildConsumablePool(),
         StartingItemMode.AbilityStarter => BuildAbilityStarterPool(),
         StartingItemMode.GearRandom => BuildGearPool(),
+        StartingItemMode.FilthyRich => BuildFilthyRichPool(),
+        StartingItemMode.JunkDrawer => BuildJunkDrawerPool(),
         _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, "Unexpected mode in BuildPool.")
     };
 
@@ -223,14 +248,66 @@ public sealed class InitialItemsRandomizer
         foreach (var item in _allItems)
         {
             bool isGear = item.Weapon || item.Armlet || item.Helmet || item.Armor || item.Accessory;
-
-            bool isObtainable = item.Price > 2; // Price <= 2 flags legendaries/story-only items
+            bool isObtainable = item.Price > KeyItemPriceThreshold;
 
             if (isGear && isObtainable)
                 pool.Add(item.Id);
         }
 
         return pool;
+    }
+
+    /// <summary>
+    /// FilthyRich: all items with Price &gt;= <see cref="Settings.FilthyRichThreshold"/>.
+    /// Key items (Price &lt;= <see cref="KeyItemPriceThreshold"/>) are always excluded —
+    /// the threshold already handles this since FilthyRichThreshold default is 200.
+    /// Any item type is eligible (consumable, gear, gem) — the goal is gil value, not type.
+    /// Falls back to ConsumablesRandom if <see cref="_allItems"/> is null or the pool
+    /// would be empty.
+    /// </summary>
+    private List<int> BuildFilthyRichPool()
+    {
+        if (_allItems is null)
+            return BuildConsumablePool();
+
+        uint threshold = (uint)Math.Max(
+            (int)KeyItemPriceThreshold + 1,
+            _settings.FilthyRichThreshold);
+
+        var pool = _allItems
+            .Where(i => i.Price >= threshold)
+            .Select(i => i.Id)
+            .ToList();
+
+        // Fall back to consumables if nothing qualifies at the configured threshold.
+        return pool.Count > 0 ? pool : BuildConsumablePool();
+    }
+
+    /// <summary>
+    /// JunkDrawer: consumables (IDs 236–253) with Price &lt;=
+    /// <see cref="Settings.JunkDrawerThreshold"/>. Hard mode flavour — start with
+    /// whatever cheap junk fell out of a drawer.
+    /// Always requires <see cref="_allItems"/> for price lookup since consumable
+    /// prices vary. Falls back to full ConsumablesRandom if _allItems is null or
+    /// no consumables qualify at the configured threshold.
+    /// </summary>
+    private List<int> BuildJunkDrawerPool()
+    {
+        if (_allItems is null)
+            return BuildConsumablePool();
+
+        uint threshold = (uint)Math.Max(1, _settings.JunkDrawerThreshold);
+
+        var pool = _allItems
+            .Where(i => i.Id >= ConsumablePoolMin &&
+                        i.Id <= ConsumablePoolMax &&
+                        i.Price <= threshold &&
+                        i.Price > 0) // exclude any zero-price consumables
+            .Select(i => i.Id)
+            .ToList();
+
+        // Fall back to full consumable pool if threshold is so low nothing qualifies.
+        return pool.Count > 0 ? pool : BuildConsumablePool();
     }
 
     // -------------------------------------------------------------------------

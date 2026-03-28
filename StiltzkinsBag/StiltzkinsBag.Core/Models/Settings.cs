@@ -67,6 +67,18 @@ public enum StartingItemMode
     SpeedRunner,
 
     /// <summary>
+    /// High-value sellable items only (Price >= <see cref="Settings.FilthyRichThreshold"/>).
+    /// Key items are excluded. Start the run wealthy — sell for gil advantage.
+    /// </summary>
+    FilthyRich,
+
+    /// <summary>
+    /// Low-tier cheap consumables only (Price &lt;= <see cref="Settings.JunkDrawerThreshold"/>).
+    /// Hard mode flavour — you start with whatever junk fell out of a drawer.
+    /// </summary>
+    JunkDrawer,
+
+    /// <summary>
     /// One of every item in the game (IDs 0–254).
     /// Development and debug use only. Requires <see cref="Settings.IsDebugMode"/> = true.
     /// </summary>
@@ -203,6 +215,117 @@ public enum GearStatWeighting
 }
 
 /// <summary>
+/// Controls which items are eligible to appear in a randomized shop.
+/// Applies to <see cref="ShopMode.BoundedRandom"/>.
+/// </summary>
+public enum ShopItemPool
+{
+    /// <summary>
+    /// Only consumable items (roughly IDs 236–253) are eligible.
+    /// Shops will never sell equipment or gems.
+    /// Safest option for Recommended mode.
+    /// </summary>
+    ConsumablesOnly,
+
+    /// <summary>
+    /// All non-key items are eligible — consumables, weapons, armor, accessories, gems.
+    /// Key items and story-only items (Price &lt;= 2) are always excluded.
+    /// Maximum variety.
+    /// </summary>
+    AllNonKeyItems
+}
+
+/// <summary>
+/// Controls how items are selected and distributed across randomized shops.
+/// </summary>
+public enum ShopMode
+{
+    /// <summary>
+    /// Fisher-Yates shuffle of all item slots across all shops globally.
+    /// Items that exist in vanilla shops stay in the shop system — just redistributed.
+    /// No duplicates within a single shop. Per-shop item count governed by
+    /// <see cref="ShopSizeMode"/>. Default mode.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>
+    /// Each shop independently draws items from the pool defined by
+    /// <see cref="ShopItemPool"/>. No duplicates within a single shop.
+    /// Per-shop item count governed by <see cref="ShopSizeMode"/>.
+    /// </summary>
+    BoundedRandom,
+
+    /// <summary>
+    /// Every shop sells the same broad item list drawn from <see cref="ShopItemPool"/>.
+    /// Useful for testing. Development and debug use only.
+    /// Requires <see cref="Settings.IsDebugMode"/> = true.
+    /// Downgrades to <see cref="Shuffle"/> when debug mode is inactive.
+    /// </summary>
+    MegaMart
+}
+
+/// <summary>
+/// Controls how many items each shop offers after randomization.
+/// When <see cref="Settings.ShortSupply"/> is true, the ShortSupply cap is applied
+/// after this mode computes the target size — it may further reduce the count.
+/// </summary>
+public enum ShopSizeMode
+{
+    /// <summary>
+    /// Each shop keeps its vanilla item count. Default mode.
+    /// </summary>
+    Maintain,
+
+    /// <summary>
+    /// Each shop receives a random item count drawn from
+    /// [global vanilla minimum shop size, global vanilla maximum shop size].
+    /// One RNG call per shop.
+    /// </summary>
+    Random,
+
+    /// <summary>
+    /// Every shop contains exactly <see cref="Settings.ShopFixedSize"/> items.
+    /// User-configurable.
+    /// </summary>
+    Fixed
+}
+
+/// <summary>
+/// Controls how synthesis recipe prices are randomized.
+/// <see cref="Settings.BadEconomy"/> multiplier is applied on top of this mode
+/// when enabled.
+/// </summary>
+public enum SynthesisPriceMode
+{
+    /// <summary>
+    /// All synthesis prices are unchanged from vanilla. Default mode.
+    /// </summary>
+    Vanilla,
+
+    /// <summary>
+    /// Each recipe price is drawn independently from
+    /// [<see cref="Settings.SynthPriceMin"/>, <see cref="Settings.SynthPriceMax"/>].
+    /// One RNG call per recipe.
+    /// </summary>
+    BoundedRandom,
+
+    /// <summary>
+    /// Each recipe price is scaled by a random factor drawn from
+    /// [<see cref="Settings.SynthPriceScaleMinPercent"/>%, <see cref="Settings.SynthPriceScaleMaxPercent"/>%].
+    /// Preserves relative cost relationships while introducing variance.
+    /// One RNG call per recipe.
+    /// </summary>
+    ProportionalScale,
+
+    /// <summary>
+    /// Price is derived from the gear stat score of the result item.
+    /// Higher-stat gear costs more to synthesize. Items with no stats
+    /// fall back to vanilla price. 0 RNG calls.
+    /// </summary>
+    GearScored
+}
+
+/// <summary>
 /// All user-configurable settings for a randomizer run.
 /// This is the single source of truth passed into the randomization pipeline.
 /// Serialized to Settings-Seed-[int].json in the mod output folder.
@@ -231,7 +354,7 @@ public class Settings
     /// <summary>
     /// Enables developer/debug features such as <see cref="StartingItemMode.AllItems"/>,
     /// <see cref="AbilityGemMode.AllCheap"/>, <see cref="AbilityApMode.Amnesia"/>,
-    /// and <see cref="Settings.AllStatsMaxed"/>.
+    /// <see cref="ShopMode.MegaMart"/>, and <see cref="Settings.AllStatsMaxed"/>.
     /// Never expose this toggle in the public UI.
     /// </summary>
     public bool IsDebugMode { get; set; }
@@ -269,18 +392,182 @@ public class Settings
     /// </summary>
     public bool RandomizeStartingCounts { get; set; }
 
+    /// <summary>
+    /// Minimum item price threshold for <see cref="StartingItemMode.FilthyRich"/>.
+    /// Only items with Price >= this value are eligible for the starting pool.
+    /// Key items are always excluded regardless of price.
+    /// Default: 200.
+    /// </summary>
+    public int FilthyRichThreshold { get; set; } = 200;
+
+    /// <summary>
+    /// Maximum item price threshold for <see cref="StartingItemMode.JunkDrawer"/>.
+    /// Only consumable items with Price &lt;= this value are eligible.
+    /// Default: 50.
+    /// </summary>
+    public int JunkDrawerThreshold { get; set; } = 50;
+
     public bool RandomizeTreasureChests { get; set; }
+
+    // -------------------------------------------------------------------------
+    // Shops
+    // -------------------------------------------------------------------------
+
+    /// <summary>Master on/off gate for shop randomization.</summary>
     public bool RandomizeShops { get; set; }
+
+    /// <summary>
+    /// Controls how items are selected and distributed across shops.
+    /// See <see cref="ShopMode"/> for all options.
+    /// <see cref="ShopMode.MegaMart"/> requires <see cref="IsDebugMode"/> = true.
+    /// </summary>
+    public ShopMode ShopMode { get; set; } = ShopMode.Shuffle;
+
+    /// <summary>
+    /// Controls how many items each shop offers after randomization.
+    /// See <see cref="ShopSizeMode"/> for all options.
+    /// <see cref="Settings.ShortSupply"/> cap is applied after this if enabled.
+    /// </summary>
+    public ShopSizeMode ShopSizeMode { get; set; } = ShopSizeMode.Maintain;
+
+    /// <summary>
+    /// Fixed item count per shop when <see cref="ShopSizeMode.Fixed"/> is active.
+    /// Must be at least 1. Default: 4.
+    /// </summary>
+    public int ShopFixedSize { get; set; } = 4;
+
+    /// <summary>
+    /// Controls which items are eligible to appear in shops when
+    /// <see cref="ShopMode.BoundedRandom"/> is active.
+    /// See <see cref="ShopItemPool"/> for all options.
+    /// </summary>
+    public ShopItemPool ShopItemPool { get; set; } = ShopItemPool.ConsumablesOnly;
+
+    /// <summary>
+    /// When true, guarantees at least <see cref="ShopMedicMinShops"/> shops
+    /// carry both a Potion and a Phoenix Down, regardless of randomization mode.
+    /// Applied as a post-processing pass after all shop randomization.
+    /// </summary>
+    public bool ShopEnsureMedicItems { get; set; } = true;
+
+    /// <summary>
+    /// Minimum number of shops that must carry medic items (Potion + Phoenix Down)
+    /// when <see cref="ShopEnsureMedicItems"/> is true.
+    /// Default: 2.
+    /// </summary>
+    public int ShopMedicMinShops { get; set; } = 2;
+
+    // -------------------------------------------------------------------------
+    // Synthesis
+    // -------------------------------------------------------------------------
+
+    /// <summary>Master on/off gate for synthesis randomization.</summary>
     public bool RandomizeSynthesis { get; set; }
 
-    /// <summary>Enables unique synthesis Bonus Set recipes for legendary items.</summary>
-    public bool RandomizeBonusSets { get; set; }
+    /// <summary>
+    /// When true, synthesis Result IDs are shuffled or randomized across recipes.
+    /// In <see cref="RandomizerMode.Chaos"/> or when <see cref="AllowNewSynthesisResults"/>
+    /// is true, results may be drawn from outside the vanilla synthesis result pool.
+    /// Independent of <see cref="RandomizeSynthesisIngredients"/>.
+    /// </summary>
+    public bool RandomizeSynthesisResults { get; set; }
 
-    /// <summary>Allows medic/recovery items to appear in randomized shops.</summary>
-    public bool ShopIncludeMedicItems { get; set; }
+    /// <summary>
+    /// When true, synthesis ingredient sets are shuffled across recipes.
+    /// Independent of <see cref="RandomizeSynthesisResults"/>.
+    /// Both flags can be enabled simultaneously for full recipe chaos.
+    /// </summary>
+    public bool RandomizeSynthesisIngredients { get; set; }
 
-    /// <summary>Overrides dedicated medic shops with the general randomized pool.</summary>
-    public bool ShopOverrideMedicShops { get; set; }
+    /// <summary>
+    /// When true, synthesis results are drawn from the full item pool rather than
+    /// only vanilla synthesis result IDs. Only has effect when
+    /// <see cref="RandomizeSynthesisResults"/> is also true.
+    /// In <see cref="RandomizerMode.Recommended"/>, obtainability constraints still apply.
+    /// In <see cref="RandomizerMode.Chaos"/>, no constraints — any item can appear.
+    /// </summary>
+    public bool AllowNewSynthesisResults { get; set; }
+
+    /// <summary>
+    /// Controls how synthesis recipe prices are randomized.
+    /// See <see cref="SynthesisPriceMode"/> for all options.
+    /// <see cref="Settings.BadEconomy"/> multiplier is applied on top when enabled.
+    /// </summary>
+    public SynthesisPriceMode SynthesisPriceMode { get; set; } = SynthesisPriceMode.Vanilla;
+
+    /// <summary>
+    /// Minimum synthesis price for <see cref="SynthesisPriceMode.BoundedRandom"/> mode.
+    /// Must be at least 1. Default: 100.
+    /// </summary>
+    public int SynthPriceMin { get; set; } = 100;
+
+    /// <summary>
+    /// Maximum synthesis price for <see cref="SynthesisPriceMode.BoundedRandom"/> mode.
+    /// Must be >= <see cref="SynthPriceMin"/>. Swapped with min if set lower.
+    /// Default: 5000.
+    /// </summary>
+    public int SynthPriceMax { get; set; } = 5000;
+
+    /// <summary>
+    /// Minimum price scale factor as a percentage for
+    /// <see cref="SynthesisPriceMode.ProportionalScale"/> mode.
+    /// 50 = multiply vanilla price by 0.5×. Must be at least 1. Default: 50.
+    /// </summary>
+    public int SynthPriceScaleMinPercent { get; set; } = 50;
+
+    /// <summary>
+    /// Maximum price scale factor as a percentage for
+    /// <see cref="SynthesisPriceMode.ProportionalScale"/> mode.
+    /// 200 = multiply vanilla price by 2.0×.
+    /// Must be >= <see cref="SynthPriceScaleMinPercent"/>. Swapped with min if set lower.
+    /// Default: 200.
+    /// </summary>
+    public int SynthPriceScaleMaxPercent { get; set; } = 200;
+
+    // -------------------------------------------------------------------------
+    // Challenge Modifiers
+    // These flags stack on top of any ShopMode or SynthesisPriceMode.
+    // Both can be enabled simultaneously.
+    // -------------------------------------------------------------------------
+
+    /// <summary>
+    /// When true, all shop and synthesis prices are multiplied by a random factor
+    /// drawn per-item from
+    /// [<see cref="BadEconomyPriceMultiplierMin"/>, <see cref="BadEconomyPriceMultiplierMax"/>].
+    /// Applied as a final post-processing pass after all price randomization.
+    /// Applies to both ShopRandomizer and SynthesisRandomizer.
+    /// </summary>
+    public bool BadEconomy { get; set; }
+
+    /// <summary>
+    /// Minimum price multiplier for <see cref="BadEconomy"/> mode.
+    /// 1.0 = no change. Default: 1.5 (50% markup minimum).
+    /// </summary>
+    public float BadEconomyPriceMultiplierMin { get; set; } = 1.5f;
+
+    /// <summary>
+    /// Maximum price multiplier for <see cref="BadEconomy"/> mode.
+    /// Must be >= <see cref="BadEconomyPriceMultiplierMin"/>. Default: 4.0 (400% markup maximum).
+    /// </summary>
+    public float BadEconomyPriceMultiplierMax { get; set; } = 4.0f;
+
+    /// <summary>
+    /// When true, every shop's item count is capped at <see cref="ShortSupplyMaxItems"/>
+    /// after all other shop size calculations. Items are trimmed from the end of the list.
+    /// Applies only to shops — synthesis is unaffected.
+    /// Compatible with all <see cref="ShopMode"/> and <see cref="ShopSizeMode"/> values.
+    /// </summary>
+    public bool ShortSupply { get; set; }
+
+    /// <summary>
+    /// Maximum number of items any single shop may offer when <see cref="ShortSupply"/> is true.
+    /// Must be at least 1. Default: 3.
+    /// </summary>
+    public int ShortSupplyMaxItems { get; set; } = 3;
+
+    // -------------------------------------------------------------------------
+    // Gear Stat Bonuses
+    // -------------------------------------------------------------------------
 
     public bool RandomizeGearStatBonuses { get; set; }
 

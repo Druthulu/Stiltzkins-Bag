@@ -396,4 +396,177 @@ public class InitialItemsRandomizerTests
         var sut = new InitialItemsRandomizer(Rng(), MakeSettings());
         Assert.Throws<ArgumentException>(() => sut.Randomize([]));
     }
+
+    // -------------------------------------------------------------------------
+    // FilthyRich
+    // -------------------------------------------------------------------------
+
+    /// <summary>Item pool for FilthyRich / JunkDrawer price-filter tests.</summary>
+    private static List<ItemsRow> FakePricedItems() =>
+    [
+        new() { Id = 10,  Price = 50,   AbilityIds = [] }, // cheap — below FilthyRich default
+        new() { Id = 11,  Price = 100,  AbilityIds = [] }, // mid
+        new() { Id = 12,  Price = 200,  AbilityIds = [] }, // at default FilthyRich threshold
+        new() { Id = 13,  Price = 500,  AbilityIds = [] }, // expensive
+        new() { Id = 14,  Price = 1000, AbilityIds = [] }, // very expensive
+        new() { Id = 1,   Price = 1,    AbilityIds = [] }, // key item — always excluded
+        // Consumables with varying prices
+        new() { Id = 236, Price = 50,  AbilityIds = [] },
+        new() { Id = 237, Price = 100, AbilityIds = [] },
+        new() { Id = 238, Price = 200, AbilityIds = [] },
+        new() { Id = 239, Price = 30,  AbilityIds = [] },
+        new() { Id = 240, Price = 75,  AbilityIds = [] },
+    ];
+
+    private static Settings MakeFilthyRichSettings(int threshold = 200) => new()
+    {
+        RandomizeInitialItems = true,
+        StartingItemMode = StartingItemMode.FilthyRich,
+        FilthyRichThreshold = threshold
+    };
+
+    [Fact]
+    public void FilthyRich_AllItemsAtOrAboveThreshold()
+    {
+        var settings = MakeFilthyRichSettings(threshold: 200);
+        var sut = new InitialItemsRandomizer(Rng(), settings, FakePricedItems());
+        var result = sut.Randomize(VanillaRows());
+
+        var priceById = FakePricedItems().ToDictionary(i => i.Id, i => i.Price);
+        Assert.All(result, row =>
+        {
+            Assert.True(priceById.ContainsKey(row.ItemID),
+                $"ItemID {row.ItemID} not found in item pool");
+            Assert.True(priceById[row.ItemID] >= 200,
+                $"ItemID {row.ItemID} has price {priceById[row.ItemID]} below threshold 200");
+        });
+    }
+
+    [Fact]
+    public void FilthyRich_ExcludesKeyItems()
+    {
+        // Threshold=1 would include key item if not filtered — key items must always be excluded.
+        var settings = MakeFilthyRichSettings(threshold: 1);
+        var sut = new InitialItemsRandomizer(Rng(), settings, FakePricedItems());
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.DoesNotContain(result, r => r.ItemID == 1); // key item Price=1
+    }
+
+    [Fact]
+    public void FilthyRich_NullItemsFallsBackToConsumables()
+    {
+        var settings = MakeFilthyRichSettings();
+        var sut = new InitialItemsRandomizer(Rng(), settings, allItems: null);
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.All(result, row =>
+            Assert.InRange(row.ItemID,
+                InitialItemsRandomizer.ConsumablePoolMin,
+                InitialItemsRandomizer.ConsumablePoolMax));
+    }
+
+    [Fact]
+    public void FilthyRich_IsDeterministic()
+    {
+        var settings = MakeFilthyRichSettings();
+        var items = FakePricedItems();
+        var r1 = new InitialItemsRandomizer(Rng(42), settings, items).Randomize(VanillaRows());
+        var r2 = new InitialItemsRandomizer(Rng(42), settings, items).Randomize(VanillaRows());
+
+        Assert.Equal(r1.Select(r => r.ItemID), r2.Select(r => r.ItemID));
+    }
+
+    [Fact]
+    public void FilthyRich_EmptyPoolFallsBackToConsumables()
+    {
+        // Threshold set absurdly high — nothing qualifies, must fall back.
+        var settings = MakeFilthyRichSettings(threshold: 999999);
+        var sut = new InitialItemsRandomizer(Rng(), settings, FakePricedItems());
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.All(result, row =>
+            Assert.InRange(row.ItemID,
+                InitialItemsRandomizer.ConsumablePoolMin,
+                InitialItemsRandomizer.ConsumablePoolMax));
+    }
+
+    // -------------------------------------------------------------------------
+    // JunkDrawer
+    // -------------------------------------------------------------------------
+
+    private static Settings MakeJunkDrawerSettings(int threshold = 50) => new()
+    {
+        RandomizeInitialItems = true,
+        StartingItemMode = StartingItemMode.JunkDrawer,
+        JunkDrawerThreshold = threshold
+    };
+
+    [Fact]
+    public void JunkDrawer_AllItemsAreConsumables()
+    {
+        var settings = MakeJunkDrawerSettings(threshold: 100);
+        var sut = new InitialItemsRandomizer(Rng(), settings, FakePricedItems());
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.All(result, row =>
+            Assert.InRange(row.ItemID,
+                InitialItemsRandomizer.ConsumablePoolMin,
+                InitialItemsRandomizer.ConsumablePoolMax));
+    }
+
+    [Fact]
+    public void JunkDrawer_AllItemsAtOrBelowThreshold()
+    {
+        var settings = MakeJunkDrawerSettings(threshold: 75);
+        var items = FakePricedItems();
+        var sut = new InitialItemsRandomizer(Rng(), settings, items);
+        var result = sut.Randomize(VanillaRows());
+
+        var priceById = items.ToDictionary(i => i.Id, i => i.Price);
+        Assert.All(result, row =>
+        {
+            if (!priceById.ContainsKey(row.ItemID)) return;
+            Assert.True(priceById[row.ItemID] <= 75,
+                $"ItemID {row.ItemID} has price {priceById[row.ItemID]} above threshold 75");
+        });
+    }
+
+    [Fact]
+    public void JunkDrawer_NullItemsFallsBackToConsumables()
+    {
+        var settings = MakeJunkDrawerSettings();
+        var sut = new InitialItemsRandomizer(Rng(), settings, allItems: null);
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.All(result, row =>
+            Assert.InRange(row.ItemID,
+                InitialItemsRandomizer.ConsumablePoolMin,
+                InitialItemsRandomizer.ConsumablePoolMax));
+    }
+
+    [Fact]
+    public void JunkDrawer_EmptyPoolFallsBackToConsumables()
+    {
+        // Threshold=0 — nothing qualifies (Price > 0 filter), must fall back.
+        var settings = MakeJunkDrawerSettings(threshold: 0);
+        var sut = new InitialItemsRandomizer(Rng(), settings, FakePricedItems());
+        var result = sut.Randomize(VanillaRows());
+
+        Assert.All(result, row =>
+            Assert.InRange(row.ItemID,
+                InitialItemsRandomizer.ConsumablePoolMin,
+                InitialItemsRandomizer.ConsumablePoolMax));
+    }
+
+    [Fact]
+    public void JunkDrawer_IsDeterministic()
+    {
+        var settings = MakeJunkDrawerSettings();
+        var items = FakePricedItems();
+        var r1 = new InitialItemsRandomizer(Rng(42), settings, items).Randomize(VanillaRows());
+        var r2 = new InitialItemsRandomizer(Rng(42), settings, items).Randomize(VanillaRows());
+
+        Assert.Equal(r1.Select(r => r.ItemID), r2.Select(r => r.ItemID));
+    }
 }
