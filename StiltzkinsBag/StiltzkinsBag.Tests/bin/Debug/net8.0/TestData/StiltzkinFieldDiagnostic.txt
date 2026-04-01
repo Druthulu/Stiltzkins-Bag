@@ -1,0 +1,430 @@
+﻿Stiltzkin Field Script Diagnostic
+Generated: 2026-03-31 22:19:08
+Scanned: 2454 field scripts (world map excluded)
+
+=== STILTZKIN PRICE HITS ===
+
+    333 Gil — ✓ FOUND
+    EVT_BURMECIA_SQUARE_1.eb  (offset=0x24D5)
+    444 Gil — MULTIPLE (2)
+    EVT_CLEYRA3_ANTRION.eb  (offset=0x2505)
+    EVT_CLEYRA3_INN.eb  (offset=0x33F5)
+    555 Gil — ✓ FOUND
+    EVT_FOSSIL_FR_DN1_0.eb  (offset=0x3024)
+    666 Gil — ✓ FOUND
+    EVT_PATA_M_CM_MP3_0.eb  (offset=0x2711)
+    777 Gil — ✓ FOUND
+    EVT_ALEX3_AT_SENTOU.eb  (offset=0x2BF1)
+    888 Gil — ✓ FOUND
+    EVT_OEIL_UV_DEP_0.eb  (offset=0x2EA5)
+   2222 Gil — ✓ FOUND
+    EVT_BAL_BB_WPS_0.eb  (offset=0x28AD)
+   5555 Gil — ✓ FOUND
+    EVT_ALEX5_AT_SENTOU.eb  (offset=0x32CC)
+
+Found: 9 / 8 prices matched
+
+=== CONFIRMED MAPPING (evt_ filename → gil price) ===
+
+  EVT_BURMECIA_SQUARE_1.eb                      → 333 Gil
+  [AMBIGUOUS 444 Gil]:
+    EVT_CLEYRA3_ANTRION.eb
+    EVT_CLEYRA3_INN.eb
+  EVT_FOSSIL_FR_DN1_0.eb                        → 555 Gil
+  EVT_PATA_M_CM_MP3_0.eb                        → 666 Gil
+  EVT_ALEX3_AT_SENTOU.eb                        → 777 Gil
+  EVT_OEIL_UV_DEP_0.eb                          → 888 Gil
+  EVT_BAL_BB_WPS_0.eb                           → 2222 Gil
+  EVT_ALEX5_AT_SENTOU.eb                        → 5555 Gil
+
+=== ALL TEXTSYNC >255 LOCATIONS (reference) ===
+
+  [EVT_ALEX1_AT_GATE.eb]
+    offset=0x1F22  gil=517
+    offset=0x2042  gil=521
+    offset=0x2162  gil=518
+  [EVT_ALEX1_AT_HOUSE_1.eb]
+    offset=0x0882  gil=1003
+  [EVT_ALEX1_AT_HOUSE_2.eb]
+    offset=0x0C7A  gil=513
+    offset=0x0D9A  gil=1009
+  [EVT_ALEX1_AT_ITEM.eb]
+    offset=0x082E  gil=1038
+  [EVT_ALEX1_AT_PUB.eb]
+    offset=0x159E  gil=515
+    offset=0x16BE  gil=1027
+  [EVT_ALEX1_AT_ROOF.eb]
+    offset=0x1D1A  gil=1029
+    offset=0x1E3A  gil=1092
+    offset=0x1F5A  gil=1063
+  [EVT_ALEX1_AT_SENTOU.eb]
+    offset=0x4461  gil=520
+    offset=0x44CB  gil=512
+    offset=0x4535  gil=513
+  [EVT_ALEX1_AT_STREET_B.eb]
+    offset=0x1972  gil=512
+    offset=0x1A92  gil=1033
+  [EVT_ALEX1_TS_CARGO_0.eb]
+    offset=0x0BD2  gil=1047
+  [EVT_ALEX1_TS_CARGO_3.eb]
+    offset=0x0E7E  gil=1047
+  [EVT_ALEX3_AC_PORT_A.eb]
+    offset=0x14C2  gil=308
+  [EVT_ALEX3_AT_GATE.eb]
+    offset=0x233E  gil=517
+    offset=0x245E  gil=521
+    offset=0x257E  gil=518
+  [EVT_ALEX3_AT_HOUSE_1.eb]
+    offset=0x0D3A  gil=1003
+  [EVT_ALEX3_AT_HOUSE_2.eb]
+    offset=0x0C66  gil=513
+    offset=0x0D86  gil=1009
+  [EVT_ALEX3_AT_ITEM.eb]
+    offset=0x0E8E  gil=1038
+  [EVT_ALEX3_AT_PUB.eb]
+    offset=0x294A  gil=515
+    offset=0x2A6A  gil=1027
+  [EVT_ALEX3_AT_RUBY.eb]
+    offset=0x2262  gil=3680
+  [EVT_ALEX3_AT_SENTOU.eb]
+    offset=0x2BF1  gil=777
+    offset=0x4BEC  gil=520
+    offset=0x4C62  gil=512
+    offset=0x4CD8  gil=513
+    offset=0x4D4E  gil=571
+    offset=0x4DC4  gil=573
+    offset=0x5610  gil=520
+    offset=0x5686  gil=512
+    offset=0x56FC  gil=513
+    offset=0x5772  gil=571
+    offset=0x57E8  gil=573
+  [EVT_ALEX3_AT_STREET_A.eb]
+    offset=0x15DD  gil=524
+    offset=0x162A  gil=524
+    offset=0x16EB  gil=532
+    offset=0x1738  gil=532
+    offset=0x17F9  gil=546
+    offset=0x1846  gil=546
+    offset=0x1907  gil=551
+    offset=0x1954  gil=551
+    offset=0x1A15  gil=587
+    offset=0x1A62  gil=587
+    offset=0x1B23  gil=565
+    offset=0x1B70  gil=565
+    offset=0x1C31  gil=590
+    offset=0x1C7E  gil=590
+  [EVT_ALEX3_AT_STREET_B.eb]
+    offset=0x2A0A  gil=512
+    offset=0x2B2A  gil=1033
+  [EVT_ALEX3_AT_WHARF.eb]
+    offset=0x1742  gil=4927
+  [EVT_ALEX5_AC_PORT_A.eb]
+    offset=0x14F2  gil=308
+  [EVT_ALEX5_AT_CENTER.eb]
+    offset=0x13EA  gil=605
+    offset=0x1437  gil=605
+    offset=0x1B8E  gil=1365
+  [EVT_ALEX5_AT_RUBY.eb]
+    offset=0x05A8  gil=324
+    offset=0x08EE  gil=3680
+  [EVT_ALEX5_AT_SENTOU.eb]
+    offset=0x32CC  gil=5555
+  [EVT_ALEX5_AT_WHARF.eb]
+    offset=0x0BEE  gil=5832
+  [EVT_BAL_BB_WPS_0.eb]
+    offset=0x28AD  gil=2222
+  [EVT_BURMECIA_SQUARE_1.eb]
+    offset=0x24D5  gil=333
+  [EVT_BURMECIA_TOWN_0.eb]
+    offset=0x13F2  gil=307
+  [EVT_CHOCO_CH_FGD_0.eb]
+    offset=0x6CBF  gil=566
+  [EVT_CHOCO_CH_PDS_1.eb]
+    offset=0x0B03  gil=601
+    offset=0x0B50  gil=601
+    offset=0x254D  gil=595
+    offset=0x25AA  gil=595
+    offset=0x25D2  gil=598
+    offset=0x25FA  gil=564
+    offset=0x2622  gil=584
+    offset=0x264A  gil=581
+    offset=0x2672  gil=593
+    offset=0x269A  gil=586
+    offset=0x26C2  gil=578
+    offset=0x27CB  gil=596
+    offset=0x281A  gil=596
+    offset=0x2842  gil=575
+    offset=0x286A  gil=611
+    offset=0x2892  gil=594
+    offset=0x28BA  gil=592
+    offset=0x28E2  gil=597
+    offset=0x29DD  gil=601
+    offset=0x2A2A  gil=601
+  [EVT_CLEYRA1_DUN_11.eb]
+    offset=0x120B  gil=1900
+    offset=0x1258  gil=1900
+  [EVT_CLEYRA2_ANTRION.eb]
+    offset=0x12AA  gil=1970
+  [EVT_CLEYRA2_INN.eb]
+    offset=0x32DE  gil=2250
+  [EVT_CLEYRA3_ANTRION.eb]
+    offset=0x052A  gil=1970
+    offset=0x2505  gil=444
+  [EVT_CLEYRA3_CATHE_1.eb]
+    offset=0x1230  gil=528
+    offset=0x127D  gil=528
+    offset=0x1424  gil=530
+    offset=0x1471  gil=530
+  [EVT_CLEYRA3_INN.eb]
+    offset=0x12FA  gil=2250
+    offset=0x33F5  gil=444
+  [EVT_DAG_DG_2F0_0.eb]
+    offset=0x0688  gil=570
+    offset=0x06D5  gil=570
+    offset=0x07D6  gil=569
+    offset=0x0823  gil=569
+    offset=0x09A2  gil=570
+    offset=0x09EF  gil=570
+    offset=0x0AF0  gil=569
+    offset=0x0B3D  gil=569
+    offset=0x0CBC  gil=570
+    offset=0x0D09  gil=570
+    offset=0x0E0A  gil=569
+    offset=0x0E57  gil=569
+    offset=0x2471  gil=299
+  [EVT_DAG_DG_ENT_0.eb]
+    offset=0x19B9  gil=609
+    offset=0x1A0B  gil=609
+    offset=0x30A7  gil=313
+    offset=0x30F4  gil=313
+  [EVT_DALI_A_AP_WTE_0.eb]
+    offset=0x0DED  gil=1135
+    offset=0x0E3A  gil=1135
+  [EVT_DALI_F_UF_EGG_0.eb]
+    offset=0x1593  gil=1095
+    offset=0x15E0  gil=1095
+    offset=0x1E80  gil=284
+    offset=0x1EAF  gil=284
+  [EVT_DALI_F_UF_ENT_0.eb]
+    offset=0x0EDF  gil=1156
+    offset=0x0F2C  gil=1156
+  [EVT_DALI_V_DL_FWM.eb]
+    offset=0x1337  gil=31000
+    offset=0x1384  gil=31000
+  [EVT_DALI_V_DL_WHL.eb]
+    offset=0x39B9  gil=1120
+    offset=0x3A06  gil=1120
+  [EVT_DALI_V_DL_WMS0.eb]
+    offset=0x2D9E  gil=284
+    offset=0x373E  gil=284
+  [EVT_DOWNSHIP_BT_GTR_0.eb]
+    offset=0x1C6E  gil=1116
+  [EVT_FOSSIL_FR_DN1_0.eb]
+    offset=0x3024  gil=555
+  [EVT_GATE_N_NG_TRA_1.eb]
+    offset=0x2C6B  gil=4206
+    offset=0x2CB8  gil=4206
+  [EVT_GATE_S_SG_ALX_2.eb]
+    offset=0x073B  gil=2610
+    offset=0x0788  gil=2610
+  [EVT_GATE_S_SG_ALX_4.eb]
+    offset=0x0547  gil=272
+  [EVT_GATE_S_SG_ALX_5.eb]
+    offset=0x0747  gil=2610
+    offset=0x0794  gil=2610
+  [EVT_GATE_S_SG_RND_1.eb]
+    offset=0x1A6F  gil=585
+    offset=0x1ABC  gil=585
+    offset=0x20C3  gil=585
+    offset=0x2110  gil=585
+  [EVT_GATE_S_SG_TRN_2.eb]
+    offset=0x0429  gil=273
+  [EVT_GATE_S_SG_TRN_3.eb]
+    offset=0x03AA  gil=273
+  [EVT_GULUGU_GV_RM2_0.eb]
+    offset=0x08F2  gil=10693
+    offset=0x093F  gil=10693
+  [EVT_INV_IV_CXI_0.eb]
+    offset=0x1B13  gil=315
+    offset=0x1B60  gil=315
+  [EVT_IPSEN_IP_EN1_0.eb]
+    offset=0x1717  gil=314
+    offset=0x1764  gil=314
+  [EVT_IPSEN_IP_RM1_0.eb]
+    offset=0x4061  gil=4084
+    offset=0x46E1  gil=4084
+    offset=0x4A9A  gil=4084
+  [EVT_KUINA_KM_ENT_0.eb]
+    offset=0x2415  gil=3088
+  [EVT_KUWAN_QH_CAV_0.eb]
+    offset=0x12B0  gil=311
+    offset=0x12FD  gil=311
+    offset=0x1431  gil=316
+    offset=0x147E  gil=316
+    offset=0x149A  gil=311
+    offset=0x1F31  gil=311
+  [EVT_LIND1_CS_LB_CFR_0.eb]
+    offset=0x0930  gil=260
+    offset=0x0ED4  gil=6000
+    offset=0x1054  gil=598
+    offset=0x10A1  gil=598
+  [EVT_LIND1_CS_LB_PLA_0.eb]
+    offset=0x0E23  gil=524
+    offset=0x0E70  gil=524
+  [EVT_LIND1_TN_LB_ATL_0.eb]
+    offset=0x0D5A  gil=293
+  [EVT_LIND1_TN_LB_IN1_0.eb]
+    offset=0x0BE6  gil=1163
+  [EVT_LIND1_TN_LB_LDH_0.eb]
+    offset=0x1297  gil=523
+    offset=0x12E4  gil=523
+  [EVT_LIND1_TN_LB_RFS_0.eb]
+    offset=0x30AE  gil=1127
+  [EVT_LIND1_TN_LB_TTL_0.eb]
+    offset=0x0FB6  gil=291
+    offset=0x16CB  gil=1097
+    offset=0x1718  gil=1097
+    offset=0x191F  gil=1068
+    offset=0x196C  gil=1068
+    offset=0x1B73  gil=1282
+    offset=0x1BC0  gil=1282
+  [EVT_LIND2_TN_LB_BAZ_0.eb]
+    offset=0x0BBE  gil=606
+  [EVT_LIND2_TN_LB_IN1_0.eb]
+    offset=0x08E6  gil=1163
+  [EVT_LIND2_TN_LB_OMG_W.eb]
+    offset=0x0A71  gil=4000
+    offset=0x0ABE  gil=4000
+  [EVT_LIND2_TN_LB_RFS_0.eb]
+    offset=0x0CAE  gil=1127
+  [EVT_LIND2_TN_LB_TTL_0.eb]
+    offset=0x084A  gil=291
+    offset=0x0FDB  gil=1340
+    offset=0x1028  gil=1340
+    offset=0x122F  gil=1262
+    offset=0x127C  gil=1262
+    offset=0x1483  gil=1993
+    offset=0x14D0  gil=1993
+  [EVT_LIND3_CS_LB_CFR_0.eb]
+    offset=0x17F0  gil=274
+    offset=0x26EE  gil=274
+  [EVT_LIND3_TN_LB_BAZ_0.eb]
+    offset=0x3696  gil=312
+  [EVT_LIND3_TN_LB_HIG_0.eb]
+    offset=0x3A0C  gil=274
+  [EVT_LIND3_TN_LB_IN1_0.eb]
+    offset=0x06FA  gil=1163
+  [EVT_LIND3_TN_LB_PLZ_0.eb]
+    offset=0x14A1  gil=275
+  [EVT_LIND3_TN_LB_RFS_0.eb]
+    offset=0x1D96  gil=1127
+  [EVT_LIND3_TN_LB_TTL_0.eb]
+    offset=0x08DF  gil=2273
+    offset=0x092C  gil=2273
+    offset=0x0B33  gil=1970
+    offset=0x0B80  gil=1970
+    offset=0x0D87  gil=5826
+    offset=0x0DD4  gil=5826
+  [EVT_MAGE_BV_INN_0.eb]
+    offset=0x1716  gil=309
+    offset=0x1763  gil=309
+  [EVT_MAGE_BV_ITS_0.eb]
+    offset=0x1C67  gil=3000
+    offset=0x1CB4  gil=3000
+  [EVT_MAGE_BV_ORT_0.eb]
+    offset=0x064B  gil=1843
+    offset=0x0698  gil=1843
+  [EVT_MAGE2_BV_INN_0.eb]
+    offset=0x0744  gil=297
+    offset=0x14F6  gil=309
+    offset=0x1543  gil=309
+  [EVT_MAGE2_BV_ITS_0.eb]
+    offset=0x0C0B  gil=3000
+    offset=0x0C58  gil=3000
+  [EVT_MAGE2_BV_ORT_0.eb]
+    offset=0x05B3  gil=1843
+    offset=0x0600  gil=1843
+  [EVT_OEIL_UV_DEP_0.eb]
+    offset=0x2EA5  gil=888
+  [EVT_OEIL_UV_DP2_0.eb]
+    offset=0x0BBE  gil=54149
+  [EVT_PANDEMO_PD_ELV_0.eb]
+    offset=0x190B  gil=21007
+    offset=0x1958  gil=21007
+  [EVT_PATA_M_CM_MP0_0.eb]
+    offset=0x24E5  gil=300
+  [EVT_PATA_M_CM_MP1_0.eb]
+    offset=0x112B  gil=301
+  [EVT_PATA_M_CM_MP3_0.eb]
+    offset=0x2711  gil=666
+  [EVT_PATA_M_CM_MP4_0.eb]
+    offset=0x0EDA  gil=300
+  [EVT_PATA_M_CM_MP5_0.eb]
+    offset=0x15FF  gil=302
+  [EVT_PATA_M_CM_MP7_0.eb]
+    offset=0x157B  gil=303
+  [EVT_PATA_T_CP_GL1_0.eb]
+    offset=0x1FF6  gil=3700
+    offset=0x2043  gil=3700
+  [EVT_PATA_T_CP_GL2_0.eb]
+    offset=0x14AB  gil=604
+    offset=0x14F8  gil=604
+  [EVT_PATA_T_CP_ROM_0.eb]
+    offset=0x1E7E  gil=2800
+    offset=0x1ECB  gil=2800
+  [EVT_SUNA_SP_KKR_0.eb]
+    offset=0x154E  gil=609
+    offset=0x17A6  gil=277
+    offset=0x1954  gil=277
+    offset=0x1A8B  gil=277
+  [EVT_TRENO1_TR_BAR_0.eb]
+    offset=0x0446  gil=273
+    offset=0x0B8D  gil=273
+    offset=0x0C05  gil=273
+    offset=0x0C3F  gil=273
+  [EVT_TRENO1_TR_BHM_0.eb]
+    offset=0x0549  gil=273
+    offset=0x06D6  gil=273
+    offset=0x0760  gil=273
+  [EVT_TRENO1_TR_BTA_0.eb]
+    offset=0x0FCF  gil=512
+  [EVT_TRENO1_TR_EKH_0.eb]
+    offset=0x0649  gil=273
+    offset=0x06A3  gil=273
+  [EVT_TRENO1_TR_FBH_0.eb]
+    offset=0x061D  gil=1000
+    offset=0x0930  gil=500
+  [EVT_TRENO1_TR_FKH_0.eb]
+    offset=0x11D2  gil=3225
+    offset=0x121F  gil=3225
+  [EVT_TRENO1_TR_GAT_0.eb]
+    offset=0x0B6F  gil=273
+    offset=0x0C16  gil=273
+  [EVT_TRENO1_TR_KHM_0.eb]
+    offset=0x05A3  gil=557
+    offset=0x05F0  gil=557
+  [EVT_TRENO1_TR_RES_0.eb]
+    offset=0x2722  gil=305
+    offset=0x276F  gil=305
+    offset=0x2933  gil=522
+    offset=0x2980  gil=522
+    offset=0x2B87  gil=1001
+    offset=0x2BD4  gil=1001
+  [EVT_TRENO1_TR_TOT_0.eb]
+    offset=0x1010  gil=273
+  [EVT_TRENO2_TR_BTA_0.eb]
+    offset=0x195A  gil=512
+  [EVT_TRENO2_TR_FKH_0.eb]
+    offset=0x3172  gil=3225
+    offset=0x31BF  gil=3225
+  [EVT_TRENO2_TR_KHM_0.eb]
+    offset=0x0827  gil=16000
+    offset=0x0874  gil=16000
+  [EVT_TRENO2_TR_RES_0.eb]
+    offset=0x051A  gil=609
+    offset=0x2C87  gil=522
+    offset=0x2CD4  gil=522
+    offset=0x2EDB  gil=1001
+    offset=0x2F28  gil=1001
+    offset=0x30C6  gil=305
+    offset=0x3113  gil=305

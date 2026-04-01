@@ -52,11 +52,36 @@
 //     + (if type == 49): + 4
 //
 //   This is the byte offset at which the actual file payload begins.
+//
+// AssetBundle (type 142) — full path table:
+//   Archives like p0data2.bin contain a type-142 AssetBundle entry whose payload
+//   maps full asset paths (e.g. "assets/resources/battlemap/.../dbfile0000.raw16.bytes")
+//   to file_info int64 values. Since many entries share the same short name
+//   (e.g. all battle stats are named "dbfile0000.raw16"), ExtractByPath must use
+//   this full-path → file_info → entry-index chain to find the correct entry.
+//
+//   AssetBundle payload layout (from UnityArchiveAssetBundle::Write in UnityArchiver.cpp):
+//     4 bytes LE: unknown (always 0)
+//     4 bytes LE: bundle_amount
+//     bundle_amount × 12 bytes: bundle entries (flag=4 bytes, info=8 bytes each)
+//     4 bytes LE: amount  — number of path entries
+//     For each path entry:
+//       4 bytes LE: path_len
+//       path_len bytes: path string (ASCII, forward slashes, no null terminator)
+//       [align to 4-byte boundary]
+//       4 bytes LE: index  — 1-based file entry index (informational)
+//       4 bytes LE: unk1
+//       4 bytes LE: unk2
+//       8 bytes LE: info   — matches file_info in the main entry table
+//
+//   Type 142 is NOT in HasFileTypeName — its payload begins directly at
+//   archiveStart + header_file_offset + file_offset_start with no name prefix.
 
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace StiltzkinsBag.Core.Parsing;
@@ -70,7 +95,8 @@ public sealed class UnityArchiver : IDisposable
     // ── Unity asset type IDs that carry an embedded name string ───────────
     // Matches HasFileTypeName() in UnityArchiver.cpp
     private static readonly HashSet<uint> NamedTypes = [21, 28, 43, 48, 49, 109, 115, 213];
-    private const uint TextAssetType = 49;  // type 49 = TextAsset — has extra text_file_size field
+    private const uint TextAssetType = 49;   // TextAsset — has extra text_file_size field
+    private const uint AssetBundleType = 142;  // AssetBundle — contains the full path table
     private const uint RequiredHeaderId = 0x0F;
     private const int UnityRawPreambleSize = 0x70;
 
@@ -89,6 +115,15 @@ public sealed class UnityArchiver : IDisposable
     private readonly uint _archiveStart;   // 0x70 for UnityRaw, 0 otherwise
     private readonly uint _fileOffset;     // header_file_offset
     private readonly FileEntry[] _entries;
+
+    // Built from the AssetBundle entry (type 142) if present.
+    // Maps full asset path (forward slashes, no leading slash) → file_info int64.
+    // e.g. "assets/resources/battlemap/battlescene/evt_battle_ac_e028f/dbfile0000.raw16.bytes"
+    private readonly Dictionary<string, long> _pathToInfo;
+
+    // Reverse map: file_info → index in _entries. Built unconditionally.
+    private readonly Dictionary<long, int> _infoToIndex;
+
     private bool _disposed;
 
     // ── Public surface ─────────────────────────────────────────────────────
@@ -194,8 +229,6 @@ public sealed class UnityArchiver : IDisposable
         }
 
         // ── Read embedded names for named-type files ───────────────────────
-        // We must seek into the data section for each named entry.
-        // We save current position and restore after each seek.
         _entries = new FileEntry[fileCount];
         for (int i = 0; i < fileCount; i++)
         {
@@ -222,35 +255,108 @@ public sealed class UnityArchiver : IDisposable
 
             _entries[i] = new FileEntry(info, offsetStart, dataSize, type1, nameLen, name, textSize);
         }
+
+        // ── Build info → index reverse map ────────────────────────────────
+        _infoToIndex = new Dictionary<long, int>(_entries.Length);
+        for (int i = 0; i < _entries.Length; i++)
+            _infoToIndex[_entries[i].Info] = i;
+
+        // ── Parse AssetBundle to get full path table ───────────────────────
+        // The type-142 AssetBundle entry maps full asset paths to file_info values.
+        // This is required for ExtractByPath on archives like p0data2.bin where
+        // many entries share the same short name (e.g. "dbfile0000.raw16").
+        _pathToInfo = new Dictionary<string, long>(StringComparer.OrdinalIgnoreCase);
+        for (int i = 0; i < _entries.Length; i++)
+        {
+            if (_entries[i].Type1 == AssetBundleType)
+            {
+                ParseAssetBundle(i, reader);
+                break;  // only one AssetBundle per archive
+            }
+        }
+    }
+
+    // ── AssetBundle parser ─────────────────────────────────────────────────
+
+    /// <summary>
+    /// Parses the type-142 AssetBundle payload to populate _pathToInfo.
+    /// Layout from UnityArchiveAssetBundle::Write in UnityArchiver.cpp:
+    ///   4 bytes LE: unknown (0)
+    ///   4 bytes LE: bundle_amount
+    ///   bundle_amount × 12 bytes: (flag=4, info=8) each — skipped
+    ///   4 bytes LE: amount
+    ///   For each path entry:
+    ///     4 bytes LE: path_len
+    ///     path_len bytes: path string
+    ///     [align 4]
+    ///     4 bytes LE: index (1-based, informational)
+    ///     4 bytes LE: unk1
+    ///     4 bytes LE: unk2
+    ///     8 bytes LE: info  — matches file_info in the main entry table
+    /// </summary>
+    private void ParseAssetBundle(int entryIndex, BinaryReader reader)
+    {
+        ref readonly FileEntry e = ref _entries[entryIndex];
+
+        // Type 142 is NOT in HasFileTypeName — payload starts directly at data position.
+        long payloadStart = _archiveStart + _fileOffset + e.OffsetStart;
+        _stream.Position = payloadStart;
+
+        /*uint unknown =*/
+        ReadUInt32LE(reader);
+        uint bundleAmount = ReadUInt32LE(reader);
+
+        // Skip bundle entries: each is flag(4) + info(8) = 12 bytes
+        _stream.Position += bundleAmount * 12L;
+
+        uint amount = ReadUInt32LE(reader);
+        for (uint i = 0; i < amount; i++)
+        {
+            uint pathLen = ReadUInt32LE(reader);
+            string path = new string(reader.ReadChars((int)pathLen));
+            AlignStream(_stream, 4);
+
+            /*uint index =*/
+            ReadUInt32LE(reader);
+            /*uint unk1  =*/
+            ReadUInt32LE(reader);
+            /*uint unk2  =*/
+            ReadUInt32LE(reader);
+            long info = (long)ReadUInt64LE(reader);
+
+            // Store with forward slashes, no leading slash — matches archive convention
+            // e.g. "assets/resources/battlemap/battlescene/evt_battle_ac_e028f/dbfile0000.raw16.bytes"
+            _pathToInfo[path] = info;
+        }
     }
 
     // ── Extraction API ─────────────────────────────────────────────────────
 
     /// <summary>
-    /// Extracts a file by name and returns its payload bytes.
-    /// Name comparison is case-insensitive.
+    /// Extracts a file by short name and returns its payload bytes.
+    /// Name comparison is case-insensitive. Also tries stripping/adding ".bytes".
+    /// Use this for archives like p0data7.bin where short names are unique
+    /// (e.g. field script names like "evt_alex1_ac_ent_2f.eb").
     /// </summary>
     /// <param name="fileName">
-    /// The short file name as stored in the archive (e.g. "dbfile0000.raw16").
-    /// Do not include the ".bytes" extension — TextAsset names in the archive
-    /// typically omit it.
-    /// If not found by that name, also tries with ".bytes" stripped from the input.
+    /// The short file name as stored in the archive (e.g. "evt_alex1_ac_ent_2f.eb").
+    /// Do not include the ".bytes" extension — TextAsset names typically omit it.
+    /// If not found, also tries with ".bytes" stripped from the input.
     /// </param>
-    /// <returns>The file's payload bytes.</returns>
     /// <exception cref="FileNotFoundException">If no entry with that name exists.</exception>
     public byte[] Extract(string fileName)
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
         ArgumentException.ThrowIfNullOrEmpty(fileName);
 
-        int index = FindIndex(fileName);
+        int index = FindIndexByShortName(fileName);
         if (index < 0)
         {
             // Try stripping .bytes extension (archive names often lack it)
             string stripped = fileName.EndsWith(".bytes", StringComparison.OrdinalIgnoreCase)
                 ? fileName[..^6]
                 : fileName + ".bytes";
-            index = FindIndex(stripped);
+            index = FindIndexByShortName(stripped);
         }
 
         if (index < 0)
@@ -262,22 +368,65 @@ public sealed class UnityArchiver : IDisposable
     }
 
     /// <summary>
-    /// Extracts a file by its absolute path as stored in the JSON catalog
-    /// (e.g. \StreamingAssets\assets\resources\battlemap\...\dbfile0000.raw16.bytes).
-    /// Extracts the leaf filename from the path and searches the archive by that name.
+    /// Extracts a file by its full relative path, using the AssetBundle path table
+    /// when available. This is the correct method for archives like p0data2.bin
+    /// where many entries share the same short name.
+    ///
+    /// Input path formats accepted (all equivalent):
+    ///   \StreamingAssets\assets\resources\battlemap\...\dbfile0000.raw16.bytes
+    ///   assets/resources/battlemap/.../dbfile0000.raw16.bytes
+    ///
+    /// Falls back to short-name Extract() if the AssetBundle table is absent.
     /// </summary>
+    /// <exception cref="FileNotFoundException">If the path is not found.</exception>
     public byte[] ExtractByPath(string relativePath)
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
         ArgumentException.ThrowIfNullOrEmpty(relativePath);
 
+        // If we have the AssetBundle path table, use it for precise matching.
+        if (_pathToInfo.Count > 0)
+        {
+            string normalized = NormalizePath(relativePath);
+
+            // Try exact normalized path
+            if (_pathToInfo.TryGetValue(normalized, out long info) &&
+                _infoToIndex.TryGetValue(info, out int idx))
+                return ExtractByIndex(idx);
+
+            // Try stripping ".bytes" suffix (archive paths may omit it)
+            if (normalized.EndsWith(".bytes", StringComparison.OrdinalIgnoreCase))
+            {
+                string noBytes = normalized[..^6];
+                if (_pathToInfo.TryGetValue(noBytes, out info) &&
+                    _infoToIndex.TryGetValue(info, out idx))
+                    return ExtractByIndex(idx);
+            }
+            else
+            {
+                string withBytes = normalized + ".bytes";
+                if (_pathToInfo.TryGetValue(withBytes, out info) &&
+                    _infoToIndex.TryGetValue(info, out idx))
+                    return ExtractByIndex(idx);
+            }
+
+            throw new FileNotFoundException(
+                $"Path '{relativePath}' (normalized: '{normalized}') not found in " +
+                $"AssetBundle path table of '{ArchivePath}'. " +
+                $"Table contains {_pathToInfo.Count} entries.");
+        }
+
+        // No AssetBundle path table — fall back to leaf name (p0data7.bin style).
         string leaf = Path.GetFileName(relativePath.Replace('\\', '/'));
         return Extract(leaf);
     }
 
     /// <summary>
-    /// Returns all file names known to this archive (named-type entries only).
-    /// Useful for diagnostics and test verification.
+    /// Returns short embedded names for all named-type entries in this archive.
+    /// For p0data7.bin field scripts these are unique (e.g. "evt_alex1_ac_ent_2f.eb").
+    /// For p0data2.bin battle files many entries share the same short name
+    /// ("dbfile0000.raw16") — use <see cref="GetFullPaths"/> and
+    /// <see cref="ExtractByPath"/> when unique identification is needed.
     /// </summary>
     public IReadOnlyList<string> GetFileNames()
     {
@@ -289,9 +438,42 @@ public sealed class UnityArchiver : IDisposable
         return names;
     }
 
+    /// <summary>
+    /// Returns full asset paths from the AssetBundle table (type 142) when present.
+    /// e.g. "assets/resources/battlemap/battlescene/evt_battle_ac_e028f/dbfile0000.raw16.bytes"
+    /// Returns an empty list if this archive has no AssetBundle entry (e.g. p0data7.bin
+    /// field scripts, which use unique short names and don't need path disambiguation).
+    /// Use this to enumerate all uniquely-identifiable files in archives like p0data2.bin.
+    /// </summary>
+    public IReadOnlyList<string> GetFullPaths()
+    {
+        ObjectDisposedException.ThrowIf(_disposed, this);
+        return _pathToInfo.Keys.ToList();
+    }
+
     // ── Private helpers ────────────────────────────────────────────────────
 
-    private int FindIndex(string name)
+    /// <summary>
+    /// Normalizes a path to the format used in the AssetBundle table:
+    /// forward slashes, no leading slash, no "StreamingAssets/" prefix.
+    ///
+    /// Input:  \StreamingAssets\assets\resources\battlemap\...\dbfile0000.raw16.bytes
+    /// Output: assets/resources/battlemap/.../dbfile0000.raw16.bytes
+    /// </summary>
+    private static string NormalizePath(string path)
+    {
+        // Convert backslashes and strip leading slash
+        string normalized = path.Replace('\\', '/').TrimStart('/');
+
+        // Strip "StreamingAssets/" prefix if present — archive paths start with "assets/"
+        const string streamingPrefix = "StreamingAssets/";
+        if (normalized.StartsWith(streamingPrefix, StringComparison.OrdinalIgnoreCase))
+            normalized = normalized[streamingPrefix.Length..];
+
+        return normalized;
+    }
+
+    private int FindIndexByShortName(string name)
     {
         for (int i = 0; i < _entries.Length; i++)
             if (string.Equals(_entries[i].Name, name, StringComparison.OrdinalIgnoreCase))
@@ -312,13 +494,13 @@ public sealed class UnityArchiver : IDisposable
 
         if (NamedTypes.Contains(e.Type1))
         {
-            uint nameSkip = e.NameLen + AlignPadding(e.NameLen, 4) + 4;  // +4 for the nameLen field itself
+            uint nameSkip = e.NameLen + AlignPadding(e.NameLen, 4) + 4;  // +4 for nameLen field
             payloadStart += nameSkip;
             payloadSize -= nameSkip;
 
             if (e.Type1 == TextAssetType)
             {
-                // text_file_size field (4 bytes) and the actual payload size comes from TextSize
+                // text_file_size field (4 bytes); actual size comes from TextSize
                 payloadStart += 4;
                 payloadSize = e.TextSize;
             }
@@ -368,7 +550,7 @@ public sealed class UnityArchiver : IDisposable
             s.Position = pos + (alignment - rem);
     }
 
-    /// <summary>Returns the number of padding bytes needed to align <paramref name="value"/> to <paramref name="alignment"/>.</summary>
+    /// <summary>Returns the number of padding bytes needed to align <paramref name="value"/>.</summary>
     private static uint AlignPadding(uint value, uint alignment)
     {
         uint rem = value % alignment;

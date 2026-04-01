@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using StiltzkinsBag.Core.Models;
 using StiltzkinsBag.Parsing;
 using Xunit;
 
@@ -569,12 +570,12 @@ namespace StiltzkinsBag.Tests.Parsing
         public sealed class TreasureItemHelperTests
         {
             [Theory]
-            [InlineData(0, true, false, false, 0)]   // item 0 (edge: valid item range)
-            [InlineData(236, true, false, false, 0)]   // Potion
-            [InlineData(244, true, false, false, 0)]   // Eye Drops
-            [InlineData(511, true, false, false, 0)]   // last valid item ID
+            [InlineData(0, true, false, false)]   // item 0 (edge: valid item range)
+            [InlineData(236, true, false, false)]  // Potion
+            [InlineData(244, true, false, false)]  // Eye Drops
+            [InlineData(511, true, false, false)]  // last valid item ID
             public void TreasureIsItem_CorrectForItemRange(
-                int value, bool expectItem, bool expectCard, bool expectGil, int gilAmount)
+                int value, bool expectItem, bool expectCard, bool expectGil)
             {
                 var loc = MakeTreasure(value);
                 Assert.Equal(expectItem, loc.TreasureIsItem);
@@ -583,14 +584,14 @@ namespace StiltzkinsBag.Tests.Parsing
             }
 
             [Theory]
-            [InlineData(512, false, true, false, 0)]   // first card slot (card 0)
-            [InlineData(513, false, true, false, 0)]   // Fang card (card slot 1)
-            [InlineData(517, false, true, false, 0)]   // card slot 5
-            [InlineData(521, false, true, false, 0)]   // card slot 9
-            [InlineData(518, false, true, false, 0)]   // card slot 6
-            [InlineData(999, false, true, false, 0)]   // last valid card slot
+            [InlineData(512, false, true, false)]  // first card slot (card 0)
+            [InlineData(513, false, true, false)]  // Fang card (card slot 1)
+            [InlineData(517, false, true, false)]  // card slot 5
+            [InlineData(521, false, true, false)]  // card slot 9
+            [InlineData(518, false, true, false)]  // card slot 6
+            [InlineData(999, false, true, false)]  // last valid card slot
             public void TreasureIsCard_CorrectForCardRange(
-                int value, bool expectItem, bool expectCard, bool expectGil, int gilAmount)
+                int value, bool expectItem, bool expectCard, bool expectGil)
             {
                 var loc = MakeTreasure(value);
                 Assert.Equal(expectItem, loc.TreasureIsItem);
@@ -813,5 +814,155 @@ namespace StiltzkinsBag.Tests.Parsing
             FieldParser.FindItemLocations(file)
                 .Single(l => l.LocationKind == FieldLocationKind.TextSync
                              && l.CurrentValue == value);
+    }
+
+    // ── FieldItemLocation.ItemCount / FieldItemScanner quantity tests ─────────
+
+    /// <summary>
+    /// Verifies that AddItem opcodes with a constant count argument are read
+    /// correctly by FieldParser and accumulated correctly by FieldItemScanner.
+    ///
+    /// Uses synthetic .eb.bytes files built in-memory — no real game files needed.
+    /// </summary>
+    public sealed class FieldItemLocationItemCountTests
+    {
+        /// <summary>
+        /// AddItem(113, 8) — both args constant (varargFlag = 0x00).
+        /// Parser should expose ItemCount = 8 on the returned DirectItem location.
+        /// </summary>
+        [Fact]
+        public void DirectItem_ConstantCount_IsReadFromBytecode()
+        {
+            // [0x48][varargFlag=0x00][item=113 lo][item hi=0][count=8 lo][count hi=0]
+            byte[] file = BuildMinimalFieldFile(new byte[] { 0x48, 0x00, 113, 0x00, 8, 0x00 });
+
+            var locs = FieldParser.FindItemLocations(file)
+                .Where(l => l.LocationKind == FieldLocationKind.DirectItem
+                            && l.CurrentValue == 113)
+                .ToList();
+
+            Assert.Single(locs);
+            Assert.Equal(8, locs[0].ItemCount);
+        }
+
+        /// <summary>
+        /// FieldItemScanner must sum loc.ItemCount, not count occurrences.
+        /// One AddItem(113, 8) → scanner reports 8 copies, not 1.
+        /// </summary>
+        [Fact]
+        public void FieldItemScanner_SumsItemCount_NotOccurrenceCount()
+        {
+            byte[] file = BuildMinimalFieldFile(new byte[] { 0x48, 0x00, 113, 0x00, 8, 0x00 });
+
+            var counts = FieldItemScanner.ScanFiles(
+                new[] { ("synthetic_evt_test.eb", file) });
+
+            Assert.True(counts.TryGetValue(113, out int count),
+                "Item 113 (Straw Hat) should be found in the synthetic file.");
+            Assert.Equal(8, count);
+        }
+
+        /// <summary>
+        /// AddItem(113, variable) — count arg is a variable expression (varargFlag bit 1 = 1).
+        /// Parser cannot know the count, so ItemCount defaults to 1.
+        /// </summary>
+        [Fact]
+        public void DirectItem_VariableCount_DefaultsToOne()
+        {
+            // varargFlag = 0x02 → item is constant, count is variable.
+            // No count bytes follow (variable-length expression).
+            byte[] file = BuildMinimalFieldFile(new byte[] { 0x48, 0x02, 113, 0x00 });
+
+            var locs = FieldParser.FindItemLocations(file)
+                .Where(l => l.LocationKind == FieldLocationKind.DirectItem
+                            && l.CurrentValue == 113)
+                .ToList();
+
+            Assert.Single(locs);
+            Assert.Equal(1, locs[0].ItemCount);
+        }
+
+        /// <summary>
+        /// False-positive artefact: 0x48 appears in other opcode argument streams.
+        /// When the bytes at pos+4 happen to encode a large value (e.g. 0x3E02 = 15874),
+        /// the raw count must be clamped to MaxPlausibleItemCount (9) to prevent
+        /// catastrophic inflation of FieldCounts in the catalog.
+        /// </summary>
+        [Fact]
+        public void DirectItem_LargeCount_IsCappedAtMaxPlausible()
+        {
+            // count bytes = 0xAB, 0xCD → uint16 LE = 0xCDAB = 52651, well above cap
+            byte[] file = BuildMinimalFieldFile(new byte[] { 0x48, 0x00, 113, 0x00, 0xAB, 0xCD });
+
+            var locs = FieldParser.FindItemLocations(file)
+                .Where(l => l.LocationKind == FieldLocationKind.DirectItem
+                            && l.CurrentValue == 113)
+                .ToList();
+
+            Assert.Single(locs);
+            // Must be capped at 9 (MaxPlausibleItemCount), not the raw 52651
+            Assert.Equal(9, locs[0].ItemCount);
+        }
+
+        /// <summary>
+        /// Non-DirectItem locations (TreasureItem, TextSync, DirectGil) always
+        /// have ItemCount = 1 because they do not carry a quantity argument.
+        /// </summary>
+        [Fact]
+        public void NonDirectItem_AlwaysHasItemCountOne()
+        {
+            // TreasureItem location from a real fixture
+            byte[] house2 = File.ReadAllBytes(Path.Combine(
+                AppContext.BaseDirectory, "TestData", "FieldParser",
+                "evt_alex1_at_house_2.eb.bytes"));
+
+            var nonDirect = FieldParser.FindItemLocations(house2)
+                .Where(l => l.LocationKind != FieldLocationKind.DirectItem)
+                .ToList();
+
+            Assert.NotEmpty(nonDirect);
+            Assert.All(nonDirect, l => Assert.Equal(1, l.ItemCount));
+        }
+
+        // ── Helpers ─────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Builds a minimal valid .eb.bytes file with one entry, one function,
+        /// and the supplied bytecode payload.
+        ///
+        /// Layout:
+        ///   [0..127]          header (entryAmount=1, rest zero)
+        ///   [128..135]        entry table (1 entry: offset=8, size=entryBodySize)
+        ///   [136..136+sz-1]   entry body: [entryType=1][funcCount=1]
+        ///                       [funcType(2)=0][funcPoint(2)=4][opcodeBytes...]
+        /// </summary>
+        private static byte[] BuildMinimalFieldFile(byte[] opcodeBytes)
+        {
+            // entryBodySize = 2 (type+funcCount) + 4 (1-function table) + payload
+            int entryBodySize = 6 + opcodeBytes.Length;
+            int entryOffset = 8; // offset from byte 128 to body start
+
+            byte[] file = new byte[128 + 8 + entryBodySize];
+
+            // Header: entryAmount at byte 3
+            file[3] = 1;
+
+            // Entry table at 128
+            file[128] = (byte)(entryOffset & 0xFF);
+            file[129] = (byte)((entryOffset >> 8) & 0xFF);
+            file[130] = (byte)(entryBodySize & 0xFF);
+            file[131] = (byte)((entryBodySize >> 8) & 0xFF);
+
+            // Entry body at 136
+            int bodyBase = 136;
+            file[bodyBase + 0] = 1; // entryType
+            file[bodyBase + 1] = 1; // funcCount = 1
+            // funcType[0] = 0 (bytes +2,+3 already zero)
+            file[bodyBase + 4] = 4; // funcPoint[0] = 4 → bytecode starts after 4-byte func table
+            // funcPoint[0] hi (byte +5) already zero
+            Array.Copy(opcodeBytes, 0, file, bodyBase + 6, opcodeBytes.Length);
+
+            return file;
+        }
     }
 }

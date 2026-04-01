@@ -1,0 +1,11 @@
+﻿Field Item Cross-Validation Report (disk .bytes vs p0data7.bin archive)
+Generated: 2026-03-31 22:19:08
+Disk files:          830  (field=817, world=13, EVT_ALEX3_AC_SEAT_N excluded)
+Archive extracted:   830  (failures=0)
+Disk locations:      1110
+Archive locations:   1110
+Disk unique IDs:     166
+Archive unique IDs:  166
+Item count discrepancies: 0
+
+✓ Disk and archive produce identical item count maps.

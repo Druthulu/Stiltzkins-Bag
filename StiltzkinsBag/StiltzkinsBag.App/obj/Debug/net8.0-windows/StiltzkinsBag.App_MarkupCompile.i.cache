@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\
 StiltzkinsBag.App
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\App.xaml
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\App.xaml
 2-1128420657
 22-777195506
 6-1563628722
-203-567671424
+203-957592370
 Resources\Themes\FF9Palette.xaml;Views\MainWindow.xaml;
 
 False

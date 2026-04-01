@@ -11,3 +11,16 @@ Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\refint\StiltzkinsBag.Core.dll
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.pdb
 Z:\Storage\git\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\ref\StiltzkinsBag.Core.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\bin\Debug\net8.0\StiltzkinsBag.Core.deps.json
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\bin\Debug\net8.0\StiltzkinsBag.Core.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\bin\Debug\net8.0\StiltzkinsBag.Core.pdb
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.AssemblyInfo.cs
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.sourcelink.json
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\refint\StiltzkinsBag.Core.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\StiltzkinsBag.Core.pdb
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Core\obj\Debug\net8.0\ref\StiltzkinsBag.Core.dll

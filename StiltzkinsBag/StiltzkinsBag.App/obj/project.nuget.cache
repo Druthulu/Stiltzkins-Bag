@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "66LfvCQW1IU=",
+  "dgSpecHash": "4n9AVeVqu1s=",
   "success": true,
-  "projectFilePath": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.App\\StiltzkinsBag.App.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.App\\StiltzkinsBag.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\materialdesigncolors\\5.3.1\\materialdesigncolors.5.3.1.nupkg.sha512",

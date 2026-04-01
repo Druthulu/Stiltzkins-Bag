@@ -1,0 +1,56 @@
+Ocean bubbles:
+    Beneath Quan's Dwelling
+        Ore x9
+        Topaz x15
+        Tiger Racket
+        Red Rose Card
+
+    Directly North of Iifa Tree
+        Potion x50
+        Hi-Potion x25
+        Ether x9
+        Elixir x7
+
+    Between Mist Continent and Outer Continent
+        Straw Hat x8
+        Pearl Armlet x8
+        Aloha T-shirt x7
+        Sandals x8
+
+    South Tip of Forgotten Continent
+        Remedy x10
+        Black Robe
+        Genji Gloves
+        Blue Narciss Card
+
+
+
+Mountain cracks:
+
+    Eastern Part of Lost Continent
+        Lapis Lazuli x41
+        Rosetta Ring
+        Protect Ring
+        Airship Card
+
+    Northeastern Part of Forgotten Continent
+        Eye Drops x19
+        Madain's Ring
+        Genji Helmet
+        Hilda Garde I Card
+
+    Near Oeilvert
+        Maiden Prayer
+        Dragon's Hair
+        Gauntlets
+        Odin Card
+
+
+
+Other
+
+    unmarked dead pepper ocean
+        Aquamarine x10
+        Ultima Weapon
+        Maximillian
+        Invincible Card

@@ -1,0 +1,197 @@
+Enemy Name,Enemy #,Enemy Type,100% Steal,25% Steal,6.25% Steal,0.39% Steal,Eat,100% Item Drop,37.5% Item Drop,12.5% Item Drop,0.39% Item Drop,Card Dropped - 12.5%
+Masked Man,1,Boss,Potion,Wrist,Mage Masher,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+King Leo,2,Stage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Zenero,3,Stage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Benero,4,Stage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Steiner,5,Boss - 1st Fight,Leather Hat,Silk Shirt,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Steiner,6,Stage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Haagen,7,Boss,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Weimar,8,Boss,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Steiner,9,Stage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Goblin,10,Normal,Potion,Nothing,Nothing,Nothing,Goblin Punch,Nothing,Potion,Echo Screen,Pheonix Down,Goblin
+Fang,11,Normal,Potion,Pheonix Down,Hi-Potion,Pheonix Pinion,Taste Bad!,Nothing,Eye Drops,Pheonix Down,Nothing,Fang
+Prison Cage ,12,Boss,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Garnet,13,Prison Cage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Prison Cage ,14,Boss - 2nd Fight,Broadsword,Leather Wrist,Nothing,Nothing,I no can eat!,Eye Drops,Pheonix Down,Nothing,Nothing,Goblin
+Vivi,15,Prison Cage,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Baku,16,Boss,Hi-Potion,Iron Sword,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Dendrobium,17,Normal,Eye Drops,Tent,Ore,Nothing,Taste Bad!,Nothing,Eye Drops,Potion,Pheonix Down,Fang
+Plant Brain,18,Boss,Eye Drops,Iron Helm,Nothing,Nothing,I no can eat!,Pheonix Down,Potion,Potion,Potion,None
+Plant Spider,19,Normal,Potion,Ore,Hi-Potion,Nothing,Taste Bad!,Nothing,Potion,Eye Drops,Potion,Fang
+Mu,20,Normal,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Potion,Eye Drops,Nothing,Skeleton
+Python,21,Normal,Potion,Ore,Hi-Potion,Pheonix Down,Pumpkin Head,Nothing,Nothing,Pheonix Down,Nothing,Goblin
+Flan,22,Normal,Potion,Ore,Nothing,Nothing,Taste Bad!,Nothing,Potion,Pheonix Down,Nothing,Flan
+Cave Imp,23,Normal,Potion,Pheonix Down,Nothing,Nothing,Taste Bad!,Nothing,Ore,Pheonix Down,Tent,Flan
+Wyerd,24,Normal,Potion,Tent,Pheonix Down,Nothing,Taste Bad!,Nothing,Potion,Ether,Nothing,Flan
+Black Waltz 1,25,Boss,Remedy,Silk Shirt,Nothing,Nothing,I no can eat!,Hi-Potion,Nothing,Nothing,Nothing,Skeleton
+Sealion,26,Boss,Ether,Mythril Dagger,Nothing,Nothing,I no can eat!,Pheonix Down,Nothing,Nothing,Nothing,Fang
+Cave Spider,27,Normal,Potion,Tent,Ore,Nothing,LV3 Def-less,Nothing,Ore,Eye Drops,Pheonix Down,Zaghnol
+Ghost,28,Normal,Potion,Ore,Hi-Potion,Pheonix Down,Roullette,Nothing,Nothing,Echo Screen,Nothing,Skeleton
+Vice,29,Normal,Echo Screen,Potion,Nothing,Nothing,Vanish,Nothing,Potion,Echo Screen,Pheonix Down,Goblin
+Black Waltz 2,30,Boss,Steepled Hat,Leather Plate,Nothing,Nothing,I no can eat!,Ether,Ether,Ether,Ether,Zaghnol
+Black Waltz 3,31,Boss,Steepled Hat,Linen Cuirass,Silver Gloves,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Trick Sparrow,32,Normal,Ore,Nothing,Nothing,Nothing,Matra Magic,Nothing,Nothing,Echo Screen,Nothing,Flan
+Fang,33,Normal,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing,Fang
+Mu,34,Normal,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Zaghnol,35,Normal,Mythril Gloves,Needle Fork,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Bomb,36,Normal,Ore,Hi-Potion,Nothing,Ether,Mustard Bomb,Potion,Hi-Potion,Pheonix Down,Nothing,Bomb
+Axe  Beak,37,Normal,Ore,Hi-Potion,Ether,Nothing,Limit Glove,Nothing,Potion,Echo Screen,Nothing,Bomb
+Serpion,38,Normal,Antidote,Nothing,Nothing,Nothing,Mighty Guard,Nothing,Eye Drops,Nothing,Ether,Flan
+Ladybug,39,Normal,Eye Drops,Tent,Hi-Potion,Pheonix Down,Pumpkin Head,Nothing,Potion,Tent,Ether,Lizard Man
+Hedgehog Pie,40,Normal,Ore,Hi-Potion,Nothing,Pheonix Pinion,Pumpkin Head,Nothing,Pheonix Down,Nothing,Ether,Zaghnol
+Clipper,41,Normal,Ore,Hi-Potion,Nothing,Nothing,Aqua Breath,Nothing,Ore,Echo Screen,Nothing,Ironite
+Mandragora,42,Normal,Echo Screen,Tent,Hi-Potion,Pheonix Pinion,Limit Glove,Nothing,Potion,Tent,Ether,Mandragora
+Ironite,43,Normal,Hi-Potion,Soft,Nothing,Nothing,Angel's Snack,Hi-Potion,Pheonix Down,Soft,Ether,Ironite
+Gigan Toad,44,Normal,Potion,Tent,Hi-Potion,Pheonix Pinion,Frog Drop,Nothing,Potion,Ore,Ether,None
+Gigan Toad,45,Normal,Ore,Nothing,Nothing,Nothing,Frog Drop,Nothing,Potion,Echo Screen,Nothing,Frog
+Axolotl,46,Normal,Potion,Hi-Potion,Nothing,Pheonix Pinion,Aqua Breath,Nothing,Potion,Pheonix Down,Nothing,Sahagin
+Hornet,47,Normal,Potion,Nothing,Nothing,Nothing,Vanish,Nothing,Potion,Nothing,Ether,Flan
+Skeleton,48,Normal,Ore,Hi-Potion,Nothing,Ether,Pumpkin Head,Nothing,Potion,Pheonix Down,Nothing,Skeleton
+Type A,49,Normal,Pheonix Down,Tent,Nothing,Nothing,I no can eat!,Nothing,Potion,Pheonix Down,Ether,Skeleton
+Lamia,50,Normal,Ore,Pheonix Down,Nothing,Nothing,LV3 Def-less,Potion,Pheonix Down,Ether,Nothing,Zombie
+Gizamaluke,51,Boss,Elixir,Magus Hat,Ice Staff,Nothing,I no can eat!,Tent,Nothing,Nothing,Nothing,Mythril Sword
+Lizard Man,52,Normal,Ore,Tent,Nothing,Nothing,LV3 Def-less,Nothing,Ore,Pheonix Down,Ether,Lizard Man
+Yeti,53,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Elixir,Nothing,Nothing,Nothing,Yeti
+Nymph,54,Normal,Echo Screen,Ore,Hi-Potion,Pheonix Pinion,Night,Nothing,Potion,Annoyntment,Ether,Nymph
+Basilisk,55,Normal,Soft,Hi-Potion,Nothing,Nothing,Pumpkin Head,Potion,Soft,Hi-Potion,Soft,Lizard man
+Magic Vice,56,Normal,Echo Screen,Ether,Ether,Ether,Magic Hammer,Nothing,Ether,Nothing,Nothing,Bomb
+Mimic,57,Normal,Hi-Potion,Antidote,Nothing,Nothing,I no can eat!,Ether,Hi-Potion,Pheonix Down,Ether,Mimic
+Beatrix,58,Boss - 1st Fight,Pheonix Down,Chain Plate,Nothing,Mythril Sword,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Black Waltz 3,59,Boss - 2nd Fight,Steepled Hat,Lightning Staff,Flame Staff,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Crawler,60,Normal,Antidote,Pheonix Down,Hi-Potion,Pheonix Pinion,Taste Bad!,Nothing,Ore,Ether,Nothing,Crawler
+Dragonfly,61,Normal,Eye Drops,Tent,Nothing,Nothing,Matra Magic,Nothing,Ore,Echo Screen,Nothing,Dragonfly
+Ralvurahva,62,Boss,Bone Wrist,Mythril Fork,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Sand Scorpion,63,Normal,Ore,Antidote,Nothing,Ether,LV3 Def-less,Potion,Annoyntment,Hi-Potion,Hi-Potion,Sand Scorpion
+Sand Golem,64,Normal,Hi-Potion,Eye Drops,Nothing,Nothing,I no can eat!,Potion,Pheonix Down,Annoyntment,Ether,Sand Golem
+Core,65,Normal,Ore,Hi-Potion,Nothing,Nothing,I no can eat!,Nothing,Hi-Potion,Hi-Potion,Hi-Potion,None
+Zuu,66,Normal,Potion,Ore,Hi-Potion,Pheonix Pinion,White Wind,Potion,Pheonix Down,Ether,Hi-Potion,Zuu
+Carrion Worm,67,Normal,Annoyntment,Tent,Nothing,Nothing,Auto-Life,Potion,Eye Drops,Pheonix Down,Pheonix Down,Carrion Worm
+Antlion,68,Normal,Annoyntment,Mythril Vest,Gold Helm,Nothing,I no can eat!,Annoyntment,Ether,Ether,Ether,Sahagin
+Soldier - Cleyra,69,Normal,Potion,Pheonix Down,Echo Screen,Pheonix Pinion,I no can eat!,Nothing,Potion,Hi-Potion,Ether,Mythril Sword
+Type B,70,Normal,Ore,Hi-Potion,Ether,Nothing,I no can eat!,Nothing,Potion,Remedy,Pheonix Down,Mimic
+Beatrix,71,Boss - 2nd Fight,Pheonix Down,Thunder Gloves,Ice Brand,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Soldier - Alexandria,72,Normal,Potion,Pheonix Down,Hi-Potion,Pheonix Pinion,I no can eat!,Nothing,Potion,Hi-Potion,Nothing,Mythril Sword
+Tantarian,73,Boss,Ether,Elixir,Silver Fork,Demon's Mail,I no can eat!,Running Shoes,Nothing,Nothing,Nothing,Ramuh
+Zorn,74,Boss,Partisan,Stardust Rod,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Thorn,75,Boss,Mythril Armor,Mythril Armlet,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Beatrix,76,Boss - 3rd Fight,Pheonix Down,Ice Brand,Survival Vest,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Bandersnatch,77,Normal,Potion,Tent,Nothing,Nothing,Pumpkin Head,Pheonix Down,Ore,Nothing,Nothing,Wyerd
+Type C,78,Normal,Potion,Tent,Nothing,Nothing,I no can eat!,Nothing,Hi-Potion,Echo Screen,Ether,Yeti
+Ralvuimago,79,Boss,Pheonix Down,Adaman Vest,Oak Staff,Nothing,I no can eat!,Ether,Ether,Nothing,Nothing,Gargant
+Zaghnol,80,Normal,Ore,Tent,Nothing,Ether,Matra Magic,Nothing,Eye Drops,Ether,Nothing,Zaghnol
+Seeker Bat,81,Normal,Eye Drops,Tent,Nothing,Nothing,Night,Nothing,Echo Screen,Hi-Potion,Ether,Wyerd
+Armodullahan,82,Boss,Ore,Hi-Potion,Nothing,Ether,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Lani,83,Boss,Ether,Gladius,Coral Sword,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Griffin,84,Normal,Ore,Nothing,Nothing,Nothing,White Wind,Peridot,Nothing,Hi-Potion,Ether,Sand Scorpion
+Feather Circle,85,Normal,Ore,Annoyntment,Hi-Potion,Ether,LV4 Holy,Nothing,Nothing,Pheonix Down,Nothing,Mandaragora
+Abomination,86,Normal,Ore,Hi-Potion,Nothing,Ether,Night,Nothing,Annoyntment,Pheonix Down,Nothing,Ironite
+Cactuar,87,Normal,Pheonix Down,Tent,Nothing,Ether,"1,000 Needles",Hi-Potion,Pheonix Down,Tent,Ether,Cactuar
+Goblin Mage,88,Normal,Potion,Ore,Nothing,Nothing,Goblin Punch,Nothing,Nothing,Echo Screen,Nothing,Nymph
+Sahagin,89,Normal,Hi-Potion,Nothing,Nothing,Ether,Aqua Breath,Nothing,Nothing,Pheonix Down,Ether,Sahagin
+Myconid,90,Normal,Eye Drops,Tent,Nothing,Nothing,Mighty Guard,Nothing,Echo Screen,Nothing,Ether,Carrion Worm
+Zemzelett,91,Normal,Ore,Hi-Potion,Nothing,Ether,White Wind,Nothing,Hi-Potion,Eye Drops,Nothing,Zuu
+Gnoll,92,Normal,Hi-Potion,Nothing,Pheonix Pinion,Ether,Vanish,Nothing,Sapphire,Nothing,Nothing,Mimic
+Ochu,93,Normal,Hi-Potion,Nothing,Pheonix Pinion,Ether,LV3 Def-less,Nothing,Nothing,Pheonix Down,Ether,Ochu
+Troll,94,Normal,Ore,Tent,Nothing,Nothing,Vanish,Nothing,Nothing,Nothing,Nothing,Troll
+Hilgigars,95,Boss,Pheonix Down,Mythril Fork,Nothing,Fairy Flute,I no can eat!,Tent,Elixir,Elixir,Elixir,Antlion
+Blazer Beetle,96,Normal,Hi-Potion,Nothing,Pheonix Pinion,Ether,Limit Glove,Nothing,Nothing,Pheonix Down,Ether,Crawler
+Zombie,97,Normal,Magic Tag,Tent,Nothing,Ether,Roullette,Nothing,Magic Tag,Soft,Nothing,Zombie
+Stroper,98,Normal,Soft,Peridot,Pheonix Down,Pheonix Pinion,LV5 Death,Nothing,Peridot,Pheonix Down,Ether,Mandragora
+Dracozombie,99,Normal,Magic Tag,Hi-Potion,Nothing,Ether,LV5 Death,Nothing,Hi-Potion,Pheonix Down,Ether,Gargant
+Soulcage,100,Boss,Oak Staff,Magician Cloak,Brgandine,Nothing,I no can eat!,Pheonix Pinion,Elixir,Elixir,Elixir,Antlion
+Scarlet Hair,101,Boss,Ether,Poison Knuckles,Nothing,Nothing,I no can eat!,Tent,Nothing,Nothing,Nothing,None
+Mistodon,102,Normal,Ore,Hi-Potion,Nothing,Nothing,Angel's Snack,Nothing,Peridot,Ether,Peridot,Sand Golem
+Gigan Octopus,103,Normal,Eye Drops,Pheonix Down,Nothing,Ether,Mighty Guard,Nothing,Pheonix Down,Hi-Potion,Nothing,Ragtimer
+Adamantoise,104,Normal,Tent,Hi-Potion,Pheonix Down,Nothing,Earth Shake,Potion,Hi-Potion,Echo Screen,Ether,Gargant
+Whale Zombie,105,Normal,Antidote,Magic Tag,Nothing,Nothing,LV5 Death,Nothing,Hi-Potion,Nothing,Ether,Cerberus
+Grand Dragon,106,Normal,Tent,Ether,Nothing,Rising Sun,LV3 Def-less,Nothing,Pheonix Down,Ether,Ether,Grand Dragon
+Gimme Cat,107,Normal,Echo Screen,Tent,Nothing,Ether,Auto-Life,Nothing,Nothing,Pheonix Down,Ether,Gimme Cat
+Anenome,108,Normal,Ore,Tent,Nothing,Nothing,Bad Breath,Nothing,Hi-Potion,Eye Drops,Ether,Dragonfly
+Land Worm,109,Normal,Ore,Hi-Potion,Nothing,Pheonix Pinion,Matra Magic,Ore,Hi-Potion,Pheonix Down,Ether,Wyerd
+Antlion,110,Normal,Annoyntment,Hi-Potion,Nothing,Ether,Mighty Guard,Nothing,Sapphire,Pheonix Down,Nothing,Sahagin
+Ogre,111,Normal,Annoyntment,Nothing,Pheonix Pinion,Ether,Matra Magic,Nothing,Hi-Potion,Pheonix Down,Hi-Potion,Ogre
+Grimlock,112,Normal,Hi-Potion,Nothing,Nothing,Ether,Night,Topaz,Echo Screen,Nothing,Nothing,Troll
+Jabberwock,113,Normal,Ore,Hi-Potion,Nothing,Nothing,Limit Glove,Potion,Hi-Potion,Pheonix Down,Echo Screen,Hedgehog Pie
+Armstrong,114,Normal,Ore,Hi-Potion,Ether,Nothing,Matra Magic,Nothing,Pheonix Down,Soft,Ether,Armstrong
+Catoblepas,115,Normal,Soft,Hi-Potion,Pheonix Pinion,Ether,Limit Glove,Nothing,Soft,Hi-Potion,Hi-Potion,Cerberus
+Ogre,116,Normal,Annoyntment,Nothing,Pheonix Pinion,Ether,Matra Magic,Nothing,Hi-Potion,Pheonix Down,Nothing,Ogre
+Epitaph,117,Normal,Pheonix Down,Soft,Nothing,Nothing,Angel's Snack,Hi-Potion,Opal,Pheonix Down,Pheonix Down,Blazer Beetle
+Zidaine (Mirror),118,Normal,Soft,Amethyst,Nothing,Nothing,I no can eat!,Pheonix Down,Amethyst,Amethyst,Pheonix Down,None
+Vivi (Mirror),119,Normal,Hi-Potion,Peridot,Pheonix Pinion,Nothing,I no can eat!,Hi-Potion,Peridot,Pheonix Down,Pheonix Down,None
+Dagger (Mirror),120,Normal,Soft,Lapis Lazuli,Nothing,Ether,I no can eat!,Nothing,Lapis Lazuli,Hi-Potion,Pheonix Down,None
+Steiner (Mirror),121,Normal,Soft,Lapis Lazuli,Nothing,Nothing,I no can eat!,Nothing,Lapis Lazuli,Hi-Potion,Pheonix Down,None
+Freya (Mirror),122,Normal,Soft,Opal,Pheonix Pinion,Nothing,I no can eat!,Hi-Potion,Opal,Hi-Potion,Pheonix Down,None
+Quina (Mirror),123,Normal,Soft,Peridot,Nothing,Nothing,I no can eat!,Pheonix Down,Peridot,Pheonix Down,Pheonix Down,None
+Eiko (Mirror),124,Normal,Soft,Sapphire,Nothing,Ether,I no can eat!,Nothing,Sapphire,Hi-Potion,Pheonix Down,None
+Amarant (Mirror),125,Normal,Soft,Topaz,Nothing,Pheonix Pinion,I no can eat!,Nothing,Topaz,Hi-Potion,Pheonix Down,None
+Garuda,126,Normal,Ore,Hi-Potion,Ether,Pheonix Pinion,White Wind,Nothing,Ore,Pheonix Down,Ether,Gimme Cat
+Ark,127,Boss,Elixir,Power Vest,Holy Lance,Nothing,I no can eat!,Pumice Piece,Ether,Ether,Ether,Atomos
+Torama,128,Normal,Nothing,Antidote,Nothing,Pheonix Pinion,LV4 Holy,Nothing,Amethyst,Nothing,Nothing,Ralvuimahgo
+Drakan,129,Norma,Nothing,Antidote,Nothing,Nothing,Vanish,Nothing,Sapphire,Pheonix Down,Ether,Stroper
+Valia Pira,130,Boss,Nothing,Nothing,Nothing,Nothing,I no can eat!,Elixir,Ether,Ether,Ether,Shiva
+Vepal Green,131,Normal,Hi-Potion,Nothing,Pheonix Pinion,Ether,Aqua Breath,Nothing,Hi-Potion,Echo Screen,Nothing,Vepal
+Vepal Red,132,Normal,Hi-Potion,Nothing,Pheonix Pinion,Ether,Mustard Bomb,Nothing,Topaz,Pheonix Down,Nothing,Vepal
+Grenade,133,Normal,Ore,Tent,Nothing,Ether,Mustard Bomb,Nothing,Peridot,Pheonix Down,Ether,Zemzelett
+Worm Hydra,134,Normal,Hi-Potion,Antidote,Nothing,Nothing,Bad Breath,Nothing,Nothing,Nothing,Nothing,Feather Circle
+Wraith Blue Fire,135,Normal,Ore,Hi-Potion,Nothing,Nothing,Frost,Opal,Nothing,Echo Screen,Nothing,Zuu
+Wraith Red Fire,136,Normal,Topaz,Hi-Potion,Pheonix Pinion,Nothing,Mustard Bomb,Nothing,Topaz,Hi-Potion,Ether,Wraith
+Red Dragon,137,Boss,Tent,Ether,Elixir,Elixir,Twister,Ether,Sapphire,Sapphire,Sapphire,Abomination
+Zorn,138,Boss - 2nd Fight,Partisan,Stardust Rod,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Thorn,139,Boss - 2nd Fight,Mythril Armor,Mythril Armlet,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Meltigemini,140,Boss,Vaccine,Golden Hairpin,Demon's Vest,Nothing,I no can eat!,Vaccine,Vaccine,Vaccine,Vaccine,Tantarian
+Yan,141,Normal,Ore,Nothing,Nothing,Elixir,Auto-Life,Pheonix Down,Hi-Potion,Ether,Nothing,Zemzelett
+Amdusias,142,Normal,Hi-Potion,Antidote,Pheonix Pinion,Ether,LV4 Holy,Nothing,Nothing,Nothing,Nothing,None
+Veteran,143,Normal,Hi-Potion,Ether,Pheonix Pinion,Nothing,Doom,Topaz,Pheonix Down,Ether,Nothing,Veteran
+Cerberus,144,Normal,Ore,Tent,Nothing,Ether,Auto-Life,Nothing,Opal,Ether,Opal,Cerberus
+Agares,145,Normal,Tent,Soft,Ore,Nothing,I no can eat!,Nothing,Amethyst,Pheonix Down,Ether,Ragtimer
+Gargoyle,146,Normal,Hi-Potion,Tent,Pheonix Pinion,Ether,Mighty Guard,Nothing,Sapphire,Pheonix Down,Nothing,Gargoyle
+Tonberry,147,Normal,Hi-Potion,Pheonix Down,Pheonix Pinion,Ether,I no can eat!,Nothing,Peridot,Nothing,Ether,Tonberry
+Taharka,148,Boss,Elixir,Mythril Claws,Orichalcon,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,Ramuh
+Earth Guardian,149,Boss,Avenger,Rubber Suit,Nothing,Nothing,Earth Shake,Pheonix Pinion,Nothing,Nothing,Nothing,Atomos
+Ring Leader,150,Normal,Echo Screen,Vaccine,Nothing,Nothing,Magic Hammer,Nothing,Amethyst,Eye Drops,Nothing,Ifrit
+Hecteyes,151,Normal,Hi-Potion,Vaccine,Pheonix Pinion,Nothing,Roullette,Nothing,Pheonix Down,Vaccine,Ether,Hecteyes
+Mover,152,Normal,Opal,Vaccine,Tent,Nothing,I no can eat!,Opal,Pheonix Down,Vaccine,Ether,Mover
+Amdusias,153,Normal,Tent,Ether,Nothing,Nothing,I no can eat!,Ether,Nothing,Nothing,Nothing,Hedgehog Pie
+Abadon,154,Boss,Vaccine,Ether,Nothing,Nothing,I no can eat!,Ether,Nothing,Nothing,Nothing,Abadon
+Shell Dragon,155,Boss,Pheonix Down,Elixir,Nothing,Nothing,I no can eat!,Elixir,Hi-Potion,Vaccine,Nothing,Garuda
+Malboro,156,Normal,Ore,Vaccine,Nothing,Nothing,Bad Breath,Ore,Nothing,Nothing,Ether,Malboro
+Shell Dragon,157,Normal,Hi-Potion,Vaccine,Tent,Pheonix Pinion,Earth Shake,Ore,Topaz,Nothing,Ether,Garuda
+Abadon,158,Normal,Garnet,Vaccine,Pheonix Pinion,Pheonix Pinion,Twister,Nothing,Garnet,Vaccine,Nothing,Abadon
+Silver Dragon,159,Normal,Elixir,Dragon Mail,Kaiser Knuckles,Nothing,I no can eat!,Wing Edge,Elixir,Elixir,Elixir,Fenrir
+Garland,160,Boss,Battle Boots,Ninja Gear,Dark Gear,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Kuija,161,Boss,Ether,Carabini Mail,Nothing,Light Robe,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Mistodon,162,Normal,Ore,Hi-Potion,Nothing,Nothing,Angel's Snack,Nothing,Peridot,Ether,Nothing,Sand Golem
+Ragtime Mouse,163,Normal,Nothing,Nothing,Nothing,Nothing,I no can eat!,Protect Ring,Nothing,Nothing,Nothing,None
+True,164,Boss - Ragtime Mouse,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+False,165,Boss - Ragtime Mouse,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Mu,166,Normal,Nothing,Nothing,Nothing,Nothing,I no can eat!,Nothing,Potion,Eye Drops,Nothing,Skeleton
+Ghost,167,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Hi-Potion,Nothing,Nothing,Nothing,Zombie
+Ladybug,168,Normal,Nothing,Nothing,Nothing,Nothing,I no can eat!,Ether,Nothing,Echo Screen,Nothing,Zaghnol
+Yeti,169,Normal,Eye Drops,Ore,Hi-Potion,Nothing,Pumpkin Head,Nothing,Potion,Eye Drops,Ether,Yeti
+Nymph,170,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Emerald,Nothing,Nothing,Nothing,Nymph
+Jabberwock,171,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Moonstone,Nothing,Nothing,Nothing,Carrion Worm
+Feather Circle,172,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Lapis Lazuli,Nothing,Nothing,Nothing,Nymph
+Garuda,173,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Diamond,Nothing,Nothing,Nothing,Shiva
+Yan,174,Friendly,Nothing,Nothing,Nothing,Nothing,I no can eat!,Rosetta Ring,Nothing,Nothing,Nothing,None
+Behemoth,175,Normal ,Nothing,Nothing,Nothing,Pheonix Pinion,Angel's Snack,Nothing,Nothing,Nothing,Nothing,Ogre
+Quale,176,Boss,Elixir,Ninja Gear,Glutton's Robe,Robe of Lords,I no can eat!,Elixir,Elixir,Elixir,Elixir,Grand Dragon
+Ozma,177,Boss,Elixir,Robe of Lords,Dark Matter,Pumice Piece,I no can eat!,Pumice,Dark Matter,Dark Matter,Dark Matter,Ozma
+Nova Dragon,178,Boss,Remedy ,Dragon Wrist,Nothing,Grand Armor,I no can eat!,Wing Edge,Ether,Elixir,Nothing,Elixir
+Chimera,179,Normal,Vaccine,Garnet,Remedy,Remedy,Frost,Pheonix Down,Antidote,Vaccine,Nothing,Ash
+Iron Man,180,Normal,Pheonix Down,Pheonix Down,Pheonix Down,Pheonix Down,I no can eat!,Pheonix Down,Sapphire,Pheonix Down,Ether,Abadon
+Ash,181,Normal,Tent,Tent,Tent,Tent,Doom,Hi-Potion,Lapis Lazuli,Vaccine,Ether,
+Malaris,182,Boss,Genji Armor,Ultima Sword,Masamune,Nothing,I no can eat!,Pheonix Pinion,Pheonix Down,Ether,Elixir,None
+Tiamat,183,Boss,Blood Sword,Feather Boots,Nothing,Grand Helm,I no can eat!,Wing Edge,Pheonix Down,Ether,Elixir,None
+Stilva,185,Normal,Ether,Ether,Ether,Ether,Auto-Life,Tent,Garnet,Antidote,Tent,Vepal
+Kraken,186,Boss,Genji Helmet,Wizard Rod,Nothing,Glutton's Robe,I no can eat!,Pheonix Pinion,Pheonix Down,Ether,Elixir,None
+Right Tentacle,187,Boss - Kraken,Wing Edge,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Left Tentacle,188,Boss - Kraken,Elixir,Nothing,Nothing,Nothing,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Lich,189,Boss,Genji Gloves,Siren's Flute,Black Robe,Nothing,I no can eat!,Pheonix Pinion,Pheonix Down,Ether,Elixir,None
+Hades,190,Boss,Reflect Ring,Running Shoes,Battle Boots,Robe of Lords,I no can eat!,Wing Edge,Elixir,Elixir,Elixir,Holy
+Maliris,191,Crystal,Pheonix Down,Pheonix Down,Pheonix Pinion,Pheonix Pinion,Mustard Bomb,Pheonix Down,Opal,Ether,Elixir,Ifrit
+Tiamat,192,Crystal,Ether,Ether,Wing Edge,Wing Edge,Twister,Remedy,Peridot,Pheonix Down,Echo Screen,Garuda
+Kraken,193,Crystal,Annoyntment,Annoyntment,Eye Drops,Annoyntment,Frost,Remedy,Amethyst,Annoyntment,Elixir,Veteran
+Lich,194,Crystal,Ore,Ore,Ore,Ore,LV5 Death,Tent,Topaz,Ether,Elixir,Wraith
+Death Guise,195,Boss,Elixir,Black Belt,Nothing,Duel Claws,I no can eat!,Wedge Wing,Pheonix Down,Ether,Elixir,None
+Trance Kuja,196,Boss,Ether,White Robe,Nothing,Rebirth Ring,I no can eat!,Nothing,Nothing,Nothing,Nothing,None
+Necron,197,Boss,Elixir,Elixir,Elixir,Elixir,I no can eat!,Nothing,Nothing,Nothing,Nothing,None

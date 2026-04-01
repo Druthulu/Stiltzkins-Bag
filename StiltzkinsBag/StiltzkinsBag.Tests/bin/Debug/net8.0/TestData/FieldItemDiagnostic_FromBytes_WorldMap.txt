@@ -1,0 +1,48 @@
+﻿Field Item Diagnostic — world map .bytes (13 files)
+Generated: 2026-03-31 22:19:08
+Total item locations found: 14
+
+=== PER-FILE DETAIL ===
+
+[evt_world_world00.eb]
+  DirectItem   offset= 13394 → item  11
+
+[evt_world_world02.eb]
+  DirectItem   offset=  4446 → item  11
+
+[evt_world_world03.eb]
+  DirectItem   offset= 15542 → item  11
+  DirectItem   offset= 19223 → item   1
+
+[evt_world_world05.eb]
+  DirectItem   offset= 15010 → item  11
+  DirectItem   offset= 18691 → item   1
+
+[evt_world_world07.eb]
+  DirectItem   offset= 15963 → item   1
+  DirectItem   offset= 16818 → item  11
+
+[evt_world_world08.eb]
+  DirectItem   offset= 16362 → item  11
+  DirectItem   offset= 20043 → item   1
+
+[evt_world_world09.eb]
+  DirectItem   offset= 16974 → item  11
+  DirectItem   offset= 20655 → item   1
+
+[evt_world_world10.eb]
+  DirectItem   offset=  5286 → item  11
+
+[evt_world_world11.eb]
+  DirectItem   offset=  5314 → item  11
+
+=== SUMMARY BY ITEM ID ===
+
+Direct   item IDs (  2 unique): [1, 11]
+Treasure item IDs (  0 unique): []
+Combined item IDs (  2 unique): [1, 11]
+
+=== REVERSE LOOKUP (item ID → which files) ===
+
+  item   1: evt_world_world03.eb[DirectItem@19223], evt_world_world05.eb[DirectItem@18691], evt_world_world07.eb[DirectItem@15963], evt_world_world08.eb[DirectItem@20043], evt_world_world09.eb[DirectItem@20655]
+  item  11: evt_world_world00.eb[DirectItem@13394], evt_world_world02.eb[DirectItem@4446], evt_world_world03.eb[DirectItem@15542], evt_world_world05.eb[DirectItem@15010], evt_world_world07.eb[DirectItem@16818], evt_world_world08.eb[DirectItem@16362], evt_world_world09.eb[DirectItem@16974], evt_world_world10.eb[DirectItem@5286], evt_world_world11.eb[DirectItem@5314]

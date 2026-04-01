@@ -134,14 +134,23 @@ namespace StiltzkinsBag.Parsing
         public int ArgByteWidth { get; }
         /// <summary>What this location represents — drives randomizer behavior.</summary>
         public FieldLocationKind LocationKind { get; }
+        /// <summary>
+        /// Number of copies given by this AddItem call.
+        /// Always 1 for TreasureItem / TextSync / DirectGil locations.
+        /// For DirectItem: the constant count argument read from the bytecode,
+        /// or 1 if the count argument is a variable expression.
+        /// </summary>
+        public int ItemCount { get; }
 
         public FieldItemLocation(int fileOffset, int currentValue,
-                                 int argByteWidth, FieldLocationKind locationKind)
+                                 int argByteWidth, FieldLocationKind locationKind,
+                                 int itemCount = 1)
         {
             FileOffset = fileOffset;
             CurrentValue = currentValue;
             ArgByteWidth = argByteWidth;
             LocationKind = locationKind;
+            ItemCount = itemCount > 0 ? itemCount : 1;
         }
 
         /// <summary>True if this TreasureItem encodes a plain item ID (X less than 512).</summary>
@@ -453,20 +462,39 @@ namespace StiltzkinsBag.Parsing
                 // ── Pattern 2: AddItem(X, amount) with constant X ─────────────
                 //
                 // Chests and direct story-award AddItem calls.
-                // Binary: [48][vararg_flag][lo][hi][amount...]
+                // Binary: [48][vararg_flag][lo_item][hi_item][lo_count][hi_count]
                 // vararg_flag bit 0 = 0 → arg[0] (item ID) is a constant.
-                // Minimum span: 4 bytes.
+                // vararg_flag bit 1 = 0 → arg[1] (count) is a constant (uint16 LE).
+                // Minimum span: 4 bytes (item constant, count may be variable).
+                //               6 bytes when both args are constants.
+                //
+                // FALSE-POSITIVE CAP: 0x48 appears as a non-opcode byte in argument
+                // streams of other opcodes, producing false matches. Previously each
+                // false positive contributed 1 per occurrence (bounded inflation).
+                // With count reading enabled, false positives read arbitrary bytes as
+                // counts, producing values like 0x3E02 (15874) that inflate totals
+                // catastrophically. MaxPlausibleItemCount caps the damage: real FFIX
+                // vanilla AddItem calls give at most 8 copies (Straw Hat, Sandals,
+                // Pearl Armlet). Any value above that is a false positive artefact.
+                const int MaxPlausibleItemCount = 9;
                 if (b == OpcodeAddItem && pos + 3 < end)
                 {
                     byte varargFlag = file[pos + 1];
+                    bool countIsConst = (varargFlag & 0x02) == 0 && pos + 5 < end;
                     if ((varargFlag & 0x01) == 0)
                     {
                         int itemId = ReadUInt16LE(file, pos + 2);
+                        // Read the constant count argument when available.
+                        // Clamp to MaxPlausibleItemCount to neutralise false-positive
+                        // artefacts — real vanilla counts are at most 8.
+                        int rawCount = countIsConst ? (int)ReadUInt16LE(file, pos + 4) : 1;
+                        int itemCount = Math.Min(MaxPlausibleItemCount, Math.Max(1, rawCount));
                         results.Add(new FieldItemLocation(
-                            pos + 2, itemId, 2, FieldLocationKind.DirectItem));
+                            pos + 2, itemId, 2, FieldLocationKind.DirectItem, itemCount));
                     }
-                    // Advance past opcode(1) + flag(1) + item(2); loop adds 1 more
-                    pos += 3;
+                    // Advance past opcode(1) + flag(1) + item(2) [+ count(2) if constant];
+                    // loop increments pos by 1 more.
+                    pos += countIsConst ? 5 : 3;
                     continue;
                 }
 

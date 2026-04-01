@@ -1,0 +1,9 @@
+﻿Battle Item Cross-Validation Report (.bytes vs Archive)
+Generated: 2026-03-31 22:19:07
+.bytes records:     6506
+Archive records:    6506
+Extract failures:   0
+Only in .bytes:     0
+Only in archive:    0
+
+✓ .bytes files and archive produce identical item sets.

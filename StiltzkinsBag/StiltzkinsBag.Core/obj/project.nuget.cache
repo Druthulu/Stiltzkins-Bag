@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DRN1XR7F0iQ=",
+  "dgSpecHash": "jIJ1LrJ9Y5o=",
   "success": true,
-  "projectFilePath": "Z:\\Storage\\git\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\Stiltzkins-Bag\\StiltzkinsBag\\StiltzkinsBag.Core\\StiltzkinsBag.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
   ],
