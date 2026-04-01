@@ -1,5 +1,5 @@
 ﻿Field Item Diagnostic — p0data7.bin (2466 extracted, 0 failed, EVT_ALEX3_AC_SEAT_N excluded)
-Generated: 2026-03-31 22:19:08
+Generated: 2026-04-01 15:35:11
 Total item locations found: 1117
 
 === PER-FILE DETAIL ===

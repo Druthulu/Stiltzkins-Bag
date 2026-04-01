@@ -23,6 +23,13 @@ public sealed record ItemObtainabilityEntry
     /// <summary>Item ID (0–255, matches Items.csv Id column).</summary>
     public int ItemId { get; init; }
 
+    /// <summary>
+    /// Display name parsed from the Items.csv inline comment (e.g. "# 000 - Hammer").
+    /// Empty string if no inline comment was present on the row.
+    /// Used in catalog CSV output, diagnostics, and UI display.
+    /// </summary>
+    public string Name { get; init; } = string.Empty;
+
     // ── Category flags (from Items.csv) ───────────────────────────────────────
 
     /// <summary>

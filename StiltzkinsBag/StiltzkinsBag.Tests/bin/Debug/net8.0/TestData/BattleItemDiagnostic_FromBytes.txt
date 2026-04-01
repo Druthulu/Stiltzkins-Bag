@@ -1,5 +1,5 @@
 ﻿Battle Item Diagnostic — .bytes files (562 files)
-Generated: 2026-03-31 22:19:08
+Generated: 2026-04-01 15:35:10
 Total non-zero item slots found: 6506
 
 === PER-BATTLE DETAIL ===

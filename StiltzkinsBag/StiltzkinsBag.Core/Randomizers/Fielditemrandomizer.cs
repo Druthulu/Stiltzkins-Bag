@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using StiltzkinsBag.Core.Models;
 using StiltzkinsBag.Core.Parsing;
 using StiltzkinsBag.Models;
 using StiltzkinsBag.Parsing;
@@ -24,6 +25,11 @@ namespace StiltzkinsBag.Randomizers
         public int DirectLocationsPatched { get; init; }
         /// <summary>Total TextSync locations patched across all fields.</summary>
         public int TextSyncLocationsPatched { get; init; }
+        /// <summary>
+        /// Number of Stiltzkin scripts excluded from the field item pool.
+        /// Zero when <see cref="StiltzkinMode"/> is Off or IncludeInFieldPool.
+        /// </summary>
+        public int StiltzkinScriptsExcluded { get; init; }
     }
 
     /// <summary>
@@ -45,6 +51,19 @@ namespace StiltzkinsBag.Randomizers
     ///     - directTable:   item-ID-only shuffle for AddItem constant calls (chests)
     ///   For each field, apply patches and write patched bytes to all 7 language
     ///   output paths under the mod output folder.
+    ///
+    /// ── Stiltzkin exclusion ──────────────────────────────────────────────────
+    ///
+    /// When <see cref="StiltzkinMode"/> is <c>Shuffle</c> or <c>Recommended</c>,
+    /// Stiltzkin scripts are excluded from the field item pool before Pass 1.
+    /// StiltzkinRandomizer handles those scripts independently.
+    ///
+    /// When <see cref="StiltzkinMode"/> is <c>IncludeInFieldPool</c>, Stiltzkin
+    /// scripts remain in the normal field pool and are treated like any other field.
+    ///
+    /// When <see cref="StiltzkinMode"/> is <c>Off</c>, Stiltzkin scripts remain in
+    /// the pool but are not patched by StiltzkinRandomizer — they pass through
+    /// FieldItemRandomizer unchanged (vanilla items stay, positions unchanged).
     ///
     /// ── Language handling ────────────────────────────────────────────────────
     ///
@@ -155,11 +174,28 @@ namespace StiltzkinsBag.Randomizers
         /// Creates output directories as needed.
         /// </summary>
         /// <param name="rng">Seeded Random instance from SeedEngine.</param>
-        public FieldRandomizationResult Randomize(Random rng)
+        /// <param name="settings">
+        /// Active run settings. Controls Stiltzkin exclusion:
+        /// <see cref="StiltzkinMode.Shuffle"/> and <see cref="StiltzkinMode.Recommended"/>
+        /// exclude Stiltzkin scripts from the field item pool — StiltzkinRandomizer
+        /// handles those scripts independently.
+        /// <see cref="StiltzkinMode.IncludeInFieldPool"/> and <see cref="StiltzkinMode.Off"/>
+        /// leave Stiltzkin scripts in the normal pool.
+        /// </param>
+        public FieldRandomizationResult Randomize(Random rng, Settings settings)
         {
             ArgumentNullException.ThrowIfNull(rng);
+            ArgumentNullException.ThrowIfNull(settings);
 
             string vanillaArchive = Path.Combine(_gameRoot, VanillaArchiveRelPath);
+
+            // ── Build Stiltzkin exclusion set ─────────────────────────────────
+            //
+            // When StiltzkinMode is Shuffle or Recommended, Stiltzkin scripts are
+            // handled by StiltzkinRandomizer and must not be touched here.
+            // The exclusion set uses the archive name form (without .bytes suffix),
+            // matching the names returned by UnityArchiver.GetFileNames().
+            var stiltzkinExclusions = BuildStiltzkinExclusionSet(settings.StiltzkinMode);
 
             // ── Enumerate distinct field file names from the vanilla archive ──
             List<string> fieldNames;
@@ -167,10 +203,16 @@ namespace StiltzkinsBag.Randomizers
             {
                 fieldNames = archive.GetFileNames()
                     .Where(n => n.StartsWith("evt_", StringComparison.OrdinalIgnoreCase))
+                    .Where(n => !stiltzkinExclusions.Contains(
+                        n.EndsWith(".bytes", StringComparison.OrdinalIgnoreCase)
+                            ? n[..^".bytes".Length]
+                            : n))
                     .Distinct(StringComparer.OrdinalIgnoreCase)
                     .OrderBy(n => n, StringComparer.OrdinalIgnoreCase)
                     .ToList();
             }
+
+            int stiltzkinExcluded = stiltzkinExclusions.Count;
 
             // ── Pass 1: Extract and scan all fields ────────────────────────────
             var bytesByName = new Dictionary<string, byte[]>(fieldNames.Count,
@@ -223,7 +265,7 @@ namespace StiltzkinsBag.Randomizers
                     }
                 }
 
-                // Write patched bytes to all 7 language output paths
+                // Write patched bytes to all 7 language output paths.
                 // Archive name (e.g. "evt_alex1_at_house_2.eb") → output file adds ".bytes"
                 string outputFileName = name.EndsWith(".bytes", StringComparison.OrdinalIgnoreCase)
                     ? name
@@ -244,7 +286,32 @@ namespace StiltzkinsBag.Randomizers
                 TreasureLocationsPatched = treasureLocationsPatched,
                 DirectLocationsPatched = directLocationsPatched,
                 TextSyncLocationsPatched = textSyncLocationsPatched,
+                StiltzkinScriptsExcluded = stiltzkinExcluded,
             };
+        }
+
+        // ── Stiltzkin exclusion helper ─────────────────────────────────────────
+
+        /// <summary>
+        /// Builds the set of archive field names (without .bytes suffix) that
+        /// FieldItemRandomizer must exclude when <paramref name="mode"/> is
+        /// <see cref="StiltzkinMode.Shuffle"/> or <see cref="StiltzkinMode.Recommended"/>.
+        ///
+        /// Returns an empty set for <see cref="StiltzkinMode.Off"/> and
+        /// <see cref="StiltzkinMode.IncludeInFieldPool"/> — those modes leave
+        /// Stiltzkin scripts in the normal field pool.
+        /// </summary>
+        public static HashSet<string> BuildStiltzkinExclusionSet(StiltzkinMode mode)
+        {
+            if (mode != StiltzkinMode.Shuffle && mode != StiltzkinMode.Recommended)
+                return new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            var exclusions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string[] scripts in VanillaObtainabilityData.StiltzkinVisitLocations.Values)
+                foreach (string script in scripts)
+                    exclusions.Add(script); // already in .eb form, no .bytes suffix
+
+            return exclusions;
         }
 
         // ── Internal static methods (testable without file system) ─────────────

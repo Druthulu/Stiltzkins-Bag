@@ -1406,23 +1406,7 @@ public sealed class VanillaItemCatalogTests
     {
         SkipIfNoP0data7();
 
-        // ── 1. Extract item names from Items.csv comment lines ────────────
-        // Format: "# NNN - Name" (one comment per item, above or inline with the row)
-        var itemNames = new Dictionary<int, string>();
-        {
-            string[] lines = File.ReadAllLines(ItemsCsvPath);
-            foreach (string line in lines)
-            {
-                string trimmed = line.Trim();
-                if (!trimmed.StartsWith("#")) continue;
-                // "# 0 - Hammer" or "# 123 - Save the Queen"
-                string body = trimmed.TrimStart('#').Trim();
-                int dashIdx = body.IndexOf('-');
-                if (dashIdx <= 0) continue;
-                if (int.TryParse(body[..dashIdx].Trim(), out int itemId))
-                    itemNames[itemId] = body[(dashIdx + 1)..].Trim();
-            }
-        }
+
 
         // ── 2. Build catalog with real field data ─────────────────────────
         // NEW:
@@ -1468,7 +1452,7 @@ public sealed class VanillaItemCatalogTests
                 countStr = "0";
             }
 
-            string name = itemNames.TryGetValue(id, out string? n) ? n : $"Item{id}";
+            string name = string.IsNullOrEmpty(entry.Name) ? $"Item{id}" : entry.Name;
 
             // Verification counts (not directly in ObtainCount but useful for cross-reference)
             VanillaObtainabilityData.ChocographItemCounts.TryGetValue(id, out int chocoCount);
@@ -1506,7 +1490,7 @@ public sealed class VanillaItemCatalogTests
         _out.WriteLine($"Obtainable items: {obtainableCount}");
         _out.WriteLine($"  Infinite:       {infiniteCount}");
         _out.WriteLine($"  Finite:         {finiteCount}");
-        _out.WriteLine($"Names resolved:   {itemNames.Count} from Items.csv comments");
+        _out.WriteLine($"Names resolved:   {catalog.Entries.Values.Count(e => !string.IsNullOrEmpty(e.Name))} from Items.csv inline comments");
         _out.WriteLine($"Field items:      {fieldCounts.Count} distinct IDs across all field scripts");
 
         if (battleResult != null)

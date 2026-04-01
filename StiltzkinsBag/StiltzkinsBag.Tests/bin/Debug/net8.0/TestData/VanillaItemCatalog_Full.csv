@@ -1,258 +1,258 @@
 ﻿Id,Name,ObtainCount,FieldCount,WorldMapCount,EnemyCount,BossCount,InShop,SynthCount,ChocographCount,DeadPepperCount,AuctionCount,IsKeyItem,IsMissable,IsSynthesisResult,IsSynthesisIngredient
-0,Item0,1,1,0,0,0,0,0,0,0,0,0,0,0,1
-1,Item1,Infinite,101,0,0,0,Infinite,0,0,0,0,0,0,0,1
-2,Item2,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-3,Item3,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-4,Item4,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-5,Item5,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,1
-6,Item6,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-7,Item7,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
-8,Item8,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,1,0
-9,Item9,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,1,0
-10,Item10,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
-11,Item11,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
-12,Item12,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,1
-13,Item13,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
-14,Item14,1,1,0,0,0,0,0,0,0,0,0,0,0,0
-15,Item15,1,0,1,0,0,0,0,0,1,0,0,0,0,0
-16,Item16,Infinite,37,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-17,Item17,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-18,Item18,Infinite,12,0,Infinite,0,Infinite,0,0,0,0,0,1,0,1
-19,Item19,73,72,0,0,1,0,0,0,0,0,0,1,0,0
-20,Item20,Infinite,27,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-21,Item21,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-22,Item22,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-23,Item23,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-24,Item24,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-25,Item25,Infinite,10,0,0,0,Infinite,0,0,0,0,0,0,0,0
-26,Item26,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
-27,Item27,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-28,Item28,20,20,0,0,0,0,0,0,0,0,0,0,0,0
-29,Item29,1,0,1,0,0,0,0,1,0,0,0,0,0,0
-30,Item30,19,19,0,0,0,0,0,0,0,0,0,1,0,0
-31,Item31,Infinite,94,0,0,0,Infinite,0,0,0,0,0,1,0,1
-32,Item32,Infinite,46,0,0,0,Infinite,0,0,0,0,0,0,0,0
-33,Item33,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-34,Item34,Infinite,226,0,0,0,Infinite,0,0,0,0,0,0,0,0
-35,Item35,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-36,Item36,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-37,Item37,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-38,Item38,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-39,Item39,1,1,0,0,0,0,0,0,0,0,0,0,0,0
-40,Item40,1,0,1,0,0,0,0,0,1,0,0,0,0,0
-41,Item41,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-42,Item42,Infinite,7,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-43,Item43,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-44,Item44,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-45,Item45,1,0,1,0,0,0,0,1,0,0,0,0,0,1
-46,Item46,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-47,Item47,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-48,Item48,Infinite,9,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
-49,Item49,1,0,0,0,1,0,0,0,0,0,0,1,1,0
-50,Item50,37,37,0,0,0,0,0,0,0,0,0,0,0,0
-51,Item51,Infinite,19,0,0,0,Infinite,0,0,0,0,0,1,0,1
-52,Item52,Infinite,20,0,0,0,Infinite,0,0,0,0,0,0,0,1
-53,Item53,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-54,Item54,Infinite,63,0,0,0,Infinite,0,0,0,0,0,0,0,0
-55,Item55,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
-56,Item56,1,0,1,0,0,0,0,0,1,0,0,0,0,0
-57,Item57,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-58,Item58,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-59,Item59,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-60,Item60,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-61,Item61,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-62,Item62,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-63,Item63,1,1,0,0,0,0,0,0,0,0,0,0,0,0
-64,Item64,Infinite,88,0,0,0,Infinite,0,0,0,0,0,0,0,0
-65,Item65,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-66,Item66,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-67,Item67,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-68,Item68,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-69,Item69,1,1,0,0,0,0,0,0,0,0,0,0,0,0
-70,Item70,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-71,Item71,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-72,Item72,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-73,Item73,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-74,Item74,Infinite,585,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
-75,Item75,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-76,Item76,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-77,Item77,Infinite,7,0,0,0,Infinite,0,1,0,0,0,0,0,0
-78,Item78,37,37,0,0,0,0,0,0,0,0,0,0,0,0
-79,Item79,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-80,Item80,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-81,Item81,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-82,Item82,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-83,Item83,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-84,Item84,71,71,0,0,0,0,0,0,0,0,0,0,0,0
-85,Item85,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-86,Item86,Infinite,27,0,Infinite,0,Infinite,0,8,0,0,0,0,0,0
-87,Item87,Infinite,81,0,Infinite,0,0,0,13,0,0,0,0,0,1
-88,Item88,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-89,Item89,Infinite,64,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-90,Item90,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-91,Item91,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-92,Item92,Infinite,81,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-93,Item93,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-94,Item94,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,0,1
-95,Item95,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,0,1
-96,Item96,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,0,1
-97,Item97,Infinite,37,0,0,0,Infinite,0,1,0,0,0,0,0,1
-98,Item98,Infinite,0,0,0,0,Infinite,0,0,0,1,0,0,1,0
-99,Item99,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-100,Item100,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-101,Item101,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
-102,Item102,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-103,Item103,Infinite,2,0,Infinite,0,Infinite,0,0,0,0,0,1,0,1
-104,Item104,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-105,Item105,Infinite,2,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-106,Item106,Infinite,0,0,0,0,Infinite,0,1,0,0,0,0,0,0
-107,Item107,Infinite,72,0,0,0,Infinite,0,0,0,0,0,0,0,1
-108,Item108,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-109,Item109,2,0,1,0,1,0,0,0,1,0,0,1,0,0
-110,Item110,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-111,Item111,Infinite,64,1,0,0,Infinite,0,0,1,0,0,0,1,0
-112,Item112,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-113,Item113,8,0,8,0,0,0,0,0,8,0,0,0,0,0
-114,Item114,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-115,Item115,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-116,Item116,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-117,Item117,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-118,Item118,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-119,Item119,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-120,Item120,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,0,1
-121,Item121,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-122,Item122,Infinite,27,0,0,0,Infinite,0,0,0,0,0,0,0,1
-123,Item123,Infinite,63,0,0,0,Infinite,0,0,0,0,0,0,0,0
-124,Item124,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-125,Item125,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,0
-126,Item126,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,0,0
-127,Item127,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-128,Item128,Infinite,54,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-129,Item129,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-130,Item130,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-131,Item131,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-132,Item132,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-133,Item133,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
-134,Item134,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
-135,Item135,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,1,0
-136,Item136,Infinite,1,0,0,0,Infinite,0,0,0,0,0,0,0,1
-137,Item137,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-138,Item138,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,1,0,0
-139,Item139,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-140,Item140,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-141,Item141,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-142,Item142,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
-143,Item143,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-144,Item144,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-145,Item145,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-146,Item146,2,0,1,0,1,0,0,0,1,0,0,1,0,0
-147,Item147,Infinite,9,0,0,1,Infinite,0,0,0,0,0,0,1,0
-148,Item148,25,18,7,0,0,0,0,0,7,0,0,0,0,0
-149,Item149,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,1
-150,Item150,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-151,Item151,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-152,Item152,Infinite,2,0,0,0,Infinite,0,0,0,0,0,0,0,0
-153,Item153,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-154,Item154,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-155,Item155,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-156,Item156,Infinite,10,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-157,Item157,Infinite,54,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-158,Item158,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-159,Item159,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-160,Item160,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-161,Item161,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,0,1
-162,Item162,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-163,Item163,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
-164,Item164,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-165,Item165,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-166,Item166,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
-167,Item167,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
-168,Item168,Infinite,0,0,0,0,Infinite,0,1,0,0,0,0,1,1
-169,Item169,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
-170,Item170,Infinite,0,0,0,0,0,0,1,0,Infinite,0,0,1,1
-171,Item171,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
-172,Item172,Infinite,0,0,0,1,Infinite,0,1,0,0,0,0,1,1
-173,Item173,Infinite,0,1,0,1,Infinite,0,0,1,0,0,0,1,1
-174,Item174,Infinite,1,0,0,1,Infinite,0,1,0,0,0,0,1,0
-175,Item175,Infinite,99,0,0,1,Infinite,0,0,0,0,0,0,1,0
-176,Item176,1,0,0,0,0,0,1,0,0,0,0,0,1,0
-177,Item177,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-178,Item178,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-179,Item179,Infinite,2,0,0,0,Infinite,0,0,0,0,0,1,0,1
-180,Item180,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-181,Item181,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-182,Item182,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-183,Item183,Infinite,90,0,0,0,Infinite,0,1,0,0,0,0,0,0
-184,Item184,Infinite,18,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
-185,Item185,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
-186,Item186,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,0
-187,Item187,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-188,Item188,Infinite,28,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
-189,Item189,10,9,0,0,1,0,0,1,0,0,0,1,0,0
-190,Item190,1,0,1,0,0,0,0,0,1,0,0,0,0,0
-191,Item191,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
-192,Item192,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,1
-193,Item193,Infinite,54,0,0,0,Infinite,0,0,0,0,0,0,1,1
-194,Item194,Infinite,18,0,0,0,Infinite,0,2,0,0,0,0,1,1
-195,Item195,8,0,8,0,0,0,0,0,8,0,0,0,0,0
-196,Item196,Infinite,27,0,0,1,0,0,1,0,Infinite,0,0,1,1
-197,Item197,Infinite,126,0,0,1,Infinite,0,0,0,0,0,0,1,1
-198,Item198,Infinite,36,0,0,1,Infinite,0,0,0,0,0,1,1,0
-199,Item199,Infinite,72,0,0,0,0,0,0,0,Infinite,0,0,1,1
-200,Item200,Infinite,168,0,0,0,Infinite,0,0,0,0,0,0,1,1
-201,Item201,Infinite,108,0,0,1,Infinite,0,0,0,0,0,0,1,0
-202,Item202,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,1
-203,Item203,Infinite,1,1,0,0,0,0,0,1,Infinite,0,0,1,1
-204,Item204,Infinite,72,1,Infinite,1,0,0,0,1,0,0,0,1,1
-205,Item205,Infinite,0,0,0,1,Infinite,0,0,0,1,0,0,1,0
-206,Item206,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
-207,Item207,Infinite,72,0,0,0,0,0,0,0,Infinite,0,0,1,0
-208,Item208,Infinite,18,0,0,1,Infinite,0,1,0,0,0,1,1,1
-209,Item209,Infinite,63,1,Infinite,1,0,0,0,1,0,0,0,1,0
-210,Item210,2,0,0,0,1,0,0,1,0,0,0,1,1,1
-211,Item211,1,0,0,0,1,0,0,0,0,0,0,0,1,1
-212,Item212,Infinite,2,0,0,0,Infinite,0,0,0,0,0,0,1,0
-213,Item213,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,1
-214,Item214,Infinite,36,0,0,0,0,0,0,0,Infinite,0,0,1,1
-215,Item215,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,1,0
-216,Item216,Infinite,0,0,0,0,0,0,0,0,Infinite,0,0,1,0
-217,Item217,8,0,8,0,0,0,0,0,8,0,0,0,0,0
-218,Item218,Infinite,27,0,0,0,Infinite,0,0,0,0,0,0,1,1
-219,Item219,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,1
-220,Item220,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
-221,Item221,28,27,0,0,0,0,0,1,0,1,0,0,0,0
-222,Item222,19,18,1,0,0,0,0,0,1,0,0,0,0,0
-223,Item223,18,18,0,0,0,0,0,0,0,0,0,0,0,0
-224,Item224,Infinite,9,0,Infinite,0,0,0,16,0,0,0,0,1,0
-225,Item225,Infinite,10,0,Infinite,0,0,0,34,0,0,0,0,1,0
-226,Item226,20,10,10,0,0,0,0,0,10,0,0,0,0,0
-227,Item227,Infinite,36,0,Infinite,1,0,0,1,0,0,0,1,0,1
-228,Item228,Infinite,36,0,Infinite,1,0,0,0,0,0,0,1,0,1
-229,Item229,Infinite,45,0,Infinite,1,0,0,0,0,0,0,1,0,1
-230,Item230,27,27,0,0,0,0,0,0,0,0,0,0,0,1
-231,Item231,Infinite,11,0,Infinite,0,0,0,23,0,0,0,0,1,1
-232,Item232,Infinite,2,0,Infinite,0,0,0,26,0,0,0,0,1,0
-233,Item233,Infinite,10,0,Infinite,0,0,0,23,0,0,0,0,1,0
-234,Item234,Infinite,10,15,Infinite,0,0,0,19,15,0,0,0,1,0
-235,Item235,Infinite,19,41,Infinite,1,0,0,0,41,0,0,0,1,0
-236,Item236,Infinite,230,50,Infinite,1,Infinite,0,78,50,0,0,0,0,1
-237,Item237,Infinite,216,25,Infinite,1,Infinite,0,18,25,0,0,0,0,0
-238,Item238,Infinite,618,9,Infinite,1,0,0,28,9,0,0,0,1,0
-239,Item239,Infinite,711,7,Infinite,1,0,0,6,7,Infinite,0,0,0,1
-240,Item240,Infinite,290,0,Infinite,0,Infinite,0,21,0,0,0,0,0,1
-241,Item241,Infinite,40,0,Infinite,0,Infinite,0,7,0,0,0,0,0,1
-242,Item242,Infinite,54,0,Infinite,0,Infinite,0,6,0,0,0,0,0,1
-243,Item243,Infinite,18,0,Infinite,0,Infinite,0,10,0,0,0,0,0,1
-244,Item244,Infinite,56,19,Infinite,0,Infinite,0,0,19,0,0,0,0,1
-245,Item245,Infinite,18,0,Infinite,0,Infinite,0,6,0,0,0,0,0,0
-246,Item246,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
-247,Item247,Infinite,167,10,Infinite,0,Infinite,0,4,10,0,0,0,0,1
-248,Item248,Infinite,0,0,Infinite,0,Infinite,0,15,0,0,0,0,0,1
-249,Item249,Infinite,325,0,Infinite,0,0,0,24,0,0,0,0,1,1
-250,Item250,2,0,0,0,1,0,0,0,0,1,0,1,0,1
-251,Item251,167,167,0,0,0,0,0,0,0,0,0,0,0,1
-252,Item252,18,18,0,0,0,0,0,0,0,0,0,0,0,1
-253,Item253,Infinite,274,0,Infinite,0,Infinite,0,3,0,0,0,0,0,0
-254,Item254,Infinite,102,9,Infinite,0,0,0,58,9,0,0,0,0,1
-255,Item255,Infinite,0,0,Infinite,0,0,0,0,0,0,0,0,0,0
+0,Hammer,1,1,0,0,0,0,0,0,0,0,0,0,0,1
+1,Dagger,Infinite,101,0,0,0,Infinite,0,0,0,0,0,0,0,1
+2,Mage Masher,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+3,Mythril Dagger,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+4,Gladius,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+5,Zorlin Shape,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,1
+6,Orichalcon,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+7,Butterfly Sword,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
+8,The Ogre,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,1,0
+9,Exploda,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,1,0
+10,Rune Tooth,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
+11,Angel Bless,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
+12,Sargatanas,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,1
+13,Masamune,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
+14,The Tower,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+15,Ultima Weapon,1,0,1,0,0,0,0,0,1,0,0,0,0,0
+16,Broadsword,Infinite,37,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+17,Iron Sword,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+18,Mythril Sword,Infinite,12,0,Infinite,0,Infinite,0,0,0,0,0,1,0,1
+19,Blood Sword,73,72,0,0,1,0,0,0,0,0,0,1,0,0
+20,Ice Brand,Infinite,27,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+21,Coral Sword,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+22,Diamond Sword,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+23,Flame Saber,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+24,Rune Blade,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+25,Defender,Infinite,10,0,0,0,Infinite,0,0,0,0,0,0,0,0
+26,Save the Queen,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
+27,Ultima Sword,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+28,Excalibur,20,20,0,0,0,0,0,0,0,0,0,0,0,0
+29,Ragnarok,1,0,1,0,0,0,0,1,0,0,0,0,0,0
+30,Excalibur II,19,19,0,0,0,0,0,0,0,0,0,1,0,0
+31,Javelin,Infinite,94,0,0,0,Infinite,0,0,0,0,0,1,0,1
+32,Mythril Spear,Infinite,46,0,0,0,Infinite,0,0,0,0,0,0,0,0
+33,Partisan,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+34,Ice Lance,Infinite,226,0,0,0,Infinite,0,0,0,0,0,0,0,0
+35,Trident,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+36,Heavy Lance,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+37,Obelisk,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+38,Holy Lance,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+39,Kain’s Lance,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+40,Dragon’s Hair,1,0,1,0,0,0,0,0,1,0,0,0,0,0
+41,Cat’s Claws,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+42,Poison Knuckles,Infinite,7,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+43,Mythril Claws,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+44,Scissor Fangs,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+45,Dragon’s Claws,1,0,1,0,0,0,0,1,0,0,0,0,0,1
+46,Tiger Fangs,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+47,Avenger,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+48,Kaiser Knuckles,Infinite,9,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
+49,Duel Claws,1,0,0,0,1,0,0,0,0,0,0,1,1,0
+50,Rune Claws,37,37,0,0,0,0,0,0,0,0,0,0,0,0
+51,Air Racket,Infinite,19,0,0,0,Infinite,0,0,0,0,0,1,0,1
+52,Multina Racket,Infinite,20,0,0,0,Infinite,0,0,0,0,0,0,0,1
+53,Magic Racket,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+54,Mythril Racket,Infinite,63,0,0,0,Infinite,0,0,0,0,0,0,0,0
+55,Priest’s Racket,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
+56,Tiger Racket,1,0,1,0,0,0,0,0,1,0,0,0,0,0
+57,Rod,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+58,Mythril Rod,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+59,Stardust Rod,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+60,Healing Rod,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+61,Asura’s Rod,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+62,Wizard Rod,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+63,Whale Whisker,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+64,Golem’s Flute,Infinite,88,0,0,0,Infinite,0,0,0,0,0,0,0,0
+65,Lamia’s Flute,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+66,Fairy Flute,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+67,Hamelin,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+68,Siren’s Flute,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+69,Angel Flute,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+70,Mage Staff,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+71,Flame Staff,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+72,Ice Staff,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+73,Lightning Staff,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+74,Oak Staff,Infinite,585,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
+75,Cypress Pile,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+76,Octagon Rod,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+77,High Mage Staff,Infinite,7,0,0,0,Infinite,0,1,0,0,0,0,0,0
+78,Mace of Zeus,37,37,0,0,0,0,0,0,0,0,0,0,0,0
+79,Fork,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+80,Needle Fork,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+81,Mythril Fork,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+82,Silver Fork,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+83,Bistro Fork,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+84,Gastro Fork,71,71,0,0,0,0,0,0,0,0,0,0,0,0
+85,Pinwheel,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+86,Rising Sun,Infinite,27,0,Infinite,0,Infinite,0,8,0,0,0,0,0,0
+87,Wing Edge,Infinite,81,0,Infinite,0,0,0,13,0,0,0,0,0,1
+88,Wrist,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+89,Leather Wrist,Infinite,64,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+90,Glass Armlet,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+91,Bone Wrist,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+92,Mythril Armlet,Infinite,81,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+93,Magic Armlet,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+94,Chimera Armlet,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,0,1
+95,Egoist’s Armlet,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,0,1
+96,N-Kai Armlet,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,0,1
+97,Jade Armlet,Infinite,37,0,0,0,Infinite,0,1,0,0,0,0,0,1
+98,Thief Gloves,Infinite,0,0,0,0,Infinite,0,0,0,1,0,0,1,0
+99,Dragon Wrist,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+100,Power Wrist,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+101,Bracer,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,1,0
+102,Bronze Gloves,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+103,Silver Gloves,Infinite,2,0,Infinite,0,Infinite,0,0,0,0,0,1,0,1
+104,Mythril Gloves,Infinite,19,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+105,Thunder Gloves,Infinite,2,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+106,Diamond Gloves,Infinite,0,0,0,0,Infinite,0,1,0,0,0,0,0,0
+107,Venetia Shield,Infinite,72,0,0,0,Infinite,0,0,0,0,0,0,0,1
+108,Defense Gloves,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+109,Genji Gloves,2,0,1,0,1,0,0,0,1,0,0,1,0,0
+110,Aegis Gloves,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+111,Gauntlets,Infinite,64,1,0,0,Infinite,0,0,1,0,0,0,1,0
+112,Leather Hat,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+113,Straw Hat,8,0,8,0,0,0,0,0,8,0,0,0,0,0
+114,Feather Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+115,Steepled Hat,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+116,Headgear,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+117,Magus Hat,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+118,Bandana,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+119,Mage’s Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+120,Lamia’s Tiara,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,0,1
+121,Ritual Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+122,Twist Headband,Infinite,27,0,0,0,Infinite,0,0,0,0,0,0,0,1
+123,Mantra Band,Infinite,63,0,0,0,Infinite,0,0,0,0,0,0,0,0
+124,Dark Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+125,Green Beret,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,0
+126,Black Hood,Infinite,81,0,0,0,Infinite,0,0,0,0,0,0,0,0
+127,Red Hat,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+128,Golden Hairpin,Infinite,54,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+129,Coronet,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+130,Flash Hat,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+131,Adaman Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+132,Thief Hat,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+133,Holy Miter,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,0
+134,Golden Skullcap,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
+135,Circlet,Infinite,19,0,0,0,Infinite,0,0,0,0,0,0,1,0
+136,Rubber Helm,Infinite,1,0,0,0,Infinite,0,0,0,0,0,0,0,1
+137,Bronze Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+138,Iron Helm,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,1,0,0
+139,Barbut,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+140,Mythril Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+141,Gold Helm,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+142,Cross Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,1
+143,Diamond Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+144,Platinum Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+145,Kaiser Helm,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+146,Genji Helmet,2,0,1,0,1,0,0,0,1,0,0,1,0,0
+147,Grand Helm,Infinite,9,0,0,1,Infinite,0,0,0,0,0,0,1,0
+148,Aloha T-shirt,25,18,7,0,0,0,0,0,7,0,0,0,0,0
+149,Leather Shirt,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,1
+150,Silk Shirt,Infinite,9,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+151,Leather Plate,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+152,Bronze Vest,Infinite,2,0,0,0,Infinite,0,0,0,0,0,0,0,0
+153,Chain Plate,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+154,Mythril Vest,Infinite,36,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+155,Adaman Vest,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+156,Magician Cloak,Infinite,10,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+157,Survival Vest,Infinite,54,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+158,Brigandine,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+159,Judo Uniform,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+160,Power Vest,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+161,Gaia Gear,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,0,1
+162,Demon’s Vest,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+163,Minerva’s Plate,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,0,1
+164,Ninja Gear,Infinite,1,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+165,Dark Gear,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+166,Rubber Suit,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
+167,Brave Suit,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,0
+168,Cotton Robe,Infinite,0,0,0,0,Infinite,0,1,0,0,0,0,1,1
+169,Silk Robe,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
+170,Magician Robe,Infinite,0,0,0,0,0,0,1,0,Infinite,0,0,1,1
+171,Glutton’s Robe,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
+172,White Robe,Infinite,0,0,0,1,Infinite,0,1,0,0,0,0,1,1
+173,Black Robe,Infinite,0,1,0,1,Infinite,0,0,1,0,0,0,1,1
+174,Light Robe,Infinite,1,0,0,1,Infinite,0,1,0,0,0,0,1,0
+175,Robe of Lords,Infinite,99,0,0,1,Infinite,0,0,0,0,0,0,1,0
+176,Tin Armor,1,0,0,0,0,0,1,0,0,0,0,0,1,0
+177,Bronze Armor,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+178,Linen Cuirass,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+179,Chain Mail,Infinite,2,0,0,0,Infinite,0,0,0,0,0,1,0,1
+180,Mythril Armor,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+181,Plate Mail,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+182,Gold Armor,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+183,Shield Armor,Infinite,90,0,0,0,Infinite,0,1,0,0,0,0,0,0
+184,Demon’s Mail,Infinite,18,0,Infinite,0,Infinite,0,1,0,0,0,0,0,0
+185,Diamond Armor,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,0,0
+186,Platina Armor,Infinite,9,0,0,0,Infinite,0,0,0,0,0,0,0,0
+187,Carabini Mail,Infinite,18,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+188,Dragon Mail,Infinite,28,0,Infinite,0,Infinite,0,0,0,0,0,0,0,0
+189,Genji Armor,10,9,0,0,1,0,0,1,0,0,0,1,0,0
+190,Maximillian,1,0,1,0,0,0,0,0,1,0,0,0,0,0
+191,Grand Armor,Infinite,0,0,0,1,Infinite,0,0,0,0,0,0,1,0
+192,Desert Boots,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,1
+193,Magician Shoes,Infinite,54,0,0,0,Infinite,0,0,0,0,0,0,1,1
+194,Germinas Boots,Infinite,18,0,0,0,Infinite,0,2,0,0,0,0,1,1
+195,Sandals,8,0,8,0,0,0,0,0,8,0,0,0,0,0
+196,Feather Boots,Infinite,27,0,0,1,0,0,1,0,Infinite,0,0,1,1
+197,Battle Boots,Infinite,126,0,0,1,Infinite,0,0,0,0,0,0,1,1
+198,Running Shoes,Infinite,36,0,0,1,Infinite,0,0,0,0,0,1,1,0
+199,Anklet,Infinite,72,0,0,0,0,0,0,0,Infinite,0,0,1,1
+200,Power Belt,Infinite,168,0,0,0,Infinite,0,0,0,0,0,0,1,1
+201,Black Belt,Infinite,108,0,0,1,Infinite,0,0,0,0,0,0,1,0
+202,Glass Buckle,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,1
+203,Madain’s Ring,Infinite,1,1,0,0,0,0,0,1,Infinite,0,0,1,1
+204,Rosetta Ring,Infinite,72,1,Infinite,1,0,0,0,1,0,0,0,1,1
+205,Reflect Ring,Infinite,0,0,0,1,Infinite,0,0,0,1,0,0,1,0
+206,Coral Ring,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
+207,Promist Ring,Infinite,72,0,0,0,0,0,0,0,Infinite,0,0,1,0
+208,Rebirth Ring,Infinite,18,0,0,1,Infinite,0,1,0,0,0,1,1,1
+209,Protect Ring,Infinite,63,1,Infinite,1,0,0,0,1,0,0,0,1,0
+210,Pumice Piece,2,0,0,0,1,0,0,1,0,0,0,1,1,1
+211,Pumice,1,0,0,0,1,0,0,0,0,0,0,0,1,1
+212,Yellow Scarf,Infinite,2,0,0,0,Infinite,0,0,0,0,0,0,1,0
+213,Gold Choker,Infinite,0,0,0,0,Infinite,0,0,0,0,0,0,1,1
+214,Fairy Earrings,Infinite,36,0,0,0,0,0,0,0,Infinite,0,0,1,1
+215,Angel Earrings,Infinite,36,0,0,0,Infinite,0,0,0,0,0,0,1,0
+216,Pearl Rouge,Infinite,0,0,0,0,0,0,0,0,Infinite,0,0,1,0
+217,Pearl Armlet,8,0,8,0,0,0,0,0,8,0,0,0,0,0
+218,Cachusha,Infinite,27,0,0,0,Infinite,0,0,0,0,0,0,1,1
+219,Barette,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,1
+220,Extension,Infinite,18,0,0,0,Infinite,0,0,0,0,0,0,1,0
+221,Ribbon,28,27,0,0,0,0,0,1,0,1,0,0,0,0
+222,Maiden Prayer,19,18,1,0,0,0,0,0,1,0,0,0,0,0
+223,Ancient Aroma,18,18,0,0,0,0,0,0,0,0,0,0,0,0
+224,Garnet,Infinite,9,0,Infinite,0,0,0,16,0,0,0,0,1,0
+225,Amethyst,Infinite,10,0,Infinite,0,0,0,34,0,0,0,0,1,0
+226,Aquamarine,20,10,10,0,0,0,0,0,10,0,0,0,0,0
+227,Diamond,Infinite,36,0,Infinite,1,0,0,1,0,0,0,1,0,1
+228,Emerald,Infinite,36,0,Infinite,1,0,0,0,0,0,0,1,0,1
+229,Moonstone,Infinite,45,0,Infinite,1,0,0,0,0,0,0,1,0,1
+230,Ruby,27,27,0,0,0,0,0,0,0,0,0,0,0,1
+231,Peridot,Infinite,11,0,Infinite,0,0,0,23,0,0,0,0,1,1
+232,Sapphire,Infinite,2,0,Infinite,0,0,0,26,0,0,0,0,1,0
+233,Opal,Infinite,10,0,Infinite,0,0,0,23,0,0,0,0,1,0
+234,Topaz,Infinite,10,15,Infinite,0,0,0,19,15,0,0,0,1,0
+235,Lapis Lazuli,Infinite,19,41,Infinite,1,0,0,0,41,0,0,0,1,0
+236,Potion,Infinite,230,50,Infinite,1,Infinite,0,78,50,0,0,0,0,1
+237,Hi-Potion,Infinite,216,25,Infinite,1,Infinite,0,18,25,0,0,0,0,0
+238,Ether,Infinite,618,9,Infinite,1,0,0,28,9,0,0,0,1,0
+239,Elixir,Infinite,711,7,Infinite,1,0,0,6,7,Infinite,0,0,0,1
+240,Phoenix Down,Infinite,290,0,Infinite,0,Infinite,0,21,0,0,0,0,0,1
+241,Echo Screen,Infinite,40,0,Infinite,0,Infinite,0,7,0,0,0,0,0,1
+242,Soft,Infinite,54,0,Infinite,0,Infinite,0,6,0,0,0,0,0,1
+243,Antidote,Infinite,18,0,Infinite,0,Infinite,0,10,0,0,0,0,0,1
+244,Eye Drops,Infinite,56,19,Infinite,0,Infinite,0,0,19,0,0,0,0,1
+245,Magic Tag,Infinite,18,0,Infinite,0,Infinite,0,6,0,0,0,0,0,0
+246,Vaccine,Infinite,0,0,Infinite,0,Infinite,0,0,0,0,0,0,0,1
+247,Remedy,Infinite,167,10,Infinite,0,Infinite,0,4,10,0,0,0,0,1
+248,Annoyntment,Infinite,0,0,Infinite,0,Infinite,0,15,0,0,0,0,0,1
+249,Phoenix Pinion,Infinite,325,0,Infinite,0,0,0,24,0,0,0,0,1,1
+250,Dark Matter,2,0,0,0,1,0,0,0,0,1,0,1,0,1
+251,Gysahl Greens,167,167,0,0,0,0,0,0,0,0,0,0,0,1
+252,Dead Pepper,18,18,0,0,0,0,0,0,0,0,0,0,0,1
+253,Tent,Infinite,274,0,Infinite,0,Infinite,0,3,0,0,0,0,0,0
+254,Ore,Infinite,102,9,Infinite,0,0,0,58,9,0,0,0,0,1
+255,open 255,Infinite,0,0,Infinite,0,0,0,0,0,0,0,0,0,0
 -1,counts towards obtainability,,1,1,1,1,1,1,0,0,0,0,0,0,0

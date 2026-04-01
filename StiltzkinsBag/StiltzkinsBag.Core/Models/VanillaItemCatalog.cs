@@ -93,6 +93,43 @@ public sealed class VanillaItemCatalog
     public int FiniteCount(int itemId) =>
         ObtainabilityCounts.TryGetValue(itemId, out int c) && c != int.MaxValue ? c : 0;
 
+    // ── Name parsing ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Extracts item names from Items.csv inline comments aligned with parsed rows.
+    ///
+    /// Items.csv stores inline comments in the format: <c># NNN - Name</c>
+    /// e.g. <c># 000 - Hammer</c>, <c># 001 - Dagger</c>.
+    ///
+    /// <see cref="MemoriaCsvParser.Read{T,TMap}"/> strips these into
+    /// <see cref="ParsedCsv{T}.InlineComments"/> (index-aligned with Rows).
+    /// This helper parses each comment and returns a map of item ID → display name.
+    /// </summary>
+    private static Dictionary<int, string> ParseItemNames(
+        IReadOnlyList<ItemsRow> rows,
+        List<string?> inlineComments)
+    {
+        var names = new Dictionary<int, string>(rows.Count);
+
+        for (int i = 0; i < rows.Count && i < inlineComments.Count; i++)
+        {
+            string? comment = inlineComments[i];
+            if (string.IsNullOrWhiteSpace(comment)) continue;
+
+            // Strip leading # and whitespace, then split on first " - "
+            // Format: "# 000 - Hammer" or ";# 000 - Hammer"
+            string trimmed = comment.TrimStart(';', '#', ' ', '\t');
+            int dashIdx = trimmed.IndexOf(" - ", StringComparison.Ordinal);
+            if (dashIdx < 0) continue;
+
+            string name = trimmed[(dashIdx + 3)..].Trim();
+            if (name.Length > 0)
+                names[rows[i].Id] = name;
+        }
+
+        return names;
+    }
+
     // ── Factory ───────────────────────────────────────────────────────────────
 
     /// <summary>
@@ -109,15 +146,15 @@ public sealed class VanillaItemCatalog
     /// Per-item world map variable-reference AddItem counts from <see cref="WorldMapVariableScanner"/>.
     /// Covers Dead Pepper ocean/crack rewards (Convention A/B) and Chocograph World_Chest
     /// deliveries (Convention C). When null, falls back to
-    /// /// <param name="battleScanResult">
+    /// <see cref="VanillaObtainabilityData.WorldMapVariableItemCounts"/>.
+    /// These items use variable-reference AddItem calls that FieldItemScanner cannot resolve.
+    /// </param>
+    /// <param name="battleScanResult">
     /// Drop, steal, and card item sets from <see cref="BattleItemScanner"/>.
     /// When provided, replaces the hardcoded <see cref="VanillaObtainabilityData.NormalEnemyItemIds"/>
     /// for HasNormalEnemySource computation. Items in AllEnemyItemIds that are not in
     /// BossOnlyItemIds are treated as having an infinite repeatable enemy source.
     /// Pass null to fall back to the hardcoded set (backward compatible).
-    /// </param>
-    /// <see cref="VanillaObtainabilityData.WorldMapVariableItemCounts"/>.
-    /// These items use variable-reference AddItem calls that FieldItemScanner cannot resolve.
     /// </param>
     /// <exception cref="ArgumentNullException">Any required path is null.</exception>
     /// <exception cref="System.IO.FileNotFoundException">A CSV file was not found.</exception>
@@ -156,12 +193,22 @@ public sealed class VanillaItemCatalog
         // ── 1. Load CSVs ───────────────────────────────────────────────────────
 
         var itemsParsed = MemoriaCsvParser.Read<ItemsRow, ItemsRowMap>(itemsCsvPath);
-        var shopParsed  = MemoriaCsvParser.Read<ShopItemsRow, ShopItemsRowMap>(shopItemsCsvPath);
+        var shopParsed = MemoriaCsvParser.Read<ShopItemsRow, ShopItemsRowMap>(shopItemsCsvPath);
         var synthParsed = MemoriaCsvParser.Read<SynthesisRow, SynthesisRowMap>(synthesisCsvPath);
 
-        IReadOnlyList<ItemsRow>     items    = itemsParsed.Rows;
-        IReadOnlyList<ShopItemsRow> shops    = shopParsed.Rows;
+        IReadOnlyList<ItemsRow> items = itemsParsed.Rows;
+        IReadOnlyList<ShopItemsRow> shops = shopParsed.Rows;
         IReadOnlyList<SynthesisRow> syntheses = synthParsed.Rows;
+
+        // ── 1b. Parse item names from Items.csv inline comments ───────────────
+        //
+        // Items.csv stores a trailing inline comment on each data row:
+        //   e.g.  0;...;# 000 - Hammer
+        //         1;...;# 001 - Dagger
+        // MemoriaCsvParser strips these into ParsedCsv.InlineComments (index-aligned
+        // with Rows). ParseItemNames extracts the display name for each item ID.
+
+        var itemNames = ParseItemNames(itemsParsed.Rows, itemsParsed.InlineComments);
 
         // ── 2. Build lookup sets ───────────────────────────────────────────────
 
@@ -172,7 +219,7 @@ public sealed class VanillaItemCatalog
                 shopItemSet.Add(id);
 
         // Synthesis results and ingredients
-        var synthesisResults    = new HashSet<int>();
+        var synthesisResults = new HashSet<int>();
         var synthesisIngredients = new HashSet<int>();
         // Map: result item ID → list of ingredient ID sets (one per recipe producing it)
         var recipeIngredients = new Dictionary<int, List<int[]>>();
@@ -202,9 +249,9 @@ public sealed class VanillaItemCatalog
             // set, Ribbon) — NOT key items.
             const bool isKey = false;
 
-            bool isGem   = item.Gem;
+            bool isGem = item.Gem;
             bool isEquip = item.Weapon || item.Armlet || item.Helmet ||
-                           item.Armor  || item.Accessory;
+                           item.Armor || item.Accessory;
 
             // "Consumable" = item-slot item consumed on use. Usable = battle-usable flag.
             // Tents/Cottages have Usable=0 but carry the Item flag — include both.
@@ -212,7 +259,8 @@ public sealed class VanillaItemCatalog
             bool isConsumable = item.Usable ||
                                 (item.Item && !isGem && !isEquip);
 
-            bool inShop  = shopItemSet.Contains(item.Id);
+            bool inShop = shopItemSet.Contains(item.Id);
+
             // HasNormalEnemySource: uses scanner output minus BossOnlyItemIds when available;
             // falls back to hardcoded NormalEnemyItemIds set when no scanner result provided.
             bool normalE = battleScanResult != null
@@ -224,9 +272,9 @@ public sealed class VanillaItemCatalog
             // Each contributes 1 (one encounter, one item opportunity).
             // Ragtime rewards an item only on first encounter; later encounters give XP/AP only.
             int bossCount = 0;
-            if (VanillaObtainabilityData.BossOnlyItemIds.Contains(item.Id))       bossCount++;
+            if (VanillaObtainabilityData.BossOnlyItemIds.Contains(item.Id)) bossCount++;
             if (VanillaObtainabilityData.FriendlyMonsterItemIds.Contains(item.Id)) bossCount++;
-            if (VanillaObtainabilityData.RagtimeMouseItemIds.Contains(item.Id))    bossCount++;
+            if (VanillaObtainabilityData.RagtimeMouseItemIds.Contains(item.Id)) bossCount++;
 
             // WorldMapInstanceCount from WorldMapVariableScanner (or hardcoded fallback).
             // Covers dead pepper rewards (Conv A/B) and chocograph World_Chest (Conv C).
@@ -242,28 +290,29 @@ public sealed class VanillaItemCatalog
                 auctionCount = 1;
 
             bool missable = VanillaObtainabilityData.MissableItemIds.Contains(item.Id);
-            bool synthR   = synthesisResults.Contains(item.Id);
-            bool synthI   = synthesisIngredients.Contains(item.Id);
+            bool synthR = synthesisResults.Contains(item.Id);
+            bool synthI = synthesisIngredients.Contains(item.Id);
 
             effectiveFieldCounts.TryGetValue(item.Id, out int fieldCount);
             bool fieldItem = fieldCount > 0;
 
             entries[item.Id] = new ItemObtainabilityEntry
             {
-                ItemId               = item.Id,
-                IsKeyItem            = isKey,
-                IsConsumable         = isConsumable,
-                IsGem                = isGem,
-                IsEquipment          = isEquip,
-                IsInShop             = inShop,
+                ItemId = item.Id,
+                Name = itemNames.TryGetValue(item.Id, out var name) ? name : string.Empty,
+                IsKeyItem = isKey,
+                IsConsumable = isConsumable,
+                IsGem = isGem,
+                IsEquipment = isEquip,
+                IsInShop = inShop,
                 HasNormalEnemySource = normalE,
-                BossInstanceCount    = bossCount,
+                BossInstanceCount = bossCount,
                 WorldMapInstanceCount = worldMapCount,
-                AuctionCount         = auctionCount,
-                IsMissable           = missable,
-                IsFieldItem          = fieldItem,
-                FieldInstanceCount   = fieldCount,
-                IsSynthesisResult    = synthR,
+                AuctionCount = auctionCount,
+                IsMissable = missable,
+                IsFieldItem = fieldItem,
+                FieldInstanceCount = fieldCount,
+                IsSynthesisResult = synthR,
                 IsSynthesisIngredient = synthI,
                 // SynthesisInstanceCount set in step 5b below
             };

@@ -1,5 +1,5 @@
 ﻿Field Item Diagnostic — world map .bytes (13 files)
-Generated: 2026-03-31 22:19:08
+Generated: 2026-04-01 15:35:10
 Total item locations found: 14
 
 === PER-FILE DETAIL ===

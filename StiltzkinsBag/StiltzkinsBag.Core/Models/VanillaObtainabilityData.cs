@@ -147,49 +147,48 @@ public static class VanillaObtainabilityData
     /// </summary>
     public static readonly IReadOnlyDictionary<int, int> ChocographItemCounts = new Dictionary<int, int>
     {
-        // ── Standard 24 chocograph rewards ──────────────────────────────────────
-        {  29, 1 },   // Ragnarok           (Chocograph #21, Outer Island)        [was missing]
-        {  45, 1 },   // Dragon's Claws     (Chocograph #7,  Forgotten Lagoon)    [was missing]
-        {  48, 1 },   // Kaiser Knuckles    (Chocograph #15)
-        {  74, 1 },   // Oak Staff          (Chocograph #11)
-        {  77, 1 },   // High Mage Staff    (Chocograph #13)
-        {  86, 8 },   // Rising Sun         (Chocograph #11)
-        {  87, 13 },  // Wing Edge          (Chocos #3, #13)
-        {  97, 1 },   // Jade Armlet        (Chocograph #3)
-        { 106, 1 },   // Diamond Gloves     (Chocograph #5)
-        { 168, 1 },   // Cotton Robe        (Chocograph #2)
-        { 170, 1 },   // Magician Robe      (Chocograph #10)
-        { 172, 1 },   // White Robe         (Chocograph #17)
-        { 174, 1 },   // Light Robe         (Chocograph #18)
-        { 183, 1 },   // Shield Armor       (Chocograph #8)
-        { 184, 1 },   // Demon's Mail       (Chocograph #16)
-        { 189, 1 },   // Genji Armor        (Chocograph #21)
-        { 194, 2 },   // Germinas Boots     (Chocograph #1)
-        { 196, 1 },   // Feather Boots      (Chocograph #9)
-        { 208, 1 },   // Rebirth Ring       (Chocograph #24)
-        { 210, 1 },   // Pumice Piece       (Chocograph #22)
-        { 221, 1 },   // Ribbon             (Chocograph #24)
-        { 224, 16 },  // Garnet             (Chocos #21, #5 area)
-        { 225, 34 },  // Amethyst           (Chocos #21, #24)
-        { 227, 1 },   // Diamond            (Chocograph #17)
-        { 231, 23 },  // Peridot            (Chocos #5, #19)
-        { 232, 26 },  // Sapphire           (Chocos #19, #22)
-        { 233, 23 },  // Opal               (Chocos #16, #19)
-        { 234, 19 },  // Topaz              (Chocograph #19)
-        { 236, 78 },  // Potion             (Chocos #2 as "Potions", #8, #23)
-        { 237, 18 },  // Hi-Potion          (Chocos #1, #2 as "Hi-Potions", #6)
-        { 238, 28 },  // Ether              (Chocos #1, #7, #9, #13)
-        { 239, 6 },   // Elixir             (Chocos #1, #11)
-        { 240, 21 },  // Phoenix Down       (Chocos #5, #15, as "Phoenix Down")
-        { 241, 7 },   // Echo Screen        (Chocograph #6)
-        { 242, 6 },   // Soft               (Chocograph #9)
-        { 243, 10 },  // Antidote           (Chocograph #3 as "Antidotes")
-        { 245, 6 },   // Magic Tag          (Chocograph #8)
-        { 247, 4 },   // Remedy             (Chocograph #11)
-        { 248, 15 },  // Annoyntment        (Chocograph #23)
-        { 249, 24 },  // Phoenix Pinion     (Chocos #5, #15)
-        { 253, 3 },   // Tent               (Chocos #2 as "Tents", #6)
-        { 254, 58 },  // Ore                (Chocos #15, #16, #18)
+        {  29, 1 },   // Ragnarok
+        {  45, 1 },   // Dragon's Claws
+        {  48, 1 },   // Kaiser Knuckles
+        {  74, 1 },   // Oak Staff
+        {  77, 1 },   // High Mage Staff
+        {  86, 8 },   // Rising Sun
+        {  87, 13 },  // Wing Edge
+        {  97, 1 },   // Jade Armlet
+        { 106, 1 },   // Diamond Gloves
+        { 168, 1 },   // Cotton Robe
+        { 170, 1 },   // Magician Robe
+        { 172, 1 },   // White Robe
+        { 174, 1 },   // Light Robe
+        { 183, 1 },   // Shield Armor
+        { 184, 1 },   // Demon's Mail
+        { 189, 1 },   // Genji Armor
+        { 194, 2 },   // Germinas Boots
+        { 196, 1 },   // Feather Boots
+        { 208, 1 },   // Rebirth Ring
+        { 210, 1 },   // Pumice Piece
+        { 221, 1 },   // Ribbon
+        { 224, 16 },  // Garnet
+        { 225, 34 },  // Amethyst
+        { 227, 1 },   // Diamond
+        { 231, 23 },  // Peridot
+        { 232, 26 },  // Sapphire
+        { 233, 23 },  // Opal
+        { 234, 19 },  // Topaz
+        { 236, 78 },  // Potion
+        { 237, 18 },  // Hi-Potion
+        { 238, 28 },  // Ether
+        { 239, 6 },   // Elixir
+        { 240, 21 },  // Phoenix Down
+        { 241, 7 },   // Echo Screen
+        { 242, 6 },   // Soft
+        { 243, 10 },  // Antidote
+        { 245, 6 },   // Magic Tag
+        { 247, 4 },   // Remedy
+        { 248, 15 },  // Annoyntment
+        { 249, 24 },  // Phoenix Pinion
+        { 253, 3 },   // Tent
+        { 254, 58 },  // Ore
     };
 
     // ── Dead Pepper dig rewards ────────────────────────────────────────────────
@@ -203,63 +202,35 @@ public static class VanillaObtainabilityData
     /// WorldMapVariableScanner is the authoritative binary source; this dictionary
     /// exists for cross-validation with scanner output and as the DeadPepperCount
     /// verification column in the catalog CSV dump.
-    ///
-    /// All 8 events confirmed by WorldMapVariableScanner scanning the 13 world map
-    /// .eb.bytes files (evt_world_world00 – evt_world_world12):
-    ///
-    ///   Convention-A blocks (vars 37–40/42–45) in world00/03/05/07/08/09:
-    ///     [Ocean] Between Mist Continent and Outer Continent:
-    ///       Straw Hat×8, Pearl Armlet×8, Aloha T-shirt×7, Sandals×8
-    ///     [Ocean] Directly North of Iifa Tree:
-    ///       Potion×50, Hi-Potion×25, Ether×9, Elixir×7
-    ///     [Ocean] South Tip of Forgotten Continent:
-    ///       Remedy×10, Black Robe×1, Genji Gloves×1, Blue Narciss Card (excluded)
-    ///     [Crack] Northeastern Forgotten Continent:
-    ///       Eye Drops×19, Madain's Ring×1, Genji Helmet×1, Hilda Garde I Card (excluded)
-    ///     [Crack] Near Oeilvert:
-    ///       Maiden Prayer×1, Dragon's Hair×1, Gauntlets×1, Odin Card (excluded)
-    ///     [Crack] Eastern Lost Continent:
-    ///       Lapis Lazuli×41, Rosetta Ring×1, Protect Ring×1, Airship Card (excluded)
-    ///     [Other] Unmarked ocean (Shimmering Island area):
-    ///       Aquamarine×10, Ultima Weapon×1, Maximillian×1, Invincible Card (excluded)
-    ///
-    ///   Convention-B block (vars 2–5/7–10) in world12 only:
-    ///     [Ocean] Beneath Quan's Dwelling:
-    ///       Ore×9, Topaz×15, Tiger Racket×1, Red Rose Card (excluded)
-    ///
-    /// Card IDs (>255) are excluded from all counts.
-    /// Items that are also infinite from other sources (shops, auctions) are still
-    /// listed here for flag completeness; their catalog availability is int.MaxValue.
     /// </summary>
     public static readonly IReadOnlyDictionary<int, int> DeadPepperItemCounts = new Dictionary<int, int>
     {
-        //  ID    Count   Item name              Event / dig site
-        {  15,  1 },   // Ultima Weapon         Unmarked ocean (Shimmering Island area)
-        {  40,  1 },   // Dragon's Hair         Near Oeilvert crack
-        {  56,  1 },   // Tiger Racket          Beneath Quan's Dwelling ocean
-        { 109,  1 },   // Genji Gloves          South Tip of Forgotten Continent ocean
-        { 111,  1 },   // Gauntlets             Near Oeilvert crack
-        { 113,  8 },   // Straw Hat             Between Mist Continent/Outer Continent ocean
-        { 146,  1 },   // Genji Helmet          Northeastern Forgotten Continent crack
-        { 148,  7 },   // Aloha T-shirt         Between Mist Continent/Outer Continent ocean
-        { 173,  1 },   // Black Robe            South Tip of Forgotten Continent ocean
-        { 190,  1 },   // Maximillian           Unmarked ocean (Shimmering Island area)
-        { 195,  8 },   // Sandals               Between Mist Continent/Outer Continent ocean
-        { 203,  1 },   // Madain's Ring         Northeastern Forgotten Continent crack
-        { 204,  1 },   // Rosetta Ring          Eastern Lost Continent crack
-        { 209,  1 },   // Protect Ring          Eastern Lost Continent crack
-        { 217,  8 },   // Pearl Armlet          Between Mist Continent/Outer Continent ocean
-        { 222,  1 },   // Maiden Prayer         Near Oeilvert crack
-        { 226, 10 },   // Aquamarine            Unmarked ocean (Shimmering Island area)
-        { 234, 15 },   // Topaz                 Beneath Quan's Dwelling ocean
-        { 235, 41 },   // Lapis Lazuli          Eastern Lost Continent crack
-        { 236, 50 },   // Potion                Directly North of Iifa Tree ocean
-        { 237, 25 },   // Hi-Potion             Directly North of Iifa Tree ocean
-        { 238,  9 },   // Ether                 Directly North of Iifa Tree ocean
-        { 239,  7 },   // Elixir                Directly North of Iifa Tree ocean
-        { 244, 19 },   // Eye Drops             Northeastern Forgotten Continent crack
-        { 247, 10 },   // Remedy                South Tip of Forgotten Continent ocean
-        { 254,  9 },   // Ore                   Beneath Quan's Dwelling ocean
+        {  15,  1 },   // Ultima Weapon
+        {  40,  1 },   // Dragon's Hair
+        {  56,  1 },   // Tiger Racket
+        { 109,  1 },   // Genji Gloves
+        { 111,  1 },   // Gauntlets
+        { 113,  8 },   // Straw Hat
+        { 146,  1 },   // Genji Helmet
+        { 148,  7 },   // Aloha T-shirt
+        { 173,  1 },   // Black Robe
+        { 190,  1 },   // Maximillian
+        { 195,  8 },   // Sandals
+        { 203,  1 },   // Madain's Ring
+        { 204,  1 },   // Rosetta Ring
+        { 209,  1 },   // Protect Ring
+        { 217,  8 },   // Pearl Armlet
+        { 222,  1 },   // Maiden Prayer
+        { 226, 10 },   // Aquamarine
+        { 234, 15 },   // Topaz
+        { 235, 41 },   // Lapis Lazuli
+        { 236, 50 },   // Potion
+        { 237, 25 },   // Hi-Potion
+        { 238,  9 },   // Ether
+        { 239,  7 },   // Elixir
+        { 244, 19 },   // Eye Drops
+        { 247, 10 },   // Remedy
+        { 254,  9 },   // Ore
     };
 
     // ── World map variable-delivery items (canonical fallback) ────────────────
@@ -267,22 +238,12 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// Hardcoded fallback for WorldMapVariableScanner when the real .eb.bytes files
     /// are not available (unit tests, offline mode).
-    ///
-    /// Covers ALL items delivered via variable-reference AddItem in world map scripts
-    /// (FieldItemScanner cannot resolve these):
-    ///   • Convention A / B — the 26 Dead Pepper dig-site rewards (see DeadPepperItemCounts)
-    ///   • Convention C     — chocograph World_Chest function rewards confirmed by binary
-    ///                        analysis: Ragnarok (29) and Dragon's Claws (45)
-    ///
-    /// When WorldMapVariableScanner is run against the actual game files, its output
-    /// supersedes this dictionary via the worldMapCounts parameter of Build().
     /// </summary>
     public static readonly IReadOnlyDictionary<int, int> WorldMapVariableItemCounts =
         new Dictionary<int, int>(DeadPepperItemCounts)
         {
-            // ── Convention C: chocograph World_Chest variable-delivery items ─────
-            {  29, 1 },  // Ragnarok      — Chocograph #21, Outer Island  (World_Chest case +20)
-            {  45, 1 },  // Dragon's Claws — Chocograph #7,  Forgotten Lagoon (World_Chest case +6)
+            {  29, 1 },  // Ragnarok       — Convention C World_Chest
+            {  45, 1 },  // Dragon's Claws — Convention C World_Chest
         };
 
     // ── Treno Auction House ────────────────────────────────────────────────────
@@ -290,14 +251,6 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// Items available at the Treno Auction House that can be won multiple times.
     /// These are effectively infinite obtainability sources.
-    ///
-    /// Includes: Magician Robe (170), Fairy Earrings (214), Madain's Ring (203),
-    ///           Pearl Rouge (216), Elixir (239), Feather Boots (196), Anklet (199),
-    ///           Promist Ring (207).
-    ///
-    /// Note: Feather Boots also appear as a boss drop and chocograph reward.
-    ///       Elixir also appears as a friendly monster reward.
-    ///       The infinite auction source dominates — these will be int.MaxValue overall.
     /// </summary>
     public static readonly IReadOnlySet<int> AuctionRepeatableItemIds = new HashSet<int>
     {
@@ -314,12 +267,6 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// Items available at the Treno Auction House exactly once.
     /// Finite — each appears at most once per playthrough.
-    ///
-    /// Includes: Reflect Ring (205), Dark Matter (250), Thief Gloves (98), Ribbon (221).
-    /// Note: Reflect Ring also appears as a boss drop.
-    ///       Ribbon also appears in Chocograph #24 and Stiltzkin's final reward (Phase 5.9).
-    ///       Dark Matter also appears as a boss drop.
-    ///       The catalog sums all finite instances.
     /// </summary>
     public static readonly IReadOnlySet<int> AuctionOneTimeItemIds = new HashSet<int>
     {
@@ -334,10 +281,6 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// Item IDs rewarded by the 9-encounter Friendly Monster chain (Mu → Yan).
     /// Each reward is a one-time gift from completing one link in the chain.
-    ///
-    /// Note: Several rewards (Potion, Hi-Potion, Ether, Elixir) are also available
-    /// from repeatable sources, so those specific item IDs will be int.MaxValue overall.
-    /// The gems (Emerald/Moonstone/Lapis Lazuli/Diamond) are one-time here.
     /// </summary>
     public static readonly IReadOnlySet<int> FriendlyMonsterItemIds = new HashSet<int>
     {
@@ -357,16 +300,10 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// The single reward for completing all 16 Ragtime Mouse quiz questions.
     /// One-time per playthrough — finite source (1 copy).
-    ///
-    /// Ragtime Mouse is classified as Normal-type in the enemy guide, but the
-    /// quiz reward is a scripted one-time give, NOT a repeatable enemy drop.
-    /// Protect Ring (209) is intentionally EXCLUDED from NormalEnemyItemIds to
-    /// prevent it from being incorrectly treated as an infinite source.
-    /// VanillaItemCatalog adds exactly 1 to the finite total for this reward.
     /// </summary>
     public static readonly IReadOnlySet<int> RagtimeMouseItemIds = new HashSet<int>
     {
-        209,  // Protect Ring  (Ragtime Mouse quiz completion reward — one-time)
+        209,  // Protect Ring
     };
 
     // ── Sentinel-excluded field items ──────────────────────────────────────────
@@ -374,46 +311,17 @@ public static class VanillaObtainabilityData
     /// <summary>
     /// Items that FieldItemScanner cannot count accurately because their item ID
     /// is used as a null/default sentinel in many field scripts.
-    /// Each entry maps item ID → verified real count from game knowledge.
-    ///
-    /// <para>
-    /// Item 0 (Hammer): given once in the Tantalus hideout on Disc 3.
-    /// <c>AddItem(0, X)</c> appears as a placeholder in many field scripts and
-    /// produces a false count of 85. FieldItemScanner filters item ID 0 entirely.
-    /// VanillaItemCatalog merges this map into effective field counts so the
-    /// Hammer still appears correctly as a finite-1 field item in the catalog.
-    /// </para>
     /// </summary>
     public static readonly IReadOnlyDictionary<int, int> SentinelExcludedFieldItems = new Dictionary<int, int>
     {
         { 0, 1 },  // Hammer — Field 1911 (Treno / Queen Stella's house), Stellazzio quest reward.
-                   // Item ID 0 is also used as a null/placeholder sentinel in many other field
-                   // scripts, causing 84 false-positive AddItem(0,X) detections. FieldItemScanner
-                   // filters item 0 entirely; this entry provides the one verified real give.
     };
 
     // ── Kupo Nut rewards ───────────────────────────────────────────────────────
 
     /// <summary>
     /// Item IDs rewarded by the Mognet/Kupo Nut quest chain.
-    /// One reward is given per disc (4 discs, 4 rewards), each one-time finite.
-    ///
-    /// Disc 1: Holy Bell — key item, no standard ID in Items.csv (0–255); not cataloged.
-    /// Disc 2: Elixir (239) — also infinite via AuctionRepeatable; flag retained for metadata.
-    /// Disc 3: Extension (220) — finite; expected in evt_ field scripts (deliver sequence).
-    /// Disc 4: Aloha T-Shirt (148) — also obtainable via Dead Pepper bundle (7×).
-    ///
-    /// VALIDATION-REFERENCE ONLY (Phase 5.9.2, 2026-03-28).
-    /// VanillaItemCatalog does NOT count these additively — game files are the source
-    /// of truth. If these items are delivered via AddItem in evt_ field scripts, the
-    /// FieldItemScanner will find them. This set is retained for:
-    ///   • Future cross-validation: scanner output should include these IDs
-    ///   • Metadata reference for Phase 6 constraint logic
-    ///
-    /// Re-enable additive counting if: Kupo Nut rewards are confirmed NOT to appear
-    /// in any evt_ field script and have no other scanner-reachable source.
-    ///
-    /// Source: FFIX GUIDE DATA/KupoNutRewards.csv
+    /// VALIDATION-REFERENCE ONLY — see full comment in prior version.
     /// </summary>
     public static readonly IReadOnlySet<int> KupoNutItemIds = new HashSet<int>
     {
@@ -423,97 +331,471 @@ public static class VanillaObtainabilityData
     };
 
     // ── Missable items ─────────────────────────────────────────────────────────
-    //
-    // Items where at least one obtainable copy requires specific story timing,
-    // a one-time steal/drop, or a permanently-closing shop.
-    //
-    // Source: FFIX GUIDE DATA/Missable Items.txt (guide-derived — game binary
-    // cannot determine missability from opcodes alone).
-    //
-    // Scope: explicitly-named items only. Location-based missables ("all chests
-    // in Crash Site/Evil Forest/Ice Cavern/Cleyra/Fossil Roo/Gargan Roo") are
-    // tracked at the field-location level in Phase 6 — not listed here.
-    // Key items (Autograph, Moogle Suit, Master Hunter, Athlete Queen,
-    // Mini-Brahne, Mayor's Key) are inherently missable but excluded from all
-    // randomization pools regardless, so they are not listed here either.
-    //
-    // NOTE: IsMissable is metadata only — does not affect ObtainabilityCounts,
-    // IsFiniteOnly, or pool candidacy. RecommendedLogicEngine (Phase 6) uses
-    // this flag for placement constraint enforcement and cap warnings.
+
     /// <summary>
     /// Item IDs that have at least one missable acquisition opportunity.
     /// Tagged from <c>FFIX GUIDE DATA/Missable Items.txt</c>.
     /// </summary>
     public static readonly IReadOnlySet<int> MissableItemIds = new HashSet<int>
     {
-        // ── Permanently-closing shop windows ──────────────────────────────────
-        18,   // Mythril Sword    — last chance: Esto Gaza shop (before Desert Palace)
-        51,   // Air Racket       — last chance: Treno Weapon Shop disc 2 (before Gargant)
-        103,  // Silver Gloves    — last chance: Summit Station shop
-        138,  // Iron Helm        — last chance: Summit Station shop
-        179,  // Chain Mail       — last chance: Lindblum Weapon Shop disc 2 (before Dragon's Gate)
-
-        // ── Story-point pickups ────────────────────────────────────────────────
-        31,   // Javelin          — buy from Lindblum Weapon Shop before entering Cleyra
-        229,  // Moonstone        — Sword Fight: impress 100 nobles, then speak to Queen Brahne
-        228,  // Emerald          — #1: Cleyra cathedral (speak to High Priest before settlement);
-              //                    #2: Stiltzkin package #6 (888 Gil, Oeilvert)
-        227,  // Diamond          — #1: Conde Petie kirkboat;
-              //                    #3: Stiltzkin package #7 (2,222 Gil, Bran Bal)
-        208,  // Rebirth Ring     — win Treno Card Tournament (disc 2)
-
-        // ── One-time steals / drops ────────────────────────────────────────────
-        19,   // Blood Sword      — steal from Tiamat (Memoria)
-        109,  // Genji Gloves     — steal from Lich (Memoria)
-        146,  // Genji Helmet     — steal from Kraken (Memoria)
-        189,  // Genji Armor      — steal from Maliris (Memoria)
-        198,  // Running Shoes    — steal from Tantarian (Alexandria Library);
-              //                    steal from Hades (Memoria side quest)
-        30,   // Excalibur II     — reach "Gate to Space" / defeat Lich in < 12 h game clock
-        49,   // Duel Claws       — steal from Deathguise (Memoria)
-        210,  // Pumice Piece     — steal from Necron (final boss)
-        250,  // Dark Matter      — steal / drop from Necron (final boss)
+        18,   // Mythril Sword
+        51,   // Air Racket
+        103,  // Silver Gloves
+        138,  // Iron Helm
+        179,  // Chain Mail
+        31,   // Javelin
+        229,  // Moonstone
+        228,  // Emerald
+        227,  // Diamond
+        208,  // Rebirth Ring
+        19,   // Blood Sword
+        109,  // Genji Gloves
+        146,  // Genji Helmet
+        189,  // Genji Armor
+        198,  // Running Shoes
+        30,   // Excalibur II
+        49,   // Duel Claws
+        210,  // Pumice Piece
+        250,  // Dark Matter
     };
-
-    // ── Stiltzkin encounters ───────────────────────────────────────────────────
-    // Phase 5.9 — intentionally deferred.
-    // StiltzkinRandomizer will register Stiltzkin's 8 locations and their items here,
-    // or pass them directly to VanillaItemCatalog via its own scanner.
 
     // ── Stiltzkin visit locations ──────────────────────────────────────────────
 
     /// <summary>
     /// Confirmed evt_ field script names for each of Stiltzkin's 8 visits.
-    /// Key = package price in Gil. Value = array of script names to patch
-    /// (most visits have 1 script; Cleyra 444G is a paired field — both scripts
-    /// must be patched identically, same architecture as disc-variant field pairs).
-    ///
-    /// Script names confirmed by StiltzkinFieldDiagnosticTests (2026-03-31)
-    /// via SetTextVariable(0, price) scan of p0data7.bin.
-    ///
-    /// Package contents from Final_Fantasy_IX_Reference_Guide_-_Slitzkin_Locations.csv:
-    ///   333G  Burmecia              — Soft, Hi-Potion, Ether
-    ///   444G  Cleyra                — Ether, Hi-Potion, Phoenix Pinion   (missable)
-    ///   555G  Fossil Roo            — Phoenix Pinion, Remedy, Ether
-    ///   666G  Conde Petie Mtn Path  — Magic Tag, Tent, Ether
-    ///   777G  Alexandria (1st)      — Phoenix Pinion, Hi-Potion, Elixir
-    ///   888G  Oeilvert              — Hi-Potion, Emerald, Elixir
-    ///  2222G  Bran Bal              — Diamond, Ether, Elixir
-    ///  5555G  Alexandria (final)    — Moonstone, Ruby, Elixir
-    ///          → Bonus Ribbon if all 8 packages purchased
-    ///
-    /// Used by StiltzkinRandomizer (Phase 5.99) to locate and patch package items.
+    /// Key = package price in Gil. Value = array of script names to patch.
+    /// Cleyra 444G is a paired field — both scripts must be patched identically.
+    /// Script names confirmed by StiltzkinFieldDiagnosticTests (2026-03-31).
     /// </summary>
     public static readonly IReadOnlyDictionary<int, string[]> StiltzkinVisitLocations =
         new Dictionary<int, string[]>
         {
-        {  333, ["EVT_BURMECIA_SQUARE_1.eb"] },                               // Burmecia
-        {  444, ["EVT_CLEYRA3_ANTRION.eb", "EVT_CLEYRA3_INN.eb"] },          // Cleyra (paired)
-        {  555, ["EVT_FOSSIL_FR_DN1_0.eb"] },                                 // Fossil Roo
-        {  666, ["EVT_PATA_M_CM_MP3_0.eb"] },                                 // Conde Petie Mtn Path
-        {  777, ["EVT_ALEX3_AT_SENTOU.eb"] },                                 // Alexandria (1st)
-        {  888, ["EVT_OEIL_UV_DEP_0.eb"] },                                   // Oeilvert
-        { 2222, ["EVT_BAL_BB_WPS_0.eb"] },                                    // Bran Bal
-        { 5555, ["EVT_ALEX5_AT_SENTOU.eb"] },                                 // Alexandria (2nd/final)
+        {  333, ["EVT_BURMECIA_SQUARE_1.eb"] },
+        {  444, ["EVT_CLEYRA3_ANTRION.eb", "EVT_CLEYRA3_INN.eb"] },
+        {  555, ["EVT_FOSSIL_FR_DN1_0.eb"] },
+        {  666, ["EVT_PATA_M_CM_MP3_0.eb"] },
+        {  777, ["EVT_ALEX3_AT_SENTOU.eb"] },
+        {  888, ["EVT_OEIL_UV_DEP_0.eb"] },
+        { 2222, ["EVT_BAL_BB_WPS_0.eb"] },
+        { 5555, ["EVT_ALEX5_AT_SENTOU.eb"] },
         };
+
+    // ── Stiltzkin Recommended item pools ──────────────────────────────────────
+    //
+    // Three modes: Stiltzkin's Junk, Fun, Challenging.
+    // All pools draw across the full item universe (weapons, armor, accessories,
+    // consumables) — NOT limited to consumables or gems.
+    //
+    // Excluded from all pools regardless of price:
+    //   • Save the Queen (26)   — Beatrix's personal weapon, not a player item
+    //   • Pumice (211)          — Ozma drop only, story significance
+    //   • Ancient Aroma (223)   — synthesis key ingredient, story-gated
+    //   • Hammer (0)            — sentinel item
+    //   • Slot 255              — empty/unused
+    //
+    // All IDs verified against Items.csv (IDs 0–255, Phase 5.99, 2026-04-01).
+
+    // ── Stiltzkin's Junk pool ────────────────────────────────────────────────
+
+    /// <summary>
+    /// "Stiltzkin's Junk" — the lowest-tier items in the game.
+    /// Starting weapons, first armor sets, and cheap consumables.
+    /// Comedy comes from paying 2222G for three Daggers and a Potion.
+    /// All 3 package slots draw from this pool independently.
+    /// </summary>
+    public static readonly IReadOnlyList<int> StiltzkinJunkPool = new[]
+    {
+        // ── Lowest-tier weapons ──────────────────────────────────────────────
+          1,  // Dagger           (320G)
+          2,  // Mage Masher      (500G)
+         16,  // Broadsword       (330G)
+         57,  // Rod              (260G)
+         70,  // Mage Staff       (320G)
+         79,  // Fork             (1100G)
+         85,  // Pinwheel         (200G)
+         86,  // Rising Sun       (500G)
+
+        // ── Lowest-tier armlets / gloves ────────────────────────────────────
+         88,  // Wrist            (130G)
+         89,  // Leather Wrist    (200G)
+         90,  // Glass Armlet     (250G)
+         91,  // Bone Wrist       (330G)
+        102,  // Bronze Gloves    (480G)
+
+        // ── Lowest-tier helms ────────────────────────────────────────────────
+        112,  // Leather Hat      (150G)
+        114,  // Feather Hat      (200G)
+        115,  // Steepled Hat     (260G)
+        116,  // Headgear         (330G)
+        117,  // Magus Hat        (400G)
+        118,  // Bandana          (500G)
+        136,  // Rubber Helm      (250G)
+        137,  // Bronze Helm      (330G)
+        138,  // Iron Helm        (450G)
+
+        // ── Lowest-tier body armor ───────────────────────────────────────────
+        149,  // Leather Shirt    (270G)
+        150,  // Silk Shirt       (400G)
+
+        // ── Common consumables ───────────────────────────────────────────────
+        236,  // Potion           (50G)
+        240,  // Phoenix Down     (150G)
+        241,  // Echo Screen      (50G)
+        242,  // Soft             (100G)
+        243,  // Antidote         (50G)
+        244,  // Eye Drops        (50G)
+        246,  // Vaccine          (100G)
+        248,  // Annoyntment      (150G)
+        251,  // Gysahl Greens    (60G)
+    };
+
+    // ── Fun pool — Low tier ───────────────────────────────────────────────────
+
+    /// <summary>
+    /// "Fun" mode low-tier draw pool.
+    /// StiltzkinRandomizer draws exactly 1 item from this list per package.
+    /// Entry-level gear and basic consumables — the "floor" of what you could get.
+    /// </summary>
+    public static readonly IReadOnlyList<int> StiltzkinFunPoolLow = new[]
+    {
+        // Weapons
+          1,  // Dagger           (320G)
+          2,  // Mage Masher      (500G)
+         16,  // Broadsword       (330G)
+         17,  // Iron Sword       (660G)
+         31,  // Javelin          (880G)
+         57,  // Rod              (260G)
+         70,  // Mage Staff       (320G)
+         79,  // Fork             (1100G)
+         85,  // Pinwheel         (200G)
+         86,  // Rising Sun       (500G)
+
+        // Armlets / gloves
+         88,  // Wrist            (130G)
+         89,  // Leather Wrist    (200G)
+         90,  // Glass Armlet     (250G)
+         91,  // Bone Wrist       (330G)
+         92,  // Mythril Armlet   (500G)
+        102,  // Bronze Gloves    (480G)
+        103,  // Silver Gloves    (720G)
+
+        // Helms
+        112,  // Leather Hat      (150G)
+        114,  // Feather Hat      (200G)
+        115,  // Steepled Hat     (260G)
+        116,  // Headgear         (330G)
+        117,  // Magus Hat        (400G)
+        118,  // Bandana          (500G)
+        119,  // Mage's Hat       (600G)
+        136,  // Rubber Helm      (250G)
+        137,  // Bronze Helm      (330G)
+        138,  // Iron Helm        (450G)
+        139,  // Barbut           (600G)
+
+        // Body
+        149,  // Leather Shirt    (270G)
+        150,  // Silk Shirt       (400G)
+        151,  // Leather Plate    (530G)
+        152,  // Bronze Vest      (670G)
+        177,  // Bronze Armor     (650G)
+
+        // Consumables
+        236,  // Potion           (50G)
+        237,  // Hi-Potion        (200G)
+        240,  // Phoenix Down     (150G)
+        241,  // Echo Screen      (50G)
+        242,  // Soft             (100G)
+        243,  // Antidote         (50G)
+        244,  // Eye Drops        (50G)
+        245,  // Magic Tag        (100G)
+        246,  // Vaccine          (100G)
+        247,  // Remedy           (300G)
+        248,  // Annoyntment      (150G)
+        253,  // Tent             (800G)
+        254,  // Ore              (300G)
+    };
+
+    // ── Fun pool — Mid tier ───────────────────────────────────────────────────
+
+    /// <summary>
+    /// "Fun" mode mid-tier draw pool.
+    /// StiltzkinRandomizer draws exactly 1 item from this list per package.
+    /// Solid mid-game gear — something you'd actually use.
+    /// </summary>
+    public static readonly IReadOnlyList<int> StiltzkinFunPoolMid = new[]
+    {
+        // Weapons
+          3,  // Mythril Dagger   (950G)
+          4,  // Gladius          (2300G)
+          7,  // Butterfly Sword  (1300G)
+          8,  // The Ogre         (1700G)
+          9,  // Exploda          (2800G)
+         10,  // Rune Tooth       (3800G)
+         18,  // Mythril Sword    (1300G)
+         20,  // Ice Brand        (3780G)
+         21,  // Coral Sword      (4000G)
+         22,  // Diamond Sword    (4700G)
+         23,  // Flame Saber      (5190G)
+         32,  // Mythril Spear    (1100G)
+         33,  // Partisan         (1600G)
+         34,  // Ice Lance        (2430G)
+         35,  // Trident          (3580G)
+         36,  // Heavy Lance      (4700G)
+         37,  // Obelisk          (6000G)
+         41,  // Cat's Claws      (4000G)
+         42,  // Poison Knuckles  (5000G)
+         43,  // Mythril Claws    (6500G)
+         52,  // Multina Racket   (750G)
+         53,  // Magic Racket     (1350G)
+         54,  // Mythril Racket   (2250G)
+         60,  // Healing Rod      (1770G)
+         61,  // Asura's Rod      (3180G)
+         62,  // Wizard Rod       (3990G)
+         64,  // Golem's Flute    (2700G)
+         65,  // Lamia's Flute    (3800G)
+         66,  // Fairy Flute      (4500G)
+         67,  // Hamelin          (5700G)
+         71,  // Flame Staff      (1100G)
+         72,  // Ice Staff        (980G)
+         73,  // Lightning Staff  (1200G)
+         74,  // Oak Staff        (2400G)
+         75,  // Cypress Pile     (3200G)
+         76,  // Octagon Rod      (4500G)
+         77,  // High Mage Staff  (6000G)
+         80,  // Needle Fork      (3100G)
+         81,  // Mythril Fork     (4700G)
+         87,  // Wing Edge        (3000G)
+
+        // Armlets / gloves
+         93,  // Magic Armlet     (1000G)
+         94,  // Chimera Armlet   (1200G)
+         95,  // Egoist's Armlet  (2000G)
+         96,  // N-Kai Armlet     (3000G)
+         97,  // Jade Armlet      (3400G)
+         99,  // Dragon Wrist     (4800G)
+        100,  // Power Wrist      (5100G)
+        101,  // Bracer           (8000G)
+        104,  // Mythril Gloves   (980G)
+        105,  // Thunder Gloves   (1200G)
+        106,  // Diamond Gloves   (2000G)
+        107,  // Venetia Shield   (2800G)
+        108,  // Defense Gloves   (6000G)
+
+        // Helms
+        121,  // Ritual Hat       (1000G)
+        122,  // Twist Headband   (1200G)
+        123,  // Mantra Band      (1500G)
+        124,  // Dark Hat         (1800G)
+        125,  // Green Beret      (2180G)
+        126,  // Black Hood       (2550G)
+        127,  // Red Hat          (3000G)
+        128,  // Golden Hairpin   (3700G)
+        129,  // Coronet          (4400G)
+        130,  // Flash Hat        (5200G)
+        131,  // Adaman Hat       (6100G)
+        132,  // Thief Hat        (7100G)
+        140,  // Mythril Helm     (1000G)
+        141,  // Gold Helm        (1800G)
+        142,  // Cross Helm       (2200G)
+        143,  // Diamond Helm     (3000G)
+        144,  // Platinum Helm    (4600G)
+        145,  // Kaiser Helm      (7120G)
+
+        // Body armor
+        153,  // Chain Plate      (810G)
+        154,  // Mythril Vest     (1180G)
+        155,  // Adaman Vest      (1600G)
+        156,  // Magician Cloak   (1850G)
+        157,  // Survival Vest    (2900G)
+        158,  // Brigandine       (4300G)
+        159,  // Judo Uniform     (5000G)
+        160,  // Power Vest       (7200G)
+        168,  // Cotton Robe      (4000G)
+        169,  // Silk Robe        (5800G)
+        170,  // Magician Robe    (8000G)
+        178,  // Linen Cuirass    (800G)
+        179,  // Chain Mail       (1200G)
+        180,  // Mythril Armor    (1830G)
+        181,  // Plate Mail       (2320G)
+        182,  // Gold Armor       (2950G)
+        183,  // Shield Armor     (4300G)
+        184,  // Demon's Mail     (5900G)
+        185,  // Diamond Armor    (8800G)
+
+        // Accessories
+        192,  // Desert Boots     (1500G)
+        194,  // Germinas Boots   (4000G)
+        195,  // Sandals          (1200G)
+        199,  // Anklet           (3200G)
+        200,  // Power Belt       (7000G)
+        202,  // Glass Buckle     (1600G)
+        203,  // Madain's Ring    (7500G)
+        206,  // Coral Ring       (4000G)
+        212,  // Yellow Scarf     (1800G)
+        213,  // Gold Choker      (4000G)
+        214,  // Fairy Earrings   (6000G)
+        216,  // Pearl Rouge      (4000G)
+        217,  // Pearl Armlet     (980G)
+        218,  // Cachusha         (3000G)
+        219,  // Barette          (7000G)
+
+        // Consumables
+        238,  // Ether            (2000G)
+        249,  // Phoenix Pinion   (2000G)
+    };
+
+    // ── Fun pool — High tier ──────────────────────────────────────────────────
+
+    /// <summary>
+    /// "Fun" mode high-tier draw pool.
+    /// StiltzkinRandomizer draws exactly 1 item from this list per package.
+    /// End-game and rare gear — the "jackpot" slot of the package.
+    /// </summary>
+    public static readonly IReadOnlyList<int> StiltzkinFunPoolHigh = new[]
+    {
+        // Late-game weapons
+          6,  // Orichalcon       (17000G)
+         11,  // Angel Bless      (7000G)
+         12,  // Sargatanas       (9500G)
+         13,  // Masamune         (13000G)
+         14,  // The Tower        (30000G)
+         15,  // Ultima Weapon    (40000G)
+         24,  // Rune Blade       (8900G)
+         25,  // Defender         (9340G)
+         27,  // Ultima Sword     (14000G)
+         28,  // Excalibur        (19000G)
+         29,  // Ragnarok         (29000G)
+         38,  // Holy Lance       (11000G)
+         39,  // Kain's Lance     (15000G)
+         40,  // Dragon's Hair    (23500G)
+         44,  // Scissor Fangs    (8000G)
+         45,  // Dragon's Claws   (10360G)
+         46,  // Tiger Fangs      (13500G)
+         47,  // Avenger          (16000G)
+         48,  // Kaiser Knuckles  (18000G)
+         50,  // Rune Claws       (28800G)
+         55,  // Priest's Racket  (8000G)
+         56,  // Tiger Racket     (5800G)
+         63,  // Whale Whisker    (10280G)
+         68,  // Siren's Flute    (7000G)
+         69,  // Angel Flute      (8300G)
+         78,  // Mace of Zeus     (10000G)
+         82,  // Silver Fork      (7400G)
+         83,  // Bistro Fork      (10300G)
+         84,  // Gastro Fork      (13300G)
+
+        // Late-game armlets / gloves
+         98,  // Thief Gloves     (50000G)
+        109,  // Genji Gloves     (missable steal)
+        110,  // Aegis Gloves     (7000G)
+        111,  // Gauntlets        (8800G)
+
+        // Late-game helms
+        133,  // Holy Miter       (8300G)
+        134,  // Golden Skullcap  (12000G)
+        135,  // Circlet          (13000G)
+        146,  // Genji Helmet     (missable steal)
+        147,  // Grand Helm       (14000G)
+
+        // Late-game body armor
+        161,  // Gaia Gear        (8700G)
+        162,  // Demon's Vest     (10250G)
+        163,  // Minerva's Plate  (12200G)
+        164,  // Ninja Gear       (14000G)
+        165,  // Dark Gear        (16300G)
+        166,  // Rubber Suit      (20000G)
+        167,  // Brave Suit       (22500G)
+        171,  // Glutton's Robe   (16000G)
+        172,  // White Robe       (29000G)
+        173,  // Black Robe       (29000G)
+        174,  // Light Robe       (40000G)
+        175,  // Robe of Lords    (52000G)
+        186,  // Platina Armor    (10500G)
+        187,  // Carabini Mail    (12300G)
+        188,  // Dragon Mail      (14000G)
+        189,  // Genji Armor      (missable steal)
+        190,  // Maximillian      (22600G)
+        191,  // Grand Armor      (28000G)
+
+        // Accessories
+        197,  // Battle Boots     (21000G)
+        198,  // Running Shoes    (33000G)
+        201,  // Black Belt       (11000G)
+        204,  // Rosetta Ring     (36000G)
+        205,  // Reflect Ring     (7000G)
+        207,  // Promist Ring     (9000G)
+        208,  // Rebirth Ring     (10000G)
+        209,  // Protect Ring     (40000G)
+        215,  // Angel Earrings   (20000G)
+        220,  // Extension        (10000G)
+        221,  // Ribbon           (rare/chocograph)
+
+        // Rare consumables and gems
+        224,  // Garnet
+        225,  // Amethyst
+        226,  // Aquamarine
+        227,  // Diamond
+        228,  // Emerald
+        229,  // Moonstone
+        230,  // Ruby
+        231,  // Peridot
+        232,  // Sapphire
+        233,  // Opal
+        234,  // Topaz
+        235,  // Lapis Lazuli
+        239,  // Elixir
+        250,  // Dark Matter
+    };
+
+    // ── Stiltzkin price ranges ────────────────────────────────────────────────
+    //
+    // Gil bounds for each StiltzkinPriceMode. All values are int16-safe (≤ 32,767)
+    // because Stiltzkin's price is encoded as a signed int16 in the field bytecode
+    // (SetTextVariable opcode for display + RemoveGil opcode for the actual charge).
+    // StiltzkinRandomizer must patch BOTH opcodes when randomizing prices.
+
+    /// <summary>Min price for <see cref="StiltzkinPriceMode.ClearanceSale"/>.</summary>
+    public const int StiltzkinClearanceSaleMin = 1;
+
+    /// <summary>Max price for <see cref="StiltzkinPriceMode.ClearanceSale"/>.</summary>
+    public const int StiltzkinClearanceSaleMax = 99;
+
+    /// <summary>Min price for <see cref="StiltzkinPriceMode.StiltzkinsMood"/>.</summary>
+    public const int StiltzkinsMoodMin = 100;
+
+    /// <summary>Max price for <see cref="StiltzkinPriceMode.StiltzkinsMood"/>.</summary>
+    public const int StiltzkinsMoodMax = 10_000;
+
+    /// <summary>Min price for <see cref="StiltzkinPriceMode.HighwayRobbery"/>.</summary>
+    public const int HighwayRobberyMin = 5_000;
+
+    /// <summary>Max price for <see cref="StiltzkinPriceMode.HighwayRobbery"/>.</summary>
+    public const int HighwayRobberyMax = 15_000;
+
+    // ── Challenging pool ──────────────────────────────────────────────────────
+
+    /// <summary>
+    /// "Challenging" pool — all 12 ability gems plus Phoenix Pinion and Dark Matter.
+    /// Items in this pool are powerful but require AP investment to use — creating
+    /// decision pressure: equip now and grind AP, or hold the gem for later?
+    /// All 3 package slots draw from this pool independently.
+    /// This is about strategic pressure, not price pressure (price is a separate axis).
+    /// </summary>
+    public static readonly IReadOnlyList<int> StiltzkinChallengingPool = new[]
+    {
+        224,  // Garnet
+        225,  // Amethyst
+        226,  // Aquamarine
+        227,  // Diamond
+        228,  // Emerald
+        229,  // Moonstone
+        230,  // Ruby
+        231,  // Peridot
+        232,  // Sapphire
+        233,  // Opal
+        234,  // Topaz
+        235,  // Lapis Lazuli
+        249,  // Phoenix Pinion
+        250,  // Dark Matter
+    };
 }

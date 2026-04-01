@@ -1,5 +1,5 @@
 ﻿Field Item Cross-Validation Report (disk .bytes vs p0data7.bin archive)
-Generated: 2026-03-31 22:19:08
+Generated: 2026-04-01 15:35:10
 Disk files:          830  (field=817, world=13, EVT_ALEX3_AC_SEAT_N excluded)
 Archive extracted:   830  (failures=0)
 Disk locations:      1110

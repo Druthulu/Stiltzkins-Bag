@@ -458,6 +458,96 @@ public enum NpcDifficultyMode
 }
 
 /// <summary>
+/// Controls how Stiltzkin's package items are randomized.
+/// Independent of <see cref="StiltzkinPriceMode"/> — both can be set freely.
+/// </summary>
+public enum StiltzkinMode
+{
+    /// <summary>
+    /// All 9 Stiltzkin scripts are left exactly as vanilla. Default mode.
+    /// </summary>
+    Off,
+
+    /// <summary>
+    /// Fisher-Yates shuffle of all 24 vanilla Stiltzkin items (8 visits × 3 items).
+    /// Items are redistributed 3-per-visit. The overall Stiltzkin item economy is
+    /// preserved — the same 24 items exist, just in different packages.
+    /// Stiltzkin scripts are excluded from FieldItemRandomizer when this mode is active.
+    /// </summary>
+    Shuffle,
+
+    /// <summary>
+    /// Stiltzkin scripts are included in FieldItemRandomizer's normal field item pool.
+    /// Stiltzkin's items are treated like any other field AddItem location.
+    /// No special Stiltzkin logic runs. Overrides <see cref="StiltzkinRecommendedSubMode"/>.
+    /// </summary>
+    IncludeInFieldPool,
+
+    /// <summary>
+    /// Curated package generation using the active <see cref="StiltzkinRecommendedSubMode"/>.
+    /// Stiltzkin scripts are excluded from FieldItemRandomizer when this mode is active.
+    /// </summary>
+    Recommended
+}
+
+/// <summary>
+/// Controls the item pool used when <see cref="StiltzkinMode.Recommended"/> is active.
+/// Ignored when <see cref="StiltzkinMode"/> is not <see cref="StiltzkinMode.Recommended"/>.
+/// </summary>
+public enum StiltzkinRecommendedSubMode
+{
+    /// <summary>
+    /// "Stiltzkin's Junk" — packages drawn from low-value consumables.
+    /// Potions, Antidotes, Ethers. Stiltzkin sells garbage. Comedy run.
+    /// </summary>
+    StiltzkinsJunk,
+
+    /// <summary>
+    /// "Fun" — the true vision. Each package contains one useful item, one mid-tier item,
+    /// and one wildcard. Surprising but never completely useless.
+    /// </summary>
+    Fun,
+
+    /// <summary>
+    /// "Challenging" — packages drawn from high-value and rare items.
+    /// Makes Gil management critical — save up or miss out.
+    /// </summary>
+    Challenging
+}
+
+/// <summary>
+/// Controls how Stiltzkin's package prices are randomized.
+/// Independent of <see cref="StiltzkinMode"/> — prices can be randomized even
+/// when item contents are unchanged, and vice versa.
+/// </summary>
+public enum StiltzkinPriceMode
+{
+    /// <summary>
+    /// All package prices are unchanged from vanilla (333, 444, 555, 666, 777, 888,
+    /// 2222, 5555 Gil). Default mode.
+    /// </summary>
+    Off,
+
+    /// <summary>
+    /// "Clearance Sale" — prices slashed. Gil cost is essentially irrelevant.
+    /// Stiltzkin practically gives things away. Good for casual or item-focused runs.
+    /// </summary>
+    ClearanceSale,
+
+    /// <summary>
+    /// "Stiltzkin's Mood" — prices are fully random per visit.
+    /// Could be 1 Gil, could be 9999 Gil. You never know what you're walking into.
+    /// </summary>
+    StiltzkinsMood,
+
+    /// <summary>
+    /// "Highway Robbery" — punishing prices. Save up for every visit or miss out.
+    /// Makes the Stiltzkin quest a meaningful economic challenge.
+    /// </summary>
+    HighwayRobbery
+}
+
+/// <summary>
 /// All user-configurable settings for a randomizer run.
 /// This is the single source of truth passed into the randomization pipeline.
 /// Serialized to Settings-Seed-[int].json in the mod output folder.
@@ -541,6 +631,35 @@ public class Settings
     public int JunkDrawerThreshold { get; set; } = 50;
 
     public bool RandomizeTreasureChests { get; set; }
+
+    // -------------------------------------------------------------------------
+    // Stiltzkin
+    // -------------------------------------------------------------------------
+
+    /// <summary>
+    /// Controls how Stiltzkin's package items are randomized.
+    /// <see cref="StiltzkinMode.Shuffle"/> and <see cref="StiltzkinMode.Recommended"/>
+    /// exclude Stiltzkin scripts from FieldItemRandomizer.
+    /// <see cref="StiltzkinMode.IncludeInFieldPool"/> leaves them in the normal field pool.
+    /// Default: Off.
+    /// </summary>
+    public StiltzkinMode StiltzkinMode { get; set; } = StiltzkinMode.Off;
+
+    /// <summary>
+    /// Controls the item pool used when <see cref="StiltzkinMode.Recommended"/> is active.
+    /// Ignored for all other <see cref="StiltzkinMode"/> values.
+    /// Default: Fun.
+    /// </summary>
+    public StiltzkinRecommendedSubMode StiltzkinRecommendedSubMode { get; set; } =
+        StiltzkinRecommendedSubMode.Fun;
+
+    /// <summary>
+    /// Controls how Stiltzkin's package prices are randomized.
+    /// Fully independent of <see cref="StiltzkinMode"/> — prices can be randomized
+    /// even when item contents are unchanged, and vice versa.
+    /// Default: Off.
+    /// </summary>
+    public StiltzkinPriceMode StiltzkinPriceMode { get; set; } = StiltzkinPriceMode.Off;
 
     // -------------------------------------------------------------------------
     // Shops

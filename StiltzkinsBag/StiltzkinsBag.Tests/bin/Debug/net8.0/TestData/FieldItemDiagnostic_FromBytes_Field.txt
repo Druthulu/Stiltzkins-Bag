@@ -1,5 +1,5 @@
 ﻿Field Item Diagnostic — field .bytes (817 files, excluded: EVT_ALEX3_AC_SEAT_N)
-Generated: 2026-03-31 22:19:08
+Generated: 2026-04-01 15:35:11
 Total item locations found: 1096
 
 === PER-FILE DETAIL ===
