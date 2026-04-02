@@ -10,6 +10,7 @@
 //   • Treno Auction House — repeatable auctions vs. one-time lots
 //   • Friendly Monster chain — 9 one-time encounters (Mu → Yan)
 //   • Ragtime Mouse — 1 one-time reward
+//   • Blue magic — spell name per enemy ID (Quina Eat results)
 //
 // NOT encoded here (handled elsewhere):
 //   • Shops (ShopItems.csv — all infinite, loaded at runtime)
@@ -32,6 +33,14 @@
 // Methodology for auction data:
 //   Source: "Final Fantasy IX Reference Guide - Treno Auction House.csv"
 //   Key items / resellable quest items (Griffin's Heart, Doga's Artifact, etc.) excluded.
+//
+// Methodology for blue magic data:
+//   Source: "Final Fantasy IX Reference Guide - Blue Magic.csv"
+//   Columns: Enemy Name, Enemy # (1-based battle binary index), Eat (spell name or status).
+//   Only entries where Eat is a real learnable spell are included — entries with
+//   "I no can eat!", "Taste Bad!", or "Nothing" are excluded.
+//   Enemy # maps directly to the battle binary enemy index used by EnemyRandomizer
+//   and BattleItemScanner. Spell names are stored as-is from the guide for spoiler log use.
 //
 // All item IDs are verified against Items.csv (IDs 0–255).
 
@@ -378,6 +387,116 @@ public static class VanillaObtainabilityData
         {  888, ["EVT_OEIL_UV_DEP_0.eb"] },
         { 2222, ["EVT_BAL_BB_WPS_0.eb"] },
         { 5555, ["EVT_ALEX5_AT_SENTOU.eb"] },
+        };
+
+    // ── Blue magic (Quina Eat results) ────────────────────────────────────────
+
+    /// <summary>
+    /// Maps each enemy's battle binary index (1-based "Enemy #") to the blue magic
+    /// spell name Quina learns by eating that enemy.
+    ///
+    /// Source: "Final Fantasy IX Reference Guide - Blue Magic.csv"
+    /// Only enemies with a real learnable spell are included. Enemies with
+    /// "I no can eat!", "Taste Bad!", or "Nothing" are omitted.
+    ///
+    /// The key matches the enemy index used by EnemyRandomizer and BattleItemScanner.
+    /// Spell names are stored as-is from the guide for use in the Phase 8 spoiler log.
+    ///
+    /// Note: Some spells appear on multiple enemy indices (e.g. Matra Magic on
+    /// Trick Sparrow/10, Zaghnol/80, Land Worm/109, Ogre/111, Armstrong/114, Ogre/116).
+    /// All instances are retained — the spoiler log may report which enemy now carries
+    /// a given spell after EnemyRandomizer.ShuffleBlueMagic() runs.
+    /// </summary>
+    public static readonly IReadOnlyDictionary<int, string> BlueMagicByEnemyId =
+        new Dictionary<int, string>
+        {
+            {  10, "Goblin Punch" },    // Goblin
+            {  21, "Pumpkin Head" },    // Python
+            {  27, "LV3 Def-less" },    // Cave Spider
+            {  28, "Roulette" },        // Ghost
+            {  29, "Vanish" },          // Vice
+            {  32, "Matra Magic" },     // Trick Sparrow
+            {  36, "Mustard Bomb" },    // Bomb
+            {  38, "Limit Glove" },     // Axe Beak
+            {  39, "Mighty Guard" },    // Serpion
+            {  40, "Pumpkin Head" },    // Ladybug
+            {  41, "Aqua Breath" },     // Clipper
+            {  42, "Limit Glove" },     // Mandragora
+            {  43, "Angel's Snack" },   // Ironite
+            {  44, "Frog Drop" },       // Gigan Toad
+            {  45, "Frog Drop" },       // Gigan Toad (variant)
+            {  46, "Aqua Breath" },     // Axolotl
+            {  47, "Vanish" },          // Hornet
+            {  48, "Pumpkin Head" },    // Skeleton
+            {  50, "LV3 Def-less" },    // Lamia
+            {  54, "Night" },           // Nymph
+            {  55, "Pumpkin Head" },    // Basilisk
+            {  56, "Magic Hammer" },    // Magic Vice
+            {  66, "White Wind" },      // Zuu
+            {  67, "Auto-Life" },       // Carrion Worm
+            {  80, "Matra Magic" },     // Zaghnol
+            {  81, "Night" },           // Seeker Bat
+            {  84, "White Wind" },      // Griffin
+            {  85, "LV4 Holy" },        // Feather Circle
+            {  86, "Night" },           // Abomination
+            {  87, "1,000 Needles" },   // Cactuar
+            {  88, "Goblin Punch" },    // Goblin Mage
+            {  89, "Aqua Breath" },     // Sahagin
+            {  90, "Mighty Guard" },    // Myconid
+            {  91, "White Wind" },      // Zemzelett
+            {  92, "Vanish" },          // Gnoll
+            {  93, "LV3 Def-less" },    // Ochu
+            {  94, "Vanish" },          // Troll
+            {  96, "Limit Glove" },     // Blazer Beetle
+            {  97, "Roulette" },        // Zombie
+            {  98, "LV5 Death" },       // Stroper
+            {  99, "LV5 Death" },       // Dracozombie
+            { 102, "Angel's Snack" },   // Mistodon
+            { 103, "Mighty Guard" },    // Gigan Octopus
+            { 104, "Earth Shake" },     // Adamantoise
+            { 105, "LV5 Death" },       // Whale Zombie
+            { 106, "LV3 Def-less" },    // Grand Dragon
+            { 107, "Auto-Life" },       // Gimme Cat
+            { 108, "Bad Breath" },      // Anenome
+            { 109, "Matra Magic" },     // Land Worm
+            { 110, "Mighty Guard" },    // Antlion
+            { 111, "Matra Magic" },     // Ogre
+            { 112, "Night" },           // Grimlock
+            { 113, "Limit Glove" },     // Jabberwock
+            { 114, "Matra Magic" },     // Armstrong
+            { 115, "Limit Glove" },     // Catoblepas
+            { 116, "Matra Magic" },     // Ogre (variant)
+            { 117, "Angel's Snack" },   // Epitaph
+            { 126, "White Wind" },      // Garuda
+            { 128, "LV4 Holy" },        // Torama
+            { 129, "Vanish" },          // Drakan
+            { 131, "Aqua Breath" },     // Vepal Green
+            { 132, "Mustard Bomb" },    // Vepal Red
+            { 133, "Mustard Bomb" },    // Grenade
+            { 134, "Bad Breath" },      // Worm Hydra
+            { 135, "Frost" },           // Wraith (Blue Fire)
+            { 136, "Mustard Bomb" },    // Wraith (Red Fire)
+            { 137, "Twister" },         // Red Dragon
+            { 141, "Auto-Life" },       // Yan
+            { 142, "LV4 Holy" },        // Amdusias
+            { 143, "Doom" },            // Veteran
+            { 144, "Auto-Life" },       // Cerberus
+            { 146, "Mighty Guard" },    // Gargoyle
+            { 149, "Earth Shake" },     // Earth Guardian
+            { 150, "Magic Hammer" },    // Ring Leader
+            { 151, "Roulette" },        // Hecteyes
+            { 156, "Bad Breath" },      // Malboro
+            { 157, "Earth Shake" },     // Shell Dragon
+            { 158, "Twister" },         // Abadon
+            { 169, "Pumpkin Head" },    // Yeti (variant)
+            { 175, "Angel's Snack" },   // Behemoth
+            { 179, "Frost" },           // Chimera
+            { 181, "Doom" },            // Ash
+            { 185, "Auto-Life" },       // Stilva
+            { 191, "Mustard Bomb" },    // Maliris
+            { 192, "Twister" },         // Tiamat
+            { 193, "Frost" },           // Kraken
+            { 194, "LV5 Death" },       // Lich
         };
 
     // ── Stiltzkin Recommended item pools ──────────────────────────────────────

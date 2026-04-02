@@ -1,5 +1,5 @@
 ﻿Battle Item Cross-Validation Report (.bytes vs Archive)
-Generated: 2026-04-01 15:35:10
+Generated: 2026-04-02 12:37:36
 .bytes records:     6506
 Archive records:    6506
 Extract failures:   0

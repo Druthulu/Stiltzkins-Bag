@@ -1,0 +1,236 @@
+Searching 817 files for ".*Wait\( 3 \)
+.*Menu\( 2, 3[2-9] \)
+.*Wait\( 3 \)" (regex)
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_138.txt:
+  449      TurnTowardObject( 250, 32 ) // Player Character
+  450      WaitTurn(  )
+  451:     Wait( 3 )
+  452:     Menu( 2, 32 )
+  453:     Wait( 3 )
+  454      set VAR_GlobBool_158 = 1
+  455      if ( VAR_GlobBool_159 == 1 ) {
+  ...
+ 1273      TurnTowardObject( 250, 32 ) // Player Character
+ 1274      WaitTurn(  )
+ 1275:     Wait( 3 )
+ 1276:     Menu( 2, 32 )
+ 1277:     Wait( 3 )
+ 1278      set VAR_GlobBool_158 = 1
+ 1279      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_242.txt:
+  591      WaitTurn(  )
+  592      WindowSync( 0, 128, 217 ) // "Welcome!"
+  593:     Wait( 3 )
+  594:     Menu( 2, 33 )
+  595:     Wait( 3 )
+  596      set VAR_GlobBool_158 = 1
+  597      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_355.txt:
+  297      TurnTowardObject( 250, 32 ) // Player Character
+  298      WaitTurn(  )
+  299:     Wait( 3 )
+  300:     Menu( 2, 34 )
+  301:     Wait( 3 )
+  302      set VAR_GlobBool_158 = 1
+  303      if ( VAR_GlobBool_159 == 1 ) {
+  ...
+  783      TurnTowardObject( 250, 32 ) // Player Character
+  784      WaitTurn(  )
+  785:     Wait( 3 )
+  786:     Menu( 2, 34 )
+  787:     Wait( 3 )
+  788      set VAR_GlobBool_158 = 1
+  789      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_415.txt:
+ 1015          WindowSync( 0, 128, 474 ) // "Black Mage No. 192 “...Welcome.”"
+ 1016      }
+ 1017:     Wait( 3 )
+ 1018:     Menu( 2, 35 )
+ 1019:     Wait( 3 )
+ 1020      set VAR_GlobBool_158 = 1
+ 1021      if ( VAR_GlobBool_159 == 1 ) {
+ ....
+ 2890          WindowSync( 0, 128, 474 ) // "Black Mage No. 192 “...Welcome.”"
+ 2891      }
+ 2892:     Wait( 3 )
+ 2893:     Menu( 2, 35 )
+ 2894:     Wait( 3 )
+ 2895      set VAR_GlobBool_158 = 1
+ 2896      if ( VAR_GlobBool_159 == 1 ) {
+ ....
+ 4729          WindowSync( 0, 128, 474 ) // "Black Mage No. 192 “...Welcome.”"
+ 4730      }
+ 4731:     Wait( 3 )
+ 4732:     Menu( 2, 35 )
+ 4733:     Wait( 3 )
+ 4734      set VAR_GlobBool_158 = 1
+ 4735      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_519.txt:
+  498      WaitTurn(  )
+  499      WindowSync( 0, 128, 227 ) // "Synthesist “I’m open today.”"
+  500:     Wait( 3 )
+  501:     Menu( 2, 36 )
+  502:     Wait( 3 )
+  503      set VAR_GlobBool_158 = 1
+  504      if ( VAR_GlobBool_159 == 1 ) {
+  ...
+ 1504      WaitTurn(  )
+ 1505      WindowSync( 0, 128, 227 ) // "Synthesist “I’m open today.”"
+ 1506:     Wait( 3 )
+ 1507:     Menu( 2, 36 )
+ 1508:     Wait( 3 )
+ 1509      set VAR_GlobBool_158 = 1
+ 1510      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_529.txt:
+  430      WaitTurn(  )
+  431      WindowSync( 0, 128, 217 ) // "Welcome!"
+  432:     Wait( 3 )
+  433:     Menu( 2, 36 )
+  434:     Wait( 3 )
+  435      set VAR_GlobBool_158 = 1
+  436      if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_568.txt:
+  371              WaitTurn(  )
+  372              WindowSync( 5, 128, 169 ) // "Wayne “I’ll take your weapons and  make ’em a thousand times better!”"
+  373:             Wait( 3 )
+  374:             Menu( 2, 36 )
+  375:             Wait( 3 )
+  376          }
+  377      } else {
+  ...
+  391          WaitTurn(  )
+  392          WindowSync( 5, 128, 169 ) // "Wayne “I’ll take your weapons and  make ’em a thousand times better!”"
+  393:         Wait( 3 )
+  394:         Menu( 2, 36 )
+  395:         Wait( 3 )
+  396      }
+  397      set VAR_GlobBool_158 = 1
+  ...
+  427          } else {
+  428              WindowSync( 5, 128, 169 ) // "Wayne “I’ll take your weapons and  make ’em a thousand times better!”"
+  429:             Wait( 3 )
+  430:             Menu( 2, 36 )
+  431:             Wait( 3 )
+  432          }
+  433      } else {
+  434          WindowSync( 5, 128, 169 ) // "Wayne “I’ll take your weapons and  make ’em a thousand times better!”"
+  435:         Wait( 3 )
+  436:         Menu( 2, 36 )
+  437:         Wait( 3 )
+  438      }
+  439      return
+  ...
+ 1105              WaitTurn(  )
+ 1106              WindowSync( 5, 128, 173 ) // "Torres “He is so humble!”"
+ 1107:             Wait( 3 )
+ 1108:             Menu( 2, 36 )
+ 1109:             Wait( 3 )
+ 1110          }
+ 1111      } else {
+ ....
+ 1125          WaitTurn(  )
+ 1126          WindowSync( 5, 128, 173 ) // "Torres “He is so humble!”"
+ 1127:         Wait( 3 )
+ 1128:         Menu( 2, 36 )
+ 1129:         Wait( 3 )
+ 1130      }
+ 1131      set VAR_GlobBool_158 = 1
+ ....
+ 1161          } else {
+ 1162              WindowSync( 5, 128, 173 ) // "Torres “He is so humble!”"
+ 1163:             Wait( 3 )
+ 1164:             Menu( 2, 36 )
+ 1165:             Wait( 3 )
+ 1166          }
+ 1167      } else {
+ 1168          WindowSync( 5, 128, 173 ) // "Torres “He is so humble!”"
+ 1169:         Wait( 3 )
+ 1170:         Menu( 2, 36 )
+ 1171:         Wait( 3 )
+ 1172      }
+ 1173      return
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_659.txt:
+  487      WindowSync( 1, 128, 214 ) // "Synthesist “Would you like to synthesize something?” Yes No"
+  488      if ( GetDialogChoice == 0 ) {
+  489:         Wait( 3 )
+  490:         Menu( 2, 36 )
+  491:         Wait( 3 )
+  492      }
+  493      set VAR_GlobBool_158 = 1
+  ...
+ 1754      WindowSync( 1, 128, 214 ) // "Synthesist “Would you like to synthesize something?” Yes No"
+ 1755      if ( GetDialogChoice == 0 ) {
+ 1756:         Wait( 3 )
+ 1757:         Menu( 2, 36 )
+ 1758:         Wait( 3 )
+ 1759      }
+ 1760      set VAR_GlobBool_158 = 1
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_727.txt:
+  603      WindowSync( 0, 128, 157 ) // "Synthesis Expert “This is Daguerreo, where knowledge and  water come together!  What do you need?”"
+  604      if ( General_ScenarioCounter < 11100 ) {
+  605:         Wait( 3 )
+  606:         Menu( 2, 37 )
+  607:         Wait( 3 )
+  608      } else {
+  609:         Wait( 3 )
+  610:         Menu( 2, 37 )
+  611:         Wait( 3 )
+  612      }
+  613      set VAR_GlobBool_158 = 1
+  ...
+ 4130      WindowSync( 0, 128, 157 ) // "Synthesis Expert “This is Daguerreo, where knowledge and  water come together!  What do you need?”"
+ 4131      if ( General_ScenarioCounter < 11100 ) {
+ 4132:         Wait( 3 )
+ 4133:         Menu( 2, 37 )
+ 4134:         Wait( 3 )
+ 4135      } else {
+ 4136:         Wait( 3 )
+ 4137:         Menu( 2, 37 )
+ 4138:         Wait( 3 )
+ 4139      }
+ 4140      set VAR_GlobBool_158 = 1
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_774.txt:
+ 1429              WindowSync( 1, 4, 467 ) // "Hades “Good of you to return.”"
+ 1430          }
+ 1431:         Wait( 3 )
+ 1432:         Menu( 2, 39 )
+ 1433:         Wait( 3 )
+ 1434          set VAR_GlobBool_158 = 1
+ 1435          if ( VAR_GlobBool_159 == 1 ) {
+ ....
+ 3048              WindowSync( 1, 4, 467 ) // "Hades “Good of you to return.”"
+ 3049          }
+ 3050:         Wait( 3 )
+ 3051:         Menu( 2, 39 )
+ 3052:         Wait( 3 )
+ 3053          set VAR_GlobBool_158 = 1
+ 3054          if ( VAR_GlobBool_159 == 1 ) {
+
+C:\Users\User\Documents\Stiltzkins-Bag\FFIX Vanilla field data\field scripts\field scripts with readability comments\_812.txt:
+  314      WaitTurn(  )
+  315      WindowSync( 0, 128, 138 ) // "Black Mage No. 192 “Welcome to the Black Cat Synthesis Shop!”"
+  316:     Wait( 3 )
+  317:     Menu( 2, 38 )
+  318:     Wait( 3 )
+  319      set VAR_GlobBool_158 = 1
+  320      if ( VAR_GlobBool_159 == 1 ) {
+  ...
+ 1257      WaitTurn(  )
+ 1258      WindowSync( 0, 128, 138 ) // "Black Mage No. 192 “Welcome to the Black Cat Synthesis Shop!”"
+ 1259:     Wait( 3 )
+ 1260:     Menu( 2, 38 )
+ 1261:     Wait( 3 )
+ 1262      set VAR_GlobBool_158 = 1
+ 1263      if ( VAR_GlobBool_159 == 1 ) {
+
+29 matches across 11 files

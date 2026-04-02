@@ -1,4 +1,4 @@
-﻿Disc-Variant Fingerprint Diagnostic — 2026-04-01 15:35
+﻿Disc-Variant Fingerprint Diagnostic — 2026-04-02 12:37
 Total item locations scanned: 1202
 Unique fingerprints: 966
 Confirmed disc-variant groups (fingerprint matches across 2+ files): 97
