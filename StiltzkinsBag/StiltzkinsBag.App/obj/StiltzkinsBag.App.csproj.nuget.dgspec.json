@@ -54,6 +54,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.4.2, )"
+            },
             "MaterialDesignColors": {
               "target": "Package",
               "version": "[5.3.1, )"
@@ -61,6 +65,10 @@
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[5.3.1, )"
+            },
+            "XamlAnimatedGif": {
+              "target": "Package",
+              "version": "[2.3.1, )"
             }
           },
           "imports": [
@@ -78,7 +86,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WPF": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace StiltzkinsBag.Models;
@@ -1060,6 +1061,13 @@ public class Settings
         Converters = { new JsonStringEnumConverter() }
     };
 
+    private static readonly JsonSerializerOptions _settingsStringOptions = new()
+    {
+        WriteIndented = false,
+        // No JsonStringEnumConverter — enums serialize as compact integers.
+        // FromSettingsString must use these same options to deserialize correctly.
+    };
+
     /// <summary>
     /// Serializes all settings to a formatted JSON string.
     /// Written to Settings-Seed-[int].json in the mod output folder.
@@ -1081,8 +1089,19 @@ public class Settings
     /// </remarks>
     public string ToSettingsString()
     {
-        // TODO (Phase 7): implement shareable settings string encoding
-        throw new NotImplementedException("ToSettingsString is not yet implemented — Phase 7.");
+        var payload = (Settings)MemberwiseClone();
+        payload.GamePath = string.Empty;
+        payload.SeedInt = 0;
+        payload.IsDebugMode = false;
+        payload.AllStatsMaxed = false;
+
+        var json = System.Text.Json.JsonSerializer.Serialize(payload, _settingsStringOptions);
+        var bytes = System.Text.Encoding.UTF8.GetBytes(json);
+
+        return Convert.ToBase64String(bytes)
+            .Replace('+', '-')
+            .Replace('/', '_')
+            .TrimEnd('=');
     }
 
     /// <summary>
@@ -1093,7 +1112,22 @@ public class Settings
     /// </remarks>
     public static Settings FromSettingsString(string s)
     {
-        // TODO (Phase 7): implement shareable settings string decoding
-        throw new NotImplementedException("FromSettingsString is not yet implemented — Phase 7.");
+        if (string.IsNullOrWhiteSpace(s))
+            return null;
+
+        try
+        {
+            var b64 = s.Replace('-', '+').Replace('_', '/');
+            var mod4 = b64.Length % 4;
+            if (mod4 != 0) b64 += new string('=', 4 - mod4);
+
+            var bytes = Convert.FromBase64String(b64);
+            var json = System.Text.Encoding.UTF8.GetString(bytes);
+            return System.Text.Json.JsonSerializer.Deserialize<Settings>(json, _settingsStringOptions);
+        }
+        catch
+        {
+            return null;
+        }
     }
 }

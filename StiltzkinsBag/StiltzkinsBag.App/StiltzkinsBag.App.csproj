@@ -6,11 +6,24 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\stilzkin.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\centurygothic-bold.ttf" />
+    <None Remove="Resources\Fonts\centurygothic.ttf" />
+    <None Remove="Resources\Sprites\bgc.png" />
+    <None Remove="Resources\Sprites\bgc2.png" />
+    <None Remove="Resources\Sprites\SB-loading.gif" />
+    <None Remove="Resources\stilzkin.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="MaterialDesignColors" Version="5.3.1" />
     <PackageReference Include="MaterialDesignThemes" Version="5.3.1" />
+    <PackageReference Include="XamlAnimatedGif" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,9 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
-    <Folder Include="Resources\Sprites\" />
-    <Folder Include="ViewModels\" />
+    <Resource Include="Resources\Fonts\centurygothic-bold.ttf" />
+    <Resource Include="Resources\Fonts\centurygothic.ttf" />
+    <Resource Include="Resources\Sprites\bgc.png" />
+    <Resource Include="Resources\Sprites\bgc2.png" />
+    <Resource Include="Resources\Sprites\SB-loading.gif" />
+    <Resource Include="Resources\stilzkin.ico" />
   </ItemGroup>
 
 </Project>

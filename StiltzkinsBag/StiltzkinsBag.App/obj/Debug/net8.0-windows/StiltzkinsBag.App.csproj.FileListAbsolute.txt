@@ -60,3 +60,8 @@ C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug
 C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\StiltzkinsBag.App.pdb
 C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\StiltzkinsBag.App.genruntimeconfig.cache
 C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\ref\StiltzkinsBag.App.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\StiltzkinsBag.App_MarkupCompile.lref
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\obj\Debug\net8.0-windows\Resources\Themes\FF9ScrollBar.baml
+C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\bin\Debug\net8.0-windows\XamlAnimatedGif.dll

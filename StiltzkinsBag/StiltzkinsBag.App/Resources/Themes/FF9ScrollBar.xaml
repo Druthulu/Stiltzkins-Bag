@@ -1,0 +1,163 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+        FF9ScrollBar.xaml
+        Custom ScrollBar style matching the FFIX blue/white panel theme.
+        Thumb: blue tile fill + bright silver border (matches FF9Panel bevel).
+        Track: dark charcoal, recessed look.
+        Buttons: hidden — arrow buttons removed for clean minimal look.
+        Included from App.xaml after FF9Palette.xaml.
+    -->
+
+    <!-- ── ScrollBar repeat button (the up/down arrow areas) ─────────
+         Set to zero height/width — we hide the arrow buttons entirely.
+         The thumb drag + mouse-wheel is sufficient for this UI. -->
+    <Style x:Key="FF9ScrollRepeatButton" TargetType="RepeatButton">
+        <Setter Property="Height"          Value="0" />
+        <Setter Property="Width"           Value="0" />
+        <Setter Property="Focusable"       Value="False" />
+        <Setter Property="IsTabStop"       Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ── Thumb — the draggable part ────────────────────────────────
+         Outer dark ring → silver ring → blue tile fill. Same bevel
+         language as FF9Panel but miniaturised. -->
+    <Style x:Key="FF9ScrollThumb" TargetType="Thumb">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <!-- Layer 1: outer dark -->
+                    <Border CornerRadius="4"
+                            BorderBrush="{StaticResource SB.Bevel.OuterBrush}"
+                            BorderThickness="1">
+                        <!-- Layer 2: silver highlight -->
+                        <Border CornerRadius="3"
+                                BorderThickness="2">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{StaticResource SB.Bevel.Mid}" />
+                            </Border.BorderBrush>
+                            <!-- Layer 3: blue tile fill -->
+                            <Border CornerRadius="1"
+                                    BorderBrush="{StaticResource SB.Bevel.InnerBrush}"
+                                    BorderThickness="1">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/Resources/Sprites/bgc.png"
+                                                TileMode="Tile"
+                                                ViewportUnits="Absolute"
+                                                Viewport="0,0,76,76"
+                                                Stretch="None" />
+                                </Border.Background>
+                            </Border>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.85" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter Property="Opacity" Value="1.0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ── Vertical ScrollBar ─────────────────────────────────────── -->
+    <Style x:Key="FF9VerticalScrollBar" TargetType="ScrollBar">
+        <Setter Property="Orientation"    Value="Vertical" />
+        <Setter Property="Width"          Value="10" />
+        <Setter Property="MinWidth"       Value="10" />
+        <Setter Property="Margin"         Value="3,4,0,4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollBar">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*"    />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Hidden top button -->
+                        <RepeatButton Grid.Row="0"
+                                      Command="ScrollBar.LineUpCommand"
+                                      Style="{StaticResource FF9ScrollRepeatButton}" />
+
+                        <!-- Track background — dark recessed channel -->
+                        <Border Grid.Row="1"
+                                CornerRadius="3"
+                                BorderBrush="{StaticResource SB.Bevel.OuterBrush}"
+                                BorderThickness="1">
+                            <Border.Background>
+                                <SolidColorBrush Color="{StaticResource SB.Bevel.MidDark}" />
+                            </Border.Background>
+                            <Track x:Name="PART_Track"
+                                   IsDirectionReversed="True">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageUpCommand"
+                                                  Style="{StaticResource FF9ScrollRepeatButton}" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{StaticResource FF9ScrollThumb}"
+                                           Margin="1" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.PageDownCommand"
+                                                  Style="{StaticResource FF9ScrollRepeatButton}" />
+                                </Track.IncreaseRepeatButton>
+                            </Track>
+                        </Border>
+
+                        <!-- Hidden bottom button -->
+                        <RepeatButton Grid.Row="2"
+                                      Command="ScrollBar.LineDownCommand"
+                                      Style="{StaticResource FF9ScrollRepeatButton}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ── ScrollViewer — applies FF9 scrollbar to all ScrollViewers ─
+         OverridesDefaultStyle=False so MD control styles still apply
+         inside the viewer content. -->
+    <Style x:Key="FF9ScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ScrollViewer">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"    />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Content -->
+                        <ScrollContentPresenter Grid.Column="0"
+                                                CanContentScroll="{TemplateBinding CanContentScroll}"
+                                                CanHorizontallyScroll="False"
+                                                CanVerticallyScroll="True" />
+
+                        <!-- Vertical scrollbar -->
+                        <ScrollBar Grid.Column="1"
+                                   x:Name="PART_VerticalScrollBar"
+                                   Style="{StaticResource FF9VerticalScrollBar}"
+                                   Value="{TemplateBinding VerticalOffset}"
+                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

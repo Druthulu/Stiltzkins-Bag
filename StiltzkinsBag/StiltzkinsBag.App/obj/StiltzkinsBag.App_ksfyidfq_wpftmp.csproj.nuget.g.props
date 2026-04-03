@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\User\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.2</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\User\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Bold.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Bold.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Noto\NotoSans-Bold.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-BoldItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-BoldItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Noto\NotoSans-BoldItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Italic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Italic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Noto\NotoSans-Italic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Regular.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Noto\NotoSans-Regular.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Noto\NotoSans-Regular.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Black.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Black.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Black.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-BlackItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-BlackItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-BlackItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Bold.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Bold.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Bold.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-BoldItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-BoldItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-BoldItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Italic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Italic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Italic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Light.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Light.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Light.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-LightItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-LightItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-LightItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Medium.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Medium.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Medium.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-MediumItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-MediumItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-MediumItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Regular.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Regular.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Regular.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Thin.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-Thin.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-Thin.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-ThinItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\Roboto-ThinItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\Roboto-ThinItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Bold.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Bold.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-Bold.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-BoldItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-BoldItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-BoldItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Italic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Italic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-Italic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Light.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Light.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-Light.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-LightItalic.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-LightItalic.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-LightItalic.ttf</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Regular.ttf" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\5.3.1\contentFiles\any\net8.0-windows7.0\Resources\Roboto\RobotoCondensed-Regular.ttf')">
+      <NuGetPackageId>MaterialDesignThemes</NuGetPackageId>
+      <NuGetPackageVersion>5.3.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>Resources\Roboto\RobotoCondensed-Regular.ttf</Link>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\User\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.77</PkgMicrosoft_Xaml_Behaviors_Wpf>
+    <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\User\.nuget\packages\materialdesignthemes\5.3.1</PkgMaterialDesignThemes>
+  </PropertyGroup>
+</Project>

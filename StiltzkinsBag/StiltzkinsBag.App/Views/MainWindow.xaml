@@ -2,96 +2,867 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewModels="clr-namespace:StiltzkinsBag.App.ViewModels"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         Title="Stiltzkin's Bag"
-        Height="720" Width="1000"
-        MinHeight="600" MinWidth="800"
+        Height="800" Width="1008"
+        MinHeight="600" MinWidth="848"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource SB.BackgroundBrush}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
         TextElement.Foreground="{StaticResource SB.TextPrimaryBrush}"
-        TextElement.FontFamily="{materialDesign:MaterialDesignFont}"
-        Style="{StaticResource MaterialDesignWindow}">
+        TextElement.FontFamily="{StaticResource FF9Font}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <!-- Header -->
-            <RowDefinition Height="*" />
-            <!-- Content -->
-            <RowDefinition Height="Auto" />
-            <!-- Footer / Generate bar -->
-        </Grid.RowDefinitions>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"
+                      ResizeBorderThickness="8"
+                      GlassFrameThickness="0"
+                      CornerRadius="0" />
+    </WindowChrome.WindowChrome>
 
-        <!-- ═══════════════════════════════════════════
-             Header
-        ════════════════════════════════════════════ -->
-        <Border Grid.Row="0"
-                Background="{StaticResource SB.SurfaceBrush}"
-                Padding="24,16">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Stiltzkin's Bag"
-                           FontSize="22"
-                           FontWeight="Bold"
-                           Foreground="{StaticResource SB.AccentBrush}" />
-                <TextBlock Text="  —  FFIX Randomizer"
-                           FontSize="16"
-                           VerticalAlignment="Bottom"
-                           Margin="0,0,0,2"
-                           Foreground="{StaticResource SB.TextSecondaryBrush}" />
-            </StackPanel>
+    <Window.DataContext>
+        <viewModels:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+
+        <Style x:Key="FF9Panel" TargetType="ContentControl">
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Margin"    Value="0,0,0,8" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Border CornerRadius="13"
+                                BorderBrush="{StaticResource SB.Bevel.MidBrush}"
+                                BorderThickness="4">
+                            <Border CornerRadius="10"
+                                    Background="{StaticResource SB.Bevel.MidDarkBrush}"
+                                    BorderBrush="{StaticResource SB.Bevel.MidDarkBrush}"
+                                    BorderThickness="1">
+                                <Border CornerRadius="9"
+                                        BorderBrush="{StaticResource SB.Bevel.InnerBrush}"
+                                        BorderThickness="1">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Resources/Sprites/bgc.png"
+                                                    TileMode="Tile" ViewportUnits="Absolute"
+                                                    Viewport="0,0,76,76" Stretch="None" />
+                                    </Border.Background>
+                                    <Grid Background="Transparent">
+                                        <ContentPresenter Margin="14,12" />
+                                    </Grid>
+                                </Border>
+                            </Border>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ChromeButton" TargetType="Button">
+            <Setter Property="Background"      Value="Transparent" />
+            <Setter Property="Foreground"      Value="{StaticResource SB.TextSecondaryBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize"        Value="13" />
+            <Setter Property="Width"           Value="44" />
+            <Setter Property="Cursor"          Value="Arrow" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource SB.ChromeHoverBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#44FFFFFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ChromeCloseButton" TargetType="Button" BasedOn="{StaticResource ChromeButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource SB.ChromeCloseHoverBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#C50F1F" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SectionHeaderRule" TargetType="ContentControl">
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Margin"    Value="0,0,0,10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{TemplateBinding Content}"
+                                       Foreground="{StaticResource SB.TextSecondaryBrush}"
+                                       FontSize="12"
+                                       FontFamily="{StaticResource FF9FontBold}"
+                                       FontWeight="Normal"
+                                       Margin="0,0,8,0"
+                                       VerticalAlignment="Center" />
+                            <Rectangle Height="1" Fill="{StaticResource SB.Bevel.InnerBrush}"
+                                       VerticalAlignment="Center" Opacity="0.7" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="InlineLabel" TargetType="TextBlock">
+            <Setter Property="Foreground"        Value="{StaticResource SB.TextSecondaryBrush}" />
+            <Setter Property="FontSize"          Value="12" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        
+    </Window.Resources>
+
+    <Border Margin="0" CornerRadius="11"
+            BorderBrush="{StaticResource SB.Bevel.MidBrush}" BorderThickness="4">
+        <Border CornerRadius="8"
+                Background="{StaticResource SB.Bevel.MidDarkBrush}"
+                BorderBrush="{StaticResource SB.Bevel.MidDarkBrush}" BorderThickness="1">
+            <Border CornerRadius="7"
+                    BorderBrush="{StaticResource SB.Bevel.InnerBrush}" BorderThickness="1"
+                    ClipToBounds="True">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Resources/Sprites/bgc2.png"
+                                TileMode="Tile" ViewportUnits="Absolute"
+                                Viewport="0,0,76,76" Stretch="None" />
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38" />
+                        <RowDefinition Height="*"  />
+                    </Grid.RowDefinitions>
+
+                    <!-- TITLE BAR -->
+                    <Border Grid.Row="0"
+                            BorderBrush="{StaticResource SB.Bevel.InnerBrush}" BorderThickness="0,0,0,1"
+                            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resources/Sprites/bgc.png"
+                                        TileMode="Tile" ViewportUnits="Absolute"
+                                        Viewport="0,0,76,76" Stretch="None" />
+                        </Border.Background>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal"
+                                        VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock Text="Stiltzkin's Bag" FontSize="14" FontWeight="Bold"
+                                           Foreground="{StaticResource SB.AccentBrush}" />
+                                <TextBlock Text="  —  FFIX Randomizer" FontSize="14" FontWeight="Bold"
+                                           VerticalAlignment="Bottom" Margin="0,0,0,1"
+                                           Foreground="{StaticResource SB.TextSecondaryBrush}" />
+                            </StackPanel>
+                            <Border Grid.Column="0" HorizontalAlignment="Right" Width="32" Height="32" Margin="0,0,4,0" />
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Stretch">
+                                <Button Content="─" Height="38" Style="{StaticResource ChromeButton}"
+                                        Click="MinimizeButton_Click" ToolTip="Minimise" />
+                                <Button Content="✕" Height="38" Style="{StaticResource ChromeCloseButton}"
+                                        Click="CloseButton_Click" ToolTip="Close" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <!-- CONTENT -->
+                    <Grid Grid.Row="1" Margin="14,10,14,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"   />
+                            <ColumnDefinition Width="12"  />
+                            <ColumnDefinition Width="340" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- LEFT -->
+                        <ScrollViewer Grid.Column="0"
+                                      Style="{StaticResource FF9ScrollViewer}"
+                                      VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled"
+                                      Padding="0,0,6,0">
+                            <StackPanel>
+
+                                <!-- MODE -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="RANDOMIZER MODE" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton Content="Recommended" IsChecked="{Binding IsRecommendedMode}"
+                                                         Margin="0,0,24,0" ToolTip="Coherent characters, rare legendaries, completable game." />
+                                            <RadioButton Content="Chaos" IsChecked="{Binding IsChaosMode}"
+                                                         ToolTip="Unconstrained. Maximum randomness. No guardrails." />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </ContentControl>
+
+                                <!-- CHARACTERS -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="CHARACTERS" />
+                                        <CheckBox Content="Randomize Characters"
+                                                  IsChecked="{Binding RandomizeCharacters}" Margin="0,0,0,4" />
+                                        <CheckBox Content="Base Stats" IsChecked="{Binding RandomizeBaseStats}"
+                                                  IsEnabled="{Binding RandomizeCharacters}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Speciality" IsChecked="{Binding RandomizeSpeciality}"
+                                                  IsEnabled="{Binding RandomizeCharacters}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Abilities" IsChecked="{Binding RandomizeAbilities}"
+                                                  IsEnabled="{Binding RandomizeCharacters}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Equipment" IsChecked="{Binding RandomizeEquipment}"
+                                                  IsEnabled="{Binding RandomizeCharacters}" Margin="16,0,0,4" />
+                                        <!-- Distribution requires Characters AND Equipment -->
+                                        <Grid Margin="32,0,0,6" IsEnabled="{Binding IsEquipmentOptionsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Distribution:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding EquipmentModes}"
+                                                      SelectedItem="{Binding EquipmentMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Starting Items" IsChecked="{Binding RandomizeStartingItems}"
+                                                  IsEnabled="{Binding RandomizeCharacters}" Margin="16,0,0,4" />
+                                        <!-- Item Pool requires Characters AND Starting Items -->
+                                        <Grid Margin="32,0,0,4" IsEnabled="{Binding IsStartingItemOptionsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Item Pool:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding StartingItemModes}"
+                                                      SelectedItem="{Binding StartingItemMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <!-- Stack Counts requires Characters AND Starting Items -->
+                                        <CheckBox Content="Randomize Stack Counts"
+                                                  IsChecked="{Binding RandomizeStartingCounts}"
+                                                  IsEnabled="{Binding IsStartingItemOptionsActive}"
+                                                  Margin="32,0,0,8"
+                                                  ToolTip="Also randomize how many of each starting item you receive (1–7)." />
+
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="ABILITY GEMS" />
+                                        <CheckBox Content="Randomize Gem Costs" IsChecked="{Binding RandomizeAbilityGems}"
+                                                  Margin="0,0,0,4" ToolTip="Randomizes how many Magic Stones each ability costs to equip." />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeAbilityGems}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding AbilityGemModes}"
+                                                      SelectedItem="{Binding AbilityGemMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding RandomizeAbilityGems}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                                <ColumnDefinition Width="8"   />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Cost Range:" Style="{StaticResource InlineLabel}" />
+                                            <TextBox Grid.Column="1" Text="{Binding AbilityGemMinCost, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Min"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                            <TextBox Grid.Column="3" Text="{Binding AbilityGemMaxCost, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Max"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="ABILITY AP COSTS" Margin="0,4,0,10" />
+                                        <CheckBox Content="Randomize AP Costs" IsChecked="{Binding RandomizeAbilityAp}"
+                                                  Margin="0,0,0,4" ToolTip="Randomizes how much AP each ability costs to learn." />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeAbilityAp}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding AbilityApModes}"
+                                                      SelectedItem="{Binding AbilityApMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeAbilityAp}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                                <ColumnDefinition Width="8"   />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Scale %:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="ProportionalScale: multiply vanilla AP by Min%–Max%." />
+                                            <TextBox Grid.Column="1" Text="{Binding ApScaleMinPercent, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Min %"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                            <TextBox Grid.Column="3" Text="{Binding ApScaleMaxPercent, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Max %"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding RandomizeAbilityAp}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Flat Cost:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="FlatCost: every ability costs exactly this AP." />
+                                            <TextBox Grid.Column="1" Text="{Binding ApFlatCost, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="AP"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="GEAR STAT BONUSES" Margin="0,4,0,10" />
+                                        <CheckBox Content="Randomize Gear Stat Bonuses" IsChecked="{Binding RandomizeGearStatBonuses}"
+                                                  Margin="0,0,0,4" ToolTip="Randomizes Str/Mag/Dex/Will bonuses granted by equipment." />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeGearStatBonuses}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding GearStatModes}"
+                                                      SelectedItem="{Binding GearStatMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeGearStatBonuses}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Weighting:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding GearStatWeightings}"
+                                                      SelectedItem="{Binding GearStatWeighting}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Zero-Stat Items Can Gain Stats"
+                                                  IsChecked="{Binding ZeroStatItemsCanGainStats}"
+                                                  IsEnabled="{Binding RandomizeGearStatBonuses}"
+                                                  Margin="16,0,0,0"
+                                                  ToolTip="Allow purely elemental items to receive stat bonuses." />
+                                    </StackPanel>
+                                </ContentControl>
+
+                                <!-- ITEMS -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="ITEMS" />
+                                        <CheckBox Content="Treasure Chests / Hidden Items" IsChecked="{Binding RandomizeTreasureChests}"
+                                                  Margin="0,0,0,8" ToolTip="Randomizes all field treasure chests and hidden pickups." />
+                                        <CheckBox Content="Shops" IsChecked="{Binding RandomizeShops}" Margin="0,0,0,4" />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeShops}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding ShopModes}" SelectedItem="{Binding ShopMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeShops}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Item Pool:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding ShopItemPools}" SelectedItem="{Binding ShopItemPool}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeShops}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Shop Size:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding ShopSizeModes}" SelectedItem="{Binding ShopSizeMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeShops}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Fixed Size:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="Items per shop when Shop Size = Fixed." />
+                                            <TextBox Grid.Column="1" Text="{Binding ShopFixedSize, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Count"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Ensure Medic Items in Shops" IsChecked="{Binding ShopIncludeMedicItems}"
+                                                  IsEnabled="{Binding RandomizeShops}" Margin="16,0,0,4"
+                                                  ToolTip="Guarantees at least N shops carry Potions and Phoenix Downs." />
+                                        <Grid Margin="32,0,0,8" IsEnabled="{Binding IsShopMedicOptionsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Min Shops:" Style="{StaticResource InlineLabel}" />
+                                            <TextBox Grid.Column="1" Text="{Binding ShopMedicMinShops, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Count"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Synthesis Recipes" IsChecked="{Binding RandomizeSynthesis}" Margin="0,0,0,4" />
+                                        <CheckBox Content="Randomize Results" IsChecked="{Binding RandomizeSynthesisResults}"
+                                                  IsEnabled="{Binding RandomizeSynthesis}" Margin="16,0,0,4"
+                                                  ToolTip="Shuffle which item each synthesis recipe produces." />
+                                        <CheckBox Content="Randomize Ingredients" IsChecked="{Binding RandomizeSynthesisIngredients}"
+                                                  IsEnabled="{Binding RandomizeSynthesis}" Margin="16,0,0,4"
+                                                  ToolTip="Shuffle the ingredients required for each recipe." />
+                                        <CheckBox Content="Allow New Results" IsChecked="{Binding AllowNewSynthesisResults}"
+                                                  IsEnabled="{Binding IsAllowNewResultsActive}" Margin="16,0,0,4"
+                                                  ToolTip="Results can be items not normally found in synthesis." />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding RandomizeSynthesis}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Prices:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding SynthesisPriceModes}"
+                                                      SelectedItem="{Binding SynthesisPriceMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding RandomizeSynthesis}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                                <ColumnDefinition Width="8"   />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Price Range:" Style="{StaticResource InlineLabel}" />
+                                            <TextBox Grid.Column="1" Text="{Binding SynthPriceMin, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Min"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                            <TextBox Grid.Column="3" Text="{Binding SynthPriceMax, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Max"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="CHALLENGE MODIFIERS" Margin="0,4,0,10" />
+                                        <CheckBox Content="Bad Economy" IsChecked="{Binding BadEconomy}" Margin="0,0,0,4"
+                                                  ToolTip="Multiplies all shop and synthesis prices by a random factor." />
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding BadEconomy}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                                <ColumnDefinition Width="8"   />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Multiplier:" Style="{StaticResource InlineLabel}" />
+                                            <TextBox Grid.Column="1" Text="{Binding BadEconomyPriceMultiplierMin, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Min ×"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                            <TextBox Grid.Column="3" Text="{Binding BadEconomyPriceMultiplierMax, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Max ×"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Short Supply" IsChecked="{Binding ShortSupply}" Margin="0,0,0,4"
+                                                  ToolTip="Caps each shop's item count at the specified maximum." />
+                                        <Grid Margin="16,0,0,0" IsEnabled="{Binding ShortSupply}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Max Items:" Style="{StaticResource InlineLabel}" />
+                                            <TextBox Grid.Column="1" Text="{Binding ShortSupplyMaxItems, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Count"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                    </StackPanel>
+                                </ContentControl>
+
+                                <!-- STILTZKIN -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="STILTZKIN" />
+                                        <!-- Master toggle -->
+                                        <CheckBox Content="Randomize Stiltzkin's Bag"
+                                                  IsChecked="{Binding RandomizeStiltzkin}"
+                                                  Margin="0,0,0,8"
+                                                  ToolTip="Enable Stiltzkin's Bag randomization." />
+                                        <!-- Items dropdown always active when master is on -->
+                                        <Grid Margin="0,0,0,6" IsEnabled="{Binding RandomizeStiltzkin}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90" />
+                                                <ColumnDefinition Width="*"  />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Items:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding StiltzkinModes}"
+                                                      SelectedItem="{Binding StiltzkinMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <!-- Pool only active when mode = Recommended -->
+                                        <Grid Margin="0,0,0,6" IsEnabled="{Binding IsStiltzkinPoolActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90" />
+                                                <ColumnDefinition Width="*"  />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Pool:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding StiltzkinSubModes}"
+                                                      SelectedItem="{Binding StiltzkinSubMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <!-- Prices active when master on and mode is not Off/IncludeInFieldPool -->
+                                        <Grid IsEnabled="{Binding IsStiltzkinPriceActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90" />
+                                                <ColumnDefinition Width="*"  />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Prices:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding StiltzkinPriceModes}"
+                                                      SelectedItem="{Binding StiltzkinPriceMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                    </StackPanel>
+                                </ContentControl>
+
+                                <!-- ENEMIES -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="ENEMIES" />
+                                        <CheckBox Content="Randomize Enemies" IsChecked="{Binding RandomizeEnemies}" Margin="0,0,0,4" />
+                                        <CheckBox Content="Item Drops" IsChecked="{Binding RandomizeItemDrops}"
+                                                  IsEnabled="{Binding RandomizeEnemies}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Item Steals" IsChecked="{Binding RandomizeItemSteals}"
+                                                  IsEnabled="{Binding RandomizeEnemies}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Blue Magic" IsChecked="{Binding RandomizeBlueMagic}"
+                                                  IsEnabled="{Binding RandomizeEnemies}" Margin="16,0,0,4" />
+                                        <CheckBox Content="Card Drops" IsChecked="{Binding RandomizeCardDrops}"
+                                                  IsEnabled="{Binding RandomizeEnemies}" Margin="16,0,0,0" />
+                                    </StackPanel>
+                                </ContentControl>
+
+                                <!-- TETRAMASTER -->
+                                <ContentControl Style="{StaticResource FF9Panel}">
+                                    <StackPanel>
+                                        <ContentControl Style="{StaticResource SectionHeaderRule}" Content="TETRAMASTER" />
+                                        <CheckBox Content="Randomize Tetramaster" IsChecked="{Binding RandomizeTetraMaster}" Margin="0,0,0,8" />
+                                        <CheckBox Content="Card Stats" IsChecked="{Binding RandomizeCardStats}"
+                                                  IsEnabled="{Binding RandomizeTetraMaster}" Margin="0,0,0,4"
+                                                  ToolTip="Randomizes attack, defence, and magic defence per card." />
+                                        <Grid Margin="16,0,0,4" IsEnabled="{Binding IsCardStatsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding CardStatModes}"
+                                                      SelectedItem="{Binding CardStatMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding IsCardStatsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                                <ColumnDefinition Width="8"   />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Stat Range:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="BoundedRandom: draw each stat from Min–Max." />
+                                            <TextBox Grid.Column="1" Text="{Binding CardStatMin, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Min"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                            <TextBox Grid.Column="3" Text="{Binding CardStatMax, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="Max"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="0,0,0,8" IsEnabled="{Binding RandomizeTetraMaster}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Card Types:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="Controls whether Physical/Magical type bytes are randomized." />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding CardTypeModes}"
+                                                      SelectedItem="{Binding CardTypeMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <Grid Margin="0,0,0,8" IsEnabled="{Binding RandomizeTetraMaster}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Arrows:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="Controls how card directional attack arrows are randomized." />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding ArrowModes}"
+                                                      SelectedItem="{Binding ArrowMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Shuffle Card Order" IsChecked="{Binding RandomizeCardOrder}"
+                                                  IsEnabled="{Binding RandomizeTetraMaster}" Margin="0,0,0,8"
+                                                  ToolTip="Shuffles card identities — Goblin may become Bahamut, etc." />
+                                        <CheckBox Content="Randomize Card Sets" IsChecked="{Binding RandomizeCardSets}"
+                                                  IsEnabled="{Binding RandomizeTetraMaster}" Margin="0,0,0,4"
+                                                  ToolTip="Randomizes which cards appear in NPC draw pools." />
+                                        <Grid Margin="16,0,0,8" IsEnabled="{Binding IsCardSetsActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Mode:" Style="{StaticResource InlineLabel}" />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding CardSetModes}"
+                                                      SelectedItem="{Binding CardSetMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                        <CheckBox Content="Shuffle NPC Decks" IsChecked="{Binding RandomizeDecks}"
+                                                  IsEnabled="{Binding RandomizeTetraMaster}" Margin="0,0,0,4"
+                                                  ToolTip="Shuffles which card pool each NPC draws from." />
+                                        <Grid Margin="16,0,0,0" IsEnabled="{Binding IsNpcDecksActive}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*"   />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Difficulty:" Style="{StaticResource InlineLabel}"
+                                                       ToolTip="Controls NPC deck difficulty ratings." />
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding NpcDifficultyModes}"
+                                                      SelectedItem="{Binding NpcDifficultyMode}"
+                                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                      Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12" />
+                                        </Grid>
+                                    </StackPanel>
+                                </ContentControl>
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+                        <!-- RIGHT -->
+                        <DockPanel Grid.Column="2" LastChildFill="True">
+
+                            <!-- Generate panel — pinned to bottom -->
+                            <ContentControl DockPanel.Dock="Bottom" Style="{StaticResource FF9Panel}" Margin="0,8,0,0">
+                                <StackPanel>
+                                    <ProgressBar Value="{Binding GenerationProgress}" Minimum="0" Maximum="1"
+                                                 Height="6" Margin="0,0,0,6" />
+                                    <!-- Status text: white, FontSize 13 for readability -->
+                                    <TextBlock Text="{Binding StatusText}"
+                                               FontSize="13"
+                                               Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,0,8" />
+                                    <Button Content="GENERATE" Command="{Binding GenerateCommand}"
+                                            Style="{StaticResource MaterialDesignRaisedButton}"
+                                            Background="{StaticResource SB.PrimaryBrush}"
+                                            Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                            Height="44" FontSize="15" FontWeight="Bold"
+                                            HorizontalAlignment="Stretch" />
+                                </StackPanel>
+                            </ContentControl>
+
+                            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                          Style="{StaticResource FF9ScrollViewer}"
+                                          HorizontalScrollBarVisibility="Disabled">
+                                <StackPanel>
+
+                                    <!-- SEED -->
+                                    <ContentControl Style="{StaticResource FF9Panel}">
+                                        <StackPanel>
+                                            <ContentControl Style="{StaticResource SectionHeaderRule}" Content="SEED" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"    />
+                                                    <ColumnDefinition Width="8"    />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Grid.Column="0"
+                                                         Text="{Binding SeedString, UpdateSourceTrigger=PropertyChanged}"
+                                                         materialDesign:HintAssist.Hint="Seed"
+                                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                         Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="14" />
+                                                <Button Grid.Column="2" Content="Dice"
+                                                        Command="{Binding RandomSeedCommand}"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                                        Width="52" ToolTip="Generate a random seed" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </ContentControl>
+
+                                    <!-- GAME PATH -->
+                                    <ContentControl Style="{StaticResource FF9Panel}">
+                                        <StackPanel>
+                                            <ContentControl Style="{StaticResource SectionHeaderRule}" Content="GAME PATH" />
+                                            <TextBox Text="{Binding GamePath, UpdateSourceTrigger=PropertyChanged}"
+                                                     materialDesign:HintAssist.Hint="FFIX installation folder"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                                     FontSize="11" Margin="0,0,0,6" />
+                                            <Grid Margin="0,0,0,4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="8" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="0" Content="Auto-Detect"
+                                                        Command="{Binding AutoDetectPathCommand}"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                                <Button Grid.Column="2" Content="Browse…"
+                                                        Command="{Binding BrowsePathCommand}"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                            </Grid>
+                                            <TextBlock Text="{Binding GamePathValidationMessage}"
+                                                       FontSize="11" FontWeight="Bold" TextWrapping="Wrap">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Foreground" Value="#EF5350" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsGamePathValid}" Value="True">
+                                                                <Setter Property="Foreground" Value="#FFA726" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding IsMemoriaDetected}" Value="True">
+                                                                <Setter Property="Foreground" Value="#66BB6A" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </ContentControl>
+
+                                    <!-- PRESETS -->
+                                    <ContentControl Style="{StaticResource FF9Panel}">
+                                        <StackPanel>
+                                            <ContentControl Style="{StaticResource SectionHeaderRule}" Content="PRESETS" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="8" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="6"    />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Button Grid.Row="0" Grid.Column="0" Content="Recommended"
+                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Recommended"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                                <Button Grid.Row="0" Grid.Column="2" Content="Chaos"
+                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Chaos"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                                <Button Grid.Row="2" Grid.Column="0" Content="Casual"
+                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Casual"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                                <Button Grid.Row="2" Grid.Column="2" Content="Competitive"
+                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Competitive"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </ContentControl>
+
+                                    <!-- SETTINGS STRING -->
+                                    <ContentControl Style="{StaticResource FF9Panel}">
+                                        <StackPanel>
+                                            <ContentControl Style="{StaticResource SectionHeaderRule}" Content="SETTINGS STRING" />
+                                            <!-- Display-only — Copy/Import both use clipboard, not this box -->
+                                            <TextBox Text="{Binding SettingsString, Mode=OneWay}"
+                                                     materialDesign:HintAssist.Hint="Click Copy to generate…"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                                     IsReadOnly="True"
+                                                     IsHitTestVisible="False"
+                                                     FontFamily="Consolas" FontSize="11"
+                                                     Margin="0,0,0,4"
+                                                     ToolTip="Copy — generates and copies settings to clipboard.&#x0a;Import — pastes and applies settings from clipboard." />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="8" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="0" Content="Copy"
+                                                        Command="{Binding CopySettingsStringCommand}"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
+                                                        ToolTip="Generate settings string and copy to clipboard." />
+                                                <Button Grid.Column="2" Content="Import"
+                                                        Command="{Binding ImportSettingsStringCommand}"
+                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
+                                                        ToolTip="Apply settings string from clipboard." />
+                                            </Grid>
+                                        </StackPanel>
+                                    </ContentControl>
+
+                                </StackPanel>
+                            </ScrollViewer>
+
+                        </DockPanel>
+
+                    </Grid>
+                    <!-- Loading overlay — centered over content, visible during generation -->
+                    <Grid Grid.Row="1"
+                          Visibility="{Binding IsGenerating, Converter={StaticResource BoolToVis}}"
+                          Background="#AA0A0F1C">
+                        <Image Width="220" Height="220"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               gif:AnimationBehavior.SourceUri="/Resources/Sprites/SB-loading.gif"
+                               gif:AnimationBehavior.RepeatBehavior="Forever"
+                               RenderOptions.BitmapScalingMode="HighQuality" />
+                    </Grid>
+
+                </Grid>
+            </Border>
         </Border>
+    </Border>
 
-        <!-- ═══════════════════════════════════════════
-             Main content area (placeholder)
-        ════════════════════════════════════════════ -->
-        <Border Grid.Row="1"
-                Margin="24"
-                Background="{StaticResource SB.SurfaceBrush}"
-                CornerRadius="4"
-                Padding="24">
-            <TextBlock Text="Settings panels will be built in Phase 7."
-                       Foreground="{StaticResource SB.TextSecondaryBrush}"
-                       FontStyle="Italic"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
-        </Border>
-
-        <!-- ═══════════════════════════════════════════
-             Footer — seed input + generate button
-        ════════════════════════════════════════════ -->
-        <Border Grid.Row="2"
-                Background="{StaticResource SB.SurfaceBrush}"
-                Padding="24,16">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <!-- Seed field -->
-                <TextBox Grid.Column="0"
-                         Margin="0,0,16,0"
-                         materialDesign:HintAssist.Hint="Enter seed..."
-                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Foreground="{StaticResource SB.TextPrimaryBrush}"
-                         IsEnabled="False" />
-
-                <!-- Random seed button -->
-                <Button Grid.Column="1"
-                        Content="Random Seed"
-                        Margin="0,0,8,0"
-                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                        IsEnabled="False" />
-
-                <!-- Generate button — disabled until pipeline is wired -->
-                <Button Grid.Column="2"
-                        Content="GENERATE"
-                        Width="140"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        Background="{StaticResource SB.PrimaryBrush}"
-                        IsEnabled="False" />
-            </Grid>
-        </Border>
-
-    </Grid>
 </Window>

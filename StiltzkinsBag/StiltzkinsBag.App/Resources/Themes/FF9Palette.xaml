@@ -1,39 +1,136 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
     <!--
-        FF9 Stiltzkin color palette.
-        These keys override MaterialDesign's base brushes.
-        Expand this file in Phase 7 when full theming is built out.
+        FF9 Stiltzkin color palette — Phase 7 Task 10.
+        Colors derived from actual FFIX in-game UI screenshots.
+
+        Tile sources (both 76×76 px, Build Action = Resource):
+          bgc.png  — royal blue diamond crosshatch  — panel fill
+          bgc2.png — dark charcoal crosshatch        — window background
     -->
 
-    <!-- Primary deep blue — Stiltzkin's coat color -->
-    <Color x:Key="SB.Primary">#1A237E</Color>
-    <Color x:Key="SB.PrimaryLight">#534BAE</Color>
-    <Color x:Key="SB.PrimaryDark">#000051</Color>
+    <!-- ── Core palette ───────────────────────────────────────────── -->
 
-    <!-- Accent gold — FF9 treasure/item color -->
-    <Color x:Key="SB.Accent">#FFD740</Color>
-    <Color x:Key="SB.AccentDark">#C8A600</Color>
+    <Color x:Key="SB.Primary">#2A4090</Color>
+    <Color x:Key="SB.PrimaryLight">#3B55B8</Color>
+    <Color x:Key="SB.PrimaryDark">#1A2E70</Color>
 
-    <!-- Surface and background -->
-    <Color x:Key="SB.Background">#0D0D1A</Color>
-    <Color x:Key="SB.Surface">#1C1C2E</Color>
-    <Color x:Key="SB.SurfaceRaised">#26263A</Color>
+    <!-- Amber gold — title accent -->
+    <Color x:Key="SB.Accent">#CC9933</Color>
+    <Color x:Key="SB.AccentDark">#AA7722</Color>
 
-    <!-- Text -->
-    <Color x:Key="SB.TextPrimary">#F0E6D2</Color>
-    <Color x:Key="SB.TextSecondary">#9E9CBF</Color>
-    <Color x:Key="SB.TextDisabled">#4A4A6A</Color>
+    <Color x:Key="SB.Background">#0D1018</Color>
+    <Color x:Key="SB.Surface">#2A4090</Color>
+    <Color x:Key="SB.SurfaceRaised">#3050B4</Color>
+    <Color x:Key="SB.Border">#FFFFFF</Color>
 
-    <!-- Solid brushes for binding in XAML -->
-    <SolidColorBrush x:Key="SB.PrimaryBrush" Color="{StaticResource SB.Primary}" />
-    <SolidColorBrush x:Key="SB.AccentBrush" Color="{StaticResource SB.Accent}" />
-    <SolidColorBrush x:Key="SB.BackgroundBrush" Color="{StaticResource SB.Background}" />
-    <SolidColorBrush x:Key="SB.SurfaceBrush" Color="{StaticResource SB.Surface}" />
-    <SolidColorBrush x:Key="SB.SurfaceRaisedBrush" Color="{StaticResource SB.SurfaceRaised}" />
-    <SolidColorBrush x:Key="SB.TextPrimaryBrush" Color="{StaticResource SB.TextPrimary}" />
-    <SolidColorBrush x:Key="SB.TextSecondaryBrush" Color="{StaticResource SB.TextSecondary}" />
-    <SolidColorBrush x:Key="SB.TextDisabledBrush" Color="{StaticResource SB.TextDisabled}" />
+    <Color x:Key="SB.TextPrimary">#FFFFFF</Color>
+    <Color x:Key="SB.TextSecondary">#A0BCD8</Color>
+    <Color x:Key="SB.TextDisabled">#4A6888</Color>
+
+    <!-- ── Bevel border colors (FF9 3D panel effect) ─────────────── -->
+    <!-- Layer 1 — outermost: near-black shadow ring -->
+    <Color x:Key="SB.Bevel.Outer">#141420</Color>
+    <!-- Layer 2 — bevel highlight: top-left bright (light source from top-left) -->
+    <Color x:Key="SB.Bevel.Highlight">#D4E8FF</Color>
+    <!-- Layer 2 — bevel shadow: bottom-right dark -->
+    <Color x:Key="SB.Bevel.Shadow">#182040</Color>
+    <!-- Layer 3 — inner ring: medium steel blue separating bevel from fill -->
+    <Color x:Key="SB.Bevel.Inner">#6080B8</Color>
+    <!-- Radial overlay: subtle center brightening on fill -->
+    <Color x:Key="SB.Bevel.RadialHighlight">#20FFFFFF</Color>
+
+    <!-- ── SB solid brushes ───────────────────────────────────────── -->
+    <SolidColorBrush x:Key="SB.PrimaryBrush"        Color="{StaticResource SB.Primary}" />
+    <SolidColorBrush x:Key="SB.AccentBrush"         Color="{StaticResource SB.Accent}" />
+    <SolidColorBrush x:Key="SB.AccentDarkBrush"     Color="{StaticResource SB.AccentDark}" />
+    <SolidColorBrush x:Key="SB.BackgroundBrush"     Color="{StaticResource SB.Background}" />
+    <SolidColorBrush x:Key="SB.SurfaceBrush"        Color="{StaticResource SB.Surface}" />
+    <SolidColorBrush x:Key="SB.SurfaceRaisedBrush"  Color="{StaticResource SB.SurfaceRaised}" />
+    <SolidColorBrush x:Key="SB.BorderBrush"         Color="{StaticResource SB.Border}" />
+    <SolidColorBrush x:Key="SB.TextPrimaryBrush"    Color="{StaticResource SB.TextPrimary}" />
+    <SolidColorBrush x:Key="SB.TextSecondaryBrush"  Color="{StaticResource SB.TextSecondary}" />
+    <SolidColorBrush x:Key="SB.TextDisabledBrush"   Color="{StaticResource SB.TextDisabled}" />
+    <SolidColorBrush x:Key="SB.Bevel.OuterBrush"    Color="{StaticResource SB.Bevel.Outer}" />
+    <SolidColorBrush x:Key="SB.Bevel.InnerBrush"    Color="{StaticResource SB.Bevel.Inner}" />
+    <Color x:Key="SB.Bevel.Mid">#DCE8F8</Color>
+    <Color x:Key="SB.Bevel.MidDark">#182848</Color>
+    <SolidColorBrush x:Key="SB.Bevel.MidBrush"     Color="{StaticResource SB.Bevel.Mid}" />
+    <SolidColorBrush x:Key="SB.Bevel.MidDarkBrush" Color="{StaticResource SB.Bevel.MidDark}" />
+
+    <!-- Chrome hover overlays -->
+    <SolidColorBrush x:Key="SB.ChromeHoverBrush"      Color="#28FFFFFF" />
+    <SolidColorBrush x:Key="SB.ChromeCloseHoverBrush" Color="#E81123" />
+
+    <!-- ── MaterialDesign primary overrides ──────────────────────── -->
+    <!-- These keys load AFTER MaterialDesign2.Defaults in App.xaml,
+         replacing MD's Indigo with our exact FFIX royal blue.
+         Affects: CheckBox, RadioButton, Button, TextBox focus ring,
+         ComboBox, ProgressBar — all interactive controls. -->
+    <SolidColorBrush x:Key="PrimaryHueLightBrush"           Color="#3B55B8" />
+    <SolidColorBrush x:Key="PrimaryHueMidBrush"             Color="#2A4090" />
+    <SolidColorBrush x:Key="PrimaryHueDarkBrush"            Color="#1A2E70" />
+    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush"   Color="#FFFFFF" />
+    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush"  Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="SecondaryHueLightBrush"           Color="#E8B840" />
+    <SolidColorBrush x:Key="SecondaryHueMidBrush"             Color="#CC9933" />
+    <SolidColorBrush x:Key="SecondaryHueDarkBrush"            Color="#AA7722" />
+    <SolidColorBrush x:Key="SecondaryHueLightForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush"   Color="#FFFFFF" />
+    <SolidColorBrush x:Key="SecondaryHueDarkForegroundBrush"  Color="#FFFFFF" />
+
+    <!-- Body text and interactive control text overrides -->
+    <SolidColorBrush x:Key="MaterialDesignBody"               Color="#FFFFFF" />
+    <SolidColorBrush x:Key="MaterialDesignBodyLight"          Color="#A0BCD8" />
+    <SolidColorBrush x:Key="MaterialDesignCheckBoxOff"        Color="#A0BCD8" />
+    <SolidColorBrush x:Key="MaterialDesignCheckBoxDisabled"   Color="#4A6888" />
+
+    <!-- ── Font resources ─────────────────────────────────────────── -->
+    <FontFamily x:Key="FF9Font">
+        pack://application:,,,/StiltzkinsBag.App;component/Resources/Fonts/#Century Gothic
+    </FontFamily>
+    <FontFamily x:Key="FF9FontBold">
+        pack://application:,,,/StiltzkinsBag.App;component/Resources/Fonts/#Century Gothic Bold
+    </FontFamily>
+
+    <!-- ── Implicit control foreground overrides ─────────────────── -->
+    <!-- MaterialDesign sets Foreground internally on these controls,
+     overriding Window-level TextElement.Foreground inheritance.
+     These implicit styles restore white text globally. -->
+    <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+        <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+    </Style>
+    <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignRadioButton}">
+        <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+    </Style>
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+        <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+    </Style>
+    <!-- added to fix the text color of certain items -->
+    <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignOutlinedComboBox}">
+        <Setter Property="Foreground" Value="{StaticResource SB.TextPrimaryBrush}" />
+    </Style>
+
+    <!-- ── Tiled image brushes ───────────────────────────────────── -->
+    <!-- bgc.png — royal blue crosshatch — panel fill -->
+    <ImageBrush x:Key="SB.TileBrush.Surface"
+                ImageSource="/Resources/Sprites/bgc.png"
+                TileMode="Tile"
+                ViewportUnits="Absolute"
+                Viewport="0,0,76,76"
+                Stretch="None" />
+
+    <!-- bgc2.png — dark charcoal crosshatch — window background -->
+    <ImageBrush x:Key="SB.TileBrush.Background"
+                ImageSource="/Resources/Sprites/bgc2.png"
+                TileMode="Tile"
+                ViewportUnits="Absolute"
+                Viewport="0,0,76,76"
+                Stretch="None" />
 
 </ResourceDictionary>

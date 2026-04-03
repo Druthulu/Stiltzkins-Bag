@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
+      "CommunityToolkit.Mvvm/8.4.2": {
+        "runtime": {
+          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.4.0.0",
+            "fileVersion": "8.4.2.1"
+          }
+        }
+      },
       "CsvHelper/33.1.0": {
         "runtime": {
           "lib/net8.0/CsvHelper.dll": {
@@ -41,10 +49,25 @@
             "fileVersion": "1.1.77.27830"
           }
         }
+      },
+      "XamlAnimatedGif/2.3.1": {
+        "runtime": {
+          "lib/net5.0-windows7.0/XamlAnimatedGif.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.3.1.0"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "CommunityToolkit.Mvvm/8.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WadCzGEc2U+3e20avRLng4qNtt4zoOGWrdUISqJWrHe3/FSnrYjuM5Sb4yQb09LhkBXrrI4Zt3dLKgRMbItsrg==",
+      "path": "communitytoolkit.mvvm/8.4.2",
+      "hashPath": "communitytoolkit.mvvm.8.4.2.nupkg.sha512"
+    },
     "CsvHelper/33.1.0": {
       "type": "package",
       "serviceable": true,
@@ -72,6 +95,13 @@
       "sha512": "sha512-MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.77",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512"
+    },
+    "XamlAnimatedGif/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LthlwWKP3fGGZBp3xnBzMOygUihFX0gj1vAEyCgt1lrq6d1fPxtpEmrzpwzQiX+AJ/TnZn+7a2FjRXQL/K0h6w==",
+      "path": "xamlanimatedgif/2.3.1",
+      "hashPath": "xamlanimatedgif.2.3.1.nupkg.sha512"
     }
   }
 }

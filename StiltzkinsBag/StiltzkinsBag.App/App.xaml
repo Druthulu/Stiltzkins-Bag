@@ -6,18 +6,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
-                <!-- 1. MaterialDesign base theme — must come first -->
+                <!-- 1. MaterialDesign base theme.
+                     PrimaryColor=Indigo is the closest named MD color to our FFIX royal blue.
+                     FF9Palette.xaml then overrides the specific brush keys with our exact values. -->
                 <materialDesign:BundledTheme BaseTheme="Dark"
-                                             PrimaryColor="DeepPurple"
+                                             PrimaryColor="Indigo"
                                              SecondaryColor="Amber" />
-
                 <!-- 2. MaterialDesign control styles -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
-
-                <!-- 3. FF9 palette overrides — our custom colors on top of MaterialDesign -->
+                <!-- 3. FF9 palette — overrides MaterialDesign brush keys with our exact colors -->
                 <ResourceDictionary Source="Resources/Themes/FF9Palette.xaml" />
-
+                <ResourceDictionary Source="Resources/Themes/FF9ScrollBar.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

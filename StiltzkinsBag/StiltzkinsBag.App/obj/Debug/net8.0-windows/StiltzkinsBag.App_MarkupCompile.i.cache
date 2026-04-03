@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.App\App.xaml
-2-1128420657
+31674291693
 22-777195506
-6-1563628722
-203-957592370
-Resources\Themes\FF9Palette.xaml;Views\MainWindow.xaml;
+8-840085298
+214-1223415313
+Resources\Themes\FF9Palette.xaml;Resources\Themes\FF9ScrollBar.xaml;Views\MainWindow.xaml;
 
-False
+True
 
