@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StiltzkinsBag.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83a67bdffb4cdf0077337e478f392b5246968934")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+366cb574a0efc034b14820409bc77bfa1120fafe")]
 [assembly: System.Reflection.AssemblyProductAttribute("StiltzkinsBag.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StiltzkinsBag.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

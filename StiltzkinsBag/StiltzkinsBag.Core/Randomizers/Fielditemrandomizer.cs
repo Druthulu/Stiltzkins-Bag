@@ -107,7 +107,7 @@ namespace StiltzkinsBag.Randomizers
         private const string FieldArchiveName = "p0data7.bin";
 
         private const string VanillaArchiveRelPath =
-            @"FINAL FANTASY IX_Data\StreamingAssets\" + FieldArchiveName;
+            @"StreamingAssets\" + FieldArchiveName;
 
         private const string FieldAssetPathBase =
             @"StreamingAssets\assets\resources\commonasset\eventengine\eventbinary\field";

@@ -685,25 +685,36 @@
                             <ContentControl DockPanel.Dock="Bottom" Style="{StaticResource FF9Panel}" Margin="0,8,0,0">
                                 <StackPanel>
                                     <ProgressBar Value="{Binding GenerationProgress}" Minimum="0" Maximum="1"
-                                                 Height="6" Margin="0,0,0,6" />
+                         Height="6" Margin="0,0,0,6" />
                                     <!-- Status text: white, FontSize 13 for readability -->
                                     <TextBlock Text="{Binding StatusText}"
-                                               FontSize="13"
-                                               Foreground="{StaticResource SB.TextPrimaryBrush}"
-                                               TextWrapping="Wrap"
-                                               Margin="0,0,0,8" />
+                       FontSize="13"
+                       Foreground="{StaticResource SB.TextPrimaryBrush}"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,8" />
                                     <Button Content="GENERATE" Command="{Binding GenerateCommand}"
-                                            Style="{StaticResource MaterialDesignRaisedButton}"
-                                            Background="{StaticResource SB.PrimaryBrush}"
-                                            Foreground="{StaticResource SB.TextPrimaryBrush}"
-                                            Height="44" FontSize="15" FontWeight="Bold"
-                                            HorizontalAlignment="Stretch" />
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Background="{StaticResource SB.PrimaryBrush}"
+                    Foreground="{StaticResource SB.TextPrimaryBrush}"
+                    Height="44" FontSize="15" FontWeight="Bold"
+                    HorizontalAlignment="Stretch" />
+                                    <!-- Remove from Load Order — strips all SB seed entries from Memoria.ini
+                 without deleting the seed folders themselves. Useful after a race is over. -->
+                                    <Button Content="Remove from Load Order"
+                    Command="{Binding RemoveFromLoadOrderCommand}"
+                    IsEnabled="{Binding IsGamePathValid}"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Foreground="{StaticResource SB.TextPrimaryBrush}"
+                    FontSize="11"
+                    Margin="0,6,0,0"
+                    HorizontalAlignment="Stretch"
+                    ToolTip="Remove all Stiltzkin's Bag seed folders from Memoria's load order.&#x0a;Seed folders on disk are not deleted." />
                                 </StackPanel>
                             </ContentControl>
 
                             <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                          Style="{StaticResource FF9ScrollViewer}"
-                                          HorizontalScrollBarVisibility="Disabled">
+                  Style="{StaticResource FF9ScrollViewer}"
+                  HorizontalScrollBarVisibility="Disabled">
                                 <StackPanel>
 
                                     <!-- SEED -->
@@ -717,15 +728,15 @@
                                                     <ColumnDefinition Width="Auto" />
                                                 </Grid.ColumnDefinitions>
                                                 <TextBox Grid.Column="0"
-                                                         Text="{Binding SeedString, UpdateSourceTrigger=PropertyChanged}"
-                                                         materialDesign:HintAssist.Hint="Seed"
-                                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                                         Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="14" />
+                                 Text="{Binding SeedString, UpdateSourceTrigger=PropertyChanged}"
+                                 materialDesign:HintAssist.Hint="Seed"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="14" />
                                                 <Button Grid.Column="2" Content="Dice"
-                                                        Command="{Binding RandomSeedCommand}"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}"
-                                                        Width="52" ToolTip="Generate a random seed" />
+                                Command="{Binding RandomSeedCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}"
+                                Width="52" ToolTip="Generate a random seed" />
                                             </Grid>
                                         </StackPanel>
                                     </ContentControl>
@@ -735,10 +746,10 @@
                                         <StackPanel>
                                             <ContentControl Style="{StaticResource SectionHeaderRule}" Content="GAME PATH" />
                                             <TextBox Text="{Binding GamePath, UpdateSourceTrigger=PropertyChanged}"
-                                                     materialDesign:HintAssist.Hint="FFIX installation folder"
-                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                                     Foreground="{StaticResource SB.TextPrimaryBrush}"
-                                                     FontSize="11" Margin="0,0,0,6" />
+                             materialDesign:HintAssist.Hint="FFIX installation folder"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{StaticResource SB.TextPrimaryBrush}"
+                             FontSize="11" Margin="0,0,0,6" />
                                             <Grid Margin="0,0,0,4">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -746,16 +757,16 @@
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Button Grid.Column="0" Content="Auto-Detect"
-                                                        Command="{Binding AutoDetectPathCommand}"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding AutoDetectPathCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                                 <Button Grid.Column="2" Content="Browse…"
-                                                        Command="{Binding BrowsePathCommand}"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding BrowsePathCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                             </Grid>
                                             <TextBlock Text="{Binding GamePathValidationMessage}"
-                                                       FontSize="11" FontWeight="Bold" TextWrapping="Wrap">
+                               FontSize="11" FontWeight="Bold" TextWrapping="Wrap">
                                                 <TextBlock.Style>
                                                     <Style TargetType="TextBlock">
                                                         <Setter Property="Foreground" Value="#EF5350" />
@@ -770,6 +781,18 @@
                                                     </Style>
                                                 </TextBlock.Style>
                                             </TextBlock>
+                                            <!-- Memoria Engine prompt — shown when FFIX found but Memoria not detected.
+                         Visibility controlled by IsMemoriaPromptVisible (ViewModel computed property). -->
+                                            <Button Content="Get Memoria Engine ↗"
+                            Command="{Binding OpenMemoriaLinkCommand}"
+                            Visibility="{Binding IsMemoriaPromptVisible, Converter={StaticResource BoolToVis}}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            Foreground="#FFA726"
+                            BorderBrush="#FFA726"
+                            FontSize="11"
+                            Margin="0,6,0,0"
+                            HorizontalAlignment="Left"
+                            ToolTip="Opens the Memoria Engine GitHub page in your browser." />
                                         </StackPanel>
                                     </ContentControl>
 
@@ -789,21 +812,21 @@
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
                                                 <Button Grid.Row="0" Grid.Column="0" Content="Recommended"
-                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Recommended"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding LoadPresetCommand}" CommandParameter="Recommended"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                                 <Button Grid.Row="0" Grid.Column="2" Content="Chaos"
-                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Chaos"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding LoadPresetCommand}" CommandParameter="Chaos"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                                 <Button Grid.Row="2" Grid.Column="0" Content="Casual"
-                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Casual"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding LoadPresetCommand}" CommandParameter="Casual"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                                 <Button Grid.Row="2" Grid.Column="2" Content="Competitive"
-                                                        Command="{Binding LoadPresetCommand}" CommandParameter="Competitive"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
+                                Command="{Binding LoadPresetCommand}" CommandParameter="Competitive"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="11" />
                                             </Grid>
                                         </StackPanel>
                                     </ContentControl>
@@ -814,14 +837,14 @@
                                             <ContentControl Style="{StaticResource SectionHeaderRule}" Content="SETTINGS STRING" />
                                             <!-- Display-only — Copy/Import both use clipboard, not this box -->
                                             <TextBox Text="{Binding SettingsString, Mode=OneWay}"
-                                                     materialDesign:HintAssist.Hint="Click Copy to generate…"
-                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                                     Foreground="{StaticResource SB.TextPrimaryBrush}"
-                                                     IsReadOnly="True"
-                                                     IsHitTestVisible="False"
-                                                     FontFamily="Consolas" FontSize="11"
-                                                     Margin="0,0,0,4"
-                                                     ToolTip="Copy — generates and copies settings to clipboard.&#x0a;Import — pastes and applies settings from clipboard." />
+                             materialDesign:HintAssist.Hint="Click Copy to generate…"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             Foreground="{StaticResource SB.TextPrimaryBrush}"
+                             IsReadOnly="True"
+                             IsHitTestVisible="False"
+                             FontFamily="Consolas" FontSize="11"
+                             Margin="0,0,0,4"
+                             ToolTip="Copy — generates and copies settings to clipboard.&#x0a;Import — pastes and applies settings from clipboard." />
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -829,15 +852,15 @@
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Button Grid.Column="0" Content="Copy"
-                                                        Command="{Binding CopySettingsStringCommand}"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
-                                                        ToolTip="Generate settings string and copy to clipboard." />
+                                Command="{Binding CopySettingsStringCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
+                                ToolTip="Generate settings string and copy to clipboard." />
                                                 <Button Grid.Column="2" Content="Import"
-                                                        Command="{Binding ImportSettingsStringCommand}"
-                                                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                                                        Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
-                                                        ToolTip="Apply settings string from clipboard." />
+                                Command="{Binding ImportSettingsStringCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Foreground="{StaticResource SB.TextPrimaryBrush}" FontSize="12"
+                                ToolTip="Apply settings string from clipboard." />
                                             </Grid>
                                         </StackPanel>
                                     </ContentControl>

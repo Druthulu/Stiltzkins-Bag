@@ -1,13 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using StiltzkinsBag.App.Services;
+using StiltzkinsBag.Core;
 using StiltzkinsBag.Models;
 using StiltzkinsBag.Randomizers;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using StiltzkinsBag.Core.Output;
+using System.Diagnostics;
 
 using Clipboard = System.Windows.Clipboard;
 
@@ -29,6 +33,7 @@ namespace StiltzkinsBag.App.ViewModels;
 ///   IsCardStatsActive           = RandomizeTetraMaster AND RandomizeCardStats
 ///   IsCardSetsActive            = RandomizeTetraMaster AND RandomizeCardSets
 ///   IsNpcDecksActive            = RandomizeTetraMaster AND RandomizeDecks
+///   IsMemoriaPromptVisible      = IsGamePathValid AND NOT IsMemoriaDetected
 ///
 /// ViewModel → Settings name mapping:
 ///   RandomizeStartingItems → RandomizeInitialItems
@@ -296,6 +301,12 @@ public partial class MainViewModel : ObservableObject
     /// <summary>NPC Difficulty dropdown requires both Tetramaster master AND Shuffle NPC Decks checked.</summary>
     public bool IsNpcDecksActive => RandomizeTetraMaster && RandomizeDecks;
 
+    /// <summary>
+    /// True when FFIX is found but Memoria Engine is not detected.
+    /// Drives the "Get Memoria Engine" button visibility in XAML.
+    /// </summary>
+    public bool IsMemoriaPromptVisible => IsGamePathValid && !IsMemoriaDetected;
+
     // =========================================================================
     // UI state — not part of Settings
     // =========================================================================
@@ -326,16 +337,28 @@ public partial class MainViewModel : ObservableObject
         GenerationProgress = 0.0;
         StatusText = "Starting generation…";
 
+        // Progress<T> captures the WPF sync context — UI updates are safe without Dispatcher.
+        var progress = new Progress<(double fraction, string message)>(update =>
+        {
+            GenerationProgress = update.fraction;
+            StatusText = update.message;
+        });
+
         try
         {
             var settings = BuildSettings();
-            _ = settings;
+            var result = await RandomizerEngine.RunAsync(settings, progress);
 
-            // --- STUB: remove in Phase 8 ---
-            await Task.Delay(500);
-            GenerationProgress = 1.0;
-            StatusText = "Generation stub — wire RandomizerEngine in Phase 8.";
-            // --- END STUB ---
+            if (result.Success)
+            {
+                GenerationProgress = 1.0;
+                StatusText = $"Done! Seed folder: {result.OutputPath}";
+            }
+            else
+            {
+                GenerationProgress = 0.0;
+                StatusText = $"Generation failed: {string.Join("; ", result.Messages)}";
+            }
         }
         catch (Exception ex)
         {
@@ -420,6 +443,42 @@ public partial class MainViewModel : ObservableObject
         StatusText = $"Preset '{presetName}' loaded.";
     }
 
+    /// <summary>
+    /// Opens the Memoria Engine GitHub page in the system browser.
+    /// Triggered by the "Get Memoria Engine" button, shown when FFIX is detected
+    /// but Memoria is not installed.
+    /// </summary>
+    [RelayCommand]
+    private static void OpenMemoriaLink() =>
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://github.com/Albeoris/Memoria",
+            UseShellExecute = true
+        });
+
+    /// <summary>
+    /// Removes all Stiltzkin's Bag seed folder entries from the base Memoria.ini
+    /// load order without deleting any seed folders from disk.
+    /// </summary>
+    [RelayCommand]
+    private void RemoveFromLoadOrder()
+    {
+        try
+        {
+            string memoriaIniPath = System.IO.Path.Combine(GamePath, "Memoria.ini");
+            MemoriaLoadOrder.RemoveAllSbEntries(memoriaIniPath);
+            StatusText = "Stiltzkin's Bag removed from Memoria load order.";
+        }
+        catch (System.IO.FileNotFoundException)
+        {
+            StatusText = "Memoria.ini not found at the current game path.";
+        }
+        catch (Exception ex)
+        {
+            StatusText = $"Could not update Memoria.ini: {ex.Message}";
+        }
+    }
+
     // =========================================================================
     // Private helpers
     // =========================================================================
@@ -431,10 +490,17 @@ public partial class MainViewModel : ObservableObject
         GamePath = GamePath,
         Mode = _mode,
 
-        RandomizeBaseStats = RandomizeBaseStats,
-        RandomizeSpeciality = RandomizeSpeciality,
-        RandomizeAbilities = RandomizeAbilities,
-        RandomizeEquipment = RandomizeEquipment,
+        // Derived from sub-options — master toggles are UI-only convenience flags
+        // and do not map to Settings properties directly. See ApplySettings() for inverse.
+        RandomizeCharacters = RandomizeCharacters && (RandomizeBaseStats || RandomizeSpeciality ||
+                      RandomizeAbilities || RandomizeEquipment || RandomizeStartingItems),
+        RandomizeEnemies = RandomizeEnemies && (RandomizeItemDrops || RandomizeItemSteals ||
+                      RandomizeBlueMagic || RandomizeCardDrops),
+
+        RandomizeBaseStats = RandomizeCharacters && RandomizeBaseStats,
+        RandomizeSpeciality = RandomizeCharacters && RandomizeSpeciality,
+        RandomizeAbilities = RandomizeCharacters && RandomizeAbilities,
+        RandomizeEquipment = RandomizeCharacters && RandomizeEquipment,
         EquipmentMode = EquipmentMode,
         RandomizeInitialItems = RandomizeStartingItems,
         StartingItemMode = StartingItemMode,
@@ -485,10 +551,10 @@ public partial class MainViewModel : ObservableObject
         StiltzkinRecommendedSubMode = StiltzkinSubMode,
         StiltzkinPriceMode = StiltzkinPriceMode,
 
-        RandomizeItemDrops = RandomizeItemDrops,
-        RandomizeItemSteals = RandomizeItemSteals,
-        RandomizeBlueMagic = RandomizeBlueMagic,
-        RandomizeCardDrops = RandomizeCardDrops,
+        RandomizeItemDrops = RandomizeEnemies && RandomizeItemDrops,
+        RandomizeItemSteals = RandomizeEnemies && RandomizeItemSteals,
+        RandomizeBlueMagic = RandomizeEnemies && RandomizeBlueMagic,
+        RandomizeCardDrops = RandomizeEnemies && RandomizeCardDrops,
 
         RandomizeTetraMaster = RandomizeTetraMaster,
         RandomizeCardStats = RandomizeCardStats,
@@ -606,6 +672,7 @@ public partial class MainViewModel : ObservableObject
             PathValidationResult.ValidNoMemoria => "⚠ FFIX found — Memoria Engine not detected. Install it before generating.",
             _ => string.IsNullOrWhiteSpace(path) ? string.Empty : "✗ FF9_Launcher.exe not found at this path"
         };
+        OnPropertyChanged(nameof(IsMemoriaPromptVisible));
     }
 
     private static string GenerateRandomSeedString() =>
