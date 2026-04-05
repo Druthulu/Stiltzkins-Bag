@@ -1,0 +1,2276 @@
+﻿=== FIELD SCANNER DIAGNOSTIC ===
+Generated : 2026-04-05 03:17:45 UTC
+Archive   : Z:\Games\steamapps\common\FINAL FANTASY IX-VANILLA2026-MemoriaEngine\StreamingAssets\p0data7.bin
+Files with items : 330
+Distinct item IDs: 133
+Total item instances (sum): 798
+
+=== PER-ITEM SUMMARY (sorted by TotalCount DESC) ===
+ID    Name                             TotalCount   FilesCount
+-----------------------------------------------------------------
+239   Elixir                                   79           34
+238   Ether                                    75           39
+249   Phoenix Pinion                           45           27
+236   Potion                                   38           24
+240   Phoenix Down                             34           16
+253   Tent                                     32           18
+237   Hi-Potion                                24           12
+247   Remedy                                   23           14
+251   Gysahl Greens                            21            9
+252   Dead Pepper                              18            1
+254   Ore                                      14           10
+201   Black Belt                               12            4
+175   Robe of Lords                            11            5
+183   Shield Armor                             10            2
+87    Wing Edge                                 9            6
+244   Eye Drops                                 8            5
+241   Echo Screen                               8            6
+92    Mythril Armlet                            8            2
+9     Exploda                                   8            2
+96    N-Kai Armlet                              8            1
+207   Promist Ring                              8            1
+199   Anklet                                    8            1
+126   Black Hood                                8            1
+107   Venetia Shield                            8            1
+19    Blood Sword                               8            2
+204   Rosetta Ring                              8            2
+209   Protect Ring                              7            5
+242   Soft                                      6            3
+193   Magician Shoes                            6            2
+157   Survival Vest                             6            3
+229   Moonstone                                 5            3
+89    Leather Wrist                             5            3
+50    Rune Claws                                5            1
+78    Mace of Zeus                              5            1
+215   Angel Earrings                            4            2
+227   Diamond                                   4            2
+73    Lightning Staff                           4            1
+154   Mythril Vest                              4            2
+228   Emerald                                   4            2
+214   Fairy Earrings                            4            2
+161   Gaia Gear                                 4            2
+1     Dagger                                    4            3
+84    Gastro Fork                               4            4
+198   Running Shoes                             4            2
+94    Chimera Armlet                            4            2
+8     The Ogre                                  4            2
+3     Mythril Dagger                            4            2
+235   Lapis Lazuli                              3            2
+221   Ribbon                                    3            2
+230   Ruby                                      3            2
+104   Mythril Gloves                            3            2
+135   Circlet                                   3            2
+95    Egoist’s Armlet                           3            2
+120   Lamia’s Tiara                             3            2
+30    Excalibur II                              3            1
+20    Ice Brand                                 2            1
+233   Opal                                      2            2
+234   Topaz                                     2            2
+225   Amethyst                                  2            2
+231   Peridot                                   2            2
+232   Sapphire                                  2            2
+130   Flash Hat                                 2            1
+163   Minerva’s Plate                           2            1
+194   Germinas Boots                            2            1
+72    Ice Staff                                 2            1
+169   Silk Robe                                 2            1
+80    Needle Fork                               2            1
+71    Flame Staff                               2            1
+192   Desert Boots                              2            1
+212   Yellow Scarf                              2            2
+105   Thunder Gloves                            2            2
+28    Excalibur                                 2            1
+226   Aquamarine                                2            2
+138   Iron Helm                                 2            1
+243   Antidote                                  2            1
+218   Cachusha                                  2            1
+112   Leather Hat                               2            1
+102   Bronze Gloves                             2            1
+88    Wrist                                     2            1
+60    Healing Rod                               2            1
+65    Lamia’s Flute                             2            1
+158   Brigandine                                2            1
+153   Chain Plate                               2            1
+52    Multina Racket                            2            1
+152   Bronze Vest                               2            2
+220   Extension                                 2            1
+148   Aloha T-shirt                             2            1
+128   Golden Hairpin                            2            1
+184   Demon’s Mail                              2            1
+127   Red Hat                                   2            1
+2     Mage Masher                               2            1
+219   Barette                                   2            1
+16    Broadsword                                2            1
+31    Javelin                                   2            1
+57    Rod                                       2            1
+41    Cat’s Claws                               2            1
+70    Mage Staff                                2            1
+79    Fork                                      2            1
+222   Maiden Prayer                             2            1
+64    Golem’s Flute                             2            1
+223   Ancient Aroma                             2            1
+51    Air Racket                                2            1
+206   Coral Ring                                2            1
+90    Glass Armlet                              2            1
+103   Silver Gloves                             2            2
+115   Steepled Hat                              2            1
+118   Bandana                                   2            1
+22    Diamond Sword                             2            1
+160   Power Vest                                2            1
+196   Feather Boots                             2            1
+86    Rising Sun                                2            1
+133   Holy Miter                                2            1
+187   Carabini Mail                             2            1
+197   Battle Boots                              2            1
+245   Magic Tag                                 2            1
+129   Coronet                                   2            1
+99    Dragon Wrist                              2            1
+162   Demon’s Vest                              2            1
+54    Mythril Racket                            2            1
+200   Power Belt                                2            1
+208   Rebirth Ring                              2            1
+150   Silk Shirt                                1            1
+224   Garnet                                    1            1
+32    Mythril Spear                             1            1
+156   Magician Cloak                            1            1
+136   Rubber Helm                               1            1
+117   Magus Hat                                 1            1
+14    The Tower                                 1            1
+39    Kain’s Lance                              1            1
+69    Angel Flute                               1            1
+151   Leather Plate                             1            1
+97    Jade Armlet                               1            1
+68    Siren’s Flute                             1            1
+
+=== HIGH-COUNT ITEMS (TotalCount > 20) ===
+
+  [239] Elixir  — TotalCount=79
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_SARI1_MS_PMR_0.eb                                     6  0x1A32(D×1), 0x1A48(D×1), 0x1FA6(D×1), 0x1FBC(D×1), 0x278F(D×1), 0x27A5(D×1)
+  EVT_DAG_DG_ENT_0.eb                                       4  0x2AEB(D×1), 0x2B01(D×1), 0x2C83(D×1), 0x2C99(D×1)
+  EVT_GATE_N_NG_TRA_1.eb                                    4  0x2A1B(D×1), 0x2A31(D×1), 0x2ECF(D×1), 0x2EE5(D×1)
+  EVT_TRENO1_TR_QHM_0.eb                                    4  0x19F3(D×1), 0x1A09(D×1), 0x2364(D×1), 0x237A(D×1)
+  EVT_TRENO2_TR_QHM_0.eb                                    4  0x1B61(D×1), 0x1B77(D×1), 0x24D2(D×1), 0x24E8(D×1)
+  EVT_ALEX1_AC_TOWER_L3.eb                                  2  0x068F(D×1), 0x06A5(D×1)
+  EVT_ALEX3_AC_ENT_2F.eb                                    2  0x608D(D×1), 0x60A3(D×1)
+  EVT_ALEX3_AT_SENTOU.eb                                    2  0x2EC5(D×1), 0x2EDB(D×1)
+  EVT_ALEX5_AT_SENTOU.eb                                    2  0x35A0(D×1), 0x35B6(D×1)
+  EVT_BAL_BB_ITS_0.eb                                       2  0x1757(D×1), 0x176D(D×1)
+  EVT_BAL_BB_UDL_0.eb                                       2  0x1122(D×1), 0x1138(D×1)
+  EVT_BAL_BB_WPS_0.eb                                       2  0x2B81(D×1), 0x2B97(D×1)
+  EVT_CLEYRA1_DUN_10.eb                                     2  0x0CBF(D×1), 0x0CD5(D×1)
+  EVT_CLEYRA3_CATHE_1.eb                                    2  0x1046(D×1), 0x105C(D×1)
+  EVT_DALI_A_AP_FID_0.eb                                    2  0x301F(D×1), 0x3035(D×1)
+  EVT_DALI_V_DL_WMS1.eb                                     2  0x1823(D×1), 0x1839(D×1)
+  EVT_EVA2_IU_SDV_0.eb                                      2  0x0E4F(D×1), 0x0E65(D×1)
+  EVT_FOSSIL_FR_ENT_0.eb                                    2  0x1451(D×1), 0x1467(D×1)
+  EVT_GIZ_TO_WORLD.eb                                       2  0x2924(D×1), 0x293A(D×1)
+  EVT_GULUGU_GV_ATK_0.eb                                    2  0x0B43(D×1), 0x0B59(D×1)
+  EVT_HILDA3_G3_EXT_0.eb                                    2  0x15D9(D×1), 0x15EF(D×1)
+  EVT_ICE_IC_JMP_0.eb                                       2  0x21D3(D×1), 0x21E9(D×1)
+  EVT_LIND3_CS_LB_GRM_0.eb                                  2  0x44AF(D×1), 0x44C5(D×1)
+  EVT_LIND3_TN_LB_HUS_0.eb                                  2  0x0D9B(D×1), 0x0DB1(D×1)
+  EVT_MAGE2_BV_ENT_0.eb                                     2  0x214E(D×1), 0x2164(D×1)
+  EVT_MAGE_BV_ENT_0.eb                                      2  0x36E6(D×1), 0x36FC(D×1)
+  EVT_OEIL_UV_DEP_0.eb                                      2  0x3179(D×1), 0x318F(D×1)
+  EVT_OEIL_UV_DP1_0.eb                                      2  0x1057(D×1), 0x106D(D×1)
+  EVT_PANDEMO_PD_MZM_0.eb                                   2  0x260B(D×1), 0x2621(D×1)
+  EVT_PINA_PR_ENT_0.eb                                      2  0x0BFF(D×1), 0x0C15(D×1)
+  EVT_PINA_PR_ENT_1.eb                                      2  0x0F7B(D×1), 0x0F91(D×1)
+  EVT_SARI2_MS_PMR_1.eb                                     2  0x0D63(D×1), 0x0D79(D×1)
+  EVT_TERA_TA_PRB_0.eb                                      2  0x09D3(D×1), 0x09E9(D×1)
+  EVT_ALEX1_AC_SEAT_R.eb                                    1  0x0DA7(D×1)
+
+  [238] Ether  — TotalCount=75
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_GATE_N_NG_BDA_0.eb                                    4  0x1F17(D×1), 0x1F2D(D×1), 0x24BF(D×1), 0x24D5(D×1)
+  EVT_GATE_N_NG_BDA_1.eb                                    4  0x0B8B(D×1), 0x0BA1(D×1), 0x111D(D×1), 0x1133(D×1)
+  EVT_KUWAN_QH_CAV_0.eb                                     4  0x165F(D×1), 0x1675(D×1), 0x18AF(D×1), 0x18C5(D×1)
+  EVT_CLEYRA3_INN.eb                                        3  0x1413(T×1), 0x35CF(D×1), 0x35E5(D×1)
+  EVT_ALEX3_AC_ENT_2F.eb                                    2  0x5F8A(D×1), 0x5FA0(D×1)
+  EVT_BAL_BB_WPS_0.eb                                       2  0x2A87(D×1), 0x2A9D(D×1)
+  EVT_BURMECIA_HOUSE_3.eb                                   2  0x09DF(D×1), 0x09F5(D×1)
+  EVT_BURMECIA_SQUARE_1.eb                                  2  0x27A9(D×1), 0x27BF(D×1)
+  EVT_CLEYRA1_DUN_04.eb                                     2  0x09A7(D×1), 0x09BD(D×1)
+  EVT_CLEYRA3_ANTRION.eb                                    2  0x26DF(D×1), 0x26F5(D×1)
+  EVT_CLEYRA3_CATHE_1.eb                                    2  0x084A(D×1), 0x0860(D×1)
+  EVT_DALI_F_UF_STO_0.eb                                    2  0x32D7(D×1), 0x32ED(D×1)
+  EVT_DOWNSHIP_BT_CUS_0.eb                                  2  0x14C7(D×1), 0x14DD(D×1)
+  EVT_DOWNSHIP_BT_GTR_0.eb                                  2  0x23F7(D×1), 0x240D(D×1)
+  EVT_DOWNSHIP_BT_STR_0.eb                                  2  0x22C2(D×1), 0x22D8(D×1)
+  EVT_EVA2_IU_EUG_2.eb                                      2  0x0F8F(D×1), 0x0FA5(D×1)
+  EVT_FOSSIL_FR_DN1_0.eb                                    2  0x32F8(D×1), 0x330E(D×1)
+  EVT_FOSSIL_FR_DN2_0.eb                                    2  0x0CB3(D×1), 0x0CC9(D×1)
+  EVT_GIZ_TO_WORLD.eb                                       2  0x2EA1(D×1), 0x2EB7(D×1)
+  EVT_GULUGU_GV_RM2_0.eb                                    2  0x0ABA(D×1), 0x0AD0(D×1)
+  EVT_ICE_IC_TER_0.eb                                       2  0x1887(D×1), 0x189D(D×1)
+  EVT_KUWAN_QH_HUR_0.eb                                     2  0x176B(D×1), 0x1781(D×1)
+  EVT_LIND1_CS_LB_GRM_0.eb                                  2  0x38C3(D×1), 0x38D9(D×1)
+  EVT_LIND2_TN_LB_HUS_0.eb                                  2  0x0CC3(D×1), 0x0CD9(D×1)
+  EVT_MAGE_BV_ITM_0.eb                                      2  0x21B6(D×1), 0x21CC(D×1)
+  EVT_PATA_M_CM_MP3_0.eb                                    2  0x29E5(D×1), 0x29FB(D×1)
+  EVT_PATA_M_CM_MP7_0.eb                                    2  0x1213(D×1), 0x1229(D×1)
+  EVT_TRENO1_TR_FQH_0.eb                                    2  0x136A(D×1), 0x1380(D×1)
+  EVT_TRENO2_TR_FQH_0.eb                                    2  0x29DE(D×1), 0x29F4(D×1)
+  EVT_ALEX1_AC_SEAT_R.eb                                    1  0x0D66(D×1)
+  EVT_ALEX1_AT_MAGIC.eb                                     1  0x092F(T×1)
+  EVT_ALEX3_AC_OUT_C.eb                                     1  0x161B(T×1)
+  EVT_ALEX3_AT_MAGIC.eb                                     1  0x0D47(T×1)
+  EVT_ALEX5_AT_STREET_C.eb                                  1  0x0F33(T×1)
+  EVT_CHOCO_CH_FGD_0.eb                                     1  0x4E77(D×1)
+  EVT_CHOCO_CH_FST_0.eb                                     1  0x5A4F(D×1)
+  EVT_CHOCO_CH_HLG_0.eb                                     1  0x5559(D×1)
+  EVT_CLEYRA2_INN.eb                                        1  0x33F7(T×1)
+  EVT_CLEYRA3_CATHE_2.eb                                    1  0x1AEF(T×1)
+
+  [249] Phoenix Pinion  — TotalCount=45
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_TRENO1_TR_QHM_0.eb                                    4  0x1771(D×1), 0x1787(D×1), 0x20E2(D×1), 0x20F8(D×1)
+  EVT_TRENO2_TR_QHM_0.eb                                    4  0x18DF(D×1), 0x18F5(D×1), 0x2250(D×1), 0x2266(D×1)
+  EVT_ALEX1_TS_ENGIN.eb                                     2  0x13D7(D×1), 0x13ED(D×1)
+  EVT_ALEX3_AT_SENTOU.eb                                    2  0x2CD1(D×1), 0x2CE7(D×1)
+  EVT_CLEYRA3_ANTRION.eb                                    2  0x27D9(D×1), 0x27EF(D×1)
+  EVT_CLEYRA3_CATHE_1.eb                                    2  0x0A4E(D×1), 0x0A64(D×1)
+  EVT_CLEYRA3_INN.eb                                        2  0x36C9(D×1), 0x36DF(D×1)
+  EVT_DALI_F_UF_MST_0.eb                                    2  0x0C4B(D×1), 0x0C61(D×1)
+  EVT_FOSSIL_FR_DN1_0.eb                                    2  0x3104(D×1), 0x311A(D×1)
+  EVT_GIZ_TO_WORLD.eb                                       2  0x2C8D(D×1), 0x2CA3(D×1)
+  EVT_LIND2_TN_LB_HUS_0.eb                                  2  0x0A73(D×1), 0x0A89(D×1)
+  EVT_PATA_T_CP_TOL_0.eb                                    2  0x20E2(D×1), 0x20F8(D×1)
+  EVT_SARI1_MS_EIK_0.eb                                     2  0x2FFD(D×1), 0x3013(D×1)
+  EVT_SARI2_MS_EIK_1.eb                                     2  0x0E51(D×1), 0x0E67(D×1)
+  EVT_ALEX1_AT_CENTER.eb                                    1  0x2E33(T×1)
+  EVT_ALEX3_AC_OUT_C.eb                                     1  0x14FB(T×1)
+  EVT_ALEX3_AC_TOWER_L1.eb                                  1  0x0593(T×1)
+  EVT_ALEX3_AT_CENTER.eb                                    1  0x2557(T×1)
+  EVT_ALEX3_AT_WHARF.eb                                     1  0x161B(T×1)
+  EVT_CHOCO_CH_FGD_0.eb                                     1  0x4EDF(D×1)
+  EVT_CHOCO_CH_FST_0.eb                                     1  0x5AB7(D×1)
+  EVT_CHOCO_CH_HLG_0.eb                                     1  0x55C1(D×1)
+  EVT_CLEYRA2_ENTER.eb                                      1  0x1BDF(T×1)
+  EVT_CLEYRA2_WIND.eb                                       1  0x118B(T×1)
+  EVT_CLEYRA3_CATHE_2.eb                                    1  0x1D2F(T×1)
+  EVT_CLEYRA3_ENTER.eb                                      1  0x2513(T×1)
+  EVT_CLEYRA3_WIND.eb                                       1  0x2547(T×1)
+
+  [236] Potion  — TotalCount=38
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_GATE_N_NG_MDA_0.eb                                    3  0x0D31(D×1), 0x0ECB(D×1), 0x0EE1(D×1)
+  EVT_ALEX1_AT_STREET_A.eb                                  2  0x2213(T×1), 0x2333(T×1)
+  EVT_BURMECIA_HOUSE_1.eb                                   2  0x0CF3(D×1), 0x0D09(D×1)
+  EVT_CLEYRA1_DUN_09.eb                                     2  0x0CAF(D×1), 0x0CC5(D×1)
+  EVT_DALI_F_UF_MST_0.eb                                    2  0x0E9B(D×1), 0x0EB1(D×1)
+  EVT_DALI_F_UF_RST_0.eb                                    2  0x0E43(D×1), 0x0E59(D×1)
+  EVT_DALI_F_UF_STO_0.eb                                    2  0x2969(D×1), 0x297F(D×1)
+  EVT_DALI_V_DL_INN1.eb                                     2  0x18F3(D×1), 0x1909(D×1)
+  EVT_DOWNSHIP_BT_CMR_0.eb                                  2  0x1037(D×1), 0x104D(D×1)
+  EVT_GATE_N_NG_MDA_1.eb                                    2  0x0997(D×1), 0x09AD(D×1)
+  EVT_GATE_S_SG_RND_3.eb                                    2  0x2FDF(D×1), 0x2FF5(D×1)
+  EVT_ICE_IC_JMP_0.eb                                       2  0x1D33(D×1), 0x1D49(D×1)
+  EVT_ICE_IC_TER_0.eb                                       2  0x1637(D×1), 0x164D(D×1)
+  EVT_ALEX1_AT_GATE.eb                                      1  0x1DFB(T×1)
+  EVT_ALEX1_AT_HOUSE_2.eb                                   1  0x0EB3(T×1)
+  EVT_ALEX1_AT_PUB.eb                                       1  0x17D7(T×1)
+  EVT_ALEX1_AT_SENTOU.eb                                    1  0x37F3(T×1)
+  EVT_ALEX1_TS_CARGO_0.eb                                   1  0x0AAB(T×1)
+  EVT_ALEX1_TS_CARGO_3.eb                                   1  0x0D57(T×1)
+  EVT_ALEX3_AT_GATE.eb                                      1  0x2217(T×1)
+  EVT_ALEX3_AT_HOUSE_2.eb                                   1  0x0E9F(T×1)
+  EVT_ALEX3_AT_PUB.eb                                       1  0x2B83(T×1)
+  EVT_ALEX3_AT_SENTOU.eb                                    1  0x452F(T×1)
+  EVT_ALEX3_AT_STREET_A.eb                                  1  0x25EB(T×1)
+
+  [240] Phoenix Down  — TotalCount=34
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_SARI1_MS_SCR_0.eb                                     4  0x1035(D×1), 0x104B(D×1), 0x1151(D×1), 0x1167(D×1)
+  EVT_SARI2_MS_SCR_1.eb                                     4  0x0BA5(D×1), 0x0BBB(D×1), 0x0CC1(D×1), 0x0CD7(D×1)
+  EVT_ALEX1_TS_ENGIN.eb                                     2  0x1147(D×1), 0x115D(D×1)
+  EVT_BURMECIA_PATIO_2.eb                                   2  0x068B(D×1), 0x06A1(D×1)
+  EVT_BURMECIA_PATIO_3.eb                                   2  0x0697(D×1), 0x06AD(D×1)
+  EVT_CLEYRA1_DUN_00.eb                                     2  0x05E7(D×1), 0x05FD(D×1)
+  EVT_CLEYRA3_CATHE_1.eb                                    2  0x0E38(D×1), 0x0E4E(D×1)
+  EVT_DALI_F_UF_MST_0.eb                                    2  0x10EB(D×1), 0x1101(D×1)
+  EVT_EVA2_IU_EUG_1.eb                                      2  0x0FBE(D×1), 0x0FD4(D×1)
+  EVT_GARGAN_GR_LEF_0.eb                                    2  0x0E47(D×1), 0x0E5D(D×1)
+  EVT_GATE_S_SG_TOP_1.eb                                    2  0x1CFB(D×1), 0x1D11(D×1)
+  EVT_ICE_IC_BRI_0.eb                                       2  0x1967(D×1), 0x197D(D×1)
+  EVT_PINA_PR_ENT_0.eb                                      2  0x09A7(D×1), 0x09BD(D×1)
+  EVT_PINA_PR_ENT_1.eb                                      2  0x0D23(D×1), 0x0D39(D×1)
+  EVT_ALEX1_AC_GUARD.eb                                     1  0x3E83(T×1)
+  EVT_DOWNSHIP_BT_FRT_0.eb                                  1  0x240B(T×1)
+
+  [253] Tent  — TotalCount=32
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_ALEX2_AC_STAIR_A.eb                                   2  0x1C27(D×1), 0x1C3D(D×1)
+  EVT_BURMECIA_PATIO_2.eb                                   2  0x08E3(D×1), 0x08F9(D×1)
+  EVT_BURMECIA_PATIO_3.eb                                   2  0x08EF(D×1), 0x0905(D×1)
+  EVT_CLEYRA1_DUN_05.eb                                     2  0x276B(D×1), 0x2781(D×1)
+  EVT_GATE_N_NG_BMA_0.eb                                    2  0x0C97(D×1), 0x0CAD(D×1)
+  EVT_GATE_N_NG_BMA_1.eb                                    2  0x0A23(D×1), 0x0A39(D×1)
+  EVT_GIZ_TO_WORLD.eb                                       2  0x2D97(D×1), 0x2DAD(D×1)
+  EVT_HILDA3_G3_EXT_0.eb                                    2  0x13B6(D×1), 0x13CC(D×1)
+  EVT_ICE_IC_STP_0.eb                                       2  0x1433(D×1), 0x1449(D×1)
+  EVT_LIND1_CS_LB_EXB_0.eb                                  2  0x32C3(D×1), 0x32D9(D×1)
+  EVT_PATA_M_CM_MP0_0.eb                                    2  0x1C03(D×1), 0x1C19(D×1)
+  EVT_PATA_M_CM_MP3_0.eb                                    2  0x28EB(D×1), 0x2901(D×1)
+  EVT_SARI1_MS_FNT_0.eb                                     2  0x2119(D×1), 0x212F(D×1)
+  EVT_SARI2_MS_FNT_1.eb                                     2  0x0D0D(D×1), 0x0D23(D×1)
+  EVT_ALEX1_AT_SENTOU.eb                                    1  0x3913(T×1)
+  EVT_ALEX3_AT_SENTOU.eb                                    1  0x464F(T×1)
+  EVT_ALEX5_AT_TSS.eb                                       1  0x186B(T×1)
+  EVT_LIND1_TN_LB_ALY_0.eb                                  1  0x3387(T×1)
+
+  [237] Hi-Potion  — TotalCount=24
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_ALEX3_AC_ENT_2F.eb                                    2  0x5E87(D×1), 0x5E9D(D×1)
+  EVT_ALEX3_AT_SENTOU.eb                                    2  0x2DCB(D×1), 0x2DE1(D×1)
+  EVT_BURMECIA_SQUARE_1.eb                                  2  0x26AF(D×1), 0x26C5(D×1)
+  EVT_CLEYRA1_DUN_11.eb                                     2  0x0FC3(D×1), 0x0FD9(D×1)
+  EVT_CLEYRA3_ANTRION.eb                                    2  0x25E5(D×1), 0x25FB(D×1)
+  EVT_CLEYRA3_INN.eb                                        2  0x34D5(D×1), 0x34EB(D×1)
+  EVT_DALI_A_AP_WTE_0.eb                                    2  0x18CF(D×1), 0x18E5(D×1)
+  EVT_EVA2_IU_EUG_1.eb                                      2  0x14EB(D×1), 0x1501(D×1)
+  EVT_GATE_N_NG_BMA_0.eb                                    2  0x0EEF(D×1), 0x0F05(D×1)
+  EVT_GATE_N_NG_BMA_1.eb                                    2  0x0C7B(D×1), 0x0C91(D×1)
+  EVT_LIND1_TN_LB_HUS_0.eb                                  2  0x0E2F(D×1), 0x0E45(D×1)
+  EVT_OEIL_UV_DEP_0.eb                                      2  0x2F85(D×1), 0x2F9B(D×1)
+
+  [247] Remedy  — TotalCount=23
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_CLEYRA1_DUN_08.eb                                     2  0x0D3F(D×1), 0x0D55(D×1)
+  EVT_CLEYRA3_CATHE_1.eb                                    2  0x0C44(D×1), 0x0C5A(D×1)
+  EVT_EVA2_IU_EUG_2.eb                                      2  0x11E7(D×1), 0x11FD(D×1)
+  EVT_FOSSIL_FR_DN1_0.eb                                    2  0x31FE(D×1), 0x3214(D×1)
+  EVT_LIND3_CS_LB_EXB_0.eb                                  2  0x303B(D×1), 0x3051(D×1)
+  EVT_LIND3_TN_LB_HUS_0.eb                                  2  0x0B4B(D×1), 0x0B61(D×1)
+  EVT_OEIL_UV_PST_0.eb                                      2  0x0A03(D×1), 0x0A19(D×1)
+  EVT_PATA_M_CM_MP0_0.eb                                    2  0x1E5B(D×1), 0x1E71(D×1)
+  EVT_TERA_TA_ROU_0.eb                                      2  0x0DCF(D×1), 0x0DE5(D×1)
+  EVT_ALEX1_AT_WEAPON.eb                                    1  0x0A7F(T×1)
+  EVT_ALEX3_AT_WEAPON.eb                                    1  0x548F(T×1)
+  EVT_ALEX5_AT_CENTER.eb                                    1  0x1CA7(T×1)
+  EVT_CLEYRA2_TOWN.eb                                       1  0x2A5B(T×1)
+  EVT_CLEYRA3_TOWN.eb                                       1  0x3A9B(T×1)
+
+  [251] Gysahl Greens  — TotalCount=21
+  File                                                  Count Offsets
+  ------------------------------------------------------------------------------------------
+  EVT_CHOCO_CH_FST_0.eb                                     5  0x49EA(D×1), 0x4CFD(D×1), 0x55AE(D×1), 0x55C8(D×1), 0x5AEB(D×1)
+  EVT_CHOCO_CH_FGD_0.eb                                     3  0x4A5B(D×1), 0x4C89(D×1), 0x4F13(D×1)
+  EVT_CHOCO_CH_HLG_0.eb                                     3  0x513D(D×1), 0x536B(D×1), 0x55F5(D×1)
+  EVT_CLEYRA1_DUN_13A.eb                                    2  0x074B(D×1), 0x0761(D×1)
+  EVT_CLEYRA1_DUN_13B.eb                                    2  0x067B(D×1), 0x0691(D×1)
+  EVT_MAGE2_BV_CSI_0.eb                                     2  0x0EE2(D×1), 0x0EF8(D×1)
+  EVT_MAGE_BV_CSI_0.eb                                      2  0x1EDA(D×1), 0x1EF0(D×1)
+  EVT_CLEYRA2_CATHE_0.eb                                    1  0x1167(T×1)
+  EVT_CLEYRA3_CATHE_0.eb                                    1  0x4453(T×1)
+
+=== PER-FILE DETAIL (files with items, sorted by filename) ===
+
+[EVT_ALEX1_AC_GUARD.eb]
+  DirectItem   | 0x3325 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  TreasureItem | 0x3E83 | ×1 | ID=240 (Phoenix Down)
+
+[EVT_ALEX1_AC_SEAT_R.eb]
+  DirectItem   | 0x0D25 | ×1 | ID=229 (Moonstone)
+  DirectItem   | 0x0D66 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0DA7 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0DDC | ×1 | ID=150 (Silk Shirt)
+
+[EVT_ALEX1_AC_TOWER_L3.eb]
+  DirectItem   | 0x068F | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x06A5 | ×1 | ID=239 (Elixir)
+
+[EVT_ALEX1_AT_CENTER.eb]
+  DirectItem   | 0x159F | ×1 | ID=1010 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1687 | ×1 | ID=535 [OUT OF RANGE — false positive]
+  DirectItem   | 0x176F | ×1 | ID=590 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1857 | ×1 | ID=605 [OUT OF RANGE — false positive]
+  DirectItem   | 0x193A | ×1 | ID=588 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A1C | ×1 | ID=282 [OUT OF RANGE — false positive]
+  TreasureItem | 0x2E33 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_ALEX1_AT_GATE.eb]
+  TreasureItem | 0x1DFB | ×1 | ID=236 (Potion)
+  TreasureItem | 0x1F1B | ×1 | Card=5
+  TreasureItem | 0x203B | ×1 | Card=9
+  TreasureItem | 0x215B | ×1 | Card=6
+
+[EVT_ALEX1_AT_HOUSE_1.eb]
+  TreasureItem | 0x075B | ×1 | ID=244 (Eye Drops)
+  TreasureItem | 0x087B | ×1 | 3G
+
+[EVT_ALEX1_AT_HOUSE_2.eb]
+  TreasureItem | 0x0C73 | ×1 | Card=1
+  TreasureItem | 0x0D93 | ×1 | 9G
+  TreasureItem | 0x0EB3 | ×1 | ID=236 (Potion)
+
+[EVT_ALEX1_AT_ITEM.eb]
+  TreasureItem | 0x0827 | ×1 | 38G
+
+[EVT_ALEX1_AT_MAGIC.eb]
+  TreasureItem | 0x092F | ×1 | ID=238 (Ether)
+
+[EVT_ALEX1_AT_PUB.eb]
+  TreasureItem | 0x1597 | ×1 | Card=3
+  TreasureItem | 0x16B7 | ×1 | 27G
+  TreasureItem | 0x17D7 | ×1 | ID=236 (Potion)
+
+[EVT_ALEX1_AT_ROOF.eb]
+  TreasureItem | 0x1D13 | ×1 | 29G
+  TreasureItem | 0x1E33 | ×1 | 92G
+  TreasureItem | 0x1F53 | ×1 | 63G
+
+[EVT_ALEX1_AT_SENTOU.eb]
+  DirectItem   | 0x263D | ×1 | ID=294 [OUT OF RANGE — false positive]
+  TreasureItem | 0x37F3 | ×1 | ID=236 (Potion)
+  TreasureItem | 0x3913 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x446D | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4483 | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x44D7 | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x44ED | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4541 | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4557 | ×1 | ID=513 [OUT OF RANGE — false positive]
+
+[EVT_ALEX1_AT_STREET_A.eb]
+  TreasureItem | 0x2213 | ×1 | ID=236 (Potion)
+  TreasureItem | 0x2333 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x30D4 | ×1 | ID=262 [OUT OF RANGE — false positive]
+
+[EVT_ALEX1_AT_STREET_B.eb]
+  TreasureItem | 0x196B | ×1 | Card=0
+  TreasureItem | 0x1A8B | ×1 | 33G
+
+[EVT_ALEX1_AT_TICKET.eb]
+  DirectItem   | 0x0CDE | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0D0A | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0D36 | ×1 | ID=514 [OUT OF RANGE — false positive]
+
+[EVT_ALEX1_AT_TSS.eb]
+  DirectItem   | 0x07EB | ×1 | ID=519 [OUT OF RANGE — false positive]
+
+[EVT_ALEX1_AT_WEAPON.eb]
+  TreasureItem | 0x0A7F | ×1 | ID=247 (Remedy)
+
+[EVT_ALEX1_TS_CARGO_0.eb]
+  TreasureItem | 0x0AAB | ×1 | ID=236 (Potion)
+  TreasureItem | 0x0BCB | ×1 | 47G
+
+[EVT_ALEX1_TS_CARGO_3.eb]
+  TreasureItem | 0x0D57 | ×1 | ID=236 (Potion)
+  TreasureItem | 0x0E77 | ×1 | 47G
+
+[EVT_ALEX1_TS_ENGIN.eb]
+  DirectItem   | 0x1147 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x115D | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x13D7 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x13ED | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_ALEX2_AC_GUARD.eb]
+  DirectItem   | 0x1CC9 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_ALEX2_AC_STAIR_A.eb]
+  DirectItem   | 0x19CF | ×1 | ID=20 (Ice Brand)
+  DirectItem   | 0x19E5 | ×1 | ID=20 (Ice Brand)
+  DirectItem   | 0x1C27 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x1C3D | ×1 | ID=253 (Tent)
+
+[EVT_ALEX2_AC_SUMMON_A.eb]
+  DirectItem   | 0x4281 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_ALEX3_AC_ENT_2F.eb]
+  DirectItem   | 0x5E87 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x5E9D | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x5F8A | ×1 | ID=238 (Ether)
+  DirectItem   | 0x5FA0 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x608D | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x60A3 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x6190 | ×1 | ID=215 (Angel Earrings)
+  DirectItem   | 0x61A6 | ×1 | ID=215 (Angel Earrings)
+
+[EVT_ALEX3_AC_GUARD.eb]
+  DirectItem   | 0x1E5D | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_ALEX3_AC_H2F_2.eb]
+  DirectItem   | 0x0BDB | ×1 | ID=257 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0BE0 | ×1 | ID=259 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0BE5 | ×1 | ID=260 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0BEA | ×1 | ID=261 [OUT OF RANGE — false positive]
+
+[EVT_ALEX3_AC_OUT_C.eb]
+  TreasureItem | 0x13DB | ×1 | ID=235 (Lapis Lazuli)
+  TreasureItem | 0x14FB | ×1 | ID=249 (Phoenix Pinion)
+  TreasureItem | 0x161B | ×1 | ID=238 (Ether)
+
+[EVT_ALEX3_AC_PORT_A.eb]
+  TreasureItem | 0x14BB | ×1 | ID=308 (Item #308)
+
+[EVT_ALEX3_AC_PRINCESS.eb]
+  DirectItem   | 0x0A2E | ×1 | ID=233 (Opal)
+  DirectItem   | 0x0A5A | ×1 | ID=234 (Topaz)
+  DirectItem   | 0x0A86 | ×1 | ID=225 (Amethyst)
+
+[EVT_ALEX3_AC_TOWER_L1.eb]
+  TreasureItem | 0x0593 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_ALEX3_AT_CENTER.eb]
+  TreasureItem | 0x2557 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_ALEX3_AT_GATE.eb]
+  TreasureItem | 0x2217 | ×1 | ID=236 (Potion)
+  TreasureItem | 0x2337 | ×1 | Card=5
+  TreasureItem | 0x2457 | ×1 | Card=9
+  TreasureItem | 0x2577 | ×1 | Card=6
+
+[EVT_ALEX3_AT_HOUSE_1.eb]
+  TreasureItem | 0x0C13 | ×1 | ID=244 (Eye Drops)
+  TreasureItem | 0x0D33 | ×1 | 3G
+
+[EVT_ALEX3_AT_HOUSE_2.eb]
+  TreasureItem | 0x0C5F | ×1 | Card=1
+  TreasureItem | 0x0D7F | ×1 | 9G
+  TreasureItem | 0x0E9F | ×1 | ID=236 (Potion)
+
+[EVT_ALEX3_AT_ITEM.eb]
+  TreasureItem | 0x0E87 | ×1 | 38G
+
+[EVT_ALEX3_AT_MAGIC.eb]
+  TreasureItem | 0x0D47 | ×1 | ID=238 (Ether)
+
+[EVT_ALEX3_AT_PUB.eb]
+  TreasureItem | 0x2943 | ×1 | Card=3
+  TreasureItem | 0x2A63 | ×1 | 27G
+  TreasureItem | 0x2B83 | ×1 | ID=236 (Potion)
+
+[EVT_ALEX3_AT_RUBY.eb]
+  TreasureItem | 0x225B | ×1 | 2680G
+
+[EVT_ALEX3_AT_SENTOU.eb]
+  DirectItem   | 0x2059 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2CD1 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2CE7 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2DCB | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x2DE1 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x2EC5 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2EDB | ×1 | ID=239 (Elixir)
+  TreasureItem | 0x452F | ×1 | ID=236 (Potion)
+  TreasureItem | 0x464F | ×1 | ID=253 (Tent)
+  DirectItem   | 0x4BF8 | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4C0E | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4C6E | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4C84 | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4CE4 | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4CFA | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4D5A | ×1 | ID=571 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4D70 | ×1 | ID=571 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4DD0 | ×1 | ID=573 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4DE6 | ×1 | ID=573 [OUT OF RANGE — false positive]
+  DirectItem   | 0x561C | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5632 | ×1 | ID=520 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5692 | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x56A8 | ×1 | ID=512 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5708 | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x571E | ×1 | ID=513 [OUT OF RANGE — false positive]
+  DirectItem   | 0x577E | ×1 | ID=571 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5794 | ×1 | ID=571 [OUT OF RANGE — false positive]
+  DirectItem   | 0x57F4 | ×1 | ID=573 [OUT OF RANGE — false positive]
+  DirectItem   | 0x580A | ×1 | ID=573 [OUT OF RANGE — false positive]
+
+[EVT_ALEX3_AT_STREET_A.eb]
+  DirectItem   | 0x15E9 | ×1 | ID=524 [OUT OF RANGE — false positive]
+  DirectItem   | 0x15FF | ×1 | ID=524 [OUT OF RANGE — false positive]
+  DirectItem   | 0x16F7 | ×1 | ID=532 [OUT OF RANGE — false positive]
+  DirectItem   | 0x170D | ×1 | ID=532 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1805 | ×1 | ID=546 [OUT OF RANGE — false positive]
+  DirectItem   | 0x181B | ×1 | ID=546 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1913 | ×1 | ID=551 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1929 | ×1 | ID=551 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A21 | ×1 | ID=587 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A37 | ×1 | ID=587 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1B2F | ×1 | ID=565 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1B45 | ×1 | ID=565 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1C3D | ×1 | ID=590 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1C53 | ×1 | ID=590 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1CB9 | ×1 | ID=283 [OUT OF RANGE — false positive]
+  TreasureItem | 0x25EB | ×1 | ID=236 (Potion)
+
+[EVT_ALEX3_AT_STREET_B.eb]
+  TreasureItem | 0x2A03 | ×1 | Card=0
+  TreasureItem | 0x2B23 | ×1 | 33G
+
+[EVT_ALEX3_AT_WEAPON.eb]
+  TreasureItem | 0x548F | ×1 | ID=247 (Remedy)
+
+[EVT_ALEX3_AT_WHARF.eb]
+  TreasureItem | 0x161B | ×1 | ID=249 (Phoenix Pinion)
+  TreasureItem | 0x173B | ×1 | 3927G
+
+[EVT_ALEX5_AC_OUT_C.eb]
+  TreasureItem | 0x11E3 | ×1 | ID=231 (Peridot)
+  TreasureItem | 0x1303 | ×1 | ID=232 (Sapphire)
+  TreasureItem | 0x1423 | ×1 | ID=233 (Opal)
+  DirectItem   | 0x1EB6 | ×1 | ID=224 (Garnet)
+
+[EVT_ALEX5_AC_PORT_A.eb]
+  TreasureItem | 0x14EB | ×1 | ID=308 (Item #308)
+
+[EVT_ALEX5_AT_CENTER.eb]
+  DirectItem   | 0x13F6 | ×1 | ID=605 [OUT OF RANGE — false positive]
+  DirectItem   | 0x140C | ×1 | ID=605 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1B87 | ×1 | 365G
+  TreasureItem | 0x1CA7 | ×1 | ID=247 (Remedy)
+  TreasureItem | 0x1DC7 | ×1 | ID=225 (Amethyst)
+
+[EVT_ALEX5_AT_RUBY.eb]
+  DirectItem   | 0x05B4 | ×1 | ID=324 [OUT OF RANGE — false positive]
+  DirectItem   | 0x05CA | ×1 | ID=324 [OUT OF RANGE — false positive]
+  TreasureItem | 0x08E7 | ×1 | 2680G
+
+[EVT_ALEX5_AT_SENTOU.eb]
+  DirectItem   | 0x0A1B | ×1 | ID=1010 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0B03 | ×1 | ID=535 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0BEB | ×1 | ID=590 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0CD3 | ×1 | ID=605 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0DB6 | ×1 | ID=588 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0E90 | ×1 | ID=282 [OUT OF RANGE — false positive]
+  DirectItem   | 0x259D | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3222 | ×1 | ID=221 (Ribbon)
+  DirectItem   | 0x3238 | ×1 | ID=221 (Ribbon)
+  DirectItem   | 0x33AC | ×1 | ID=229 (Moonstone)
+  DirectItem   | 0x33C2 | ×1 | ID=229 (Moonstone)
+  DirectItem   | 0x34A6 | ×1 | ID=230 (Ruby)
+  DirectItem   | 0x34BC | ×1 | ID=230 (Ruby)
+  DirectItem   | 0x35A0 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x35B6 | ×1 | ID=239 (Elixir)
+
+[EVT_ALEX5_AT_STREET_A.eb]
+  TreasureItem | 0x1643 | ×1 | ID=232 (Sapphire)
+
+[EVT_ALEX5_AT_STREET_C.eb]
+  TreasureItem | 0x0F33 | ×1 | ID=238 (Ether)
+
+[EVT_ALEX5_AT_TSS.eb]
+  TreasureItem | 0x186B | ×1 | ID=253 (Tent)
+
+[EVT_ALEX5_AT_WHARF.eb]
+  TreasureItem | 0x0AC7 | ×1 | ID=234 (Topaz)
+  TreasureItem | 0x0BE7 | ×1 | 4832G
+
+[EVT_BAL_BB_CDL_0.eb]
+  DirectItem   | 0x1656 | ×1 | ID=215 (Angel Earrings)
+  DirectItem   | 0x166C | ×1 | ID=215 (Angel Earrings)
+
+[EVT_BAL_BB_FGT_0.eb]
+  DirectItem   | 0x2DD7 | ×1 | ID=130 (Flash Hat)
+  DirectItem   | 0x2DED | ×1 | ID=130 (Flash Hat)
+
+[EVT_BAL_BB_ITS_0.eb]
+  DirectItem   | 0x1757 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x176D | ×1 | ID=239 (Elixir)
+
+[EVT_BAL_BB_STW_0.eb]
+  DirectItem   | 0x084F | ×1 | ID=163 (Minerva’s Plate)
+  DirectItem   | 0x0865 | ×1 | ID=163 (Minerva’s Plate)
+
+[EVT_BAL_BB_UDL_0.eb]
+  DirectItem   | 0x1122 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1138 | ×1 | ID=239 (Elixir)
+
+[EVT_BAL_BB_WPS_0.eb]
+  DirectItem   | 0x1D36 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x298D | ×1 | ID=227 (Diamond)
+  DirectItem   | 0x29A3 | ×1 | ID=227 (Diamond)
+  DirectItem   | 0x2A87 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x2A9D | ×1 | ID=238 (Ether)
+  DirectItem   | 0x2B81 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2B97 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2DD3 | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x2DE9 | ×1 | ID=87 (Wing Edge)
+
+[EVT_BURMECIA_HOUSE_0.eb]
+  DirectItem   | 0x088F | ×1 | ID=242 (Soft)
+  DirectItem   | 0x08A5 | ×1 | ID=242 (Soft)
+
+[EVT_BURMECIA_HOUSE_1.eb]
+  DirectItem   | 0x0A9B | ×1 | ID=194 (Germinas Boots)
+  DirectItem   | 0x0AB1 | ×1 | ID=194 (Germinas Boots)
+  DirectItem   | 0x0CF3 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0D09 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0F4B | ×1 | ID=242 (Soft)
+  DirectItem   | 0x0F61 | ×1 | ID=242 (Soft)
+
+[EVT_BURMECIA_HOUSE_3.eb]
+  DirectItem   | 0x09DF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x09F5 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0E14 | ×1 | ID=271 [OUT OF RANGE — false positive]
+
+[EVT_BURMECIA_PATIO_2.eb]
+  DirectItem   | 0x068B | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x06A1 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x08E3 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x08F9 | ×1 | ID=253 (Tent)
+
+[EVT_BURMECIA_PATIO_3.eb]
+  DirectItem   | 0x0697 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x06AD | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x08EF | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0905 | ×1 | ID=253 (Tent)
+
+[EVT_BURMECIA_SQUARE_1.eb]
+  DirectItem   | 0x1893 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x25B5 | ×1 | ID=242 (Soft)
+  DirectItem   | 0x25CB | ×1 | ID=242 (Soft)
+  DirectItem   | 0x26AF | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x26C5 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x27A9 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x27BF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x2CAA | ×1 | ID=73 (Lightning Staff)
+  DirectItem   | 0x2CC0 | ×1 | ID=73 (Lightning Staff)
+  DirectItem   | 0x2DA7 | ×1 | ID=73 (Lightning Staff)
+  DirectItem   | 0x2DBD | ×1 | ID=73 (Lightning Staff)
+
+[EVT_BURMECIA_SQUARE_2.eb]
+  DirectItem   | 0x0CAA | ×1 | ID=32 (Mythril Spear)
+
+[EVT_BURMECIA_TOWN_0.eb]
+  TreasureItem | 0x13EB | ×1 | ID=307 (Item #307)
+
+[EVT_CHOCO_CH_FGD_0.eb]
+  DirectItem   | 0x3FA0 | ×1 | ID=317 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3FA8 | ×1 | ID=318 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3FB0 | ×1 | ID=319 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3FB8 | ×1 | ID=320 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3FC0 | ×1 | ID=321 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3FC8 | ×1 | ID=322 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4A5B | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x4C89 | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x4DA9 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x4DDD | ×1 | ID=209 (Protect Ring)
+  DirectItem   | 0x4E11 | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x4E43 | ×1 | ID=599 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4E77 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x4EAB | ×1 | ID=254 (Ore)
+  DirectItem   | 0x4EDF | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x4F13 | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x5686 | ×1 | ID=566 [OUT OF RANGE — false positive]
+  DirectItem   | 0x56C4 | ×1 | ID=325 [OUT OF RANGE — false positive]
+  DirectItem   | 0x6C91 | ×1 | ID=566 [OUT OF RANGE — false positive]
+
+[EVT_CHOCO_CH_FST_0.eb]
+  DirectItem   | 0x43AF | ×1 | ID=317 [OUT OF RANGE — false positive]
+  DirectItem   | 0x43B7 | ×1 | ID=318 [OUT OF RANGE — false positive]
+  DirectItem   | 0x43BF | ×1 | ID=319 [OUT OF RANGE — false positive]
+  DirectItem   | 0x43C7 | ×1 | ID=320 [OUT OF RANGE — false positive]
+  DirectItem   | 0x43CF | ×1 | ID=321 [OUT OF RANGE — false positive]
+  DirectItem   | 0x43D7 | ×1 | ID=322 [OUT OF RANGE — false positive]
+  DirectItem   | 0x49EA | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x4CFD | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x55AE | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x55C8 | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x5981 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x59B5 | ×1 | ID=209 (Protect Ring)
+  DirectItem   | 0x59E9 | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x5A1B | ×1 | ID=599 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5A4F | ×1 | ID=238 (Ether)
+  DirectItem   | 0x5A83 | ×1 | ID=254 (Ore)
+  DirectItem   | 0x5AB7 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x5AEB | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_CHOCO_CH_HLG_0.eb]
+  DirectItem   | 0x467C | ×1 | ID=317 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4684 | ×1 | ID=318 [OUT OF RANGE — false positive]
+  DirectItem   | 0x468C | ×1 | ID=319 [OUT OF RANGE — false positive]
+  DirectItem   | 0x4694 | ×1 | ID=320 [OUT OF RANGE — false positive]
+  DirectItem   | 0x469C | ×1 | ID=321 [OUT OF RANGE — false positive]
+  DirectItem   | 0x46A4 | ×1 | ID=322 [OUT OF RANGE — false positive]
+  DirectItem   | 0x513D | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x536B | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x548B | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x54BF | ×1 | ID=209 (Protect Ring)
+  DirectItem   | 0x54F3 | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x5525 | ×1 | ID=599 [OUT OF RANGE — false positive]
+  DirectItem   | 0x5559 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x558D | ×1 | ID=254 (Ore)
+  DirectItem   | 0x55C1 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x55F5 | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_CHOCO_CH_PDS_1.eb]
+  DirectItem   | 0x0B0F | ×1 | ID=601 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0B25 | ×1 | ID=601 [OUT OF RANGE — false positive]
+  DirectItem   | 0x25B4 | ×1 | ID=595 [OUT OF RANGE — false positive]
+  DirectItem   | 0x25DC | ×1 | ID=598 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2604 | ×1 | ID=564 [OUT OF RANGE — false positive]
+  DirectItem   | 0x262C | ×1 | ID=584 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2654 | ×1 | ID=581 [OUT OF RANGE — false positive]
+  DirectItem   | 0x267C | ×1 | ID=593 [OUT OF RANGE — false positive]
+  DirectItem   | 0x26A4 | ×1 | ID=586 [OUT OF RANGE — false positive]
+  DirectItem   | 0x26CC | ×1 | ID=578 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2824 | ×1 | ID=596 [OUT OF RANGE — false positive]
+  DirectItem   | 0x284C | ×1 | ID=575 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2874 | ×1 | ID=611 [OUT OF RANGE — false positive]
+  DirectItem   | 0x289C | ×1 | ID=594 [OUT OF RANGE — false positive]
+  DirectItem   | 0x28C4 | ×1 | ID=592 [OUT OF RANGE — false positive]
+  DirectItem   | 0x28EC | ×1 | ID=597 [OUT OF RANGE — false positive]
+  DirectItem   | 0x29E9 | ×1 | ID=601 [OUT OF RANGE — false positive]
+  DirectItem   | 0x29FF | ×1 | ID=601 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3967 | ×9 | ID=252 (Dead Pepper)
+  DirectItem   | 0x39B5 | ×9 | ID=252 (Dead Pepper)
+
+[EVT_CLEYRA1_DUN_00.eb]
+  DirectItem   | 0x05E7 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x05FD | ×1 | ID=240 (Phoenix Down)
+
+[EVT_CLEYRA1_DUN_01A.eb]
+  DirectItem   | 0x0997 | ×1 | ID=72 (Ice Staff)
+  DirectItem   | 0x09AD | ×1 | ID=72 (Ice Staff)
+  DirectItem   | 0x0BEF | ×1 | ID=193 (Magician Shoes)
+  DirectItem   | 0x0C05 | ×1 | ID=193 (Magician Shoes)
+
+[EVT_CLEYRA1_DUN_01B.eb]
+  DirectItem   | 0x0713 | ×1 | ID=193 (Magician Shoes)
+  DirectItem   | 0x0729 | ×1 | ID=193 (Magician Shoes)
+  DirectItem   | 0x0963 | ×1 | ID=193 (Magician Shoes)
+  DirectItem   | 0x0979 | ×1 | ID=193 (Magician Shoes)
+  DirectItem   | 0x0BB3 | ×1 | ID=169 (Silk Robe)
+  DirectItem   | 0x0BC9 | ×1 | ID=169 (Silk Robe)
+
+[EVT_CLEYRA1_DUN_04.eb]
+  DirectItem   | 0x09A7 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x09BD | ×1 | ID=238 (Ether)
+
+[EVT_CLEYRA1_DUN_05.eb]
+  DirectItem   | 0x18FF | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2513 | ×1 | ID=80 (Needle Fork)
+  DirectItem   | 0x2529 | ×1 | ID=80 (Needle Fork)
+  DirectItem   | 0x276B | ×1 | ID=253 (Tent)
+  DirectItem   | 0x2781 | ×1 | ID=253 (Tent)
+
+[EVT_CLEYRA1_DUN_06.eb]
+  DirectItem   | 0x0B8B | ×1 | ID=71 (Flame Staff)
+  DirectItem   | 0x0BA1 | ×1 | ID=71 (Flame Staff)
+
+[EVT_CLEYRA1_DUN_08.eb]
+  DirectItem   | 0x088F | ×1 | ID=154 (Mythril Vest)
+  DirectItem   | 0x08A5 | ×1 | ID=154 (Mythril Vest)
+  DirectItem   | 0x0AE7 | ×1 | ID=192 (Desert Boots)
+  DirectItem   | 0x0AFD | ×1 | ID=192 (Desert Boots)
+  DirectItem   | 0x0D3F | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0D55 | ×1 | ID=247 (Remedy)
+
+[EVT_CLEYRA1_DUN_09.eb]
+  DirectItem   | 0x0A57 | ×1 | ID=104 (Mythril Gloves)
+  DirectItem   | 0x0A6D | ×1 | ID=104 (Mythril Gloves)
+  DirectItem   | 0x0CAF | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0CC5 | ×1 | ID=236 (Potion)
+
+[EVT_CLEYRA1_DUN_10.eb]
+  DirectItem   | 0x0CBF | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0CD5 | ×1 | ID=239 (Elixir)
+
+[EVT_CLEYRA1_DUN_11.eb]
+  DirectItem   | 0x0FC3 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x0FD9 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x1217 | ×1 | ID=1900 [OUT OF RANGE — false positive]
+  DirectItem   | 0x122D | ×1 | ID=1900 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1242 | ×1 | Card=388
+
+[EVT_CLEYRA1_DUN_13A.eb]
+  DirectItem   | 0x074B | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x0761 | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_CLEYRA1_DUN_13B.eb]
+  DirectItem   | 0x067B | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x0691 | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_CLEYRA2_ANTRION.eb]
+  TreasureItem | 0x12A3 | ×1 | 970G
+
+[EVT_CLEYRA2_CATHE_0.eb]
+  TreasureItem | 0x1167 | ×1 | ID=251 (Gysahl Greens)
+  TreasureItem | 0x1287 | ×1 | ID=241 (Echo Screen)
+
+[EVT_CLEYRA2_CATHE_1.eb]
+  TreasureItem | 0x0E7B | ×1 | ID=212 (Yellow Scarf)
+
+[EVT_CLEYRA2_ENTER.eb]
+  TreasureItem | 0x1BDF | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA2_INN.eb]
+  DirectItem   | 0x2657 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  TreasureItem | 0x31B7 | ×1 | ID=241 (Echo Screen)
+  TreasureItem | 0x32D7 | ×1 | 1250G
+  TreasureItem | 0x33F7 | ×1 | ID=238 (Ether)
+
+[EVT_CLEYRA2_TOWN.eb]
+  TreasureItem | 0x293B | ×1 | ID=254 (Ore)
+  TreasureItem | 0x2A5B | ×1 | ID=247 (Remedy)
+
+[EVT_CLEYRA2_WATER.eb]
+  TreasureItem | 0x11C3 | ×1 | ID=105 (Thunder Gloves)
+
+[EVT_CLEYRA2_WIND.eb]
+  TreasureItem | 0x118B | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA3_ANTRION.eb]
+  TreasureItem | 0x0523 | ×1 | 970G
+  DirectItem   | 0x198B | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x25E5 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x25FB | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x26DF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x26F5 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x27D9 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x27EF | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA3_CATHE_0.eb]
+  TreasureItem | 0x4453 | ×1 | ID=251 (Gysahl Greens)
+  TreasureItem | 0x4573 | ×1 | ID=241 (Echo Screen)
+
+[EVT_CLEYRA3_CATHE_1.eb]
+  DirectItem   | 0x084A | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0860 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0A4E | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0A64 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0C44 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0C5A | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0E38 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0E4E | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x1046 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x105C | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x123C | ×1 | ID=528 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1252 | ×1 | ID=528 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1430 | ×1 | ID=530 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1446 | ×1 | ID=530 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1983 | ×1 | ID=212 (Yellow Scarf)
+  DirectItem   | 0x2DEB | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_CLEYRA3_CATHE_2.eb]
+  DirectItem   | 0x140C | ×1 | ID=228 (Emerald)
+  DirectItem   | 0x1422 | ×1 | ID=228 (Emerald)
+  TreasureItem | 0x1AEF | ×1 | ID=238 (Ether)
+  TreasureItem | 0x1C0F | ×1 | ID=254 (Ore)
+  TreasureItem | 0x1D2F | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA3_ENTER.eb]
+  TreasureItem | 0x2513 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA3_INN.eb]
+  TreasureItem | 0x11D3 | ×1 | ID=241 (Echo Screen)
+  TreasureItem | 0x12F3 | ×1 | 1250G
+  TreasureItem | 0x1413 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x287B | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x34D5 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x34EB | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x35CF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x35E5 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x36C9 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x36DF | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_CLEYRA3_TOWN.eb]
+  TreasureItem | 0x397B | ×1 | ID=254 (Ore)
+  TreasureItem | 0x3A9B | ×1 | ID=247 (Remedy)
+
+[EVT_CLEYRA3_WATER.eb]
+  TreasureItem | 0x16EF | ×1 | ID=105 (Thunder Gloves)
+
+[EVT_CLEYRA3_WIND.eb]
+  TreasureItem | 0x2547 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_DAG_DG_2F0_0.eb]
+  DirectItem   | 0x0694 | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x06AA | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x07E2 | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x07F8 | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x09AE | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x09C4 | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0AFC | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0B12 | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0CC8 | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0CDE | ×1 | ID=570 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0E16 | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0E2C | ×1 | ID=569 [OUT OF RANGE — false positive]
+  DirectItem   | 0x25B0 | ×1 | ID=28 (Excalibur)
+  DirectItem   | 0x25C6 | ×1 | ID=28 (Excalibur)
+
+[EVT_DAG_DG_ENT_0.eb]
+  DirectItem   | 0x09AB | ×1 | ID=226 (Aquamarine)
+  DirectItem   | 0x0A53 | ×1 | ID=323 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2AEB | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2B01 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2C83 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2C99 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x30B3 | ×1 | ID=313 [OUT OF RANGE — false positive]
+  DirectItem   | 0x30C9 | ×1 | ID=313 [OUT OF RANGE — false positive]
+
+[EVT_DAG_DG_SRH_0.eb]
+  DirectItem   | 0x3C16 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_DALI_A_AP_FID_0.eb]
+  DirectItem   | 0x301F | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x3035 | ×1 | ID=239 (Elixir)
+
+[EVT_DALI_A_AP_WTE_0.eb]
+  DirectItem   | 0x0DF9 | ×1 | ID=1135 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0E0F | ×1 | ID=1135 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0E24 | ×1 | ID=135 (Circlet)
+  DirectItem   | 0x18CF | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x18E5 | ×1 | ID=237 (Hi-Potion)
+
+[EVT_DALI_F_UF_EGG_0.eb]
+  DirectItem   | 0x159F | ×1 | ID=1095 [OUT OF RANGE — false positive]
+  DirectItem   | 0x15B5 | ×1 | ID=1095 [OUT OF RANGE — false positive]
+  TreasureItem | 0x15CA | ×1 | ID=95 (Egoist’s Armlet)
+
+[EVT_DALI_F_UF_ENT_0.eb]
+  DirectItem   | 0x0EEB | ×1 | ID=1156 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0F01 | ×1 | ID=1156 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0F16 | ×1 | ID=156 (Magician Cloak)
+
+[EVT_DALI_F_UF_MST_0.eb]
+  DirectItem   | 0x0C4B | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0C61 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0E9B | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0EB1 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x10EB | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x1101 | ×1 | ID=240 (Phoenix Down)
+
+[EVT_DALI_F_UF_RST_0.eb]
+  DirectItem   | 0x0E43 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0E59 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x109B | ×1 | ID=244 (Eye Drops)
+  DirectItem   | 0x10B1 | ×1 | ID=244 (Eye Drops)
+
+[EVT_DALI_F_UF_STO_0.eb]
+  DirectItem   | 0x1907 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2969 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x297F | ×1 | ID=236 (Potion)
+  DirectItem   | 0x32D7 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x32ED | ×1 | ID=238 (Ether)
+
+[EVT_DALI_F_UF_STO_1.eb]
+  DirectItem   | 0x0E9F | ×1 | ID=138 (Iron Helm)
+  DirectItem   | 0x0EB5 | ×1 | ID=138 (Iron Helm)
+  DirectItem   | 0x10EF | ×1 | ID=89 (Leather Wrist)
+  DirectItem   | 0x1105 | ×1 | ID=89 (Leather Wrist)
+
+[EVT_DALI_V_DL_FWM.eb]
+  DirectItem   | 0x1343 | ×1 | ID=31000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1359 | ×1 | ID=31000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A60 | ×1 | ID=287 [OUT OF RANGE — false positive]
+
+[EVT_DALI_V_DL_INN0.eb]
+  DirectItem   | 0x2D2B | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_DALI_V_DL_INN1.eb]
+  DirectItem   | 0x18F3 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1909 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1B4B | ×1 | ID=243 (Antidote)
+  DirectItem   | 0x1B61 | ×1 | ID=243 (Antidote)
+
+[EVT_DALI_V_DL_MYR.eb]
+  DirectItem   | 0x313E | ×1 | ID=289 [OUT OF RANGE — false positive]
+  DirectItem   | 0x31AC | ×1 | ID=284 [OUT OF RANGE — false positive]
+
+[EVT_DALI_V_DL_WHL.eb]
+  DirectItem   | 0x39C5 | ×1 | ID=1120 [OUT OF RANGE — false positive]
+  DirectItem   | 0x39DB | ×1 | ID=1120 [OUT OF RANGE — false positive]
+  TreasureItem | 0x39F0 | ×1 | ID=120 (Lamia’s Tiara)
+
+[EVT_DALI_V_DL_WMS0.eb]
+  DirectItem   | 0x2FC8 | ×1 | ID=304 [OUT OF RANGE — false positive]
+  DirectItem   | 0x37B5 | ×1 | ID=304 [OUT OF RANGE — false positive]
+
+[EVT_DALI_V_DL_WMS1.eb]
+  DirectItem   | 0x15CB | ×1 | ID=218 (Cachusha)
+  DirectItem   | 0x15E1 | ×1 | ID=218 (Cachusha)
+  DirectItem   | 0x1823 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1839 | ×1 | ID=239 (Elixir)
+
+[EVT_DOWNSHIP_BT_CCD_0.eb]
+  DirectItem   | 0x06D8 | ×1 | ID=263 [OUT OF RANGE — false positive]
+  DirectItem   | 0x149F | ×1 | ID=112 (Leather Hat)
+  DirectItem   | 0x14B5 | ×1 | ID=112 (Leather Hat)
+
+[EVT_DOWNSHIP_BT_CCP_0.eb]
+  DirectItem   | 0x1C4B | ×1 | ID=102 (Bronze Gloves)
+  DirectItem   | 0x1C61 | ×1 | ID=102 (Bronze Gloves)
+
+[EVT_DOWNSHIP_BT_CCR_0.eb]
+  TreasureItem | 0x1DA7 | ×1 | ID=136 (Rubber Helm)
+
+[EVT_DOWNSHIP_BT_CMR_0.eb]
+  DirectItem   | 0x1037 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x104D | ×1 | ID=236 (Potion)
+
+[EVT_DOWNSHIP_BT_CNR_0.eb]
+  DirectItem   | 0x1C0B | ×1 | ID=88 (Wrist)
+  DirectItem   | 0x1C21 | ×1 | ID=88 (Wrist)
+
+[EVT_DOWNSHIP_BT_CUS_0.eb]
+  DirectItem   | 0x14C7 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x14DD | ×1 | ID=238 (Ether)
+
+[EVT_DOWNSHIP_BT_FRT_0.eb]
+  TreasureItem | 0x240B | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x4502 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_DOWNSHIP_BT_GTR_0.eb]
+  TreasureItem | 0x1C67 | ×1 | 116G
+  DirectItem   | 0x23F7 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x240D | ×1 | ID=238 (Ether)
+
+[EVT_DOWNSHIP_BT_STR_0.eb]
+  DirectItem   | 0x22C2 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x22D8 | ×1 | ID=238 (Ether)
+
+[EVT_EFOREST1_EF_EXT_0.eb]
+  DirectItem   | 0x035B | ×1 | ID=264 [OUT OF RANGE — false positive]
+
+[EVT_EFOREST1_EF_HEL_0.eb]
+  DirectItem   | 0x25F3 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_EFOREST1_EF_TNT_0.eb]
+  DirectItem   | 0x0B06 | ×1 | ID=266 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0BE3 | ×1 | ID=256 [OUT OF RANGE — false positive]
+
+[EVT_EST_EG_OBS_0.eb]
+  DirectItem   | 0x1889 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_EST_EG_RM2_0.eb]
+  DirectItem   | 0x0E16 | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x0E2C | ×1 | ID=87 (Wing Edge)
+
+[EVT_EVA1_IF_BAS_0.eb]
+  DirectItem   | 0x1D2A | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_EVA1_IF_ENT_0.eb]
+  DirectItem   | 0x32AD | ×1 | ID=230 (Ruby)
+
+[EVT_EVA1_IF_MKJ_1.eb]
+  DirectItem   | 0x2686 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_EVA1_IF_PTS_1.eb]
+  DirectItem   | 0x0FB2 | ×1 | ID=226 (Aquamarine)
+
+[EVT_EVA2_IF_BAS_1.eb]
+  DirectItem   | 0x197A | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_EVA2_IU_EUG_1.eb]
+  DirectItem   | 0x0FBE | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0FD4 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x14EB | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x1501 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x1743 | ×1 | ID=60 (Healing Rod)
+  DirectItem   | 0x1759 | ×1 | ID=60 (Healing Rod)
+
+[EVT_EVA2_IU_EUG_2.eb]
+  DirectItem   | 0x0F8F | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0FA5 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x11E7 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x11FD | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x143F | ×1 | ID=65 (Lamia’s Flute)
+  DirectItem   | 0x1455 | ×1 | ID=65 (Lamia’s Flute)
+
+[EVT_EVA2_IU_SDV_0.eb]
+  DirectItem   | 0x0BF7 | ×1 | ID=158 (Brigandine)
+  DirectItem   | 0x0C0D | ×1 | ID=158 (Brigandine)
+  DirectItem   | 0x0E4F | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0E65 | ×1 | ID=239 (Elixir)
+
+[EVT_FOSSIL_FR_DN1_0.eb]
+  DirectItem   | 0x2441 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3104 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x311A | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x31FE | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x3214 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x32F8 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x330E | ×1 | ID=238 (Ether)
+
+[EVT_FOSSIL_FR_DN2_0.eb]
+  DirectItem   | 0x0CB3 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0CC9 | ×1 | ID=238 (Ether)
+
+[EVT_FOSSIL_FR_DN3_0.eb]
+  DirectItem   | 0x28CF | ×1 | ID=214 (Fairy Earrings)
+  DirectItem   | 0x28E5 | ×1 | ID=214 (Fairy Earrings)
+
+[EVT_FOSSIL_FR_DN4_0.eb]
+  DirectItem   | 0x2D4C | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x39CB | ×1 | ID=120 (Lamia’s Tiara)
+  DirectItem   | 0x39E1 | ×1 | ID=120 (Lamia’s Tiara)
+
+[EVT_FOSSIL_FR_ENT_0.eb]
+  DirectItem   | 0x1451 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1467 | ×1 | ID=239 (Elixir)
+
+[EVT_FOSSIL_FR_SR7_0.eb]
+  DirectItem   | 0x152A | ×1 | ID=157 (Survival Vest)
+  DirectItem   | 0x1540 | ×1 | ID=157 (Survival Vest)
+
+[EVT_GARGAN_GR_CEN_0.eb]
+  DirectItem   | 0x23E0 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_GARGAN_GR_LEF_0.eb]
+  DirectItem   | 0x0BF7 | ×1 | ID=153 (Chain Plate)
+  DirectItem   | 0x0C0D | ×1 | ID=153 (Chain Plate)
+  DirectItem   | 0x0E47 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0E5D | ×1 | ID=240 (Phoenix Down)
+
+[EVT_GATE_N_NG_BDA_0.eb]
+  DirectItem   | 0x1F17 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1F2D | ×1 | ID=238 (Ether)
+  DirectItem   | 0x23DF | ×1 | ID=285 [OUT OF RANGE — false positive]
+  DirectItem   | 0x24BF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x24D5 | ×1 | ID=238 (Ether)
+
+[EVT_GATE_N_NG_BDA_1.eb]
+  DirectItem   | 0x0B8B | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0BA1 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x103D | ×1 | ID=285 [OUT OF RANGE — false positive]
+  DirectItem   | 0x111D | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1133 | ×1 | ID=238 (Ether)
+
+[EVT_GATE_N_NG_BMA_0.eb]
+  DirectItem   | 0x0C97 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0CAD | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0EEF | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x0F05 | ×1 | ID=237 (Hi-Potion)
+
+[EVT_GATE_N_NG_BMA_1.eb]
+  DirectItem   | 0x0A23 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0A39 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0C7B | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x0C91 | ×1 | ID=237 (Hi-Potion)
+
+[EVT_GATE_N_NG_MDA_0.eb]
+  DirectItem   | 0x0D31 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0ECB | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0EE1 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1123 | ×1 | ID=244 (Eye Drops)
+  DirectItem   | 0x1139 | ×1 | ID=244 (Eye Drops)
+
+[EVT_GATE_N_NG_MDA_1.eb]
+  DirectItem   | 0x0997 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x09AD | ×1 | ID=236 (Potion)
+  DirectItem   | 0x0BEF | ×1 | ID=244 (Eye Drops)
+  DirectItem   | 0x0C05 | ×1 | ID=244 (Eye Drops)
+
+[EVT_GATE_N_NG_TRA_1.eb]
+  DirectItem   | 0x17A7 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2A1B | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2A31 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2C77 | ×1 | ID=4206 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2C8D | ×1 | ID=4206 [OUT OF RANGE — false positive]
+  TreasureItem | 0x2CA2 | ×1 | 2206G
+  DirectItem   | 0x2ECF | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2EE5 | ×1 | ID=239 (Elixir)
+
+[EVT_GATE_S_SG_ALX_2.eb]
+  DirectItem   | 0x0747 | ×1 | ID=2610 [OUT OF RANGE — false positive]
+  DirectItem   | 0x075D | ×1 | ID=2610 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0772 | ×1 | 610G
+
+[EVT_GATE_S_SG_ALX_5.eb]
+  DirectItem   | 0x0753 | ×1 | ID=2610 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0769 | ×1 | ID=2610 [OUT OF RANGE — false positive]
+  TreasureItem | 0x077E | ×1 | 610G
+
+[EVT_GATE_S_SG_RND_1.eb]
+  DirectItem   | 0x18E0 | ×1 | ID=272 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A7B | ×1 | ID=585 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1A91 | ×1 | ID=585 [OUT OF RANGE — false positive]
+  DirectItem   | 0x20CF | ×1 | ID=585 [OUT OF RANGE — false positive]
+  DirectItem   | 0x20E5 | ×1 | ID=585 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2363 | ×1 | ID=52 (Multina Racket)
+  DirectItem   | 0x2379 | ×1 | ID=52 (Multina Racket)
+
+[EVT_GATE_S_SG_RND_3.eb]
+  DirectItem   | 0x1C88 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2FDF | ×1 | ID=236 (Potion)
+  DirectItem   | 0x2FF5 | ×1 | ID=236 (Potion)
+
+[EVT_GATE_S_SG_TOP_1.eb]
+  DirectItem   | 0x1CFB | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x1D11 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x30E6 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_GIZ_BELL_0.eb]
+  DirectItem   | 0x0FE2 | ×1 | ID=268 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1011 | ×1 | ID=269 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1167 | ×1 | ID=117 (Magus Hat)
+  TreasureItem | 0x1287 | ×1 | ID=104 (Mythril Gloves)
+
+[EVT_GIZ_CAVERN_0.eb]
+  DirectItem   | 0x142A | ×1 | ID=268 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1459 | ×1 | ID=269 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1516 | ×1 | ID=268 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1545 | ×1 | ID=269 [OUT OF RANGE — false positive]
+
+[EVT_GIZ_CAVERN_1.eb]
+  DirectItem   | 0x1AF7 | ×1 | ID=268 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1B26 | ×1 | ID=269 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1E7C | ×1 | ID=268 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1EAB | ×1 | ID=269 [OUT OF RANGE — false positive]
+  TreasureItem | 0x213B | ×1 | ID=152 (Bronze Vest)
+
+[EVT_GIZ_TO_WORLD.eb]
+  DirectItem   | 0x1A76 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x26A5 | ×1 | ID=270 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2924 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x293A | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2A46 | ×1 | ID=220 (Extension)
+  DirectItem   | 0x2A5C | ×1 | ID=220 (Extension)
+  DirectItem   | 0x2B68 | ×1 | ID=148 (Aloha T-shirt)
+  DirectItem   | 0x2B7E | ×1 | ID=148 (Aloha T-shirt)
+  DirectItem   | 0x2C8D | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2CA3 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2D97 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x2DAD | ×1 | ID=253 (Tent)
+  DirectItem   | 0x2EA1 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x2EB7 | ×1 | ID=238 (Ether)
+
+[EVT_GULUGU_GV_ATK_0.eb]
+  DirectItem   | 0x0B43 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0B59 | ×1 | ID=239 (Elixir)
+
+[EVT_GULUGU_GV_PW1_0.eb]
+  DirectItem   | 0x060F | ×1 | ID=128 (Golden Hairpin)
+  DirectItem   | 0x0625 | ×1 | ID=128 (Golden Hairpin)
+
+[EVT_GULUGU_GV_PW3_0.eb]
+  DirectItem   | 0x17B3 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_GULUGU_GV_PW4_0.eb]
+  DirectItem   | 0x1591 | ×1 | ID=221 (Ribbon)
+
+[EVT_GULUGU_GV_RM2_0.eb]
+  DirectItem   | 0x08FE | ×1 | ID=10693 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0914 | ×1 | ID=10693 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0929 | ×1 | 8693G
+  DirectItem   | 0x0ABA | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0AD0 | ×1 | ID=238 (Ether)
+
+[EVT_GULUGU_GV_RM3_0.eb]
+  DirectItem   | 0x17BE | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x253E | ×1 | ID=87 (Wing Edge)
+  DirectItem   | 0x2554 | ×1 | ID=87 (Wing Edge)
+
+[EVT_GULUGU_GV_RM4_0.eb]
+  DirectItem   | 0x0607 | ×1 | ID=184 (Demon’s Mail)
+  DirectItem   | 0x061D | ×1 | ID=184 (Demon’s Mail)
+
+[EVT_GULUGU_GV_WHL_0.eb]
+  DirectItem   | 0x1D4E | ×1 | ID=127 (Red Hat)
+  DirectItem   | 0x1D64 | ×1 | ID=127 (Red Hat)
+  DirectItem   | 0x1F1A | ×1 | ID=161 (Gaia Gear)
+  DirectItem   | 0x1F30 | ×1 | ID=161 (Gaia Gear)
+
+[EVT_HILDA3_G3_EXT_0.eb]
+  DirectItem   | 0x13B6 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x13CC | ×1 | ID=253 (Tent)
+  DirectItem   | 0x15D9 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x15EF | ×1 | ID=239 (Elixir)
+
+[EVT_ICE_IC_BRI_0.eb]
+  DirectItem   | 0x1717 | ×1 | ID=89 (Leather Wrist)
+  DirectItem   | 0x172D | ×1 | ID=89 (Leather Wrist)
+  DirectItem   | 0x1967 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x197D | ×1 | ID=240 (Phoenix Down)
+
+[EVT_ICE_IC_ENT_0.eb]
+  DirectItem   | 0x2139 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_ICE_IC_JMP_0.eb]
+  DirectItem   | 0x1D33 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1D49 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1F83 | ×1 | ID=2 (Mage Masher)
+  DirectItem   | 0x1F99 | ×1 | ID=2 (Mage Masher)
+  DirectItem   | 0x21D3 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x21E9 | ×1 | ID=239 (Elixir)
+
+[EVT_ICE_IC_MRM_0.eb]
+  DirectItem   | 0x27F7 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_ICE_IC_STP_0.eb]
+  DirectItem   | 0x1433 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x1449 | ×1 | ID=253 (Tent)
+
+[EVT_ICE_IC_TER_0.eb]
+  DirectItem   | 0x1637 | ×1 | ID=236 (Potion)
+  DirectItem   | 0x164D | ×1 | ID=236 (Potion)
+  DirectItem   | 0x1887 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x189D | ×1 | ID=238 (Ether)
+
+[EVT_INV_IV_CXI_0.eb]
+  DirectItem   | 0x1B1F | ×1 | ID=315 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1B35 | ×1 | ID=315 [OUT OF RANGE — false positive]
+
+[EVT_IPSEN_IP_CNT_0.eb]
+  DirectItem   | 0x34B2 | ×1 | ID=279 [OUT OF RANGE — false positive]
+  DirectItem   | 0x36A6 | ×1 | ID=281 [OUT OF RANGE — false positive]
+  DirectItem   | 0x389A | ×1 | ID=280 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3A8E | ×1 | ID=278 [OUT OF RANGE — false positive]
+
+[EVT_IPSEN_IP_EN1_0.eb]
+  DirectItem   | 0x1273 | ×1 | ID=219 (Barette)
+  DirectItem   | 0x1289 | ×1 | ID=219 (Barette)
+  DirectItem   | 0x14CB | ×1 | ID=1 (Dagger)
+  DirectItem   | 0x14E1 | ×1 | ID=1 (Dagger)
+  DirectItem   | 0x1723 | ×1 | ID=314 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1739 | ×1 | ID=314 [OUT OF RANGE — false positive]
+
+[EVT_IPSEN_IP_HL1_0.eb]
+  DirectItem   | 0x0B63 | ×1 | ID=16 (Broadsword)
+  DirectItem   | 0x0B79 | ×1 | ID=16 (Broadsword)
+
+[EVT_IPSEN_IP_HL2_0.eb]
+  DirectItem   | 0x0F3F | ×1 | ID=31 (Javelin)
+  DirectItem   | 0x0F55 | ×1 | ID=31 (Javelin)
+  DirectItem   | 0x1197 | ×1 | ID=57 (Rod)
+  DirectItem   | 0x11AD | ×1 | ID=57 (Rod)
+
+[EVT_IPSEN_IP_RM1_0.eb]
+  DirectItem   | 0x145F | ×1 | ID=41 (Cat’s Claws)
+  DirectItem   | 0x1475 | ×1 | ID=41 (Cat’s Claws)
+  DirectItem   | 0x16B7 | ×1 | ID=70 (Mage Staff)
+  DirectItem   | 0x16CD | ×1 | ID=70 (Mage Staff)
+  DirectItem   | 0x190F | ×1 | ID=79 (Fork)
+  DirectItem   | 0x1925 | ×1 | ID=79 (Fork)
+  DirectItem   | 0x2D58 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_IPSEN_IP_RM2_0.eb]
+  DirectItem   | 0x0D5B | ×1 | ID=222 (Maiden Prayer)
+  DirectItem   | 0x0D71 | ×1 | ID=222 (Maiden Prayer)
+
+[EVT_IPSEN_IP_SMN_0.eb]
+  DirectItem   | 0x112F | ×1 | ID=64 (Golem’s Flute)
+  DirectItem   | 0x1145 | ×1 | ID=64 (Golem’s Flute)
+  DirectItem   | 0x2EB1 | ×1 | ID=223 (Ancient Aroma)
+  DirectItem   | 0x2EC7 | ×1 | ID=223 (Ancient Aroma)
+
+[EVT_IPSEN_IP_ST2_0.eb]
+  DirectItem   | 0x098B | ×1 | ID=51 (Air Racket)
+  DirectItem   | 0x09A1 | ×1 | ID=51 (Air Racket)
+
+[EVT_KUINA_KM_FET_0.eb]
+  DirectItem   | 0x1C10 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_KUINA_KM_SWP_0.eb]
+  DirectItem   | 0x13EF | ×1 | ID=84 (Gastro Fork)
+
+[EVT_KUINA_KM_SWP_1.eb]
+  DirectItem   | 0x1473 | ×1 | ID=84 (Gastro Fork)
+
+[EVT_KUINA_KM_SWP_2.eb]
+  DirectItem   | 0x13E4 | ×1 | ID=84 (Gastro Fork)
+
+[EVT_KUINA_KM_SWP_3.eb]
+  DirectItem   | 0x13E4 | ×1 | ID=84 (Gastro Fork)
+
+[EVT_KUWAN_QH_CAV_0.eb]
+  DirectItem   | 0x12BC | ×1 | ID=311 [OUT OF RANGE — false positive]
+  DirectItem   | 0x12D2 | ×1 | ID=311 [OUT OF RANGE — false positive]
+  DirectItem   | 0x143D | ×1 | ID=316 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1453 | ×1 | ID=316 [OUT OF RANGE — false positive]
+  DirectItem   | 0x165F | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1675 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x18AF | ×1 | ID=238 (Ether)
+  DirectItem   | 0x18C5 | ×1 | ID=238 (Ether)
+
+[EVT_KUWAN_QH_HUR_0.eb]
+  DirectItem   | 0x176B | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1781 | ×1 | ID=238 (Ether)
+
+[EVT_KUWAN_QH_LNI_0.eb]
+  DirectItem   | 0x19C2 | ×1 | ID=198 (Running Shoes)
+  DirectItem   | 0x19D8 | ×1 | ID=198 (Running Shoes)
+
+[EVT_LAST_CW_1LY_1.eb]
+  TreasureItem | 0x04DF | ×1 | ID=14 (The Tower)
+
+[EVT_LAST_CW_EMP_0.eb]
+  TreasureItem | 0x07E0 | ×1 | ID=30 (Excalibur II)
+  DirectItem   | 0x1414 | ×1 | ID=30 (Excalibur II)
+  DirectItem   | 0x142A | ×1 | ID=30 (Excalibur II)
+
+[EVT_LAST_CW_ETH_0.eb]
+  TreasureItem | 0x1343 | ×1 | ID=39 (Kain’s Lance)
+
+[EVT_LAST_CW_GIA_0.eb]
+  TreasureItem | 0x0723 | ×1 | ID=69 (Angel Flute)
+
+[EVT_LAST_CW_GIA_1.eb]
+  TreasureItem | 0x0D27 | ×1 | ID=50 (Rune Claws)
+  DirectItem   | 0x1050 | ×1 | ID=50 (Rune Claws)
+  DirectItem   | 0x1066 | ×1 | ID=50 (Rune Claws)
+  DirectItem   | 0x10DC | ×1 | ID=50 (Rune Claws)
+  DirectItem   | 0x10F2 | ×1 | ID=50 (Rune Claws)
+
+[EVT_LAST_CW_LTP_0.eb]
+  TreasureItem | 0x0543 | ×1 | ID=78 (Mace of Zeus)
+  DirectItem   | 0x0C20 | ×1 | ID=78 (Mace of Zeus)
+  DirectItem   | 0x0C36 | ×1 | ID=78 (Mace of Zeus)
+  DirectItem   | 0x0CAC | ×1 | ID=78 (Mace of Zeus)
+  DirectItem   | 0x0CC2 | ×1 | ID=78 (Mace of Zeus)
+
+[EVT_LIND1_CS_LB_CFR_0.eb]
+  DirectItem   | 0x0EE0 | ×1 | ID=6000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0EF6 | ×1 | ID=6000 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0F0B | ×1 | 4000G
+  DirectItem   | 0x0F28 | ×1 | ID=288 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1060 | ×1 | ID=598 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1076 | ×1 | ID=598 [OUT OF RANGE — false positive]
+  DirectItem   | 0x10C7 | ×1 | ID=288 [OUT OF RANGE — false positive]
+  DirectItem   | 0x118A | ×1 | ID=206 (Coral Ring)
+  DirectItem   | 0x11A0 | ×1 | ID=206 (Coral Ring)
+  DirectItem   | 0x11D2 | ×1 | ID=288 [OUT OF RANGE — false positive]
+
+[EVT_LIND1_CS_LB_EXB_0.eb]
+  DirectItem   | 0x22DF | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x32C3 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x32D9 | ×1 | ID=253 (Tent)
+
+[EVT_LIND1_CS_LB_GRM_0.eb]
+  DirectItem   | 0x2A40 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3673 | ×1 | ID=90 (Glass Armlet)
+  DirectItem   | 0x3689 | ×1 | ID=90 (Glass Armlet)
+  DirectItem   | 0x38C3 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x38D9 | ×1 | ID=238 (Ether)
+
+[EVT_LIND1_CS_LB_PLA_0.eb]
+  DirectItem   | 0x0E2F | ×1 | ID=524 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0E45 | ×1 | ID=524 [OUT OF RANGE — false positive]
+
+[EVT_LIND1_TN_LB_AET_0.eb]
+  TreasureItem | 0x360F | ×1 | ID=89 (Leather Wrist)
+
+[EVT_LIND1_TN_LB_ALY_0.eb]
+  TreasureItem | 0x3387 | ×1 | ID=253 (Tent)
+
+[EVT_LIND1_TN_LB_ATL_0.eb]
+  DirectItem   | 0x0625 | ×1 | ID=292 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0D53 | ×1 | ID=293 (Item #293)
+  DirectItem   | 0x147F | ×1 | ID=254 (Ore)
+  DirectItem   | 0x1495 | ×1 | ID=254 (Ore)
+
+[EVT_LIND1_TN_LB_ECH_0.eb]
+  TreasureItem | 0x07EF | ×1 | ID=103 (Silver Gloves)
+
+[EVT_LIND1_TN_LB_HUS_0.eb]
+  DirectItem   | 0x0BDF | ×1 | ID=241 (Echo Screen)
+  DirectItem   | 0x0BF5 | ×1 | ID=241 (Echo Screen)
+  DirectItem   | 0x0E2F | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x0E45 | ×1 | ID=237 (Hi-Potion)
+
+[EVT_LIND1_TN_LB_IN1_0.eb]
+  TreasureItem | 0x0BDF | ×1 | 163G
+
+[EVT_LIND1_TN_LB_IN2_0.eb]
+  DirectItem   | 0x2B3A | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_LIND1_TN_LB_ITM_0.eb]
+  DirectItem   | 0x05EE | ×1 | ID=267 [OUT OF RANGE — false positive]
+
+[EVT_LIND1_TN_LB_LDH_0.eb]
+  DirectItem   | 0x1053 | ×1 | ID=115 (Steepled Hat)
+  DirectItem   | 0x1069 | ×1 | ID=115 (Steepled Hat)
+  DirectItem   | 0x12A3 | ×1 | ID=523 [OUT OF RANGE — false positive]
+  DirectItem   | 0x12B9 | ×1 | ID=523 [OUT OF RANGE — false positive]
+
+[EVT_LIND1_TN_LB_RFS_0.eb]
+  TreasureItem | 0x30A7 | ×1 | 127G
+
+[EVT_LIND1_TN_LB_ROD_0.eb]
+  TreasureItem | 0x3B13 | ×1 | ID=152 (Bronze Vest)
+
+[EVT_LIND1_TN_LB_TMP_0.eb]
+  TreasureItem | 0x0ACB | ×1 | ID=151 (Leather Plate)
+
+[EVT_LIND1_TN_LB_TTL_0.eb]
+  TreasureItem | 0x0FAF | ×1 | ID=291 (Item #291)
+  DirectItem   | 0x16D7 | ×1 | ID=1097 [OUT OF RANGE — false positive]
+  DirectItem   | 0x16ED | ×1 | ID=1097 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1702 | ×1 | ID=97 (Jade Armlet)
+  DirectItem   | 0x192B | ×1 | ID=1068 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1941 | ×1 | ID=1068 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1956 | ×1 | ID=68 (Siren’s Flute)
+  DirectItem   | 0x1B7F | ×1 | ID=1282 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1B95 | ×1 | ID=1282 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1BAA | ×1 | ID=282 (Item #282)
+
+[EVT_LIND2_CS_LB_EXB_0.eb]
+  DirectItem   | 0x1B2B | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2E9B | ×1 | ID=118 (Bandana)
+  DirectItem   | 0x2EB1 | ×1 | ID=118 (Bandana)
+
+[EVT_LIND2_CS_LB_LLP_0.eb]
+  DirectItem   | 0x0A83 | ×1 | ID=265 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0D26 | ×1 | ID=265 [OUT OF RANGE — false positive]
+
+[EVT_LIND2_CS_LB_PLA_0.eb]
+  DirectItem   | 0x0F33 | ×1 | ID=241 (Echo Screen)
+  DirectItem   | 0x0F49 | ×1 | ID=241 (Echo Screen)
+
+[EVT_LIND2_TN_LB_ATL_0.eb]
+  DirectItem   | 0x0C63 | ×1 | ID=254 (Ore)
+  DirectItem   | 0x0C79 | ×1 | ID=254 (Ore)
+
+[EVT_LIND2_TN_LB_BAZ_0.eb]
+  TreasureItem | 0x0BB7 | ×1 | Card=94
+
+[EVT_LIND2_TN_LB_HUS_0.eb]
+  DirectItem   | 0x0A73 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0A89 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0CC3 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x0CD9 | ×1 | ID=238 (Ether)
+
+[EVT_LIND2_TN_LB_IN1_0.eb]
+  TreasureItem | 0x08DF | ×1 | 163G
+
+[EVT_LIND2_TN_LB_IN2_0.eb]
+  DirectItem   | 0x1C96 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_LIND2_TN_LB_OMG_W.eb]
+  DirectItem   | 0x0A7D | ×1 | ID=4000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0A93 | ×1 | ID=4000 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0AA8 | ×1 | 2000G
+
+[EVT_LIND2_TN_LB_RFS_0.eb]
+  TreasureItem | 0x0CA7 | ×1 | 127G
+
+[EVT_LIND2_TN_LB_TTL_0.eb]
+  TreasureItem | 0x0843 | ×1 | ID=291 (Item #291)
+  DirectItem   | 0x0FE7 | ×1 | ID=1340 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0FFD | ×1 | ID=1340 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1012 | ×1 | ID=340 (Item #340)
+  DirectItem   | 0x123B | ×1 | ID=1262 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1251 | ×1 | ID=1262 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1266 | ×1 | ID=262 (Item #262)
+  DirectItem   | 0x148F | ×1 | ID=1993 [OUT OF RANGE — false positive]
+  DirectItem   | 0x14A5 | ×1 | ID=1993 [OUT OF RANGE — false positive]
+  TreasureItem | 0x14BA | ×1 | Card=481
+
+[EVT_LIND3_CS_LB_EXB_0.eb]
+  DirectItem   | 0x2057 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x303B | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x3051 | ×1 | ID=247 (Remedy)
+
+[EVT_LIND3_CS_LB_GRM_0.eb]
+  DirectItem   | 0x362C | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x425F | ×1 | ID=95 (Egoist’s Armlet)
+  DirectItem   | 0x4275 | ×1 | ID=95 (Egoist’s Armlet)
+  DirectItem   | 0x44AF | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x44C5 | ×1 | ID=239 (Elixir)
+
+[EVT_LIND3_CS_LB_PLA_0.eb]
+  DirectItem   | 0x0D17 | ×1 | ID=94 (Chimera Armlet)
+  DirectItem   | 0x0D2D | ×1 | ID=94 (Chimera Armlet)
+
+[EVT_LIND3_TN_LB_ATL_0.eb]
+  DirectItem   | 0x0EFB | ×1 | ID=235 (Lapis Lazuli)
+  DirectItem   | 0x0F11 | ×1 | ID=235 (Lapis Lazuli)
+  DirectItem   | 0x123A | ×1 | ID=276 [OUT OF RANGE — false positive]
+
+[EVT_LIND3_TN_LB_BAZ_0.eb]
+  TreasureItem | 0x368F | ×1 | ID=312 (Item #312)
+
+[EVT_LIND3_TN_LB_ECH_0.eb]
+  TreasureItem | 0x05F3 | ×1 | ID=103 (Silver Gloves)
+
+[EVT_LIND3_TN_LB_HIG_0.eb]
+  DirectItem   | 0x3AEB | ×1 | ID=274 [OUT OF RANGE — false positive]
+
+[EVT_LIND3_TN_LB_HUS_0.eb]
+  DirectItem   | 0x0B4B | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0B61 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0D9B | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0DB1 | ×1 | ID=239 (Elixir)
+
+[EVT_LIND3_TN_LB_IN1_0.eb]
+  TreasureItem | 0x06F3 | ×1 | 163G
+
+[EVT_LIND3_TN_LB_IN2_0.eb]
+  DirectItem   | 0x1B5A | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_LIND3_TN_LB_PLZ_0.eb]
+  DirectItem   | 0x152D | ×1 | ID=275 [OUT OF RANGE — false positive]
+
+[EVT_LIND3_TN_LB_RFS_0.eb]
+  TreasureItem | 0x1D8F | ×1 | 127G
+
+[EVT_LIND3_TN_LB_TTL_0.eb]
+  DirectItem   | 0x08EB | ×1 | ID=2273 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0901 | ×1 | ID=2273 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0916 | ×1 | 273G
+  DirectItem   | 0x0B3F | ×1 | ID=1970 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0B55 | ×1 | ID=1970 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0B6A | ×1 | Card=458
+  DirectItem   | 0x0D93 | ×1 | ID=5826 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0DA9 | ×1 | ID=5826 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0DBE | ×1 | 3826G
+  DirectItem   | 0x0FE3 | ×1 | ID=209 (Protect Ring)
+  DirectItem   | 0x0FF9 | ×1 | ID=209 (Protect Ring)
+
+[EVT_MAGE2_BV_CSI_0.eb]
+  DirectItem   | 0x0EE2 | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x0EF8 | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_MAGE2_BV_CSK_0.eb]
+  DirectItem   | 0x1C21 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_MAGE2_BV_ENT_0.eb]
+  DirectItem   | 0x214E | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2164 | ×1 | ID=239 (Elixir)
+
+[EVT_MAGE2_BV_INN_0.eb]
+  DirectItem   | 0x1502 | ×1 | ID=309 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1518 | ×1 | ID=309 [OUT OF RANGE — false positive]
+
+[EVT_MAGE2_BV_ITM_0.eb]
+  DirectItem   | 0x1231 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1247 | ×1 | ID=201 (Black Belt)
+
+[EVT_MAGE2_BV_ITS_0.eb]
+  DirectItem   | 0x0C17 | ×1 | ID=3000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0C2D | ×1 | ID=3000 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0C42 | ×1 | 1000G
+
+[EVT_MAGE2_BV_ORT_0.eb]
+  DirectItem   | 0x05BF | ×1 | ID=1843 [OUT OF RANGE — false positive]
+  DirectItem   | 0x05D5 | ×1 | ID=1843 [OUT OF RANGE — false positive]
+  TreasureItem | 0x05EA | ×1 | Card=331
+
+[EVT_MAGE_BV_CSI_0.eb]
+  DirectItem   | 0x1EDA | ×1 | ID=251 (Gysahl Greens)
+  DirectItem   | 0x1EF0 | ×1 | ID=251 (Gysahl Greens)
+
+[EVT_MAGE_BV_CSK_0.eb]
+  DirectItem   | 0x2FC1 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_MAGE_BV_ENT_0.eb]
+  DirectItem   | 0x36E6 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x36FC | ×1 | ID=239 (Elixir)
+
+[EVT_MAGE_BV_INN_0.eb]
+  DirectItem   | 0x1722 | ×1 | ID=309 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1738 | ×1 | ID=309 [OUT OF RANGE — false positive]
+
+[EVT_MAGE_BV_ITM_0.eb]
+  DirectItem   | 0x1E9D | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1EB3 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x21B6 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x21CC | ×1 | ID=238 (Ether)
+
+[EVT_MAGE_BV_ITS_0.eb]
+  DirectItem   | 0x1C73 | ×1 | ID=3000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1C89 | ×1 | ID=3000 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1C9E | ×1 | 1000G
+
+[EVT_MAGE_BV_ORT_0.eb]
+  DirectItem   | 0x0657 | ×1 | ID=1843 [OUT OF RANGE — false positive]
+  DirectItem   | 0x066D | ×1 | ID=1843 [OUT OF RANGE — false positive]
+  TreasureItem | 0x0682 | ×1 | Card=331
+
+[EVT_MOGNET_MOG_VER1.eb]
+  DirectItem   | 0x0591 | ×1 | ID=209 (Protect Ring)
+  DirectItem   | 0x05A7 | ×1 | ID=209 (Protect Ring)
+
+[EVT_OEIL_UV_DEP_0.eb]
+  DirectItem   | 0x233A | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2F85 | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x2F9B | ×1 | ID=237 (Hi-Potion)
+  DirectItem   | 0x307F | ×1 | ID=228 (Emerald)
+  DirectItem   | 0x3095 | ×1 | ID=228 (Emerald)
+  DirectItem   | 0x3179 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x318F | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x33D3 | ×1 | ID=161 (Gaia Gear)
+  DirectItem   | 0x33E9 | ×1 | ID=161 (Gaia Gear)
+
+[EVT_OEIL_UV_DP1_0.eb]
+  DirectItem   | 0x1057 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x106D | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x12AF | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x12C5 | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1507 | ×1 | ID=22 (Diamond Sword)
+  DirectItem   | 0x151D | ×1 | ID=22 (Diamond Sword)
+
+[EVT_OEIL_UV_DP2_0.eb]
+  DirectItem   | 0x1DA7 | ×1 | ID=160 (Power Vest)
+  DirectItem   | 0x1DBD | ×1 | ID=160 (Power Vest)
+  DirectItem   | 0x1FFF | ×1 | ID=196 (Feather Boots)
+  DirectItem   | 0x2015 | ×1 | ID=196 (Feather Boots)
+
+[EVT_OEIL_UV_EXT_0.eb]
+  DirectItem   | 0x1F81 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_OEIL_UV_FDP_0.eb]
+  DirectItem   | 0x09F8 | ×1 | ID=277 [OUT OF RANGE — false positive]
+
+[EVT_OEIL_UV_PST_0.eb]
+  DirectItem   | 0x0A03 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0A19 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0C5B | ×1 | ID=86 (Rising Sun)
+  DirectItem   | 0x0C71 | ×1 | ID=86 (Rising Sun)
+
+[EVT_PANDEMO_PD_BWR_0.eb]
+  DirectItem   | 0x1B22 | ×1 | ID=133 (Holy Miter)
+  DirectItem   | 0x1B38 | ×1 | ID=133 (Holy Miter)
+
+[EVT_PANDEMO_PD_ELV_0.eb]
+  DirectItem   | 0x1917 | ×1 | ID=21007 [OUT OF RANGE — false positive]
+  DirectItem   | 0x192D | ×1 | ID=21007 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1942 | ×1 | 19007G
+
+[EVT_PANDEMO_PD_MZM_0.eb]
+  DirectItem   | 0x23B3 | ×1 | ID=187 (Carabini Mail)
+  DirectItem   | 0x23C9 | ×1 | ID=187 (Carabini Mail)
+  DirectItem   | 0x260B | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2621 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x285B | ×1 | ID=197 (Battle Boots)
+  DirectItem   | 0x2871 | ×1 | ID=197 (Battle Boots)
+  DirectItem   | 0x3C17 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_PANDEMO_PD_RM1_0.eb]
+  DirectItem   | 0x22B1 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_PATA_M_CM_MP0_0.eb]
+  DirectItem   | 0x1C03 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x1C19 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x1E5B | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x1E71 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x2523 | ×1 | ID=300 [OUT OF RANGE — false positive]
+
+[EVT_PATA_M_CM_MP1_0.eb]
+  DirectItem   | 0x1169 | ×1 | ID=301 [OUT OF RANGE — false positive]
+
+[EVT_PATA_M_CM_MP3_0.eb]
+  DirectItem   | 0x1BA5 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x27F1 | ×1 | ID=245 (Magic Tag)
+  DirectItem   | 0x2807 | ×1 | ID=245 (Magic Tag)
+  DirectItem   | 0x28EB | ×1 | ID=253 (Tent)
+  DirectItem   | 0x2901 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x29E5 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x29FB | ×1 | ID=238 (Ether)
+
+[EVT_PATA_M_CM_MP4_0.eb]
+  DirectItem   | 0x1019 | ×1 | ID=229 (Moonstone)
+  DirectItem   | 0x102F | ×1 | ID=229 (Moonstone)
+
+[EVT_PATA_M_CM_MP5_0.eb]
+  DirectItem   | 0x163D | ×1 | ID=302 [OUT OF RANGE — false positive]
+
+[EVT_PATA_M_CM_MP7_0.eb]
+  DirectItem   | 0x1213 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1229 | ×1 | ID=238 (Ether)
+  DirectItem   | 0x15B9 | ×1 | ID=303 [OUT OF RANGE — false positive]
+
+[EVT_PATA_T_CP_GL1_0.eb]
+  DirectItem   | 0x2002 | ×1 | ID=3700 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2018 | ×1 | ID=3700 [OUT OF RANGE — false positive]
+  TreasureItem | 0x202D | ×1 | 1700G
+
+[EVT_PATA_T_CP_GL2_0.eb]
+  DirectItem   | 0x14B7 | ×1 | ID=604 [OUT OF RANGE — false positive]
+  DirectItem   | 0x14CD | ×1 | ID=604 [OUT OF RANGE — false positive]
+
+[EVT_PATA_T_CP_ROM_0.eb]
+  DirectItem   | 0x1E8A | ×1 | ID=2800 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1EA0 | ×1 | ID=2800 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1EB5 | ×1 | 800G
+
+[EVT_PATA_T_CP_SHN_0.eb]
+  DirectItem   | 0x1F0A | ×1 | ID=227 (Diamond)
+  DirectItem   | 0x1F20 | ×1 | ID=227 (Diamond)
+
+[EVT_PATA_T_CP_TOL_0.eb]
+  DirectItem   | 0x20E2 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x20F8 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x34B2 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_PINA_PR_ENT_0.eb]
+  DirectItem   | 0x09A7 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x09BD | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0BFF | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0C15 | ×1 | ID=239 (Elixir)
+
+[EVT_PINA_PR_ENT_1.eb]
+  DirectItem   | 0x0D23 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0D39 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0F7B | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0F91 | ×1 | ID=239 (Elixir)
+
+[EVT_PINA_PR_PW1_0.eb]
+  DirectItem   | 0x2D17 | ×1 | ID=294 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3E03 | ×1 | ID=154 (Mythril Vest)
+  DirectItem   | 0x3E19 | ×1 | ID=154 (Mythril Vest)
+
+[EVT_PINA_PR_PW2_0.eb]
+  DirectItem   | 0x17EF | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x1805 | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x1A47 | ×1 | ID=8 (The Ogre)
+  DirectItem   | 0x1A5D | ×1 | ID=8 (The Ogre)
+
+[EVT_PINA_PR_PW3_0.eb]
+  DirectItem   | 0x165F | ×1 | ID=231 (Peridot)
+  DirectItem   | 0x338B | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x33A1 | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x361B | ×1 | ID=8 (The Ogre)
+  DirectItem   | 0x3631 | ×1 | ID=8 (The Ogre)
+  DirectItem   | 0x3B26 | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x3B3C | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x4542 | ×1 | ID=92 (Mythril Armlet)
+  DirectItem   | 0x4558 | ×1 | ID=92 (Mythril Armlet)
+
+[EVT_ROSE_CABIN_2.eb]
+  DirectItem   | 0x185B | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_SARI1_MS_EIK_0.eb]
+  DirectItem   | 0x2D8D | ×1 | ID=254 (Ore)
+  DirectItem   | 0x2DA3 | ×1 | ID=254 (Ore)
+  DirectItem   | 0x2FFD | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x3013 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_SARI1_MS_FNT_0.eb]
+  DirectItem   | 0x2119 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x212F | ×1 | ID=253 (Tent)
+  DirectItem   | 0x458F | ×1 | ID=310 [OUT OF RANGE — false positive]
+
+[EVT_SARI1_MS_KTN_0.eb]
+  DirectItem   | 0x372D | ×1 | ID=286 [OUT OF RANGE — false positive]
+
+[EVT_SARI1_MS_PMR_0.eb]
+  DirectItem   | 0x19C8 | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x19DE | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x1A32 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1A48 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1E11 | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x1E27 | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x1FA6 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1FBC | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x24F7 | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x250D | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x278F | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x27A5 | ×1 | ID=239 (Elixir)
+
+[EVT_SARI1_MS_SCR_0.eb]
+  DirectItem   | 0x0D99 | ×1 | ID=157 (Survival Vest)
+  DirectItem   | 0x0DAF | ×1 | ID=157 (Survival Vest)
+  DirectItem   | 0x1035 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x104B | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x1151 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x1167 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x2A77 | ×1 | ID=258 [OUT OF RANGE — false positive]
+
+[EVT_SARI2_MS_EIK_1.eb]
+  DirectItem   | 0x0BE1 | ×1 | ID=254 (Ore)
+  DirectItem   | 0x0BF7 | ×1 | ID=254 (Ore)
+  DirectItem   | 0x0E51 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x0E67 | ×1 | ID=249 (Phoenix Pinion)
+
+[EVT_SARI2_MS_FNT_1.eb]
+  DirectItem   | 0x0D0D | ×1 | ID=253 (Tent)
+  DirectItem   | 0x0D23 | ×1 | ID=253 (Tent)
+  DirectItem   | 0x1023 | ×1 | ID=310 [OUT OF RANGE — false positive]
+
+[EVT_SARI2_MS_KTN_1.eb]
+  DirectItem   | 0x1261 | ×1 | ID=286 [OUT OF RANGE — false positive]
+
+[EVT_SARI2_MS_PMR_1.eb]
+  DirectItem   | 0x0B0B | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x0B21 | ×1 | ID=9 (Exploda)
+  DirectItem   | 0x0D63 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0D79 | ×1 | ID=239 (Elixir)
+
+[EVT_SARI2_MS_SCR_1.eb]
+  DirectItem   | 0x0909 | ×1 | ID=157 (Survival Vest)
+  DirectItem   | 0x091F | ×1 | ID=157 (Survival Vest)
+  DirectItem   | 0x0BA5 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0BBB | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0CC1 | ×1 | ID=240 (Phoenix Down)
+  DirectItem   | 0x0CD7 | ×1 | ID=240 (Phoenix Down)
+
+[EVT_SUNA_SP_KKR_0.eb]
+  TreasureItem | 0x1547 | ×1 | Card=97
+
+[EVT_SUNA_SP_MHL_0.eb]
+  DirectItem   | 0x31A9 | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x31BF | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x3845 | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x385B | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x3EE1 | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x3EF7 | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x4585 | ×1 | ID=96 (N-Kai Armlet)
+  DirectItem   | 0x459B | ×1 | ID=96 (N-Kai Armlet)
+
+[EVT_SUNA_SP_MP1_0.eb]
+  DirectItem   | 0x1FCA | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x1FE0 | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x270A | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x2720 | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x2E4A | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x2E60 | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x3592 | ×1 | ID=207 (Promist Ring)
+  DirectItem   | 0x35A8 | ×1 | ID=207 (Promist Ring)
+
+[EVT_SUNA_SP_MP2_0.eb]
+  DirectItem   | 0x0F2F | ×1 | ID=214 (Fairy Earrings)
+  DirectItem   | 0x0F45 | ×1 | ID=214 (Fairy Earrings)
+
+[EVT_SUNA_SP_MP3_0.eb]
+  DirectItem   | 0x13A4 | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x13BA | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1788 | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x179E | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1B6C | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1B82 | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1F58 | ×1 | ID=183 (Shield Armor)
+  DirectItem   | 0x1F6E | ×1 | ID=183 (Shield Armor)
+
+[EVT_SUNA_SP_MT1_0.eb]
+  DirectItem   | 0x45C5 | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x45DB | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x4C79 | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x4C8F | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x5291 | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x52A7 | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x58B1 | ×1 | ID=199 (Anklet)
+  DirectItem   | 0x58C7 | ×1 | ID=199 (Anklet)
+
+[EVT_SUNA_SP_MT2_0.eb]
+  DirectItem   | 0x4CA7 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_SUNA_SP_MT3_0.eb]
+  DirectItem   | 0x2EEC | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x2F02 | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x305F | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x3075 | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x3634 | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x364A | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x37A7 | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x37BD | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x3D7C | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x3D92 | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x3EEF | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x3F05 | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x44CC | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x44E2 | ×1 | ID=126 (Black Hood)
+  DirectItem   | 0x463F | ×1 | ID=107 (Venetia Shield)
+  DirectItem   | 0x4655 | ×1 | ID=107 (Venetia Shield)
+
+[EVT_SUNA_SP_RRM_0.eb]
+  DirectItem   | 0x1CED | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_TERA_TA_BST_0.eb]
+  DirectItem   | 0x0AD3 | ×1 | ID=129 (Coronet)
+  DirectItem   | 0x0AE9 | ×1 | ID=129 (Coronet)
+
+[EVT_TERA_TA_PRB_0.eb]
+  DirectItem   | 0x09D3 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x09E9 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x0C2B | ×1 | ID=99 (Dragon Wrist)
+  DirectItem   | 0x0C41 | ×1 | ID=99 (Dragon Wrist)
+
+[EVT_TERA_TA_ROD_0.eb]
+  DirectItem   | 0x098B | ×1 | ID=162 (Demon’s Vest)
+  DirectItem   | 0x09A1 | ×1 | ID=162 (Demon’s Vest)
+
+[EVT_TERA_TA_ROU_0.eb]
+  DirectItem   | 0x0DCF | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x0DE5 | ×1 | ID=247 (Remedy)
+  DirectItem   | 0x1027 | ×1 | ID=54 (Mythril Racket)
+  DirectItem   | 0x103D | ×1 | ID=54 (Mythril Racket)
+
+[EVT_TRENO1_TR_BHE_0.eb]
+  DirectItem   | 0x04C0 | ×1 | ID=200 (Power Belt)
+  DirectItem   | 0x04D6 | ×1 | ID=200 (Power Belt)
+
+[EVT_TRENO1_TR_EKH_0.eb]
+  DirectItem   | 0x39A4 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_TRENO1_TR_FBH_0.eb]
+  DirectItem   | 0x1E0B | ×1 | ID=3 (Mythril Dagger)
+  DirectItem   | 0x1E21 | ×1 | ID=3 (Mythril Dagger)
+
+[EVT_TRENO1_TR_FKH_0.eb]
+  DirectItem   | 0x11DE | ×1 | ID=3225 [OUT OF RANGE — false positive]
+  DirectItem   | 0x11F4 | ×1 | ID=3225 [OUT OF RANGE — false positive]
+  TreasureItem | 0x1209 | ×1 | 1225G
+
+[EVT_TRENO1_TR_FQH_0.eb]
+  DirectItem   | 0x136A | ×1 | ID=238 (Ether)
+  DirectItem   | 0x1380 | ×1 | ID=238 (Ether)
+
+[EVT_TRENO1_TR_GAT_0.eb]
+  DirectItem   | 0x361F | ×1 | ID=306 [OUT OF RANGE — false positive]
+  DirectItem   | 0x39C9 | ×1 | ID=306 [OUT OF RANGE — false positive]
+
+[EVT_TRENO1_TR_KHM_0.eb]
+  DirectItem   | 0x05AF | ×1 | ID=557 [OUT OF RANGE — false positive]
+  DirectItem   | 0x05C5 | ×1 | ID=557 [OUT OF RANGE — false positive]
+
+[EVT_TRENO1_TR_QHM_0.eb]
+  DirectItem   | 0x0207 | ×1 | ID=304 [OUT OF RANGE — false positive]
+  DirectItem   | 0x020C | ×1 | ID=305 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0211 | ×1 | ID=306 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0216 | ×1 | ID=307 [OUT OF RANGE — false positive]
+  DirectItem   | 0x021B | ×1 | ID=308 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0220 | ×1 | ID=310 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0225 | ×1 | ID=311 [OUT OF RANGE — false positive]
+  DirectItem   | 0x022A | ×1 | ID=312 [OUT OF RANGE — false positive]
+  DirectItem   | 0x022F | ×1 | ID=313 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0234 | ×1 | ID=314 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0239 | ×1 | ID=315 [OUT OF RANGE — false positive]
+  DirectItem   | 0x023E | ×1 | ID=316 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0243 | ×1 | ID=309 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1771 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x1787 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x18B2 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x18C8 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x19F3 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1A09 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1B34 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1B4A | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1C75 | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x1C8B | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x1DB6 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x1DCC | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x1EB3 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x1EC9 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x20E2 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x20F8 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2223 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x2239 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x2364 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x237A | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x24A5 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x24BB | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x25E6 | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x25FC | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x2727 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x273D | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x2824 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x283A | ×1 | ID=0 [OUT OF RANGE — false positive]
+
+[EVT_TRENO1_TR_RES_0.eb]
+  DirectItem   | 0x272E | ×1 | ID=305 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2744 | ×1 | ID=305 [OUT OF RANGE — false positive]
+  DirectItem   | 0x293F | ×1 | ID=522 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2955 | ×1 | ID=522 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2B93 | ×1 | ID=1001 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2BA9 | ×1 | ID=1001 [OUT OF RANGE — false positive]
+  TreasureItem | 0x2BBE | ×1 | ID=1 (Dagger)
+
+[EVT_TRENO1_TR_TOT_0.eb]
+  DirectItem   | 0x1049 | ×1 | ID=273 [OUT OF RANGE — false positive]
+
+[EVT_TRENO2_TR_BHE_0.eb]
+  DirectItem   | 0x0798 | ×1 | ID=94 (Chimera Armlet)
+  DirectItem   | 0x07AE | ×1 | ID=94 (Chimera Armlet)
+
+[EVT_TRENO2_TR_BTA_0.eb]
+  DirectItem   | 0x09B0 | ×1 | ID=208 (Rebirth Ring)
+  DirectItem   | 0x09C6 | ×1 | ID=208 (Rebirth Ring)
+
+[EVT_TRENO2_TR_EKH_0.eb]
+  DirectItem   | 0x3E06 | ×1 | ID=294 [OUT OF RANGE — false positive]
+
+[EVT_TRENO2_TR_FBH_0.eb]
+  DirectItem   | 0x1EC3 | ×1 | ID=3 (Mythril Dagger)
+  DirectItem   | 0x1ED9 | ×1 | ID=3 (Mythril Dagger)
+
+[EVT_TRENO2_TR_FKH_0.eb]
+  DirectItem   | 0x317E | ×1 | ID=3225 [OUT OF RANGE — false positive]
+  DirectItem   | 0x3194 | ×1 | ID=3225 [OUT OF RANGE — false positive]
+  TreasureItem | 0x31A9 | ×1 | 1225G
+
+[EVT_TRENO2_TR_FQH_0.eb]
+  DirectItem   | 0x29DE | ×1 | ID=238 (Ether)
+  DirectItem   | 0x29F4 | ×1 | ID=238 (Ether)
+
+[EVT_TRENO2_TR_GAT_0.eb]
+  DirectItem   | 0x2FBE | ×1 | ID=306 [OUT OF RANGE — false positive]
+
+[EVT_TRENO2_TR_KHM_0.eb]
+  DirectItem   | 0x0833 | ×1 | ID=16000 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0849 | ×1 | ID=16000 [OUT OF RANGE — false positive]
+  TreasureItem | 0x085E | ×1 | 14000G
+
+[EVT_TRENO2_TR_KHM_1.eb]
+  DirectItem   | 0x081F | ×1 | ID=198 (Running Shoes)
+  DirectItem   | 0x0835 | ×1 | ID=198 (Running Shoes)
+
+[EVT_TRENO2_TR_KHM_2.eb]
+  DirectItem   | 0x081F | ×1 | ID=135 (Circlet)
+  DirectItem   | 0x0835 | ×1 | ID=135 (Circlet)
+
+[EVT_TRENO2_TR_QHM_0.eb]
+  DirectItem   | 0x0538 | ×1 | ID=304 [OUT OF RANGE — false positive]
+  DirectItem   | 0x053D | ×1 | ID=305 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0542 | ×1 | ID=306 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0547 | ×1 | ID=307 [OUT OF RANGE — false positive]
+  DirectItem   | 0x054C | ×1 | ID=308 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0551 | ×1 | ID=309 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0556 | ×1 | ID=310 [OUT OF RANGE — false positive]
+  DirectItem   | 0x055B | ×1 | ID=311 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0560 | ×1 | ID=312 [OUT OF RANGE — false positive]
+  DirectItem   | 0x0565 | ×1 | ID=313 [OUT OF RANGE — false positive]
+  DirectItem   | 0x056A | ×1 | ID=314 [OUT OF RANGE — false positive]
+  DirectItem   | 0x056F | ×1 | ID=315 [OUT OF RANGE — false positive]
+  DirectItem   | 0x18DF | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x18F5 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x1A20 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x1A36 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x1B61 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1B77 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x1CA2 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1CB8 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x1DE3 | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x1DF9 | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x1F24 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x1F3A | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x2021 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2037 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2250 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2266 | ×1 | ID=249 (Phoenix Pinion)
+  DirectItem   | 0x2391 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x23A7 | ×1 | ID=19 (Blood Sword)
+  DirectItem   | 0x24D2 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x24E8 | ×1 | ID=239 (Elixir)
+  DirectItem   | 0x2613 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x2629 | ×1 | ID=201 (Black Belt)
+  DirectItem   | 0x2754 | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x276A | ×1 | ID=204 (Rosetta Ring)
+  DirectItem   | 0x2895 | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x28AB | ×1 | ID=175 (Robe of Lords)
+  DirectItem   | 0x2992 | ×1 | ID=0 [OUT OF RANGE — false positive]
+  DirectItem   | 0x29A8 | ×1 | ID=0 [OUT OF RANGE — false positive]
+
+[EVT_TRENO2_TR_RES_0.eb]
+  DirectItem   | 0x2C93 | ×1 | ID=522 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2CA9 | ×1 | ID=522 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2EE7 | ×1 | ID=1001 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2EFD | ×1 | ID=1001 [OUT OF RANGE — false positive]
+  TreasureItem | 0x2F12 | ×1 | ID=1 (Dagger)
+  DirectItem   | 0x30D2 | ×1 | ID=305 [OUT OF RANGE — false positive]
+  DirectItem   | 0x30E8 | ×1 | ID=305 [OUT OF RANGE — false positive]
+
+[EVT_TRENO2_TR_TOT_0.eb]
+  DirectItem   | 0x275F | ×1 | ID=531 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2796 | ×1 | ID=533 [OUT OF RANGE — false positive]
+  DirectItem   | 0x27CD | ×1 | ID=535 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2804 | ×1 | ID=540 [OUT OF RANGE — false positive]
+  DirectItem   | 0x283B | ×1 | ID=589 [OUT OF RANGE — false positive]
+  DirectItem   | 0x29F2 | ×1 | ID=531 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2A29 | ×1 | ID=533 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2A60 | ×1 | ID=535 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2A97 | ×1 | ID=540 [OUT OF RANGE — false positive]
+  DirectItem   | 0x2ACE | ×1 | ID=589 [OUT OF RANGE — false positive]
+
+=== END ===

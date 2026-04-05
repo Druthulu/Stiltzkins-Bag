@@ -1,5 +1,5 @@
 ﻿Stiltzkin Field Script Diagnostic
-Generated: 2026-04-03 20:47:41
+Generated: 2026-04-04 21:17:45
 Scanned: 2454 field scripts (world map excluded)
 
 === STILTZKIN PRICE HITS ===
@@ -39,13 +39,30 @@ Found: 9 / 8 prices matched
 
 === ALL TEXTSYNC >255 LOCATIONS (reference) ===
 
+  [EVT_ALEX1_AC_GUARD.eb]
+    offset=0x332B  gil=294
+    offset=0x3FA8  gil=29999
+  [EVT_ALEX1_AC_LIB_2.eb]
+    offset=0x060C  gil=29999
+  [EVT_ALEX1_AC_LIB.eb]
+    offset=0x0FA4  gil=29999
+  [EVT_ALEX1_AC_PARTY.eb]
+    offset=0x07C4  gil=29999
+  [EVT_ALEX1_AT_BACK_STR.eb]
+    offset=0x1954  gil=29999
+  [EVT_ALEX1_AT_CENTER.eb]
+    offset=0x1A22  gil=282
+    offset=0x2C00  gil=29999
+    offset=0x2D1C  gil=29999
   [EVT_ALEX1_AT_GATE.eb]
+    offset=0x1CE4  gil=29999
     offset=0x1F22  gil=517
     offset=0x2042  gil=521
     offset=0x2162  gil=518
   [EVT_ALEX1_AT_HOUSE_1.eb]
     offset=0x0882  gil=1003
   [EVT_ALEX1_AT_HOUSE_2.eb]
+    offset=0x0B5C  gil=29999
     offset=0x0C7A  gil=513
     offset=0x0D9A  gil=1009
   [EVT_ALEX1_AT_ITEM.eb]
@@ -58,19 +75,45 @@ Found: 9 / 8 prices matched
     offset=0x1E3A  gil=1092
     offset=0x1F5A  gil=1063
   [EVT_ALEX1_AT_SENTOU.eb]
+    offset=0x2643  gil=294
     offset=0x4461  gil=520
     offset=0x44CB  gil=512
     offset=0x4535  gil=513
   [EVT_ALEX1_AT_STREET_B.eb]
+    offset=0x1854  gil=29999
     offset=0x1972  gil=512
     offset=0x1A92  gil=1033
+    offset=0x1BB0  gil=29999
+  [EVT_ALEX1_AT_STREET_C.eb]
+    offset=0x0E38  gil=29999
+  [EVT_ALEX1_AT_TICKET.eb]
+    offset=0x0CE4  gil=512
+    offset=0x0D10  gil=513
+    offset=0x0D3C  gil=514
+  [EVT_ALEX1_AT_TSS.eb]
+    offset=0x07F1  gil=519
+    offset=0x17E0  gil=29999
+  [EVT_ALEX1_AT_WEAPON.eb]
+    offset=0x0968  gil=29999
   [EVT_ALEX1_TS_CARGO_0.eb]
     offset=0x0BD2  gil=1047
+    offset=0x0CF0  gil=29999
   [EVT_ALEX1_TS_CARGO_3.eb]
     offset=0x0E7E  gil=1047
+    offset=0x0F9C  gil=29999
+  [EVT_ALEX2_AC_GUARD.eb]
+    offset=0x1CCF  gil=294
+  [EVT_ALEX2_AC_SUMMON_A.eb]
+    offset=0x4287  gil=294
+  [EVT_ALEX3_AC_GUARD.eb]
+    offset=0x1E63  gil=294
   [EVT_ALEX3_AC_PORT_A.eb]
     offset=0x14C2  gil=308
+  [EVT_ALEX3_AT_CENTER.eb]
+    offset=0x2324  gil=29999
+    offset=0x2440  gil=29999
   [EVT_ALEX3_AT_GATE.eb]
+    offset=0x2100  gil=29999
     offset=0x233E  gil=517
     offset=0x245E  gil=521
     offset=0x257E  gil=518
@@ -87,6 +130,7 @@ Found: 9 / 8 prices matched
   [EVT_ALEX3_AT_RUBY.eb]
     offset=0x2262  gil=3680
   [EVT_ALEX3_AT_SENTOU.eb]
+    offset=0x205F  gil=294
     offset=0x2BF1  gil=777
     offset=0x4BEC  gil=520
     offset=0x4C62  gil=512
@@ -113,9 +157,18 @@ Found: 9 / 8 prices matched
     offset=0x1B70  gil=565
     offset=0x1C31  gil=590
     offset=0x1C7E  gil=590
+    offset=0x1CBF  gil=283
   [EVT_ALEX3_AT_STREET_B.eb]
+    offset=0x28EC  gil=29999
     offset=0x2A0A  gil=512
     offset=0x2B2A  gil=1033
+    offset=0x2C48  gil=29999
+  [EVT_ALEX3_AT_STREET_C.eb]
+    offset=0x1298  gil=29999
+  [EVT_ALEX3_AT_TSS.eb]
+    offset=0x1788  gil=29999
+  [EVT_ALEX3_AT_WEAPON.eb]
+    offset=0x5378  gil=29999
   [EVT_ALEX3_AT_WHARF.eb]
     offset=0x1742  gil=4927
   [EVT_ALEX5_AC_PORT_A.eb]
@@ -128,16 +181,25 @@ Found: 9 / 8 prices matched
     offset=0x05A8  gil=324
     offset=0x08EE  gil=3680
   [EVT_ALEX5_AT_SENTOU.eb]
+    offset=0x0E96  gil=282
+    offset=0x25A3  gil=294
     offset=0x32CC  gil=5555
   [EVT_ALEX5_AT_WHARF.eb]
     offset=0x0BEE  gil=5832
   [EVT_BAL_BB_WPS_0.eb]
+    offset=0x1D3C  gil=294
     offset=0x28AD  gil=2222
+  [EVT_BURMECIA_HOUSE_3.eb]
+    offset=0x0E1A  gil=271
   [EVT_BURMECIA_SQUARE_1.eb]
+    offset=0x1899  gil=294
     offset=0x24D5  gil=333
   [EVT_BURMECIA_TOWN_0.eb]
     offset=0x13F2  gil=307
   [EVT_CHOCO_CH_FGD_0.eb]
+    offset=0x568C  gil=566
+    offset=0x56CA  gil=325
+    offset=0x6C97  gil=566
     offset=0x6CBF  gil=566
   [EVT_CHOCO_CH_PDS_1.eb]
     offset=0x0B03  gil=601
@@ -160,23 +222,29 @@ Found: 9 / 8 prices matched
     offset=0x28E2  gil=597
     offset=0x29DD  gil=601
     offset=0x2A2A  gil=601
+  [EVT_CLEYRA1_DUN_05.eb]
+    offset=0x1905  gil=294
   [EVT_CLEYRA1_DUN_11.eb]
     offset=0x120B  gil=1900
     offset=0x1258  gil=1900
   [EVT_CLEYRA2_ANTRION.eb]
     offset=0x12AA  gil=1970
   [EVT_CLEYRA2_INN.eb]
+    offset=0x265D  gil=294
     offset=0x32DE  gil=2250
   [EVT_CLEYRA3_ANTRION.eb]
     offset=0x052A  gil=1970
+    offset=0x1991  gil=294
     offset=0x2505  gil=444
   [EVT_CLEYRA3_CATHE_1.eb]
     offset=0x1230  gil=528
     offset=0x127D  gil=528
     offset=0x1424  gil=530
     offset=0x1471  gil=530
+    offset=0x2DF1  gil=294
   [EVT_CLEYRA3_INN.eb]
     offset=0x12FA  gil=2250
+    offset=0x2881  gil=294
     offset=0x33F5  gil=444
   [EVT_DAG_DG_2F0_0.eb]
     offset=0x0688  gil=570
@@ -193,10 +261,13 @@ Found: 9 / 8 prices matched
     offset=0x0E57  gil=569
     offset=0x2471  gil=299
   [EVT_DAG_DG_ENT_0.eb]
+    offset=0x0A59  gil=323
     offset=0x19B9  gil=609
     offset=0x1A0B  gil=609
     offset=0x30A7  gil=313
     offset=0x30F4  gil=313
+  [EVT_DAG_DG_SRH_0.eb]
+    offset=0x3C1C  gil=294
   [EVT_DALI_A_AP_WTE_0.eb]
     offset=0x0DED  gil=1135
     offset=0x0E3A  gil=1135
@@ -208,20 +279,56 @@ Found: 9 / 8 prices matched
   [EVT_DALI_F_UF_ENT_0.eb]
     offset=0x0EDF  gil=1156
     offset=0x0F2C  gil=1156
+  [EVT_DALI_F_UF_STO_0.eb]
+    offset=0x190D  gil=294
   [EVT_DALI_V_DL_FWM.eb]
     offset=0x1337  gil=31000
     offset=0x1384  gil=31000
+    offset=0x1A66  gil=287
+  [EVT_DALI_V_DL_INN0.eb]
+    offset=0x2D31  gil=294
+  [EVT_DALI_V_DL_MYR.eb]
+    offset=0x3144  gil=289
+    offset=0x31B2  gil=284
   [EVT_DALI_V_DL_WHL.eb]
     offset=0x39B9  gil=1120
     offset=0x3A06  gil=1120
   [EVT_DALI_V_DL_WMS0.eb]
     offset=0x2D9E  gil=284
+    offset=0x2FCE  gil=304
     offset=0x373E  gil=284
+    offset=0x37BB  gil=304
+  [EVT_DOWNSHIP_BT_CCD_0.eb]
+    offset=0x06DE  gil=263
+  [EVT_DOWNSHIP_BT_FRT_0.eb]
+    offset=0x4508  gil=294
   [EVT_DOWNSHIP_BT_GTR_0.eb]
     offset=0x1C6E  gil=1116
+  [EVT_EFOREST1_EF_HEL_0.eb]
+    offset=0x25F9  gil=294
+  [EVT_EFOREST1_EF_TNT_0.eb]
+    offset=0x0B0C  gil=266
+  [EVT_EST_EG_OBS_0.eb]
+    offset=0x188F  gil=294
+  [EVT_EVA1_IF_BAS_0.eb]
+    offset=0x1D30  gil=294
+  [EVT_EVA1_IF_MKJ_1.eb]
+    offset=0x268C  gil=294
+  [EVT_EVA2_IF_BAS_1.eb]
+    offset=0x1980  gil=294
   [EVT_FOSSIL_FR_DN1_0.eb]
+    offset=0x2447  gil=294
     offset=0x3024  gil=555
+  [EVT_FOSSIL_FR_DN4_0.eb]
+    offset=0x2D52  gil=294
+  [EVT_GARGAN_GR_CEN_0.eb]
+    offset=0x23E6  gil=294
+  [EVT_GATE_N_NG_BDA_0.eb]
+    offset=0x23E5  gil=285
+  [EVT_GATE_N_NG_BDA_1.eb]
+    offset=0x1043  gil=285
   [EVT_GATE_N_NG_TRA_1.eb]
+    offset=0x17AD  gil=294
     offset=0x2C6B  gil=4206
     offset=0x2CB8  gil=4206
   [EVT_GATE_S_SG_ALX_2.eb]
@@ -233,29 +340,62 @@ Found: 9 / 8 prices matched
     offset=0x0747  gil=2610
     offset=0x0794  gil=2610
   [EVT_GATE_S_SG_RND_1.eb]
+    offset=0x18E6  gil=272
     offset=0x1A6F  gil=585
     offset=0x1ABC  gil=585
     offset=0x20C3  gil=585
     offset=0x2110  gil=585
+  [EVT_GATE_S_SG_RND_3.eb]
+    offset=0x1C8E  gil=294
+  [EVT_GATE_S_SG_TOP_1.eb]
+    offset=0x30EC  gil=294
   [EVT_GATE_S_SG_TRN_2.eb]
     offset=0x0429  gil=273
   [EVT_GATE_S_SG_TRN_3.eb]
     offset=0x03AA  gil=273
+  [EVT_GIZ_BELL_0.eb]
+    offset=0x0FE8  gil=268
+    offset=0x1017  gil=269
+  [EVT_GIZ_CAVERN_0.eb]
+    offset=0x1430  gil=268
+    offset=0x145F  gil=269
+    offset=0x151C  gil=268
+    offset=0x154B  gil=269
+  [EVT_GIZ_CAVERN_1.eb]
+    offset=0x1AFD  gil=268
+    offset=0x1B2C  gil=269
+    offset=0x1E82  gil=268
+    offset=0x1EB1  gil=269
+  [EVT_GIZ_TO_WORLD.eb]
+    offset=0x1A7C  gil=294
+    offset=0x26AB  gil=270
+  [EVT_GULUGU_GV_PW3_0.eb]
+    offset=0x17B9  gil=294
   [EVT_GULUGU_GV_RM2_0.eb]
     offset=0x08F2  gil=10693
     offset=0x093F  gil=10693
+  [EVT_GULUGU_GV_RM3_0.eb]
+    offset=0x17C4  gil=294
+  [EVT_ICE_IC_ENT_0.eb]
+    offset=0x213F  gil=294
+  [EVT_ICE_IC_MRM_0.eb]
+    offset=0x27FD  gil=294
   [EVT_INV_IV_CXI_0.eb]
     offset=0x1B13  gil=315
     offset=0x1B60  gil=315
+  [EVT_IPSEN_IP_CNT_0.eb]
+    offset=0x34B8  gil=279
+    offset=0x36AC  gil=281
+    offset=0x38A0  gil=280
+    offset=0x3A94  gil=278
   [EVT_IPSEN_IP_EN1_0.eb]
+    offset=0x07BC  gil=29999
     offset=0x1717  gil=314
     offset=0x1764  gil=314
   [EVT_IPSEN_IP_RM1_0.eb]
-    offset=0x4061  gil=4084
-    offset=0x46E1  gil=4084
-    offset=0x4A9A  gil=4084
-  [EVT_KUINA_KM_ENT_0.eb]
-    offset=0x2415  gil=3088
+    offset=0x2D5E  gil=294
+  [EVT_KUINA_KM_FET_0.eb]
+    offset=0x1C16  gil=294
   [EVT_KUWAN_QH_CAV_0.eb]
     offset=0x12B0  gil=311
     offset=0x12FD  gil=311
@@ -266,20 +406,70 @@ Found: 9 / 8 prices matched
   [EVT_LIND1_CS_LB_CFR_0.eb]
     offset=0x0930  gil=260
     offset=0x0ED4  gil=6000
+    offset=0x0F2E  gil=288
     offset=0x1054  gil=598
     offset=0x10A1  gil=598
+    offset=0x10CD  gil=288
+    offset=0x11D8  gil=288
+  [EVT_LIND1_CS_LB_EXB_0.eb]
+    offset=0x0704  gil=29999
+    offset=0x22E5  gil=294
+  [EVT_LIND1_CS_LB_GRM_0.eb]
+    offset=0x0FA0  gil=29999
+    offset=0x2A46  gil=294
   [EVT_LIND1_CS_LB_PLA_0.eb]
     offset=0x0E23  gil=524
     offset=0x0E70  gil=524
+  [EVT_LIND1_TN_LB_AET_0.eb]
+    offset=0x33DC  gil=29999
+    offset=0x34F8  gil=29999
   [EVT_LIND1_TN_LB_ATL_0.eb]
+    offset=0x062B  gil=292
+    offset=0x0C3C  gil=29999
     offset=0x0D5A  gil=293
+  [EVT_LIND1_TN_LB_BAZ_0.eb]
+    offset=0x3990  gil=29999
+    offset=0x3AAC  gil=29999
+    offset=0x3BC8  gil=29999
+  [EVT_LIND1_TN_LB_ECH_0.eb]
+    offset=0x06D8  gil=29999
+  [EVT_LIND1_TN_LB_FTH_0.eb]
+    offset=0x3140  gil=29999
+    offset=0x325C  gil=29999
+  [EVT_LIND1_TN_LB_FTM_0.eb]
+    offset=0x2B68  gil=29999
+  [EVT_LIND1_TN_LB_HIG_0.eb]
+    offset=0x3134  gil=29999
+    offset=0x3250  gil=29999
+  [EVT_LIND1_TN_LB_HUS_0.eb]
+    offset=0x05F4  gil=29999
   [EVT_LIND1_TN_LB_IN1_0.eb]
+    offset=0x09AC  gil=29999
+    offset=0x0AC8  gil=29999
     offset=0x0BE6  gil=1163
+  [EVT_LIND1_TN_LB_IN2_0.eb]
+    offset=0x2B40  gil=294
+  [EVT_LIND1_TN_LB_ITM_0.eb]
+    offset=0x05F4  gil=267
+    offset=0x0BD4  gil=29999
   [EVT_LIND1_TN_LB_LDH_0.eb]
     offset=0x1297  gil=523
     offset=0x12E4  gil=523
+  [EVT_LIND1_TN_LB_MTM_0.eb]
+    offset=0x270C  gil=29999
+  [EVT_LIND1_TN_LB_PLZ_0.eb]
+    offset=0x437C  gil=29999
+    offset=0x4498  gil=29999
   [EVT_LIND1_TN_LB_RFS_0.eb]
+    offset=0x2F90  gil=29999
     offset=0x30AE  gil=1127
+  [EVT_LIND1_TN_LB_ROD_0.eb]
+    offset=0x38E0  gil=29999
+    offset=0x39FC  gil=29999
+  [EVT_LIND1_TN_LB_SLN_0.eb]
+    offset=0x0FAC  gil=29999
+  [EVT_LIND1_TN_LB_STN_0.eb]
+    offset=0x3008  gil=29999
   [EVT_LIND1_TN_LB_TTL_0.eb]
     offset=0x0FB6  gil=291
     offset=0x16CB  gil=1097
@@ -288,15 +478,38 @@ Found: 9 / 8 prices matched
     offset=0x196C  gil=1068
     offset=0x1B73  gil=1282
     offset=0x1BC0  gil=1282
+  [EVT_LIND1_TN_LB_WPN_0.eb]
+    offset=0x068C  gil=29999
+    offset=0x07A8  gil=29999
+  [EVT_LIND2_CS_LB_EXB_0.eb]
+    offset=0x1B31  gil=294
+  [EVT_LIND2_CS_LB_LLP_0.eb]
+    offset=0x0A89  gil=265
+    offset=0x0D2C  gil=265
+  [EVT_LIND2_TN_LB_ATL_0.eb]
+    offset=0x075C  gil=29999
   [EVT_LIND2_TN_LB_BAZ_0.eb]
+    offset=0x0AA0  gil=29999
     offset=0x0BBE  gil=606
+  [EVT_LIND2_TN_LB_ECH_0.eb]
+    offset=0x0500  gil=29999
+  [EVT_LIND2_TN_LB_HUS_0.eb]
+    offset=0x04BC  gil=29999
   [EVT_LIND2_TN_LB_IN1_0.eb]
+    offset=0x06AC  gil=29999
+    offset=0x07C8  gil=29999
     offset=0x08E6  gil=1163
+  [EVT_LIND2_TN_LB_IN2_0.eb]
+    offset=0x1C9C  gil=294
+  [EVT_LIND2_TN_LB_MTM_0.eb]
+    offset=0x0718  gil=29999
   [EVT_LIND2_TN_LB_OMG_W.eb]
     offset=0x0A71  gil=4000
     offset=0x0ABE  gil=4000
   [EVT_LIND2_TN_LB_RFS_0.eb]
     offset=0x0CAE  gil=1127
+  [EVT_LIND2_TN_LB_STN_0.eb]
+    offset=0x0944  gil=29999
   [EVT_LIND2_TN_LB_TTL_0.eb]
     offset=0x084A  gil=291
     offset=0x0FDB  gil=1340
@@ -305,19 +518,44 @@ Found: 9 / 8 prices matched
     offset=0x127C  gil=1262
     offset=0x1483  gil=1993
     offset=0x14D0  gil=1993
+  [EVT_LIND2_TN_LB_WPN_0.eb]
+    offset=0x03E8  gil=29999
   [EVT_LIND3_CS_LB_CFR_0.eb]
     offset=0x17F0  gil=274
     offset=0x26EE  gil=274
+  [EVT_LIND3_CS_LB_EXB_0.eb]
+    offset=0x205D  gil=294
+  [EVT_LIND3_CS_LB_GRM_0.eb]
+    offset=0x3632  gil=294
+  [EVT_LIND3_TN_LB_ATL_0.eb]
+    offset=0x056C  gil=29999
+    offset=0x1240  gil=276
   [EVT_LIND3_TN_LB_BAZ_0.eb]
+    offset=0x3578  gil=29999
     offset=0x3696  gil=312
+  [EVT_LIND3_TN_LB_ECH_0.eb]
+    offset=0x04DC  gil=29999
   [EVT_LIND3_TN_LB_HIG_0.eb]
     offset=0x3A0C  gil=274
+    offset=0x3AF1  gil=274
+  [EVT_LIND3_TN_LB_HUS_0.eb]
+    offset=0x04AC  gil=29999
   [EVT_LIND3_TN_LB_IN1_0.eb]
+    offset=0x04C0  gil=29999
+    offset=0x05DC  gil=29999
     offset=0x06FA  gil=1163
+  [EVT_LIND3_TN_LB_IN2_0.eb]
+    offset=0x1B60  gil=294
+  [EVT_LIND3_TN_LB_MTM_0.eb]
+    offset=0x08B8  gil=29999
   [EVT_LIND3_TN_LB_PLZ_0.eb]
+    offset=0x0994  gil=29999
     offset=0x14A1  gil=275
+    offset=0x1533  gil=275
   [EVT_LIND3_TN_LB_RFS_0.eb]
     offset=0x1D96  gil=1127
+  [EVT_LIND3_TN_LB_STN_0.eb]
+    offset=0x07A0  gil=29999
   [EVT_LIND3_TN_LB_TTL_0.eb]
     offset=0x08DF  gil=2273
     offset=0x092C  gil=2273
@@ -325,6 +563,12 @@ Found: 9 / 8 prices matched
     offset=0x0B80  gil=1970
     offset=0x0D87  gil=5826
     offset=0x0DD4  gil=5826
+  [EVT_LIND3_TN_LB_WPN_0.eb]
+    offset=0x0524  gil=29999
+    offset=0x0640  gil=29999
+    offset=0x075C  gil=29999
+  [EVT_MAGE_BV_CSK_0.eb]
+    offset=0x2FC7  gil=294
   [EVT_MAGE_BV_INN_0.eb]
     offset=0x1716  gil=309
     offset=0x1763  gil=309
@@ -334,6 +578,8 @@ Found: 9 / 8 prices matched
   [EVT_MAGE_BV_ORT_0.eb]
     offset=0x064B  gil=1843
     offset=0x0698  gil=1843
+  [EVT_MAGE2_BV_CSK_0.eb]
+    offset=0x1C27  gil=294
   [EVT_MAGE2_BV_INN_0.eb]
     offset=0x0744  gil=297
     offset=0x14F6  gil=309
@@ -345,24 +591,36 @@ Found: 9 / 8 prices matched
     offset=0x05B3  gil=1843
     offset=0x0600  gil=1843
   [EVT_OEIL_UV_DEP_0.eb]
+    offset=0x2340  gil=294
     offset=0x2EA5  gil=888
-  [EVT_OEIL_UV_DP2_0.eb]
-    offset=0x0BBE  gil=54149
+  [EVT_OEIL_UV_EXT_0.eb]
+    offset=0x1F87  gil=294
+  [EVT_OEIL_UV_FDP_0.eb]
+    offset=0x09FE  gil=277
   [EVT_PANDEMO_PD_ELV_0.eb]
     offset=0x190B  gil=21007
     offset=0x1958  gil=21007
+  [EVT_PANDEMO_PD_MZM_0.eb]
+    offset=0x3C1D  gil=294
+  [EVT_PANDEMO_PD_RM1_0.eb]
+    offset=0x22B7  gil=294
   [EVT_PATA_M_CM_MP0_0.eb]
     offset=0x24E5  gil=300
+    offset=0x2529  gil=300
   [EVT_PATA_M_CM_MP1_0.eb]
     offset=0x112B  gil=301
+    offset=0x116F  gil=301
   [EVT_PATA_M_CM_MP3_0.eb]
+    offset=0x1BAB  gil=294
     offset=0x2711  gil=666
   [EVT_PATA_M_CM_MP4_0.eb]
     offset=0x0EDA  gil=300
   [EVT_PATA_M_CM_MP5_0.eb]
     offset=0x15FF  gil=302
+    offset=0x1643  gil=302
   [EVT_PATA_M_CM_MP7_0.eb]
     offset=0x157B  gil=303
+    offset=0x15BF  gil=303
   [EVT_PATA_T_CP_GL1_0.eb]
     offset=0x1FF6  gil=3700
     offset=0x2043  gil=3700
@@ -372,16 +630,37 @@ Found: 9 / 8 prices matched
   [EVT_PATA_T_CP_ROM_0.eb]
     offset=0x1E7E  gil=2800
     offset=0x1ECB  gil=2800
+  [EVT_PATA_T_CP_TOL_0.eb]
+    offset=0x34B8  gil=294
+  [EVT_PINA_PR_PW1_0.eb]
+    offset=0x2D1D  gil=294
+  [EVT_ROSE_CABIN_2.eb]
+    offset=0x1861  gil=294
+  [EVT_SARI1_MS_FNT_0.eb]
+    offset=0x4595  gil=310
+  [EVT_SARI1_MS_KTN_0.eb]
+    offset=0x3733  gil=286
+  [EVT_SARI1_MS_SCR_0.eb]
+    offset=0x2A7D  gil=258
+  [EVT_SARI2_MS_FNT_1.eb]
+    offset=0x1029  gil=310
+  [EVT_SARI2_MS_KTN_1.eb]
+    offset=0x1267  gil=286
   [EVT_SUNA_SP_KKR_0.eb]
     offset=0x154E  gil=609
     offset=0x17A6  gil=277
     offset=0x1954  gil=277
     offset=0x1A8B  gil=277
+  [EVT_SUNA_SP_MT2_0.eb]
+    offset=0x4CAD  gil=294
+  [EVT_SUNA_SP_RRM_0.eb]
+    offset=0x1CF3  gil=294
   [EVT_TRENO1_TR_BAR_0.eb]
     offset=0x0446  gil=273
     offset=0x0B8D  gil=273
     offset=0x0C05  gil=273
     offset=0x0C3F  gil=273
+    offset=0x0E99  gil=273
   [EVT_TRENO1_TR_BHM_0.eb]
     offset=0x0549  gil=273
     offset=0x06D6  gil=273
@@ -391,6 +670,7 @@ Found: 9 / 8 prices matched
   [EVT_TRENO1_TR_EKH_0.eb]
     offset=0x0649  gil=273
     offset=0x06A3  gil=273
+    offset=0x39AA  gil=294
   [EVT_TRENO1_TR_FBH_0.eb]
     offset=0x061D  gil=1000
     offset=0x0930  gil=500
@@ -399,7 +679,10 @@ Found: 9 / 8 prices matched
     offset=0x121F  gil=3225
   [EVT_TRENO1_TR_GAT_0.eb]
     offset=0x0B6F  gil=273
+    offset=0x0BD8  gil=273
     offset=0x0C16  gil=273
+    offset=0x3625  gil=306
+    offset=0x39CF  gil=306
   [EVT_TRENO1_TR_KHM_0.eb]
     offset=0x05A3  gil=557
     offset=0x05F0  gil=557
@@ -412,11 +695,16 @@ Found: 9 / 8 prices matched
     offset=0x2BD4  gil=1001
   [EVT_TRENO1_TR_TOT_0.eb]
     offset=0x1010  gil=273
+    offset=0x104F  gil=273
   [EVT_TRENO2_TR_BTA_0.eb]
     offset=0x195A  gil=512
+  [EVT_TRENO2_TR_EKH_0.eb]
+    offset=0x3E0C  gil=294
   [EVT_TRENO2_TR_FKH_0.eb]
     offset=0x3172  gil=3225
     offset=0x31BF  gil=3225
+  [EVT_TRENO2_TR_GAT_0.eb]
+    offset=0x2FC4  gil=306
   [EVT_TRENO2_TR_KHM_0.eb]
     offset=0x0827  gil=16000
     offset=0x0874  gil=16000
@@ -428,3 +716,14 @@ Found: 9 / 8 prices matched
     offset=0x2F28  gil=1001
     offset=0x30C6  gil=305
     offset=0x3113  gil=305
+  [EVT_TRENO2_TR_TOT_0.eb]
+    offset=0x2765  gil=531
+    offset=0x279C  gil=533
+    offset=0x27D3  gil=535
+    offset=0x280A  gil=540
+    offset=0x2841  gil=589
+    offset=0x29F8  gil=531
+    offset=0x2A2F  gil=533
+    offset=0x2A66  gil=535
+    offset=0x2A9D  gil=540
+    offset=0x2AD4  gil=589

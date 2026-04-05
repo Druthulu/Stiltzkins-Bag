@@ -1,5 +1,5 @@
 ﻿Battle Item Diagnostic — p0data2.bin (562 extracted, 0 failed)
-Generated: 2026-04-03 20:47:41
+Generated: 2026-04-04 21:17:44
 Total non-zero item slots found: 6506
 
 === PER-BATTLE DETAIL ===

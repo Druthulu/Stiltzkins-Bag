@@ -1,5 +1,5 @@
 ﻿=== Stiltzkin Item Scan Diagnostic (Phase 5.99 Task 1) ===
-Generated: 2026-04-03 20:47:40
+Generated: 2026-04-04 21:17:44
 Archive:   C:\Users\User\Documents\Stiltzkins-Bag\StiltzkinsBag\StiltzkinsBag.Tests\bin\Debug\net8.0\TestData\p0data7.bin
 
 ─────────────────────────────────────────────────────────────
@@ -7,16 +7,10 @@ Script:  EVT_BURMECIA_SQUARE_1.eb
 Package: 333 Gil
 
   Extracted: 11892 bytes
-  Total locations found: 42
+  Total locations found: 28
 
-  DirectItem × 17:
-    offset=0x0492  itemId=   336  (0x0150)
-    offset=0x04C2  itemId=   336  (0x0150)
-    offset=0x0622  itemId=   614  (0x0266)
-    offset=0x17E9  itemId= 58373  (0xE405)
+  DirectItem × 11:
     offset=0x1893  itemId=   294  (0x0126)
-    offset=0x1E23  itemId= 58373  (0xE405)
-    offset=0x1E9F  itemId= 62469  (0xF405)
     offset=0x25B5  itemId=   242  (0x00F2)
     offset=0x25CB  itemId=   242  (0x00F2)
     offset=0x26AF  itemId=   237  (0x00ED)
@@ -41,7 +35,8 @@ Package: 333 Gil
     offset=0x2CEB  itemId= 73
     offset=0x2D9B  itemId= 73
     offset=0x2DE8  itemId= 73
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 2:
+    offset=0x1899  value=  294
     offset=0x24D5  value=  333
 
   ALGORITHM RESULT: [242, 237, 238]
@@ -51,14 +46,10 @@ Script:  EVT_CLEYRA3_ANTRION.eb
 Package: 444 Gil
 
   Extracted: 11748 bytes
-  Total locations found: 25
+  Total locations found: 20
 
-  DirectItem × 11:
-    offset=0x06CE  itemId=   614  (0x0266)
-    offset=0x18F6  itemId= 58373  (0xE405)
+  DirectItem × 7:
     offset=0x198B  itemId=   294  (0x0126)
-    offset=0x1EFD  itemId= 58373  (0xE405)
-    offset=0x1F79  itemId= 62469  (0xF405)
     offset=0x25E5  itemId=   237  (0x00ED)
     offset=0x25FB  itemId=   237  (0x00ED)
     offset=0x26DF  itemId=   238  (0x00EE)
@@ -76,8 +67,9 @@ Package: 444 Gil
     offset=0x2720  itemId=238
     offset=0x27CD  itemId=249
     offset=0x281A  itemId=249
-  TextSync (price/other) × 2:
+  TextSync (price/other) × 3:
     offset=0x052A  value= 1970
+    offset=0x1991  value=  294
     offset=0x2505  value=  444
 
   ALGORITHM RESULT: [237, 238, 249]
@@ -87,15 +79,10 @@ Script:  EVT_CLEYRA3_INN.eb
 Package: 444 Gil
 
   Extracted: 16444 bytes
-  Total locations found: 33
+  Total locations found: 24
 
-  DirectItem × 12:
-    offset=0x0860  itemId=   123  (0x007B)
-    offset=0x15BE  itemId=   614  (0x0266)
-    offset=0x27E6  itemId= 58373  (0xE405)
+  DirectItem × 7:
     offset=0x287B  itemId=   294  (0x0126)
-    offset=0x2DED  itemId= 58373  (0xE405)
-    offset=0x2E69  itemId= 62469  (0xF405)
     offset=0x34D5  itemId=   237  (0x00ED)
     offset=0x34EB  itemId=   237  (0x00ED)
     offset=0x35CF  itemId=   238  (0x00EE)
@@ -117,8 +104,9 @@ Package: 444 Gil
     offset=0x3610  itemId=238
     offset=0x36BD  itemId=249
     offset=0x370A  itemId=249
-  TextSync (price/other) × 2:
+  TextSync (price/other) × 3:
     offset=0x12FA  value= 2250
+    offset=0x2881  value=  294
     offset=0x33F5  value=  444
 
   ALGORITHM RESULT: [237, 238, 249]
@@ -128,14 +116,10 @@ Script:  EVT_FOSSIL_FR_DN1_0.eb
 Package: 555 Gil
 
   Extracted: 15984 bytes
-  Total locations found: 23
+  Total locations found: 18
 
-  DirectItem × 11:
-    offset=0x1152  itemId=   614  (0x0266)
-    offset=0x23AC  itemId= 58373  (0xE405)
+  DirectItem × 7:
     offset=0x2441  itemId=   294  (0x0126)
-    offset=0x29D1  itemId= 58373  (0xE405)
-    offset=0x2A4D  itemId= 62469  (0xF405)
     offset=0x3104  itemId=   249  (0x00F9)
     offset=0x311A  itemId=   249  (0x00F9)
     offset=0x31FE  itemId=   247  (0x00F7)
@@ -152,7 +136,8 @@ Package: 555 Gil
     offset=0x323F  itemId=247
     offset=0x32EC  itemId=238
     offset=0x3339  itemId=238
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 2:
+    offset=0x2447  value=  294
     offset=0x3024  value=  555
 
   ALGORITHM RESULT: [249, 247, 238]
@@ -162,14 +147,10 @@ Script:  EVT_PATA_M_CM_MP3_0.eb
 Package: 666 Gil
 
   Extracted: 12260 bytes
-  Total locations found: 23
+  Total locations found: 18
 
-  DirectItem × 11:
-    offset=0x0A22  itemId=   614  (0x0266)
-    offset=0x1B1D  itemId= 58373  (0xE405)
+  DirectItem × 7:
     offset=0x1BA5  itemId=   294  (0x0126)
-    offset=0x210B  itemId= 58373  (0xE405)
-    offset=0x2187  itemId= 62469  (0xF405)
     offset=0x27F1  itemId=   245  (0x00F5)
     offset=0x2807  itemId=   245  (0x00F5)
     offset=0x28EB  itemId=   253  (0x00FD)
@@ -186,7 +167,8 @@ Package: 666 Gil
     offset=0x292C  itemId=253
     offset=0x29D9  itemId=238
     offset=0x2A26  itemId=238
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 2:
+    offset=0x1BAB  value=  294
     offset=0x2711  value=  666
 
   ALGORITHM RESULT: [245, 253, 238]
@@ -196,21 +178,16 @@ Script:  EVT_ALEX3_AT_SENTOU.eb
 Package: 777 Gil
 
   Extracted: 23636 bytes
-  Total locations found: 69
+  Total locations found: 62
 
-  DirectItem × 32:
-    offset=0x0CBE  itemId=   614  (0x0266)
-    offset=0x1FAA  itemId= 58373  (0xE405)
+  DirectItem × 27:
     offset=0x2059  itemId=   294  (0x0126)
-    offset=0x25E9  itemId= 58373  (0xE405)
-    offset=0x2665  itemId= 62469  (0xF405)
     offset=0x2CD1  itemId=   249  (0x00F9)
     offset=0x2CE7  itemId=   249  (0x00F9)
     offset=0x2DCB  itemId=   237  (0x00ED)
     offset=0x2DE1  itemId=   237  (0x00ED)
     offset=0x2EC5  itemId=   239  (0x00EF)
     offset=0x2EDB  itemId=   239  (0x00EF)
-    offset=0x3EB9  itemId= 62476  (0xF40C)
     offset=0x4BF8  itemId=   520  (0x0208)
     offset=0x4C0E  itemId=   520  (0x0208)
     offset=0x4C6E  itemId=   512  (0x0200)
@@ -245,7 +222,8 @@ Package: 777 Gil
     offset=0x2F06  itemId=239
     offset=0x4536  itemId=236
     offset=0x4656  itemId=253
-  TextSync (price/other) × 11:
+  TextSync (price/other) × 12:
+    offset=0x205F  value=  294
     offset=0x2BF1  value=  777
     offset=0x4BEC  value=  520
     offset=0x4C62  value=  512
@@ -265,26 +243,18 @@ Script:  EVT_OEIL_UV_DEP_0.eb
 Package: 888 Gil
 
   Extracted: 14648 bytes
-  Total locations found: 32
+  Total locations found: 23
 
-  DirectItem × 17:
-    offset=0x1162  itemId=   614  (0x0266)
-    offset=0x22B2  itemId= 58373  (0xE405)
+  DirectItem × 9:
     offset=0x233A  itemId=   294  (0x0126)
-    offset=0x28A0  itemId= 58373  (0xE405)
-    offset=0x291C  itemId= 62469  (0xF405)
     offset=0x2F85  itemId=   237  (0x00ED)
     offset=0x2F9B  itemId=   237  (0x00ED)
-    offset=0x2FD6  itemId=  1537  (0x0601)
     offset=0x307F  itemId=   228  (0x00E4)
     offset=0x3095  itemId=   228  (0x00E4)
-    offset=0x30D0  itemId=  1537  (0x0601)
     offset=0x3179  itemId=   239  (0x00EF)
     offset=0x318F  itemId=   239  (0x00EF)
-    offset=0x31CA  itemId=  1537  (0x0601)
     offset=0x33D3  itemId=   161  (0x00A1)
     offset=0x33E9  itemId=   161  (0x00A1)
-    offset=0x3424  itemId=  1537  (0x0601)
 
   TreasureItem: NONE
 
@@ -297,7 +267,8 @@ Package: 888 Gil
     offset=0x31BA  itemId=239
     offset=0x33C7  itemId=161
     offset=0x3414  itemId=161
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 2:
+    offset=0x2340  value=  294
     offset=0x2EA5  value=  888
 
   ALGORITHM RESULT: [237, 228, 239]
@@ -307,15 +278,10 @@ Script:  EVT_BAL_BB_WPS_0.eb
 Package: 2222 Gil
 
   Extracted: 12964 bytes
-  Total locations found: 30
+  Total locations found: 23
 
-  DirectItem × 14:
-    offset=0x039A  itemId=   769  (0x0301)
-    offset=0x0B6A  itemId=   614  (0x0266)
-    offset=0x1CC3  itemId= 58373  (0xE405)
+  DirectItem × 9:
     offset=0x1D36  itemId=   294  (0x0126)
-    offset=0x22A8  itemId= 58373  (0xE405)
-    offset=0x2324  itemId= 62469  (0xF405)
     offset=0x298D  itemId=   227  (0x00E3)
     offset=0x29A3  itemId=   227  (0x00E3)
     offset=0x2A87  itemId=   238  (0x00EE)
@@ -336,7 +302,8 @@ Package: 2222 Gil
     offset=0x2BC2  itemId=239
     offset=0x2DC7  itemId= 87
     offset=0x2E14  itemId= 87
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 2:
+    offset=0x1D3C  value=  294
     offset=0x28AD  value= 2222
 
   ALGORITHM RESULT: [227, 238, 239]
@@ -346,26 +313,16 @@ Script:  EVT_ALEX5_AT_SENTOU.eb
 Package: 5555 Gil
 
   Extracted: 17752 bytes
-  Total locations found: 43
+  Total locations found: 30
 
-  DirectItem × 25:
-    offset=0x09FB  itemId=   200  (0x00C8)
+  DirectItem × 15:
     offset=0x0A1B  itemId=  1010  (0x03F2)
-    offset=0x0AE3  itemId=   200  (0x00C8)
     offset=0x0B03  itemId=   535  (0x0217)
-    offset=0x0BCB  itemId=   200  (0x00C8)
     offset=0x0BEB  itemId=   590  (0x024E)
-    offset=0x0CB3  itemId=   200  (0x00C8)
     offset=0x0CD3  itemId=   605  (0x025D)
-    offset=0x0D96  itemId=   200  (0x00C8)
     offset=0x0DB6  itemId=   588  (0x024C)
     offset=0x0E90  itemId=   282  (0x011A)
-    offset=0x0FB8  itemId= 32536  (0x7F18)
-    offset=0x1202  itemId=   614  (0x0266)
-    offset=0x24EE  itemId= 58373  (0xE405)
     offset=0x259D  itemId=   294  (0x0126)
-    offset=0x2B2D  itemId= 58373  (0xE405)
-    offset=0x2BA9  itemId= 62469  (0xF405)
     offset=0x3222  itemId=   221  (0x00DD)
     offset=0x3238  itemId=   221  (0x00DD)
     offset=0x33AC  itemId=   229  (0x00E5)
@@ -386,7 +343,9 @@ Package: 5555 Gil
     offset=0x34E7  itemId=230
     offset=0x3594  itemId=239
     offset=0x35E1  itemId=239
-  TextSync (price/other) × 1:
+  TextSync (price/other) × 3:
+    offset=0x0E96  value=  282
+    offset=0x25A3  value=  294
     offset=0x32CC  value= 5555
 
   ALGORITHM RESULT: [229, 230, 239]

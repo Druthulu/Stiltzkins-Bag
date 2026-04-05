@@ -3,7 +3,7 @@
 // Scans all FF9 Steam field script files (.eb.bytes) and returns a per-item count
 // of finite field instances (chests, hidden items, scripted item rewards).
 //
-// Two entry points:
+// Two aggregate entry points:
 //
 //   ScanArchive(archivePath)
 //     Opens p0data7.bin via UnityArchiver, iterates all US-locale field files,
@@ -12,6 +12,14 @@
 //   ScanFiles(IEnumerable<(string name, byte[] bytes)>)
 //     Lower-level: scans a caller-supplied collection of (filename, bytes) pairs.
 //     Used by tests to scan pre-committed .bytes files without a live archive.
+//
+// One per-file entry point:
+//
+//   ScanArchiveDetailed(archivePath)
+//     Same enumeration as ScanArchive but returns one FieldFileScanResult per file
+//     rather than aggregated counts. Used for diagnostics, for building
+//     itemIdToMinFieldId (Task 4 — EnforceSynthesisReachability wiring), and for
+//     any future caller that needs to know which specific files contain each item.
 //
 // Counting rules:
 //   • Only DirectItem and TreasureItem locations are counted (not TextSync / DirectGil).
@@ -31,7 +39,7 @@
 //
 //   evt_battle_wm_XXXX.eb files are EXCLUDED — these are world-map battle event scripts
 //   (IDs 9900–9903, one per disc). Their AddItem calls are battle-trigger rewards, not
-//   field item pickups. They will be handled by BattleItemScanner (Phase 5.9 Task 3).
+//   field item pickups. They share the evt_ prefix but belong to the battle scanner.
 //
 //   EVT_ALEX3_AC_SEAT_N.eb is EXCLUDED — this is an "unknown field" with no field ID
 //   in the game's script system. It must be excluded from all scans and randomization.
@@ -86,6 +94,23 @@ public static class FieldScriptExclusions
 }
 
 /// <summary>
+/// Per-file scan result from <see cref="FieldItemScanner.ScanArchiveDetailed"/>.
+/// Contains all raw locations found in one field script file.
+/// Only files with at least one DirectItem or TreasureItem location are included.
+/// </summary>
+/// <param name="FileName">
+/// Short archive name of the field script (e.g. "EVT_ALEX1_AT_HOUSE_1.eb").
+/// </param>
+/// <param name="Locations">
+/// All patchable locations found in this file by
+/// <see cref="FieldParser.FindItemLocations"/>. Includes DirectItem, TreasureItem,
+/// TextSync, and DirectGil locations — the full raw output, unfiltered.
+/// </param>
+public sealed record FieldFileScanResult(
+    string FileName,
+    IReadOnlyList<FieldItemLocation> Locations);
+
+/// <summary>
 /// Scans FF9 Steam field script files to count per-item finite field instances.
 /// </summary>
 public static class FieldItemScanner
@@ -93,16 +118,14 @@ public static class FieldItemScanner
     // ── Public entry points ───────────────────────────────────────────────────
 
     /// <summary>
-    /// Opens p0data7.bin (or any equivalent Unity archive containing field scripts)
-    /// and scans all US-locale field files.
+    /// Opens p0data7.bin and scans all US-locale field files.
+    /// Returns an aggregate item ID → count map.
     /// </summary>
     /// <param name="archivePath">Full path to p0data7.bin.</param>
     /// <returns>
-    /// Dictionary mapping item ID (0–255) to the number of distinct field instances
-    /// (unique file × offset pairs). Items with zero instances are absent.
+    /// Dictionary mapping item ID (1–255) to the number of distinct field instances.
+    /// Items with zero instances are absent.
     /// </returns>
-    /// <exception cref="ArgumentNullException"><paramref name="archivePath"/> is null.</exception>
-    /// <exception cref="System.IO.FileNotFoundException">Archive not found.</exception>
     public static IReadOnlyDictionary<int, int> ScanArchive(string archivePath)
     {
         ArgumentNullException.ThrowIfNull(archivePath);
@@ -111,19 +134,6 @@ public static class FieldItemScanner
 
         using var archive = UnityArchiver.Open(archivePath);
 
-        // Archive entry names are leaf names as stored in the asset bundle (TextAsset).
-        // The Unity convention for p0data7.bin is that field script TextAsset entries
-        // are named "evt_XXX.eb" (WITHOUT the ".bytes" extension) or sometimes include
-        // ".eb.bytes". We filter the same way FieldItemRandomizer does: by "evt_" prefix.
-        //
-        // All locales (es, fr, gr, it, jp, uk, us) share byte-identical bytecode — only
-        // AT_TEXT string IDs differ. Since UnityArchiver returns distinct leaf names and
-        // field files from different locales share the same leaf name, each unique name
-        // is extracted once (the first occurrence in the archive, which is 'us').
-        // This matches the FieldItemRandomizer's deduplication approach.
-        // evt_battle_wm_XXXX.eb files are world-map battle event scripts (disc variants
-        // 9900–9903). Their AddItem calls are battle-trigger rewards, not field pickups.
-        // They share the evt_ prefix but belong to the battle scanner (Phase 5.9 Task 3).
         var distinctFieldNames = archive.GetFileNames()
             .Where(n => n.StartsWith("evt_", StringComparison.OrdinalIgnoreCase)
                      && !n.StartsWith("evt_battle_", StringComparison.OrdinalIgnoreCase)
@@ -135,7 +145,7 @@ public static class FieldItemScanner
         {
             byte[] bytes;
             try { bytes = archive.Extract(name); }
-            catch { continue; } // skip unreadable entries
+            catch { continue; }
 
             ScanSingleFile(name, bytes, counts);
         }
@@ -144,13 +154,64 @@ public static class FieldItemScanner
     }
 
     /// <summary>
+    /// Opens p0data7.bin and scans all US-locale field files. Returns one
+    /// <see cref="FieldFileScanResult"/> per file that contains at least one
+    /// DirectItem or TreasureItem location.
+    ///
+    /// This is the per-file variant of <see cref="ScanArchive"/>. Use it when you
+    /// need to know which specific files contribute each item count — for example:
+    ///   • Diagnostic output to investigate false-positive inflation (e.g. Dagger-101)
+    ///   • Building itemIdToMinFieldId for EnforceSynthesisReachability (Task 4)
+    ///   • Any future caller that needs file-level provenance of item locations
+    ///
+    /// Results are sorted by FileName (OrdinalIgnoreCase) for determinism.
+    /// Files that fail to parse are silently skipped — same as ScanArchive.
+    /// </summary>
+    /// <param name="archivePath">Full path to p0data7.bin.</param>
+    public static IReadOnlyList<FieldFileScanResult> ScanArchiveDetailed(string archivePath)
+    {
+        ArgumentNullException.ThrowIfNull(archivePath);
+
+        var results = new List<FieldFileScanResult>();
+
+        using var archive = UnityArchiver.Open(archivePath);
+
+        var distinctFieldNames = archive.GetFileNames()
+            .Where(n => n.StartsWith("evt_", StringComparison.OrdinalIgnoreCase)
+                     && !n.StartsWith("evt_battle_", StringComparison.OrdinalIgnoreCase)
+                     && !FieldScriptExclusions.IsExcluded(n))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(n => n, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        foreach (string name in distinctFieldNames)
+        {
+            byte[] bytes;
+            try { bytes = archive.Extract(name); }
+            catch { continue; }
+
+            IReadOnlyList<FieldItemLocation> locations;
+            try { locations = FieldParser.FindItemLocations(bytes); }
+            catch { continue; } // ArgumentException on malformed files — skip cleanly
+
+            // Only include files with at least one item or treasure location.
+            // Files with only TextSync / DirectGil are not item-bearing.
+            bool hasItemLocations = locations.Any(l =>
+                l.LocationKind == FieldLocationKind.DirectItem ||
+                l.LocationKind == FieldLocationKind.TreasureItem);
+
+            if (hasItemLocations)
+                results.Add(new FieldFileScanResult(name, locations));
+        }
+
+        return results;
+    }
+
+    /// <summary>
     /// Scans a caller-supplied collection of (filename, bytes) pairs.
     /// Useful for tests using pre-committed .bytes files without a live archive.
     /// EVT_ALEX3_AC_SEAT_N is excluded regardless of how it appears in the input.
     /// </summary>
-    /// <param name="files">
-    /// Each tuple: (filename for diagnostics, .eb.bytes content).
-    /// </param>
     public static IReadOnlyDictionary<int, int> ScanFiles(
         IEnumerable<(string Name, byte[] Bytes)> files)
     {
@@ -170,46 +231,27 @@ public static class FieldItemScanner
 
     // ── Private helpers ───────────────────────────────────────────────────────
 
-    /// <summary>
-    /// Parses one .eb.bytes file and accumulates item counts into <paramref name="counts"/>.
-    /// Each unique byte offset that yields a valid item ID (0–255) adds 1 to that item's count.
-    /// </summary>
     private static void ScanSingleFile(
         string filename,
         byte[] bytes,
         Dictionary<int, int> counts)
     {
         IReadOnlyList<FieldItemLocation> locations;
-        try
-        {
-            locations = FieldParser.FindItemLocations(bytes);
-        }
-        catch
-        {
-            // Malformed file — skip cleanly. FieldParser validates structure.
-            return;
-        }
+        try { locations = FieldParser.FindItemLocations(bytes); }
+        catch { return; }
 
         foreach (FieldItemLocation loc in locations)
         {
-            // Only count actual item instances — skip TextSync and DirectGil.
             if (loc.LocationKind != FieldLocationKind.DirectItem &&
                 loc.LocationKind != FieldLocationKind.TreasureItem)
                 continue;
 
-            // For TreasureItem: only count plain item IDs (< 512).
-            // Values 512–999 = cards, 1000–29998 = gil, 29999 = disabled.
             int itemId = loc.CurrentValue;
             if (loc.LocationKind == FieldLocationKind.TreasureItem)
             {
-                if (!loc.TreasureIsItem) continue; // card, gil, or disabled
-                // TreasureIsItem guarantees currentValue < 512
+                if (!loc.TreasureIsItem) continue;
             }
 
-            // Filter to valid item ID range (1–255).
-            // DirectItem false-positives (opcode byte collisions) produce IDs > 255.
-            // Item ID 0 is excluded — it is a null sentinel in FFIX field scripts;
-            // see file header for details. VanillaItemCatalog injects the correct count.
             if (itemId < 1 || itemId > 255) continue;
 
             counts[itemId] = counts.TryGetValue(itemId, out int existing)

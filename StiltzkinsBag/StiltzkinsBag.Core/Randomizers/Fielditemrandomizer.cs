@@ -30,6 +30,12 @@ namespace StiltzkinsBag.Randomizers
         /// Zero when <see cref="StiltzkinMode"/> is Off or IncludeInFieldPool.
         /// </summary>
         public int StiltzkinScriptsExcluded { get; init; }
+        /// <summary>
+        /// Field files skipped during Pass 1 because FieldParser threw ArgumentException
+        /// (file too small / unexpected header). These files are excluded from both
+        /// scanning and patching. Populated in debug builds via Debug.WriteLine.
+        /// </summary>
+        public IReadOnlyList<string> SkippedFields { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>
@@ -80,8 +86,8 @@ namespace StiltzkinsBag.Randomizers
     /// TreasureItem or a DirectItem location in the same field. To apply the
     /// correct table:
     ///   - X >= 512:  always treasureTable (cards/gil only exist in treasure system)
-    ///   - X &lt; 512, and X appears as a TreasureItem value in this field:  treasureTable
-    ///   - X &lt; 512, and X appears only as a DirectItem value in this field: directTable
+    ///   - X &lt;512, and X appears as a TreasureItem value in this field:  treasureTable
+    ///   - X &lt;512, and X appears only as a DirectItem value in this field: directTable
     ///   - X in neither table: passthrough (ItemRemapTable.Remap returns X unchanged)
     ///
     /// ── Mod stack resolution ─────────────────────────────────────────────────
@@ -219,12 +225,30 @@ namespace StiltzkinsBag.Randomizers
                                      StringComparer.OrdinalIgnoreCase);
             var locationsByName = new Dictionary<string, IReadOnlyList<FieldItemLocation>>(
                                      fieldNames.Count, StringComparer.OrdinalIgnoreCase);
+            var skippedFields = new List<string>();
 
             foreach (string name in fieldNames)
             {
                 byte[] bytes = ResolveFieldBytes(name, ScanLanguage, vanillaArchive);
-                IReadOnlyList<FieldItemLocation> locations =
-                    FieldParser.FindItemLocations(bytes);
+
+                // DEFENSIVE SKIP: FieldParser.FindItemLocations throws ArgumentException
+                // on field files that are smaller than the expected header size.
+                // These are valid game files that simply contain no patchable content
+                // (stub scripts, title/menu scripts, etc.). Skip and continue rather
+                // than crashing the entire generation run.
+                // Re-enable concern if: a field with known item content is being skipped.
+                IReadOnlyList<FieldItemLocation> locations;
+                try
+                {
+                    locations = FieldParser.FindItemLocations(bytes);
+                }
+                catch (ArgumentException ex)
+                {
+                    skippedFields.Add(name);
+                    System.Diagnostics.Debug.WriteLine(
+                        $"[FieldItemRandomizer] Skipped '{name}': {ex.Message}");
+                    continue;
+                }
 
                 bytesByName[name] = bytes;
                 locationsByName[name] = locations;
@@ -287,6 +311,7 @@ namespace StiltzkinsBag.Randomizers
                 DirectLocationsPatched = directLocationsPatched,
                 TextSyncLocationsPatched = textSyncLocationsPatched,
                 StiltzkinScriptsExcluded = stiltzkinExcluded,
+                SkippedFields = skippedFields.AsReadOnly(),
             };
         }
 

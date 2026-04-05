@@ -183,6 +183,183 @@ public sealed class ModSourceResolver
             "catalog (vanilla fallback)");
     }
 
+    /// <summary>
+    /// Resolves bytes for a battle file identified by its archive-relative path
+    /// (e.g. "assets/resources/battlemap/battlescene/foo/dbfile0000.raw16.bytes").
+    ///
+    /// Used by <c>RandomizerEngine.LoadEnemyFiles</c> to support active Memoria mods
+    /// when enumerating battle files directly from the vanilla archive path list.
+    /// Unlike <see cref="Resolve(EnemyCatalogEntry)"/>, this overload works from
+    /// a raw path string and does not require an EnemyCatalogEntry or catalog bytes.
+    ///
+    /// Resolution order:
+    ///   1. Walk mod stack (highest priority first):
+    ///      a. Raw .bytes file at [modRoot]/StreamingAssets/{path}
+    ///      b. mod's p0data2.bin archive → ExtractByPath
+    ///   2. Vanilla game archive at [gameRoot]/StreamingAssets/p0data2.bin
+    ///
+    /// Throws <see cref="FileNotFoundException"/> only if the vanilla archive itself
+    /// is missing (broken game install). Files absent from a mod's archive are
+    /// silently skipped — that is expected behaviour.
+    /// </summary>
+    /// <param name="archiveRelPath">
+    /// Path as returned by <c>UnityArchiver.GetFullPaths()</c>, e.g.
+    /// "assets/resources/battlemap/battlescene/evt_battle_ac_e001/dbfile0000.raw16.bytes".
+    /// </param>
+    public ResolvedEnemyFile ResolveByPath(string archiveRelPath)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(archiveRelPath);
+
+        // Normalise separators for consistent path joining on Windows
+        string normalisedForJoin = archiveRelPath.TrimStart('/', '\\')
+            .Replace('/', Path.DirectorySeparatorChar);
+
+        // ── 1. Walk mod stack ──────────────────────────────────────────────
+        foreach (string modFolder in _activeMods)
+        {
+            string modRoot = Path.Combine(_gameRoot, modFolder);
+            if (!Directory.Exists(modRoot)) continue;
+
+            // 1a. Raw .bytes override in mod folder
+            string rawPath = Path.Combine(modRoot, "StreamingAssets", normalisedForJoin);
+            if (File.Exists(rawPath))
+                return new ResolvedEnemyFile(
+                    File.ReadAllBytes(rawPath),
+                    $"mod:{modFolder} (raw file)");
+
+            // 1b. p0data2.bin archive inside the mod
+            string modArchivePath = Path.Combine(modRoot, "StreamingAssets", BattleArchiveName);
+            if (File.Exists(modArchivePath))
+            {
+                try
+                {
+                    using var archive = UnityArchiver.Open(modArchivePath);
+                    byte[] bytes = archive.ExtractByPath(archiveRelPath);
+                    return new ResolvedEnemyFile(bytes, $"mod:{modFolder} (archive)");
+                }
+                catch (FileNotFoundException)
+                {
+                    // File not in this mod's archive — keep walking the stack
+                }
+                catch
+                {
+                    // Archive corrupt or unreadable — skip and keep walking
+                }
+            }
+        }
+
+        // ── 2. Vanilla game archive ────────────────────────────────────────
+        // NOTE: Correct path is StreamingAssets/p0data2.bin — NOT under FINAL FANTASY IX_Data.
+        // The FINAL FANTASY IX_Data subfolder does not exist in all Steam installs.
+        // This was confirmed during Phase 8 testing (deviation logged in PhaseEnd_Phase8.md).
+        string vanillaArchivePath = Path.Combine(_gameRoot, "StreamingAssets", BattleArchiveName);
+        if (!File.Exists(vanillaArchivePath))
+            throw new FileNotFoundException(
+                $"Vanilla battle archive not found at '{vanillaArchivePath}'. " +
+                "Verify the game path is the FINAL FANTASY IX root directory " +
+                "and that the game files are intact.",
+                vanillaArchivePath);
+
+        using var vanillaArchive = UnityArchiver.Open(vanillaArchivePath);
+        byte[] vanillaBytes = vanillaArchive.ExtractByPath(archiveRelPath);
+        return new ResolvedEnemyFile(vanillaBytes, "vanilla archive");
+    }
+
+    /// <summary>
+    /// Resolves bytes for a file embedded inside a Unity archive (e.g. resources.assets).
+    ///
+    /// Used by <c>RandomizerEngine.ExtractTetraMasterData</c> and any future caller
+    /// that needs to load content from a Unity archive other than p0data2.bin.
+    ///
+    /// Resolution order:
+    ///   1. Walk mod stack (highest priority first):
+    ///      a. Raw file override at [modRoot]/{assetFullPath}
+    ///      b. Archive at [modRoot]/{archiveRelPath} → extract by shortName or full path
+    ///   2. Vanilla archive at [gameRoot]/{archiveRelPath} → extract
+    ///
+    /// Throws <see cref="FileNotFoundException"/> if the vanilla archive itself is missing.
+    /// </summary>
+    /// <param name="archiveRelPath">
+    /// Path to the Unity archive relative to the game/mod root, forward-slash separated.
+    /// e.g. "x64/FF9_Data/resources.assets"
+    /// </param>
+    /// <param name="assetFullPath">
+    /// Full path of the asset inside the archive as used by
+    /// <c>UnityArchiver.ExtractByPath</c>. Also used as the raw override path
+    /// within the mod folder (without leading slash).
+    /// e.g. "embeddedasset/quadmist/minigame_card_data_address"
+    /// </param>
+    /// <param name="shortName">
+    /// If provided, use <c>UnityArchiver.Extract(shortName)</c> instead of
+    /// <c>ExtractByPath</c> when reading archives. Only safe when the short name
+    /// is unique within the archive. Do NOT use for minista.mes (7 language copies
+    /// with identical short names — use <c>ExtractByPath</c> instead).
+    /// </param>
+    public ResolvedEnemyFile ResolveEmbeddedAsset(
+        string archiveRelPath,
+        string assetFullPath,
+        string? shortName = null)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(archiveRelPath);
+        ArgumentException.ThrowIfNullOrEmpty(assetFullPath);
+
+        string normalisedAssetPath = assetFullPath.TrimStart('/', '\\')
+            .Replace('/', Path.DirectorySeparatorChar);
+        string normalisedArchivePath = archiveRelPath.TrimStart('/', '\\')
+            .Replace('/', Path.DirectorySeparatorChar);
+
+        // ── 1. Walk mod stack ──────────────────────────────────────────────
+        foreach (string modFolder in _activeMods)
+        {
+            string modRoot = Path.Combine(_gameRoot, modFolder);
+            if (!Directory.Exists(modRoot)) continue;
+
+            // 1a. Raw file override at [modRoot]/{assetFullPath}
+            string rawPath = Path.Combine(modRoot, normalisedAssetPath);
+            if (File.Exists(rawPath))
+                return new ResolvedEnemyFile(
+                    File.ReadAllBytes(rawPath),
+                    $"mod:{modFolder} (raw file)");
+
+            // 1b. Archive at [modRoot]/{archiveRelPath}
+            string modArchivePath = Path.Combine(modRoot, normalisedArchivePath);
+            if (File.Exists(modArchivePath))
+            {
+                try
+                {
+                    using var archive = UnityArchiver.Open(modArchivePath);
+                    byte[] bytes = shortName is not null
+                        ? archive.Extract(shortName)
+                        : archive.ExtractByPath(assetFullPath);
+                    return new ResolvedEnemyFile(bytes, $"mod:{modFolder} (archive)");
+                }
+                catch (FileNotFoundException)
+                {
+                    // Asset not in this mod's archive — keep walking the stack
+                }
+                catch
+                {
+                    // Archive corrupt or unreadable — skip and keep walking
+                }
+            }
+        }
+
+        // ── 2. Vanilla archive ─────────────────────────────────────────────
+        string vanillaArchivePath = Path.Combine(_gameRoot, normalisedArchivePath);
+        if (!File.Exists(vanillaArchivePath))
+            throw new FileNotFoundException(
+                $"Archive not found at '{vanillaArchivePath}'. " +
+                "Verify the game path is the FINAL FANTASY IX root directory " +
+                "and that the game files are intact.",
+                vanillaArchivePath);
+
+        using var vanillaArchive = UnityArchiver.Open(vanillaArchivePath);
+        byte[] vanillaBytes = shortName is not null
+            ? vanillaArchive.Extract(shortName)
+            : vanillaArchive.ExtractByPath(assetFullPath);
+        return new ResolvedEnemyFile(vanillaBytes, "vanilla archive");
+    }
+
     // ── Memoria.ini parser ─────────────────────────────────────────────────
 
     private static List<string> ParseFolderNames(string iniPath)

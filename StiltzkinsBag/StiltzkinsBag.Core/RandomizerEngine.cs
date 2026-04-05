@@ -13,6 +13,7 @@ using StiltzkinsBag.Parsing;
 using StiltzkinsBag.Randomizers;
 using StiltzkinsBag.Core.Randomizers;
 using StiltzkinsBag.Core.Models.Battle;
+using StiltzkinsBag.Core.Parsing;
 
 namespace StiltzkinsBag.Core
 {
@@ -579,11 +580,67 @@ namespace StiltzkinsBag.Core
         ///       .OrderBy(f => f.SourcePath, StringComparer.Ordinal)
         ///       .ToList();
         /// </summary>
-        private static IReadOnlyList<EnemyFile> LoadEnemyFiles(string gamePath) =>
-            throw new NotImplementedException(
-                "LoadEnemyFiles: implement using BattleItemScanner or EnemyFile.LoadAll(). " +
-                "See BattleItemScanner.cs for the p0data2.bin extraction pattern. " +
-                "Sort by EnemyFile.SourcePath (Ordinal) for deterministic RNG order.");
+
+        /// <summary>
+        /// Loads all enemy battle files for use by <see cref="EnemyRandomizer"/>.
+        ///
+        /// Mod support: resolves each file through the active Memoria mod stack before
+        /// falling back to the vanilla game archive. This preserves enemy changes made
+        /// by any active gameplay mods (e.g. AlternateFantasy) — the randomizer operates
+        /// on top of whatever the player currently has installed.
+        ///
+        /// Resolution order per file:
+        ///   1. Raw .bytes override in any active Memoria mod folder
+        ///   2. p0data2.bin archive inside any active Memoria mod folder
+        ///   3. Vanilla game archive (StreamingAssets/p0data2.bin)
+        ///
+        /// The path list is enumerated from the vanilla archive to guarantee all 562
+        /// enemy files are covered regardless of what mods are active. Files are sorted
+        /// by path (Ordinal) to satisfy the RNG call order determinism rule.
+        /// </summary>
+        private static IReadOnlyList<EnemyFile> LoadEnemyFiles(string gamePath)
+        {
+            string vanillaArchivePath = Path.Combine(StreamingAssetsPath(gamePath), "p0data2.bin");
+
+            // Step 1 — Enumerate canonical battle file paths from the vanilla archive.
+            // The vanilla archive is the authoritative directory listing for all 562 battle files.
+            // We open it here for path enumeration only and dispose before resolution begins.
+            List<string> battlePaths;
+            using (var catalogArchive = UnityArchiver.Open(vanillaArchivePath))
+            {
+                battlePaths = catalogArchive.GetFullPaths()
+                    .Where(p => p.IndexOf("battlescene/", StringComparison.OrdinalIgnoreCase) >= 0
+                             && p.EndsWith("dbfile0000.raw16.bytes", StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(p => p, StringComparer.Ordinal)
+                    .ToList();
+            }
+
+            // Step 2 — Build mod-stack resolver.
+            // If Memoria.ini is absent (Memoria not installed), fall through directly to
+            // the vanilla archive with an empty mod list.
+            ModSourceResolver resolver;
+            try
+            {
+                resolver = ModSourceResolver.FromGameRoot(gamePath);
+            }
+            catch (FileNotFoundException)
+            {
+                resolver = ModSourceResolver.WithExplicitMods(gamePath, Array.Empty<string>());
+            }
+
+            // Step 3 — Resolve each file through the mod stack.
+            // Mod overrides (raw .bytes or re-packed p0data2.bin) take priority over vanilla.
+            // SourcePath stored on EnemyFile is the archive-relative path used to build
+            // the mod output path in step 6 of RunPipeline: "StreamingAssets/" + file.SourcePath
+            var result = new List<EnemyFile>(battlePaths.Count);
+            foreach (string path in battlePaths)
+            {
+                ResolvedEnemyFile resolved = resolver.ResolveByPath(path);
+                result.Add(new EnemyFile(resolved.Bytes, path));
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Extracts the three Tetramaster binary data byte arrays and per-language
@@ -594,26 +651,112 @@ namespace StiltzkinsBag.Core
         ///
         /// Returns: (cardStats, cardSets, npcDecks, cardNamesByLang)
         /// </summary>
+
+        /// <summary>
+        /// Extracts the three TetraMaster binary data files and per-language card name
+        /// files from resources.assets, with mod stack support.
+        ///
+        /// Archive location (confirmed against developer install, Phase 9):
+        ///   [gameRoot]/x64/FF9_Data/resources.assets
+        ///
+        /// Resolution order per file (mod support):
+        ///   1. Raw file override in any active Memoria mod folder
+        ///   2. resources.assets inside any active Memoria mod folder
+        ///   3. Vanilla resources.assets at x64/FF9_Data/resources.assets
+        ///
+        /// Binary files use Extract(shortName) — short names are unique in resources.assets.
+        /// Card name files use ExtractByPath — "minista.mes" appears 7 times (one per language).
+        /// </summary>
         private static (byte[] cardStats, byte[] cardSets, byte[] npcDecks,
                         Dictionary<string, byte[]> cardNamesByLang)
-            ExtractTetraMasterData(string gamePath) =>
-            throw new NotImplementedException(
-                "ExtractTetraMasterData: implement using TetraMasterFile read methods. " +
-                "See TetraMasterRandomizer.cs for data source paths and byte sizes.");
+            ExtractTetraMasterData(string gamePath)
+        {
+            // Confirmed path from developer directory listing (Phase 9)
+            const string ResourcesAssetsRelPath = "x64/FF9_Data/resources.assets";
+
+            // Short names are unique in resources.assets for these three files —
+            // Extract(shortName) is safe and faster than ExtractByPath.
+            const string CardDataShortName = "minigame_card_data_address";
+            const string CardSetsShortName = "minigame_card_level_address";
+            const string NpcDecksShortName = "minigame_stage_address";
+
+            // All 7 FF9 Steam language codes — card names exist for each.
+            // Order matches field script languages confirmed in Phase 4/5.9.3.
+            string[] languages = { "es", "fr", "gr", "it", "jp", "uk", "us" };
+
+            // Build mod-stack resolver.
+            // If Memoria.ini is absent (Memoria not installed), skip the mod stack
+            // and resolve directly from the vanilla archive.
+            ModSourceResolver resolver;
+            try
+            {
+                resolver = ModSourceResolver.FromGameRoot(gamePath);
+            }
+            catch (FileNotFoundException)
+            {
+                resolver = ModSourceResolver.WithExplicitMods(gamePath, Array.Empty<string>());
+            }
+
+            // Extract the three binary files.
+            // shortName parameter enables Extract(shortName) — unique in resources.assets.
+            byte[] cardStats = resolver.ResolveEmbeddedAsset(
+                ResourcesAssetsRelPath,
+                $"embeddedasset/quadmist/{CardDataShortName}",
+                CardDataShortName).Bytes;
+
+            byte[] cardSets = resolver.ResolveEmbeddedAsset(
+                ResourcesAssetsRelPath,
+                $"embeddedasset/quadmist/{CardSetsShortName}",
+                CardSetsShortName).Bytes;
+
+            byte[] npcDecks = resolver.ResolveEmbeddedAsset(
+                ResourcesAssetsRelPath,
+                $"embeddedasset/quadmist/{NpcDecksShortName}",
+                NpcDecksShortName).Bytes;
+
+            // Extract card name files for all 7 languages.
+            // NO shortName — "minista.mes" is NOT unique in resources.assets (7 copies).
+            // ExtractByPath with the full asset path is required for disambiguation.
+            // Rule: minista.mes card name files are NOT unique by short name —
+            // always use ExtractByPath (logged in PhaseEnd_Phase5_7.md rules).
+            var cardNamesByLang = new Dictionary<string, byte[]>(languages.Length);
+            foreach (string lang in languages)
+            {
+                cardNamesByLang[lang] = resolver.ResolveEmbeddedAsset(
+                    ResourcesAssetsRelPath,
+                    $"embeddedasset/text/{lang}/etc/minista.mes").Bytes;
+            }
+
+            return (cardStats, cardSets, npcDecks, cardNamesByLang);
+        }
 
         /// <summary>
         /// Writes Tetramaster patched binary outputs to the mod output folder.
-        /// TODO: Verify paths against Memoria's mod overlay structure for Tetramaster assets.
+        /// </summary>
+
+        /// <summary>
+        /// Writes patched TetraMaster binary files to the mod output folder.
+        ///
+        /// Output paths are relative to the mod folder root and mirror the asset
+        /// bundle paths inside resources.assets. Memoria loads these as raw file
+        /// overrides without requiring archive repacking (confirmed Phase 5.7).
+        ///
+        /// Binary files:  embeddedasset/quadmist/{filename}
+        /// Card names:    embeddedasset/text/{lang}/etc/minista.mes
         /// </summary>
         private static void WriteTetraMasterOutput(
             ModOutputWriter modWriter,
             TetraMasterRandomizerResult tmResult,
             Settings settings)
         {
-            const string CardDataPath = "StreamingAssets/assets/resources/cardgame/minigame_card_data_address";
-            const string CardSetsPath = "StreamingAssets/assets/resources/cardgame/minigame_card_level_address";
-            const string NpcDecksPath = "StreamingAssets/assets/resources/cardgame/minigame_stage_address";
-            const string CardNamesBase = "StreamingAssets/assets/resources/text/{lang}/minista.mes";
+            // CORRECTED: was previously "StreamingAssets/assets/resources/cardgame/..."
+            // TetraMaster files are in resources.assets (x64/FF9_Data/), not StreamingAssets.
+            // Mod output path matches the asset bundle path inside resources.assets.
+            // Confirmed from Phase 5.7 PhaseEnd: mod output → {modRoot}\embeddedasset\quadmist\
+            const string CardDataPath = "embeddedasset/quadmist/minigame_card_data_address";
+            const string CardSetsPath = "embeddedasset/quadmist/minigame_card_level_address";
+            const string NpcDecksPath = "embeddedasset/quadmist/minigame_stage_address";
+            const string CardNamesBase = "embeddedasset/text/{lang}/etc/minista.mes";
 
             modWriter.WritePatchedBinaryFile(CardDataPath, tmResult.CardStats);
             modWriter.WritePatchedBinaryFile(CardSetsPath, tmResult.CardSets);
@@ -628,6 +771,7 @@ namespace StiltzkinsBag.Core
                 }
             }
         }
+
 
         // ── CSV read helpers ──────────────────────────────────────────────────
 

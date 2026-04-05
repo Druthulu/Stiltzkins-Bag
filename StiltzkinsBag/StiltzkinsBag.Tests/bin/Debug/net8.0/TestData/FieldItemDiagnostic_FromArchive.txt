@@ -1,14 +1,11 @@
 ﻿Field Item Diagnostic — p0data7.bin (2466 extracted, 0 failed, EVT_ALEX3_AC_SEAT_N excluded)
-Generated: 2026-04-03 20:47:42
-Total item locations found: 1117
+Generated: 2026-04-04 21:17:45
+Total item locations found: 782
 
 === PER-FILE DETAIL ===
 
 [EVT_ALEX1_AC_GUARD.eb]
   TreasureItem offset= 16003 → item 240
-
-[EVT_ALEX1_AC_H2F.eb]
-  DirectItem   offset=  1651 → item 197
 
 [EVT_ALEX1_AC_SEAT_R.eb]
   DirectItem   offset=  3365 → item 229
@@ -20,22 +17,11 @@ Total item locations found: 1117
   DirectItem   offset=  1679 → item 239
   DirectItem   offset=  1701 → item 239
 
-[EVT_ALEX1_AT_BACK_STR.eb]
-  DirectItem   offset=  1763 → item  28
-
 [EVT_ALEX1_AT_CENTER.eb]
-  DirectItem   offset=  5503 → item 200
-  DirectItem   offset=  5735 → item 200
-  DirectItem   offset=  5967 → item 200
-  DirectItem   offset=  6199 → item 200
-  DirectItem   offset=  6426 → item 200
-  DirectItem   offset= 10514 → item   9
   TreasureItem offset= 11827 → item 249
 
 [EVT_ALEX1_AT_GATE.eb]
   TreasureItem offset=  7675 → item 236
-  DirectItem   offset=  9160 → item   1
-  DirectItem   offset=  9507 → item   1
 
 [EVT_ALEX1_AT_HOUSE_1.eb]
   TreasureItem offset=  1883 → item 244
@@ -72,30 +58,11 @@ Total item locations found: 1117
   DirectItem   offset=  5079 → item 249
   DirectItem   offset=  5101 → item 249
 
-[EVT_ALEX1_TS_STAGE_2B.eb]
-  DirectItem   offset=  5181 → item  64
-
-[EVT_ALEX1_TS_STAGE_BK.eb]
-  DirectItem   offset=  1655 → item  64
-
-[EVT_ALEX1_TS_UPPER.eb]
-  DirectItem   offset=   622 → item 197
-  DirectItem   offset=   772 → item 197
-
-[EVT_ALEX2_AC_LIB.eb]
-  DirectItem   offset=  4957 → item  34
-
-[EVT_ALEX2_AC_QUEEN.eb]
-  DirectItem   offset=  8869 → item  31
-
 [EVT_ALEX2_AC_STAIR_A.eb]
   DirectItem   offset=  6607 → item  20
   DirectItem   offset=  6629 → item  20
   DirectItem   offset=  7207 → item 253
   DirectItem   offset=  7229 → item 253
-
-[EVT_ALEX2_AC_STAIR_B.eb]
-  DirectItem   offset=  4451 → item 164
 
 [EVT_ALEX3_AC_ENT_2F.eb]
   DirectItem   offset= 24199 → item 237
@@ -107,13 +74,6 @@ Total item locations found: 1117
   DirectItem   offset= 24976 → item 215
   DirectItem   offset= 24998 → item 215
 
-[EVT_ALEX3_AC_LIB.eb]
-  DirectItem   offset=  3689 → item  34
-
-[EVT_ALEX3_AC_OHAKA.eb]
-  DirectItem   offset=  4977 → item  52
-  DirectItem   offset=  5553 → item  84
-
 [EVT_ALEX3_AC_OUT_C.eb]
   TreasureItem offset=  5083 → item 235
   TreasureItem offset=  5371 → item 249
@@ -123,9 +83,6 @@ Total item locations found: 1117
   DirectItem   offset=  2606 → item 233
   DirectItem   offset=  2650 → item 234
   DirectItem   offset=  2694 → item 225
-
-[EVT_ALEX3_AC_QUEEN.eb]
-  DirectItem   offset=  2766 → item  31
 
 [EVT_ALEX3_AC_TOWER_L1.eb]
   TreasureItem offset=  1427 → item 249
@@ -162,15 +119,10 @@ Total item locations found: 1117
   TreasureItem offset=  9707 → item 236
 
 [EVT_ALEX3_AT_WEAPON.eb]
-  DirectItem   offset=  7682 → item  31
   TreasureItem offset= 21647 → item 247
 
 [EVT_ALEX3_AT_WHARF.eb]
   TreasureItem offset=  5659 → item 249
-
-[EVT_ALEX4_AC_SAI_A.eb]
-  DirectItem   offset= 12704 → item  84
-  DirectItem   offset= 12832 → item  84
 
 [EVT_ALEX5_AC_OUT_C.eb]
   TreasureItem offset=  4579 → item 231
@@ -183,11 +135,6 @@ Total item locations found: 1117
   TreasureItem offset=  7623 → item 225
 
 [EVT_ALEX5_AT_SENTOU.eb]
-  DirectItem   offset=  2555 → item 200
-  DirectItem   offset=  2787 → item 200
-  DirectItem   offset=  3019 → item 200
-  DirectItem   offset=  3251 → item 200
-  DirectItem   offset=  3478 → item 200
   DirectItem   offset= 12834 → item 221
   DirectItem   offset= 12856 → item 221
   DirectItem   offset= 13228 → item 229
@@ -200,8 +147,10 @@ Total item locations found: 1117
 [EVT_ALEX5_AT_STREET_A.eb]
   TreasureItem offset=  5699 → item 232
 
+[EVT_ALEX5_AT_STREET_C.eb]
+  TreasureItem offset=  3891 → item 238
+
 [EVT_ALEX5_AT_TSS.eb]
-  DirectItem   offset=  5071 → item  64
   TreasureItem offset=  6251 → item 253
 
 [EVT_ALEX5_AT_WHARF.eb]
@@ -210,9 +159,6 @@ Total item locations found: 1117
 [EVT_BAL_BB_CDL_0.eb]
   DirectItem   offset=  5718 → item 215
   DirectItem   offset=  5740 → item 215
-
-[EVT_BAL_BB_CDR_0.eb]
-  DirectItem   offset=  8224 → item  64
 
 [EVT_BAL_BB_FGT_0.eb]
   DirectItem   offset= 11735 → item 130
@@ -252,29 +198,9 @@ Total item locations found: 1117
   DirectItem   offset=  3915 → item 242
   DirectItem   offset=  3937 → item 242
 
-[EVT_BURMECIA_HOUSE_2.eb]
-  DirectItem   offset=  1572 → item 123
-
 [EVT_BURMECIA_HOUSE_3.eb]
-  DirectItem   offset=  1812 → item 123
   DirectItem   offset=  2527 → item 238
   DirectItem   offset=  2549 → item 238
-
-[EVT_BURMECIA_PALACE_1.eb]
-  DirectItem   offset=  3640 → item 123
-
-[EVT_BURMECIA_PALACE_2.eb]
-  DirectItem   offset=  7300 → item 123
-
-[EVT_BURMECIA_PATH.eb]
-  DirectItem   offset=  3632 → item 123
-
-[EVT_BURMECIA_PATIO_0.eb]
-  DirectItem   offset=  4196 → item 123
-
-[EVT_BURMECIA_PATIO_1.eb]
-  DirectItem   offset=  3624 → item 123
-  DirectItem   offset=  4492 → item 123
 
 [EVT_BURMECIA_PATIO_2.eb]
   DirectItem   offset=  1675 → item 240
@@ -303,27 +229,7 @@ Total item locations found: 1117
 [EVT_BURMECIA_SQUARE_2.eb]
   DirectItem   offset=  3242 → item  32
 
-[EVT_BURMECIA_TOWN_0.eb]
-  DirectItem   offset=  4240 → item 123
-  DirectItem   offset=  4488 → item 123
-  DirectItem   offset=  4736 → item 123
-
-[EVT_BURMECIA_TOWN_1.eb]
-  DirectItem   offset=  4644 → item 123
-  DirectItem   offset=  5160 → item 123
-
-[EVT_BURMECIA_TOWN_2.eb]
-  DirectItem   offset=  2473 → item 122
-  DirectItem   offset=  2821 → item 122
-  DirectItem   offset=  3068 → item 122
-
-[EVT_CARGO_CA_COP_1.eb]
-  DirectItem   offset=   986 → item 179
-  DirectItem   offset= 10379 → item   4
-  DirectItem   offset= 12679 → item 179
-
 [EVT_CHOCO_CH_FGD_0.eb]
-  DirectItem   offset=  3276 → item  89
   DirectItem   offset= 19035 → item 251
   DirectItem   offset= 19593 → item 251
   DirectItem   offset= 19881 → item 175
@@ -335,9 +241,7 @@ Total item locations found: 1117
   DirectItem   offset= 20243 → item 251
 
 [EVT_CHOCO_CH_FST_0.eb]
-  DirectItem   offset=  4910 → item  89
   DirectItem   offset= 18922 → item 251
-  DirectItem   offset= 19671 → item  31
   DirectItem   offset= 19709 → item 251
   DirectItem   offset= 21934 → item 251
   DirectItem   offset= 21960 → item 251
@@ -350,7 +254,6 @@ Total item locations found: 1117
   DirectItem   offset= 23275 → item 251
 
 [EVT_CHOCO_CH_HLG_0.eb]
-  DirectItem   offset=  4650 → item  89
   DirectItem   offset= 20797 → item 251
   DirectItem   offset= 21355 → item 251
   DirectItem   offset= 21643 → item 175
@@ -362,9 +265,6 @@ Total item locations found: 1117
   DirectItem   offset= 22005 → item 251
 
 [EVT_CHOCO_CH_PDS_1.eb]
-  DirectItem   offset= 11763 → item  31
-  DirectItem   offset= 12704 → item  31
-  DirectItem   offset= 13513 → item  31
   DirectItem   offset= 14695 → item 252
   DirectItem   offset= 14773 → item 252
 
@@ -387,7 +287,6 @@ Total item locations found: 1117
   DirectItem   offset=  3017 → item 169
 
 [EVT_CLEYRA1_DUN_04.eb]
-  DirectItem   offset=  1183 → item 200
   DirectItem   offset=  2471 → item 238
   DirectItem   offset=  2493 → item 238
 
@@ -431,12 +330,7 @@ Total item locations found: 1117
   DirectItem   offset=  1659 → item 251
   DirectItem   offset=  1681 → item 251
 
-[EVT_CLEYRA2_ANTRION.eb]
-  DirectItem   offset= 10770 → item  54
-  DirectItem   offset= 10834 → item  32
-
 [EVT_CLEYRA2_CATHE_0.eb]
-  DirectItem   offset=  3868 → item 123
   TreasureItem offset=  4455 → item 251
   TreasureItem offset=  4743 → item 241
 
@@ -444,24 +338,17 @@ Total item locations found: 1117
   TreasureItem offset=  3707 → item 212
 
 [EVT_CLEYRA2_ENTER.eb]
-  DirectItem   offset=  5938 → item 123
   TreasureItem offset=  7135 → item 249
-  DirectItem   offset= 13440 → item  32
 
 [EVT_CLEYRA2_INN.eb]
-  DirectItem   offset=  3118 → item 123
   TreasureItem offset= 12727 → item 241
   TreasureItem offset= 13303 → item 238
 
 [EVT_CLEYRA2_TOWN.eb]
-  DirectItem   offset=  3496 → item 123
-  DirectItem   offset=  4140 → item 123
   TreasureItem offset= 10555 → item 254
   TreasureItem offset= 10843 → item 247
 
 [EVT_CLEYRA2_WATER.eb]
-  DirectItem   offset=  3952 → item 123
-  DirectItem   offset=  4192 → item 123
   TreasureItem offset=  4547 → item 105
 
 [EVT_CLEYRA2_WIND.eb]
@@ -478,8 +365,6 @@ Total item locations found: 1117
 [EVT_CLEYRA3_CATHE_0.eb]
   TreasureItem offset= 17491 → item 251
   TreasureItem offset= 17779 → item 241
-  DirectItem   offset= 19415 → item   6
-  DirectItem   offset= 24047 → item  34
 
 [EVT_CLEYRA3_CATHE_1.eb]
   DirectItem   offset=  2122 → item 238
@@ -492,14 +377,11 @@ Total item locations found: 1117
   DirectItem   offset=  3662 → item 240
   DirectItem   offset=  4166 → item 239
   DirectItem   offset=  4188 → item 239
-  DirectItem   offset=  5944 → item 123
   TreasureItem offset=  6531 → item 212
 
 [EVT_CLEYRA3_CATHE_2.eb]
-  DirectItem   offset=  4874 → item  32
   DirectItem   offset=  5132 → item 228
   DirectItem   offset=  5154 → item 228
-  DirectItem   offset=  5601 → item  12
   TreasureItem offset=  6895 → item 238
   TreasureItem offset=  7183 → item 254
   TreasureItem offset=  7471 → item 249
@@ -508,7 +390,6 @@ Total item locations found: 1117
   TreasureItem offset=  9491 → item 249
 
 [EVT_CLEYRA3_INN.eb]
-  DirectItem   offset=  2144 → item 123
   TreasureItem offset=  4563 → item 241
   TreasureItem offset=  5139 → item 238
   DirectItem   offset= 13525 → item 237
@@ -519,16 +400,10 @@ Total item locations found: 1117
   DirectItem   offset= 14047 → item 249
 
 [EVT_CLEYRA3_TOWN.eb]
-  DirectItem   offset= 11164 → item 123
   TreasureItem offset= 14715 → item 254
   TreasureItem offset= 15003 → item 247
 
-[EVT_CLEYRA3_VISTA.eb]
-  DirectItem   offset=  7297 → item  84
-
 [EVT_CLEYRA3_WATER.eb]
-  DirectItem   offset=  4720 → item 123
-  DirectItem   offset=  4960 → item 123
   TreasureItem offset=  5871 → item 105
 
 [EVT_CLEYRA3_WIND.eb]
@@ -544,12 +419,6 @@ Total item locations found: 1117
   DirectItem   offset= 11009 → item 239
   DirectItem   offset= 11395 → item 239
   DirectItem   offset= 11417 → item 239
-
-[EVT_DAG_DG_SRH_0.eb]
-  DirectItem   offset= 10359 → item  33
-
-[EVT_DALI_A_AP_AIR_0.eb]
-  DirectItem   offset=  6387 → item  26
 
 [EVT_DALI_A_AP_FID_0.eb]
   DirectItem   offset= 12319 → item 239
@@ -592,23 +461,14 @@ Total item locations found: 1117
   DirectItem   offset=  4335 → item  89
   DirectItem   offset=  4357 → item  89
 
-[EVT_DALI_V_DL_BAR.eb]
-  DirectItem   offset=  3412 → item  34
-
 [EVT_DALI_V_DL_INN1.eb]
-  DirectItem   offset=  1148 → item 197
   DirectItem   offset=  6387 → item 236
   DirectItem   offset=  6409 → item 236
   DirectItem   offset=  6987 → item 243
   DirectItem   offset=  7009 → item 243
-  DirectItem   offset= 13815 → item  28
-
-[EVT_DALI_V_DL_SHP.eb]
-  DirectItem   offset= 11452 → item   7
 
 [EVT_DALI_V_DL_WHL.eb]
   TreasureItem offset= 14832 → item 120
-  DirectItem   offset= 19980 → item  84
 
 [EVT_DALI_V_DL_WMS1.eb]
   DirectItem   offset=  5579 → item 218
@@ -617,14 +477,12 @@ Total item locations found: 1117
   DirectItem   offset=  6201 → item 239
 
 [EVT_DOWNSHIP_BT_CCD_0.eb]
-  DirectItem   offset=  1561 → item  18
   DirectItem   offset=  5279 → item 112
   DirectItem   offset=  5301 → item 112
 
 [EVT_DOWNSHIP_BT_CCP_0.eb]
   DirectItem   offset=  7243 → item 102
   DirectItem   offset=  7265 → item 102
-  DirectItem   offset=  7969 → item  52
 
 [EVT_DOWNSHIP_BT_CCR_0.eb]
   TreasureItem offset=  7591 → item 136
@@ -645,32 +503,12 @@ Total item locations found: 1117
   TreasureItem offset=  9227 → item 240
 
 [EVT_DOWNSHIP_BT_GTR_0.eb]
-  DirectItem   offset=  7089 → item 125
   DirectItem   offset=  9207 → item 238
   DirectItem   offset=  9229 → item 238
 
 [EVT_DOWNSHIP_BT_STR_0.eb]
   DirectItem   offset=  8898 → item 238
   DirectItem   offset=  8920 → item 238
-
-[EVT_EFOREST1_EF_HEL_0.eb]
-  DirectItem   offset=  9600 → item   4
-
-[EVT_ENDING_AT_1.eb]
-  DirectItem   offset=  2785 → item 123
-  DirectItem   offset=  3655 → item 147
-
-[EVT_ENDING_BU_1.eb]
-  DirectItem   offset=  4852 → item  38
-
-[EVT_ENDING_LB_1.eb]
-  DirectItem   offset=  1826 → item  86
-
-[EVT_ENDING_TH_2.eb]
-  DirectItem   offset=  2890 → item  32
-
-[EVT_ENDING_TR_1.eb]
-  DirectItem   offset=  1296 → item  64
 
 [EVT_EST_EG_RM2_0.eb]
   DirectItem   offset=  3606 → item  87
@@ -679,20 +517,8 @@ Total item locations found: 1117
 [EVT_EVA1_IF_ENT_0.eb]
   DirectItem   offset= 12973 → item 230
 
-[EVT_EVA1_IF_GGT_0.eb]
-  DirectItem   offset=  2967 → item  84
-
-[EVT_EVA1_IF_MKJ_0.eb]
-  DirectItem   offset=  2479 → item 111
-
-[EVT_EVA1_IF_MKJ_1.eb]
-  DirectItem   offset= 16113 → item  34
-
 [EVT_EVA1_IF_PTS_1.eb]
   DirectItem   offset=  4018 → item 226
-
-[EVT_EVA2_IU_ELV_0.eb]
-  DirectItem   offset=  6269 → item  64
 
 [EVT_EVA2_IU_EUG_1.eb]
   DirectItem   offset=  4030 → item 240
@@ -709,9 +535,6 @@ Total item locations found: 1117
   DirectItem   offset=  4605 → item 247
   DirectItem   offset=  5183 → item  65
   DirectItem   offset=  5205 → item  65
-
-[EVT_EVA2_IU_EVE_0.eb]
-  DirectItem   offset=  5390 → item  64
 
 [EVT_EVA2_IU_SDV_0.eb]
   DirectItem   offset=  3063 → item 158
@@ -743,65 +566,15 @@ Total item locations found: 1117
   DirectItem   offset=  5201 → item 239
   DirectItem   offset=  5223 → item 239
 
-[EVT_FOSSIL_FR_MV1_0.eb]
-  DirectItem   offset= 11267 → item  34
-
-[EVT_FOSSIL_FR_MV2_0.eb]
-  DirectItem   offset=  6339 → item  34
-
-[EVT_FOSSIL_FR_MV3_0.eb]
-  DirectItem   offset=  9933 → item  34
-  DirectItem   offset= 18719 → item  34
-
-[EVT_FOSSIL_FR_MV5_0.eb]
-  DirectItem   offset= 12023 → item  34
-  DirectItem   offset= 13282 → item  54
-
-[EVT_FOSSIL_FR_SL1_0.eb]
-  DirectItem   offset=  8346 → item  34
-  DirectItem   offset= 15224 → item  34
-
-[EVT_FOSSIL_FR_SL3_0.eb]
-  DirectItem   offset=  7679 → item  34
-
-[EVT_FOSSIL_FR_SM1_0.eb]
-  DirectItem   offset=  4962 → item  48
-
-[EVT_FOSSIL_FR_SR2_0.eb]
-  DirectItem   offset=  8629 → item  34
-
-[EVT_FOSSIL_FR_SR3_0.eb]
-  DirectItem   offset=  2267 → item  34
-  DirectItem   offset=  2475 → item  34
-
 [EVT_FOSSIL_FR_SR7_0.eb]
-  DirectItem   offset=  4412 → item  34
   DirectItem   offset=  5418 → item 157
   DirectItem   offset=  5440 → item 157
-
-[EVT_GARGAN_GR_ALX_0.eb]
-  DirectItem   offset=  1159 → item 200
-  DirectItem   offset=  3675 → item 200
-  DirectItem   offset=  4078 → item  51
-
-[EVT_GARGAN_GR_CON_0.eb]
-  DirectItem   offset=   854 → item  34
-  DirectItem   offset=   868 → item  34
-  DirectItem   offset=  1419 → item 200
-
-[EVT_GARGAN_GR_GGT_1.eb]
-  DirectItem   offset=   572 → item  92
 
 [EVT_GARGAN_GR_LEF_0.eb]
   DirectItem   offset=  3063 → item 153
   DirectItem   offset=  3085 → item 153
   DirectItem   offset=  3655 → item 240
   DirectItem   offset=  3677 → item 240
-
-[EVT_GARGAN_GR_REN_0.eb]
-  DirectItem   offset=  1516 → item 200
-  DirectItem   offset=  1538 → item 200
-  DirectItem   offset=  2916 → item 200
 
 [EVT_GATE_N_NG_BDA_0.eb]
   DirectItem   offset=  7959 → item 238
@@ -846,12 +619,7 @@ Total item locations found: 1117
   DirectItem   offset= 11983 → item 239
   DirectItem   offset= 12005 → item 239
 
-[EVT_GATE_S_SG_ALX_0.eb]
-  DirectItem   offset=  3666 → item 111
-  DirectItem   offset=  4278 → item 111
-
 [EVT_GATE_S_SG_RND_1.eb]
-  DirectItem   offset=  5272 → item 186
   DirectItem   offset=  9059 → item  52
   DirectItem   offset=  9081 → item  52
 
@@ -862,28 +630,13 @@ Total item locations found: 1117
 [EVT_GATE_S_SG_TOP_1.eb]
   DirectItem   offset=  7419 → item 240
   DirectItem   offset=  7441 → item 240
-  DirectItem   offset= 15909 → item 111
-
-[EVT_GATE_S_SG_TOP_3.eb]
-  DirectItem   offset=  4102 → item 111
 
 [EVT_GIZ_BELL_0.eb]
   TreasureItem offset=  4455 → item 117
   TreasureItem offset=  4743 → item 104
 
-[EVT_GIZ_BOSS.eb]
-  DirectItem   offset=  2692 → item 123
-
-[EVT_GIZ_CAVERN_0.eb]
-  DirectItem   offset=  2812 → item 123
-
 [EVT_GIZ_CAVERN_1.eb]
-  DirectItem   offset=  7450 → item 123
   TreasureItem offset=  8507 → item 152
-
-[EVT_GIZ_ENTER_1.eb]
-  DirectItem   offset=  1668 → item 123
-  DirectItem   offset=  1924 → item 123
 
 [EVT_GIZ_TO_WORLD.eb]
   DirectItem   offset= 10532 → item 239
@@ -915,7 +668,6 @@ Total item locations found: 1117
   DirectItem   offset=  2768 → item 238
 
 [EVT_GULUGU_GV_RM3_0.eb]
-  DirectItem   offset=  1098 → item 231
   DirectItem   offset=  9534 → item  87
   DirectItem   offset=  9556 → item  87
 
@@ -924,22 +676,10 @@ Total item locations found: 1117
   DirectItem   offset=  1565 → item 184
 
 [EVT_GULUGU_GV_WHL_0.eb]
-  DirectItem   offset=   915 → item  25
-  DirectItem   offset=  2412 → item  20
   DirectItem   offset=  7502 → item 127
   DirectItem   offset=  7524 → item 127
   DirectItem   offset=  7962 → item 161
   DirectItem   offset=  7984 → item 161
-
-[EVT_HILDA3_BN_DCR_0.eb]
-  DirectItem   offset=   821 → item 188
-  DirectItem   offset=   890 → item 188
-
-[EVT_HILDA3_G3_BRG_0.eb]
-  DirectItem   offset= 11653 → item  64
-
-[EVT_HILDA3_G3_DCK_0.eb]
-  DirectItem   offset=  5203 → item  64
 
 [EVT_HILDA3_G3_EXT_0.eb]
   DirectItem   offset=  5046 → item 253
@@ -961,9 +701,6 @@ Total item locations found: 1117
   DirectItem   offset=  8659 → item 239
   DirectItem   offset=  8681 → item 239
 
-[EVT_ICE_IC_STA_0.eb]
-  DirectItem   offset=  9847 → item  16
-
 [EVT_ICE_IC_STP_0.eb]
   DirectItem   offset=  5171 → item 253
   DirectItem   offset=  5193 → item 253
@@ -979,11 +716,6 @@ Total item locations found: 1117
   DirectItem   offset=  4745 → item 219
   DirectItem   offset=  5323 → item   1
   DirectItem   offset=  5345 → item   1
-  DirectItem   offset=  7207 → item  31
-
-[EVT_IPSEN_IP_EXT_0.eb]
-  DirectItem   offset=  4091 → item  32
-  DirectItem   offset=  4167 → item  84
 
 [EVT_IPSEN_IP_HL1_0.eb]
   DirectItem   offset=  2915 → item  16
@@ -1002,12 +734,10 @@ Total item locations found: 1117
   DirectItem   offset=  5837 → item  70
   DirectItem   offset=  6415 → item  79
   DirectItem   offset=  6437 → item  79
-  DirectItem   offset= 19969 → item  84
 
 [EVT_IPSEN_IP_RM2_0.eb]
   DirectItem   offset=  3419 → item 222
   DirectItem   offset=  3441 → item 222
-  DirectItem   offset=  8475 → item  84
 
 [EVT_IPSEN_IP_SMN_0.eb]
   DirectItem   offset=  4399 → item  64
@@ -1030,8 +760,6 @@ Total item locations found: 1117
 
 [EVT_KUINA_KM_SWP_3.eb]
   DirectItem   offset=  5092 → item  84
-  DirectItem   offset=  6028 → item 111
-  DirectItem   offset=  7209 → item 111
 
 [EVT_KUWAN_QH_CAV_0.eb]
   DirectItem   offset=  5727 → item 238
@@ -1042,22 +770,13 @@ Total item locations found: 1117
 [EVT_KUWAN_QH_HUR_0.eb]
   DirectItem   offset=  5995 → item 238
   DirectItem   offset=  6017 → item 238
-  DirectItem   offset=  8497 → item  54
 
 [EVT_KUWAN_QH_LNI_0.eb]
-  DirectItem   offset=  2937 → item 189
   DirectItem   offset=  6594 → item 198
   DirectItem   offset=  6616 → item 198
-  DirectItem   offset=  6782 → item  64
 
 [EVT_LAST_CW_1LY_1.eb]
   TreasureItem offset=  1247 → item  14
-
-[EVT_LAST_CW_4LY_0.eb]
-  DirectItem   offset=  4709 → item  16
-
-[EVT_LAST_CW_CYW_3.eb]
-  DirectItem   offset=  4601 → item  16
 
 [EVT_LAST_CW_EMP_0.eb]
   TreasureItem offset=  2016 → item  30
@@ -1077,12 +796,6 @@ Total item locations found: 1117
   DirectItem   offset=  4316 → item  50
   DirectItem   offset=  4338 → item  50
 
-[EVT_LAST_CW_GIA_2.eb]
-  DirectItem   offset=  3999 → item  64
-
-[EVT_LAST_CW_LST_1.eb]
-  DirectItem   offset= 13725 → item 218
-
 [EVT_LAST_CW_LTP_0.eb]
   TreasureItem offset=  1347 → item  78
   DirectItem   offset=  3104 → item  78
@@ -1090,108 +803,32 @@ Total item locations found: 1117
   DirectItem   offset=  3244 → item  78
   DirectItem   offset=  3266 → item  78
 
-[EVT_LAST_CW_MBG_0.eb]
-  DirectItem   offset=  3532 → item  84
-  DirectItem   offset=  3924 → item  84
-  DirectItem   offset=  4077 → item  84
-
-[EVT_LAST_CW_MBG_2.eb]
-  DirectItem   offset=  2040 → item  64
-
-[EVT_LAST_CW_SPC_0.eb]
-  DirectItem   offset=  1732 → item  84
-
 [EVT_LIND1_CS_LB_CFR_0.eb]
-  DirectItem   offset=   814 → item 197
   DirectItem   offset=  4490 → item 206
   DirectItem   offset=  4512 → item 206
-  DirectItem   offset=  9088 → item 123
-
-[EVT_LIND1_CS_LB_CTM_0.eb]
-  DirectItem   offset=  2184 → item  34
-  DirectItem   offset=  2340 → item  34
-  DirectItem   offset=  2496 → item  34
-  DirectItem   offset=  2626 → item  34
 
 [EVT_LIND1_CS_LB_EXB_0.eb]
-  DirectItem   offset=  5951 → item  64
   DirectItem   offset= 12995 → item 253
   DirectItem   offset= 13017 → item 253
 
 [EVT_LIND1_CS_LB_GRM_0.eb]
-  DirectItem   offset=   895 → item 197
-  DirectItem   offset=  1036 → item 197
   DirectItem   offset= 13939 → item  90
   DirectItem   offset= 13961 → item  90
   DirectItem   offset= 14531 → item 238
   DirectItem   offset= 14553 → item 238
 
-[EVT_LIND1_CS_LB_MET_0.eb]
-  DirectItem   offset=  2421 → item 188
-  DirectItem   offset=  7996 → item 123
-  DirectItem   offset=  9376 → item  64
-
 [EVT_LIND1_TN_LB_AET_0.eb]
-  DirectItem   offset=  4255 → item  74
-  DirectItem   offset=  4441 → item  74
-  DirectItem   offset=  4627 → item  74
-  DirectItem   offset=  4805 → item  74
-  DirectItem   offset=  4983 → item  74
   TreasureItem offset= 13839 → item  89
 
 [EVT_LIND1_TN_LB_ALY_0.eb]
-  DirectItem   offset=  4175 → item  74
-  DirectItem   offset=  4361 → item  74
-  DirectItem   offset=  4547 → item  74
-  DirectItem   offset=  4725 → item  74
-  DirectItem   offset=  4903 → item  74
   TreasureItem offset= 13191 → item 253
 
 [EVT_LIND1_TN_LB_ATL_0.eb]
   DirectItem   offset=  5247 → item 254
   DirectItem   offset=  5269 → item 254
 
-[EVT_LIND1_TN_LB_BAZ_0.eb]
-  DirectItem   offset=  5715 → item  74
-  DirectItem   offset=  5901 → item  74
-  DirectItem   offset=  6087 → item  74
-  DirectItem   offset=  6265 → item  74
-  DirectItem   offset=  6443 → item  74
-
-[EVT_LIND1_TN_LB_CAG_0.eb]
-  DirectItem   offset=   773 → item  96
-
 [EVT_LIND1_TN_LB_ECH_0.eb]
   TreasureItem offset=  2031 → item 103
-
-[EVT_LIND1_TN_LB_FTH_0.eb]
-  DirectItem   offset=  3587 → item  74
-  DirectItem   offset=  3773 → item  74
-  DirectItem   offset=  3959 → item  74
-  DirectItem   offset=  4137 → item  74
-  DirectItem   offset=  4315 → item  74
-
-[EVT_LIND1_TN_LB_FTM_0.eb]
-  DirectItem   offset=  3171 → item  74
-  DirectItem   offset=  3357 → item  74
-  DirectItem   offset=  3543 → item  74
-  DirectItem   offset=  3721 → item  74
-  DirectItem   offset=  3899 → item  74
-
-[EVT_LIND1_TN_LB_GAT_0.eb]
-  DirectItem   offset=  1587 → item  74
-  DirectItem   offset=  1773 → item  74
-  DirectItem   offset=  1959 → item  74
-  DirectItem   offset=  2137 → item  74
-  DirectItem   offset=  2315 → item  74
-
-[EVT_LIND1_TN_LB_HIG_0.eb]
-  DirectItem   offset=  3575 → item  74
-  DirectItem   offset=  3761 → item  74
-  DirectItem   offset=  3947 → item  74
-  DirectItem   offset=  4125 → item  74
-  DirectItem   offset=  4303 → item  74
-  DirectItem   offset= 12976 → item  34
 
 [EVT_LIND1_TN_LB_HUS_0.eb]
   DirectItem   offset=  3039 → item 241
@@ -1199,63 +836,12 @@ Total item locations found: 1117
   DirectItem   offset=  3631 → item 237
   DirectItem   offset=  3653 → item 237
 
-[EVT_LIND1_TN_LB_ITM_0.eb]
-  DirectItem   offset=  1352 → item 188
-
 [EVT_LIND1_TN_LB_LDH_0.eb]
   DirectItem   offset=  4179 → item 115
   DirectItem   offset=  4201 → item 115
 
-[EVT_LIND1_TN_LB_MST_0.eb]
-  DirectItem   offset=  3823 → item  74
-  DirectItem   offset=  4009 → item  74
-  DirectItem   offset=  4195 → item  74
-  DirectItem   offset=  4373 → item  74
-  DirectItem   offset=  4551 → item  74
-
-[EVT_LIND1_TN_LB_MTM_0.eb]
-  DirectItem   offset=  2055 → item  74
-  DirectItem   offset=  2241 → item  74
-  DirectItem   offset=  2427 → item  74
-  DirectItem   offset=  2605 → item  74
-  DirectItem   offset=  2783 → item  74
-
-[EVT_LIND1_TN_LB_PLZ_0.eb]
-  DirectItem   offset=  8063 → item  74
-  DirectItem   offset=  8249 → item  74
-  DirectItem   offset=  8435 → item  74
-  DirectItem   offset=  8613 → item  74
-  DirectItem   offset=  8791 → item  74
-
-[EVT_LIND1_TN_LB_RFS_0.eb]
-  DirectItem   offset=  3155 → item  74
-  DirectItem   offset=  3341 → item  74
-  DirectItem   offset=  3527 → item  74
-  DirectItem   offset=  3705 → item  74
-  DirectItem   offset=  3883 → item  74
-
 [EVT_LIND1_TN_LB_ROD_0.eb]
-  DirectItem   offset=  4935 → item  97
-  DirectItem   offset=  5065 → item  97
-  DirectItem   offset=  5117 → item  97
-  DirectItem   offset=  5273 → item  97
-  DirectItem   offset=  5539 → item  74
-  DirectItem   offset=  5725 → item  74
-  DirectItem   offset=  5911 → item  74
-  DirectItem   offset=  6089 → item  74
-  DirectItem   offset=  6267 → item  74
   TreasureItem offset= 15123 → item 152
-
-[EVT_LIND1_TN_LB_SHT_0.eb]
-  DirectItem   offset=  4015 → item  38
-  DirectItem   offset=  4283 → item  38
-
-[EVT_LIND1_TN_LB_STN_0.eb]
-  DirectItem   offset=  4355 → item  74
-  DirectItem   offset=  4541 → item  74
-  DirectItem   offset=  4727 → item  74
-  DirectItem   offset=  4905 → item  74
-  DirectItem   offset=  5083 → item  74
 
 [EVT_LIND1_TN_LB_TMP_0.eb]
   TreasureItem offset=  2763 → item 151
@@ -1264,14 +850,7 @@ Total item locations found: 1117
   TreasureItem offset=  5890 → item  97
   TreasureItem offset=  6486 → item  68
 
-[EVT_LIND2_CS_LB_CTM_0.eb]
-  DirectItem   offset=  1772 → item  34
-  DirectItem   offset=  1928 → item  34
-  DirectItem   offset=  2084 → item  34
-  DirectItem   offset=  2214 → item  34
-
 [EVT_LIND2_CS_LB_EXB_0.eb]
-  DirectItem   offset=  3979 → item  64
   DirectItem   offset= 11931 → item 118
   DirectItem   offset= 11953 → item 118
 
@@ -1289,22 +868,7 @@ Total item locations found: 1117
   DirectItem   offset=  3267 → item 238
   DirectItem   offset=  3289 → item 238
 
-[EVT_LIND2_TN_LB_PLZ_0.eb]
-  DirectItem   offset=  2542 → item  77
-  DirectItem   offset=  6252 → item 156
-  DirectItem   offset=  6878 → item  42
-
-[EVT_LIND2_TN_LB_STN_0.eb]
-  DirectItem   offset=   927 → item 200
-
-[EVT_LIND3_CS_LB_CTM_0.eb]
-  DirectItem   offset=  1980 → item  34
-  DirectItem   offset=  2136 → item  34
-  DirectItem   offset=  2292 → item  34
-  DirectItem   offset=  2422 → item  34
-
 [EVT_LIND3_CS_LB_EXB_0.eb]
-  DirectItem   offset=  5303 → item  64
   DirectItem   offset= 12347 → item 247
   DirectItem   offset= 12369 → item 247
 
@@ -1313,18 +877,6 @@ Total item locations found: 1117
   DirectItem   offset= 17013 → item  95
   DirectItem   offset= 17583 → item 239
   DirectItem   offset= 17605 → item 239
-  DirectItem   offset= 19335 → item  84
-
-[EVT_LIND3_CS_LB_MET_0.eb]
-  DirectItem   offset= 15536 → item  64
-
-[EVT_LIND3_CS_LB_MHW_0.eb]
-  DirectItem   offset=  5636 → item 123
-  DirectItem   offset=  5852 → item 123
-
-[EVT_LIND3_CS_LB_OBS_M.eb]
-  DirectItem   offset=  5563 → item  18
-  DirectItem   offset=  5991 → item  84
 
 [EVT_LIND3_CS_LB_PLA_0.eb]
   DirectItem   offset=  3351 → item  94
@@ -1334,9 +886,6 @@ Total item locations found: 1117
   DirectItem   offset=  3835 → item 235
   DirectItem   offset=  3857 → item 235
 
-[EVT_LIND3_TN_LB_BAZ_0.eb]
-  DirectItem   offset= 10677 → item  64
-
 [EVT_LIND3_TN_LB_ECH_0.eb]
   TreasureItem offset=  1523 → item 103
 
@@ -1345,11 +894,6 @@ Total item locations found: 1117
   DirectItem   offset=  2913 → item 247
   DirectItem   offset=  3483 → item 239
   DirectItem   offset=  3505 → item 239
-
-[EVT_LIND3_TN_LB_RFS_0.eb]
-  DirectItem   offset=  5602 → item 123
-  DirectItem   offset=  7819 → item 123
-  DirectItem   offset= 12582 → item  84
 
 [EVT_LIND3_TN_LB_TTL_0.eb]
   DirectItem   offset=  4067 → item 209
@@ -1362,9 +906,6 @@ Total item locations found: 1117
 [EVT_MAGE2_BV_ENT_0.eb]
   DirectItem   offset=  8526 → item 239
   DirectItem   offset=  8548 → item 239
-
-[EVT_MAGE2_BV_GVY_0.eb]
-  DirectItem   offset=  1239 → item 111
 
 [EVT_MAGE2_BV_ITM_0.eb]
   DirectItem   offset=  4657 → item 201
@@ -1384,13 +925,9 @@ Total item locations found: 1117
   DirectItem   offset=  8630 → item 238
   DirectItem   offset=  8652 → item 238
 
-[EVT_MAGE_BV_ITS_0.eb]
-  DirectItem   offset=  8909 → item  64
-
 [EVT_MOGNET_MOG_VER1.eb]
   DirectItem   offset=  1425 → item 209
   DirectItem   offset=  1447 → item 209
-  DirectItem   offset=  4103 → item  31
 
 [EVT_OEIL_UV_DEP_0.eb]
   DirectItem   offset= 12165 → item 237
@@ -1422,16 +959,9 @@ Total item locations found: 1117
   DirectItem   offset=  3163 → item  86
   DirectItem   offset=  3185 → item  86
 
-[EVT_OEIL_UV_VSL_1.eb]
-  DirectItem   offset=  5017 → item 196
-  DirectItem   offset=  6117 → item  84
-
 [EVT_PANDEMO_PD_BWR_0.eb]
   DirectItem   offset=  6946 → item 133
   DirectItem   offset=  6968 → item 133
-
-[EVT_PANDEMO_PD_ELV_0.eb]
-  DirectItem   offset=  3777 → item 174
 
 [EVT_PANDEMO_PD_MZM_0.eb]
   DirectItem   offset=  9139 → item 187
@@ -1440,12 +970,6 @@ Total item locations found: 1117
   DirectItem   offset=  9761 → item 239
   DirectItem   offset= 10331 → item 197
   DirectItem   offset= 10353 → item 197
-
-[EVT_PANDEMO_PD_PEV_0.eb]
-  DirectItem   offset=  4054 → item  64
-
-[EVT_PANDEMO_PD_RTC_0.eb]
-  DirectItem   offset=  3483 → item  64
 
 [EVT_PATA_M_CM_MP0_0.eb]
   DirectItem   offset=  7171 → item 253
@@ -1469,15 +993,9 @@ Total item locations found: 1117
   DirectItem   offset=  4627 → item 238
   DirectItem   offset=  4649 → item 238
 
-[EVT_PATA_T_CP_ALT_0.eb]
-  DirectItem   offset=   505 → item 197
-
 [EVT_PATA_T_CP_SHN_0.eb]
   DirectItem   offset=  7946 → item 227
   DirectItem   offset=  7968 → item 227
-
-[EVT_PATA_T_CP_STR_0.eb]
-  DirectItem   offset=  1342 → item 149
 
 [EVT_PATA_T_CP_TOL_0.eb]
   DirectItem   offset=  8418 → item 249
@@ -1495,10 +1013,6 @@ Total item locations found: 1117
   DirectItem   offset=  3963 → item 239
   DirectItem   offset=  3985 → item 239
 
-[EVT_PINA_PR_GAL_0.eb]
-  DirectItem   offset=  9149 → item  31
-  DirectItem   offset= 11299 → item  63
-
 [EVT_PINA_PR_PW1_0.eb]
   DirectItem   offset= 15875 → item 154
   DirectItem   offset= 15897 → item 154
@@ -1511,7 +1025,6 @@ Total item locations found: 1117
 
 [EVT_PINA_PR_PW3_0.eb]
   DirectItem   offset=  5727 → item 231
-  DirectItem   offset=  5758 → item  18
   DirectItem   offset= 13195 → item  92
   DirectItem   offset= 13217 → item  92
   DirectItem   offset= 13851 → item   8
@@ -1521,41 +1034,15 @@ Total item locations found: 1117
   DirectItem   offset= 17730 → item  92
   DirectItem   offset= 17752 → item  92
 
-[EVT_ROSE_CABIN_2.eb]
-  DirectItem   offset=  8897 → item  54
-  DirectItem   offset=  8912 → item  54
-
 [EVT_SARI1_MS_EIK_0.eb]
-  DirectItem   offset=  1656 → item 197
-  DirectItem   offset=  2566 → item 200
   DirectItem   offset= 11661 → item 254
   DirectItem   offset= 11683 → item 254
   DirectItem   offset= 12285 → item 249
   DirectItem   offset= 12307 → item 249
 
-[EVT_SARI1_MS_EKH_0.eb]
-  DirectItem   offset=  1011 → item 197
-
-[EVT_SARI1_MS_ENT_0.eb]
-  DirectItem   offset= 23779 → item  34
-  DirectItem   offset= 28039 → item 101
-
 [EVT_SARI1_MS_FNT_0.eb]
-  DirectItem   offset=  1146 → item 197
   DirectItem   offset=  8473 → item 253
   DirectItem   offset=  8495 → item 253
-  DirectItem   offset= 19295 → item   5
-
-[EVT_SARI1_MS_KTN_0.eb]
-  DirectItem   offset= 15065 → item   4
-
-[EVT_SARI1_MS_MRR_0.eb]
-  DirectItem   offset=  1142 → item 200
-
-[EVT_SARI1_MS_MRR_2.eb]
-  DirectItem   offset=   872 → item 197
-  DirectItem   offset=  1571 → item 200
-  DirectItem   offset= 19435 → item 203
 
 [EVT_SARI1_MS_PMR_0.eb]
   DirectItem   offset=  6600 → item   9
@@ -1580,7 +1067,6 @@ Total item locations found: 1117
   DirectItem   offset=  4455 → item 240
 
 [EVT_SARI2_MS_EIK_1.eb]
-  DirectItem   offset=   816 → item 200
   DirectItem   offset=  3041 → item 254
   DirectItem   offset=  3063 → item 254
   DirectItem   offset=  3665 → item 249
@@ -1604,14 +1090,7 @@ Total item locations found: 1117
   DirectItem   offset=  3265 → item 240
   DirectItem   offset=  3287 → item 240
 
-[EVT_SHRINE_ES_TRP_0.eb]
-  DirectItem   offset=  2150 → item  34
-
-[EVT_SUNA_SP_KPW_0.eb]
-  DirectItem   offset=  7258 → item  84
-
 [EVT_SUNA_SP_MHL_0.eb]
-  DirectItem   offset=   956 → item 126
   DirectItem   offset= 12713 → item  96
   DirectItem   offset= 12735 → item  96
   DirectItem   offset= 14405 → item  96
@@ -1622,17 +1101,12 @@ Total item locations found: 1117
   DirectItem   offset= 17819 → item  96
 
 [EVT_SUNA_SP_MP1_0.eb]
-  DirectItem   offset=  5340 → item  82
-  DirectItem   offset=  6468 → item 128
   DirectItem   offset=  8138 → item 207
   DirectItem   offset=  8160 → item 207
-  DirectItem   offset=  8328 → item 128
   DirectItem   offset=  9994 → item 207
   DirectItem   offset= 10016 → item 207
-  DirectItem   offset= 10184 → item 128
   DirectItem   offset= 11850 → item 207
   DirectItem   offset= 11872 → item 207
-  DirectItem   offset= 12040 → item 128
   DirectItem   offset= 13714 → item 207
   DirectItem   offset= 13736 → item 207
 
@@ -1678,14 +1152,6 @@ Total item locations found: 1117
   DirectItem   offset= 17983 → item 107
   DirectItem   offset= 18005 → item 107
 
-[EVT_SUNA_SP_RPE_0.eb]
-  DirectItem   offset=   468 → item  25
-  DirectItem   offset=  1560 → item  43
-
-[EVT_SUNA_SP_RRO_0.eb]
-  DirectItem   offset=  7103 → item  84
-  DirectItem   offset=  7949 → item  31
-
 [EVT_TERA_TA_BST_0.eb]
   DirectItem   offset=  2771 → item 129
   DirectItem   offset=  2793 → item 129
@@ -1718,9 +1184,6 @@ Total item locations found: 1117
   DirectItem   offset=  4970 → item 238
   DirectItem   offset=  4992 → item 238
 
-[EVT_TRENO1_TR_KHA_0.eb]
-  DirectItem   offset=  5970 → item 123
-
 [EVT_TRENO1_TR_QHM_0.eb]
   DirectItem   offset=  6001 → item 249
   DirectItem   offset=  6023 → item 249
@@ -1750,9 +1213,6 @@ Total item locations found: 1117
 [EVT_TRENO1_TR_RES_0.eb]
   TreasureItem offset= 11198 → item   1
 
-[EVT_TRENO2_TR_BAR_0.eb]
-  DirectItem   offset=  6537 → item  31
-
 [EVT_TRENO2_TR_BHE_0.eb]
   DirectItem   offset=  1944 → item  94
   DirectItem   offset=  1966 → item  94
@@ -1765,16 +1225,9 @@ Total item locations found: 1117
   DirectItem   offset=  7875 → item   3
   DirectItem   offset=  7897 → item   3
 
-[EVT_TRENO2_TR_FKH_0.eb]
-  DirectItem   offset=  4931 → item  18
-  DirectItem   offset= 13747 → item  64
-
 [EVT_TRENO2_TR_FQH_0.eb]
   DirectItem   offset= 10718 → item 238
   DirectItem   offset= 10740 → item 238
-
-[EVT_TRENO2_TR_KHA_0.eb]
-  DirectItem   offset=   976 → item 123
 
 [EVT_TRENO2_TR_KHM_1.eb]
   DirectItem   offset=  2079 → item 198
@@ -1813,95 +1266,37 @@ Total item locations found: 1117
 [EVT_TRENO2_TR_RES_0.eb]
   TreasureItem offset= 12050 → item   1
 
-[EVT_WORLD_WORLD00.eb]
-  DirectItem   offset= 13378 → item  11
-
-[EVT_WORLD_WORLD02.eb]
-  DirectItem   offset=  4442 → item  11
-
-[EVT_WORLD_WORLD03.eb]
-  DirectItem   offset= 15518 → item  11
-  DirectItem   offset= 19199 → item   1
-
-[EVT_WORLD_WORLD05.eb]
-  DirectItem   offset= 15010 → item  11
-  DirectItem   offset= 18691 → item   1
-
-[EVT_WORLD_WORLD07.eb]
-  DirectItem   offset= 15963 → item   1
-  DirectItem   offset= 16818 → item  11
-
-[EVT_WORLD_WORLD08.eb]
-  DirectItem   offset= 16362 → item  11
-  DirectItem   offset= 20043 → item   1
-
-[EVT_WORLD_WORLD09.eb]
-  DirectItem   offset= 16974 → item  11
-  DirectItem   offset= 20655 → item   1
-
-[EVT_WORLD_WORLD10.eb]
-  DirectItem   offset=  5286 → item  11
-
-[EVT_WORLD_WORLD11.eb]
-  DirectItem   offset=  5314 → item  11
-
-[EVT_WORLD_WORLDSV.eb]
-  DirectItem   offset=  9481 → item 251
-  DirectItem   offset=  9491 → item 253
-  DirectItem   offset= 19114 → item   1
-
-[EVT_WORLD_WORLDTS.eb]
-  DirectItem   offset=  9481 → item 251
-  DirectItem   offset=  9491 → item 253
-  DirectItem   offset= 19114 → item   1
-
 === SUMMARY BY ITEM ID ===
 
-Direct   item IDs (154 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 16, 18, 19, 20, 22, 25, 26, 28, 30, 31, 32, 33, 34, 38, 41, 42, 43, 48, 50, 51, 52, 54, 57, 60, 63, 64, 65, 70, 71, 72, 73, 74, 77, 78, 79, 80, 82, 84, 86, 87, 88, 89, 90, 92, 94, 95, 96, 97, 99, 101, 102, 104, 107, 111, 112, 115, 118, 120, 122, 123, 125, 126, 127, 128, 129, 130, 133, 135, 138, 147, 148, 149, 150, 153, 154, 156, 157, 158, 160, 161, 162, 163, 164, 169, 174, 175, 179, 183, 184, 186, 187, 188, 189, 192, 193, 194, 196, 197, 198, 199, 200, 201, 203, 204, 206, 207, 208, 209, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 247, 249, 251, 252, 253, 254]
+Direct   item IDs (119 unique): [1, 2, 3, 8, 9, 16, 19, 20, 22, 28, 30, 31, 32, 41, 50, 51, 52, 54, 57, 60, 64, 65, 70, 71, 72, 73, 78, 79, 80, 84, 86, 87, 88, 89, 90, 92, 94, 95, 96, 99, 102, 104, 107, 112, 115, 118, 120, 126, 127, 128, 129, 130, 133, 135, 138, 148, 150, 153, 154, 157, 158, 160, 161, 162, 163, 169, 175, 183, 184, 187, 192, 193, 194, 196, 197, 198, 199, 200, 201, 204, 206, 207, 208, 209, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 247, 249, 251, 252, 253, 254]
 Treasure item IDs ( 38 unique): [1, 14, 30, 39, 50, 68, 69, 78, 89, 95, 97, 103, 104, 105, 117, 120, 135, 136, 151, 152, 156, 212, 225, 231, 232, 233, 234, 235, 236, 238, 240, 241, 244, 247, 249, 251, 253, 254]
-Combined item IDs (166 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 16, 18, 19, 20, 22, 25, 26, 28, 30, 31, 32, 33, 34, 38, 39, 41, 42, 43, 48, 50, 51, 52, 54, 57, 60, 63, 64, 65, 68, 69, 70, 71, 72, 73, 74, 77, 78, 79, 80, 82, 84, 86, 87, 88, 89, 90, 92, 94, 95, 96, 97, 99, 101, 102, 103, 104, 105, 107, 111, 112, 115, 117, 118, 120, 122, 123, 125, 126, 127, 128, 129, 130, 133, 135, 136, 138, 147, 148, 149, 150, 151, 152, 153, 154, 156, 157, 158, 160, 161, 162, 163, 164, 169, 174, 175, 179, 183, 184, 186, 187, 188, 189, 192, 193, 194, 196, 197, 198, 199, 200, 201, 203, 204, 206, 207, 208, 209, 212, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 247, 249, 251, 252, 253, 254]
+Combined item IDs (133 unique): [1, 2, 3, 8, 9, 14, 16, 19, 20, 22, 28, 30, 31, 32, 39, 41, 50, 51, 52, 54, 57, 60, 64, 65, 68, 69, 70, 71, 72, 73, 78, 79, 80, 84, 86, 87, 88, 89, 90, 92, 94, 95, 96, 97, 99, 102, 103, 104, 105, 107, 112, 115, 117, 118, 120, 126, 127, 128, 129, 130, 133, 135, 136, 138, 148, 150, 151, 152, 153, 154, 156, 157, 158, 160, 161, 162, 163, 169, 175, 183, 184, 187, 192, 193, 194, 196, 197, 198, 199, 200, 201, 204, 206, 207, 208, 209, 212, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 247, 249, 251, 252, 253, 254]
 
 === REVERSE LOOKUP (item ID → which files) ===
 
-  item   1: EVT_ALEX1_AT_GATE.eb[DirectItem@9160], EVT_ALEX1_AT_GATE.eb[DirectItem@9507], EVT_IPSEN_IP_EN1_0.eb[DirectItem@5323], EVT_IPSEN_IP_EN1_0.eb[DirectItem@5345], EVT_TRENO1_TR_RES_0.eb[TreasureItem@11198], EVT_TRENO2_TR_RES_0.eb[TreasureItem@12050], EVT_WORLD_WORLD03.eb[DirectItem@19199], EVT_WORLD_WORLD05.eb[DirectItem@18691], EVT_WORLD_WORLD07.eb[DirectItem@15963], EVT_WORLD_WORLD08.eb[DirectItem@20043], EVT_WORLD_WORLD09.eb[DirectItem@20655], EVT_WORLD_WORLDSV.eb[DirectItem@19114], EVT_WORLD_WORLDTS.eb[DirectItem@19114]
+  item   1: EVT_IPSEN_IP_EN1_0.eb[DirectItem@5323], EVT_IPSEN_IP_EN1_0.eb[DirectItem@5345], EVT_TRENO1_TR_RES_0.eb[TreasureItem@11198], EVT_TRENO2_TR_RES_0.eb[TreasureItem@12050]
   item   2: EVT_ICE_IC_JMP_0.eb[DirectItem@8067], EVT_ICE_IC_JMP_0.eb[DirectItem@8089]
   item   3: EVT_TRENO1_TR_FBH_0.eb[DirectItem@7691], EVT_TRENO1_TR_FBH_0.eb[DirectItem@7713], EVT_TRENO2_TR_FBH_0.eb[DirectItem@7875], EVT_TRENO2_TR_FBH_0.eb[DirectItem@7897]
-  item   4: EVT_CARGO_CA_COP_1.eb[DirectItem@10379], EVT_EFOREST1_EF_HEL_0.eb[DirectItem@9600], EVT_SARI1_MS_KTN_0.eb[DirectItem@15065]
-  item   5: EVT_SARI1_MS_FNT_0.eb[DirectItem@19295]
-  item   6: EVT_CLEYRA3_CATHE_0.eb[DirectItem@19415]
-  item   7: EVT_DALI_V_DL_SHP.eb[DirectItem@11452]
   item   8: EVT_PINA_PR_PW2_0.eb[DirectItem@6727], EVT_PINA_PR_PW2_0.eb[DirectItem@6749], EVT_PINA_PR_PW3_0.eb[DirectItem@13851], EVT_PINA_PR_PW3_0.eb[DirectItem@13873]
-  item   9: EVT_ALEX1_AT_CENTER.eb[DirectItem@10514], EVT_SARI1_MS_PMR_0.eb[DirectItem@6600], EVT_SARI1_MS_PMR_0.eb[DirectItem@6622], EVT_SARI1_MS_PMR_0.eb[DirectItem@7697], EVT_SARI1_MS_PMR_0.eb[DirectItem@7719], EVT_SARI1_MS_PMR_0.eb[DirectItem@9463], EVT_SARI1_MS_PMR_0.eb[DirectItem@9485], EVT_SARI2_MS_PMR_1.eb[DirectItem@2827], EVT_SARI2_MS_PMR_1.eb[DirectItem@2849]
-  item  11: EVT_WORLD_WORLD00.eb[DirectItem@13378], EVT_WORLD_WORLD02.eb[DirectItem@4442], EVT_WORLD_WORLD03.eb[DirectItem@15518], EVT_WORLD_WORLD05.eb[DirectItem@15010], EVT_WORLD_WORLD07.eb[DirectItem@16818], EVT_WORLD_WORLD08.eb[DirectItem@16362], EVT_WORLD_WORLD09.eb[DirectItem@16974], EVT_WORLD_WORLD10.eb[DirectItem@5286], EVT_WORLD_WORLD11.eb[DirectItem@5314]
-  item  12: EVT_CLEYRA3_CATHE_2.eb[DirectItem@5601]
+  item   9: EVT_SARI1_MS_PMR_0.eb[DirectItem@6600], EVT_SARI1_MS_PMR_0.eb[DirectItem@6622], EVT_SARI1_MS_PMR_0.eb[DirectItem@7697], EVT_SARI1_MS_PMR_0.eb[DirectItem@7719], EVT_SARI1_MS_PMR_0.eb[DirectItem@9463], EVT_SARI1_MS_PMR_0.eb[DirectItem@9485], EVT_SARI2_MS_PMR_1.eb[DirectItem@2827], EVT_SARI2_MS_PMR_1.eb[DirectItem@2849]
   item  14: EVT_LAST_CW_1LY_1.eb[TreasureItem@1247]
-  item  16: EVT_ICE_IC_STA_0.eb[DirectItem@9847], EVT_IPSEN_IP_HL1_0.eb[DirectItem@2915], EVT_IPSEN_IP_HL1_0.eb[DirectItem@2937], EVT_LAST_CW_4LY_0.eb[DirectItem@4709], EVT_LAST_CW_CYW_3.eb[DirectItem@4601]
-  item  18: EVT_DOWNSHIP_BT_CCD_0.eb[DirectItem@1561], EVT_LIND3_CS_LB_OBS_M.eb[DirectItem@5563], EVT_PINA_PR_PW3_0.eb[DirectItem@5758], EVT_TRENO2_TR_FKH_0.eb[DirectItem@4931]
+  item  16: EVT_IPSEN_IP_HL1_0.eb[DirectItem@2915], EVT_IPSEN_IP_HL1_0.eb[DirectItem@2937]
   item  19: EVT_TRENO1_TR_QHM_0.eb[DirectItem@6322], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6344], EVT_TRENO1_TR_QHM_0.eb[DirectItem@8739], EVT_TRENO1_TR_QHM_0.eb[DirectItem@8761], EVT_TRENO2_TR_QHM_0.eb[DirectItem@6688], EVT_TRENO2_TR_QHM_0.eb[DirectItem@6710], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9105], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9127]
-  item  20: EVT_ALEX2_AC_STAIR_A.eb[DirectItem@6607], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@6629], EVT_GULUGU_GV_WHL_0.eb[DirectItem@2412]
+  item  20: EVT_ALEX2_AC_STAIR_A.eb[DirectItem@6607], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@6629]
   item  22: EVT_OEIL_UV_DP1_0.eb[DirectItem@5383], EVT_OEIL_UV_DP1_0.eb[DirectItem@5405]
-  item  25: EVT_GULUGU_GV_WHL_0.eb[DirectItem@915], EVT_SUNA_SP_RPE_0.eb[DirectItem@468]
-  item  26: EVT_DALI_A_AP_AIR_0.eb[DirectItem@6387]
-  item  28: EVT_ALEX1_AT_BACK_STR.eb[DirectItem@1763], EVT_DAG_DG_2F0_0.eb[DirectItem@9648], EVT_DAG_DG_2F0_0.eb[DirectItem@9670], EVT_DALI_V_DL_INN1.eb[DirectItem@13815]
+  item  28: EVT_DAG_DG_2F0_0.eb[DirectItem@9648], EVT_DAG_DG_2F0_0.eb[DirectItem@9670]
   item  30: EVT_LAST_CW_EMP_0.eb[DirectItem@5140], EVT_LAST_CW_EMP_0.eb[DirectItem@5162], EVT_LAST_CW_EMP_0.eb[TreasureItem@2016]
-  item  31: EVT_ALEX2_AC_QUEEN.eb[DirectItem@8869], EVT_ALEX3_AC_QUEEN.eb[DirectItem@2766], EVT_ALEX3_AT_WEAPON.eb[DirectItem@7682], EVT_CHOCO_CH_FST_0.eb[DirectItem@19671], EVT_CHOCO_CH_PDS_1.eb[DirectItem@11763], EVT_CHOCO_CH_PDS_1.eb[DirectItem@12704], EVT_CHOCO_CH_PDS_1.eb[DirectItem@13513], EVT_IPSEN_IP_EN1_0.eb[DirectItem@7207], EVT_IPSEN_IP_HL2_0.eb[DirectItem@3903], EVT_IPSEN_IP_HL2_0.eb[DirectItem@3925], EVT_MOGNET_MOG_VER1.eb[DirectItem@4103], EVT_PINA_PR_GAL_0.eb[DirectItem@9149], EVT_SUNA_SP_RRO_0.eb[DirectItem@7949], EVT_TRENO2_TR_BAR_0.eb[DirectItem@6537]
-  item  32: EVT_BURMECIA_SQUARE_2.eb[DirectItem@3242], EVT_CLEYRA2_ANTRION.eb[DirectItem@10834], EVT_CLEYRA2_ENTER.eb[DirectItem@13440], EVT_CLEYRA3_CATHE_2.eb[DirectItem@4874], EVT_ENDING_TH_2.eb[DirectItem@2890], EVT_IPSEN_IP_EXT_0.eb[DirectItem@4091]
-  item  33: EVT_DAG_DG_SRH_0.eb[DirectItem@10359]
-  item  34: EVT_ALEX2_AC_LIB.eb[DirectItem@4957], EVT_ALEX3_AC_LIB.eb[DirectItem@3689], EVT_CLEYRA3_CATHE_0.eb[DirectItem@24047], EVT_DALI_V_DL_BAR.eb[DirectItem@3412], EVT_EVA1_IF_MKJ_1.eb[DirectItem@16113], EVT_FOSSIL_FR_MV1_0.eb[DirectItem@11267], EVT_FOSSIL_FR_MV2_0.eb[DirectItem@6339], EVT_FOSSIL_FR_MV3_0.eb[DirectItem@18719], EVT_FOSSIL_FR_MV3_0.eb[DirectItem@9933], EVT_FOSSIL_FR_MV5_0.eb[DirectItem@12023], EVT_FOSSIL_FR_SL1_0.eb[DirectItem@15224], EVT_FOSSIL_FR_SL1_0.eb[DirectItem@8346], EVT_FOSSIL_FR_SL3_0.eb[DirectItem@7679], EVT_FOSSIL_FR_SR2_0.eb[DirectItem@8629], EVT_FOSSIL_FR_SR3_0.eb[DirectItem@2267], EVT_FOSSIL_FR_SR3_0.eb[DirectItem@2475], EVT_FOSSIL_FR_SR7_0.eb[DirectItem@4412], EVT_GARGAN_GR_CON_0.eb[DirectItem@854], EVT_GARGAN_GR_CON_0.eb[DirectItem@868], EVT_LIND1_CS_LB_CTM_0.eb[DirectItem@2184], EVT_LIND1_CS_LB_CTM_0.eb[DirectItem@2340], EVT_LIND1_CS_LB_CTM_0.eb[DirectItem@2496], EVT_LIND1_CS_LB_CTM_0.eb[DirectItem@2626], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@12976], EVT_LIND2_CS_LB_CTM_0.eb[DirectItem@1772], EVT_LIND2_CS_LB_CTM_0.eb[DirectItem@1928], EVT_LIND2_CS_LB_CTM_0.eb[DirectItem@2084], EVT_LIND2_CS_LB_CTM_0.eb[DirectItem@2214], EVT_LIND3_CS_LB_CTM_0.eb[DirectItem@1980], EVT_LIND3_CS_LB_CTM_0.eb[DirectItem@2136], EVT_LIND3_CS_LB_CTM_0.eb[DirectItem@2292], EVT_LIND3_CS_LB_CTM_0.eb[DirectItem@2422], EVT_SARI1_MS_ENT_0.eb[DirectItem@23779], EVT_SHRINE_ES_TRP_0.eb[DirectItem@2150]
-  item  38: EVT_ENDING_BU_1.eb[DirectItem@4852], EVT_LIND1_TN_LB_SHT_0.eb[DirectItem@4015], EVT_LIND1_TN_LB_SHT_0.eb[DirectItem@4283]
+  item  31: EVT_IPSEN_IP_HL2_0.eb[DirectItem@3903], EVT_IPSEN_IP_HL2_0.eb[DirectItem@3925]
+  item  32: EVT_BURMECIA_SQUARE_2.eb[DirectItem@3242]
   item  39: EVT_LAST_CW_ETH_0.eb[TreasureItem@4931]
   item  41: EVT_IPSEN_IP_RM1_0.eb[DirectItem@5215], EVT_IPSEN_IP_RM1_0.eb[DirectItem@5237]
-  item  42: EVT_LIND2_TN_LB_PLZ_0.eb[DirectItem@6878]
-  item  43: EVT_SUNA_SP_RPE_0.eb[DirectItem@1560]
-  item  48: EVT_FOSSIL_FR_SM1_0.eb[DirectItem@4962]
   item  50: EVT_LAST_CW_GIA_1.eb[DirectItem@4176], EVT_LAST_CW_GIA_1.eb[DirectItem@4198], EVT_LAST_CW_GIA_1.eb[DirectItem@4316], EVT_LAST_CW_GIA_1.eb[DirectItem@4338], EVT_LAST_CW_GIA_1.eb[TreasureItem@3367]
-  item  51: EVT_GARGAN_GR_ALX_0.eb[DirectItem@4078], EVT_IPSEN_IP_ST2_0.eb[DirectItem@2443], EVT_IPSEN_IP_ST2_0.eb[DirectItem@2465]
-  item  52: EVT_ALEX3_AC_OHAKA.eb[DirectItem@4977], EVT_DOWNSHIP_BT_CCP_0.eb[DirectItem@7969], EVT_GATE_S_SG_RND_1.eb[DirectItem@9059], EVT_GATE_S_SG_RND_1.eb[DirectItem@9081]
-  item  54: EVT_CLEYRA2_ANTRION.eb[DirectItem@10770], EVT_FOSSIL_FR_MV5_0.eb[DirectItem@13282], EVT_KUWAN_QH_HUR_0.eb[DirectItem@8497], EVT_ROSE_CABIN_2.eb[DirectItem@8897], EVT_ROSE_CABIN_2.eb[DirectItem@8912], EVT_TERA_TA_ROU_0.eb[DirectItem@4135], EVT_TERA_TA_ROU_0.eb[DirectItem@4157]
+  item  51: EVT_IPSEN_IP_ST2_0.eb[DirectItem@2443], EVT_IPSEN_IP_ST2_0.eb[DirectItem@2465]
+  item  52: EVT_GATE_S_SG_RND_1.eb[DirectItem@9059], EVT_GATE_S_SG_RND_1.eb[DirectItem@9081]
+  item  54: EVT_TERA_TA_ROU_0.eb[DirectItem@4135], EVT_TERA_TA_ROU_0.eb[DirectItem@4157]
   item  57: EVT_IPSEN_IP_HL2_0.eb[DirectItem@4503], EVT_IPSEN_IP_HL2_0.eb[DirectItem@4525]
   item  60: EVT_EVA2_IU_EUG_1.eb[DirectItem@5955], EVT_EVA2_IU_EUG_1.eb[DirectItem@5977]
-  item  63: EVT_PINA_PR_GAL_0.eb[DirectItem@11299]
-  item  64: EVT_ALEX1_TS_STAGE_2B.eb[DirectItem@5181], EVT_ALEX1_TS_STAGE_BK.eb[DirectItem@1655], EVT_ALEX5_AT_TSS.eb[DirectItem@5071], EVT_BAL_BB_CDR_0.eb[DirectItem@8224], EVT_ENDING_TR_1.eb[DirectItem@1296], EVT_EVA2_IU_ELV_0.eb[DirectItem@6269], EVT_EVA2_IU_EVE_0.eb[DirectItem@5390], EVT_HILDA3_G3_BRG_0.eb[DirectItem@11653], EVT_HILDA3_G3_DCK_0.eb[DirectItem@5203], EVT_IPSEN_IP_SMN_0.eb[DirectItem@4399], EVT_IPSEN_IP_SMN_0.eb[DirectItem@4421], EVT_KUWAN_QH_LNI_0.eb[DirectItem@6782], EVT_LAST_CW_GIA_2.eb[DirectItem@3999], EVT_LAST_CW_MBG_2.eb[DirectItem@2040], EVT_LIND1_CS_LB_EXB_0.eb[DirectItem@5951], EVT_LIND1_CS_LB_MET_0.eb[DirectItem@9376], EVT_LIND2_CS_LB_EXB_0.eb[DirectItem@3979], EVT_LIND3_CS_LB_EXB_0.eb[DirectItem@5303], EVT_LIND3_CS_LB_MET_0.eb[DirectItem@15536], EVT_LIND3_TN_LB_BAZ_0.eb[DirectItem@10677], EVT_MAGE_BV_ITS_0.eb[DirectItem@8909], EVT_PANDEMO_PD_PEV_0.eb[DirectItem@4054], EVT_PANDEMO_PD_RTC_0.eb[DirectItem@3483], EVT_TRENO2_TR_FKH_0.eb[DirectItem@13747]
+  item  64: EVT_IPSEN_IP_SMN_0.eb[DirectItem@4399], EVT_IPSEN_IP_SMN_0.eb[DirectItem@4421]
   item  65: EVT_EVA2_IU_EUG_2.eb[DirectItem@5183], EVT_EVA2_IU_EUG_2.eb[DirectItem@5205]
   item  68: EVT_LIND1_TN_LB_TTL_0.eb[TreasureItem@6486]
   item  69: EVT_LAST_CW_GIA_0.eb[TreasureItem@1827]
@@ -1909,84 +1304,67 @@ Combined item IDs (166 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 16, 18, 
   item  71: EVT_CLEYRA1_DUN_06.eb[DirectItem@2955], EVT_CLEYRA1_DUN_06.eb[DirectItem@2977]
   item  72: EVT_CLEYRA1_DUN_01A.eb[DirectItem@2455], EVT_CLEYRA1_DUN_01A.eb[DirectItem@2477]
   item  73: EVT_BURMECIA_SQUARE_1.eb[DirectItem@11434], EVT_BURMECIA_SQUARE_1.eb[DirectItem@11456], EVT_BURMECIA_SQUARE_1.eb[DirectItem@11687], EVT_BURMECIA_SQUARE_1.eb[DirectItem@11709]
-  item  74: EVT_LIND1_TN_LB_AET_0.eb[DirectItem@4255], EVT_LIND1_TN_LB_AET_0.eb[DirectItem@4441], EVT_LIND1_TN_LB_AET_0.eb[DirectItem@4627], EVT_LIND1_TN_LB_AET_0.eb[DirectItem@4805], EVT_LIND1_TN_LB_AET_0.eb[DirectItem@4983], EVT_LIND1_TN_LB_ALY_0.eb[DirectItem@4175], EVT_LIND1_TN_LB_ALY_0.eb[DirectItem@4361], EVT_LIND1_TN_LB_ALY_0.eb[DirectItem@4547], EVT_LIND1_TN_LB_ALY_0.eb[DirectItem@4725], EVT_LIND1_TN_LB_ALY_0.eb[DirectItem@4903], EVT_LIND1_TN_LB_BAZ_0.eb[DirectItem@5715], EVT_LIND1_TN_LB_BAZ_0.eb[DirectItem@5901], EVT_LIND1_TN_LB_BAZ_0.eb[DirectItem@6087], EVT_LIND1_TN_LB_BAZ_0.eb[DirectItem@6265], EVT_LIND1_TN_LB_BAZ_0.eb[DirectItem@6443], EVT_LIND1_TN_LB_FTH_0.eb[DirectItem@3587], EVT_LIND1_TN_LB_FTH_0.eb[DirectItem@3773], EVT_LIND1_TN_LB_FTH_0.eb[DirectItem@3959], EVT_LIND1_TN_LB_FTH_0.eb[DirectItem@4137], EVT_LIND1_TN_LB_FTH_0.eb[DirectItem@4315], EVT_LIND1_TN_LB_FTM_0.eb[DirectItem@3171], EVT_LIND1_TN_LB_FTM_0.eb[DirectItem@3357], EVT_LIND1_TN_LB_FTM_0.eb[DirectItem@3543], EVT_LIND1_TN_LB_FTM_0.eb[DirectItem@3721], EVT_LIND1_TN_LB_FTM_0.eb[DirectItem@3899], EVT_LIND1_TN_LB_GAT_0.eb[DirectItem@1587], EVT_LIND1_TN_LB_GAT_0.eb[DirectItem@1773], EVT_LIND1_TN_LB_GAT_0.eb[DirectItem@1959], EVT_LIND1_TN_LB_GAT_0.eb[DirectItem@2137], EVT_LIND1_TN_LB_GAT_0.eb[DirectItem@2315], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@3575], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@3761], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@3947], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@4125], EVT_LIND1_TN_LB_HIG_0.eb[DirectItem@4303], EVT_LIND1_TN_LB_MST_0.eb[DirectItem@3823], EVT_LIND1_TN_LB_MST_0.eb[DirectItem@4009], EVT_LIND1_TN_LB_MST_0.eb[DirectItem@4195], EVT_LIND1_TN_LB_MST_0.eb[DirectItem@4373], EVT_LIND1_TN_LB_MST_0.eb[DirectItem@4551], EVT_LIND1_TN_LB_MTM_0.eb[DirectItem@2055], EVT_LIND1_TN_LB_MTM_0.eb[DirectItem@2241], EVT_LIND1_TN_LB_MTM_0.eb[DirectItem@2427], EVT_LIND1_TN_LB_MTM_0.eb[DirectItem@2605], EVT_LIND1_TN_LB_MTM_0.eb[DirectItem@2783], EVT_LIND1_TN_LB_PLZ_0.eb[DirectItem@8063], EVT_LIND1_TN_LB_PLZ_0.eb[DirectItem@8249], EVT_LIND1_TN_LB_PLZ_0.eb[DirectItem@8435], EVT_LIND1_TN_LB_PLZ_0.eb[DirectItem@8613], EVT_LIND1_TN_LB_PLZ_0.eb[DirectItem@8791], EVT_LIND1_TN_LB_RFS_0.eb[DirectItem@3155], EVT_LIND1_TN_LB_RFS_0.eb[DirectItem@3341], EVT_LIND1_TN_LB_RFS_0.eb[DirectItem@3527], EVT_LIND1_TN_LB_RFS_0.eb[DirectItem@3705], EVT_LIND1_TN_LB_RFS_0.eb[DirectItem@3883], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5539], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5725], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5911], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@6089], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@6267], EVT_LIND1_TN_LB_STN_0.eb[DirectItem@4355], EVT_LIND1_TN_LB_STN_0.eb[DirectItem@4541], EVT_LIND1_TN_LB_STN_0.eb[DirectItem@4727], EVT_LIND1_TN_LB_STN_0.eb[DirectItem@4905], EVT_LIND1_TN_LB_STN_0.eb[DirectItem@5083]
-  item  77: EVT_LIND2_TN_LB_PLZ_0.eb[DirectItem@2542]
   item  78: EVT_LAST_CW_LTP_0.eb[DirectItem@3104], EVT_LAST_CW_LTP_0.eb[DirectItem@3126], EVT_LAST_CW_LTP_0.eb[DirectItem@3244], EVT_LAST_CW_LTP_0.eb[DirectItem@3266], EVT_LAST_CW_LTP_0.eb[TreasureItem@1347]
   item  79: EVT_IPSEN_IP_RM1_0.eb[DirectItem@6415], EVT_IPSEN_IP_RM1_0.eb[DirectItem@6437]
   item  80: EVT_CLEYRA1_DUN_05.eb[DirectItem@9491], EVT_CLEYRA1_DUN_05.eb[DirectItem@9513]
-  item  82: EVT_SUNA_SP_MP1_0.eb[DirectItem@5340]
-  item  84: EVT_ALEX3_AC_OHAKA.eb[DirectItem@5553], EVT_ALEX4_AC_SAI_A.eb[DirectItem@12704], EVT_ALEX4_AC_SAI_A.eb[DirectItem@12832], EVT_CLEYRA3_VISTA.eb[DirectItem@7297], EVT_DALI_V_DL_WHL.eb[DirectItem@19980], EVT_EVA1_IF_GGT_0.eb[DirectItem@2967], EVT_IPSEN_IP_EXT_0.eb[DirectItem@4167], EVT_IPSEN_IP_RM1_0.eb[DirectItem@19969], EVT_IPSEN_IP_RM2_0.eb[DirectItem@8475], EVT_KUINA_KM_SWP_0.eb[DirectItem@5103], EVT_KUINA_KM_SWP_1.eb[DirectItem@5235], EVT_KUINA_KM_SWP_2.eb[DirectItem@5092], EVT_KUINA_KM_SWP_3.eb[DirectItem@5092], EVT_LAST_CW_MBG_0.eb[DirectItem@3532], EVT_LAST_CW_MBG_0.eb[DirectItem@3924], EVT_LAST_CW_MBG_0.eb[DirectItem@4077], EVT_LAST_CW_SPC_0.eb[DirectItem@1732], EVT_LIND3_CS_LB_GRM_0.eb[DirectItem@19335], EVT_LIND3_CS_LB_OBS_M.eb[DirectItem@5991], EVT_LIND3_TN_LB_RFS_0.eb[DirectItem@12582], EVT_OEIL_UV_VSL_1.eb[DirectItem@6117], EVT_SUNA_SP_KPW_0.eb[DirectItem@7258], EVT_SUNA_SP_RRO_0.eb[DirectItem@7103]
-  item  86: EVT_ENDING_LB_1.eb[DirectItem@1826], EVT_OEIL_UV_PST_0.eb[DirectItem@3163], EVT_OEIL_UV_PST_0.eb[DirectItem@3185]
+  item  84: EVT_KUINA_KM_SWP_0.eb[DirectItem@5103], EVT_KUINA_KM_SWP_1.eb[DirectItem@5235], EVT_KUINA_KM_SWP_2.eb[DirectItem@5092], EVT_KUINA_KM_SWP_3.eb[DirectItem@5092]
+  item  86: EVT_OEIL_UV_PST_0.eb[DirectItem@3163], EVT_OEIL_UV_PST_0.eb[DirectItem@3185]
   item  87: EVT_BAL_BB_WPS_0.eb[DirectItem@11731], EVT_BAL_BB_WPS_0.eb[DirectItem@11753], EVT_CHOCO_CH_FGD_0.eb[DirectItem@19985], EVT_CHOCO_CH_FST_0.eb[DirectItem@23017], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21747], EVT_EST_EG_RM2_0.eb[DirectItem@3606], EVT_EST_EG_RM2_0.eb[DirectItem@3628], EVT_GULUGU_GV_RM3_0.eb[DirectItem@9534], EVT_GULUGU_GV_RM3_0.eb[DirectItem@9556]
   item  88: EVT_DOWNSHIP_BT_CNR_0.eb[DirectItem@7179], EVT_DOWNSHIP_BT_CNR_0.eb[DirectItem@7201]
-  item  89: EVT_CHOCO_CH_FGD_0.eb[DirectItem@3276], EVT_CHOCO_CH_FST_0.eb[DirectItem@4910], EVT_CHOCO_CH_HLG_0.eb[DirectItem@4650], EVT_DALI_F_UF_STO_1.eb[DirectItem@4335], EVT_DALI_F_UF_STO_1.eb[DirectItem@4357], EVT_ICE_IC_BRI_0.eb[DirectItem@5911], EVT_ICE_IC_BRI_0.eb[DirectItem@5933], EVT_LIND1_TN_LB_AET_0.eb[TreasureItem@13839]
+  item  89: EVT_DALI_F_UF_STO_1.eb[DirectItem@4335], EVT_DALI_F_UF_STO_1.eb[DirectItem@4357], EVT_ICE_IC_BRI_0.eb[DirectItem@5911], EVT_ICE_IC_BRI_0.eb[DirectItem@5933], EVT_LIND1_TN_LB_AET_0.eb[TreasureItem@13839]
   item  90: EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@13939], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@13961]
-  item  92: EVT_GARGAN_GR_GGT_1.eb[DirectItem@572], EVT_PINA_PR_PW2_0.eb[DirectItem@6127], EVT_PINA_PR_PW2_0.eb[DirectItem@6149], EVT_PINA_PR_PW3_0.eb[DirectItem@13195], EVT_PINA_PR_PW3_0.eb[DirectItem@13217], EVT_PINA_PR_PW3_0.eb[DirectItem@15142], EVT_PINA_PR_PW3_0.eb[DirectItem@15164], EVT_PINA_PR_PW3_0.eb[DirectItem@17730], EVT_PINA_PR_PW3_0.eb[DirectItem@17752]
+  item  92: EVT_PINA_PR_PW2_0.eb[DirectItem@6127], EVT_PINA_PR_PW2_0.eb[DirectItem@6149], EVT_PINA_PR_PW3_0.eb[DirectItem@13195], EVT_PINA_PR_PW3_0.eb[DirectItem@13217], EVT_PINA_PR_PW3_0.eb[DirectItem@15142], EVT_PINA_PR_PW3_0.eb[DirectItem@15164], EVT_PINA_PR_PW3_0.eb[DirectItem@17730], EVT_PINA_PR_PW3_0.eb[DirectItem@17752]
   item  94: EVT_LIND3_CS_LB_PLA_0.eb[DirectItem@3351], EVT_LIND3_CS_LB_PLA_0.eb[DirectItem@3373], EVT_TRENO2_TR_BHE_0.eb[DirectItem@1944], EVT_TRENO2_TR_BHE_0.eb[DirectItem@1966]
   item  95: EVT_DALI_F_UF_EGG_0.eb[TreasureItem@5578], EVT_LIND3_CS_LB_GRM_0.eb[DirectItem@16991], EVT_LIND3_CS_LB_GRM_0.eb[DirectItem@17013]
-  item  96: EVT_LIND1_TN_LB_CAG_0.eb[DirectItem@773], EVT_SUNA_SP_MHL_0.eb[DirectItem@12713], EVT_SUNA_SP_MHL_0.eb[DirectItem@12735], EVT_SUNA_SP_MHL_0.eb[DirectItem@14405], EVT_SUNA_SP_MHL_0.eb[DirectItem@14427], EVT_SUNA_SP_MHL_0.eb[DirectItem@16097], EVT_SUNA_SP_MHL_0.eb[DirectItem@16119], EVT_SUNA_SP_MHL_0.eb[DirectItem@17797], EVT_SUNA_SP_MHL_0.eb[DirectItem@17819]
-  item  97: EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@4935], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5065], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5117], EVT_LIND1_TN_LB_ROD_0.eb[DirectItem@5273], EVT_LIND1_TN_LB_TTL_0.eb[TreasureItem@5890]
+  item  96: EVT_SUNA_SP_MHL_0.eb[DirectItem@12713], EVT_SUNA_SP_MHL_0.eb[DirectItem@12735], EVT_SUNA_SP_MHL_0.eb[DirectItem@14405], EVT_SUNA_SP_MHL_0.eb[DirectItem@14427], EVT_SUNA_SP_MHL_0.eb[DirectItem@16097], EVT_SUNA_SP_MHL_0.eb[DirectItem@16119], EVT_SUNA_SP_MHL_0.eb[DirectItem@17797], EVT_SUNA_SP_MHL_0.eb[DirectItem@17819]
+  item  97: EVT_LIND1_TN_LB_TTL_0.eb[TreasureItem@5890]
   item  99: EVT_TERA_TA_PRB_0.eb[DirectItem@3115], EVT_TERA_TA_PRB_0.eb[DirectItem@3137]
-  item 101: EVT_SARI1_MS_ENT_0.eb[DirectItem@28039]
   item 102: EVT_DOWNSHIP_BT_CCP_0.eb[DirectItem@7243], EVT_DOWNSHIP_BT_CCP_0.eb[DirectItem@7265]
   item 103: EVT_LIND1_TN_LB_ECH_0.eb[TreasureItem@2031], EVT_LIND3_TN_LB_ECH_0.eb[TreasureItem@1523]
   item 104: EVT_CLEYRA1_DUN_09.eb[DirectItem@2647], EVT_CLEYRA1_DUN_09.eb[DirectItem@2669], EVT_GIZ_BELL_0.eb[TreasureItem@4743]
   item 105: EVT_CLEYRA2_WATER.eb[TreasureItem@4547], EVT_CLEYRA3_WATER.eb[TreasureItem@5871]
   item 107: EVT_SUNA_SP_MT3_0.eb[DirectItem@12383], EVT_SUNA_SP_MT3_0.eb[DirectItem@12405], EVT_SUNA_SP_MT3_0.eb[DirectItem@14247], EVT_SUNA_SP_MT3_0.eb[DirectItem@14269], EVT_SUNA_SP_MT3_0.eb[DirectItem@16111], EVT_SUNA_SP_MT3_0.eb[DirectItem@16133], EVT_SUNA_SP_MT3_0.eb[DirectItem@17983], EVT_SUNA_SP_MT3_0.eb[DirectItem@18005]
-  item 111: EVT_EVA1_IF_MKJ_0.eb[DirectItem@2479], EVT_GATE_S_SG_ALX_0.eb[DirectItem@3666], EVT_GATE_S_SG_ALX_0.eb[DirectItem@4278], EVT_GATE_S_SG_TOP_1.eb[DirectItem@15909], EVT_GATE_S_SG_TOP_3.eb[DirectItem@4102], EVT_KUINA_KM_SWP_3.eb[DirectItem@6028], EVT_KUINA_KM_SWP_3.eb[DirectItem@7209], EVT_MAGE2_BV_GVY_0.eb[DirectItem@1239]
   item 112: EVT_DOWNSHIP_BT_CCD_0.eb[DirectItem@5279], EVT_DOWNSHIP_BT_CCD_0.eb[DirectItem@5301]
   item 115: EVT_LIND1_TN_LB_LDH_0.eb[DirectItem@4179], EVT_LIND1_TN_LB_LDH_0.eb[DirectItem@4201]
   item 117: EVT_GIZ_BELL_0.eb[TreasureItem@4455]
   item 118: EVT_LIND2_CS_LB_EXB_0.eb[DirectItem@11931], EVT_LIND2_CS_LB_EXB_0.eb[DirectItem@11953]
   item 120: EVT_DALI_V_DL_WHL.eb[TreasureItem@14832], EVT_FOSSIL_FR_DN4_0.eb[DirectItem@14795], EVT_FOSSIL_FR_DN4_0.eb[DirectItem@14817]
-  item 122: EVT_BURMECIA_TOWN_2.eb[DirectItem@2473], EVT_BURMECIA_TOWN_2.eb[DirectItem@2821], EVT_BURMECIA_TOWN_2.eb[DirectItem@3068]
-  item 123: EVT_BURMECIA_HOUSE_2.eb[DirectItem@1572], EVT_BURMECIA_HOUSE_3.eb[DirectItem@1812], EVT_BURMECIA_PALACE_1.eb[DirectItem@3640], EVT_BURMECIA_PALACE_2.eb[DirectItem@7300], EVT_BURMECIA_PATH.eb[DirectItem@3632], EVT_BURMECIA_PATIO_0.eb[DirectItem@4196], EVT_BURMECIA_PATIO_1.eb[DirectItem@3624], EVT_BURMECIA_PATIO_1.eb[DirectItem@4492], EVT_BURMECIA_TOWN_0.eb[DirectItem@4240], EVT_BURMECIA_TOWN_0.eb[DirectItem@4488], EVT_BURMECIA_TOWN_0.eb[DirectItem@4736], EVT_BURMECIA_TOWN_1.eb[DirectItem@4644], EVT_BURMECIA_TOWN_1.eb[DirectItem@5160], EVT_CLEYRA2_CATHE_0.eb[DirectItem@3868], EVT_CLEYRA2_ENTER.eb[DirectItem@5938], EVT_CLEYRA2_INN.eb[DirectItem@3118], EVT_CLEYRA2_TOWN.eb[DirectItem@3496], EVT_CLEYRA2_TOWN.eb[DirectItem@4140], EVT_CLEYRA2_WATER.eb[DirectItem@3952], EVT_CLEYRA2_WATER.eb[DirectItem@4192], EVT_CLEYRA3_CATHE_1.eb[DirectItem@5944], EVT_CLEYRA3_INN.eb[DirectItem@2144], EVT_CLEYRA3_TOWN.eb[DirectItem@11164], EVT_CLEYRA3_WATER.eb[DirectItem@4720], EVT_CLEYRA3_WATER.eb[DirectItem@4960], EVT_ENDING_AT_1.eb[DirectItem@2785], EVT_GIZ_BOSS.eb[DirectItem@2692], EVT_GIZ_CAVERN_0.eb[DirectItem@2812], EVT_GIZ_CAVERN_1.eb[DirectItem@7450], EVT_GIZ_ENTER_1.eb[DirectItem@1668], EVT_GIZ_ENTER_1.eb[DirectItem@1924], EVT_LIND1_CS_LB_CFR_0.eb[DirectItem@9088], EVT_LIND1_CS_LB_MET_0.eb[DirectItem@7996], EVT_LIND3_CS_LB_MHW_0.eb[DirectItem@5636], EVT_LIND3_CS_LB_MHW_0.eb[DirectItem@5852], EVT_LIND3_TN_LB_RFS_0.eb[DirectItem@5602], EVT_LIND3_TN_LB_RFS_0.eb[DirectItem@7819], EVT_TRENO1_TR_KHA_0.eb[DirectItem@5970], EVT_TRENO2_TR_KHA_0.eb[DirectItem@976]
-  item 125: EVT_DOWNSHIP_BT_GTR_0.eb[DirectItem@7089]
-  item 126: EVT_SUNA_SP_MHL_0.eb[DirectItem@956], EVT_SUNA_SP_MT3_0.eb[DirectItem@12012], EVT_SUNA_SP_MT3_0.eb[DirectItem@12034], EVT_SUNA_SP_MT3_0.eb[DirectItem@13876], EVT_SUNA_SP_MT3_0.eb[DirectItem@13898], EVT_SUNA_SP_MT3_0.eb[DirectItem@15740], EVT_SUNA_SP_MT3_0.eb[DirectItem@15762], EVT_SUNA_SP_MT3_0.eb[DirectItem@17612], EVT_SUNA_SP_MT3_0.eb[DirectItem@17634]
+  item 126: EVT_SUNA_SP_MT3_0.eb[DirectItem@12012], EVT_SUNA_SP_MT3_0.eb[DirectItem@12034], EVT_SUNA_SP_MT3_0.eb[DirectItem@13876], EVT_SUNA_SP_MT3_0.eb[DirectItem@13898], EVT_SUNA_SP_MT3_0.eb[DirectItem@15740], EVT_SUNA_SP_MT3_0.eb[DirectItem@15762], EVT_SUNA_SP_MT3_0.eb[DirectItem@17612], EVT_SUNA_SP_MT3_0.eb[DirectItem@17634]
   item 127: EVT_GULUGU_GV_WHL_0.eb[DirectItem@7502], EVT_GULUGU_GV_WHL_0.eb[DirectItem@7524]
-  item 128: EVT_GULUGU_GV_PW1_0.eb[DirectItem@1551], EVT_GULUGU_GV_PW1_0.eb[DirectItem@1573], EVT_SUNA_SP_MP1_0.eb[DirectItem@10184], EVT_SUNA_SP_MP1_0.eb[DirectItem@12040], EVT_SUNA_SP_MP1_0.eb[DirectItem@6468], EVT_SUNA_SP_MP1_0.eb[DirectItem@8328]
+  item 128: EVT_GULUGU_GV_PW1_0.eb[DirectItem@1551], EVT_GULUGU_GV_PW1_0.eb[DirectItem@1573]
   item 129: EVT_TERA_TA_BST_0.eb[DirectItem@2771], EVT_TERA_TA_BST_0.eb[DirectItem@2793]
   item 130: EVT_BAL_BB_FGT_0.eb[DirectItem@11735], EVT_BAL_BB_FGT_0.eb[DirectItem@11757]
   item 133: EVT_PANDEMO_PD_BWR_0.eb[DirectItem@6946], EVT_PANDEMO_PD_BWR_0.eb[DirectItem@6968]
   item 135: EVT_DALI_A_AP_WTE_0.eb[TreasureItem@3620], EVT_TRENO2_TR_KHM_2.eb[DirectItem@2079], EVT_TRENO2_TR_KHM_2.eb[DirectItem@2101]
   item 136: EVT_DOWNSHIP_BT_CCR_0.eb[TreasureItem@7591]
   item 138: EVT_DALI_F_UF_STO_1.eb[DirectItem@3743], EVT_DALI_F_UF_STO_1.eb[DirectItem@3765]
-  item 147: EVT_ENDING_AT_1.eb[DirectItem@3655]
   item 148: EVT_GIZ_TO_WORLD.eb[DirectItem@11112], EVT_GIZ_TO_WORLD.eb[DirectItem@11134]
-  item 149: EVT_PATA_T_CP_STR_0.eb[DirectItem@1342]
   item 150: EVT_ALEX1_AC_SEAT_R.eb[DirectItem@3548]
   item 151: EVT_LIND1_TN_LB_TMP_0.eb[TreasureItem@2763]
   item 152: EVT_GIZ_CAVERN_1.eb[TreasureItem@8507], EVT_LIND1_TN_LB_ROD_0.eb[TreasureItem@15123]
   item 153: EVT_GARGAN_GR_LEF_0.eb[DirectItem@3063], EVT_GARGAN_GR_LEF_0.eb[DirectItem@3085]
   item 154: EVT_CLEYRA1_DUN_08.eb[DirectItem@2191], EVT_CLEYRA1_DUN_08.eb[DirectItem@2213], EVT_PINA_PR_PW1_0.eb[DirectItem@15875], EVT_PINA_PR_PW1_0.eb[DirectItem@15897]
-  item 156: EVT_DALI_F_UF_ENT_0.eb[TreasureItem@3862], EVT_LIND2_TN_LB_PLZ_0.eb[DirectItem@6252]
+  item 156: EVT_DALI_F_UF_ENT_0.eb[TreasureItem@3862]
   item 157: EVT_FOSSIL_FR_SR7_0.eb[DirectItem@5418], EVT_FOSSIL_FR_SR7_0.eb[DirectItem@5440], EVT_SARI1_MS_SCR_0.eb[DirectItem@3481], EVT_SARI1_MS_SCR_0.eb[DirectItem@3503], EVT_SARI2_MS_SCR_1.eb[DirectItem@2313], EVT_SARI2_MS_SCR_1.eb[DirectItem@2335]
   item 158: EVT_EVA2_IU_SDV_0.eb[DirectItem@3063], EVT_EVA2_IU_SDV_0.eb[DirectItem@3085]
   item 160: EVT_OEIL_UV_DP2_0.eb[DirectItem@7591], EVT_OEIL_UV_DP2_0.eb[DirectItem@7613]
   item 161: EVT_GULUGU_GV_WHL_0.eb[DirectItem@7962], EVT_GULUGU_GV_WHL_0.eb[DirectItem@7984], EVT_OEIL_UV_DEP_0.eb[DirectItem@13267], EVT_OEIL_UV_DEP_0.eb[DirectItem@13289]
   item 162: EVT_TERA_TA_ROD_0.eb[DirectItem@2443], EVT_TERA_TA_ROD_0.eb[DirectItem@2465]
   item 163: EVT_BAL_BB_STW_0.eb[DirectItem@2127], EVT_BAL_BB_STW_0.eb[DirectItem@2149]
-  item 164: EVT_ALEX2_AC_STAIR_B.eb[DirectItem@4451]
   item 169: EVT_CLEYRA1_DUN_01B.eb[DirectItem@2995], EVT_CLEYRA1_DUN_01B.eb[DirectItem@3017]
-  item 174: EVT_PANDEMO_PD_ELV_0.eb[DirectItem@3777]
   item 175: EVT_CHOCO_CH_FGD_0.eb[DirectItem@19881], EVT_CHOCO_CH_FST_0.eb[DirectItem@22913], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21643], EVT_TRENO1_TR_QHM_0.eb[DirectItem@10023], EVT_TRENO1_TR_QHM_0.eb[DirectItem@10045], EVT_TRENO1_TR_QHM_0.eb[DirectItem@7606], EVT_TRENO1_TR_QHM_0.eb[DirectItem@7628], EVT_TRENO2_TR_QHM_0.eb[DirectItem@10389], EVT_TRENO2_TR_QHM_0.eb[DirectItem@10411], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7972], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7994]
-  item 179: EVT_CARGO_CA_COP_1.eb[DirectItem@12679], EVT_CARGO_CA_COP_1.eb[DirectItem@986]
   item 183: EVT_OEIL_UV_DP1_0.eb[DirectItem@4783], EVT_OEIL_UV_DP1_0.eb[DirectItem@4805], EVT_SUNA_SP_MP3_0.eb[DirectItem@5028], EVT_SUNA_SP_MP3_0.eb[DirectItem@5050], EVT_SUNA_SP_MP3_0.eb[DirectItem@6024], EVT_SUNA_SP_MP3_0.eb[DirectItem@6046], EVT_SUNA_SP_MP3_0.eb[DirectItem@7020], EVT_SUNA_SP_MP3_0.eb[DirectItem@7042], EVT_SUNA_SP_MP3_0.eb[DirectItem@8024], EVT_SUNA_SP_MP3_0.eb[DirectItem@8046]
   item 184: EVT_GULUGU_GV_RM4_0.eb[DirectItem@1543], EVT_GULUGU_GV_RM4_0.eb[DirectItem@1565]
-  item 186: EVT_GATE_S_SG_RND_1.eb[DirectItem@5272]
   item 187: EVT_PANDEMO_PD_MZM_0.eb[DirectItem@9139], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@9161]
-  item 188: EVT_HILDA3_BN_DCR_0.eb[DirectItem@821], EVT_HILDA3_BN_DCR_0.eb[DirectItem@890], EVT_LIND1_CS_LB_MET_0.eb[DirectItem@2421], EVT_LIND1_TN_LB_ITM_0.eb[DirectItem@1352]
-  item 189: EVT_KUWAN_QH_LNI_0.eb[DirectItem@2937]
   item 192: EVT_CLEYRA1_DUN_08.eb[DirectItem@2791], EVT_CLEYRA1_DUN_08.eb[DirectItem@2813]
   item 193: EVT_CLEYRA1_DUN_01A.eb[DirectItem@3055], EVT_CLEYRA1_DUN_01A.eb[DirectItem@3077], EVT_CLEYRA1_DUN_01B.eb[DirectItem@1811], EVT_CLEYRA1_DUN_01B.eb[DirectItem@1833], EVT_CLEYRA1_DUN_01B.eb[DirectItem@2403], EVT_CLEYRA1_DUN_01B.eb[DirectItem@2425]
   item 194: EVT_BURMECIA_HOUSE_1.eb[DirectItem@2715], EVT_BURMECIA_HOUSE_1.eb[DirectItem@2737]
-  item 196: EVT_OEIL_UV_DP2_0.eb[DirectItem@8191], EVT_OEIL_UV_DP2_0.eb[DirectItem@8213], EVT_OEIL_UV_VSL_1.eb[DirectItem@5017]
-  item 197: EVT_ALEX1_AC_H2F.eb[DirectItem@1651], EVT_ALEX1_TS_UPPER.eb[DirectItem@622], EVT_ALEX1_TS_UPPER.eb[DirectItem@772], EVT_DALI_V_DL_INN1.eb[DirectItem@1148], EVT_LIND1_CS_LB_CFR_0.eb[DirectItem@814], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@1036], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@895], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@10331], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@10353], EVT_PATA_T_CP_ALT_0.eb[DirectItem@505], EVT_SARI1_MS_EIK_0.eb[DirectItem@1656], EVT_SARI1_MS_EKH_0.eb[DirectItem@1011], EVT_SARI1_MS_FNT_0.eb[DirectItem@1146], EVT_SARI1_MS_MRR_2.eb[DirectItem@872]
+  item 196: EVT_OEIL_UV_DP2_0.eb[DirectItem@8191], EVT_OEIL_UV_DP2_0.eb[DirectItem@8213]
+  item 197: EVT_PANDEMO_PD_MZM_0.eb[DirectItem@10331], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@10353]
   item 198: EVT_KUWAN_QH_LNI_0.eb[DirectItem@6594], EVT_KUWAN_QH_LNI_0.eb[DirectItem@6616], EVT_TRENO2_TR_KHM_1.eb[DirectItem@2079], EVT_TRENO2_TR_KHM_1.eb[DirectItem@2101]
   item 199: EVT_SUNA_SP_MT1_0.eb[DirectItem@17861], EVT_SUNA_SP_MT1_0.eb[DirectItem@17883], EVT_SUNA_SP_MT1_0.eb[DirectItem@19577], EVT_SUNA_SP_MT1_0.eb[DirectItem@19599], EVT_SUNA_SP_MT1_0.eb[DirectItem@21137], EVT_SUNA_SP_MT1_0.eb[DirectItem@21159], EVT_SUNA_SP_MT1_0.eb[DirectItem@22705], EVT_SUNA_SP_MT1_0.eb[DirectItem@22727]
-  item 200: EVT_ALEX1_AT_CENTER.eb[DirectItem@5503], EVT_ALEX1_AT_CENTER.eb[DirectItem@5735], EVT_ALEX1_AT_CENTER.eb[DirectItem@5967], EVT_ALEX1_AT_CENTER.eb[DirectItem@6199], EVT_ALEX1_AT_CENTER.eb[DirectItem@6426], EVT_ALEX5_AT_SENTOU.eb[DirectItem@2555], EVT_ALEX5_AT_SENTOU.eb[DirectItem@2787], EVT_ALEX5_AT_SENTOU.eb[DirectItem@3019], EVT_ALEX5_AT_SENTOU.eb[DirectItem@3251], EVT_ALEX5_AT_SENTOU.eb[DirectItem@3478], EVT_CLEYRA1_DUN_04.eb[DirectItem@1183], EVT_GARGAN_GR_ALX_0.eb[DirectItem@1159], EVT_GARGAN_GR_ALX_0.eb[DirectItem@3675], EVT_GARGAN_GR_CON_0.eb[DirectItem@1419], EVT_GARGAN_GR_REN_0.eb[DirectItem@1516], EVT_GARGAN_GR_REN_0.eb[DirectItem@1538], EVT_GARGAN_GR_REN_0.eb[DirectItem@2916], EVT_LIND2_TN_LB_STN_0.eb[DirectItem@927], EVT_SARI1_MS_EIK_0.eb[DirectItem@2566], EVT_SARI1_MS_MRR_0.eb[DirectItem@1142], EVT_SARI1_MS_MRR_2.eb[DirectItem@1571], EVT_SARI2_MS_EIK_1.eb[DirectItem@816], EVT_TRENO1_TR_BHE_0.eb[DirectItem@1216], EVT_TRENO1_TR_BHE_0.eb[DirectItem@1238]
+  item 200: EVT_TRENO1_TR_BHE_0.eb[DirectItem@1216], EVT_TRENO1_TR_BHE_0.eb[DirectItem@1238]
   item 201: EVT_MAGE2_BV_ITM_0.eb[DirectItem@4657], EVT_MAGE2_BV_ITM_0.eb[DirectItem@4679], EVT_MAGE_BV_ITM_0.eb[DirectItem@7837], EVT_MAGE_BV_ITM_0.eb[DirectItem@7859], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6964], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6986], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9381], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9403], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7330], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7352], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9747], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9769]
-  item 203: EVT_SARI1_MS_MRR_2.eb[DirectItem@19435]
   item 204: EVT_TRENO1_TR_QHM_0.eb[DirectItem@7285], EVT_TRENO1_TR_QHM_0.eb[DirectItem@7307], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9702], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9724], EVT_TRENO2_TR_QHM_0.eb[DirectItem@10068], EVT_TRENO2_TR_QHM_0.eb[DirectItem@10090], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7651], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7673]
   item 206: EVT_LIND1_CS_LB_CFR_0.eb[DirectItem@4490], EVT_LIND1_CS_LB_CFR_0.eb[DirectItem@4512]
   item 207: EVT_SUNA_SP_MP1_0.eb[DirectItem@10016], EVT_SUNA_SP_MP1_0.eb[DirectItem@11850], EVT_SUNA_SP_MP1_0.eb[DirectItem@11872], EVT_SUNA_SP_MP1_0.eb[DirectItem@13714], EVT_SUNA_SP_MP1_0.eb[DirectItem@13736], EVT_SUNA_SP_MP1_0.eb[DirectItem@8138], EVT_SUNA_SP_MP1_0.eb[DirectItem@8160], EVT_SUNA_SP_MP1_0.eb[DirectItem@9994]
@@ -1995,7 +1373,7 @@ Combined item IDs (166 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 16, 18, 
   item 212: EVT_CLEYRA2_CATHE_1.eb[TreasureItem@3707], EVT_CLEYRA3_CATHE_1.eb[TreasureItem@6531]
   item 214: EVT_FOSSIL_FR_DN3_0.eb[DirectItem@10447], EVT_FOSSIL_FR_DN3_0.eb[DirectItem@10469], EVT_SUNA_SP_MP2_0.eb[DirectItem@3887], EVT_SUNA_SP_MP2_0.eb[DirectItem@3909]
   item 215: EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24976], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24998], EVT_BAL_BB_CDL_0.eb[DirectItem@5718], EVT_BAL_BB_CDL_0.eb[DirectItem@5740]
-  item 218: EVT_DALI_V_DL_WMS1.eb[DirectItem@5579], EVT_DALI_V_DL_WMS1.eb[DirectItem@5601], EVT_LAST_CW_LST_1.eb[DirectItem@13725]
+  item 218: EVT_DALI_V_DL_WMS1.eb[DirectItem@5579], EVT_DALI_V_DL_WMS1.eb[DirectItem@5601]
   item 219: EVT_IPSEN_IP_EN1_0.eb[DirectItem@4723], EVT_IPSEN_IP_EN1_0.eb[DirectItem@4745]
   item 220: EVT_GIZ_TO_WORLD.eb[DirectItem@10822], EVT_GIZ_TO_WORLD.eb[DirectItem@10844]
   item 221: EVT_ALEX5_AT_SENTOU.eb[DirectItem@12834], EVT_ALEX5_AT_SENTOU.eb[DirectItem@12856], EVT_GULUGU_GV_PW4_0.eb[DirectItem@5521]
@@ -2008,14 +1386,14 @@ Combined item IDs (166 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 16, 18, 
   item 228: EVT_CLEYRA3_CATHE_2.eb[DirectItem@5132], EVT_CLEYRA3_CATHE_2.eb[DirectItem@5154], EVT_OEIL_UV_DEP_0.eb[DirectItem@12415], EVT_OEIL_UV_DEP_0.eb[DirectItem@12437]
   item 229: EVT_ALEX1_AC_SEAT_R.eb[DirectItem@3365], EVT_ALEX5_AT_SENTOU.eb[DirectItem@13228], EVT_ALEX5_AT_SENTOU.eb[DirectItem@13250], EVT_PATA_M_CM_MP4_0.eb[DirectItem@4121], EVT_PATA_M_CM_MP4_0.eb[DirectItem@4143]
   item 230: EVT_ALEX5_AT_SENTOU.eb[DirectItem@13478], EVT_ALEX5_AT_SENTOU.eb[DirectItem@13500], EVT_EVA1_IF_ENT_0.eb[DirectItem@12973]
-  item 231: EVT_ALEX5_AC_OUT_C.eb[TreasureItem@4579], EVT_GULUGU_GV_RM3_0.eb[DirectItem@1098], EVT_PINA_PR_PW3_0.eb[DirectItem@5727]
+  item 231: EVT_ALEX5_AC_OUT_C.eb[TreasureItem@4579], EVT_PINA_PR_PW3_0.eb[DirectItem@5727]
   item 232: EVT_ALEX5_AC_OUT_C.eb[TreasureItem@4867], EVT_ALEX5_AT_STREET_A.eb[TreasureItem@5699]
   item 233: EVT_ALEX3_AC_PRINCESS.eb[DirectItem@2606], EVT_ALEX5_AC_OUT_C.eb[TreasureItem@5155]
   item 234: EVT_ALEX3_AC_PRINCESS.eb[DirectItem@2650], EVT_ALEX5_AT_WHARF.eb[TreasureItem@2759]
   item 235: EVT_ALEX3_AC_OUT_C.eb[TreasureItem@5083], EVT_LIND3_TN_LB_ATL_0.eb[DirectItem@3835], EVT_LIND3_TN_LB_ATL_0.eb[DirectItem@3857]
   item 236: EVT_ALEX1_AT_GATE.eb[TreasureItem@7675], EVT_ALEX1_AT_HOUSE_2.eb[TreasureItem@3763], EVT_ALEX1_AT_PUB.eb[TreasureItem@6103], EVT_ALEX1_AT_SENTOU.eb[TreasureItem@14323], EVT_ALEX1_AT_STREET_A.eb[TreasureItem@8723], EVT_ALEX1_AT_STREET_A.eb[TreasureItem@9011], EVT_ALEX1_TS_CARGO_0.eb[TreasureItem@2731], EVT_ALEX1_TS_CARGO_3.eb[TreasureItem@3415], EVT_ALEX3_AT_GATE.eb[TreasureItem@8727], EVT_ALEX3_AT_HOUSE_2.eb[TreasureItem@3743], EVT_ALEX3_AT_PUB.eb[TreasureItem@11139], EVT_ALEX3_AT_SENTOU.eb[TreasureItem@17711], EVT_ALEX3_AT_STREET_A.eb[TreasureItem@9707], EVT_BURMECIA_HOUSE_1.eb[DirectItem@3315], EVT_BURMECIA_HOUSE_1.eb[DirectItem@3337], EVT_CLEYRA1_DUN_09.eb[DirectItem@3247], EVT_CLEYRA1_DUN_09.eb[DirectItem@3269], EVT_DALI_F_UF_MST_0.eb[DirectItem@3739], EVT_DALI_F_UF_MST_0.eb[DirectItem@3761], EVT_DALI_F_UF_RST_0.eb[DirectItem@3651], EVT_DALI_F_UF_RST_0.eb[DirectItem@3673], EVT_DALI_F_UF_STO_0.eb[DirectItem@10601], EVT_DALI_F_UF_STO_0.eb[DirectItem@10623], EVT_DALI_V_DL_INN1.eb[DirectItem@6387], EVT_DALI_V_DL_INN1.eb[DirectItem@6409], EVT_DOWNSHIP_BT_CMR_0.eb[DirectItem@4151], EVT_DOWNSHIP_BT_CMR_0.eb[DirectItem@4173], EVT_GATE_N_NG_MDA_0.eb[DirectItem@3377], EVT_GATE_N_NG_MDA_0.eb[DirectItem@3787], EVT_GATE_N_NG_MDA_0.eb[DirectItem@3809], EVT_GATE_N_NG_MDA_1.eb[DirectItem@2455], EVT_GATE_N_NG_MDA_1.eb[DirectItem@2477], EVT_GATE_S_SG_RND_3.eb[DirectItem@12255], EVT_GATE_S_SG_RND_3.eb[DirectItem@12277], EVT_ICE_IC_JMP_0.eb[DirectItem@7475], EVT_ICE_IC_JMP_0.eb[DirectItem@7497], EVT_ICE_IC_TER_0.eb[DirectItem@5687], EVT_ICE_IC_TER_0.eb[DirectItem@5709]
   item 237: EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24199], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24221], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11723], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11745], EVT_BURMECIA_SQUARE_1.eb[DirectItem@9903], EVT_BURMECIA_SQUARE_1.eb[DirectItem@9925], EVT_CLEYRA1_DUN_11.eb[DirectItem@4035], EVT_CLEYRA1_DUN_11.eb[DirectItem@4057], EVT_CLEYRA3_ANTRION.eb[DirectItem@9701], EVT_CLEYRA3_ANTRION.eb[DirectItem@9723], EVT_CLEYRA3_INN.eb[DirectItem@13525], EVT_CLEYRA3_INN.eb[DirectItem@13547], EVT_DALI_A_AP_WTE_0.eb[DirectItem@6351], EVT_DALI_A_AP_WTE_0.eb[DirectItem@6373], EVT_EVA2_IU_EUG_1.eb[DirectItem@5355], EVT_EVA2_IU_EUG_1.eb[DirectItem@5377], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3823], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3845], EVT_GATE_N_NG_BMA_1.eb[DirectItem@3195], EVT_GATE_N_NG_BMA_1.eb[DirectItem@3217], EVT_LIND1_TN_LB_HUS_0.eb[DirectItem@3631], EVT_LIND1_TN_LB_HUS_0.eb[DirectItem@3653], EVT_OEIL_UV_DEP_0.eb[DirectItem@12165], EVT_OEIL_UV_DEP_0.eb[DirectItem@12187]
-  item 238: EVT_ALEX1_AC_SEAT_R.eb[DirectItem@3430], EVT_ALEX1_AT_MAGIC.eb[TreasureItem@2351], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24458], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24480], EVT_ALEX3_AC_OUT_C.eb[TreasureItem@5659], EVT_ALEX3_AT_MAGIC.eb[TreasureItem@3399], EVT_BAL_BB_WPS_0.eb[DirectItem@10887], EVT_BAL_BB_WPS_0.eb[DirectItem@10909], EVT_BURMECIA_HOUSE_3.eb[DirectItem@2527], EVT_BURMECIA_HOUSE_3.eb[DirectItem@2549], EVT_BURMECIA_SQUARE_1.eb[DirectItem@10153], EVT_BURMECIA_SQUARE_1.eb[DirectItem@10175], EVT_CHOCO_CH_FGD_0.eb[DirectItem@20087], EVT_CHOCO_CH_FST_0.eb[DirectItem@23119], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21849], EVT_CLEYRA1_DUN_04.eb[DirectItem@2471], EVT_CLEYRA1_DUN_04.eb[DirectItem@2493], EVT_CLEYRA2_INN.eb[TreasureItem@13303], EVT_CLEYRA3_ANTRION.eb[DirectItem@9951], EVT_CLEYRA3_ANTRION.eb[DirectItem@9973], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2122], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2144], EVT_CLEYRA3_CATHE_2.eb[TreasureItem@6895], EVT_CLEYRA3_INN.eb[DirectItem@13775], EVT_CLEYRA3_INN.eb[DirectItem@13797], EVT_CLEYRA3_INN.eb[TreasureItem@5139], EVT_DALI_F_UF_STO_0.eb[DirectItem@13015], EVT_DALI_F_UF_STO_0.eb[DirectItem@13037], EVT_DOWNSHIP_BT_CUS_0.eb[DirectItem@5319], EVT_DOWNSHIP_BT_CUS_0.eb[DirectItem@5341], EVT_DOWNSHIP_BT_GTR_0.eb[DirectItem@9207], EVT_DOWNSHIP_BT_GTR_0.eb[DirectItem@9229], EVT_DOWNSHIP_BT_STR_0.eb[DirectItem@8898], EVT_DOWNSHIP_BT_STR_0.eb[DirectItem@8920], EVT_EVA2_IU_EUG_2.eb[DirectItem@3983], EVT_EVA2_IU_EUG_2.eb[DirectItem@4005], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@13048], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@13070], EVT_FOSSIL_FR_DN2_0.eb[DirectItem@3251], EVT_FOSSIL_FR_DN2_0.eb[DirectItem@3273], EVT_GATE_N_NG_BDA_0.eb[DirectItem@7959], EVT_GATE_N_NG_BDA_0.eb[DirectItem@7981], EVT_GATE_N_NG_BDA_0.eb[DirectItem@9407], EVT_GATE_N_NG_BDA_0.eb[DirectItem@9429], EVT_GATE_N_NG_BDA_1.eb[DirectItem@2955], EVT_GATE_N_NG_BDA_1.eb[DirectItem@2977], EVT_GATE_N_NG_BDA_1.eb[DirectItem@4381], EVT_GATE_N_NG_BDA_1.eb[DirectItem@4403], EVT_GIZ_TO_WORLD.eb[DirectItem@11937], EVT_GIZ_TO_WORLD.eb[DirectItem@11959], EVT_GULUGU_GV_RM2_0.eb[DirectItem@2746], EVT_GULUGU_GV_RM2_0.eb[DirectItem@2768], EVT_ICE_IC_TER_0.eb[DirectItem@6279], EVT_ICE_IC_TER_0.eb[DirectItem@6301], EVT_KUWAN_QH_CAV_0.eb[DirectItem@5727], EVT_KUWAN_QH_CAV_0.eb[DirectItem@5749], EVT_KUWAN_QH_CAV_0.eb[DirectItem@6319], EVT_KUWAN_QH_CAV_0.eb[DirectItem@6341], EVT_KUWAN_QH_HUR_0.eb[DirectItem@5995], EVT_KUWAN_QH_HUR_0.eb[DirectItem@6017], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@14531], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@14553], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@3267], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@3289], EVT_MAGE_BV_ITM_0.eb[DirectItem@8630], EVT_MAGE_BV_ITM_0.eb[DirectItem@8652], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10725], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10747], EVT_PATA_M_CM_MP7_0.eb[DirectItem@4627], EVT_PATA_M_CM_MP7_0.eb[DirectItem@4649], EVT_TRENO1_TR_FQH_0.eb[DirectItem@4970], EVT_TRENO1_TR_FQH_0.eb[DirectItem@4992], EVT_TRENO2_TR_FQH_0.eb[DirectItem@10718], EVT_TRENO2_TR_FQH_0.eb[DirectItem@10740]
+  item 238: EVT_ALEX1_AC_SEAT_R.eb[DirectItem@3430], EVT_ALEX1_AT_MAGIC.eb[TreasureItem@2351], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24458], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24480], EVT_ALEX3_AC_OUT_C.eb[TreasureItem@5659], EVT_ALEX3_AT_MAGIC.eb[TreasureItem@3399], EVT_ALEX5_AT_STREET_C.eb[TreasureItem@3891], EVT_BAL_BB_WPS_0.eb[DirectItem@10887], EVT_BAL_BB_WPS_0.eb[DirectItem@10909], EVT_BURMECIA_HOUSE_3.eb[DirectItem@2527], EVT_BURMECIA_HOUSE_3.eb[DirectItem@2549], EVT_BURMECIA_SQUARE_1.eb[DirectItem@10153], EVT_BURMECIA_SQUARE_1.eb[DirectItem@10175], EVT_CHOCO_CH_FGD_0.eb[DirectItem@20087], EVT_CHOCO_CH_FST_0.eb[DirectItem@23119], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21849], EVT_CLEYRA1_DUN_04.eb[DirectItem@2471], EVT_CLEYRA1_DUN_04.eb[DirectItem@2493], EVT_CLEYRA2_INN.eb[TreasureItem@13303], EVT_CLEYRA3_ANTRION.eb[DirectItem@9951], EVT_CLEYRA3_ANTRION.eb[DirectItem@9973], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2122], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2144], EVT_CLEYRA3_CATHE_2.eb[TreasureItem@6895], EVT_CLEYRA3_INN.eb[DirectItem@13775], EVT_CLEYRA3_INN.eb[DirectItem@13797], EVT_CLEYRA3_INN.eb[TreasureItem@5139], EVT_DALI_F_UF_STO_0.eb[DirectItem@13015], EVT_DALI_F_UF_STO_0.eb[DirectItem@13037], EVT_DOWNSHIP_BT_CUS_0.eb[DirectItem@5319], EVT_DOWNSHIP_BT_CUS_0.eb[DirectItem@5341], EVT_DOWNSHIP_BT_GTR_0.eb[DirectItem@9207], EVT_DOWNSHIP_BT_GTR_0.eb[DirectItem@9229], EVT_DOWNSHIP_BT_STR_0.eb[DirectItem@8898], EVT_DOWNSHIP_BT_STR_0.eb[DirectItem@8920], EVT_EVA2_IU_EUG_2.eb[DirectItem@3983], EVT_EVA2_IU_EUG_2.eb[DirectItem@4005], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@13048], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@13070], EVT_FOSSIL_FR_DN2_0.eb[DirectItem@3251], EVT_FOSSIL_FR_DN2_0.eb[DirectItem@3273], EVT_GATE_N_NG_BDA_0.eb[DirectItem@7959], EVT_GATE_N_NG_BDA_0.eb[DirectItem@7981], EVT_GATE_N_NG_BDA_0.eb[DirectItem@9407], EVT_GATE_N_NG_BDA_0.eb[DirectItem@9429], EVT_GATE_N_NG_BDA_1.eb[DirectItem@2955], EVT_GATE_N_NG_BDA_1.eb[DirectItem@2977], EVT_GATE_N_NG_BDA_1.eb[DirectItem@4381], EVT_GATE_N_NG_BDA_1.eb[DirectItem@4403], EVT_GIZ_TO_WORLD.eb[DirectItem@11937], EVT_GIZ_TO_WORLD.eb[DirectItem@11959], EVT_GULUGU_GV_RM2_0.eb[DirectItem@2746], EVT_GULUGU_GV_RM2_0.eb[DirectItem@2768], EVT_ICE_IC_TER_0.eb[DirectItem@6279], EVT_ICE_IC_TER_0.eb[DirectItem@6301], EVT_KUWAN_QH_CAV_0.eb[DirectItem@5727], EVT_KUWAN_QH_CAV_0.eb[DirectItem@5749], EVT_KUWAN_QH_CAV_0.eb[DirectItem@6319], EVT_KUWAN_QH_CAV_0.eb[DirectItem@6341], EVT_KUWAN_QH_HUR_0.eb[DirectItem@5995], EVT_KUWAN_QH_HUR_0.eb[DirectItem@6017], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@14531], EVT_LIND1_CS_LB_GRM_0.eb[DirectItem@14553], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@3267], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@3289], EVT_MAGE_BV_ITM_0.eb[DirectItem@8630], EVT_MAGE_BV_ITM_0.eb[DirectItem@8652], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10725], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10747], EVT_PATA_M_CM_MP7_0.eb[DirectItem@4627], EVT_PATA_M_CM_MP7_0.eb[DirectItem@4649], EVT_TRENO1_TR_FQH_0.eb[DirectItem@4970], EVT_TRENO1_TR_FQH_0.eb[DirectItem@4992], EVT_TRENO2_TR_FQH_0.eb[DirectItem@10718], EVT_TRENO2_TR_FQH_0.eb[DirectItem@10740]
   item 239: EVT_ALEX1_AC_SEAT_R.eb[DirectItem@3495], EVT_ALEX1_AC_TOWER_L3.eb[DirectItem@1679], EVT_ALEX1_AC_TOWER_L3.eb[DirectItem@1701], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24717], EVT_ALEX3_AC_ENT_2F.eb[DirectItem@24739], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11973], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11995], EVT_ALEX5_AT_SENTOU.eb[DirectItem@13728], EVT_ALEX5_AT_SENTOU.eb[DirectItem@13750], EVT_BAL_BB_ITS_0.eb[DirectItem@5975], EVT_BAL_BB_ITS_0.eb[DirectItem@5997], EVT_BAL_BB_UDL_0.eb[DirectItem@4386], EVT_BAL_BB_UDL_0.eb[DirectItem@4408], EVT_BAL_BB_WPS_0.eb[DirectItem@11137], EVT_BAL_BB_WPS_0.eb[DirectItem@11159], EVT_CLEYRA1_DUN_10.eb[DirectItem@3263], EVT_CLEYRA1_DUN_10.eb[DirectItem@3285], EVT_CLEYRA3_CATHE_1.eb[DirectItem@4166], EVT_CLEYRA3_CATHE_1.eb[DirectItem@4188], EVT_DAG_DG_ENT_0.eb[DirectItem@10987], EVT_DAG_DG_ENT_0.eb[DirectItem@11009], EVT_DAG_DG_ENT_0.eb[DirectItem@11395], EVT_DAG_DG_ENT_0.eb[DirectItem@11417], EVT_DALI_A_AP_FID_0.eb[DirectItem@12319], EVT_DALI_A_AP_FID_0.eb[DirectItem@12341], EVT_DALI_V_DL_WMS1.eb[DirectItem@6179], EVT_DALI_V_DL_WMS1.eb[DirectItem@6201], EVT_EVA2_IU_SDV_0.eb[DirectItem@3663], EVT_EVA2_IU_SDV_0.eb[DirectItem@3685], EVT_FOSSIL_FR_ENT_0.eb[DirectItem@5201], EVT_FOSSIL_FR_ENT_0.eb[DirectItem@5223], EVT_GATE_N_NG_TRA_1.eb[DirectItem@10779], EVT_GATE_N_NG_TRA_1.eb[DirectItem@10801], EVT_GATE_N_NG_TRA_1.eb[DirectItem@11983], EVT_GATE_N_NG_TRA_1.eb[DirectItem@12005], EVT_GIZ_TO_WORLD.eb[DirectItem@10532], EVT_GIZ_TO_WORLD.eb[DirectItem@10554], EVT_GULUGU_GV_ATK_0.eb[DirectItem@2883], EVT_GULUGU_GV_ATK_0.eb[DirectItem@2905], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5593], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5615], EVT_ICE_IC_JMP_0.eb[DirectItem@8659], EVT_ICE_IC_JMP_0.eb[DirectItem@8681], EVT_LIND3_CS_LB_GRM_0.eb[DirectItem@17583], EVT_LIND3_CS_LB_GRM_0.eb[DirectItem@17605], EVT_LIND3_TN_LB_HUS_0.eb[DirectItem@3483], EVT_LIND3_TN_LB_HUS_0.eb[DirectItem@3505], EVT_MAGE2_BV_ENT_0.eb[DirectItem@8526], EVT_MAGE2_BV_ENT_0.eb[DirectItem@8548], EVT_MAGE_BV_ENT_0.eb[DirectItem@14054], EVT_MAGE_BV_ENT_0.eb[DirectItem@14076], EVT_OEIL_UV_DEP_0.eb[DirectItem@12665], EVT_OEIL_UV_DEP_0.eb[DirectItem@12687], EVT_OEIL_UV_DP1_0.eb[DirectItem@4183], EVT_OEIL_UV_DP1_0.eb[DirectItem@4205], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@9739], EVT_PANDEMO_PD_MZM_0.eb[DirectItem@9761], EVT_PINA_PR_ENT_0.eb[DirectItem@3071], EVT_PINA_PR_ENT_0.eb[DirectItem@3093], EVT_PINA_PR_ENT_1.eb[DirectItem@3963], EVT_PINA_PR_ENT_1.eb[DirectItem@3985], EVT_SARI1_MS_PMR_0.eb[DirectItem@10127], EVT_SARI1_MS_PMR_0.eb[DirectItem@10149], EVT_SARI1_MS_PMR_0.eb[DirectItem@6706], EVT_SARI1_MS_PMR_0.eb[DirectItem@6728], EVT_SARI1_MS_PMR_0.eb[DirectItem@8102], EVT_SARI1_MS_PMR_0.eb[DirectItem@8124], EVT_SARI2_MS_PMR_1.eb[DirectItem@3427], EVT_SARI2_MS_PMR_1.eb[DirectItem@3449], EVT_TERA_TA_PRB_0.eb[DirectItem@2515], EVT_TERA_TA_PRB_0.eb[DirectItem@2537], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6643], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6665], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9060], EVT_TRENO1_TR_QHM_0.eb[DirectItem@9082], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7009], EVT_TRENO2_TR_QHM_0.eb[DirectItem@7031], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9426], EVT_TRENO2_TR_QHM_0.eb[DirectItem@9448]
   item 240: EVT_ALEX1_AC_GUARD.eb[TreasureItem@16003], EVT_ALEX1_TS_ENGIN.eb[DirectItem@4423], EVT_ALEX1_TS_ENGIN.eb[DirectItem@4445], EVT_BURMECIA_PATIO_2.eb[DirectItem@1675], EVT_BURMECIA_PATIO_2.eb[DirectItem@1697], EVT_BURMECIA_PATIO_3.eb[DirectItem@1687], EVT_BURMECIA_PATIO_3.eb[DirectItem@1709], EVT_CLEYRA1_DUN_00.eb[DirectItem@1511], EVT_CLEYRA1_DUN_00.eb[DirectItem@1533], EVT_CLEYRA3_CATHE_1.eb[DirectItem@3640], EVT_CLEYRA3_CATHE_1.eb[DirectItem@3662], EVT_DALI_F_UF_MST_0.eb[DirectItem@4331], EVT_DALI_F_UF_MST_0.eb[DirectItem@4353], EVT_DOWNSHIP_BT_FRT_0.eb[TreasureItem@9227], EVT_EVA2_IU_EUG_1.eb[DirectItem@4030], EVT_EVA2_IU_EUG_1.eb[DirectItem@4052], EVT_GARGAN_GR_LEF_0.eb[DirectItem@3655], EVT_GARGAN_GR_LEF_0.eb[DirectItem@3677], EVT_GATE_S_SG_TOP_1.eb[DirectItem@7419], EVT_GATE_S_SG_TOP_1.eb[DirectItem@7441], EVT_ICE_IC_BRI_0.eb[DirectItem@6503], EVT_ICE_IC_BRI_0.eb[DirectItem@6525], EVT_PINA_PR_ENT_0.eb[DirectItem@2471], EVT_PINA_PR_ENT_0.eb[DirectItem@2493], EVT_PINA_PR_ENT_1.eb[DirectItem@3363], EVT_PINA_PR_ENT_1.eb[DirectItem@3385], EVT_SARI1_MS_SCR_0.eb[DirectItem@4149], EVT_SARI1_MS_SCR_0.eb[DirectItem@4171], EVT_SARI1_MS_SCR_0.eb[DirectItem@4433], EVT_SARI1_MS_SCR_0.eb[DirectItem@4455], EVT_SARI2_MS_SCR_1.eb[DirectItem@2981], EVT_SARI2_MS_SCR_1.eb[DirectItem@3003], EVT_SARI2_MS_SCR_1.eb[DirectItem@3265], EVT_SARI2_MS_SCR_1.eb[DirectItem@3287]
   item 241: EVT_CLEYRA2_CATHE_0.eb[TreasureItem@4743], EVT_CLEYRA2_INN.eb[TreasureItem@12727], EVT_CLEYRA3_CATHE_0.eb[TreasureItem@17779], EVT_CLEYRA3_INN.eb[TreasureItem@4563], EVT_LIND1_TN_LB_HUS_0.eb[DirectItem@3039], EVT_LIND1_TN_LB_HUS_0.eb[DirectItem@3061], EVT_LIND2_CS_LB_PLA_0.eb[DirectItem@3891], EVT_LIND2_CS_LB_PLA_0.eb[DirectItem@3913]
@@ -2025,7 +1403,7 @@ Combined item IDs (166 unique): [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 14, 16, 18, 
   item 245: EVT_PATA_M_CM_MP3_0.eb[DirectItem@10225], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10247]
   item 247: EVT_ALEX1_AT_WEAPON.eb[TreasureItem@2687], EVT_ALEX3_AT_WEAPON.eb[TreasureItem@21647], EVT_ALEX5_AT_CENTER.eb[TreasureItem@7335], EVT_CLEYRA1_DUN_08.eb[DirectItem@3391], EVT_CLEYRA1_DUN_08.eb[DirectItem@3413], EVT_CLEYRA2_TOWN.eb[TreasureItem@10843], EVT_CLEYRA3_CATHE_1.eb[DirectItem@3140], EVT_CLEYRA3_CATHE_1.eb[DirectItem@3162], EVT_CLEYRA3_TOWN.eb[TreasureItem@15003], EVT_EVA2_IU_EUG_2.eb[DirectItem@4583], EVT_EVA2_IU_EUG_2.eb[DirectItem@4605], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@12798], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@12820], EVT_LIND3_CS_LB_EXB_0.eb[DirectItem@12347], EVT_LIND3_CS_LB_EXB_0.eb[DirectItem@12369], EVT_LIND3_TN_LB_HUS_0.eb[DirectItem@2891], EVT_LIND3_TN_LB_HUS_0.eb[DirectItem@2913], EVT_OEIL_UV_PST_0.eb[DirectItem@2563], EVT_OEIL_UV_PST_0.eb[DirectItem@2585], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7771], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7793], EVT_TERA_TA_ROU_0.eb[DirectItem@3535], EVT_TERA_TA_ROU_0.eb[DirectItem@3557]
   item 249: EVT_ALEX1_AT_CENTER.eb[TreasureItem@11827], EVT_ALEX1_TS_ENGIN.eb[DirectItem@5079], EVT_ALEX1_TS_ENGIN.eb[DirectItem@5101], EVT_ALEX3_AC_OUT_C.eb[TreasureItem@5371], EVT_ALEX3_AC_TOWER_L1.eb[TreasureItem@1427], EVT_ALEX3_AT_CENTER.eb[TreasureItem@9559], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11473], EVT_ALEX3_AT_SENTOU.eb[DirectItem@11495], EVT_ALEX3_AT_WHARF.eb[TreasureItem@5659], EVT_CHOCO_CH_FGD_0.eb[DirectItem@20191], EVT_CHOCO_CH_FST_0.eb[DirectItem@23223], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21953], EVT_CLEYRA2_ENTER.eb[TreasureItem@7135], EVT_CLEYRA2_WIND.eb[TreasureItem@4491], EVT_CLEYRA3_ANTRION.eb[DirectItem@10201], EVT_CLEYRA3_ANTRION.eb[DirectItem@10223], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2638], EVT_CLEYRA3_CATHE_1.eb[DirectItem@2660], EVT_CLEYRA3_CATHE_2.eb[TreasureItem@7471], EVT_CLEYRA3_ENTER.eb[TreasureItem@9491], EVT_CLEYRA3_INN.eb[DirectItem@14025], EVT_CLEYRA3_INN.eb[DirectItem@14047], EVT_CLEYRA3_WIND.eb[TreasureItem@9543], EVT_DALI_F_UF_MST_0.eb[DirectItem@3147], EVT_DALI_F_UF_MST_0.eb[DirectItem@3169], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@12548], EVT_FOSSIL_FR_DN1_0.eb[DirectItem@12570], EVT_GIZ_TO_WORLD.eb[DirectItem@11405], EVT_GIZ_TO_WORLD.eb[DirectItem@11427], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@2675], EVT_LIND2_TN_LB_HUS_0.eb[DirectItem@2697], EVT_PATA_T_CP_TOL_0.eb[DirectItem@8418], EVT_PATA_T_CP_TOL_0.eb[DirectItem@8440], EVT_SARI1_MS_EIK_0.eb[DirectItem@12285], EVT_SARI1_MS_EIK_0.eb[DirectItem@12307], EVT_SARI2_MS_EIK_1.eb[DirectItem@3665], EVT_SARI2_MS_EIK_1.eb[DirectItem@3687], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6001], EVT_TRENO1_TR_QHM_0.eb[DirectItem@6023], EVT_TRENO1_TR_QHM_0.eb[DirectItem@8418], EVT_TRENO1_TR_QHM_0.eb[DirectItem@8440], EVT_TRENO2_TR_QHM_0.eb[DirectItem@6367], EVT_TRENO2_TR_QHM_0.eb[DirectItem@6389], EVT_TRENO2_TR_QHM_0.eb[DirectItem@8784], EVT_TRENO2_TR_QHM_0.eb[DirectItem@8806]
-  item 251: EVT_CHOCO_CH_FGD_0.eb[DirectItem@19035], EVT_CHOCO_CH_FGD_0.eb[DirectItem@19593], EVT_CHOCO_CH_FGD_0.eb[DirectItem@20243], EVT_CHOCO_CH_FST_0.eb[DirectItem@18922], EVT_CHOCO_CH_FST_0.eb[DirectItem@19709], EVT_CHOCO_CH_FST_0.eb[DirectItem@21934], EVT_CHOCO_CH_FST_0.eb[DirectItem@21960], EVT_CHOCO_CH_FST_0.eb[DirectItem@23275], EVT_CHOCO_CH_HLG_0.eb[DirectItem@20797], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21355], EVT_CHOCO_CH_HLG_0.eb[DirectItem@22005], EVT_CLEYRA1_DUN_13A.eb[DirectItem@1867], EVT_CLEYRA1_DUN_13A.eb[DirectItem@1889], EVT_CLEYRA1_DUN_13B.eb[DirectItem@1659], EVT_CLEYRA1_DUN_13B.eb[DirectItem@1681], EVT_CLEYRA2_CATHE_0.eb[TreasureItem@4455], EVT_CLEYRA3_CATHE_0.eb[TreasureItem@17491], EVT_MAGE2_BV_CSI_0.eb[DirectItem@3810], EVT_MAGE2_BV_CSI_0.eb[DirectItem@3832], EVT_MAGE_BV_CSI_0.eb[DirectItem@7898], EVT_MAGE_BV_CSI_0.eb[DirectItem@7920], EVT_WORLD_WORLDSV.eb[DirectItem@9481], EVT_WORLD_WORLDTS.eb[DirectItem@9481]
+  item 251: EVT_CHOCO_CH_FGD_0.eb[DirectItem@19035], EVT_CHOCO_CH_FGD_0.eb[DirectItem@19593], EVT_CHOCO_CH_FGD_0.eb[DirectItem@20243], EVT_CHOCO_CH_FST_0.eb[DirectItem@18922], EVT_CHOCO_CH_FST_0.eb[DirectItem@19709], EVT_CHOCO_CH_FST_0.eb[DirectItem@21934], EVT_CHOCO_CH_FST_0.eb[DirectItem@21960], EVT_CHOCO_CH_FST_0.eb[DirectItem@23275], EVT_CHOCO_CH_HLG_0.eb[DirectItem@20797], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21355], EVT_CHOCO_CH_HLG_0.eb[DirectItem@22005], EVT_CLEYRA1_DUN_13A.eb[DirectItem@1867], EVT_CLEYRA1_DUN_13A.eb[DirectItem@1889], EVT_CLEYRA1_DUN_13B.eb[DirectItem@1659], EVT_CLEYRA1_DUN_13B.eb[DirectItem@1681], EVT_CLEYRA2_CATHE_0.eb[TreasureItem@4455], EVT_CLEYRA3_CATHE_0.eb[TreasureItem@17491], EVT_MAGE2_BV_CSI_0.eb[DirectItem@3810], EVT_MAGE2_BV_CSI_0.eb[DirectItem@3832], EVT_MAGE_BV_CSI_0.eb[DirectItem@7898], EVT_MAGE_BV_CSI_0.eb[DirectItem@7920]
   item 252: EVT_CHOCO_CH_PDS_1.eb[DirectItem@14695], EVT_CHOCO_CH_PDS_1.eb[DirectItem@14773]
-  item 253: EVT_ALEX1_AT_SENTOU.eb[TreasureItem@14611], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@7207], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@7229], EVT_ALEX3_AT_SENTOU.eb[TreasureItem@17999], EVT_ALEX5_AT_TSS.eb[TreasureItem@6251], EVT_BURMECIA_PATIO_2.eb[DirectItem@2275], EVT_BURMECIA_PATIO_2.eb[DirectItem@2297], EVT_BURMECIA_PATIO_3.eb[DirectItem@2287], EVT_BURMECIA_PATIO_3.eb[DirectItem@2309], EVT_CLEYRA1_DUN_05.eb[DirectItem@10091], EVT_CLEYRA1_DUN_05.eb[DirectItem@10113], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3223], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3245], EVT_GATE_N_NG_BMA_1.eb[DirectItem@2595], EVT_GATE_N_NG_BMA_1.eb[DirectItem@2617], EVT_GIZ_TO_WORLD.eb[DirectItem@11671], EVT_GIZ_TO_WORLD.eb[DirectItem@11693], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5046], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5068], EVT_ICE_IC_STP_0.eb[DirectItem@5171], EVT_ICE_IC_STP_0.eb[DirectItem@5193], EVT_LIND1_CS_LB_EXB_0.eb[DirectItem@12995], EVT_LIND1_CS_LB_EXB_0.eb[DirectItem@13017], EVT_LIND1_TN_LB_ALY_0.eb[TreasureItem@13191], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7171], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7193], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10475], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10497], EVT_SARI1_MS_FNT_0.eb[DirectItem@8473], EVT_SARI1_MS_FNT_0.eb[DirectItem@8495], EVT_SARI2_MS_FNT_1.eb[DirectItem@3341], EVT_SARI2_MS_FNT_1.eb[DirectItem@3363], EVT_WORLD_WORLDSV.eb[DirectItem@9491], EVT_WORLD_WORLDTS.eb[DirectItem@9491]
+  item 253: EVT_ALEX1_AT_SENTOU.eb[TreasureItem@14611], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@7207], EVT_ALEX2_AC_STAIR_A.eb[DirectItem@7229], EVT_ALEX3_AT_SENTOU.eb[TreasureItem@17999], EVT_ALEX5_AT_TSS.eb[TreasureItem@6251], EVT_BURMECIA_PATIO_2.eb[DirectItem@2275], EVT_BURMECIA_PATIO_2.eb[DirectItem@2297], EVT_BURMECIA_PATIO_3.eb[DirectItem@2287], EVT_BURMECIA_PATIO_3.eb[DirectItem@2309], EVT_CLEYRA1_DUN_05.eb[DirectItem@10091], EVT_CLEYRA1_DUN_05.eb[DirectItem@10113], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3223], EVT_GATE_N_NG_BMA_0.eb[DirectItem@3245], EVT_GATE_N_NG_BMA_1.eb[DirectItem@2595], EVT_GATE_N_NG_BMA_1.eb[DirectItem@2617], EVT_GIZ_TO_WORLD.eb[DirectItem@11671], EVT_GIZ_TO_WORLD.eb[DirectItem@11693], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5046], EVT_HILDA3_G3_EXT_0.eb[DirectItem@5068], EVT_ICE_IC_STP_0.eb[DirectItem@5171], EVT_ICE_IC_STP_0.eb[DirectItem@5193], EVT_LIND1_CS_LB_EXB_0.eb[DirectItem@12995], EVT_LIND1_CS_LB_EXB_0.eb[DirectItem@13017], EVT_LIND1_TN_LB_ALY_0.eb[TreasureItem@13191], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7171], EVT_PATA_M_CM_MP0_0.eb[DirectItem@7193], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10475], EVT_PATA_M_CM_MP3_0.eb[DirectItem@10497], EVT_SARI1_MS_FNT_0.eb[DirectItem@8473], EVT_SARI1_MS_FNT_0.eb[DirectItem@8495], EVT_SARI2_MS_FNT_1.eb[DirectItem@3341], EVT_SARI2_MS_FNT_1.eb[DirectItem@3363]
   item 254: EVT_CHOCO_CH_FGD_0.eb[DirectItem@20139], EVT_CHOCO_CH_FST_0.eb[DirectItem@23171], EVT_CHOCO_CH_HLG_0.eb[DirectItem@21901], EVT_CLEYRA2_TOWN.eb[TreasureItem@10555], EVT_CLEYRA3_CATHE_2.eb[TreasureItem@7183], EVT_CLEYRA3_TOWN.eb[TreasureItem@14715], EVT_LIND1_TN_LB_ATL_0.eb[DirectItem@5247], EVT_LIND1_TN_LB_ATL_0.eb[DirectItem@5269], EVT_LIND2_TN_LB_ATL_0.eb[DirectItem@3171], EVT_LIND2_TN_LB_ATL_0.eb[DirectItem@3193], EVT_SARI1_MS_EIK_0.eb[DirectItem@11661], EVT_SARI1_MS_EIK_0.eb[DirectItem@11683], EVT_SARI2_MS_EIK_1.eb[DirectItem@3041], EVT_SARI2_MS_EIK_1.eb[DirectItem@3063]
