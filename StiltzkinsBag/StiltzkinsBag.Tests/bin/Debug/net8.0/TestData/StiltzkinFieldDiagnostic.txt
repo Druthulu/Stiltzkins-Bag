@@ -1,5 +1,5 @@
 ﻿Stiltzkin Field Script Diagnostic
-Generated: 2026-04-04 21:17:45
+Generated: 2026-04-05 14:25:59
 Scanned: 2454 field scripts (world map excluded)
 
 === STILTZKIN PRICE HITS ===

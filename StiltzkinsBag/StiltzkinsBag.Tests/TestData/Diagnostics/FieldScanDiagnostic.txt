@@ -1,5 +1,5 @@
 ﻿=== FIELD SCANNER DIAGNOSTIC ===
-Generated : 2026-04-05 03:17:45 UTC
+Generated : 2026-04-05 20:25:58 UTC
 Archive   : Z:\Games\steamapps\common\FINAL FANTASY IX-VANILLA2026-MemoriaEngine\StreamingAssets\p0data7.bin
 Files with items : 330
 Distinct item IDs: 133

@@ -1,5 +1,5 @@
 ﻿=== INDIRECT ITEM GIVE DIAGNOSTIC ===
-Generated : 2026-04-05 03:17:44 UTC
+Generated : 2026-04-05 20:25:58 UTC
 Archive   : Z:\Games\steamapps\common\FINAL FANTASY IX-VANILLA2026-MemoriaEngine\StreamingAssets\p0data7.bin
 Files scanned: 1620
 
