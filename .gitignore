@@ -6,3 +6,8 @@ StiltzkinsBag/StiltzkinsBag.Tests/bin/Debug/net8.0/TestData/p0data2.bin
 **/TestData/StreamingAssets/**
 FFIX Vanilla field data/**
 FFIX Vanilla enemy data/**
+
+# Project Architect 2.0
+.run/
+project-architect-2.0/
+.claude/settings.local.json
