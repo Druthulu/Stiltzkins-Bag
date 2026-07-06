@@ -10,7 +10,7 @@
 
 ## Milestone (the phase's machine-checkable gate)
 
-New `PROJECT_CONTEXT.md` constitution exists (all skeleton sections + per-phase Milestones) AND `RULES_REGISTRY.md` §E is non-empty and §F populated from the legacy PhaseEnds AND the placeholder audit `grep -rn "{{" --include="*.md" .` is clean (only the reference spec + phase-end templates hit) AND both install commits exist trailer-free.
+New `PROJECT_CONTEXT.md` constitution exists (all skeleton sections + per-phase Milestones) AND `RULES_REGISTRY.md` §E is non-empty and §F populated from the legacy PhaseEnds AND the F9 placeholder audit is clean (only the reference spec `docs/project-architect.md` + the phase-end templates hit) AND both install commits exist trailer-free.
 
 ## Task checklist
 
@@ -20,14 +20,14 @@ New `PROJECT_CONTEXT.md` constitution exists (all skeleton sections + per-phase 
 - [x] §4 — Docs layer, registry, tools, gitignore *(xHigh · ctx:S)*
 - [x] §5 — CLAUDE.md, agent-state wiring, memory seeding, dev interview *(xHigh · ctx:M)*
 - [x] §6 — Global assets (statusline + user settings) — skip-if-present *(xHigh · ctx:S)*
-- [~] §7 — Install checkpoint commit *(xHigh · ctx:S)*
-- [ ] §8 — Path C migration: consolidate rules into registry + generate new constitution + fill generation-time placeholders (interactive) *(Max · ctx:L)*
-- [ ] §9 — Close install phase: PhaseEnd_Phase9.2.5, backup, archive CURRENT_PHASE, final commit, hard stop *(xHigh · ctx:S)*
+- [x] §7 — Install checkpoint commit *(xHigh · ctx:S)* — commit 7aba1a1, trailer-free
+- [x] §8 — Path C migration: consolidate rules into registry + generate new constitution + fill generation-time placeholders (interactive) *(Max · ctx:L)* — §E 12 rules, §F 40 rules, constitution generated, F9 audit clean, dev confirmed (Gate 2)
+- [~] §9 — Close install phase: PhaseEnd_Phase9.2.5, backup, archive CURRENT_PHASE, final commit, hard stop *(xHigh · ctx:S)*
 
 ## Current task
 
-**NOW:** §7 — Install checkpoint commit
-**NEXT:** §8 — Path C migration + constitution generation (interactive)
+**NOW:** §9 — Close install phase (PhaseEnd_Phase9.2.5, hard stop)
+**NEXT:** REPLAN — fresh session; the project's real work resumes at Phase 9.3
 **Last rules check:** n/a (scripted install; SETUP.md is the checklist)
 
 ## Per-task checkpoint log
@@ -38,6 +38,7 @@ New `PROJECT_CONTEXT.md` constitution exists (all skeleton sections + per-phase 
 - **§4** — Installed docs layer (`docs/project-architect.md` methodology, `effort-map.md`, `stiltzkins-bag-cookbook.md`, `ops-setup.md`), `RULES_REGISTRY.md` seed, `tools/backup-claude-state.sh` (+x), gitignore append (`.run/`, `project-architect-2.0/`). Filled copy-time placeholders only; generation-time ones deferred to §8. Verified: 0 `{{PROJECT_NAME}}` leftovers, `.run` ignored.
 - **§5** — CLAUDE.md installed + copy-time filled (name/tagline/cookbook); `.claude/settings.json` (SessionEnd backup hook) + `settings.local.json` (repo-local `autoMemoryDirectory`) written after explicit dev authorization (auto-mode self-modification guard denied first). Seeded 16 memories; filled `who-is-dev` (Drew, solo, Advanced, autonomous-within-phases, breadth-welcome) + `project-governance-system`. Legacy import: no legacy memories (empty dir). Verified: 16 memories, JSON parses, no leftover interview comment.
 - **§6** — Statusline: kept existing `~/.claude/statusline.sh` (newer/richer than package; smoke-test passed). User settings merge: added ONLY the read-only-git `permissions` allowlist after explicit dev approval (finer-grained guard); `model`/`statusLine`/`effortLevel` already present, untouched. Verified: settings parse, model preserved.
+- **§8** — Consulted corpus (C#/.NET + parity/port kernels). Fanned out 4 read-only subagents to sweep all 18 PhaseEnds' rule-bearing headings + build history (kept ~300KB out of main context). Wrote registry §E (12 project G-rules from the legacy project rules + corpus, provenance-noted) and §F (40 per-phase R-rules, origin phases noted); pure technical facts routed to the cookbook. Filled all generation-time placeholders (CLAUDE.md, effort-map per-phase map, cookbook pinned-context + 5 sections, ops-setup real toolchain). Generated `PROJECT_CONTEXT.md` v2.0.0 (Gen1, next 9.3) — forward roadmap only, completed history in the Generation Map, roadmap divergence (Phase-9-polish→codec) in Lessons Learned. F9 placeholder audit clean. Dev confirmed at Gate 2.
 
 ## Blockers / open questions
 

@@ -53,13 +53,15 @@ Every turn re-sends the whole session context. Prompt caching makes that cheap p
 
 *Filled at generation. For each phase, mark which tasks are Max-mandatory, which are fine at xHigh, and which are breadth (Ultracode). The Max shortlist is the small set of judgments where a silent error would be catastrophic.*
 
-{{PER_PHASE_MAP}}
+Gen1 is mid-flight at **Phase 9.3**. Phases 1–9.2 are complete (see `phase-ends/`). The recurring Max-worthy judgments in this project are: **anything touching the RNG draw order or the byte-exact codec** (a silent error there poisons every seed / corrupts output — G1–G3, G7), **binary-format reverse-engineering decisions** (opcode semantics, offset formulas), and **the completability/constraint logic** (G9). The recurring breadth stretch is **corpus-wide re-scan/validation** (838 field files, all `.eb.bytes`, full catalog) and **determinism matrices** (N seeds × feature combos) — isolated agents + the deterministic test gate (G1) make agent variance a throughput risk, not a correctness risk.
 
 | Phase | Mandatory-Max tasks | Fine at xHigh | Breadth (Ultracode) |
 |---|---|---|---|
 | Phase Start (any) | the plan itself (always Max) | — | wide surveys feeding the plan |
-| [Phase 1] | | | |
-| … | | | |
+| **9.3 — AST → FieldParser.FindItemLocations** | the AST-integration design; deciding switch/SetRegion/0x0D & Pattern-B handling; any non-obvious bytecode-semantics debugging | mechanical wiring of the new codec into the scanner; per-case unit tests | re-scan + validate the full 838-file corpus; complete the Whale Whisker / catalog gaps across all fields |
+| **9.5 — deferred Phase-9 polish, debug tooling, edge cases** | the seed-determinism regression design (10 seeds × feature combos); any risky path/IO edge-case call | structured error messages, debug window port, boundary-value handling per randomizer | boundary/edge sweep across all randomizers; determinism regression matrix |
+| **Gen1 packaging / first public release** | the release GO decision (an adversarial refute-pass before it) | packaging, installer, docs | full determinism matrix across two machines (byte-identity) |
+| **Gen2 — runtime DLL + field-entrance randomizer** *(sketch)* | maze-solver / completability-guarantee design; story-progression bytecode injection design | connector/graph plumbing | field-graph classification of all 79 city-exit fields |
 
 ## The Effort-map check (E1 — standing rule)
 

@@ -13,7 +13,7 @@ Before doing any work, read these files in this order:
 3. Every `phase-ends/PhaseEnd_Phase*.md` in **version/natural numeric order** (`sort -V` — `Phase5` before `Phase5.5`, NOT lexical order, which mis-sorts decimal sub-phases). The build history. **Do NOT read `phase-ends/logs/`** — those are on-demand worklog archives, deliberately outside this load order.
 4. `phase-ends/CURRENT_PHASE.md` if it exists (the in-flight phase state).
 5. `docs/effort-map.md` (the effort doctrine + this project's per-phase effort map).
-6. {{DOMAIN_SESSION_START_EXTRAS}}
+6. **Before recurring craft, consult** `docs/stiltzkins-bag-cookbook.md` (skim its index before any binary-codec, CSV, or randomizer work — X4/G11); and `docs/AbilityTierClassification_Rev4.md` is the **implementation contract** for character speciality/ability tiers — read it before any character/ability work, never derive its tables from memory (G11).
 
 After reading, do a preflight appropriate to the NEXT task (e.g. `git status`; verify any external oracle/service the next task needs with a cheap call, per X3). Then state — and nothing else:
 
@@ -53,7 +53,10 @@ Either way: wait for the developer before doing anything. Do not summarize the p
 - **Never edit `PROJECT_CONTEXT.md`.** It is permanent and static (P1). Corrections go in `CURRENT_PHASE.md` and the PhaseEnd, and rule changes in `RULES_REGISTRY.md` — never in the constitution.
 - **Milestone honesty** (P9 + M1). Only an observable, machine-checkable outcome counts as success — the gate is the arbiter, never a self-report or "it ran without errors." Never redefine a term to make a failure pass; report failures as failures, with the output.
 - **Claude commits per task; the developer pushes** (H5/H6). No AI-attribution trailers. Never `git push` from the agent unless explicitly directed.
-- {{DOMAIN_FAILSAFES}}
+- **Seed determinism is the master gate** (§E G1): same seed + settings must produce **byte-identical** output. The `dotnet test` suite (879 as of Phase 9.2) — including the two full-corpus field-script round-trip sweeps — is the arbiter; a red or reduced suite is not "done."
+- **One `Random`, seeded once, fixed draw order** (§E G2/G3): never `new Random(...)` inside a randomizer; never reorder or add/remove RNG draws without flagging it as a seed-compatibility break. This is the founding rule (the v2.2 regression that caused the rewrite).
+- **Byte-exact round-trip is the codec gate — but parity ≠ faithfulness** (§E G7): a ported parser must round-trip real files byte-identically, and that still doesn't prove it matches Hades Workshop's intent — verify semantics separately.
+- **Game files are source of truth; guide/reference data is validation-only** (§E G8/G11); patch **all 7 language locale variants**; item ID 0 is a null sentinel.
 
 ---
 
@@ -96,14 +99,19 @@ When the developer confirms a phase milestone (against its machine-checkable gat
 - **The flywheel** (X4): consult `docs/stiltzkins-bag-cookbook.md` before recurring work; feed the generalizable lesson back into both the cookbook and the tooling after — especially after a hard-won win.
 - **Keep `docs/ops-setup.md` current** in the same change as any tooling/env/hook/path change (H7).
 - **Clarify a misconception before a costly/hard-to-reverse action**; **justify a new tool's delta before adopting it** (memory-ratified; §E′).
-{{GENERATED_CONSTRAINTS}}
+- **Pipeline order is enforced** (§E G4/G5): item randomization runs first and produces `ItemRemapTable`, consumed by every binary editor before any binary write; the 13-step pipeline runs in its fixed order (`AbilityGems` after `Character`).
+- **Port Hades Workshop logic, not GUI** (§E G6); the C++→C# parameterization seam is the riskiest surface — pre-grep for stale assumptions and validate offsets against a second source.
+- **Recommended mode keeps every seed completable** (§E G9): constraint validation lives only in `RecommendedLogicEngine`, never inside individual randomizers. **Mod-output safety** (§E G10): never overwrite a non-SB mod; manage `Memoria.ini` via `FolderNames`.
+- **Core has zero UI dependencies; App depends on Core only; stay GPL-compatible** (§E G12). **0-warnings** is the phase-end target.
 
 ---
 
 ## Environment
 
-{{ENVIRONMENT}}
-
+- **Stack:** C# / .NET 8 — `net8.0` (Core, Tests) + `net8.0-windows` (App/WPF, MaterialDesignInXaml + CommunityToolkit.Mvvm). **Windows-only.** Full ops reference: `docs/ops-setup.md`.
+- **Build / test / run:** `dotnet build StiltzkinsBag/StiltzkinsBag.sln` · `dotnet test StiltzkinsBag/StiltzkinsBag.sln` (the gate) · `dotnet run --project StiltzkinsBag/StiltzkinsBag.App`. **No CI** — the local test run is the gate.
+- **Output target:** a Memoria Engine mod-folder overlay (`StiltzkinsBag-Seed-[int]/…`) written under the user's FFIX install; loaded via Memoria's `FolderNames`.
+- **Data/oracles:** user's `StreamingAssets/Data/` CSVs, `p0data2.bin`/`p0data7.bin` Unity archives, Hades Workshop C++ (parser reference, GPL + personal permission). Game data is user-supplied and **gitignored** — never commit extracted bytes.
 - **Agent state is repo-self-contained** (H8): memory in `.claude-state/memory/` (via `autoMemoryDirectory` in `.claude/settings.local.json`), transcripts auto-copied by the SessionEnd hook, `tools/backup-claude-state.sh` swept at every phase boundary. `.claude-state/` is private-repo-only.
 - **No system temp** (H4): all scratch lives under the repo (`.run/`, gitignored).
 
